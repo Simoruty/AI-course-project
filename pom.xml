@@ -15,12 +15,19 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>it.uniba.ia.ius.MainClass</mainClass>
+                    <mainClass>it.uniba.di.ia.ius.MainYAP</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>jpl</groupId>
+            <artifactId>jpl</artifactId>
+            <version>3.1.4-alpha</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
