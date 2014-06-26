@@ -1,5 +1,6 @@
 package it.uniba.di.ia.ius;
 
+import it.uniba.di.ia.ius.gui.MainWindow;
 import jpl.JPL;
 
 public class MainYAP {
@@ -7,7 +8,9 @@ public class MainYAP {
 
     public static void main(String args[]) {
         JPL.setNativeLibraryDir(yapJPLPath);
-        new Prolog().method();
+        MainWindow mw = new MainWindow();
+
+//        new Prolog().method();
     }
 }
 
