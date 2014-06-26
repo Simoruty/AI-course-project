@@ -1,3 +1,5 @@
+all: clean compile test package yap
+
 yap:
 	mvn -T 4 exec:java -Dexec.mainClass="it.uniba.di.ia.ius.MainYAP"
 
@@ -17,4 +19,4 @@ clean:
 	mvn clean
 
 
-all: clean compile test package yap
+

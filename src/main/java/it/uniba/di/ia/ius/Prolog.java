@@ -5,7 +5,12 @@ import jpl.Query;
 public class Prolog {
 
     public void method() {
-        String consult = "consult('~/dev/university/ia-prolog/main.pl')";
+
+        String s = "working_directory(CWD, CWD)";
+        Query q = new Query(s);
+        System.out.println(q.oneSolution().get("CWD"));
+
+        String consult = "consult('prolog/main.pl')";
         Query queryConsult = new Query(consult);
         System.out.println(consult + " " + (queryConsult.hasSolution() ? "succeeded" : "failed"));
 
