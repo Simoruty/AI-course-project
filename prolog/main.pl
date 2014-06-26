@@ -1,6 +1,6 @@
 :- use_module(syntax).
 :- use_module(tagger).
-:- consult('dataset.pl').
+%:- consult('dataset.pl').
 
 maint :-
     domanda(Documento),
