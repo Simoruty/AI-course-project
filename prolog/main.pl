@@ -1,5 +1,6 @@
 :- use_module(syntax).
 :- use_module(tagger).
+:- use_module(library(lists)).
 %:- consult('dataset.pl').
 
 maint :-
@@ -32,3 +33,12 @@ mainCorrect :-
     !,
     write('Bye'),nl.
 
+
+main(X) :-
+    domanda(Documento),
+    clean_string(Documento,ListToken),
+    tagger(ListToken,ListTagged),
+    clean_dots(ListTagged, X ).
+
+nextTag(Tag) :-
+    main(X), member(Tag, X), \+atom(Tag).

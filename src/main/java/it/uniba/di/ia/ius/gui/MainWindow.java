@@ -1,10 +1,7 @@
 package it.uniba.di.ia.ius.gui;
 
 import it.uniba.di.ia.ius.Prolog;
-import jpl.Atom;
-import jpl.Compound;
-import jpl.Term;
-import jpl.Util;
+import jpl.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,19 +11,38 @@ import java.awt.event.ActionListener;
 public class MainWindow {
     private Prolog prolog;
     private final JFrame frame;
-    private JTextPane textPane1;
-    private JList list1;
+    private JTextPane textPane;
+    private JList jlist;
     private JButton extractButton;
     private JPanel contentPane;
+    private JCheckBox personeCheckBox;
+    private JCheckBox indirizziEMailCheckBox;
+    private JCheckBox comuniCheckBox;
+    private JCheckBox valutaCheckBox;
+    private JCheckBox dateCheckBox;
+    private JCheckBox codiciFiscaliCheckBox;
+    private JCheckBox numeriDiTelefonoCheckBox;
+    DefaultListModel defaultListModel;
 
     public MainWindow() {
         frame = new JFrame("MainWindow");
         frame.setContentPane(contentPane);
 //        this.createMenu();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.pack();
-        frame.setVisible(true);
+
+
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
 
         this.addListeners();
 
@@ -42,6 +58,14 @@ public class MainWindow {
 //        style = logTextPane.addStyle("Logger Style", null);
 //        logger = logTextPane.getStyledDocument();
 
+        defaultListModel = new DefaultListModel();
+
+        jlist.setModel(defaultListModel);
+
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
         prolog = new Prolog();
     }
 
@@ -49,9 +73,18 @@ public class MainWindow {
         extractButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                defaultListModel.clear();
                 prolog.consult(new Atom("prolog/main.pl"));
-                prolog.affirm(new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane1.getText() + "\"")}));
-                prolog.oneSolution(new Compound("main", 0));
+                prolog.retractAll("domanda", 1);
+                Term toAssert = new Compound("domanda", new Term[]{ Util.textToTerm("\"" + textPane.getText() + "\"")} );
+                prolog.asserta( toAssert );
+                java.util.Hashtable<String, Term>[] hashtables = prolog.allSolutions(new Compound("nextTag", new Term[]{new Variable("Tag")}));
+                for (int i = 0; i < hashtables.length; i++) {
+                    Term t = hashtables[i].get("Tag");
+                    if (t.isCompound())
+//                        System.out.println(t);
+                        defaultListModel.addElement(t);
+                }
             }
         });
     }

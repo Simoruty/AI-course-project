@@ -2536,7 +2536,7 @@ comune('delebio').
 comune('delia').
 comune('delianuova').
 comune('deliceto').
-comune('dello').
+%comune('dello').
 comune('demonte').
 comune('denice').
 comune('denno').
