@@ -81,8 +81,25 @@ public class MainWindow {
                 java.util.Hashtable<String, Term>[] hashtables = prolog.allSolutions(new Compound("nextTag", new Term[]{new Variable("Tag")}));
                 for (int i = 0; i < hashtables.length; i++) {
                     Term t = hashtables[i].get("Tag");
-                    if (t.isCompound())
-//                        System.out.println(t);
+                    if(indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
+                        defaultListModel.addElement(t);
+
+                    if(personeCheckBox.isSelected() && t.toString().contains("persona"))
+                        defaultListModel.addElement(t);
+
+                    if(numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
+                        defaultListModel.addElement(t);
+
+                    if(comuniCheckBox.isSelected() && t.toString().contains("comune"))
+                        defaultListModel.addElement(t);
+
+                    if(valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
+                        defaultListModel.addElement(t);
+
+                    if(dateCheckBox.isSelected() && t.toString().contains("date"))
+                        defaultListModel.addElement(t);
+
+                    if(codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
                         defaultListModel.addElement(t);
                 }
             }
