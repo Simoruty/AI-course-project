@@ -59,6 +59,12 @@
             <artifactId>forms_rt</artifactId>
             <version>7.0.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.declarativa</groupId>
+            <artifactId>interprolog</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+
     </dependencies>
 
 
