@@ -16,10 +16,10 @@ public class Interprolog {
 
     public Interprolog(String coreConsultPath, String prolog_path) {
 
-        engine = new YAPSubprocessEngine(prolog_path, false);
-        engine.consultAbsolute(new File(coreConsultPath));
-        System.out.println(engine.getPrologVersion());
-    }
+            engine = new YAPSubprocessEngine(prolog_path, true);
+            engine.consultAbsolute(new File(coreConsultPath));
+            System.err.println(engine.getPrologVersion());
+        }
 
     public void close() {
         engine.shutdown();
