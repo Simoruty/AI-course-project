@@ -10,7 +10,7 @@
 :- use_module(codice_fiscale).
 :- use_module(numero_telefono).
 :- use_module(indirizzo).
-:- use_module(stopwords).
+:- consult(stopwords).
 
 
 tagger(ListToken,ListTagged) :-

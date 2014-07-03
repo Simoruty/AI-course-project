@@ -7,20 +7,16 @@ import com.declarativa.interprolog.YAPSubprocessEngine;
 import java.io.File;
 import java.util.List;
 
-/**
- * Created by simo
- */
-
 public class Interprolog {
 
     private static PrologEngine engine;
 
     public Interprolog(String coreConsultPath, String prolog_path) {
 
-            engine = new YAPSubprocessEngine(prolog_path, true);
-            engine.consultAbsolute(new File(coreConsultPath));
-            System.err.println(engine.getPrologVersion());
-        }
+        engine = new YAPSubprocessEngine(prolog_path, true);
+        engine.consultAbsolute(new File(coreConsultPath));
+        System.err.println(engine.getPrologVersion());
+    }
 
     public void close() {
         engine.shutdown();
@@ -49,20 +45,21 @@ public class Interprolog {
         Object[] result = engine.deterministicGoal(query, "[string(Result)]");
         return result[0].toString();
     }
-    public void allSolutions(){
+
+    public void allSolutions() {
 
 //        nonDeterministicGoal(InterestingVarsTerm,G,ListTM) :-
 //                findall(InterestingVarsTerm,G,L), buildTermModel(L,ListTM).
 
-        String goal = "nonDeterministicGoal(A,nextTag(A),ListModel)";
+//        String goal = "nonDeterministicGoal(A,nextTag(A),ListModel)";
 
 //        String go = "domanda(ListModel)";
 //        TermModel solutionVars = (TermModel)(engine.deterministicGoal(go,"[ListModel]")[0]);
 //        System.out.println("Solution bindings list:"+solutionVars);
 
-//        String goal = "findall(X,nextTag(X),L), buildTermModel(L,ListModel)";
+        String goal = "findall(_X,nextTag(_X),_L), buildTermModel(_L,ListModel)";
 
-        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
+        TermModel solutionVars = (TermModel) (engine.deterministicGoal(goal, "[ListModel]")[0]);
         System.out.println(solutionVars.getChildCount());
 
 //        System.out.println("Solution bindings list:"+solutionVars);

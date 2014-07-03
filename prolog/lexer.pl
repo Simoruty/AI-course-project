@@ -14,8 +14,6 @@
 :- use_module(library(apply)).
 :- use_module(library(lists)).
 
-:- consult('stopwords.pl').
-
 
 clean_string(String,ListToken) :-
 	filter_stopchars(String, A),
