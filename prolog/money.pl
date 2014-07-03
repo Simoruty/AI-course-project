@@ -89,7 +89,7 @@ tag_richiesta( [ A,B | Xs ], [ richiesta(B,A) | Ys ]) :-
     !,
     tag_richiesta( Xs, Ys ).
 
-tag_richiesta( [ A,B,C | Xs ], Ys ) :-
+tag_richiesta( [ A,B | Xs ], Ys ) :-
     A=currency(_),
     \+ check_tipo_richiesta(B),
     !,

@@ -42,7 +42,3 @@ main(X) :-
 
 nextTag(Tag) :-
     main(X), member(Tag, X), \+atom(Tag).
-
-
-nonDeterministicGoal(InterestingVarsTerm,G,ListTM) :-
-                findall(InterestingVarsTerm,G,L), buildTermModel(L,ListTM).
