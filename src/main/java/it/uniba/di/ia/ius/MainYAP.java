@@ -15,7 +15,9 @@ public class MainYAP {
 //        MainWindow mw = new MainWindow();
 
         Interprolog ip = new Interprolog("prolog/main.pl", "/usr/local/bin/yap");
-        System.out.println( ip.sendCommand("main", "X") );
+//        System.out.println( ip.oneSolution("main", "X") );
+
+        ip.allSolutions();
         ip.close();
 
 //        new Prolog().method();

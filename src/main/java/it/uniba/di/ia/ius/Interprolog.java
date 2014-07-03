@@ -1,6 +1,7 @@
 package it.uniba.di.ia.ius;
 
 import com.declarativa.interprolog.PrologEngine;
+import com.declarativa.interprolog.TermModel;
 import com.declarativa.interprolog.YAPSubprocessEngine;
 
 import java.io.File;
@@ -42,16 +43,29 @@ public class Interprolog {
         return engine.deterministicGoal(command);
     }
 
-    public String sendCommand(String command, String var) {
+    public String oneSolution(String command, String var) {
         String query = command + "(" + var + ") , term_to_atom(" + var + ",Result)";
         System.out.println(query);
         Object[] result = engine.deterministicGoal(query, "[string(Result)]");
         return result[0].toString();
+    }
+    public void allSolutions(){
 
-//            TermModel list = (TermModel)bindings1[0];
-//            System.out.println("Here is the result:"+list);
-//            if (list.isList()) {
-//                System.out.println(list.getChild(1).toString());
-//            }
+//        nonDeterministicGoal(InterestingVarsTerm,G,ListTM) :-
+//                findall(InterestingVarsTerm,G,L), buildTermModel(L,ListTM).
+
+        String goal = "nonDeterministicGoal(A,nextTag(A),ListModel)";
+
+//        String go = "domanda(ListModel)";
+//        TermModel solutionVars = (TermModel)(engine.deterministicGoal(go,"[ListModel]")[0]);
+//        System.out.println("Solution bindings list:"+solutionVars);
+
+//        String goal = "findall(X,nextTag(X),L), buildTermModel(L,ListModel)";
+
+        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
+        System.out.println(solutionVars.getChildCount());
+
+//        System.out.println("Solution bindings list:"+solutionVars);
+
     }
 }

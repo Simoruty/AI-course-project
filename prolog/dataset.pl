@@ -1,3 +1,4 @@
+domanda("Ill.mo Simone Rutigliano nato a Terlizzi, numero +39 346 210 0360").
 domanda("Avv.to Luciano Quercia").
 domanda("Avvocato Ill.mo Luciano Quercia").
 domanda("Avv.to illustrissimo Luciano Quercia").
@@ -5,7 +6,6 @@ domanda("Avvocato ill.mo Luciano Quercia").
 domanda("gent.mo curatore Luciano Quercia").
 domanda("Avv.to Luciano Quercia").
 domanda("Avv.to Luciano Quercia").
-domanda("Ill.mo Simone Rutigliano nato a Terlizzi").
 domanda("Avv.to Luciano Quercia").
 domanda("+39 346 21 00 360").
 domanda("+39 346 210 0360").
