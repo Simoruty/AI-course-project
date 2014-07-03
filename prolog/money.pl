@@ -1,6 +1,6 @@
 :- module( money, [tag_money/2] ).
 
-:- use_module(syntax).
+:- use_module(lexer).
 
 
 simbolo_valuta('€').
@@ -83,12 +83,13 @@ tag_richiesta( [ A,B | Xs ], [ richiesta(A,B) | Ys ] ) :-
     check_tipo_richiesta(B),
     !,
     tag_richiesta( Xs, Ys ).
-tag_richiesta( [ A,B | Xs ], [ richiesta(B,A) | Ys ] ) :-
+tag_richiesta( [ A,B | Xs ], [ richiesta(B,A) | Ys ]) :-
     check_tipo_richiesta(A),
     B=currency(_),
     !,
     tag_richiesta( Xs, Ys ).
-tag_richiesta( [ A,B | Xs ], Ys ) :-
+
+tag_richiesta( [ A,B,C | Xs ], Ys ) :-
     A=currency(_),
     \+ check_tipo_richiesta(B),
     !,

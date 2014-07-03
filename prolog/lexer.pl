@@ -1,4 +1,4 @@
-:- module(syntax,
+:- module(lexer,
           [ clean_string/2
           , clean_dots/2
           , atom_is_number/1
@@ -8,8 +8,6 @@
           , chiocciola/1
           , punto/1
           , virgola/1
-          , filter_stopwords/2
-%          , piu/1
           ]
 ).
 
@@ -145,14 +143,3 @@ strip_spaces([32,32|Xs], Ys):-
 	strip_spaces([32|Xs],Ys).
 strip_spaces([X|Xs],[X|Ys]) :-
 	strip_spaces(Xs,Ys).
-
-
-
-filter_stopwords([],[]).
-filter_stopwords([X|Xs],Ys) :-
-    atom(X),
-	stopword(X),
-    !,
-	filter_stopwords(Xs, Ys).
-filter_stopwords([X|Xs], [X|Ys]) :-
-	filter_stopwords(Xs, Ys).

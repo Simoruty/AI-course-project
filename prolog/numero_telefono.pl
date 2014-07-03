@@ -1,7 +1,7 @@
 :- module( numero_telefono, [tag_numero_telefono/2] ).
 
 
-:- use_module(syntax).
+:- use_module(lexer).
 :- consult('numero_telefono_db').
 
 tag_numero_telefono( [], [] ).

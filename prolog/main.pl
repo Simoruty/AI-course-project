@@ -1,4 +1,4 @@
-:- use_module(syntax).
+:- use_module(lexer).
 :- use_module(tagger).
 :- use_module(library(lists)).
 %:- consult('dataset.pl').

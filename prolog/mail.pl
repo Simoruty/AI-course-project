@@ -1,6 +1,6 @@
 :- module( mail, [tag_mail/2] ).
 
-:- use_module(syntax).
+:- use_module(lexer).
 
 
 dominio('com').

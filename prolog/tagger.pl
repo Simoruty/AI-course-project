@@ -1,6 +1,6 @@
 :- module(tagger, [tagger/2] ).
 
-:- use_module(syntax).
+:- use_module(lexer).
 
 :- use_module(persona).
 :- use_module(mail).
@@ -22,3 +22,13 @@ tagger(ListToken,ListTagged) :-
     tag_cf(E,F),
     tag_numero_telefono(F,G),
     filter_stopwords(G,ListTagged).
+
+
+filter_stopwords([],[]).
+filter_stopwords([X|Xs],Ys) :-
+    atom(X),
+	stopword(X),
+    !,
+	filter_stopwords(Xs, Ys).
+filter_stopwords([X|Xs], [X|Ys]) :-
+	filter_stopwords(Xs, Ys).

@@ -1,9 +1,9 @@
 :- module( codice_fiscale, [tag_cf/2] ).
 
-:- use_module(syntax).
+:- use_module(lexer).
 
 tag_cf([],[]).
-tag_cf([A|Xs], [cf(A)|Ys]) :-
+tag_cf([A|Xs], [codicefiscale(A)|Ys]) :-
     atom(A),
     check_cf(A),
     !,

@@ -3,7 +3,7 @@
           ]
 ).
 
-:- use_module(syntax).
+:- use_module(lexer).
 
 tag_date( [],[] ).
 tag_date( [A], [A] ).
