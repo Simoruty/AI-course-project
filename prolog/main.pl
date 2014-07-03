@@ -1,7 +1,7 @@
 :- use_module(lexer).
 :- use_module(tagger).
 :- use_module(library(lists)).
-%:- consult('dataset.pl').
+:- consult('dataset.pl').
 
 maint :-
     domanda(Documento),
