@@ -18,7 +18,7 @@ public class Interprolog {
 
             engine = new YAPSubprocessEngine(prolog_path, true);
             engine.consultAbsolute(new File(coreConsultPath));
-            System.out.println(engine.getPrologVersion());
+            System.err.println(engine.getPrologVersion());
         }
 
         public void close(){
