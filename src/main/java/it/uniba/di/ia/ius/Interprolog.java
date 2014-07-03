@@ -54,15 +54,15 @@ public class Interprolog {
 //        nonDeterministicGoal(InterestingVarsTerm,G,ListTM) :-
 //                findall(InterestingVarsTerm,G,L), buildTermModel(L,ListTM).
 
-        String goal = "nonDeterministicGoal(A,nextTag(A),ListModel)";
+//        String goal = "nonDeterministicGoal(A,nextTag(A),ListModel)";
 
-//        String go = "domanda(ListModel)";
+//        String goal = "trace,findall(X,nextTag(X),Term),browseTerm(Term)";
 //        TermModel solutionVars = (TermModel)(engine.deterministicGoal(go,"[ListModel]")[0]);
 //        System.out.println("Solution bindings list:"+solutionVars);
 
-//        String goal = "findall(X,nextTag(X),L), buildTermModel(L,ListModel)";
+        String goal = "findall(X,nextTag(X),L), buildTermModel(L,ListModel)";
 
-        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
+        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[Term]")[0]);
         System.out.println(solutionVars.getChildCount());
 
 //        System.out.println("Solution bindings list:"+solutionVars);
