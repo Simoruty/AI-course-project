@@ -57,10 +57,23 @@ public class Interprolog {
 //        TermModel solutionVars = (TermModel)(engine.deterministicGoal(go,"[ListModel]")[0]);
 //        System.out.println("Solution bindings list:"+solutionVars);
 
-        String goal = "findall(_X,nextTag(_X),_L), buildTermModel(_L,ListModel)";
+//        String goal = "findall(T, (nextTag(X), buildTermModel(X,T)), List)";
+//        goal += ",buildTermModel(List, ListTM)";
+//        goal += ",ipObjectSpec('ArrayOfObject',ListTM, LM)";
+////        = "findall(TM, ( nextTag(T),buildTermModel(T,TM) ), L), ipObjectSpec('ArrayOfObject',L,LM)";
+//        Object[] solutions = (Object[]) engine.deterministicGoal(goal, "[LM]")[0];
+//        System.out.println("Number of solutions:" + solutions.length);
+//        for (int I = 0; I < solutions.length; I++)
+//            System.out.println("Solution " + I + ":" + solutions[I]);
+// solutions will contain TermModels for ‘a’ and ‘b’
+//
+//
+//
 
-        TermModel solutionVars = (TermModel) (engine.deterministicGoal(goal, "[ListModel]")[0]);
-        System.out.println(solutionVars.getChildCount());
+//        String goal = "findall(_X,nextTag(_X),_L), buildTermModel(_L,ListModel)";
+//
+//        TermModel solutionVars = (TermModel) (engine.deterministicGoal(goal, "[ListModel]")[0]);
+//        System.out.println(solutionVars.getChildCount());
 
 //        System.out.println("Solution bindings list:"+solutionVars);
 
