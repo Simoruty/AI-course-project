@@ -54,21 +54,21 @@ public class Prolog {
         return query.hasSolution();
     }
 
-    public java.util.Hashtable oneSolution(Term t) {
+    public java.util.Hashtable<String, Term> oneSolution(Term t) {
         Query query = new Query(t);
         System.err.print("[Prolog] query: " + t + " ");
         System.err.println(query.hasSolution() ? "succeeded" : "failed");
         return query.oneSolution();
     }
 
-    public java.util.Hashtable[] nSolutions(Term t, long size) {
+    public java.util.Hashtable<String, Term>[] nSolutions(Term t, long size) {
         Query query = new Query(t);
         System.err.print("[Prolog] query: " + t + " ");
         System.err.println(query.hasSolution() ? "succeeded" : "failed");
         return query.nSolutions(size);
     }
 
-    public java.util.Hashtable[] allSolutions(Term t) {
+    public java.util.Hashtable<String, Term>[] allSolutions(Term t) {
         Query query = new Query(t);
         System.err.print("[Prolog] query: " + t + " ");
         System.err.println(query.hasSolution() ? "succeeded" : "failed");
