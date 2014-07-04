@@ -13,7 +13,7 @@ public class Interprolog {
 
     public Interprolog(String coreConsultPath, String prolog_path) {
 
-        engine = new YAPSubprocessEngine(prolog_path, true);
+        engine = new YAPSubprocessEngine(prolog_path, false);
         engine.consultAbsolute(new File(coreConsultPath));
         System.err.println(engine.getPrologVersion());
     }
@@ -48,32 +48,9 @@ public class Interprolog {
 
     public void allSolutions() {
 
-//        nonDeterministicGoal(InterestingVarsTerm,G,ListTM) :-
-//                findall(InterestingVarsTerm,G,L), buildTermModel(L,ListTM).
-
-//        String goal = "nonDeterministicGoal(A,nextTag(A),ListModel)";
-
-//        String goal = "trace,findall(X,nextTag(X),Term),browseTerm(Term)";
-//        TermModel solutionVars = (TermModel)(engine.deterministicGoal(go,"[ListModel]")[0]);
-//        System.out.println("Solution bindings list:"+solutionVars);
-
-        String goal = "findall(X,nextTag(X),L), buildTermModel(L,ListModel)";
-
-        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[Term]")[0]);
-        System.out.println(solutionVars.getChildCount());
-
-//        String goal = "findall(T, (nextTag(X), buildTermModel(X,T)), List)";
-//        goal += ",buildTermModel(List, ListTM)";
-//        goal += ",ipObjectSpec('ArrayOfObject',ListTM, LM)";
-////        = "findall(TM, ( nextTag(T),buildTermModel(T,TM) ), L), ipObjectSpec('ArrayOfObject',L,LM)";
-//        Object[] solutions = (Object[]) engine.deterministicGoal(goal, "[LM]")[0];
-//        System.out.println("Number of solutions:" + solutions.length);
-//        for (int I = 0; I < solutions.length; I++)
-//            System.out.println("Solution " + I + ":" + solutions[I]);
-// solutions will contain TermModels for ‘a’ and ‘b’
-//
-//
-//
+        String goal = "findall(X,nextTag(X),L), term_to_atom(L,Result)";
+        String sol=(String)(engine.deterministicGoal(goal,"[string(Result)]")[0]);
+        System.out.println(sol);
 
 //        String goal = "findall(_X,nextTag(_X),_L), buildTermModel(_L,ListModel)";
 //
