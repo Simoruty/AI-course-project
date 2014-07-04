@@ -10,17 +10,31 @@ import java.util.regex.Pattern;
 
 public class ParseList {
 
-    private static final String PATTERN_STRING = "^#\\(([^#]+), (#\\(.*\\))\\)$";
-    private static final Pattern PATTERN = Pattern.compile(PATTERN_STRING);
+    private static final String PATTERN_STRING_JPL = "^#\\(([^#]+), (#\\(.*\\))\\)$";
+    private static final String PATTERN_STRING_INTERPROLOG = "^$";
+    private Pattern pattern;
     private String text;
     private String temp;
 
-    public ParseList(Term list) {
+    public final int JPL = 0;
+    public final int INTERPROLOG = 1;
+
+    public ParseList(Term list, int type) {
         String s = list.toString();
-        s = s.replaceAll("'\\.'", "#");
-        s = s.replaceAll("\\[\\]", "#()");
-        System.out.println(s);
-        this.text = s;
+
+        if (type == JPL) {
+            pattern = Pattern.compile(PATTERN_STRING_JPL);
+            s = s.replaceAll("'\\.'", "#");
+            s = s.replaceAll("\\[\\]", "#()");
+            this.text = s;
+        }
+
+        if ( type == INTERPROLOG ) {
+            pattern = Pattern.compile(PATTERN_STRING_INTERPROLOG);
+//            s = s.replaceAll("'\\.'", "#");
+//            s = s.replaceAll("\\[\\]", "#()");
+            this.text = s;
+        }
     }
 
     public List<Term> getElementsFromList() {
@@ -38,7 +52,7 @@ public class ParseList {
     }
 
     private String getHead(String text) {
-        Matcher m = PATTERN.matcher(text);
+        Matcher m = pattern.matcher(text);
         if (m.find()) {
             String head = text.substring(m.start(1), m.end(1));
             this.temp = text.substring(m.start(2), m.end(2));
