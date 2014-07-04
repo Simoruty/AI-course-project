@@ -13,7 +13,7 @@
 :- consult(stopwords).
 
 
-tagger(ListToken,ListTagged) :-
+tagger(ListToken,ListTag) :-
     tag_persona(ListToken,A),
     tag_indirizzo(A,A1),
     tag_mail(A1,B),
@@ -22,8 +22,17 @@ tagger(ListToken,ListTagged) :-
     tag_comune(D,E),
     tag_cf(E,F),
     tag_numero_telefono(F,G),
-    filter_stopwords(G,ListTagged).
+    filter_tag(G, ListTag).
+%    filter_stopwords(G,ListTag).
 
+
+filter_tag([],[]).
+filter_tag( [X|Xs], [ X | Ys ]) :-
+    \+ atom(X),
+    !,
+    filter_tag(Xs, Ys).
+filter_tag( [X|Xs], Ys ) :-
+    filter_tag(Xs, Ys).
 
 filter_stopwords([],[]).
 filter_stopwords([X|Xs],Ys) :-

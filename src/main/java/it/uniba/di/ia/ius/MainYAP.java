@@ -9,16 +9,16 @@ public class MainYAP {
     public static String yapJPLPath = "/usr/local/lib/Yap";
 
     public static void main(String args[]) {
-//        JPL.setNativeLibraryDir(yapJPLPath);
+        JPL.setNativeLibraryDir(yapJPLPath);
 //        Query query = new Query(new Atom("version"));
 //        System.out.println(query.hasSolution() ? "succeeded" : "failed");
-//        MainWindow mw = new MainWindow();
+        MainWindow mw = new MainWindow();
 
-        Interprolog ip = new Interprolog("prolog/main.pl", "/usr/local/bin/yap");
+//        Interprolog ip = new Interprolog("prolog/main.pl", "/usr/local/bin/yap");
 //        System.out.println( ip.oneSolution("main", "X") );
 
-        ip.allSolutions();
-        ip.close();
+//        ip.allSolutions();
+//        ip.close();
 
 //        new Prolog().method();
     }

@@ -1,5 +1,6 @@
 :- module(lexer,
-          [ clean_string/2
+          [ to_string/2
+          , lexer/2
           , clean_dots/2
           , atom_is_number/1
           , string_is_number/1
@@ -15,7 +16,10 @@
 :- use_module(library(lists)).
 
 
-clean_string(String,ListToken) :-
+to_string(X, Y) :- atom(X), !, atom_codes(X,Y).
+to_string(X, X).
+
+lexer(String,ListToken) :-
 	filter_stopchars(String, A),
     clean_chiocciola(A,B),
     clean_punto(B,C),
