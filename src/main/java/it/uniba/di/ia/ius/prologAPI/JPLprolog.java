@@ -1,8 +1,8 @@
-package it.uniba.di.ia.ius;
+package it.uniba.di.ia.ius.prologAPI;
 
 import jpl.*;
 
-public class Prolog {
+public class JPLprolog {
 
     public boolean consult(Atom atom) {
         Term t = new Compound("consult", new Term[]{atom});

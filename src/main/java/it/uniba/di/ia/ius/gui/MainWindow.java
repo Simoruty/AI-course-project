@@ -1,7 +1,7 @@
 package it.uniba.di.ia.ius.gui;
 
-import it.uniba.di.ia.ius.ParseList;
-import it.uniba.di.ia.ius.Prolog;
+import it.uniba.di.ia.ius.prologAPI.JPLprolog;
+import it.uniba.di.ia.ius.prologAPI.ParseList;
 import jpl.*;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainWindow {
-    private Prolog prolog;
+    private JPLprolog JPLprolog;
     private final JFrame frame;
     private JTextPane textPane;
     private JList jlist;
@@ -68,7 +68,9 @@ public class MainWindow {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        prolog = new Prolog();
+        // JPL Engine
+        JPLprolog = new JPLprolog();
+
         resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -88,49 +90,89 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
-                prolog.consult(new Atom("prolog/main.pl"));
-                prolog.retractAll("domanda", 1);
-                Term toAssert = new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane.getText() + "\"")});
-                prolog.asserta(toAssert);
-                Term listTag = prolog.oneSolution(
-                        new Compound("extract", new Term[]{
-                                Util.textToTerm("\"" + textPane.getText() + "\""),
-                                new Variable("ListaTag")
-                        })).get("ListaTag");
-
-                assert (listTag.listLength() > -1);
-
-                System.out.println(listTag);
-
-                ParseList pl = new ParseList(listTag);
-
-                for (Term t : pl.getElementsFromList()) {
-
-                    if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
-
-                        defaultListModel.addElement(t);
-
-                    if (personeCheckBox.isSelected() && t.toString().contains("persona"))
-                        defaultListModel.addElement(t);
-
-                    if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
-                        defaultListModel.addElement(t);
-
-                    if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
-                        defaultListModel.addElement(t);
-
-                    if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
-                        defaultListModel.addElement(t);
-
-                    if (dateCheckBox.isSelected() && t.toString().contains("date"))
-                        defaultListModel.addElement(t);
-
-                    if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
-                        defaultListModel.addElement(t);
-                }
-                JOptionPane.showMessageDialog(null, "Tagger finished");
+                JPL_GUI();
             }
         });
+    }
+
+    private void Interprolog_GUI(){
+        // Interprolog
+
+        JPLprolog.consult(new Atom("prolog/main.pl"));
+        JPLprolog.retractAll("domanda", 1);
+        Term toAssert = new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane.getText() + "\"")});
+        JPLprolog.asserta(toAssert);
+        Term listTag = JPLprolog.oneSolution(
+                new Compound("extract", new Term[]{
+                        Util.textToTerm("\"" + textPane.getText() + "\""),
+                        new Variable("ListaTag")
+                })).get("ListaTag");
+
+        ParseList pl = new ParseList(listTag,0);
+        for (Term t : pl.getElementsFromList()) {
+
+            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
+                defaultListModel.addElement(t);
+
+            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
+                defaultListModel.addElement(t);
+
+            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
+                defaultListModel.addElement(t);
+
+            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
+                defaultListModel.addElement(t);
+
+            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
+                defaultListModel.addElement(t);
+
+            if (dateCheckBox.isSelected() && t.toString().contains("date"))
+                defaultListModel.addElement(t);
+
+            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
+                defaultListModel.addElement(t);
+        }
+        JOptionPane.showMessageDialog(null, "Tagger finished");
+    }
+
+
+    private void JPL_GUI(){
+        // JPL Prolog
+        JPLprolog.consult(new Atom("prolog/main.pl"));
+        JPLprolog.retractAll("domanda", 1);
+        Term toAssert = new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane.getText() + "\"")});
+        JPLprolog.asserta(toAssert);
+        Term listTag = JPLprolog.oneSolution(
+                new Compound("extract", new Term[]{
+                        Util.textToTerm("\"" + textPane.getText() + "\""),
+                        new Variable("ListaTag")
+                })).get("ListaTag");
+
+        ParseList pl = new ParseList(listTag,0);
+        for (Term t : pl.getElementsFromList()) {
+
+            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
+                defaultListModel.addElement(t);
+
+            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
+                defaultListModel.addElement(t);
+
+            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
+                defaultListModel.addElement(t);
+
+            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
+                defaultListModel.addElement(t);
+
+            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
+                defaultListModel.addElement(t);
+
+            if (dateCheckBox.isSelected() && t.toString().contains("date"))
+                defaultListModel.addElement(t);
+
+            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
+                defaultListModel.addElement(t);
+        }
+        JOptionPane.showMessageDialog(null, "Tagger finished");
     }
 
     private class MyListCellRenderer extends JLabel implements ListCellRenderer {

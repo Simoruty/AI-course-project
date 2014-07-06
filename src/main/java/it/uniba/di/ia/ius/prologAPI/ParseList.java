@@ -1,4 +1,4 @@
-package it.uniba.di.ia.ius;
+package it.uniba.di.ia.ius.prologAPI;
 
 import jpl.Term;
 import jpl.Util;
