@@ -4,8 +4,18 @@
 %:- consult('dataset.pl').
 
 main :-
-    write('Benvenuto!'),nl,nl,
-    write('Inserisci testo del documento: '),nl,
+    write('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'),nl,    
+    write('                                                                               '),nl,
+    write('████████╗ █████╗  ██████╗  ██████╗ ███████╗██████╗         ██╗██╗   ██╗███████╗'),nl,
+    write('╚══██╔══╝██╔══██╗██╔════╝ ██╔════╝ ██╔════╝██╔══██╗        ██║██║   ██║██╔════╝'),nl,
+    write('   ██║   ███████║██║  ███╗██║  ███╗█████╗  ██████╔╝        ██║██║   ██║███████╗'),nl,
+    write('   ██║   ██╔══██║██║   ██║██║   ██║██╔══╝  ██╔══██╗        ██║██║   ██║╚════██║'),nl,
+    write('   ██║   ██║  ██║╚██████╔╝╚██████╔╝███████╗██║  ██║        ██║╚██████╔╝███████║'),nl,
+    write('   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝        ╚═╝ ╚═════╝ ╚══════╝'),nl,
+    write('                                                                               '),nl,
+    write('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'),nl,nl,    
+
+    write('Inserisci il testo del documento: '),nl,nl,
     read(Documento),
     to_string(Documento, Stringa), % lets user be free to write atom or strings
     %asserta(domanda(Stringa)),
@@ -13,7 +23,7 @@ main :-
 
     extract(Stringa, ListaTag),
 
-    nl,write('Informazioni estratte: '), nl,
+    nl,write('Informazioni estratte: '), nl,nl,
     write(ListaTag),nl.
 
 
@@ -23,5 +33,5 @@ extract( String, ListaTag ) :-
 
 
 % Restituisce il tag successivo estratto dalla domanda
-nextTag(Tag) :-
-    main(X), member(Tag, X), \+atom(Tag).
+%nextTag(Tag) :-
+%    main(X), member(Tag, X), \+atom(Tag).

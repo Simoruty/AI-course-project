@@ -1,13 +1,10 @@
-all: clean config compile test package yap
+all: clean config compile test package main
 
 config:
 	if ! [ -d ~/.m2/repository/com/declarativa ]; then wget http://www.lusio.it/interprolog.jar; mvn install:install-file -Dfile=interprolog.jar -DgroupId=com.declarativa.interprolog -DartifactId=interprolog -Dversion=2.2a4 -Dpackaging=jar; rm interprolog.jar; fi
 
-yap:
-	mvn -T 4 exec:java -Dexec.mainClass="it.uniba.di.ia.ius.MainYAP"
-
-swi:
-	mvn -T 4 exec:java -Dexec.mainClass="it.uniba.di.ia.ius.MainSWI"
+main:
+	mvn -T 4 exec:java -Dexec.mainClass="it.uniba.di.ia.ius.Main"
 
 compile:
 	mvn -T 4 compile

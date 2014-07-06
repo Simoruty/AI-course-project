@@ -1,0 +1,1 @@
+[comune(bari),ruolo(giudice),persona(tarantini,giovanni),titolo(sottoscritto,persona(quercia,luciano)),tel(0808989898),date(25,7,1999),date(12,2,2001),richiesta(currency(122),totale),richiesta(currency(122),chirografario),date(9,6,2014),persona(quercia,luciano),titolo(avvocato,persona(soldano,felice)),titolo(avvocato,persona(soldano,felice))]

@@ -15,6 +15,9 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 public class MainWindow {
+
+    public static String yapJPLPath = "/usr/local/lib/Yap";
+    public static String swiJPLPath = "/usr/local/lib/swipl-6.6.6/lib/x86_64-linux";
     private JPLprolog JPLprolog;
     private Interprolog interprolog;
     private final JFrame frame;
@@ -74,9 +77,6 @@ public class MainWindow {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        // JPL Engine
-//        JPLprolog = new JPLprolog();
-
         resetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -96,34 +96,47 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
-//                JPL_GUI();
-                Interprolog_GUI();
+                JPL_GUI();
+//                Interprolog_GUI();
             }
         });
     }
 
-    private void Interprolog_GUI(){
+    private void Interprolog_GUI() {
 
         //Interprolog
         interprolog = new Interprolog("prolog/main.pl", "/usr/local/bin/yap", 0);
 
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("domanda.pl", "UTF-8");
+            writer = new PrintWriter("prolog/domanda.pl", "UTF-8");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        writer.println("domanda("+"\""+textPane.getText()+"\").");
+        writer.println("domanda(" + "\"" + textPane.getText() + "\").");
         writer.close();
         // Interprolog
-        interprolog.consult("domanda.pl");
-        interprolog.allSolutions();
+        interprolog.consult("prolog/domanda.pl");
+        String listTag = interprolog.allSolutions();
         interprolog.close();
 
-        File file = new File("domanda.pl");
+        File file = new File("prolog/domanda.pl");
         file.delete();
+
+        defaultListModel.addElement(listTag);
+        System.out.println(listTag);
+
+        try {
+            writer = new PrintWriter("prolog/result.pl", "UTF-8");
+            writer.println(listTag);
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
 //        ParseList pl = new ParseList(listTag,0);
 //        for (Term t : pl.getElementsFromList()) {
@@ -153,8 +166,11 @@ public class MainWindow {
     }
 
 
-    private void JPL_GUI(){
+    private void JPL_GUI() {
+
+        JPL.setNativeLibraryDir(swiJPLPath);
         // JPL Prolog
+        JPLprolog = new JPLprolog();
         JPLprolog.consult(new Atom("prolog/main.pl"));
         JPLprolog.retractAll("domanda", 1);
         Term toAssert = new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane.getText() + "\"")});
@@ -165,7 +181,7 @@ public class MainWindow {
                         new Variable("ListaTag")
                 })).get("ListaTag");
 
-        ParseList pl = new ParseList(listTag,0);
+        ParseList pl = new ParseList(listTag, 0);
         for (Term t : pl.getElementsFromList()) {
 
             if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
