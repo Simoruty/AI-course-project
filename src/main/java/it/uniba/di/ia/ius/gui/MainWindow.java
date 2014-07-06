@@ -1,5 +1,6 @@
 package it.uniba.di.ia.ius.gui;
 
+import it.uniba.di.ia.ius.prologAPI.Interprolog;
 import it.uniba.di.ia.ius.prologAPI.JPLprolog;
 import it.uniba.di.ia.ius.prologAPI.ParseList;
 import jpl.*;
@@ -8,9 +9,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 public class MainWindow {
     private JPLprolog JPLprolog;
+    private Interprolog interprolog;
     private final JFrame frame;
     private JTextPane textPane;
     private JList jlist;
@@ -69,7 +75,7 @@ public class MainWindow {
         frame.setVisible(true);
 
         // JPL Engine
-        JPLprolog = new JPLprolog();
+//        JPLprolog = new JPLprolog();
 
         resetButton.addActionListener(new ActionListener() {
             @Override
@@ -90,48 +96,59 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
-                JPL_GUI();
+//                JPL_GUI();
+                Interprolog_GUI();
             }
         });
     }
 
     private void Interprolog_GUI(){
-        // Interprolog
 
-        JPLprolog.consult(new Atom("prolog/main.pl"));
-        JPLprolog.retractAll("domanda", 1);
-        Term toAssert = new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane.getText() + "\"")});
-        JPLprolog.asserta(toAssert);
-        Term listTag = JPLprolog.oneSolution(
-                new Compound("extract", new Term[]{
-                        Util.textToTerm("\"" + textPane.getText() + "\""),
-                        new Variable("ListaTag")
-                })).get("ListaTag");
+        //Interprolog
+        interprolog = new Interprolog("prolog/main.pl", "/usr/local/bin/yap", 0);
 
-        ParseList pl = new ParseList(listTag,0);
-        for (Term t : pl.getElementsFromList()) {
-
-            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
-                defaultListModel.addElement(t);
-
-            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
-                defaultListModel.addElement(t);
-
-            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
-                defaultListModel.addElement(t);
-
-            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
-                defaultListModel.addElement(t);
-
-            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
-                defaultListModel.addElement(t);
-
-            if (dateCheckBox.isSelected() && t.toString().contains("date"))
-                defaultListModel.addElement(t);
-
-            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
-                defaultListModel.addElement(t);
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter("domanda.pl", "UTF-8");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
+        writer.println("domanda("+"\""+textPane.getText()+"\").");
+        writer.close();
+        // Interprolog
+        interprolog.consult("domanda.pl");
+        interprolog.allSolutions();
+        interprolog.close();
+
+        File file = new File("domanda.pl");
+        file.delete();
+
+//        ParseList pl = new ParseList(listTag,0);
+//        for (Term t : pl.getElementsFromList()) {
+//
+//            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
+//                defaultListModel.addElement(t);
+//
+//            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
+//                defaultListModel.addElement(t);
+//
+//            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
+//                defaultListModel.addElement(t);
+//
+//            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
+//                defaultListModel.addElement(t);
+//
+//            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
+//                defaultListModel.addElement(t);
+//
+//            if (dateCheckBox.isSelected() && t.toString().contains("date"))
+//                defaultListModel.addElement(t);
+//
+//            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
+//                defaultListModel.addElement(t);
+//        }
         JOptionPane.showMessageDialog(null, "Tagger finished");
     }
 
