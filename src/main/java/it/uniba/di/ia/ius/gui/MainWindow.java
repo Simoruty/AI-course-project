@@ -129,7 +129,7 @@ public class MainWindow {
         System.out.println(listTag);
 
         try {
-            writer = new PrintWriter("prolog/result.pl", "UTF-8");
+            writer = new PrintWriter("result", "UTF-8");
             writer.println(listTag);
             writer.close();
         } catch (FileNotFoundException e) {
