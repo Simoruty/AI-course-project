@@ -41,10 +41,16 @@ public abstract class PrologInterface {
 
     public abstract boolean statisfied(String pred, List<String> args);
 
-    public abstract Map<String, String> oneSolution(String pred, List<String> args);
+    public abstract Map<String, String> oneSolution(String pred, List<String> args) throws NoVariableException;
 
     public abstract List<Map<String, String>> nSolutions(String pred, List<String> args, int size);
 
     public abstract List<Map<String, String>> allSolutions(String pred, List<String> args);
+
+    protected boolean prologNamedVariable(String s) {
+        if (s.substring(0, 1).matches("[A-Z]"))
+            return true;
+        return false;
+    }
 
 }

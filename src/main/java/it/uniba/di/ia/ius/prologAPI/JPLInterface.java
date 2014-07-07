@@ -65,7 +65,7 @@ public class JPLInterface extends PrologInterface {
             }
             toSend = new Compound(pred, termArgs);
         }
-        Term t = new Compound(command, new Term[] {toSend} );
+        Term t = new Compound(command, new Term[]{toSend});
         Query query = new Query(t);
         assert query.hasSolution();
         System.err.print("[Prolog] " + command + "( " + toSend + " ) ");
@@ -91,21 +91,24 @@ public class JPLInterface extends PrologInterface {
     }
 
     @Override
-    public Map<String, String> oneSolution(String pred, List<String> args) {
+    public Map<String, String> oneSolution(String pred, List<String> args) throws NoVariableException {
         Map<String, String> map = new HashMap<>();
         List<String> vars = new ArrayList<>(args.size());
         Term term;
         if ((args == null) || (args.size() == 0))
-            term = new Atom(pred);
+//            term = new Atom(pred);
+            throw new NoVariableException();
         else {
             Term[] termArgs = new Term[args.size()];
             for (int i = 0; i < args.size(); i++) {
                 String arg = args.get(i);
                 termArgs[i] = Util.textToTerm(arg);
-                if (prologVariable(arg)) {
+                if (prologNamedVariable(arg)) {
                     vars.add(arg);
                 }
             }
+            if (vars.isEmpty())
+                throw new NoVariableException();
             term = new Compound(pred, termArgs);
         }
         Query query = new Query(term);
@@ -116,12 +119,6 @@ public class JPLInterface extends PrologInterface {
             map.put(var, ht.get(var).toString());
 
         return map;
-    }
-
-    private boolean prologVariable(String s) {
-        if (s.substring(0, 1).matches("[A-Z]"))
-            return true;
-        return false;
     }
 
     @Override
@@ -136,7 +133,7 @@ public class JPLInterface extends PrologInterface {
             for (int i = 0; i < args.size(); i++) {
                 String arg = args.get(i);
                 termArgs[i] = Util.textToTerm(arg);
-                if (prologVariable(arg)) {
+                if (prologNamedVariable(arg)) {
                     vars.add(arg);
                 }
             }
@@ -169,7 +166,7 @@ public class JPLInterface extends PrologInterface {
             for (int i = 0; i < args.size(); i++) {
                 String arg = args.get(i);
                 termArgs[i] = Util.textToTerm(arg);
-                if (prologVariable(arg)) {
+                if (prologNamedVariable(arg)) {
                     vars.add(arg);
                 }
             }

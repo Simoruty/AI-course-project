@@ -1,9 +1,6 @@
 package it.uniba.di.ia.ius.gui;
 
-import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
-import it.uniba.di.ia.ius.prologAPI.JPLInterface;
-import it.uniba.di.ia.ius.prologAPI.ParseList;
-import it.uniba.di.ia.ius.prologAPI.PrologInterface;
+import it.uniba.di.ia.ius.prologAPI.*;
 import jpl.Term;
 
 import javax.swing.*;
@@ -97,22 +94,22 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
-//                PrologInterface pi = new JPLInterface(PrologInterface.SWI);
-                PrologInterface pi = new InterprologInterface(PrologInterface.SWI);
-                pi.consult(new File("prolog/main.pl"));
 
-                System.out.println("SONO QUI");
+//                PrologInterface pi = new JPLInterface(PrologInterface.SWI);
+                PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
+
+                pi.consult(new File("prolog/main.pl"));
 
                 pi.retractAll("domanda", Arrays.asList("_"));
 
-                System.out.println("SONO QUI");
-
-
                 pi.asserta("domanda", Arrays.asList("\"" + textPane.getText() + "\""));
 
-                System.out.println("SONO QUI");
-
-                Map<String, String> map = pi.oneSolution("extract", Arrays.asList("ListaTag"));
+                Map<String, String> map = null;
+                try {
+                    map = pi.oneSolution("extract", Arrays.asList("ListaTag"));
+                } catch (NoVariableException e1) {
+                    e1.printStackTrace();
+                }
 
                 ParseList pl = new ParseList(map.get("ListaTag"), 0);
                 for (Term t : pl.getElementsFromList()) {

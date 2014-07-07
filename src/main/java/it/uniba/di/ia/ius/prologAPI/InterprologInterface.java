@@ -5,6 +5,8 @@ import com.declarativa.interprolog.SWISubprocessEngine;
 import com.declarativa.interprolog.YAPSubprocessEngine;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -95,8 +97,45 @@ public class InterprologInterface extends PrologInterface {
     }
 
     @Override
-    public Map<String, String> oneSolution(String pred, List<String> args) {
-        return null;
+    public Map<String, String> oneSolution(String pred, List<String> args) throws NoVariableException {
+        String goal = "";
+        Map<String, String> map = new HashMap<>();
+        List<String> vars = new ArrayList<>(args.size());
+
+        if ((args == null) || (args.size() == 0))
+            throw new NoVariableException();
+        else {
+            goal += pred + "(";
+            for (String arg : args) {
+                if (prologNamedVariable(arg)) {
+                    vars.add(arg);
+                }
+                goal += arg + ",";
+            }
+            goal = goal.substring(0, goal.length() - 1);
+            goal += ")";
+
+            if (vars.isEmpty())
+                throw new NoVariableException();
+        }
+
+        String rVars = "[";
+        for (int i = 0; i < vars.size(); i++) {
+            goal += ", term_to_atom(" + vars.get(i) + ", R" + i + ")";
+            rVars += "string(R" + i + "),";
+        }
+        rVars = rVars.substring(0, rVars.length() - 1);
+        rVars += "]";
+
+        System.out.println(goal);
+
+        Object[] result = engine.deterministicGoal(goal, null, null, rVars);
+
+        for (int i = 0; i < result.length; i++) {
+            map.put(vars.get(i), result[i].toString());
+        }
+
+        return map;
     }
 
     @Override
@@ -111,10 +150,7 @@ public class InterprologInterface extends PrologInterface {
 
 //    @Override
 //    public String oneSolution(String goal) {
-//        String query = goal + ", term_to_atom(" + var + ",Result)";
-//        System.out.println(query);
-//        Object[] result = engine.deterministicGoal(query, "[string(Result)]");
-//        return result[0].toString();
+
 //    }
 //
 //    @Override
