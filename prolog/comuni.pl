@@ -25,37 +25,37 @@ comune(A,B) :-
 
 
 tag_comune([],[]).
-tag_comune([A,B,C,D,E,F|Xs], [cComune(X)|Ys]) :-
+tag_comune([A,B,C,D,E,F|Xs], [comune(X)|Ys]) :-
     atom(A),atom(B),atom(C),atom(D),atom(E),atom(F),
     comune(A,B,C,D,E,F),
     atomic_list_concat([A,B,C,D,E,F], ' ', X),
     !,
     tag_comune(Xs,Ys).
-tag_comune([A,B,C,D,E|Xs], [cComune(X)|Ys]) :-
+tag_comune([A,B,C,D,E|Xs], [comune(X)|Ys]) :-
     atom(A),atom(B),atom(C),atom(D),atom(E),
     comune(A,B,C,D,E),
     atomic_list_concat([A,B,C,D,E], ' ', X),
     !,
     tag_comune(Xs,Ys).
-tag_comune([A,B,C,D|Xs], [cComune(X)|Ys]) :-
+tag_comune([A,B,C,D|Xs], [comune(X)|Ys]) :-
     atom(A),atom(B),atom(C),atom(D),
     comune(A,B,C,D),
     atomic_list_concat([A,B,C,D], ' ', X),
     !,
     tag_comune(Xs,Ys).
-tag_comune([A,B,C|Xs], [cComune(X)|Ys]) :-
+tag_comune([A,B,C|Xs], [comune(X)|Ys]) :-
     atom(A),atom(B),atom(C),
     comune(A,B,C),
     atomic_list_concat([A,B,C], ' ', X),
     !,
     tag_comune(Xs,Ys).
-tag_comune([A,B|Xs], [cComune(X)|Ys]) :-
+tag_comune([A,B|Xs], [comune(X)|Ys]) :-
     atom(A),atom(B),
     comune(A,B),
     atomic_list_concat([A,B], ' ', X),
     !,
     tag_comune(Xs,Ys).
-tag_comune([A|Xs], [cComune(A)|Ys]) :-
+tag_comune([A|Xs], [comune(A)|Ys]) :-
     atom(A),
     comune(A),
     !,

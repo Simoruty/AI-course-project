@@ -18,16 +18,17 @@ main :-
     write('Inserisci il testo del documento: '),nl,nl,
     read(Documento),
     to_string(Documento, Stringa), % lets user be free to write atom or strings
-    %asserta(domanda(Stringa)),
+    asserta(domanda(Stringa)),
     %findall(Tag, nextTag(Tag), ListaTag),
 
-    extract(Stringa, ListaTag),
+    extract(ListaTag),
 
     nl,write('Informazioni estratte: '), nl,nl,
     write(ListaTag),nl.
 
 
-extract( String, ListaTag ) :-
+extract( ListaTag ) :-
+    domanda( String ),
     lexer( String, ListaToken ),
     tagger( ListaToken,ListaTag ).
 
