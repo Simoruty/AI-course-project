@@ -12,15 +12,13 @@ public class ParseList {
 
     private static final String PATTERN_STRING_JPL = "^#\\(([^#]+), (#\\(.*\\))\\)$";
     private static final String PATTERN_STRING_INTERPROLOG = "^$";
+    public final int JPL = 0;
+    public final int INTERPROLOG = 1;
     private Pattern pattern;
     private String text;
     private String temp;
 
-    public final int JPL = 0;
-    public final int INTERPROLOG = 1;
-
-    public ParseList(Term list, int type) {
-        String s = list.toString();
+    public ParseList(String s, int type) {
 
         if (type == JPL) {
             pattern = Pattern.compile(PATTERN_STRING_JPL);
@@ -29,7 +27,7 @@ public class ParseList {
             this.text = s;
         }
 
-        if ( type == INTERPROLOG ) {
+        if (type == INTERPROLOG) {
             pattern = Pattern.compile(PATTERN_STRING_INTERPROLOG);
 //            s = s.replaceAll("'\\.'", "#");
 //            s = s.replaceAll("\\[\\]", "#()");
@@ -42,7 +40,7 @@ public class ParseList {
         List<Term> list = new ArrayList<>(30);
 
         String head;
-        while ( (head = getHead(temp)) != null ) {
+        while ((head = getHead(temp)) != null) {
             System.out.println(head);
             list.add(Util.textToTerm(head));
         }

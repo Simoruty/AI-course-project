@@ -1,9 +1,7 @@
 package it.uniba.di.ia.ius.gui;
 
-import it.uniba.di.ia.ius.prologAPI.Interprolog;
-import it.uniba.di.ia.ius.prologAPI.JPLprolog;
-import it.uniba.di.ia.ius.prologAPI.ParseList;
-import jpl.*;
+import it.uniba.di.ia.ius.prologAPI.*;
+import jpl.Term;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,14 +11,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.Map;
 
 public class MainWindow {
 
-    public static String yapJPLPath = "/usr/local/lib/Yap";
-    public static String swiJPLPath = "/usr/local/lib/swipl-6.6.6/lib/x86_64-linux";
-    private JPLprolog JPLprolog;
-    private Interprolog interprolog;
     private final JFrame frame;
+    DefaultListModel defaultListModel;
+    private JPLInterface JPLInterface;
+    private InterprologInterface interprologInterface;
     private JTextPane textPane;
     private JList jlist;
     private JButton extractButton;
@@ -33,7 +32,6 @@ public class MainWindow {
     private JCheckBox numeriDiTelefonoCheckBox;
     private JButton resetButton;
     private JPanel contentPane;
-    DefaultListModel defaultListModel;
 
     public MainWindow() {
         frame = new JFrame("Tagger ius");
@@ -96,117 +94,116 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
-                JPL_GUI();
-//                Interprolog_GUI();
+
+//                PrologInterface pi = new JPLInterface(PrologInterface.SWI);
+                PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
+
+                pi.consult(new File("prolog/main.pl"));
+
+                pi.retractAll("domanda", Arrays.asList("_"));
+
+                pi.asserta("domanda", Arrays.asList("\"" + textPane.getText() + "\""));
+
+                Map<String, String> map = null;
+                try {
+                    map = pi.oneSolution("extract", Arrays.asList("ListaTag"));
+                } catch (NoVariableException e1) {
+                    e1.printStackTrace();
+                }
+
+                ParseList pl = new ParseList(map.get("ListaTag"), 0);
+                for (Term t : pl.getElementsFromList()) {
+
+                    if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
+                        defaultListModel.addElement(t);
+
+                    if (personeCheckBox.isSelected() && t.toString().contains("persona"))
+                        defaultListModel.addElement(t);
+
+                    if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
+                        defaultListModel.addElement(t);
+
+                    if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
+                        defaultListModel.addElement(t);
+
+                    if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
+                        defaultListModel.addElement(t);
+
+                    if (dateCheckBox.isSelected() && t.toString().contains("date"))
+                        defaultListModel.addElement(t);
+
+                    if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
+                        defaultListModel.addElement(t);
+                }
+                JOptionPane.showMessageDialog(null, "Tagger finished");
+                pi.close();
             }
         });
     }
 
-    private void Interprolog_GUI() {
-
-        //Interprolog
-        interprolog = new Interprolog("prolog/main.pl", "/usr/local/bin/yap", 0);
-
-        PrintWriter writer = null;
-        try {
-            writer = new PrintWriter("prolog/domanda.pl", "UTF-8");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        writer.println("domanda(" + "\"" + textPane.getText() + "\").");
-        writer.close();
-        // Interprolog
-        interprolog.consult("prolog/domanda.pl");
-        String listTag = interprolog.allSolutions();
-        interprolog.close();
-
-        File file = new File("prolog/domanda.pl");
-        file.delete();
-
-        defaultListModel.addElement(listTag);
-        System.out.println(listTag);
-
-        try {
-            writer = new PrintWriter("result", "UTF-8");
-            writer.println(listTag);
-            writer.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-//        ParseList pl = new ParseList(listTag,0);
-//        for (Term t : pl.getElementsFromList()) {
+//    private void Interprolog_GUI() {
 //
-//            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
-//                defaultListModel.addElement(t);
+//        //Interprolog
+//        interprologInterface = new InterprologInterface("prolog/main.pl", "", 0);
 //
-//            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
-//                defaultListModel.addElement(t);
-//
-//            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
-//                defaultListModel.addElement(t);
-//
-//            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
-//                defaultListModel.addElement(t);
-//
-//            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
-//                defaultListModel.addElement(t);
-//
-//            if (dateCheckBox.isSelected() && t.toString().contains("date"))
-//                defaultListModel.addElement(t);
-//
-//            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
-//                defaultListModel.addElement(t);
+//        PrintWriter writer = null;
+//        try {
+//            writer = new PrintWriter("prolog/domanda.pl", "UTF-8");
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
 //        }
-        JOptionPane.showMessageDialog(null, "Tagger finished");
-    }
+//        writer.println("domanda(" + "\"" + textPane.getText() + "\").");
+//        writer.close();
+//        // Interprolog
+//        interprologInterface.consult("prolog/domanda.pl");
+//        String listTag = interprologInterface.allSolutions();
+//        interprologInterface.close();
+//
+//        File file = new File("prolog/domanda.pl");
+//        file.delete();
+//
+//        defaultListModel.addElement(listTag);
+//        System.out.println(listTag);
+//
+//        try {
+//            writer = new PrintWriter("result", "UTF-8");
+//            writer.println(listTag);
+//            writer.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//
+////        ParseList pl = new ParseList(listTag,0);
+////        for (Term t : pl.getElementsFromList()) {
+////
+////            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
+////                defaultListModel.addElement(t);
+////
+////            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
+////                defaultListModel.addElement(t);
+////
+////            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
+////                defaultListModel.addElement(t);
+////
+////            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
+////                defaultListModel.addElement(t);
+////
+////            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
+////                defaultListModel.addElement(t);
+////
+////            if (dateCheckBox.isSelected() && t.toString().contains("date"))
+////                defaultListModel.addElement(t);
+////
+////            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
+////                defaultListModel.addElement(t);
+////        }
+//        JOptionPane.showMessageDialog(null, "Tagger finished");
+//    }
 
-
-    private void JPL_GUI() {
-
-        JPL.setNativeLibraryDir(swiJPLPath);
-        // JPL Prolog
-        JPLprolog = new JPLprolog();
-        JPLprolog.consult(new Atom("prolog/main.pl"));
-        JPLprolog.retractAll("domanda", 1);
-        Term toAssert = new Compound("domanda", new Term[]{Util.textToTerm("\"" + textPane.getText() + "\"")});
-        JPLprolog.asserta(toAssert);
-        Term listTag = JPLprolog.oneSolution(
-                new Compound("extract", new Term[]{
-                        Util.textToTerm("\"" + textPane.getText() + "\""),
-                        new Variable("ListaTag")
-                })).get("ListaTag");
-
-        ParseList pl = new ParseList(listTag, 0);
-        for (Term t : pl.getElementsFromList()) {
-
-            if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
-                defaultListModel.addElement(t);
-
-            if (personeCheckBox.isSelected() && t.toString().contains("persona"))
-                defaultListModel.addElement(t);
-
-            if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
-                defaultListModel.addElement(t);
-
-            if (comuniCheckBox.isSelected() && t.toString().contains("comune"))
-                defaultListModel.addElement(t);
-
-            if (valutaCheckBox.isSelected() && t.toString().contains("richiesta"))
-                defaultListModel.addElement(t);
-
-            if (dateCheckBox.isSelected() && t.toString().contains("date"))
-                defaultListModel.addElement(t);
-
-            if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
-                defaultListModel.addElement(t);
-        }
-        JOptionPane.showMessageDialog(null, "Tagger finished");
-    }
 
     private class MyListCellRenderer extends JLabel implements ListCellRenderer {
         public MyListCellRenderer() {
