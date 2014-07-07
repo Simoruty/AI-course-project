@@ -3,8 +3,6 @@ package it.uniba.di.ia.ius.prologAPI;
 import com.declarativa.interprolog.PrologEngine;
 import com.declarativa.interprolog.SWISubprocessEngine;
 import com.declarativa.interprolog.YAPSubprocessEngine;
-import jpl.Query;
-import jpl.Util;
 
 import java.io.File;
 import java.util.List;
@@ -14,43 +12,86 @@ public class InterprologInterface extends PrologInterface {
 
     private PrologEngine engine;
 
-    protected InterprologInterface(int type) {
+    public InterprologInterface(int type) {
         super(type);
-    }
-
-    @Override
-    public void close() {
-
+        switch (type) {
+            case SWI:
+                engine = new SWISubprocessEngine(SWI_BIN_PATH, true);
+                break;
+            case YAP:
+                engine = new YAPSubprocessEngine(YAP_BIN_PATH, true);
+                break;
+            default:
+                break;
+        }
+        System.out.println(engine.getPrologVersion());
     }
 
     @Override
     public void consult(File file) {
-
+        boolean hasSolution = engine.consultAbsolute(file);
+        System.out.print("[Prolog] consult: " + file + " ");
+        System.out.println(hasSolution ? "succeeded" : "failed");
     }
 
     @Override
     public void asserta(String pred, List<String> args) {
-
+        metaCommand("asserta", pred, args);
     }
 
     @Override
     public void assertz(String pred, List<String> args) {
-
+        metaCommand("assertz", pred, args);
     }
 
     @Override
     public void retract(String pred, List<String> args) {
-
+        metaCommand("retract", pred, args);
     }
 
     @Override
     public void retractAll(String pred, List<String> args) {
+        metaCommand("retractall", pred, args);
+    }
 
+    private void metaCommand(String what, String pred, List<String> args) {
+        String command = what + "( " + pred;
+        if ((args == null) || (args.size() == 0)) {
+        } else {
+            command += "(";
+            for (String arg : args) {
+                command += arg + ",";
+            }
+            command = command.substring(0, command.length() - 1);
+            command += ")";
+        }
+        command += ")";
+
+        boolean hasSolution = engine.command(command);
+
+        System.err.print("[Prolog] " + what + "( " + pred + " ) ");
+        System.err.println(hasSolution ? "succeeded" : "failed");
     }
 
     @Override
     public boolean statisfied(String pred, List<String> args) {
-        return false;
+        String goal = "";
+        if ((args == null) || (args.size() == 0))
+            goal += pred;
+        else {
+            goal += pred + "(";
+            for (String arg : args) {
+                goal += arg + ",";
+            }
+            goal = goal.substring(0, goal.length() - 1);
+            goal += ")";
+        }
+        boolean hasSolution = engine.deterministicGoal(goal);
+
+        System.err.print("[Prolog] query: " + goal + " ");
+        System.err.println(hasSolution ? "succeeded" : "failed");
+        return hasSolution;
+
     }
 
     @Override
@@ -68,80 +109,6 @@ public class InterprologInterface extends PrologInterface {
         return null;
     }
 
-//    public InterprologInterface(int type) {
-//        this.type = type;
-//        switch (type) {
-//            case SWI:
-//                engine = new SWISubprocessEngine(SWI_BIN_PATH, true);
-//                break;
-//            case YAP:
-//                engine = new YAPSubprocessEngine(YAP_BIN_PATH, true);
-//                break;
-//            default:
-//                break;
-//        }
-//        System.err.println(engine.getPrologVersion());
-//    }
-//
-//    @Override
-//    public void consult(File file) {
-//        boolean hasSolution = engine.consultAbsolute(file);
-//        System.out.print("[Prolog] consult: " + file + " ");
-//        System.out.println(hasSolution ? "succeeded" : "failed");
-//    }
-//
-//
-//    @Override
-//    public void asserta(String term) {
-//        String command = "asserta(" + term + ")";
-//        boolean hasSolution = engine.deterministicGoal(command);
-//        System.err.print("[Prolog] asserta( " + term + " ) ");
-//        System.err.println(hasSolution ? "succeeded" : "failed");
-//    }
-//
-//    @Override
-//    public void assertz(String term) {
-//        String command = "assertz(" + term + ")";
-//        boolean hasSolution = engine.deterministicGoal(command);
-//        System.err.print("[Prolog] assertz( " + term + " ) ");
-//        System.err.println(hasSolution ? "succeeded" : "failed");
-//    }
-//
-//    @Override
-//    public void retract(String term) {
-//        String command = "retract(" + term + ")";
-//        boolean hasSolution = engine.deterministicGoal(command);
-//        System.err.print("[Prolog] retract( " + term + " ) ");
-//        System.err.println(hasSolution ? "succeeded" : "failed");
-//    }
-//
-//    @Override
-//    public void retractAll(String predicate, int arity) {
-//        String command;
-//        if (arity == 0)
-//            command = "retractall(" + predicate + ")";
-//        else {
-//            command = "retractall(" + predicate + "(";
-//            for (int i = 0; i < arity; i++) {
-//                command += "_,";
-//            }
-//            command = command.substring(0, command.length() - 1);
-//            command += "))";
-//        }
-//        boolean hasSolution = engine.deterministicGoal(command);
-//        System.err.print("[Prolog] retract( " + predicate + " ) ");
-//        System.err.println(hasSolution ? "succeeded" : "failed");
-//    }
-//
-//    @Override
-//    public boolean statisfied(String goal) {
-//        boolean hasSolution = engine.deterministicGoal(goal);
-//        System.err.print("[Prolog] query: " + goal + " ");
-//        System.err.println(hasSolution ? "succeeded" : "failed");
-//        return hasSolution;
-//    }
-//
-//
 //    @Override
 //    public String oneSolution(String goal) {
 //        String query = goal + ", term_to_atom(" + var + ",Result)";
@@ -166,10 +133,10 @@ public class InterprologInterface extends PrologInterface {
 //
 ////        System.out.println("Solution bindings list:"+solutionVars);
 //    }
-//
-//    @Override
-//    public void close() {
-//        engine.shutdown();
-//    }
+
+    @Override
+    public void close() {
+        engine.shutdown();
+    }
 
 }

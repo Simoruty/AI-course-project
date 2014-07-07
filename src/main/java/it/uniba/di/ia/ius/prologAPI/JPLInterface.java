@@ -51,23 +51,23 @@ public class JPLInterface extends PrologInterface {
 
     @Override
     public void retractAll(String pred, List<String> args) {
-        metaCommand("retractAll", pred, args);
+        metaCommand("retractall", pred, args);
     }
 
     private void metaCommand(String command, String pred, List<String> args) {
-        Term[] toSend;
+        Term toSend;
         if ((args == null) || (args.size() == 0))
-            toSend = new Term[]{new Atom(pred)};
+            toSend = new Atom(pred);
         else {
             Term[] termArgs = new Term[args.size()];
             for (int i = 0; i < args.size(); i++) {
                 termArgs[i] = Util.textToTerm(args.get(i));
             }
-            Compound c = new Compound(pred, termArgs);
-            toSend = new Term[]{c};
+            toSend = new Compound(pred, termArgs);
         }
-        Term t = new Compound(command, toSend);
+        Term t = new Compound(command, new Term[] {toSend} );
         Query query = new Query(t);
+        assert query.hasSolution();
         System.err.print("[Prolog] " + command + "( " + toSend + " ) ");
         System.err.println(query.hasSolution() ? "succeeded" : "failed");
     }

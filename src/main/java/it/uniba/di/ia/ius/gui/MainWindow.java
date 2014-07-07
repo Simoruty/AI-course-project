@@ -97,11 +97,20 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
-                PrologInterface pi = new JPLInterface(JPLInterface.SWI);
+//                PrologInterface pi = new JPLInterface(PrologInterface.SWI);
+                PrologInterface pi = new InterprologInterface(PrologInterface.SWI);
                 pi.consult(new File("prolog/main.pl"));
+
+                System.out.println("SONO QUI");
+
                 pi.retractAll("domanda", Arrays.asList("_"));
 
+                System.out.println("SONO QUI");
+
+
                 pi.asserta("domanda", Arrays.asList("\"" + textPane.getText() + "\""));
+
+                System.out.println("SONO QUI");
 
                 Map<String, String> map = pi.oneSolution("extract", Arrays.asList("ListaTag"));
 
@@ -130,6 +139,7 @@ public class MainWindow {
                         defaultListModel.addElement(t);
                 }
                 JOptionPane.showMessageDialog(null, "Tagger finished");
+                pi.close();
             }
         });
     }
