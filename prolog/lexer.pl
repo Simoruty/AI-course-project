@@ -52,11 +52,12 @@ string_is_number(String) :-
     maplist(ascii_number, String).
 
 
-useful_char(46). % Punto
-useful_char(64). % Chiocciola
-useful_char(8364). % Euro
-useful_char(44). % Virgola
+useful_char(46). % punto
+useful_char(64). % chiocciola
+useful_char(8364). % euro
+useful_char(44). % virgola
 useful_char(10). % newline
+useful_char(47). % slash
 
 useless_char(94).
 useless_char(63).

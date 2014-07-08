@@ -94,39 +94,33 @@ separatore(IDToken) :- token(IDToken, Token), Token='.'.
 numero(IDToken)     :- token(IDToken, Token), atom_is_number(Token).
 
 data(G,M,A) :-
-    token(IDToken1, Token1),
-    giorno(IDToken1),
-
+    
     next(IDToken1,IDToken2),
-
-    token(IDToken2, _),
-    separatore(IDToken2),
-
     next(IDToken2,IDToken3),
-
-    token(IDToken3, Token3),
-    mese(IDToken3),
-
     next(IDToken3,IDToken4),
-
-    token(IDToken4, _),
-    separatore(IDToken4),
-
     next(IDToken4,IDToken5),
 
-    token(IDToken5, Token5),
+    giorno(IDToken1),
+    separatore(IDToken2),
+    mese(IDToken3),
+    separatore(IDToken4),
     anno(IDToken5),
+
+    token(IDToken1, Token1),
+%    token(IDToken2, _),
+    token(IDToken3, Token3),
+%    token(IDToken4, _),
+    token(IDToken5, Token5),
 
     atom_number(Token1,G),
     numero_mese(Token3,M),
     atom_number(Token5,A).
 
-
-giorno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<31.
-mese(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<12.
-mese(IDToken) :- token(IDToken, Token), numero_mese(Token, _).
-anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>1900, N<2050.
-anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=0, N<100.
+giorno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<31, !.
+mese(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<12, !.
+mese(IDToken) :- token(IDToken, Token), numero_mese(Token, _), !.
+anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>1900, N<2050, !.
+anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=0, N<100, !.
 %mese('gennaio').
 %mese('febbraio').
 %mese('marzo').
