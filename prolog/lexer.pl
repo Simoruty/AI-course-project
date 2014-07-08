@@ -20,9 +20,10 @@ to_string(X, Y) :- atom(X), !, atom_codes(X,Y).
 to_string(X, X).
 
 lexer(String,ListToken) :-
-	filter_stopchars(String, A),
+	filter_useless_char(String, A),
     clean_chiocciola(A,B),
-    clean_punto(B,C),
+    clean_newline(B,B1),
+    clean_punto(B1,C),
     clean_virgola(C,D),
     clean_euro(D,E),
 	strip_spaces(E, F),
@@ -31,7 +32,10 @@ lexer(String,ListToken) :-
 	maplist(downcase_atom, H, ListToken).
 
 
-list_stopchars(X) :- X = "^?!_\n\r\t-\\/\"'’;:(){}".
+atom_is_number(X):-
+	atom(X),
+	atom_codes(X,String),
+	string_is_number(String).
 
 ascii_number(X) :-
 	number(X),
@@ -43,29 +47,29 @@ ascii_char(X):-
     X>=97,
     X=<122.
 
-chiocciola(X) :-
-    number(X),
-    X=:=64.
-chiocciola(X) :-
-    atom(X),
-    atom_codes(X,[A]),
-    A=:=64.
+%chiocciola(X) :-
+%    number(X),
+%    X=:=64.
+%chiocciola(X) :-
+%    atom(X),
+%    atom_codes(X,[A]),
+%    A=:=64.
 
-punto(X) :-
-    number(X),
-    X=:=46.
-punto(X) :-
-    atom(X),
-    atom_codes(X,[A]),
-    A=:=46.
+%punto(X) :-
+%    number(X),
+%    X=:=46.
+%punto(X) :-
+%    atom(X),
+%    atom_codes(X,[A]),
+%    A=:=46.
 
-virgola(X) :-
-    number(X),
-    X=:=44.
-virgola(X) :-
-    atom(X),
-    atom_codes(X,[A]),
-    A=:=44.
+%virgola(X) :-
+%    number(X),
+%    X=:=44.
+%virgola(X) :-
+%    atom(X),
+%    atom_codes(X,[A]),
+%    A=:=44.
 
 %piu(X) :-
 %    number(X),
@@ -84,59 +88,43 @@ atom_is_number(X):-
 string_is_number(String) :- 
     maplist(ascii_number, String).
 
+useful_char(46). % Punto
+useful_char(64). % Chiocciola
+useful_char(8364). % Euro
+useful_char(44). % Virgola
+useful_char(10). % newline
 
-clean_dots([],[]).
-clean_dots([A|Xs], Ys) :- 
-    atom(A), 
-    punto(A), 
-    !, 
-    clean_dots(Xs,Ys).
-clean_dots([A|Xs], Ys) :- 
-    atom(A), 
-    virgola(A), 
-    !, 
-    clean_dots(Xs,Ys).
-clean_dots([A|Xs], [A|Ys]) :- 
-    clean_dots(Xs,Ys).
+useless_char(94).
+useless_char(63).
+useless_char(33).
+useless_char(95).
+useless_char(13).
+useless_char(9).
+useless_char(34).
+useless_char(39).
+useless_char(8217).
+useless_char(59).
+useless_char(58).
+useless_char(40).
+useless_char(41).
 
-clean_chiocciola([], []).
-clean_chiocciola([64|Xs], [32,64,32|Ys]) :-
+
+separate_useful_chars([],[]).
+separate_useful_chars([A|Xs], [32,A,32|Ys]) :-
+    useful_char(A),
     !,
-    clean_chiocciola(Xs, Ys).
-clean_chiocciola([X|Xs], [X|Ys] ) :-
-    clean_chiocciola(Xs, Ys).
-
-clean_punto([], []).
-clean_punto([46|Xs], [32,46,32|Ys]) :-
-    !,
-    clean_punto(Xs, Ys).
-clean_punto([X|Xs], [X|Ys] ) :-
-    clean_punto(Xs, Ys).
-
-clean_euro( [], [] ).
-clean_euro( [8364|Xs], [32,8364,32|Ys]) :-
-    !,
-    clean_euro(Xs, Ys).
-clean_euro( [X|Xs], [X|Ys] ) :-
-    clean_euro(Xs, Ys).
-
-clean_virgola([], []).
-clean_virgola([44|Xs], [32,44,32|Ys]) :-
-    !,
-    clean_virgola(Xs, Ys).
-clean_virgola([X|Xs], [X|Ys] ) :-
-    clean_virgola(Xs, Ys).
+    separate_useful_chars(Xs,Ys).
+separate_useful_chars([X|Xs], [X|Ys]) :-
+    separate_useful_chars(Xs, Ys).
 
 
-filter_stopchars([],[]).
-filter_stopchars([X|Xs], [32|Ys]) :-
-	list_stopchars(StopC),
-	member(X,StopC),
+filter_useless_char([],[]).
+filter_useless_char([X|Xs], [32|Ys]) :-
+	useless_char(X),
 	!,
-	filter_stopchars(Xs,Ys).
-
-filter_stopchars([X|Xs], [X|Ys]) :-
-	filter_stopchars(Xs,Ys).
+	filter_useless_char(Xs,Ys).
+filter_useless_char([X|Xs], [X|Ys]) :-
+	filter_useless_char(Xs,Ys).
 
 
 strip_spaces([],[]).

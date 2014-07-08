@@ -27,6 +27,8 @@ main :-
     write(ListaTag),nl.
 
 
+ 
+
 extract( ListaTag ) :-
     domanda( String ),
     lexer( String, ListaToken ),
