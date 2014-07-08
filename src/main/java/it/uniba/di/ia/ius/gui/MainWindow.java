@@ -8,9 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -95,8 +92,8 @@ public class MainWindow {
             public void actionPerformed(ActionEvent e) {
                 defaultListModel.clear();
 
-//                PrologInterface pi = new JPLInterface(PrologInterface.SWI);
-                PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
+                PrologInterface pi = new JPLInterface(PrologInterface.SWI);
+//                PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
 
                 pi.consult(new File("prolog/main.pl"));
 
@@ -117,7 +114,7 @@ public class MainWindow {
                     if (indirizziEMailCheckBox.isSelected() && t.toString().contains("mail"))
                         defaultListModel.addElement(t);
 
-                    if (personeCheckBox.isSelected() && t.toString().contains("persona"))
+                    if (personeCheckBox.isSelected() && (t.toString().contains("persona") || t.toString().contains("ruolo")))
                         defaultListModel.addElement(t);
 
                     if (numeriDiTelefonoCheckBox.isSelected() && t.toString().contains("tel"))
@@ -132,7 +129,7 @@ public class MainWindow {
                     if (dateCheckBox.isSelected() && t.toString().contains("date"))
                         defaultListModel.addElement(t);
 
-                    if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("cf"))
+                    if (codiciFiscaliCheckBox.isSelected() && t.toString().contains("codicefiscale"))
                         defaultListModel.addElement(t);
                 }
                 JOptionPane.showMessageDialog(null, "Tagger finished");
