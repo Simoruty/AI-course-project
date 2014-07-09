@@ -3,7 +3,7 @@
 :- use_module(conoscenza).
 :- use_module(lexer).
 
-cf(Token) :- token(_, Token), check_cf(Token).
+cf(Token) :- kb:token(_, Token), check_cf(Token).
 
 check_cf(Atom) :-
     atom(Atom),

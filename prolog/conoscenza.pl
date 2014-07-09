@@ -1,7 +1,4 @@
-:- module( conoscenza, [ %documento/1
-                       %, token/2
-                       %, next/2
-                        stessa_frase/2
+:- module( conoscenza, [ stessa_frase/2
                        , numero/1
                        , writeKB/0
                        , writeKB/1
@@ -25,12 +22,12 @@ writeKB(String) :-
 writeKB( [T1|[]], Num ) :-
     atom_number(AtomNum1,Num),
     atom_concat('t',AtomNum1, IDToken1),
-    assertz(token(IDToken1, T1)),
+    assertz(kb:token(IDToken1, T1)),
     IDEOF is Num+1,
     atom_number(AtomIDEOF,IDEOF),
     atom_concat('t',AtomIDEOF, IDTokenEOF),
-    assertz(token(IDTokenEOF, 'EOF')),
-    assertz(next(IDToken1, IDTokenEOF)).
+    assertz(kb:token(IDTokenEOF, 'EOF')),
+    assertz(kb:next(IDToken1, IDTokenEOF)).
 
     
 writeKB( [ T1,T2 | Xs ], Num) :-
@@ -39,9 +36,9 @@ writeKB( [ T1,T2 | Xs ], Num) :-
     atom_number(AtomNum2,Temp),
     atom_concat('t',AtomNum1, IDToken1),
     atom_concat('t',AtomNum2, IDToken2),
-    assertz(token(IDToken1, T1)),
-    %assertFact(token(IDToken2, T2)),
-    assertz(next(IDToken1, IDToken2)),
+    assertz(kb:token(IDToken1, T1)),
+    %assertFact(kb:token(IDToken2, T2)),
+    assertz(kb:next(IDToken1, IDToken2)),
     writeKB( [T2|Xs], Temp).
 
 %assertFact(Fact):-
@@ -51,18 +48,18 @@ writeKB( [ T1,T2 | Xs ], Num) :-
 %assertFact(_).
 
 
-numero(IDToken)     :- token(IDToken, Token), atom_is_number(Token).
+numero(IDToken)     :- kb:token(IDToken, Token), atom_is_number(Token).
 stessa_frase(IDToken1, IDToken2) :-
-    next(IDToken1, IDToken2),
-    token(IDToken1, Token1),
-    token(IDToken2, Token2),
+    kb:next(IDToken1, IDToken2),
+    kb:token(IDToken1, Token1),
+    kb:token(IDToken2, Token2),
     Token1\='\n', Token2\='\n'.
 
 stessa_frase(IDToken1, IDToken2) :-
-    next(IDToken1, IDTokenX),
-    token(IDToken1, Token1),
-    token(IDToken2, Token2),
-    token(IDTokenX, TokenX),
+    kb:next(IDToken1, IDTokenX),
+    kb:token(IDToken1, Token1),
+    kb:token(IDToken2, Token2),
+    kb:token(IDTokenX, TokenX),
     Token1\='\n', TokenX\='\n', Token2\='\n', stessa_frase(IDTokenX,IDToken2).
 
 %Riflessivo

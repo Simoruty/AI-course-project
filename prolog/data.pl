@@ -5,15 +5,15 @@
 
 :- use_module(conoscenza).
 
-separatore_data(IDToken) :- token(IDToken, Token), Token='/'.
-separatore_data(IDToken) :- token(IDToken, Token), Token='-'.
-separatore_data(IDToken) :- token(IDToken, Token), Token='.'.
+separatore_data(IDToken) :- kb:token(IDToken, Token), Token='/'.
+separatore_data(IDToken) :- kb:token(IDToken, Token), Token='-'.
+separatore_data(IDToken) :- kb:token(IDToken, Token), Token='.'.
 
 data(G,M,A) :-
-    next(IDToken1,IDToken2),
-    next(IDToken2,IDToken3),
-    next(IDToken3,IDToken4),
-    next(IDToken4,IDToken5),
+    kb:next(IDToken1,IDToken2),
+    kb:next(IDToken2,IDToken3),
+    kb:next(IDToken3,IDToken4),
+    kb:next(IDToken4,IDToken5),
 
     giorno(IDToken1),
     separatore_data(IDToken2),
@@ -21,11 +21,11 @@ data(G,M,A) :-
     separatore_data(IDToken4),
     anno(IDToken5),
 
-    token(IDToken1, Token1),
-%    token(IDToken2, _),
-    token(IDToken3, Token3),
-%    token(IDToken4, _),
-    token(IDToken5, Token5),
+    kb:token(IDToken1, Token1),
+%    kb:token(IDToken2, _),
+    kb:token(IDToken3, Token3),
+%    kb:token(IDToken4, _),
+    kb:token(IDToken5, Token5),
 
     atom_number(Token1,G),
     numero_mese(Token3,M),
@@ -33,27 +33,27 @@ data(G,M,A) :-
     asserta(spiega('Ho trovato la data perché bla bla')).
 
 data(G,M,A) :-
-    next(IDToken1,IDToken2),
-    next(IDToken2,IDToken3),
+    kb:next(IDToken1,IDToken2),
+    kb:next(IDToken2,IDToken3),
 
     giorno(IDToken1),
     mese(IDToken2),
     anno(IDToken3),
 
-    token(IDToken1, Token1),
-    token(IDToken2, Token2),
-    token(IDToken3, Token3),
+    kb:token(IDToken1, Token1),
+    kb:token(IDToken2, Token2),
+    kb:token(IDToken3, Token3),
 
     atom_number(Token1,G),
     numero_mese(Token2,M),
     atom_number(Token3,A),
     asserta(spiega('Ho trovato la data perché spazio bla bla')).
 
-giorno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<31, !.
-mese(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<12, !.
-mese(IDToken) :- token(IDToken, Token), numero_mese(Token, _), !.
-anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>1900, N<2050, !.
-anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=0, N<100, !.
+giorno(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>=1, N=<31, !.
+mese(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>=1, N=<12, !.
+mese(IDToken) :- kb:token(IDToken, Token), numero_mese(Token, _), !.
+anno(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>1900, N<2050, !.
+anno(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>=0, N<100, !.
 numero_mese('1', 1).
 numero_mese('2', 2).
 numero_mese('3', 3).
