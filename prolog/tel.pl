@@ -1,8 +1,12 @@
-:- module( numero_telefono, [tag_numero_telefono/2] ).
+:- module( tel, [tel/2] ).
 
-
+:- use_module(conoscenza).
 :- use_module(lexer).
-:- consult('numero_telefono_db').
+:- consult('tel_kb').
+
+
+tel(X) :-
+    
 
 tag_numero_telefono( [], [] ).
 

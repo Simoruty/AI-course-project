@@ -1,1 +1,0 @@
-domanda("simone rutigliano").

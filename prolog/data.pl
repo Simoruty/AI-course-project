@@ -1,0 +1,92 @@
+:- module(data,
+          [ data/3
+          ]
+).
+
+:- use_module(conoscenza).
+
+separatore_data(IDToken) :- token(IDToken, Token), Token='/'.
+separatore_data(IDToken) :- token(IDToken, Token), Token='-'.
+separatore_data(IDToken) :- token(IDToken, Token), Token='.'.
+
+data(G,M,A) :-
+    next(IDToken1,IDToken2),
+    next(IDToken2,IDToken3),
+    next(IDToken3,IDToken4),
+    next(IDToken4,IDToken5),
+
+    giorno(IDToken1),
+    separatore_data(IDToken2),
+    mese(IDToken3),
+    separatore_data(IDToken4),
+    anno(IDToken5),
+
+    token(IDToken1, Token1),
+%    token(IDToken2, _),
+    token(IDToken3, Token3),
+%    token(IDToken4, _),
+    token(IDToken5, Token5),
+
+    atom_number(Token1,G),
+    numero_mese(Token3,M),
+    atom_number(Token5,A),
+    asserta(spiega('Ho trovato la data perché bla bla')).
+
+data(G,M,A) :-
+    next(IDToken1,IDToken2),
+    next(IDToken2,IDToken3),
+
+    giorno(IDToken1),
+    mese(IDToken2),
+    anno(IDToken3),
+
+    token(IDToken1, Token1),
+    token(IDToken2, Token2),
+    token(IDToken3, Token3),
+
+    atom_number(Token1,G),
+    numero_mese(Token2,M),
+    atom_number(Token3,A),
+    asserta(spiega('Ho trovato la data perché spazio bla bla')).
+
+giorno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<31, !.
+mese(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=1, N=<12, !.
+mese(IDToken) :- token(IDToken, Token), numero_mese(Token, _), !.
+anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>1900, N<2050, !.
+anno(IDToken) :- numero(IDToken), token(IDToken, Token), atom_number(Token, N), N>=0, N<100, !.
+numero_mese('1', 1).
+numero_mese('2', 2).
+numero_mese('3', 3).
+numero_mese('4', 4).
+numero_mese('5', 5).
+numero_mese('6', 6).
+numero_mese('7', 7).
+numero_mese('8', 8).
+numero_mese('9', 9).
+numero_mese('10', 10).
+numero_mese('11', 11).
+numero_mese('12', 12).
+numero_mese('gennaio', 1).
+numero_mese('febbraio', 2).
+numero_mese('marzo', 3).
+numero_mese('aprile', 4).
+numero_mese('maggio', 5).
+numero_mese('giugno', 6).
+numero_mese('luglio', 7).
+numero_mese('agosto', 8).
+numero_mese('settembre', 9).
+numero_mese('ottobre', 10).
+numero_mese('novembre', 11).
+numero_mese('dicembre', 12).
+numero_mese('gen', 1).
+numero_mese('feb', 2).
+numero_mese('mar', 3).
+numero_mese('apr', 4).
+numero_mese('mag', 5).
+numero_mese('giu', 6).
+numero_mese('lug', 7).
+numero_mese('ago', 8).
+numero_mese('set', 9).
+numero_mese('ott', 10).
+numero_mese('nov', 11).
+numero_mese('dic', 12).

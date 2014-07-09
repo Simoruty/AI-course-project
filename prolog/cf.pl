@@ -1,16 +1,9 @@
-:- module( codice_fiscale, [tag_cf/2] ).
+:- module( cf, [cf/1] ).
 
+:- use_module(conoscenza).
 :- use_module(lexer).
 
-tag_cf([],[]).
-tag_cf([A|Xs], [codicefiscale(A)|Ys]) :-
-    atom(A),
-    check_cf(A),
-    !,
-    tag_cf(Xs, Ys).
-tag_cf([A|Xs], [A|Ys]) :-
-    tag_cf(Xs, Ys).
-
+cf(Token) :- token(_, Token), check_cf(Token).
 
 check_cf(Atom) :-
     atom(Atom),

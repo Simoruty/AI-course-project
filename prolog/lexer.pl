@@ -1,14 +1,11 @@
 :- module(lexer,
           [ to_string/2
           , lexer/2
-          , clean_dots/2
           , atom_is_number/1
           , string_is_number/1
           , ascii_number/1
           , ascii_char/1
-          , chiocciola/1
-          , punto/1
-          , virgola/1
+          , ascii_id_char/1
           ]
 ).
 
@@ -43,10 +40,11 @@ ascii_char(X):-
     X>=97,
     X=<122.
 
-atom_is_number(X):-
-	atom(X),
-	atom_codes(X,String),
-	string_is_number(String).
+ascii_id_char(X) :- ascii_char(X), !.
+ascii_id_char(X) :- ascii_number(X), !.
+ascii_id_char('_').
+ascii_id_char('-').
+ascii_id_char('.').
 
 string_is_number(String) :- 
     maplist(ascii_number, String).
@@ -58,21 +56,21 @@ useful_char(8364). % euro
 useful_char(44). % virgola
 useful_char(10). % newline
 useful_char(47). % slash
+%useful_char(95). % _
 
-useless_char(94).
-useless_char(63).
-useless_char(33).
-useless_char(95).
-useless_char(13).
-useless_char(9).
-useless_char(34).
-useless_char(39).
-useless_char(8217).
-useless_char(59).
-useless_char(58).
-useless_char(40).
-useless_char(41).
-
+useless_char(9). % \t
+useless_char(13). % \r
+useless_char(33). % !
+useless_char(34). % "
+useless_char(39). % '
+useless_char(40). % (
+useless_char(41). % )
+useless_char(58). % :
+useless_char(59). % ;
+useless_char(63).  % ?
+useless_char(94). % ^
+useless_char(96). % `
+useless_char(8217). % ’
 
 separate_useful_chars([],[]).
 separate_useful_chars([A|Xs], [32,A,32|Ys]) :-
