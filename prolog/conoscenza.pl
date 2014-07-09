@@ -12,7 +12,7 @@
 lista_parole(ListaParole) :- kb:documento(Doc), lexer(Doc, ListaParole).
 
 writeKB :-
-    writeKB("luciano.quercia@gmail.com\nciao simonerutigliano@ciao.com\noh").
+    writeKB("0803531185\n+39 374 9434186\nluciano.quercia@gmail.com\nciao simonerutigliano@ciao.com\noh").
 
 writeKB(String) :-
     asserta(kb:documento(String)),    

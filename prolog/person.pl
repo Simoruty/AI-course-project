@@ -1,8 +1,9 @@
-:- module( persona, [tag_persona/2
-                     , tag_titolo/2
-                     ] ).
+:- module( person, [  person/2
+                    , titolo/2
+                   ] 
+).
 
-:- consult('persona_db.pl').
+:- consult('person_kb.pl').
 
 sottoscritto('sottoscritto').
 sottoscritto('sottoscritta').
@@ -75,6 +76,10 @@ suffix('a').
 
 
 punto('.').
+
+person(X) :-
+    kb:next(IDToken1,IDToken2),
+    kb:next(IDToken1,IDToken2),
 
 tag_persona(List,ListTagged) :-
     tag_aggettivo(List,A),
