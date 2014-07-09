@@ -4,6 +4,15 @@
 
 :- consult('comune_kb.pl').
 
+cf(CF) :- 
+    kb:token(IDToken, CF),
+    check_cf(CF),
+    kb:next(Precedente, IDToken),
+    kb:next(IDToken, Successivo),
+    assertTag(cf(CF), Precedente, Successivo),
+    assertFact(spiega('bla bla')).
+
+
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
@@ -20,7 +29,13 @@ comune(Comune) :-
 
     atomic_list_concat([Token1, Token2, Token3, Token4, Token5, Token6], ' ', Comune),
     comune_kb(Comune),
-    asserta(spiega('Ho trovato la data perché bla bla')).
+
+    kb:next(Precedente, IDToken1),
+    kb:next(IDToken6, Successivo),
+    assertTag(comune(Comune), Precedente, Successivo),
+
+    assertFact(spiega('Ho trovato la data perché bla bla')).
+
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -36,6 +51,11 @@ comune(Comune) :-
 
     atomic_list_concat([Token1, Token2, Token3, Token4, Token5], ' ', Comune),
     comune_kb(Comune),
+
+    kb:next(Precedente, IDToken1),
+    kb:next(IDToken5, Successivo),
+    assertTag(comune(Comune), Precedente, Successivo),
+
     asserta(spiega('Ho trovato la data perché bla bla')).
 
 comune(Comune) :-
@@ -50,6 +70,11 @@ comune(Comune) :-
 
     atomic_list_concat([Token1, Token2, Token3, Token4], ' ', Comune),
     comune_kb(Comune),
+
+    kb:next(Precedente, IDToken1),
+    kb:next(IDToken4, Successivo),
+    assertTag(comune(Comune), Precedente, Successivo),
+
     asserta(spiega('Ho trovato la data perché bla bla')).
 
 comune(Comune) :-
@@ -62,6 +87,11 @@ comune(Comune) :-
 
     atomic_list_concat([Token1, Token2, Token3], ' ', Comune),
     comune_kb(Comune),
+
+    kb:next(Precedente, IDToken1),
+    kb:next(IDToken3, Successivo),
+    assertTag(comune(Comune), Precedente, Successivo),
+
     asserta(spiega('Ho trovato la data perché bla bla')).
 
 comune(Comune) :-
@@ -72,8 +102,17 @@ comune(Comune) :-
 
     atomic_list_concat([Token1, Token2], ' ', Comune),
     comune_kb(Comune),
+
+    kb:next(Precedente, IDToken1),
+    kb:next(IDToken2, Successivo),
+    assertTag(comune(Comune), Precedente, Successivo),
+
     asserta(spiega('Ho trovato la data perché bla bla')).
 
-comune(Token) :-
-    kb:token(_, Token),
-    comune_kb(Token).
+comune(Comune) :-
+    kb:token(IDToken1, Comune),
+    comune_kb(Comune),
+
+    kb:next(Precedente, IDToken1),
+    kb:next(IDToken1, Successivo),
+    assertTag(comune(Comune), Precedente, Successivo).

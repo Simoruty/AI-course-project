@@ -9,6 +9,7 @@
 :- use_module(comune).
 :- use_module(mail).
 :- use_module(tel).
+:- use_module(valuta).
 
 main :-
 %    write('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'),nl,    

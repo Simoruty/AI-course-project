@@ -3,7 +3,14 @@
 :- use_module(conoscenza).
 :- use_module(lexer).
 
-cf(Token) :- kb:token(_, Token), check_cf(Token).
+cf(CF) :- 
+    kb:token(IDToken, CF),
+    check_cf(CF),
+    kb:next(Precedente, IDToken),
+    kb:next(IDToken, Successivo),
+    assertTag(cf(CF), Precedente, Successivo),
+    assertFact(spiega('bla bla')).
+
 
 check_cf(Atom) :-
     atom(Atom),
