@@ -1,7 +1,6 @@
 :- module( kb, [ stessa_frase/2
                        , token/1
                        , tag/1
-                       , numero/1
                        , writeKB/0
                        , writeKB/1
                        , expandKB/0
@@ -10,6 +9,8 @@
                        , assertTag/1
                        , assertTag/3
                        , nextIDTag/1
+                       , vicini/2
+                       , distanza/3
                        ]
 ).
 
@@ -21,6 +22,7 @@
 :- use_module(mail).
 :- use_module(data).
 :- use_module(tel).
+:- use_module(valuta).
 
 lista_parole(ListaParole) :- kb:documento(Doc), lexer(Doc, ListaParole).
 
@@ -36,7 +38,11 @@ expandKB :-
     findall((D,E), soggetto(D,E), ListaSoggetti),
     findall((F,G), curatore(F,G), ListaCuratori),
     findall((H,I), giudice(H,I), ListaGiudici),
-    
+    findall(X, simbolo_valuta(X), ListaValuta),
+    findall(X, numero_decimale(X), ListaNumeriDecimali),
+    findall(X, numero(X), ListaNumeri),
+    findall(X, tipologia(X), ListaTipologie),
+    findall((M,S,T), richiesta_valuta(M,S,T), ListaRichieste),
     write('COMUNI: '),write(ListaComuni),nl,
     write('CFs: '),write(ListaCF),nl,
     write('COGNOMI: '),write(ListaCognomi),nl,
@@ -47,10 +53,15 @@ expandKB :-
     write('GIUDICI: '), write(ListaGiudici),nl,
     write('MAIL: '), write(ListaMail),nl,
     write('TEL: '), write(ListaTel),nl,
-    write('DATA: '), write(ListaData),nl.
+    write('DATA: '), write(ListaData),nl,
+    write('SIMBOLI VALUTA: '), write(ListaValuta),nl,
+    write('NUM DECIMALI: '), write(ListaNumeriDecimali),nl,
+    write('NUMERI: '), write(ListaNumeri),nl,
+    write('TIPOLOGIE: '), write(ListaTipologie),nl,
+    write('RICHIESTE: '), write(ListaRichieste),nl.
 
 writeKB :-
-    writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini\nn. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9/6/2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
+    writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini\nn. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nindirizzo mail luciano.quercia@gmail.com\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122,50 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9/6/2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
 %    writeKB("giovanni simone curatore cataldo quercia\nQRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J\nil sottoscritto / a Quercia Luciano\nQuercia Luciano giudice\n").
 
 writeKB(String) :-
@@ -110,9 +121,11 @@ kb:token(IDToken) :- kb:token(IDToken, _).
 kb:tag(IDTag) :- kb:tag(IDTag, _).
 kb:nextIDTag(ID) :- findall(X, kb:tag(X), List), length(List, Ntag), ID is Ntag.
 
-numero(IDToken) :- kb:token(IDToken, Token), atom_is_number(Token).
+
 newline(ID) :- kb:token(ID, '\n').
 
+vicini(ID1, ID2) :- kb:next(ID1, ID2).
+vicini(ID1, ID2) :- kb:next(ID2, ID1).
 
 seguente_in_frase(ID1, ID2) :-
     kb:next(ID1, ID2),
@@ -127,11 +140,18 @@ seguente_in_frase(ID1, ID2) :-
     seguente_in_frase(ID3,ID2).
 
 
+
+%TODO da sistemare
+distanza(ID1, ID2, 0) :-
+    kb:next(ID1, ID2), !.
+distanza(ID1, ID2, Dist) :-
+    kb:next(ID1, ID3),
+    distanza(ID3,ID2, Temp),
+    Dist is Temp+1.
+
+
 stessa_frase(ID1, ID1).
 stessa_frase(ID1, ID2) :-
     seguente_in_frase(ID1,ID2).
 stessa_frase(ID1, ID2) :-
     seguente_in_frase(ID2,ID1).
-
-%Riflessivo %TODO
-%stessa_frase(IDToken1, IDToken2) :- stessa_frase(IDToken2,IDToken1).

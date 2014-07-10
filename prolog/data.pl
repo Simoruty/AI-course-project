@@ -4,10 +4,12 @@
 ).
 
 :- use_module(kb).
+:- use_module(lexer).
 
 separatore_data(IDToken) :- kb:token(IDToken, Token), Token='/'.
 separatore_data(IDToken) :- kb:token(IDToken, Token), Token='-'.
 separatore_data(IDToken) :- kb:token(IDToken, Token), Token='.'.
+
 
 data(G,M,A) :-
     kb:next(IDToken1,IDToken2),
@@ -64,6 +66,9 @@ data(G,M,A) :-
     atomic_list_concat(['[DATA] Nel documento è presente',Token1,Token2,Token3],' ',Spiegazione),
     kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
+
+
+numero(IDToken) :- kb:token(IDToken, Token), atom_is_number(Token).
 
 giorno(IDToken) :- 
     numero(IDToken), 

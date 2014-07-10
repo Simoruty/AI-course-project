@@ -22,8 +22,22 @@ lexer(String,ListToken) :-
 	strip_spaces(Temp2, Temp3),
 	atom_codes(Temp4, Temp3),
 	atomic_list_concat(Temp5,' ', Temp4),
-	maplist(downcase_atom, Temp5, ListToken).
+	maplist(downcase_atom, Temp5, Temp6),
+    strip_dots(Temp6, ListToken).
 
+
+strip_dots( [], [] ).
+strip_dots( [X|Xs], [Y|Ys] ) :-
+    atom_length(X, L),
+    Start is L-1,
+    sub_atom(X, Start, 1, _, Char),
+    Char=='.',
+    Len is L-1,
+    sub_atom(X, 0, Len, _, Y),
+    !,
+    strip_dots(Xs, Ys).
+strip_dots( [X|Xs], [X|Ys] ) :-
+    strip_dots(Xs, Ys).
 
 atom_is_number(X):-
 	atom(X),
@@ -50,10 +64,10 @@ string_is_number(String) :-
     maplist(ascii_number, String).
 
 
-useful_char(46). % punto
+%useful_char(46). % punto
 useful_char(64). % chiocciola
 useful_char(8364). % euro
-useful_char(44). % virgola
+%useful_char(44). % virgola
 useful_char(10). % newline
 useful_char(47). % slash
 %useful_char(95). % _
