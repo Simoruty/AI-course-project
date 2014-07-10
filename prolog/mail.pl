@@ -5,89 +5,17 @@
 :- use_module(library(apply)).
 :- use_module(kb).
 
-dominio('com').
-dominio('it').
-dominio('net').
-dominio('org').
-dominio('tv').
-dominio('ac').
-dominio('jp').
-dominio('fr').
-dominio('de').
-dominio('us').
-
-
 mail(Mail) :-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
-    kb:next(IDToken3,IDToken4),
-    kb:next(IDToken4,IDToken5),
-    kb:next(IDToken5,IDToken6),
-    kb:next(IDToken6,IDToken7),
 
-    check_mail(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5, IDToken6, IDToken7),
-   
     kb:token(IDToken1, Token1),
-    kb:token(IDToken2, Token2),
-    kb:token(IDToken3, Token3),
-    kb:token(IDToken4, Token4),
-    kb:token(IDToken5, Token5),
-    kb:token(IDToken6, Token6),
-    kb:token(IDToken7, Token7),
-
-    atomic_list_concat([Token1, Token2, Token3, Token4, Token5, Token6, Token7], '', Mail),
-
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken7, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[MAIL] Nel documento e’ presente',Mail],' ',Spiegazione),
-    kb:assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi, Spiegazione).
-
-mail(Mail) :-
-    kb:next(IDToken1,IDToken2),
-    kb:next(IDToken2,IDToken3),
-    kb:next(IDToken3,IDToken4),
-    kb:next(IDToken4,IDToken5),
-
-    check_mail(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5),
-    
-    kb:token(IDToken1, Token1),
-    kb:token(IDToken2, Token2),
-    kb:token(IDToken3, Token3),
-    kb:token(IDToken4, Token4),
-    kb:token(IDToken5, Token5),
-
-    atomic_list_concat([Token1, Token2, Token3, Token4, Token5], '', Mail),
-
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[MAIL] Nel documento e’ presente',Mail],' ',Spiegazione),
-    kb:assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi, Spiegazione).
-
-identificatore(Id) :-
-    atom_codes(Id, String),
-    maplist(ascii_id_char, String).
-
-% nome@mail.it
-check_mail(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5) :-
-    kb:token(IDToken1, Username),
     kb:token(IDToken2, '@'),
-    kb:token(IDToken3, Sito),
-    kb:token(IDToken4, '.'),
-    kb:token(IDToken5, Dominio),
-    dominio(Dominio),
-    identificatore(Username),
-    identificatore(Sito).
+    kb:token(IDToken3, Token3),
 
-% nome.cognome@mail.it
-check_mail(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5, IDToken6, IDToken7) :-
-    kb:token(IDToken1, Username),
-    kb:token(IDToken2, '.'),
-    kb:token(IDToken3, Username2),
-    kb:token(IDToken4, '@'),
-    kb:token(IDToken5, Sito),
-    kb:token(IDToken6, '.'),
-    kb:token(IDToken7, Dominio),
-    dominio(Dominio),
-    identificatore(Username),
-    identificatore(Username2),
-    identificatore(Sito).
+    atomic_list_concat([Token1, Token3], '@', Mail),
+
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[MAIL] Nel documento e’ presente',Mail],' ',Spiegazione),
+    kb:assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi, Spiegazione).

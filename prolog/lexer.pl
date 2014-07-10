@@ -25,8 +25,24 @@ lexer(String,ListToken) :-
 	maplist(downcase_atom, Temp5, Temp6),
     strip_sep(Temp6, ListToken).
 
-
-
+strip_sep( [], [] ).
+strip_sep( [X|Xs], Ys ) :-
+    atom_length(X, L),
+    L==1,
+    separatore(X),
+    !,
+    strip_sep(Xs, Ys).
+strip_sep( [X|Xs], [Y|Ys] ) :-
+    atom_length(X, L),
+    Start is L-1,
+    sub_atom(X, Start, 1, _, Char),
+    separatore(Char),
+    Len is L-1,
+    sub_atom(X, 0, Len, _, Y),
+    !,
+    strip_sep(Xs, Ys).
+strip_sep( [X|Xs], [X|Ys] ) :-
+    strip_sep(Xs, Ys).
 
 atom_is_number(X):-
 	atom(X),
@@ -63,6 +79,9 @@ useful_char(8364). % euro
 useful_char(10). % newline
 useful_char(47). % slash
 %useful_char(95). % _
+
+separatore('.').
+%separatore(',').
 
 useless_char(9). % \t
 useless_char(13). % \r
