@@ -98,15 +98,16 @@ kb:assertFact(Fact):-
     assertz(Fact).
 kb:assertFact(_).
 
-assertTag(Tag) :-
+assertTag(Tag, Spiegazione) :-
     kb:nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
     assertFact(kb:tag(IDTag, Tag)),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
-    write(Message), write(Tag), nl.
+    write(Message), write(Tag), nl,
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
-kb:assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
+kb:assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione) :-
     kb:nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
@@ -114,7 +115,8 @@ kb:assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
     forall( member( Precedente, ListaPrecedenti ), ( kb:assertFact(kb:next(Precedente, IDTag)) ) ),
     forall( member( Successivo, ListaSuccessivi ), ( kb:assertFact(kb:next(IDTag, Successivo)) ) ),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
-    write(Message), write(Tag), nl.
+    write(Message), write(Tag), nl,
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 kb:token(IDToken) :- kb:token(IDToken, _).
