@@ -1,326 +1,149 @@
-:- module( persona, [  persona/2
-                    , titolo/2
+:- module( persona, [ nome/1
+                    , cognome/1
+                    , persona/2
+                    , soggetto/2
+                    , giudice/2
+                    , curatore/2
                    ] 
 ).
 
 :- consult('persona_kb.pl').
 
-sottoscritto('sottoscritto').
-sottoscritto('sottoscritta').
-commissario('commissario').
-giudice('giudice').
-curatore('curatore').
-dottore('dott').
-dottore('dottor').
-dottore('dottore').
-dottore('dottoressa').
-avvocato('avv').
-avvocato('avvocato').
+nome(Nome) :- 
+    kb:next(IDToken1, IDToken2),
+    kb:next(IDToken2, IDToken3),
+    kb:token(IDToken1, Token1),
+    kb:token(IDToken2, Token2),
+    kb:token(IDToken3, Token3),
+    nome_kb(Token1, Token2, Token3),
+    atomic_list_concat([Token1, Token2, Token3], ' ', Nome),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
+    kb:assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi),
 
-check_ruolo(A, sottoscritto) :- sottoscritto(A), !.
-check_ruolo(A, commissario) :- commissario(A), !.
-check_ruolo(A, giudice) :- giudice(A), !.
-check_ruolo(A, curatore) :- curatore(A), !.
-check_ruolo(A, dottore) :- dottore(A), !.
-check_ruolo(A, avvocato) :- avvocato(A), !.
+    kb:assertFact(spiega('bla bla')).
 
-check_ruolo(A,B, D) :-
-    atom(A),
-    atom(B),
-    check_ruolo(A, D),
-    punto(B).
 
-check_ruolo(A,B,C, D) :-
-    atom(A),
-    atom(B),
-    atom(C),
-    check_ruolo(A, D),
-    punto(B),
-    suffix(C).
+nome(Nome) :- 
+    kb:next(IDToken1, IDToken2),
+    kb:token(IDToken1, Token1),
+    kb:token(IDToken2, Token2),
+    nome_kb(Token1, Token2),
+    atomic_list_concat([Token1, Token2], ' ', Nome),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
+    kb:assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi),
 
-aggettivo('gentilissima').
-aggettivo('gentilissime').
-aggettivo('gentilissimo').
-aggettivo('gentilissimi').
-aggettivo('illustrissimo').
-aggettivo('illustrissimi').
-aggettivo('illustrissima').
-aggettivo('illustrissime').
-aggettivo('spettabile').
-aggettivo('chiarissimo').
-aggettivo(A,B,C) :-
-    atom(A),
-    atom(B),
-    atom(C),
-    prefix(A),
-    punto(B),
-    suffix(C).
+    kb:assertFact(spiega('bla bla')).
+
+nome(Nome) :- 
+    kb:token(IDToken1, Nome),
+    nome_kb(Nome),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
+    kb:assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi),
+
+    kb:assertFact(spiega('bla bla')).
+
+
+cognome(Cognome) :- 
+    kb:next(IDToken1, IDToken2),
+    kb:token(IDToken1, Token1),
+    kb:token(IDToken2, Token2),
+    cognome_kb(Token1, Token2),
+    atomic_list_concat([Token1, Token2], ' ', Cognome),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
+    kb:assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi),
+
+    kb:assertFact(spiega('bla bla')).
+
+
+cognome(Cognome) :- 
+    kb:token(IDToken1, Cognome),
+    cognome_kb(Cognome),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
+    kb:assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi),
+
+    kb:assertFact(spiega('bla bla')).
+
+
+
+persona(C, N) :-
+    kb:tag(IDTag1, cognome(C)),
+    kb:tag(IDTag2, nome(N)),
+    kb:next(IDTag1, IDTag2),
     
-prefix('gent').
-prefix('ill').
-prefix('spett').
-prefix('stim').
-prefix('egr'). 
-prefix('chia').
-prefix('amn').
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
+    kb:assertTag(persona(C, N), ListaPrecedenti, ListaSuccessivi),
 
-suffix('le').
-suffix('ma').
-suffix('me').
-suffix('mi').
-suffix('mo').
-suffix('ssa').
-suffix('to').
-suffix('a').
+    kb:assertFact(spiega('bla bla')).
 
+persona(C, N) :-
+    kb:tag(IDTag1, cognome(C)),
+    kb:tag(IDTag2, nome(N)),
+    kb:next(IDTag2, IDTag1),
+    
+    findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
+    kb:assertTag(persona(C, N), ListaPrecedenti, ListaSuccessivi),
 
-
-punto('.').
-
-persona(X) :-
-    kb:next(IDToken1,IDToken2),
-    kb:next(IDToken1,IDToken2),
-
-tag_persona(List,ListTagged) :-
-    tag_aggettivo(List,A),
-    tag_ruolo(A,B),
-    strip_aggettivi(B,C),
-    tag_nome(C,D),
-    tag_titolo(D,ListTagged).
+    kb:assertFact(spiega('bla bla')).
 
 
-tag_aggettivo([], []).
-tag_aggettivo( [A,B,C|Xs], [aggettivo|Ys] ) :-
-    aggettivo(A,B,C),
-    !,
-	tag_aggettivo(Xs,Ys).
-tag_aggettivo([A|Xs], [aggettivo|Ys]) :-
-    aggettivo(A),
-    !,
-    tag_aggettivo(Xs, Ys).
-tag_aggettivo([A|Xs], [A|Ys]) :-
-    tag_aggettivo(Xs, Ys).
+nome_kb(A,B,C) :- 
+    nome_kb(A),
+    nome_kb(B),
+    nome_kb(C).
+
+nome_kb(A,B) :-
+    nome_kb(A),
+    nome_kb(B).
 
 
+cognome_kb(A, B) :-
+	cognome_kb(A),
+	cognome_kb(B).
 
-strip_aggettivi([],[]).
-strip_aggettivi([aggettivo,aggettivo|Xs], Ys):-
-	!,
-	strip_aggettivi([aggettivo|Xs],Ys).
-strip_aggettivi([X|Xs],[X|Ys]) :-
-	strip_aggettivi(Xs,Ys).
-
-
-tag_ruolo([], []).
-tag_ruolo( [A,B,C|Xs], [ruolo(R)|Ys] ) :-
-    check_ruolo(A,B,C, R),
-    !,
-	tag_ruolo(Xs,Ys).
-tag_ruolo( [A,B|Xs], [ruolo(R)|Ys] ) :-
-    check_ruolo(A,B, R),
-    !,
-	tag_ruolo(Xs,Ys).
-tag_ruolo([A|Xs], [ruolo(R)|Ys]) :-
-    check_ruolo(A, R),
-    !,
-    tag_ruolo(Xs, Ys).
-tag_ruolo([A|Xs], [A|Ys]) :-
-    tag_ruolo(Xs, Ys).
-
-
-
-
-
-tag_nome( [] , [] ).
-
-% CCNNN
-tag_nome( [C1,C2,N1,N2,N3|Xs], [persona(C,N)|Ys] ) :-
-    atom(C1),atom(C2),atom(N1),atom(N2),atom(N3),
-    cognome( C1, C2 ),
-    nome(N1, N2, N3),
-    !,
-    atomic_list_concat([C1,C2], ' ', C),
-    atomic_list_concat([N1,N2,N3], ' ', N),
-	tag_nome(Xs,Ys).
-
-% NNNCC
-tag_nome( [N1,N2,N3,C1,C2|Xs], [persona(C,N)|Ys] ) :-
-    atom(C1),atom(C2),atom(N1),atom(N2),atom(N3),
-    nome(N1, N2, N3),
-    cognome( C1, C2 ),
-    !,
-    atomic_list_concat([C1,C2], ' ', C),
-    atomic_list_concat([N1,N2,N3], ' ', N),
-	tag_nome(Xs,Ys).
-
-% CNNN
-tag_nome( [C,N1,N2,N3|Xs], [persona(C,N)|Ys] ) :-
-    atom(C),atom(N1),atom(N2),atom(N3),
-    cognome( C ),
-    nome(N1, N2, N3),
-    !,
-    atomic_list_concat([N1,N2,N3], ' ', N),
-	tag_nome(Xs,Ys).
-
-% NNNC
-tag_nome( [N1,N2,N3,C|Xs], [persona(C,N)|Ys] ) :-
-    atom(C),atom(N1),atom(N2),atom(N3),
-    nome(N1, N2, N3),
-    cognome( C ),
-    !,
-    atomic_list_concat([N1,N2,N3], ' ', N),
-	tag_nome(Xs,Ys).
-
-% CCNN
-tag_nome( [C1,C2,N1,N2|Xs], [persona(C,N)|Ys] ) :-
-    atom(C1),atom(N1),atom(N2),atom(C2),
-    cognome( C1, C2 ),
-    nome(N1, N2),
-    !,
-    atomic_list_concat([C1,C2], ' ', C),
-    atomic_list_concat([N1,N2], ' ', N),
-	tag_nome(Xs,Ys).
-
-% NNCC
-tag_nome( [N1,N2,C1,C2|Xs], [persona(C,N)|Ys] ) :-
-    atom(C1),atom(N1),atom(N2),atom(C2),
-    nome(N1, N2),
-    cognome( C1, C2 ),
-    !,
-    atomic_list_concat([C1,C2], ' ', C),
-    atomic_list_concat([N1,N2], ' ', N),
-	tag_nome(Xs,Ys).
-
-% CNN
-tag_nome( [C,N1,N2|Xs], [persona(C,N)|Ys] ) :-
-    atom(C),atom(N1),atom(N2),
-    cognome( C ),
-    nome(N1, N2),
-    !,
-    atomic_list_concat([N1,N2], ' ', N),
-	tag_nome(Xs,Ys).
-
-% NNC
-tag_nome( [N1,N2,C|Xs], [persona(C,N)|Ys] ) :-
-    atom(C),atom(N1),atom(N2),
-    nome(N1, N2),
-    cognome( C ),
-    !,
-    atomic_list_concat([N1,N2], ' ', N),
-	tag_nome(Xs,Ys).
-
-% CCN
-tag_nome( [C1,C2,N|Xs], [persona(C,N)|Ys] ) :-
-    atom(C1),atom(C2),atom(N),
-    cognome( C1, C2 ),
-    nome(N),
-    !,
-    atomic_list_concat([C1,C2], ' ', C),
-	tag_nome(Xs,Ys).
-
-% NCC
-tag_nome( [N,C1,C2|Xs], [persona(C,N)|Ys] ) :-
-    atom(C1),atom(C2),atom(N),
-    nome(N),
-    cognome( C1, C2 ),
-    !,
-    atomic_list_concat([C1,C2], ' ', C),
-	tag_nome(Xs,Ys).
-
-% CN
-tag_nome( [C,N |Xs], [persona(C,N)|Ys] ) :-
-    atom(C),atom(N),
-    cognome( C ),
-    nome(N),
-    !,
-	tag_nome(Xs,Ys).
-
-% NC
-tag_nome( [N,C|Xs], [persona(C,N)|Ys] ) :-
-    atom(C),atom(N),
-    nome(N),
-    cognome( C ),
-    !,
-	tag_nome(Xs,Ys).
-
-% NON UNA PERSONA, continua
-tag_nome( [A|Xs],[A|Ys] ) :-
-	tag_nome(Xs, Ys).
-
-
-cognome(A, B) :-
-	cognome(A),
-	cognome(B).
-
-cognome(A,B) :-
+cognome_kb(A, B) :-
     atomic_list_concat([A, B], ' ', C),
-    cognome(C).
-
-nome(A,B,C) :- 
-    nome(A),
-    nome(B),
-    nome(C).
-
-nome(A,B) :-
-    nome(A),
-    nome(B).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-tag_titolo( [], [] ).
-tag_titolo( [A], [A] ).
-
-%ruolo aggettivo persona
-tag_titolo( [ A,B,C | Xs ], [ titolo(D, C) | Ys ] ) :-
-    atom(B),
-    C = persona(_,_),
-    A = ruolo(D),
-    B = aggettivo,
-    !,
-    tag_titolo( Xs, Ys ).
-
-%aggettivo ruolo persona
-tag_titolo( [ A,B,C | Xs ], [ titolo(D,C) | Ys ] ) :-
-    atom(A),
-    C = persona(_,_),
-    A = aggettivo,
-    B = ruolo(D),
-    !,
-    tag_titolo( Xs, Ys ).
+    cognome_kb(C).
 
 
-%ruolo persona
-tag_titolo( [ A,B | Xs ], [ titolo(D,B) | Ys ] ) :-
-    B = persona(_,_),
-    A = ruolo(D),
-    !,
-    tag_titolo( Xs, Ys ).
-
-%persona ruolo
-tag_titolo( [ A,B | Xs ], [ titolo(D,A) | Ys ] ) :-
-    A = persona(_,_),
-    B = ruolo(D),
-    !,
-    tag_titolo( Xs, Ys ).
+soggetto(C,N) :-
+    kb:tag(IDTag, persona(C,N)),
+    kb:token(IDToken, Token),
+    soggetto(Token),
+    kb:stessa_frase(IDToken, IDTag),
+%    !,    
+    kb:assertTag(soggetto(C,N)),
+    kb:assertFact(spiega('bla bla')).
 
 
-%aggettivo persona
-tag_titolo( [ A,B | Xs ], [ B | Ys ] ) :-
-    atom(A),
-    A = aggettivo,
-    B = persona(_,_),
-    !,
-    tag_titolo( Xs, Ys ).
+curatore(C,N) :-
+    kb:tag(IDTag, persona(C,N)),
+    kb:token(IDToken, Token),
+    curatore(Token),
+    kb:stessa_frase(IDToken, IDTag),
+%    !,
+    kb:assertTag(curatore(C,N)),
+    kb:assertFact(spiega('bla bla')).
 
-%persona aggettivo
-tag_titolo( [ A,B | Xs ], [ A | Ys ] ) :-
-    A = persona(_,_),
-    atom(B),
-    B = aggettivo,
-    !,
-    tag_titolo( Xs, Ys ).
+giudice(C,N) :-
+    kb:tag(IDTag, persona(C,N)),
+    kb:token(IDToken, Token),
+    giudice(Token),
+    kb:stessa_frase(IDToken, IDTag),
+%    !,
+    kb:assertTag(giudice(C,N)),
+    kb:assertFact(spiega('bla bla')).
 
-%se non è
-tag_titolo( [ A,B | Xs ], [ A | Ys ] ) :-
-    tag_titolo( [B|Xs], Ys ).
+
+soggetto('sottoscritto').
+soggetto('sottoscritta').
+curatore('curatore').
+curatore('commissario').
+giudice('giudice').
 

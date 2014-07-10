@@ -65,6 +65,7 @@ useless_char(34). % "
 useless_char(39). % '
 useless_char(40). % (
 useless_char(41). % )
+useless_char(45). % -
 useless_char(58). % :
 useless_char(59). % ;
 useless_char(63).  % ?
@@ -88,7 +89,6 @@ strip_useless_chars([X|Xs], [32|Ys]) :-
 	strip_useless_chars(Xs,Ys).
 strip_useless_chars([X|Xs], [X|Ys]) :-
 	strip_useless_chars(Xs,Ys).
-
 
 strip_spaces([],[]).
 strip_spaces([32,32|Xs], Ys):-

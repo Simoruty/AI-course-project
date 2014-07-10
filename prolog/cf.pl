@@ -15,7 +15,6 @@ cf(CF) :-
     atomic_list_concat(['[CODICE FISCALE] Nel documento è presente',CF],' ',Spiegazione),
     kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
-
 check_cf(Atom) :-
     atom(Atom),
     atom_codes(Atom,String),
