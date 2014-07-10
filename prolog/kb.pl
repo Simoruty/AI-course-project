@@ -12,6 +12,7 @@
                        ]
 ).
 
+:- use_module(library(lists)).
 :- use_module(lexer).
 :- use_module(comune).
 :- use_module(cf).
@@ -62,13 +63,13 @@ assertFact(Fact):-
 assertFact(_).
 
 
-assertTag(Tag, Precedente, Successivo) :-
+assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
     kb:nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
     assertFact(kb:tag(IDTag, Tag)),
-    assertFact(kb:next(Precedente, IDTag)),
-    assertFact(kb:next(IDTag, Successivo)),
+    forall( member( Precedente, ListaPrecedenti ), ( assertFact(kb:next(Precedente, IDTag)) ) ),
+    forall( member( Successivo, ListaSuccessivi ), ( assertFact(kb:next(IDTag, Successivo)) ) ),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl.
 

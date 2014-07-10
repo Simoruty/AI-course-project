@@ -21,9 +21,9 @@ comune(Comune) :-
     atomic_list_concat([Token1, Token2, Token3, Token4, Token5, Token6], ' ', Comune),
     comune_kb(Comune),
 
-    kb:next(Precedente, IDToken1),
-    kb:next(IDToken6, Successivo),
-    assertTag(comune(Comune), Precedente, Successivo),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken6, Successivo), ListaSuccessivi ),
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
     assertFact(spiega('Ho trovato la data perché bla bla')).
 
@@ -43,9 +43,9 @@ comune(Comune) :-
     atomic_list_concat([Token1, Token2, Token3, Token4, Token5], ' ', Comune),
     comune_kb(Comune),
 
-    kb:next(Precedente, IDToken1),
-    kb:next(IDToken5, Successivo),
-    assertTag(comune(Comune), Precedente, Successivo),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
     asserta(spiega('Ho trovato la data perché bla bla')).
 
@@ -62,9 +62,9 @@ comune(Comune) :-
     atomic_list_concat([Token1, Token2, Token3, Token4], ' ', Comune),
     comune_kb(Comune),
 
-    kb:next(Precedente, IDToken1),
-    kb:next(IDToken4, Successivo),
-    assertTag(comune(Comune), Precedente, Successivo),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken4, Successivo), ListaSuccessivi ),
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
     asserta(spiega('Ho trovato la data perché bla bla')).
 
@@ -79,9 +79,9 @@ comune(Comune) :-
     atomic_list_concat([Token1, Token2, Token3], ' ', Comune),
     comune_kb(Comune),
 
-    kb:next(Precedente, IDToken1),
-    kb:next(IDToken3, Successivo),
-    assertTag(comune(Comune), Precedente, Successivo),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
     asserta(spiega('Ho trovato la data perché bla bla')).
 
@@ -94,9 +94,9 @@ comune(Comune) :-
     atomic_list_concat([Token1, Token2], ' ', Comune),
     comune_kb(Comune),
 
-    kb:next(Precedente, IDToken1),
-    kb:next(IDToken2, Successivo),
-    assertTag(comune(Comune), Precedente, Successivo),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
     asserta(spiega('Ho trovato la data perché bla bla')).
 
@@ -104,6 +104,7 @@ comune(Comune) :-
     kb:token(IDToken1, Comune),
     comune_kb(Comune),
 
-    kb:next(Precedente, IDToken1),
-    kb:next(IDToken1, Successivo),
-    assertTag(comune(Comune), Precedente, Successivo).
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi)
+    .

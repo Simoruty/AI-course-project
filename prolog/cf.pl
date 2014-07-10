@@ -6,9 +6,11 @@
 cf(CF) :- 
     kb:token(IDToken, CF),
     check_cf(CF),
-    kb:next(Precedente, IDToken),
-    kb:next(IDToken, Successivo),
-    assertTag(cf(CF), Precedente, Successivo),
+
+    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
+    assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi),
+
     assertFact(spiega('bla bla')).
 
 
