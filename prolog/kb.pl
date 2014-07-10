@@ -7,6 +7,7 @@
                        , expandKB/0
                        , lista_parole/1
                        , assertFact/1
+                       , assertTag/1
                        , assertTag/3
                        , nextIDTag/1
                        ]
@@ -16,17 +17,27 @@
 :- use_module(lexer).
 :- use_module(comune).
 :- use_module(cf).
+:- use_module(persona).
 
 lista_parole(ListaParole) :- kb:documento(Doc), lexer(Doc, ListaParole).
 
 expandKB :- 
     findall(X, comune(X), ListaComuni),
     findall(Y, cf(Y), ListaCF),
-    write(ListaComuni),nl,
-    write(ListaCF),nl.
+    findall(Z, cognome(Z), ListaCognomi),
+    findall(A, nome(A), ListaNomi),
+    findall((B,C), persona(B,C), ListaPersone),
+    findall((D,E), soggetto(D,E), ListaSoggetti),
+    write('COMUNI: '),write(ListaComuni),nl,
+    write('CFs: '),write(ListaCF),nl,
+    write('COGNOMI: '),write(ListaCognomi),nl,
+    write('NOMI: '), write(ListaNomi),nl,
+    write('PERSONE: '), write(ListaPersone),nl,
+    write('SOGGETTI: '), write(ListaSoggetti),nl.
+
 
 writeKB :-
-    writeKB("QRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J").
+    writeKB("giovanni simone cataldo quercia\nQRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J\nil sottoscritto / a Quercia Luciano").
 
 writeKB(String) :-
     asserta(kb:documento(String)),    
@@ -62,6 +73,13 @@ assertFact(Fact):-
     assertz(Fact).
 assertFact(_).
 
+assertTag(Tag) :-
+    kb:nextIDTag(NextIDTag),
+    atom_number(AtomIDTag, NextIDTag),
+    atom_concat('tag', AtomIDTag, IDTag),
+    assertFact(kb:tag(IDTag, Tag)),
+    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
+    write(Message), write(Tag), nl.
 
 assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
     kb:nextIDTag(NextIDTag),

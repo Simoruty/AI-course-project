@@ -9,9 +9,9 @@ cf(CF) :-
 
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi),
 
-    assertFact(spiega('bla bla')).
+    kb:assertFact(spiega('bla bla')).
 
 
 check_cf(Atom) :-
