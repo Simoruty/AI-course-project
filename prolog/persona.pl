@@ -1,9 +1,9 @@
-:- module( person, [  person/2
+:- module( persona, [  persona/2
                     , titolo/2
                    ] 
 ).
 
-:- consult('person_kb.pl').
+:- consult('persona_kb.pl').
 
 sottoscritto('sottoscritto').
 sottoscritto('sottoscritta').
@@ -77,7 +77,7 @@ suffix('a').
 
 punto('.').
 
-person(X) :-
+persona(X) :-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken1,IDToken2),
 
