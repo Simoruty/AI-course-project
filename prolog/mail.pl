@@ -37,7 +37,13 @@ mail(Mail) :-
 
     atomic_list_concat([Token1, Token2, Token3, Token4, Token5, Token6, Token7], '', Mail),
 
-    asserta(spiega('Ho trovato la mail perché bla bla')).
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken7, Successivo), ListaSuccessivi ),
+    assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi),
+
+    kb:tag(IDTag, mail(Mail)),
+    atomic_list_concat(['[MAIL] Nel documento è presente',Mail],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
 
 mail(Mail) :-
     kb:next(IDToken1,IDToken2),
@@ -55,7 +61,14 @@ mail(Mail) :-
 
     atomic_list_concat([Token1, Token2, Token3, Token4, Token5], '', Mail),
 
-    asserta(spiega('Ho trovato la mail perché bla bla')).
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
+    assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi),
+
+    kb:tag(IDTag, mail(Mail)),
+    atomic_list_concat(['[MAIL] Nel documento è presente',Mail],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
+
 
 identificatore(Id) :-
     atom_codes(Id, String),
@@ -85,4 +98,3 @@ check_mail(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5, IDToken6, IDToken7)
     identificatore(Username),
     identificatore(Username2),
     identificatore(Sito).
-

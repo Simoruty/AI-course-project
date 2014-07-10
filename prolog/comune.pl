@@ -25,8 +25,9 @@ comune(Comune) :-
     findall( Successivo, kb:next(IDToken6, Successivo), ListaSuccessivi ),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
-    assertFact(spiega('Ho trovato la data perché bla bla')).
-
+    kb:tag(IDTag, comune(Comune)),
+    atomic_list_concat(['[COMUNE] Nel documento è presente',Comune],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -47,7 +48,10 @@ comune(Comune) :-
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
-    asserta(spiega('Ho trovato la data perché bla bla')).
+    kb:tag(IDTag, comune(Comune)),
+    atomic_list_concat(['[COMUNE] Nel documento è presente',Comune],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
+
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -66,7 +70,10 @@ comune(Comune) :-
     findall( Successivo, kb:next(IDToken4, Successivo), ListaSuccessivi ),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
-    asserta(spiega('Ho trovato la data perché bla bla')).
+    kb:tag(IDTag, comune(Comune)),
+    atomic_list_concat(['[COMUNE] Nel documento è presente',Comune],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
+
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -83,7 +90,9 @@ comune(Comune) :-
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
-    asserta(spiega('Ho trovato la data perché bla bla')).
+    kb:tag(IDTag, comune(Comune)),
+    atomic_list_concat(['[COMUNE] Nel documento è presente',Comune],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -98,7 +107,9 @@ comune(Comune) :-
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
 
-    asserta(spiega('Ho trovato la data perché bla bla')).
+    kb:tag(IDTag, comune(Comune)),
+    atomic_list_concat(['[COMUNE] Nel documento è presente',Comune],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
 
 comune(Comune) :-
     kb:token(IDToken1, Comune),
@@ -106,5 +117,9 @@ comune(Comune) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi)
-    .
+    assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi),
+
+    kb:tag(IDTag, comune(Comune)),
+    atomic_list_concat(['[COMUNE] Nel documento è presente',Comune],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
+

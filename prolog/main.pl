@@ -35,7 +35,10 @@ main :-
 %    write(ListaTag),nl.
 
 extract(Lista) :-
-    findall( X, (tag(ID,X)), Lista).
+    findall( X, (kb:tag(ID,X)), Lista).
+
+extractS(Lista) :-
+    findall( X, (kb:spiega(ID,X)), Lista).
 
 %extract( ListaTag ) :-
 %    domanda( String ),

@@ -22,15 +22,23 @@ data(G,M,A) :-
     anno(IDToken5),
 
     kb:token(IDToken1, Token1),
-%    kb:token(IDToken2, _),
+    kb:token(IDToken2, Token2),
     kb:token(IDToken3, Token3),
-%    kb:token(IDToken4, _),
+    kb:token(IDToken4, Token4),
     kb:token(IDToken5, Token5),
 
     atom_number(Token1,G),
     numero_mese(Token3,M),
     atom_number(Token5,A),
-    asserta(spiega('Ho trovato la data perché bla bla')).
+
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
+    assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
+
+    kb:tag(IDTag, data(G,M,A)),
+    atomic_list_concat(['[DATA] Nel documento è presente ',Token1,Token2,Token3,Token4,Token5],'',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
+
 
 data(G,M,A) :-
     kb:next(IDToken1,IDToken2),
@@ -47,13 +55,48 @@ data(G,M,A) :-
     atom_number(Token1,G),
     numero_mese(Token2,M),
     atom_number(Token3,A),
-    asserta(spiega('Ho trovato la data perché spazio bla bla')).
 
-giorno(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>=1, N=<31, !.
-mese(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>=1, N=<12, !.
-mese(IDToken) :- kb:token(IDToken, Token), numero_mese(Token, _), !.
-anno(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>1900, N<2050, !.
-anno(IDToken) :- numero(IDToken), kb:token(IDToken, Token), atom_number(Token, N), N>=0, N<100, !.
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
+    assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
+
+    kb:tag(IDTag, data(G,M,A)),
+    atomic_list_concat(['[DATA] Nel documento è presente',Token1,Token2,Token3],' ',Spiegazione),
+    assertFact(kb:spiega(IDTag,Spiegazione)).
+
+
+giorno(IDToken) :- 
+    numero(IDToken), 
+    kb:token(IDToken, Token), 
+    atom_number(Token, N), 
+    N>=1, 
+    N=<31, !.
+
+mese(IDToken) :- 
+    numero(IDToken), 
+    kb:token(IDToken, Token), 
+    atom_number(Token, N), 
+    N>=1, 
+    N=<12, !.
+
+mese(IDToken) :- 
+    kb:token(IDToken, Token), 
+    numero_mese(Token, _), !.
+
+anno(IDToken) :- 
+    numero(IDToken), 
+    kb:token(IDToken, Token), 
+    atom_number(Token, N), 
+    N>1900, 
+    N<2050, !.
+
+anno(IDToken) :- 
+    numero(IDToken), 
+    kb:token(IDToken, Token), 
+    atom_number(Token, N), 
+    N>=0, 
+    N<100, !.
+
 numero_mese('1', 1).
 numero_mese('2', 2).
 numero_mese('3', 3).
