@@ -1,17 +1,8 @@
 :- module( comune, [comune/1] ).
 
-:- use_module(conoscenza).
+:- use_module(kb).
 
 :- consult('comune_kb.pl').
-
-cf(CF) :- 
-    kb:token(IDToken, CF),
-    check_cf(CF),
-    kb:next(Precedente, IDToken),
-    kb:next(IDToken, Successivo),
-    assertTag(cf(CF), Precedente, Successivo),
-    assertFact(spiega('bla bla')).
-
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),

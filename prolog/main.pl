@@ -3,7 +3,7 @@
 %:- use_module(library(lists)).
 %:- consult('dataset.pl').
 
-:- use_module(conoscenza).
+:- use_module(kb).
 :- use_module(data).
 :- use_module(cf).
 :- use_module(comune).
@@ -29,9 +29,13 @@ main :-
 %    asserta(documento(Stringa)),
 
 %    extract(ListaTag),
-    writeKB. %TODO Forse working memory
+    writeKB, %TODO Forse working memory
+    expandKB.
 %    nl,write('Informazioni estratte: '), nl,nl,
 %    write(ListaTag),nl.
+
+extract(Lista) :-
+    findall( X, (tag(ID,X)), Lista).
 
 %extract( ListaTag ) :-
 %    domanda( String ),

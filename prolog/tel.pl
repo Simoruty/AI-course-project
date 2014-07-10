@@ -1,6 +1,6 @@
 :- module( tel, [tel/2] ).
 
-:- use_module(conoscenza).
+:- use_module(kb).
 :- use_module(lexer).
 :- consult('tel_kb').
 

@@ -1,6 +1,6 @@
 :- module( cf, [cf/1] ).
 
-:- use_module(conoscenza).
+:- use_module(kb).
 :- use_module(lexer).
 
 cf(CF) :- 

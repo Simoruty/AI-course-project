@@ -1,10 +1,10 @@
-:- module( conoscenza, [ stessa_frase/2
+:- module( kb, [ stessa_frase/2
                        , token/1
                        , tag/1
                        , numero/1
                        , writeKB/0
                        , writeKB/1
-                       , writeKB/2
+                       , expandKB/0
                        , lista_parole/1
                        , assertFact/1
                        , assertTag/3
@@ -13,8 +13,16 @@
 ).
 
 :- use_module(lexer).
+:- use_module(comune).
+:- use_module(cf).
 
 lista_parole(ListaParole) :- kb:documento(Doc), lexer(Doc, ListaParole).
+
+expandKB :- 
+    findall(X, comune(X), ListaComuni),
+    findall(Y, cf(Y), ListaCF),
+    write(ListaComuni),nl,
+    write(ListaCF),nl.
 
 writeKB :-
     writeKB("QRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J").
@@ -60,15 +68,14 @@ assertTag(Tag, Precedente, Successivo) :-
     atom_concat('tag', AtomIDTag, IDTag),
     assertFact(kb:tag(IDTag, Tag)),
     assertFact(kb:next(Precedente, IDTag)),
-    assertFact(kb:next(IDTag, Successivo)).
+    assertFact(kb:next(IDTag, Successivo)),
+    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
+    write(Message), write(Tag), nl.
 
 
 kb:token(IDToken) :- kb:token(IDToken, _).
 kb:tag(IDTag) :- kb:tag(IDTag, _).
-
 kb:nextIDTag(ID) :- findall(X, kb:tag(X), List), length(List, Ntag), ID is Ntag.
-
-
 
 numero(IDToken) :- kb:token(IDToken, Token), atom_is_number(Token).
 newline(ID) :- kb:token(ID, '\n').

@@ -1,7 +1,7 @@
 :- module( valuta, [richiesta/3] ).
 
 :- use_module(lexer).
-:- use_module(conoscenza).
+:- use_module(kb).
 
 separatore_decimali('.').
 separatore_decimali(',').

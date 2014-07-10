@@ -3,7 +3,7 @@
           ]
 ).
 
-:- use_module(conoscenza).
+:- use_module(kb).
 
 separatore_data(IDToken) :- kb:token(IDToken, Token), Token='/'.
 separatore_data(IDToken) :- kb:token(IDToken, Token), Token='-'.
