@@ -5,9 +5,15 @@
 
 :- use_module(kb).
 
-separatore_data(IDToken) :- kb:token(IDToken, Token), Token='/'.
-separatore_data(IDToken) :- kb:token(IDToken, Token), Token='-'.
-separatore_data(IDToken) :- kb:token(IDToken, Token), Token='.'.
+separatore_data(IDToken) :- 
+    kb:token(IDToken, Token), 
+    Token='/'.
+separatore_data(IDToken) :- 
+    kb:token(IDToken, Token), 
+    Token='-'.
+separatore_data(IDToken) :- 
+    kb:token(IDToken, Token), 
+    Token='.'.
 
 data(G,M,A) :-
     kb:next(IDToken1,IDToken2),
@@ -33,12 +39,8 @@ data(G,M,A) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
-    kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
-
-    kb:tag(IDTag, data(G,M,A)),
-    atomic_list_concat(['[DATA] Nel documento è presente ',Token1,Token2,Token3,Token4,Token5],'',Spiegazione),
-    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
-
+    atomic_list_concat(['[DATA] Nel documento e’ presente ',Token1,Token2,Token3,Token4,Token5],'',Spiegazione),
+    kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi, Spiegazione).
 
 data(G,M,A) :-
     kb:next(IDToken1,IDToken2),
@@ -58,12 +60,8 @@ data(G,M,A) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
-    kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
-
-    kb:tag(IDTag, data(G,M,A)),
-    atomic_list_concat(['[DATA] Nel documento è presente',Token1,Token2,Token3],' ',Spiegazione),
-    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
-
+    atomic_list_concat(['[DATA] Nel documento e’ presente',Token1,Token2,Token3],' ',Spiegazione),
+    kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi, Spiegazione).
 
 giorno(IDToken) :- 
     numero(IDToken), 
