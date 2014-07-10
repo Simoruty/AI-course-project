@@ -2,7 +2,8 @@
                     , cognome/1
                     , persona/2
                     , soggetto/2
-                    %, titolo/2
+                    , giudice/2
+                    , curatore/2
                    ] 
 ).
 
@@ -114,12 +115,35 @@ cognome_kb(A, B) :-
 soggetto(C,N) :-
     kb:tag(IDTag, persona(C,N)),
     kb:token(IDToken, Token),
-    sottoscritto(Token),
+    soggetto(Token),
     kb:stessa_frase(IDToken, IDTag),
-    
+%    !,    
     kb:assertTag(soggetto(C,N)),
     kb:assertFact(spiega('bla bla')).
 
 
-sottoscritto('sottoscritto').
-sottoscritto('sottoscritta').
+curatore(C,N) :-
+    kb:tag(IDTag, persona(C,N)),
+    kb:token(IDToken, Token),
+    curatore(Token),
+    kb:stessa_frase(IDToken, IDTag),
+%    !,
+    kb:assertTag(curatore(C,N)),
+    kb:assertFact(spiega('bla bla')).
+
+giudice(C,N) :-
+    kb:tag(IDTag, persona(C,N)),
+    kb:token(IDToken, Token),
+    giudice(Token),
+    kb:stessa_frase(IDToken, IDTag),
+%    !,
+    kb:assertTag(giudice(C,N)),
+    kb:assertFact(spiega('bla bla')).
+
+
+soggetto('sottoscritto').
+soggetto('sottoscritta').
+curatore('curatore').
+curatore('commissario').
+giudice('giudice').
+
