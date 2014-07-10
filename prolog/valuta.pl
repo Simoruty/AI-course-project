@@ -1,4 +1,4 @@
-:- module( valuta, [simbolo_valuta/1, numero_decimale/1, numero/1, tipologia/1, richiesta_valuta/3 ] ).
+:- module( valuta, [simbolo_valuta/1, numero/1, tipologia/1, valuta/2, richiesta_valuta/3 ] ).
 
 :- use_module(lexer).
 :- use_module(kb).
@@ -9,7 +9,7 @@ simbolo_valuta(Valuta) :-
 
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    kb:assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi)
+    kb:assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi,'AAAAAAAAAAA')
     %TODO spiegazione.
     .
 
@@ -19,25 +19,6 @@ std_valuta('eur', '€').
 std_valuta('$', '$').
 std_valuta('£', '£').
 
-numero_decimale(Num) :- 
-    kb:token(IDToken1, Token1),
-    kb:token(IDToken2, Token2),
-    kb:token(IDToken3, Token3),
-    kb:next(IDToken1, IDToken2),
-    kb:next(IDToken2, IDToken3),    
-    
-    atom_is_number(Token1),
-    separatore(Token2),
-    atom_is_number(Token3),
-    atomic_list_concat([Token1, Token3], '.', AtomNumero),    
-
-    atom_number(AtomNumero, Num),
-
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
-    kb:assertTag(numero_decimale(Num), ListaPrecedenti, ListaSuccessivi).
-    %TODO spiegazione.
-
 numero(Num) :- 
     kb:token(IDToken1, Token1),
     
@@ -46,16 +27,9 @@ numero(Num) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    kb:assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi).
+    kb:assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi,'AAAAAAAAAAA').
     %TODO spiegazione.
 
-numero(Num) :-
-    kb:tag(IDTag, numero_decimale(Num)),
-    
-    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
-    kb:assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi).
-    %TODO spiegazione.
 
 separatore('.').
 separatore(',').
@@ -67,7 +41,7 @@ tipologia(Tipologia) :-
 
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    kb:assertTag(tipologia(Tipologia), ListaPrecedenti, ListaSuccessivi)
+    kb:assertTag(tipologia(Tipologia), ListaPrecedenti, ListaSuccessivi,'AAAAAAAAAAA')
     %TODO spiegazione.
     .
 
@@ -86,56 +60,29 @@ std_tipologia('total', 'totale').
 std_tipologia('tot', 'totale').
 
 
-
-richiesta_valuta(Moneta, Simbolo, Tipologia) :-
+valuta(Moneta, Simbolo) :-
     kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, simbolo_valuta(Simbolo)),
-%    kb:tag(IDTag3, tipologia(Tipologia)),
-    kb:next(IDTag1, IDTag2),
-%    kb:stessa_frase(IDTag1, IDTag3),
-%    kb:stessa_frase(IDTag2, IDTag3),
-    
-    kb:assertTag(richiesta_valuta(Moneta, Simbolo, tipologia)).
+    kb:next(IDTag1, IDTag2),    
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
+    kb:assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi,'AAAAAAAAAAA').
+    %TODO spiegazione.  
+
+valuta(Moneta, Simbolo) :-
+    kb:tag(IDTag1, numero(Moneta)),
+    kb:tag(IDTag2, simbolo_valuta(Simbolo)),
+    kb:next(IDTag2, IDTag1),    
+    findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
+    kb:assertTag( valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, 'AAAAAAAAAAA').
     %TODO spiegazione.   
 
 richiesta_valuta(Moneta, Simbolo, Tipologia) :-
-    kb:tag(IDTag1, numero(Moneta)),
-    kb:tag(IDTag2, simbolo_valuta(Simbolo)),
-%    kb:tag(IDTag3, tipologia(Tipologia)),
-    kb:next(IDTag2, IDTag1),
-%    kb:stessa_frase(IDTag1, IDTag3),
-%    kb:stessa_frase(IDTag2, IDTag3),
-    
-    kb:assertTag(richiesta_valuta(Moneta, Simbolo, tipologia)).
+    kb:tag(IDTag1, tipologia(Tipologia)),
+    kb:tag(IDTag2, valuta(Moneta, Simbolo)),
+    kb:stessa_frase(IDTag1, IDTag2),
+%    write('OOOOOOOOOOOOOOOOOOOOOOOOOOO '),nl, write(IDTag1),nl, write(IDTag2), nl.
+    kb:assertTag(richiesta_valuta(Moneta, Simbolo, Tipologia) ,'AAAAAAAAAAA').
     %TODO spiegazione.   
-
-    
-
-% € 50
-% 50 €
-% € 26.67
-% 26.67 €
-
-% 50.25 €
-%richiesta(Quantita, Valuta, Tipologia) :-
-%    next(IDToken1, IDToken2),
-%    next(IDToken2, IDToken3),
-%    next(IDToken3, IDToken4),
-%    token(IDToken1, Token1),
-%    token(IDToken2, Token2),
-%    token(IDToken3, Token3),
-%    token(IDToken4, Token4),
-%    numero(IDToken1),
-%    separatore_decimali(Token2), 
-%    numero(IDToken3),
-%    valuta(IDToken4),
-%    stessa_frase(IDToken1,IDTokenTipo),
-%    tipologia(IDTokenTipo),
-%    IDTokenTipo\=IDToken1, IDTokenTipo\=IDToken2, IDTokenTipo\=IDToken3, IDTokenTipo\=IDToken4,
-%    token(IDTokenTipo, TokenTipo),
-%    atomic_list_concat([Token1, Token3], Token2, Quantita),
-%    std_valuta( Token4, Valuta)
-%    std_tipologia( TokenTipo, Tipologia ).
-
-
 

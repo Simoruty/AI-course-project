@@ -23,21 +23,10 @@ lexer(String,ListToken) :-
 	atom_codes(Temp4, Temp3),
 	atomic_list_concat(Temp5,' ', Temp4),
 	maplist(downcase_atom, Temp5, Temp6),
-    strip_dots(Temp6, ListToken).
+    strip_sep(Temp6, ListToken).
 
 
-strip_dots( [], [] ).
-strip_dots( [X|Xs], [Y|Ys] ) :-
-    atom_length(X, L),
-    Start is L-1,
-    sub_atom(X, Start, 1, _, Char),
-    Char=='.',
-    Len is L-1,
-    sub_atom(X, 0, Len, _, Y),
-    !,
-    strip_dots(Xs, Ys).
-strip_dots( [X|Xs], [X|Ys] ) :-
-    strip_dots(Xs, Ys).
+
 
 atom_is_number(X):-
 	atom(X),
@@ -48,6 +37,9 @@ ascii_number(X) :-
 	number(X),
 	X>=48,
 	X=<57.
+ascii_number(X) :-
+	number(X),
+	X==46.
 
 ascii_char(X):-
     number(X),
@@ -79,6 +71,7 @@ useless_char(34). % "
 useless_char(39). % '
 useless_char(40). % (
 useless_char(41). % )
+useless_char(44). % ,
 useless_char(45). % -
 useless_char(58). % :
 useless_char(59). % ;
@@ -110,3 +103,23 @@ strip_spaces([32,32|Xs], Ys):-
 	strip_spaces([32|Xs],Ys).
 strip_spaces([X|Xs],[X|Ys]) :-
 	strip_spaces(Xs,Ys).
+
+
+strip_sep( [], [] ).
+strip_sep( [''|Xs], Ys ) :-
+    !,
+    strip_sep(Xs, Ys).
+strip_sep( ['.'|Xs], Ys ) :-
+    !,
+    strip_sep(Xs, Ys).
+strip_sep( [X|Xs], [Y|Ys] ) :-
+    atom_length(X, L),
+    L>0,
+    Start is L-1,
+    sub_atom(X, Start, 1, _, '.'),
+    Len is L-1,
+    sub_atom(X, 0, Len, _, Y),
+    !,
+    strip_sep(Xs, Ys).
+strip_sep( [X|Xs], [X|Ys] ) :-
+    strip_sep(Xs, Ys).
