@@ -18,18 +18,25 @@
 :- use_module(comune).
 :- use_module(cf).
 :- use_module(persona).
+:- use_module(mail).
+:- use_module(data).
+:- use_module(tel).
 
 lista_parole(ListaParole) :- kb:documento(Doc), lexer(Doc, ListaParole).
 
 expandKB :- 
     findall(X, comune(X), ListaComuni),
-    findall(Y, cf(Y), ListaCF),
-    findall(Z, cognome(Z), ListaCognomi),
-    findall(A, nome(A), ListaNomi),
+    findall(X, cf(X), ListaCF),
+    findall(X, cognome(X), ListaCognomi),
+    findall(X, nome(X), ListaNomi),
+    findall(X, mail(X), ListaMail),
+    findall(X, tel(X), ListaTel),
+    findall((G,M,A), data(G,M,A), ListaData),
     findall((B,C), persona(B,C), ListaPersone),
     findall((D,E), soggetto(D,E), ListaSoggetti),
     findall((F,G), curatore(F,G), ListaCuratori),
     findall((H,I), giudice(H,I), ListaGiudici),
+    
     write('COMUNI: '),write(ListaComuni),nl,
     write('CFs: '),write(ListaCF),nl,
     write('COGNOMI: '),write(ListaCognomi),nl,
@@ -37,8 +44,10 @@ expandKB :-
     write('PERSONE: '), write(ListaPersone),nl,
     write('SOGGETTI: '), write(ListaSoggetti),nl,
     write('CURATORI: '), write(ListaCuratori),nl,
-    write('GIUDICI: '), write(ListaGiudici),nl.
-
+    write('GIUDICI: '), write(ListaGiudici),nl,
+    write('MAIL: '), write(ListaMail),nl,
+    write('TEL: '), write(ListaTel),nl,
+    write('DATA: '), write(ListaData),nl.
 
 writeKB :-
     writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini\nn. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9/6/2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
@@ -68,15 +77,15 @@ writeKB( [ T1,T2 | Xs ], Num) :-
     atom_concat('t',AtomNum1, IDToken1),
     atom_concat('t',AtomNum2, IDToken2),
     assertz(kb:token(IDToken1, T1)),
-    %assertFact(kb:token(IDToken2, T2)),
+    %kb:assertFact(kb:token(IDToken2, T2)),
     assertz(kb:next(IDToken1, IDToken2)),
     writeKB( [T2|Xs], Temp).
 
-assertFact(Fact):-
+kb:assertFact(Fact):-
     \+( Fact ),
     !,
     assertz(Fact).
-assertFact(_).
+kb:assertFact(_).
 
 assertTag(Tag) :-
     kb:nextIDTag(NextIDTag),
@@ -86,13 +95,13 @@ assertTag(Tag) :-
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl.
 
-assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
+kb:assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
     kb:nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
-    assertFact(kb:tag(IDTag, Tag)),
-    forall( member( Precedente, ListaPrecedenti ), ( assertFact(kb:next(Precedente, IDTag)) ) ),
-    forall( member( Successivo, ListaSuccessivi ), ( assertFact(kb:next(IDTag, Successivo)) ) ),
+    kb:assertFact(kb:tag(IDTag, Tag)),
+    forall( member( Precedente, ListaPrecedenti ), ( kb:assertFact(kb:next(Precedente, IDTag)) ) ),
+    forall( member( Successivo, ListaSuccessivi ), ( kb:assertFact(kb:next(IDTag, Successivo)) ) ),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl.
 

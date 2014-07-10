@@ -11,8 +11,9 @@ cf(CF) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     kb:assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi),
 
-    kb:assertFact(spiega('bla bla')).
-
+    kb:tag(IDTag, cf(CF)),
+    atomic_list_concat(['[CODICE FISCALE] Nel documento è presente',CF],' ',Spiegazione),
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 check_cf(Atom) :-
     atom(Atom),
