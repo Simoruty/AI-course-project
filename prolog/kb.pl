@@ -6,8 +6,8 @@
                        , writeKB/1
                        , expandKB/0
                        , lista_parole/1
-                       , kb:assertFact/1
-                       , kb:assertTag/3
+                       , assertFact/1
+                       , assertTag/3
                        , nextIDTag/1
                        ]
 ).
@@ -36,7 +36,7 @@ expandKB :-
     
 
 writeKB :-
-    writeKB("QRCLCN88L01A285K 20 novembre 1988 ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo il 1/7/1988\nciao il mio numero di telefono è +39 346 210 0360\n Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J").
+    writeKB("080-3513185\nQRCLCN88L01A285K 20 novembre 1988 ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo il 1/7/1988\nciao il mio numero di telefono è +39 346 210 0360\n Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J").
 
 writeKB(String) :-
     asserta(kb:documento(String)),    
