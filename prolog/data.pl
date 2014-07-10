@@ -33,11 +33,11 @@ data(G,M,A) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
-    assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, data(G,M,A)),
     atomic_list_concat(['[DATA] Nel documento è presente ',Token1,Token2,Token3,Token4,Token5],'',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 data(G,M,A) :-
@@ -58,11 +58,11 @@ data(G,M,A) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
-    assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, data(G,M,A)),
     atomic_list_concat(['[DATA] Nel documento è presente',Token1,Token2,Token3],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 giorno(IDToken) :- 

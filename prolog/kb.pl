@@ -6,8 +6,8 @@
                        , writeKB/1
                        , expandKB/0
                        , lista_parole/1
-                       , assertFact/1
-                       , assertTag/3
+                       , kb:assertFact/1
+                       , kb:assertTag/3
                        , nextIDTag/1
                        ]
 ).
@@ -39,21 +39,21 @@ writeKB :-
     writeKB("QRCLCN88L01A285K 20 novembre 1988 ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo il 1/7/1988\nciao il mio numero di telefono è +39 346 210 0360\n Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J").
 
 writeKB(String) :-
-    asserta(kb:documento(String)),    
+    kb:asserta(kb:documento(String)),    
     lista_parole( Lista ),
     writeKB(Lista, 1).
 
 writeKB( [T1|[]], Num ) :-
     atom_number(AtomNum1,Num),
     atom_concat('t',AtomNum1, IDToken1),
-    assertz(kb:token(IDToken1, T1)),
+    kb:assertz(kb:token(IDToken1, T1)),
     IDEOF is Num+1,
     atom_number(AtomIDEOF,IDEOF),
     atom_concat('t',AtomIDEOF, IDTokenEOF),
-    asserta(kb:token('t0', 'BOF')),
-    asserta(kb:next('t0', 't1')),
-    assertz(kb:token(IDTokenEOF, 'EOF')),
-    assertz(kb:next(IDToken1, IDTokenEOF)).
+    kb:asserta(kb:token('t0', 'BOF')),
+    kb:asserta(kb:next('t0', 't1')),
+    kb:assertz(kb:token(IDTokenEOF, 'EOF')),
+    kb:assertz(kb:next(IDToken1, IDTokenEOF)).
 
 writeKB( [ T1,T2 | Xs ], Num) :-
     atom_number(AtomNum1,Num),
@@ -61,25 +61,25 @@ writeKB( [ T1,T2 | Xs ], Num) :-
     atom_number(AtomNum2,Temp),
     atom_concat('t',AtomNum1, IDToken1),
     atom_concat('t',AtomNum2, IDToken2),
-    assertz(kb:token(IDToken1, T1)),
-    %assertFact(kb:token(IDToken2, T2)),
-    assertz(kb:next(IDToken1, IDToken2)),
+    kb:assertz(kb:token(IDToken1, T1)),
+    %kb:assertFact(kb:token(IDToken2, T2)),
+    kb:assertz(kb:next(IDToken1, IDToken2)),
     writeKB( [T2|Xs], Temp).
 
-assertFact(Fact):-
+kb:assertFact(Fact):-
     \+( Fact ),
     !,
-    assertz(Fact).
-assertFact(_).
+    kb:assertz(Fact).
+kb:assertFact(_).
 
 
-assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
+kb:assertTag(Tag, ListaPrecedenti, ListaSuccessivi) :-
     kb:nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
-    assertFact(kb:tag(IDTag, Tag)),
-    forall( member( Precedente, ListaPrecedenti ), ( assertFact(kb:next(Precedente, IDTag)) ) ),
-    forall( member( Successivo, ListaSuccessivi ), ( assertFact(kb:next(IDTag, Successivo)) ) ),
+    kb:assertFact(kb:tag(IDTag, Tag)),
+    forall( member( Precedente, ListaPrecedenti ), ( kb:assertFact(kb:next(Precedente, IDTag)) ) ),
+    forall( member( Successivo, ListaSuccessivi ), ( kb:assertFact(kb:next(IDTag, Successivo)) ) ),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl.
 

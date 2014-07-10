@@ -19,11 +19,11 @@ tel(Tel) :-
     
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, tel(Tel)),
     atomic_list_concat(['[TELEFONO] Nel documento è presente',Token1,Token2,Token3,Token4,Token5],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 tel(Tel) :-
     kb:next(IDToken1,IDToken2),
@@ -38,11 +38,11 @@ tel(Tel) :-
     
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken4, Successivo), ListaSuccessivi ),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, tel(Tel)),
     atomic_list_concat(['[TELEFONO] Nel documento è presente',Token1,Token2,Token3,Token4],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 tel(Tel) :-
     kb:next(IDToken1,IDToken2),
@@ -55,11 +55,11 @@ tel(Tel) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, tel(Tel)),
     atomic_list_concat(['[TELEFONO] Nel documento è presente',Token1,Token2,Token3],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 tel(Tel) :-
     kb:next(IDToken1,IDToken2),
@@ -70,11 +70,11 @@ tel(Tel) :-
     
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, tel(Tel)),
     atomic_list_concat(['[TELEFONO] Nel documento è presente',Token1,Token2],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 tel(Tel) :-
@@ -83,11 +83,11 @@ tel(Tel) :-
     
     findall( Precedente, kb:next(Precedente, IDTel), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTel, Successivo), ListaSuccessivi ),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, tel(Tel)),
     atomic_list_concat(['[TELEFONO] Nel documento è presente',Tel],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 % +39 346 21 00 360

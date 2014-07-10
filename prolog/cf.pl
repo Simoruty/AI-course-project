@@ -9,11 +9,11 @@ cf(CF) :-
 
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, cf(CF)),
     atomic_list_concat(['[CODICE FISCALE] Nel documento è presente',CF],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 check_cf(Atom) :-

@@ -39,11 +39,11 @@ mail(Mail) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken7, Successivo), ListaSuccessivi ),
-    assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, mail(Mail)),
     atomic_list_concat(['[MAIL] Nel documento è presente',Mail],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 mail(Mail) :-
     kb:next(IDToken1,IDToken2),
@@ -63,11 +63,11 @@ mail(Mail) :-
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
-    assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi),
+    kb:assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi),
 
     kb:tag(IDTag, mail(Mail)),
     atomic_list_concat(['[MAIL] Nel documento è presente',Mail],' ',Spiegazione),
-    assertFact(kb:spiega(IDTag,Spiegazione)).
+    kb:assertFact(kb:spiega(IDTag,Spiegazione)).
 
 
 identificatore(Id) :-

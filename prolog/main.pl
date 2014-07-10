@@ -26,7 +26,7 @@ main :-
 %    write('Inserisci il testo del documento: '),nl,nl,
 %    read(Documento),
 %    to_string(Documento, Stringa), % lets user be free to write atom or strings
-%    asserta(documento(Stringa)),
+%    kb:asserta(documento(Stringa)),
 
 %    extract(ListaTag),
     writeKB, %TODO Forse working memory
