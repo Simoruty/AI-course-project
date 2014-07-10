@@ -7,16 +7,11 @@
 :- use_module(lexer).
 
 separatore_data(IDToken) :- 
-    kb:token(IDToken, Token), 
-    Token='/'.
-separatore_data(IDToken) :- 
-    kb:token(IDToken, Token), 
-    Token='-'.
-separatore_data(IDToken) :- 
-    kb:token(IDToken, Token), 
-    Token='.'.
+    kb:token(IDToken, '/').
 
-
+separatore_data(IDToken) :- 
+    kb:token(IDToken, '-').
+ 
 data(G,M,A) :-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),

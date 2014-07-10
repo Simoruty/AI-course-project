@@ -23,21 +23,27 @@ lexer(String,ListToken) :-
 	atom_codes(Temp4, Temp3),
 	atomic_list_concat(Temp5,' ', Temp4),
 	maplist(downcase_atom, Temp5, Temp6),
-    strip_dots(Temp6, ListToken).
+    strip_sep(Temp6, ListToken).
 
 
-strip_dots( [], [] ).
-strip_dots( [X|Xs], [Y|Ys] ) :-
+strip_sep( [], [] ).
+strip_sep( [X|Xs], Ys ) :-
+    atom_length(X, L),
+    L==1,
+    separatore(X),
+    !,
+    strip_sep(Xs, Ys).
+strip_sep( [X|Xs], [Y|Ys] ) :-
     atom_length(X, L),
     Start is L-1,
     sub_atom(X, Start, 1, _, Char),
-    Char=='.',
+    separatore(Char),
     Len is L-1,
     sub_atom(X, 0, Len, _, Y),
     !,
-    strip_dots(Xs, Ys).
-strip_dots( [X|Xs], [X|Ys] ) :-
-    strip_dots(Xs, Ys).
+    strip_sep(Xs, Ys).
+strip_sep( [X|Xs], [X|Ys] ) :-
+    strip_sep(Xs, Ys).
 
 atom_is_number(X):-
 	atom(X),
@@ -72,6 +78,9 @@ useful_char(10). % newline
 useful_char(47). % slash
 %useful_char(95). % _
 
+separatore('.').
+%separatore(',').
+
 useless_char(9). % \t
 useless_char(13). % \r
 useless_char(33). % !
@@ -79,6 +88,7 @@ useless_char(34). % "
 useless_char(39). % '
 useless_char(40). % (
 useless_char(41). % )
+useless_char(44). % ,
 useless_char(45). % -
 useless_char(58). % :
 useless_char(59). % ;
