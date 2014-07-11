@@ -18,7 +18,7 @@ tag_numero_pratica :-
 tag_numero_pratica :-
     tag_numero,
     tag_anno,
-    findall(_X, tag_numero_pratica(_X), _),
+    findall(_, tag_numero_pratica(_), _),
     asserta(kb:fatto(numero_pratica)).
 
 

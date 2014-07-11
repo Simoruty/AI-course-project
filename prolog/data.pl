@@ -21,25 +21,25 @@ tag_data :-
     tag_giorno,
     tag_mese,
     tag_anno, 
-    findall((_G,_M,_A), tag_data(_G,_M,_A), _), 
+    findall((_,_,_), tag_data(_,_,_), _), 
     asserta(kb:fatto(data)).
 
 tag_giorno :- 
     kb:fatto(giorno),!.
 tag_giorno :- 
-    findall(_G, tag_giorno(_G), _), 
+    findall(_, tag_giorno(_), _), 
     asserta(kb:fatto(giorno)).
 
 tag_mese :- 
     kb:fatto(mese),!.
 tag_mese :- 
-    findall(_M, tag_mese(_M), _), 
+    findall(_, tag_mese(_), _), 
     asserta(kb:fatto(mese)).
 
 tag_anno :- 
     kb:fatto(anno),!.
 tag_anno :- 
-    findall(_A, tag_anno(_A), _), 
+    findall(_, tag_anno(_), _), 
     asserta(kb:fatto(anno)).
 
 

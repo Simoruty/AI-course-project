@@ -1,6 +1,7 @@
 :- module( kb, [ stessa_frase/2
                , token/1
                , tag/1
+               , fatto/1
                , request/0
                , writeKB/0
                , writeKB/1
@@ -8,7 +9,6 @@
                , explainKB/0
                , lista_parole/1
                , assertFact/1
-               , assertTag/2
                , assertTag/4
                , nextIDTag/1
                , vicini/2
@@ -25,7 +25,12 @@ lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
 set_vuole(Lista) :-
     forall(member(X, Lista), (asserta(kb:vuole(X))) ).
 
-%:- set_vuole([cf, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
+:- set_vuole([cf, mail, tel, comune, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]), 
+    asserta(fatto('-1')), 
+    asserta(kb:tag(prova,'prova')),
+    asserta(kb:spiega(prova,'prova')), 
+    asserta(kb:dipende_da(prova,prova)).
+%:- set_vuole([persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 expandKB :- 
     comune:tag_comune,
