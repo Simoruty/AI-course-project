@@ -29,7 +29,7 @@ simbolo_valuta(S) :-
 valuta(M,S) :-
     kb:tag(_, valuta(M, S)).
 richiesta_valuta(M,S,T) :-
-    kb:tag(_, tipologia(M,S,T)).
+    kb:tag(_, richiesta_valuta(M,S,T)).
 
 tipologia(IDTag, T) :-
     kb:tag(IDTag, tipologia(T)).
@@ -40,7 +40,7 @@ simbolo_valuta(IDTag, S) :-
 valuta(IDTag, M, S) :-
     kb:tag(IDTag, valuta(M, S)).
 richiesta_valuta(IDTag, M, S, T) :-
-    kb:tag(IDTag, tipologia(M,S,T)).
+    kb:tag(IDTag, richiesta_valuta(M,S,T)).
 
 tag_richiesta_valuta :-
     \+kb:vuole(richiesta_valuta), !.

@@ -8,6 +8,15 @@
 :- use_module(kb).
 :- use_module(lexer).
 
+cf(CF) :-
+    kb:tag(_, cf(CF)).
+
+cf(IDTag,CF) :-
+    kb:tag(IDTag, cf(CF)).
+
+allCf(Cf,ListaCF) :-
+    findall(CF ,kb:tag(_, cf(CF)), ListaCF).
+
 tag_cf :-
     \+kb:vuole(cf),!.
 tag_cf :- 
@@ -15,12 +24,6 @@ tag_cf :-
 tag_cf :- 
     findall(_, tag_cf(_), _),
     asserta(kb:fatto(cf)).
-
-cf(CF) :-
-    kb:tag(_, cf(CF)).
-
-cf(IDTag,CF) :-
-    kb:tag(IDTag, cf(CF)).
 
 
 tag_cf(CF) :- 

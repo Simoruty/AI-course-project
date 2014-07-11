@@ -2,6 +2,7 @@ package it.uniba.di.ia.ius.gui;
 
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
 import it.uniba.di.ia.ius.prologAPI.JPLInterface;
+import it.uniba.di.ia.ius.prologAPI.NoVariableException;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -9,9 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 public class MainWindow {
 
@@ -127,16 +126,31 @@ public class MainWindow {
         pi.statisfied("start", null);
 
 
-        java.util.List<Map<String, String>> listMap = null;
-        for (String s : daElaborare) {
-            listMap = pi.allSolutions(s, Arrays.asList("X"));
+//        java.util.List<Map<String, String>> listMap = null;
+//        for (String s : daElaborare) {
+//            listMap = pi.allSolutions(s, Arrays.asList("X"));
+//
+//            for (Map<String, String> solution : listMap) {
+//                System.out.println(solution.get("X"));
+//            }
+//        }
 
-            for (Map<String, String> solution : listMap) {
-                System.out.println(solution.get("X"));
+        java.util.List<String> daFare = new ArrayList<String>(11);
+        daFare.add("comune");
+        daFare.add("tel");
+
+        Map<String, String> list=null;
+        for (String s : daFare) {
+            try {
+                list = pi.oneSolution(s, Arrays.asList("X"));
+            } catch (NoVariableException e) {
+                e.printStackTrace();
             }
         }
 
-
+        for (String s : list.keySet()) {
+            System.out.println(list.get(s));
+        }
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
         pi.close();
