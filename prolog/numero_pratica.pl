@@ -1,6 +1,7 @@
 :- module( numero_pratica, [
                              numero_pratica/1
                            , numero_pratica/2
+                           , allNumero_pratica/1
                            , tag_numero_pratica/0
                            ] ).
 
@@ -8,12 +9,14 @@
 :- use_module(data).
 :- use_module(valuta).
 
-
 numero_pratica(Num) :-
     kb:tag(_, numero_pratica(Num)).
 
 numero_pratica(IDTag, Num) :-
     kb:tag(IDTag, numero_pratica(Num)).
+
+allNumero_pratica(ListaNumeri_pratica) :-
+    findall((IDTag,Num) ,kb:tag(IDTag, numero_pratica(Num)), ListaNumeri_pratica).
 
 tag_numero_pratica :-
     \+kb:vuole(numero_pratica), !.

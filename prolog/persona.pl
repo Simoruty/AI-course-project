@@ -1,15 +1,21 @@
 :- module( persona, [ nome/1
                     , nome/2
+                    , allNomi/1
                     , cognome/1
                     , cognome/2
+                    , allCognomi/1
                     , persona/2
                     , persona/3
+                    , allPersone/1
                     , soggetto/2
                     , soggetto/3
+                    , allSoggetti/1
                     , giudice/2
                     , giudice/3
+                    , allGiudici/1
                     , curatore/2
                     , curatore/3
+                    , allCuratori/1
                     , tag_nome/0
                     , tag_cognome/0
                     , tag_persona/0
@@ -48,6 +54,24 @@ giudice(IDTag, Cognome, Nome) :-
     kb:tag(IDTag, giudice(Cognome, Nome)).
 curatore(IDTag, Cognome, Nome) :-
     kb:tag(IDTag, curatore(Cognome, Nome)).
+
+allPersone(ListaPersone) :-
+    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, persona(Cognome,Nome)), ListaPersone).
+
+allCognomi(ListaCognomi) :-
+    findall((IDTag, Cognome) ,kb:tag(IDTag, cognome(Cognome)), ListaCognomi).
+
+allNomi(ListaNomi) :-
+    findall((IDTag, Nome) ,kb:tag(IDTag, nome(Nome)), ListaNomi).
+
+allSoggetti(ListaSoggetti) :-
+    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, soggetto(Cognome, Nome)), ListaSoggetti).
+
+allGiudici(ListaGiudici) :-
+    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, giudice(Cognome, Nome)), ListaGiudici).
+
+allCuratori(ListaCuratori) :-
+    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, curatore(Cognome, Nome)), ListaCuratori).
 
 tag_persona :-
     \+kb:vuole(persona), !.

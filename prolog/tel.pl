@@ -2,6 +2,7 @@
             [ tag_tel/0
             , tel/1
             , tel/2
+            , allTel/1
             ] 
 ).
 
@@ -14,6 +15,9 @@ tel(Tel) :-
 
 tel(IDTag, Tel) :-
     kb:tag(IDTag, tel(Tel)).
+
+allTel(ListaTel) :-
+    findall((IDTag, Tel) ,kb:tag(IDTag, tel(Tel)), ListaTel).
 
 tag_tel :-     
     \+kb:vuole(tel),!.

@@ -2,6 +2,7 @@
             [ tag_cf/0
             , cf/1
             , cf/2
+            , allCf/1
             ] 
 ).
 
@@ -14,8 +15,8 @@ cf(CF) :-
 cf(IDTag,CF) :-
     kb:tag(IDTag, cf(CF)).
 
-allCf(Cf,ListaCF) :-
-    findall(CF ,kb:tag(_, cf(CF)), ListaCF).
+allCf(ListaCF) :-
+    findall((IDTag,CF) ,kb:tag(IDTag, cf(CF)), ListaCF).
 
 tag_cf :-
     \+kb:vuole(cf),!.
