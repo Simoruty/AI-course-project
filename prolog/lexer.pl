@@ -117,7 +117,7 @@ strip_spaces([X|Xs],[X|Ys]) :-
 	strip_spaces(Xs,Ys).
 
 
-strip_sep( [], [] ).
+strip_sep( [], [] ) :- !.
 strip_sep( [''|Xs], Ys ) :-
     !,
     strip_sep(Xs, Ys).
