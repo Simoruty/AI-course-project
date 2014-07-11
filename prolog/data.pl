@@ -4,6 +4,9 @@
           , mese/1
           , anno/1
           , tag_data/0
+          , tag_giorno/0
+          , tag_mese/0
+          , tag_anno/0
           ]
 ).
 
