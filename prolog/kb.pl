@@ -1,7 +1,7 @@
 :- module( kb, [ stessa_frase/2
                , token/1
                , tag/1
-               , fatto/1
+               , tag/2
                , request/0
                , writeKB/0
                , writeKB/1
@@ -9,10 +9,14 @@
                , explainKB/0
                , lista_parole/1
                , assertFact/1
+               , assertTag/3
                , assertTag/4
+               , assertTag/5
                , nextIDTag/1
                , vicini/2
                , distanza/3
+               , vuole/1
+               , fatto/1
                ]
 ).
 
@@ -25,14 +29,14 @@ lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
 set_vuole(Lista) :-
     forall(member(X, Lista), (asserta(kb:vuole(X))) ).
 
-:- set_vuole([cf, mail, tel, comune, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]), 
-    asserta(fatto('-1')), 
-    asserta(kb:tag(prova,'prova')),
-    asserta(kb:spiega(prova,'prova')), 
-    asserta(kb:dipende_da(prova,prova)).
+:-  set_vuole([cf, comune, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]),
+    asserta(fatto(x)),
+    asserta(kb:tag(x,y)),
+    asserta(kb:spiega(x,y)),
+    asserta(kb:dipende_da(x,y)).
 %:- set_vuole([persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
-expandKB :- 
+expandKB :-
     comune:tag_comune,
     cf:tag_cf,
     mail:tag_mail,
@@ -47,7 +51,7 @@ expandKB :-
     true.
 
 explainKB:-
-    findall((Tag,Spiegazione), (kb:tag(IDTag, Tag),kb:spiega(IDTag,Spiegazione)), ListaSpiegazioni),
+    findall((Tag,Spiegazione), (kb:tag(IDTag, Tag),spiega(IDTag,Spiegazione)), ListaSpiegazioni),
     write('SPIEGAZIONI: '), write(ListaSpiegazioni),nl.
 
 writeKB :-
@@ -93,14 +97,14 @@ mapChoice(12,[comune, cf, mail, tel, persona, data, soggetto, curatore, giudice,
 writeKB( [T1|[]], Num ) :-
     atom_number(AtomNum1,Num),
     atom_concat('t',AtomNum1, IDToken1),
-    assertz(token(IDToken1, T1)),
+    assertz(kb:token(IDToken1, T1)),
     IDEOF is Num+1,
     atom_number(AtomIDEOF,IDEOF),
     atom_concat('t',AtomIDEOF, IDTokenEOF),
-    asserta(token('t0', 'BOF')),
-    asserta(next('t0', 't1')),
-    assertz(token(IDTokenEOF, 'EOF')),
-    assertz(next(IDToken1, IDTokenEOF)).
+    asserta(kb:token('t0', 'BOF')),
+    asserta(kb:next('t0', 't1')),
+    assertz(kb:token(IDTokenEOF, 'EOF')),
+    assertz(kb:next(IDToken1, IDTokenEOF)).
 
 writeKB( [ T1,T2 | Xs ], Num) :-
     atom_number(AtomNum1,Num),
@@ -108,9 +112,9 @@ writeKB( [ T1,T2 | Xs ], Num) :-
     atom_number(AtomNum2,Temp),
     atom_concat('t',AtomNum1, IDToken1),
     atom_concat('t',AtomNum2, IDToken2),
-    assertz(token(IDToken1, T1)),
-    %assertFact(token(IDToken2, T2)),
-    assertz(next(IDToken1, IDToken2)),
+    assertz(kb:token(IDToken1, T1)),
+    %assertFact(kb:token(IDToken2, T2)),
+    assertz(kb:next(IDToken1, IDToken2)),
     writeKB( [T2|Xs], Temp).
 
 assertFact(Fact):-
@@ -123,7 +127,7 @@ assertTag(Tag, Spiegazione, Dipendenze) :-
     nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
-    assertFact(tag(IDTag, Tag)),
+    assertFact(kb:tag(IDTag, Tag)),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
@@ -136,9 +140,9 @@ assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
     nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
-    assertFact(tag(IDTag, Tag)),
-    forall( member( Precedente, ListaPrecedenti ), ( assertFact(next(Precedente, IDTag)) ) ),
-    forall( member( Successivo, ListaSuccessivi ), ( assertFact(next(IDTag, Successivo)) ) ),
+    assertFact(kb:tag(IDTag, Tag)),
+    forall( member( Precedente, ListaPrecedenti ), ( assertFact(kb:next(Precedente, IDTag)) ) ),
+    forall( member( Successivo, ListaSuccessivi ), ( assertFact(kb:next(IDTag, Successivo)) ) ),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
@@ -151,24 +155,24 @@ spiega(IDTag) :-
     forall( member(D, Dipendenze), (spiega(D)) ).
 
 
-token(IDToken) :- token(IDToken, _).
-tag(IDTag) :- tag(IDTag, _).
-nextIDTag(ID) :- findall(X, tag(X), List), length(List, Ntag), ID is Ntag.
+token(IDToken) :- kb:token(IDToken, _).
+tag(IDTag) :- kb:tag(IDTag, _).
+nextIDTag(ID) :- findall(X, kb:tag(X), List), length(List, Ntag), ID is Ntag.
 
 
-newline(ID) :- token(ID, '\n').
+newline(ID) :- kb:token(ID, '\n').
 
-vicini(ID1, ID2) :- next(ID1, ID2).
-vicini(ID1, ID2) :- next(ID2, ID1).
+vicini(ID1, ID2) :- kb:next(ID1, ID2).
+vicini(ID1, ID2) :- kb:next(ID2, ID1).
 
 seguente_in_frase(ID1, ID2) :-
-    next(ID1, ID2),
+    kb:next(ID1, ID2),
     \+newline(ID1),
     \+newline(ID2),
     !.
 
 seguente_in_frase(ID1, ID2) :-
-    next(ID1, ID3),
+    kb:next(ID1, ID3),
     \+newline(ID1),
     \+newline(ID2),
     \+newline(ID3),
@@ -178,9 +182,9 @@ seguente_in_frase(ID1, ID2) :-
 
 %TODO da sistemare
 distanza(ID1, ID2, 0) :-
-    next(ID1, ID2), !.
+    kb:next(ID1, ID2), !.
 distanza(ID1, ID2, Dist) :-
-    next(ID1, ID3),
+    kb:next(ID1, ID3),
     distanza(ID3,ID2, Temp),
     Dist is Temp+1.
 

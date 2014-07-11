@@ -15,8 +15,10 @@
 :- use_module(lexer).
 :- use_module(kb).
 
-tag_richiesta_valuta :- \+kb:vuole(richiesta_valuta), !.
-tag_richiesta_valuta :- kb:fatto(richiesta_valuta), !.
+tag_richiesta_valuta :-
+    \+kb:vuole(richiesta_valuta), !.
+tag_richiesta_valuta :-
+    kb:fatto(richiesta_valuta), !.
 tag_richiesta_valuta :-
     tag_valuta,
     tag_tipologia,
@@ -24,7 +26,8 @@ tag_richiesta_valuta :-
     asserta(kb:fatto(richiesta_valuta)).
 
 
-tag_valuta :- kb:fatto(valuta), !.
+tag_valuta :-
+    kb:fatto(valuta), !.
 tag_valuta :-
     tag_simbolo_valuta,
     tag_numero,
@@ -32,17 +35,20 @@ tag_valuta :-
     asserta(kb:fatto(valuta)).
 
 
-tag_simbolo_valuta :- kb:fatto(simbolo_valuta), !.
+tag_simbolo_valuta :-
+    kb:fatto(simbolo_valuta), !.
 tag_simbolo_valuta :-
     findall(_, tag_simbolo_valuta(_), _),
     asserta(kb:fatto(simbolo_valuta)).
 
-tag_numero :- kb:fatto(numero), !.
+tag_numero :-
+    kb:fatto(numero), !.
 tag_numero :-
     findall(_, tag_numero(_), _),
     asserta(kb:fatto(numero)).
 
-tag_tipologia :- kb:fatto(tipologia), !.
+tag_tipologia :-
+    kb:fatto(tipologia), !.
 tag_tipologia :-
     findall(_, tag_tipologia(_), _),
     asserta(kb:fatto(tipologia)).
@@ -66,7 +72,7 @@ tag_simbolo_valuta(Valuta) :-
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[SIMBOLO VALUTA] Nel documento e’ presente il simbolo',Token],' ',Spiegazione),
-    kb:assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
+    assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
 
 std_valuta('€', '€').
 std_valuta('euro', '€').
@@ -81,7 +87,7 @@ tag_numero(Num) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NUMERO] Nel documento e’ presente il numero',Num],' ',Spiegazione),
-    kb:assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_tipologia(Tipologia) :- 
     kb:token(IDToken, Token),
@@ -89,7 +95,7 @@ tag_tipologia(Tipologia) :-
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPOLOGIA] Nel documento e’ presente il termine',Token],' ',Spiegazione),
-    kb:assertTag(tipologia(Tipologia), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(tipologia(Tipologia), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 std_tipologia('chirografario', 'chirografario').
 std_tipologia('chirografaria', 'chirografario').
@@ -113,7 +119,7 @@ tag_valuta(Moneta, Simbolo) :-
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Nel documento e’ presente il numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
+    assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_valuta(Moneta, Simbolo) :-
     kb:tag(IDTag1, numero(Moneta)),
@@ -123,12 +129,12 @@ tag_valuta(Moneta, Simbolo) :-
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Nel documento e’ presente il numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
+    assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_richiesta_valuta(Moneta, Simbolo, Tipologia) :-
     kb:tag(IDTag1, tipologia(Tipologia)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
-    kb:stessa_frase(IDTag1, IDTag2),
+    stessa_frase(IDTag1, IDTag2),
     atomic_list_concat(['[RICHIESTA VALUTA] Nel documento e’ presente nella stessa frase la valuta',Moneta,Simbolo,'e il termine',Tipologia],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:assertTag(richiesta_valuta(Moneta, Simbolo, Tipologia) , Spiegazione, Dipendenze).
+    assertTag(richiesta_valuta(Moneta, Simbolo, Tipologia) , Spiegazione, Dipendenze).

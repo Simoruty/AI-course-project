@@ -18,38 +18,44 @@
 :- use_module(kb).
 
 
-tag_persona :- \+kb:vuole(persona), !.
-tag_persona :- kb:fatto(persona), !.
+tag_persona :-
+    \+kb:vuole(persona), !.
+tag_persona :-
+    kb:fatto(persona), !.
 tag_persona :-
     tag_cognome,
     tag_nome,
     findall((X,Y), tag_persona(X,Y), _),
     asserta(kb:fatto(persona)).
 
-tag_cognome :- kb:fatto(cognome), !.
+tag_cognome :-
+    kb:fatto(cognome), !.
 tag_cognome :- 
     findall(X, tag_cognome(X), _),
     asserta(kb:fatto(cognome)).
 
-tag_nome :- kb:fatto(nome), !.
+tag_nome :-
+    kb:fatto(nome), !.
 tag_nome :- 
     findall(X, tag_nome(X), _),
     asserta(kb:fatto(nome)).
 
-
-tag_soggetto :- kb:fatto(soggetto), !.
+tag_soggetto :-
+    kb:fatto(soggetto), !.
 tag_soggetto :- 
     tag_persona,
     findall((C,N), tag_soggetto(C,N), _),
     asserta(kb:fatto(soggetto)).
 
-tag_curatore :- kb:fatto(curatore), !.
+tag_curatore :-
+    kb:fatto(curatore), !.
 tag_curatore :- 
     tag_persona,
     findall((C,N), tag_curatore(C,N), _),
     asserta(kb:fatto(curatore)).
 
-tag_giudice :- kb:fatto(giudice), !.
+tag_giudice :-
+    kb:fatto(giudice), !.
 tag_giudice :- 
     tag_persona,
     findall((C,N), tag_giudice(C,N), _),
@@ -81,7 +87,7 @@ tag_nome(Nome) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NOME] Nel documento e’ presente',Nome],' ',Spiegazione),
-    kb:assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_nome(Nome) :- 
     kb:next(IDToken1, IDToken2),
@@ -92,7 +98,7 @@ tag_nome(Nome) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NOME] Nel documento e’ presente',Nome],' ',Spiegazione),
-    kb:assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_nome(Nome) :- 
     kb:token(IDToken1, Nome),
@@ -100,7 +106,7 @@ tag_nome(Nome) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NOME] Nel documento e’ presente',Nome],' ',Spiegazione),
-    kb:assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 tag_cognome(Cognome) :- 
@@ -112,7 +118,7 @@ tag_cognome(Cognome) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COGNOME] Nel documento e’ presente',Cognome],' ',Spiegazione),
-    kb:assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_cognome(Cognome) :- 
     kb:token(IDToken1, Cognome),
@@ -120,7 +126,7 @@ tag_cognome(Cognome) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COGNOME] Nel documento e’ presente',Cognome],' ',Spiegazione),
-    kb:assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_persona(C, N) :-
     kb:tag(IDTag1, cognome(C)),
@@ -131,7 +137,7 @@ tag_persona(C, N) :-
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[PERSONA] Nel documento e’ presente',C,N],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:assertTag(persona(C, N), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
+    assertTag(persona(C, N), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_persona(C, N) :-
     kb:tag(IDTag1, cognome(C)),
@@ -142,7 +148,7 @@ tag_persona(C, N) :-
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[PERSONA] Nel documento e’ presente',C,N],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:assertTag(persona(C, N), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
+    assertTag(persona(C, N), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 
 nome_kb(A,B,C) :- 
@@ -168,28 +174,28 @@ tag_soggetto(C,N) :-
     kb:tag(IDTag, persona(C,N)),
     kb:token(IDToken, Token),
     soggetto(Token),
-    kb:stessa_frase(IDToken, IDTag),
+    stessa_frase(IDToken, IDTag),
 %    !,    
     atomic_list_concat(['[SOGGETTO] Nel documento e’ presente il termine',Token,'e la persona',C,N,'all’interno della stessa frase'],' ',Spiegazione),
-    kb:assertTag(soggetto(C,N), Spiegazione, [IDTag]).
+    assertTag(soggetto(C,N), Spiegazione, [IDTag]).
 
 tag_curatore(C,N) :-
     kb:tag(IDTag, persona(C,N)),
     kb:token(IDToken, Token),
     curatore(Token),
-    kb:stessa_frase(IDToken, IDTag),
+    stessa_frase(IDToken, IDTag),
 %    !,
     atomic_list_concat(['[CURATORE] Nel documento e’ presente il termine',Token,'e la persona',C,N,'all’interno della stessa frase'],' ',Spiegazione),
-    kb:assertTag(curatore(C,N), Spiegazione, [IDTag]).
+    assertTag(curatore(C,N), Spiegazione, [IDTag]).
 
 tag_giudice(C,N) :-
     kb:tag(IDTag, persona(C,N)),
     kb:token(IDToken, Token),
     giudice(Token),
-    kb:stessa_frase(IDToken, IDTag),
+    stessa_frase(IDToken, IDTag),
 %    !,
     atomic_list_concat(['[GIUDICE] Nel documento e’ presente il termine',Token,'e la persona',C,N,'all’interno della stessa frase'],' ',Spiegazione),
-    kb:assertTag(giudice(C,N), Spiegazione, [IDTag]).
+    assertTag(giudice(C,N), Spiegazione, [IDTag]).
 
 soggetto('sottoscritto').
 soggetto('sottoscritta').
