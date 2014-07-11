@@ -8,8 +8,15 @@
 :- use_module(lexer).
 :- consult('tel_kb').
 
-tag_tel :- kb:fatto(tel),!.
-tag_tel :- findall(_Tel, tag_tel(_Tel), _), asserta(kb:fatto(tel)).
+tag_tel :-     
+    \+kb:vuole(tel),!.
+
+tag_tel :-     
+    kb:fatto(tel),!.
+
+tag_tel :- 
+    findall(_Tel, tag_tel(_Tel), _), 
+    asserta(kb:fatto(tel)).
 
 tel(Tel) :-
     kb:tag(_, tel(Tel)).
