@@ -38,4 +38,4 @@ tag_numero_pratica(X) :-
 
     atomic_list_concat(['[NUMERO PRATICA] Nel documento è presente `n` ', N, '/', A],'',Spiegazione),
     Dipendenze = [IDTag1, IDTag2],
-    kb:assertTag(numero_pratica(X), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).    
+    assertTag(numero_pratica(X), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).    

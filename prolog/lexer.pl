@@ -25,21 +25,6 @@ lexer(String,ListToken) :-
 	maplist(downcase_atom, Temp5, Temp6),
     strip_sep(Temp6, ListToken).
 
-strip_sep( [], [] ).
-strip_sep( ['.'|Xs], Ys ) :-
-    !,
-    strip_sep(Xs, Ys).
-strip_sep( [X|Xs], [Y|Ys] ) :-
-    atom_length(X, L),
-    Start is L-1,
-    sub_atom(X, Start, 1, _, '.'),
-    Len is L-1,
-    sub_atom(X, 0, Len, _, Y),
-    !,
-    strip_sep(Xs, Ys).
-strip_sep( [X|Xs], [X|Ys] ) :-
-    strip_sep(Xs, Ys).
-
 atom_is_number(X):-
 	atom(X),
 	atom_codes(X,String),

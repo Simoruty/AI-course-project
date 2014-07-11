@@ -13,7 +13,7 @@ tag_cf :-
 tag_cf :- 
     kb:fatto(cf),!.
 tag_cf :- 
-    findall(_CF, tag_cf(_CF), _), 
+    findall(CF, tag_cf(CF), _),
     asserta(kb:fatto(cf)).
 
 cf(CF) :-
@@ -26,7 +26,7 @@ tag_cf(CF) :-
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[CODICE FISCALE] Nel documento e’ presente',CF],' ',Spiegazione),
-    kb:assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(cf(CF), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 check_cf(Atom) :-

@@ -33,4 +33,4 @@ tag_mail(Mail) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[MAIL] Nel documento e’ presente',Mail],' ',Spiegazione),
-    kb:assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(mail(Mail), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
