@@ -130,11 +130,12 @@ public class MainWindow {
         java.util.List<Map<String, String>> listMap = null;
         for (String s : daElaborare) {
             listMap = pi.allSolutions(s, Arrays.asList("X"));
+
+            for (Map<String, String> solution : listMap) {
+                System.out.println(solution.get("X"));
+            }
         }
 
-        for (Map<String, String> solution : listMap) {
-            System.out.println(solution.get("X"));
-        }
 
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
