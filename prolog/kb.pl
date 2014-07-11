@@ -20,17 +20,11 @@
 
 lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
 
-vuole(comune).
-vuole(cf).
-vuole(mail).
-vuole(tel).   
-vuole(persona).    
-vuole(data).
-vuole(soggetto).
-vuole(curatore).
-vuole(giudice).
-vuole(richiesta_valuta).
-vuole(numero_pratica).
+
+set_vuole(Lista) :-
+    forall(member(X, Lista), (asserta(kb:vuole(X))) ).
+
+:- set_vuole([cf, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 expandKB :- 
     comune:tag_comune,
