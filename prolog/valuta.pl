@@ -65,7 +65,7 @@ tag_simbolo_valuta(Valuta) :-
     std_valuta(Token, Valuta),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NUMERO] Nel documento e’ presente il simbolo',Token],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO VALUTA] Nel documento e’ presente il simbolo',Token],' ',Spiegazione),
     kb:assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
 
 std_valuta('€', '€').

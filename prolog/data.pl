@@ -3,16 +3,46 @@
           , giorno/1
           , mese/1
           , anno/1
+          , tag_data/0
+          , tag_giorno/0
+          , tag_mese/0
+          , tag_anno/0
           ]
 ).
 
 :- use_module(kb).
 :- use_module(lexer).
 
+
+tag_data :- kb:fatto(data),!.
+tag_data :- tag_giorno,tag_mese,tag_anno, findall((_G,_M,_A), tag_data(_G,_M,_A), _), asserta(kb:fatto(data)).
+
+tag_giorno :- kb:fatto(giorno),!.
+tag_giorno :- findall(_G, tag_giorno(_G), _), asserta(kb:fatto(giorno)).
+
+tag_mese :- kb:fatto(mese),!.
+tag_mese :- findall(_M), tag_mese(_M), _), asserta(kb:fatto(mese)).
+
+tag_anno :- kb:fatto(anno),!.
+tag_anno :- findall(_A, tag_anno(_A), _), asserta(kb:fatto(anno)).
+
+
 separatore_data('/').
 separatore_data('-').
 
-giorno(N) :-
+data(G,M,A) :-
+    kb:tag(_, data(G,M,A)).
+
+giorno(G) :-
+    kb:tag(_, giorno(G)).
+
+mese(M) :-
+    kb:tag(_, mese(M)).
+
+anno(A) :-
+    kb:tag(_, anno(A)).
+
+tag_giorno(N) :-
     kb:token(IDToken, Token),
     atom_is_number(Token),
     atom_number(Token, N), 
@@ -23,7 +53,7 @@ giorno(N) :-
     atomic_list_concat(['[GIORNO] Il numero ',Token,' puo’ essere un giorno'],'',Spiegazione),
     kb:assertTag(giorno(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-anno(N) :-
+tag_anno(N) :-
     kb:token(IDToken, Token),
     atom_is_number(Token),
     atom_number(Token, N), 
@@ -34,7 +64,7 @@ anno(N) :-
     atomic_list_concat(['[ANNO] Il numero ',Token,' puo’ essere un anno'],'',Spiegazione),
     kb:assertTag(anno(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-anno(N) :-
+tag_anno(N) :-
     kb:token(IDToken, Token),
     atom_is_number(Token),
     atom_number(Token, N), 
@@ -45,7 +75,7 @@ anno(N) :-
     atomic_list_concat(['[ANNO] Il numero ',Token,' puo’ essere un anno'],'',Spiegazione),
     kb:assertTag(anno(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-mese(N) :- 
+tag_mese(N) :- 
     kb:token(IDToken, Token), 
     numero_mese(Token, N),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
@@ -53,8 +83,7 @@ mese(N) :-
     atomic_list_concat(['[MESE] La stringa ', Token,' puo’ essere un mese'],'',Spiegazione),
     kb:assertTag(mese(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-
-data(G,M,A) :-
+tag_data(G,M,A) :-
     kb:tag(IDTag1, giorno(G)),
     kb:tag(IDTag2, mese(M)),
     kb:tag(IDTag3, anno(A)),
@@ -72,7 +101,7 @@ data(G,M,A) :-
     Dipendenze = [IDTag1, IDTag2, IDTag3],
     kb:assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
-data(G,M,A) :-
+tag_data(G,M,A) :-
     kb:tag(IDTag1, giorno(G)),
     kb:tag(IDTag2, mese(M)),
     kb:tag(IDTag3, anno(A)),

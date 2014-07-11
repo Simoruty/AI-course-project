@@ -1,11 +1,19 @@
-:- module( mail, [mail/1] ).
+:- module( mail, 
+            [ tag_mail/0
+            , mail/1
+            ] 
+).
 
 :- use_module(lexer).
-:- use_module(library(lists)).
-:- use_module(library(apply)).
 :- use_module(kb).
 
+tag_mail :- kb:fatto(mail),!.
+tag_mail :- findall(_Mail, tag_mail(_Mail), _), asserta(kb:fatto(mail)).
+
 mail(Mail) :-
+    kb:tag(_, mail(Mail)).
+
+tag_mail(Mail) :-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
 
