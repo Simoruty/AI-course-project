@@ -21,7 +21,7 @@ tag_giorno :- kb:fatto(giorno),!.
 tag_giorno :- findall(_G, tag_giorno(_G), _), asserta(kb:fatto(giorno)).
 
 tag_mese :- kb:fatto(mese),!.
-tag_mese :- findall(_M), tag_mese(_M), _), asserta(kb:fatto(mese)).
+tag_mese :- findall(_M, tag_mese(_M), _), asserta(kb:fatto(mese)).
 
 tag_anno :- kb:fatto(anno),!.
 tag_anno :- findall(_A, tag_anno(_A), _), asserta(kb:fatto(anno)).

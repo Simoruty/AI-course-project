@@ -15,45 +15,44 @@
 
 :- consult('persona_kb.pl').
 
+:- use_module(kb).
+
 
 tag_persona :- kb:fatto(persona), !.
 tag_persona :-
     tag_cognome,
     tag_nome,
     findall((X,Y), tag_persona(X,Y), _),
-    asserta(fatto(persona)).
+    asserta(kb:fatto(persona)).
 
 tag_cognome :- kb:fatto(cognome), !.
 tag_cognome :- 
     findall(X, tag_cognome(X), _),
-    asserta(fatto(cognome)).
+    asserta(kb:fatto(cognome)).
 
 tag_nome :- kb:fatto(nome), !.
 tag_nome :- 
     findall(X, tag_nome(X), _),
-    asserta(fatto(nome)).
+    asserta(kb:fatto(nome)).
 
 
 tag_soggetto :- kb:fatto(soggetto), !.
 tag_soggetto :- 
     tag_persona,
     findall((C,N), tag_soggetto(C,N), _),
-    asserta(fatto(soggetto)).
+    asserta(kb:fatto(soggetto)).
 
-tag_curatore
 tag_curatore :- kb:fatto(curatore), !.
 tag_curatore :- 
     tag_persona,
     findall((C,N), tag_curatore(C,N), _),
-    asserta(fatto(curatore)).
+    asserta(kb:fatto(curatore)).
 
-
-tag_giudice
 tag_giudice :- kb:fatto(giudice), !.
 tag_giudice :- 
     tag_persona,
     findall((C,N), tag_giudice(C,N), _),
-    asserta(fatto(giudice)).
+    asserta(kb:fatto(giudice)).
 
 
 persona(Cognome, Nome) :-

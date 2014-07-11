@@ -4,6 +4,8 @@
                            ] ).
 
 :- use_module(kb).
+:- use_module(data).
+:- use_module(valuta).
 
 
 numero_pratica(Num) :-

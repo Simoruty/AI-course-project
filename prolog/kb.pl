@@ -1,45 +1,49 @@
 :- module( kb, [ stessa_frase/2
-                       , token/1
-                       , tag/1
-                       , writeKB/0
-                       , writeKB/1
-                       , expandKB/0
-                       , explainKB/0
-                       , lista_parole/1
-                       , assertFact/1
-                       , assertTag/2
-                       , assertTag/4
-                       , nextIDTag/1
-                       , vicini/2
-                       , distanza/3
-                       ]
+               , token/1
+               , tag/1
+               , writeKB/0
+               , writeKB/1
+               , expandKB/0
+               , explainKB/0
+               , lista_parole/1
+               , assertFact/1
+               , assertTag/2
+               , assertTag/4
+               , nextIDTag/1
+               , vicini/2
+               , distanza/3
+               ]
 ).
 
 :- use_module(library(lists)).
 :- use_module(lexer).
-:- use_module(comune).
-:- use_module(cf).
-:- use_module(persona).
-:- use_module(mail).
-:- use_module(data).
-:- use_module(tel).
-:- use_module(valuta).
-:- use_module(numero_pratica).
 
 lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
 
+vuole(comune).
+vuole(cf).
+vuole(mail).
+vuole(tel).   
+vuole(persona).    
+vuole(data).
+vuole(soggetto).
+vuole(curatore).
+vuole(giudice).
+vuole(richiesta_valuta).
+vuole(numero_pratica).
+
 expandKB :- 
-    tag_comune,
-    tag_cf,
-    tag_mail,
-    tag_tel,    
-    tag_persona,    
-    tag_data,
-    tag_soggetto,
-    tag_curatore,
-    tag_giudice,
-    tag_richiesta_valuta,
-    tag_numero_pratica,
+    comune:tag_comune,
+    cf:tag_cf,
+    mail:tag_mail,
+    tel:tag_tel,    
+    persona:tag_persona,    
+    data:tag_data,
+    persona:tag_soggetto,
+    persona:tag_curatore,
+    persona:tag_giudice,
+    valuta:tag_richiesta_valuta,
+    numero_pratica:tag_numero_pratica,
     true.
 
 explainKB:-
@@ -47,11 +51,12 @@ explainKB:-
     write('SPIEGAZIONI: '), write(ListaSpiegazioni),nl.
 
 writeKB :-
-    writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini n. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nindirizzo mail luciano.quercia@gmail.com\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122,50 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9 giugno 2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
+    writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini n. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nindirizzo mail luciano.quercia@gmail.com\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122.50 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9 giugno 2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
 %    writeKB("Totale avere 122,50 €. ciao.\n 23 febbraio 1988\n 23/2/2000\ngiovanni simone curatore cataldo quercia\nQRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J\nil sottoscritto / a Quercia Luciano\nQuercia Luciano giudice\n").
 
-writeKB(String) :-
-    asserta(documento(String)),    
+writeKB(Documento) :-
+    to_string(Documento, Stringa), % lets user be free to write atom or strings
+    asserta(documento(Stringa)),    
     lista_parole( Lista ),
     writeKB(Lista, 1).
 
