@@ -14,7 +14,7 @@ tag_mail :-
     kb:fatto(mail),!.
 
 tag_mail :- 
-    findall(_Mail, tag_mail(_Mail), _), 
+    findall(_Mail, tag_mail(_), _), 
     asserta(kb:fatto(mail)).
 
 mail(Mail) :-

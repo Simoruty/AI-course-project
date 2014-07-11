@@ -23,8 +23,10 @@ main :-
     write('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'),nl,nl,    
 
     write('Inserisci il testo del documento: '),nl,nl,
-    read(Documento),
-    writeKB(Documento), %TODO Forse working memory
+  %  read(Documento),
+   % writeKB(Documento), %TODO Forse working memory
+    writeKB,   
+% request,
     expandKB,
 %    explainKB,
     true.

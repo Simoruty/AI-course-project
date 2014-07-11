@@ -7,9 +7,9 @@
 
 
 tag_comune :-
-    \+kb:vuole(comune),!.
-tag_comune :-
-    kb:fatto(comune),!.
+    \+kb:vuole(comune), !.
+tag_comune :- 
+    kb:fatto(comune), !.
 tag_comune :-
     findall(X, tag_comune(X), _),
     asserta(kb:fatto(comune)).

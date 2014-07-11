@@ -22,7 +22,7 @@ tag_richiesta_valuta :-
 tag_richiesta_valuta :-
     tag_valuta,
     tag_tipologia,
-    findall((_A,_B,_C), tag_richiesta_valuta(_A,_B,_C), _),
+    findall((_,_,_), tag_richiesta_valuta(_,_,_), _),
     asserta(kb:fatto(richiesta_valuta)).
 
 
@@ -31,26 +31,26 @@ tag_valuta :-
 tag_valuta :-
     tag_simbolo_valuta,
     tag_numero,
-    findall((_X,_Y), tag_valuta(_X,_Y), _),
+    findall((_,_), tag_valuta(_,_), _),
     asserta(kb:fatto(valuta)).
 
 
 tag_simbolo_valuta :-
     kb:fatto(simbolo_valuta), !.
 tag_simbolo_valuta :-
-    findall(_X, tag_simbolo_valuta(_X), _),
+    findall(_, tag_simbolo_valuta(_), _),
     asserta(kb:fatto(simbolo_valuta)).
 
 tag_numero :-
     kb:fatto(numero), !.
 tag_numero :-
-    findall(_X, tag_numero(_X), _),
+    findall(_, tag_numero(_), _),
     asserta(kb:fatto(numero)).
 
 tag_tipologia :-
     kb:fatto(tipologia), !.
 tag_tipologia :-
-    findall(_X, tag_tipologia(_X), _),
+    findall(_, tag_tipologia(_), _),
     asserta(kb:fatto(tipologia)).
 
 tipologia(T) :-

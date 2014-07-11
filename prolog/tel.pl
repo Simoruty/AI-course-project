@@ -15,7 +15,7 @@ tag_tel :-
     kb:fatto(tel),!.
 
 tag_tel :- 
-    findall(_Tel, tag_tel(_Tel), _), 
+    findall(_, tag_tel(_), _), 
     asserta(kb:fatto(tel)).
 
 tel(Tel) :-

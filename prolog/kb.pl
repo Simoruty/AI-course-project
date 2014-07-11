@@ -2,6 +2,7 @@
                , token/1
                , tag/1
                , tag/2
+               , request/0
                , writeKB/0
                , writeKB/1
                , expandKB/0
@@ -33,6 +34,7 @@ set_vuole(Lista) :-
     asserta(kb:tag(x,y)),
     asserta(kb:spiega(x,y)),
     asserta(kb:dipende_da(x,y)).
+%:- set_vuole([persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 expandKB :-
     comune:tag_comune,
@@ -61,6 +63,36 @@ writeKB(Documento) :-
     asserta(documento(Stringa)),    
     lista_parole( Lista ),
     writeKB(Lista, 1).
+
+request :-
+    write('1 - numero_pratica'),nl,
+    write('2 - soggetto'),nl,
+    write('3 - giudice'),nl,
+    write('4 - richiesta_valuta'),nl,
+    write('5 - curatore'),nl,
+    write('6 - comune'),nl,
+    write('7 - codice fiscale'),nl,
+    write('8 - persona'),nl,
+    write('9 - mail'),nl,
+    write('10 - telefono'),nl,
+    write('11 - data'),nl,
+    write('12 - Tutti'),nl,nl,
+    write('Inserisci la scelta: '),
+    read(Scelta),
+    mapChoice(Scelta,Tipo),
+    set_vuole(Tipo).
+
+mapChoice(1,[numero_pratica]).
+mapChoice(2,[soggetto]).
+mapChoice(3,[giudice]).
+mapChoice(4,[richiesta_valuta]).
+mapChoice(5,[curatore]).
+mapChoice(6,[comune]).
+mapChoice(8,[persona]).
+mapChoice(9,[mail]).
+mapChoice(10,[tel]).
+mapChoice(11,[data]).
+mapChoice(12,[comune, cf, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 writeKB( [T1|[]], Num ) :-
     atom_number(AtomNum1,Num),
