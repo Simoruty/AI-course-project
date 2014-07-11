@@ -24,7 +24,7 @@ comune(Comune) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken6, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
-    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione).
+    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -44,9 +44,7 @@ comune(Comune) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
-    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione).
-
-
+    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -64,7 +62,7 @@ comune(Comune) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken4, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
-    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione).
+    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 comune(Comune) :-
@@ -81,22 +79,19 @@ comune(Comune) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
-    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione).
+    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 comune(Comune) :-
     kb:next(IDToken1,IDToken2),
-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
-
     atomic_list_concat([Token1, Token2], ' ', Comune),
     comune_kb(Comune),
-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
-    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione).
+    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 comune(Comune) :-
@@ -106,4 +101,4 @@ comune(Comune) :-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
-    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione).
+    kb:assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).

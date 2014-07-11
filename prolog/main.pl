@@ -30,15 +30,10 @@ main :-
 
 %    extract(ListaTag),
     writeKB, %TODO Forse working memory
-    expandKB.
+    expandKB,
+    explainKB.
 %    nl,write('Informazioni estratte: '), nl,nl,
 %    write(ListaTag),nl.
-
-extract(Lista) :-
-    findall( X, (kb:tag(ID,X)), Lista).
-
-extractS(Lista) :-
-    findall( X, (kb:spiega(ID,X)), Lista).
 
 %extract( ListaTag ) :-
 %    domanda( String ),
