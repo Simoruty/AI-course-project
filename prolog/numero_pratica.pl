@@ -1,5 +1,6 @@
 :- module( numero_pratica, [
                              numero_pratica/1
+                           , numero_pratica/2
                            , tag_numero_pratica/0
                            ] ).
 
@@ -10,6 +11,9 @@
 
 numero_pratica(Num) :-
     kb:tag(_, numero_pratica(Num)).
+
+numero_pratica(IDTag, Num) :-
+    kb:tag(IDTag, numero_pratica(Num)).
 
 tag_numero_pratica :-
     \+kb:vuole(numero_pratica), !.

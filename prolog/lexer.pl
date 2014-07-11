@@ -13,7 +13,10 @@
 :- use_module(library(lists)).
 
 
-to_string(X, Y) :- atom(X), !, atom_codes(X,Y).
+to_string(X, Y) :- 
+    atom(X), 
+    !, 
+    atom_codes(X,Y).
 to_string(X, X).
 
 lexer(String,ListToken) :-
@@ -43,8 +46,10 @@ ascii_char(X):-
     X>=97,
     X=<122.
 
-ascii_id_char(X) :- ascii_char(X), !.
-ascii_id_char(X) :- ascii_number(X), !.
+ascii_id_char(X) :- 
+    ascii_char(X), !.
+ascii_id_char(X) :- 
+    ascii_number(X), !.
 ascii_id_char('_').
 ascii_id_char('-').
 ascii_id_char('.').

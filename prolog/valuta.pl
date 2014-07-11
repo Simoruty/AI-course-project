@@ -1,9 +1,14 @@
 :- module( valuta, [
                       simbolo_valuta/1
+                    , simbolo_valuta/2
                     , numero/1  
+                    , numero/2
                     , tipologia/1
+                    , tipologia/2
                     , valuta/2
+                    , valuta/3
                     , richiesta_valuta/3
+                    , richiesta_valuta/4
                     , tag_simbolo_valuta/0
                     , tag_numero/0
                     , tag_tipologia/0
@@ -14,6 +19,28 @@
 
 :- use_module(lexer).
 :- use_module(kb).
+
+tipologia(T) :-
+    kb:tag(_, tipologia(T)).
+numero(N) :-
+    kb:tag(_, numero(N)).
+simbolo_valuta(S) :-
+    kb:tag(_, simbolo_valuta(S)).
+valuta(M,S) :-
+    kb:tag(_, valuta(M, S)).
+richiesta_valuta(M,S,T) :-
+    kb:tag(_, tipologia(M,S,T)).
+
+tipologia(IDTag, T) :-
+    kb:tag(IDTag, tipologia(T)).
+numero(IDTag, N) :-
+    kb:tag(IDTag, numero(N)).
+simbolo_valuta(IDTag, S) :-
+    kb:tag(IDTag, simbolo_valuta(S)).
+valuta(IDTag, M, S) :-
+    kb:tag(IDTag, valuta(M, S)).
+richiesta_valuta(IDTag, M, S, T) :-
+    kb:tag(IDTag, tipologia(M,S,T)).
 
 tag_richiesta_valuta :-
     \+kb:vuole(richiesta_valuta), !.
@@ -52,19 +79,6 @@ tag_tipologia :-
 tag_tipologia :-
     findall(_, tag_tipologia(_), _),
     asserta(kb:fatto(tipologia)).
-
-tipologia(T) :-
-    kb:tag(_, tipologia(T)).
-numero(N) :-
-    kb:tag(_, numero(N)).
-simbolo_valuta(S) :-
-    kb:tag(_, simbolo_valuta(S)).
-valuta(M,S) :-
-    kb:tag(_, valuta(M, S)).
-richiesta_valuta(M,S,T) :-
-    kb:tag(_, tipologia(M,S,T)).
-
-
 
 tag_simbolo_valuta(Valuta) :- 
     kb:token(IDToken, Token),

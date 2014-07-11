@@ -23,17 +23,18 @@
 :- use_module(library(lists)).
 :- use_module(lexer).
 
-lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
-
+lista_parole(ListaParole) :- 
+    documento(Doc), 
+    lexer(Doc, ListaParole).
 
 set_vuole(Lista) :-
     forall(member(X, Lista), (asserta(kb:vuole(X))) ).
 
-:-  set_vuole([cf, comune, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]),
-    asserta(fatto(x)),
-    asserta(kb:tag(x,y)),
-    asserta(kb:spiega(x,y)),
-    asserta(kb:dipende_da(x,y)).
+:-  set_vuole([cf, comune, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
+:-    asserta(fatto(x)).
+:-    asserta(kb:tag(x,y)).
+:-    asserta(kb:spiega(x,y)).
+:-    asserta(kb:dipende_da(x,y)).
 %:- set_vuole([persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 expandKB :-
@@ -56,7 +57,6 @@ explainKB:-
 
 writeKB :-
     writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini n. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nindirizzo mail luciano.quercia@gmail.com\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122.50 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9 giugno 2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
-%    writeKB("Totale avere 122,50 €. ciao.\n 23 febbraio 1988\n 23/2/2000\ngiovanni simone curatore cataldo quercia\nQRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J\nil sottoscritto / a Quercia Luciano\nQuercia Luciano giudice\n").
 
 writeKB(Documento) :-
     to_string(Documento, Stringa), % lets user be free to write atom or strings
@@ -155,15 +155,25 @@ spiega(IDTag) :-
     forall( member(D, Dipendenze), (spiega(D)) ).
 
 
-token(IDToken) :- kb:token(IDToken, _).
-tag(IDTag) :- kb:tag(IDTag, _).
-nextIDTag(ID) :- findall(X, kb:tag(X), List), length(List, Ntag), ID is Ntag.
+token(IDToken) :- 
+    kb:token(IDToken, _).
+
+tag(IDTag) :- 
+    kb:tag(IDTag, _).
+
+nextIDTag(ID) :- 
+    findall(X, kb:tag(X), List), 
+    length(List, Ntag), 
+    ID is Ntag.
 
 
-newline(ID) :- kb:token(ID, '\n').
+newline(ID) :- 
+    kb:token(ID, '\n').
 
-vicini(ID1, ID2) :- kb:next(ID1, ID2).
-vicini(ID1, ID2) :- kb:next(ID2, ID1).
+vicini(ID1, ID2) :- 
+    kb:next(ID1, ID2).
+vicini(ID1, ID2) :- 
+    kb:next(ID2, ID1).
 
 seguente_in_frase(ID1, ID2) :-
     kb:next(ID1, ID2),

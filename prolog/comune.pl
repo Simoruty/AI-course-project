@@ -1,4 +1,9 @@
-:- module( comune, [tag_comune/0, comune/1] ).
+:- module( comune, 
+            [tag_comune/0
+            , comune/1
+            , comune/2
+            ] 
+).
 
 :- use_module(kb).
 
@@ -16,6 +21,9 @@ tag_comune :-
 
 comune(Comune) :-
     kb:tag(_, comune(Comune)).
+
+comune(IDTag,Comune) :-
+    kb:tag(IDTag, comune(Comune)).
 
 tag_comune(Comune) :-
     kb:next(IDToken1,IDToken2),

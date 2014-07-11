@@ -1,9 +1,15 @@
 :- module( persona, [ nome/1
+                    , nome/2
                     , cognome/1
+                    , cognome/2
                     , persona/2
+                    , persona/3
                     , soggetto/2
+                    , soggetto/3
                     , giudice/2
+                    , giudice/3
                     , curatore/2
+                    , curatore/3
                     , tag_nome/0
                     , tag_cognome/0
                     , tag_persona/0
@@ -17,6 +23,31 @@
 
 :- use_module(kb).
 
+persona(Cognome, Nome) :-
+    kb:tag(_, persona(Cognome, Nome)).
+cognome(X) :-
+    kb:tag(_, cognome(X)).
+nome(X) :-
+    kb:tag(_, nome(X)).    
+soggetto(Cognome, Nome) :-
+    kb:tag(_, soggetto(Cognome, Nome)).
+giudice(Cognome, Nome) :-
+    kb:tag(_, giudice(Cognome, Nome)).
+curatore(Cognome, Nome) :-
+    kb:tag(_, curatore(Cognome, Nome)).
+
+persona(IDTag, Cognome, Nome) :-
+    kb:tag(IDTag, persona(Cognome, Nome)).
+cognome(IDTag, Cognome) :-
+    kb:tag(IDTag, cognome(Cognome)).
+nome(IDTag, Nome) :-
+    kb:tag(IDTag, nome(Nome)).    
+soggetto(IDTag, Cognome, Nome) :-
+    kb:tag(IDTag, soggetto(Cognome, Nome)).
+giudice(IDTag, Cognome, Nome) :-
+    kb:tag(IDTag, giudice(Cognome, Nome)).
+curatore(IDTag, Cognome, Nome) :-
+    kb:tag(IDTag, curatore(Cognome, Nome)).
 
 tag_persona :-
     \+kb:vuole(persona), !.
@@ -60,21 +91,6 @@ tag_giudice :-
     tag_persona,
     findall((C,N), tag_giudice(C,N), _),
     asserta(kb:fatto(giudice)).
-
-
-persona(Cognome, Nome) :-
-    kb:tag(_, persona(Cognome, Nome)).
-cognome(X) :-
-    kb:tag(_, cognome(X)).
-nome(X) :-
-    kb:tag(_, nome(X)).    
-soggetto(Cognome, Nome) :-
-    kb:tag(_, soggetto(Cognome, Nome)).
-giudice(Cognome, Nome) :-
-    kb:tag(_, giudice(Cognome, Nome)).
-curatore(Cognome, Nome) :-
-    kb:tag(_, curatore(Cognome, Nome)).
-
 
 tag_nome(Nome) :- 
     kb:next(IDToken1, IDToken2),

@@ -1,8 +1,12 @@
 :- module(data,
           [ data/3
+          , data/4
           , giorno/1
+          , giorno/2
           , mese/1
+          , mese/2
           , anno/1
+          , anno/2
           , tag_data/0
           , tag_giorno/0
           , tag_mese/0
@@ -12,6 +16,31 @@
 
 :- use_module(kb).
 :- use_module(lexer).
+
+
+data(G,M,A) :-
+    kb:tag(_, data(G,M,A)).
+
+giorno(G) :-
+    kb:tag(_, giorno(G)).
+
+mese(M) :-
+    kb:tag(_, mese(M)).
+
+anno(A) :-
+    kb:tag(_, anno(A)).
+
+data(IDTag, G, M, A) :-
+    kb:tag(IDTag, data(G,M,A)).
+
+giorno(IDTag, G) :-
+    kb:tag(IDTag, giorno(G)).
+
+mese(IDTag, M) :-
+    kb:tag(IDTag, mese(M)).
+
+anno(IDTag, A) :-
+    kb:tag(IDTag, anno(A)).
 
 tag_data :-     
     \+kb:vuole(data),!.
@@ -41,22 +70,6 @@ tag_anno :-
 tag_anno :- 
     findall(_, tag_anno(_), _),
     asserta(kb:fatto(anno)).
-
-
-separatore_data('/').
-separatore_data('-').
-
-data(G,M,A) :-
-    kb:tag(_, data(G,M,A)).
-
-giorno(G) :-
-    kb:tag(_, giorno(G)).
-
-mese(M) :-
-    kb:tag(_, mese(M)).
-
-anno(A) :-
-    kb:tag(_, anno(A)).
 
 tag_giorno(N) :-
     kb:token(IDToken, Token),
@@ -130,6 +143,9 @@ tag_data(G,M,A) :-
     Dipendenze = [IDTag1, IDTag2, IDTag3],
     assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
+
+separatore_data('/').
+separatore_data('-').
 
 numero_mese('1', 1).
 numero_mese('2', 2).

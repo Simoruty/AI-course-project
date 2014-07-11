@@ -1,12 +1,19 @@
 :- module( tel, 
             [ tag_tel/0
             , tel/1
+            , tel/2
             ] 
 ).
 
 :- use_module(kb).
 :- use_module(lexer).
 :- consult('tel_kb').
+
+tel(Tel) :-
+    kb:tag(_, tel(Tel)).
+
+tel(IDTag, Tel) :-
+    kb:tag(IDTag, tel(Tel)).
 
 tag_tel :-     
     \+kb:vuole(tel),!.
@@ -17,9 +24,6 @@ tag_tel :-
 tag_tel :- 
     findall(_, tag_tel(_), _), 
     asserta(kb:fatto(tel)).
-
-tel(Tel) :-
-    kb:tag(_, tel(Tel)).
     
 tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),

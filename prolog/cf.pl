@@ -1,6 +1,7 @@
 :- module( cf, 
             [ tag_cf/0
             , cf/1
+            , cf/2
             ] 
 ).
 
@@ -17,6 +18,10 @@ tag_cf :-
 
 cf(CF) :-
     kb:tag(_, cf(CF)).
+
+cf(IDTag,CF) :-
+    kb:tag(IDTag, cf(CF)).
+
 
 tag_cf(CF) :- 
     kb:token(IDToken, CF),
