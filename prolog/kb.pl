@@ -33,6 +33,9 @@ expandKB :-
     findall(X, nome(X), ListaNomi),
     findall(X, mail(X), ListaMail),
     findall(X, tel(X), ListaTel),
+    findall(X, giorno(X), ListaGiorni),
+    findall(X, mese(X), ListaMesi),
+    findall(X, anno(X), ListaAnni),
     findall((G,M,A), data(G,M,A), ListaData),
     findall((B,C), persona(B,C), ListaPersone),
     findall((D,E), soggetto(D,E), ListaSoggetti),
@@ -53,6 +56,9 @@ expandKB :-
     write('GIUDICI: '), write(ListaGiudici),nl,
     write('MAIL: '), write(ListaMail),nl,
     write('TEL: '), write(ListaTel),nl,
+    write('GIORNI: '), write(ListaGiorni),nl,
+    write('MESI: '), write(ListaMesi),nl,
+    write('ANNI: '), write(ListaAnni),nl,
     write('DATA: '), write(ListaData),nl,
     write('SIMBOLI VALUTA: '), write(ListaSimboloValuta),nl,
     write('NUMERI: '), write(ListaNumeri),nl,
@@ -62,7 +68,7 @@ expandKB :-
     true.
 
 writeKB :-
-    writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini\nn. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nindirizzo mail luciano.quercia@gmail.com\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122,50 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9/6/2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
+    writeKB("TRIBUNALE CIVILE DI Bari\nAll’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini n. 618/2011\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\nIl sottoscritto Quercia Luciano elettivamente domiciliato agli effetti del presente atto in via Federico II, 28\nRecapito tel. 080-8989898\nCodice Fiscale: QRCLCN88L01A285K\nindirizzo mail luciano.quercia@gmail.com\nDICHIARA\ndi essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001. Totale avere 122,50 €. Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della procedura in epigrafe dell’ importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\nlì 9 giugno 2014\nLuciano Quercia\nSi allegano 1. fattura n.12\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.").
 %    writeKB("Totale avere 122,50 €. ciao.\n 23 febbraio 1988\n 23/2/2000\ngiovanni simone curatore cataldo quercia\nQRCLCN88L01A285K ciao come stai\nluciano.quercia@gmail.com nato a San Giovanni Rotondo\nciao Corato simonerutigliano@ciao.com\noh\nRTGSMN88T20L109J\nil sottoscritto / a Quercia Luciano\nQuercia Luciano giudice\n").
 
 writeKB(String) :-
@@ -99,16 +105,20 @@ assertFact(Fact):-
     assertz(Fact).
 assertFact(_).
 
-assertTag(Tag, Spiegazione) :-
+assertTag(Tag, Spiegazione, Dipendenze) :-
     nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
     assertFact(tag(IDTag, Tag)),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl,
-    assertFact(spiega(IDTag,Spiegazione)).
+    assertFact(spiega(IDTag,Spiegazione)),
+    forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
 
 assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione) :-
+    assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+
+assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
     nextIDTag(NextIDTag),
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
@@ -117,7 +127,14 @@ assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione) :-
     forall( member( Successivo, ListaSuccessivi ), ( assertFact(next(IDTag, Successivo)) ) ),
     atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
     write(Message), write(Tag), nl,
-    assertFact(spiega(IDTag,Spiegazione)).
+    assertFact(spiega(IDTag,Spiegazione)),
+    forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
+
+spiega(IDTag) :-
+    spiega(IDTag, Spiegazione),
+    write(Spiegazione),nl,
+    findall(X, dipende_da(IDTag, X), Dipendenze),
+    forall( member(D, Dipendenze), (spiega(D)) ).
 
 
 token(IDToken) :- token(IDToken, _).
