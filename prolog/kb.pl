@@ -7,8 +7,9 @@
                , explainKB/0
                , lista_parole/1
                , assertFact/1
-               , assertTag/2
+               , assertTag/3
                , assertTag/4
+               , assertTag/5
                , nextIDTag/1
                , vicini/2
                , distanza/3
@@ -24,7 +25,7 @@ lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
 set_vuole(Lista) :-
     forall(member(X, Lista), (asserta(kb:vuole(X))) ).
 
-:- set_vuole([cf, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
+%:- set_vuole([cf, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 expandKB :- 
     comune:tag_comune,

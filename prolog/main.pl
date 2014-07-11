@@ -28,3 +28,8 @@ main :-
     expandKB,
 %    explainKB,
     true.
+
+start :-
+    writeKB,
+    expandKB,
+    true.
