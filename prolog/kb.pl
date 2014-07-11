@@ -24,48 +24,22 @@
 :- use_module(data).
 :- use_module(tel).
 :- use_module(valuta).
+:- use_module(numero_pratica).
 
 lista_parole(ListaParole) :- documento(Doc), lexer(Doc, ListaParole).
 
 expandKB :- 
-    findall(X, comune(X), ListaComuni),
-    findall(X, cf(X), ListaCF),
-    findall(X, cognome(X), ListaCognomi),
-    findall(X, nome(X), ListaNomi),
-    findall(X, mail(X), ListaMail),
-    findall(X, tel(X), ListaTel),
-    findall(X, giorno(X), ListaGiorni),
-    findall(X, mese(X), ListaMesi),
-    findall(X, anno(X), ListaAnni),
-    findall((G,M,A), data(G,M,A), ListaData),
-    findall((B,C), persona(B,C), ListaPersone),
-    findall((D,E), soggetto(D,E), ListaSoggetti),
-    findall((F,G), curatore(F,G), ListaCuratori),
-    findall((H,I), giudice(H,I), ListaGiudici),
-    findall(X, simbolo_valuta(X), ListaSimboloValuta),
-    findall(X, numero(X), ListaNumeri),
-    findall(X, tipologia(X), ListaTipologie),
-    findall((X,Y), valuta(X, Y), ListaValuta),
-    findall((M,S,T), richiesta_valuta(M,S,T), ListaRichieste),
-    write('COMUNI: '),write(ListaComuni),nl,
-    write('CFs: '),write(ListaCF),nl,
-    write('COGNOMI: '),write(ListaCognomi),nl,
-    write('NOMI: '), write(ListaNomi),nl,
-    write('PERSONE: '), write(ListaPersone),nl,
-    write('SOGGETTI: '), write(ListaSoggetti),nl,
-    write('CURATORI: '), write(ListaCuratori),nl,
-    write('GIUDICI: '), write(ListaGiudici),nl,
-    write('MAIL: '), write(ListaMail),nl,
-    write('TEL: '), write(ListaTel),nl,
-    write('GIORNI: '), write(ListaGiorni),nl,
-    write('MESI: '), write(ListaMesi),nl,
-    write('ANNI: '), write(ListaAnni),nl,
-    write('DATA: '), write(ListaData),nl,
-    write('SIMBOLI VALUTA: '), write(ListaSimboloValuta),nl,
-    write('NUMERI: '), write(ListaNumeri),nl,
-    write('TIPOLOGIE: '), write(ListaTipologie),nl,
-    write('VALUTA: '), write(ListaValuta),nl,
-    write('RICHIESTE: '), write(ListaRichieste),nl,
+    tag_comune,
+    tag_cf,
+    tag_mail,
+    tag_tel,    
+    tag_persona,    
+    tag_data,
+    tag_soggetto,
+    tag_curatore,
+    tag_giudice,
+    tag_richiesta_valuta,
+    tag_numero_pratica,
     true.
 
 explainKB:-

@@ -1,16 +1,66 @@
 :- module( valuta, [
-                    simbolo_valuta/1
+                      simbolo_valuta/1
                     , numero/1  
                     , tipologia/1
                     , valuta/2
-                    , richiesta_valuta/3 
+                    , richiesta_valuta/3
+                    ,  tag_simbolo_valuta/0
+                    , tag_numero/0
+                    , tag_tipologia/0
+                    , tag_valuta/0
+                    , tag_richiesta_valuta/0  
                    ] 
 ).
 
 :- use_module(lexer).
 :- use_module(kb).
 
-simbolo_valuta(Valuta) :- 
+
+tag_richiesta_valuta :- kb:fatto(richiesta_valuta), !.
+tag_richiesta_valuta :-
+    tag_valuta,
+    tag_tipologia,
+    findall((_A,_B,_C), tag_richiesta_valuta(_A,_B,_C), _),
+    asserta(fatto(richiesta_valuta)).
+
+
+tag_valuta :- kb:fatto(valuta), !.
+tag_valuta :-
+    tag_simbolo_valuta,
+    tag_numero,
+    findall((_X,_Y), tag_valuta(_X,_Y), _),
+    asserta(fatto(valuta)).
+
+
+tag_simbolo_valuta :- kb:fatto(simbolo_valuta), !.
+tag_simbolo_valuta :-
+    findall(_X, tag_simbolo_valuta(_X), _),
+    asserta(fatto(simbolo_valuta)).
+
+tag_numero :- kb:fatto(numero), !.
+tag_numero :-
+    findall(_X, tag_numero(_X), _),
+    asserta(fatto(numero)).
+
+tag_tipologia :- kb:fatto(tipologia), !.
+tag_tipologia :-
+    findall(_X, tag_tipologia(_X), _),
+    asserta(fatto(tipologia)).
+
+tipologia(T) :-
+    kb:tag(_, tipologia(T)).
+numero(N) :-
+    kb:tag(_, numero(N)).
+simbolo_valuta(S) :-
+    kb:tag(_, simbolo_valuta(S)).
+valuta(M,S) :-
+    kb:tag(_, valuta(M, S)).
+richiesta_valuta(M,S,T) :-
+    kb:tag(_, tipologia(M,S,T)).
+
+
+
+tag_simbolo_valuta(Valuta) :- 
     kb:token(IDToken, Token),
     std_valuta(Token, Valuta),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
@@ -24,7 +74,7 @@ std_valuta('eur', '€').
 std_valuta('$', '$').
 std_valuta('£', '£').
 
-numero(Num) :- 
+tag_numero(Num) :- 
     kb:token(IDToken1, Token1),
     atom_is_number(Token1),
     atom_number(Token1, Num),
@@ -33,7 +83,7 @@ numero(Num) :-
     atomic_list_concat(['[NUMERO] Nel documento e’ presente il numero',Num],' ',Spiegazione),
     kb:assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-tipologia(Tipologia) :- 
+tag_tipologia(Tipologia) :- 
     kb:token(IDToken, Token),
     std_tipologia(Token, Tipologia),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
@@ -55,7 +105,7 @@ std_tipologia('totale', 'totale').
 std_tipologia('total', 'totale').
 std_tipologia('tot', 'totale').
 
-valuta(Moneta, Simbolo) :-
+tag_valuta(Moneta, Simbolo) :-
     kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, simbolo_valuta(Simbolo)),
     kb:next(IDTag1, IDTag2),    
@@ -65,7 +115,7 @@ valuta(Moneta, Simbolo) :-
     Dipendenze=[IDTag1, IDTag2],
     kb:assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
-valuta(Moneta, Simbolo) :-
+tag_valuta(Moneta, Simbolo) :-
     kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, simbolo_valuta(Simbolo)),
     kb:next(IDTag2, IDTag1),    
@@ -75,7 +125,7 @@ valuta(Moneta, Simbolo) :-
     Dipendenze=[IDTag1, IDTag2],
     kb:assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
-richiesta_valuta(Moneta, Simbolo, Tipologia) :-
+tag_richiesta_valuta(Moneta, Simbolo, Tipologia) :-
     kb:tag(IDTag1, tipologia(Tipologia)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
     kb:stessa_frase(IDTag1, IDTag2),

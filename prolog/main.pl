@@ -31,7 +31,8 @@ main :-
 %    extract(ListaTag),
     writeKB, %TODO Forse working memory
     expandKB,
-    explainKB.
+%    explainKB,
+    true.
 %    nl,write('Informazioni estratte: '), nl,nl,
 %    write(ListaTag),nl.
 
