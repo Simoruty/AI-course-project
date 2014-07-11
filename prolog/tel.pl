@@ -1,10 +1,20 @@
-:- module( tel, [tel/1] ).
+:- module( tel, 
+            [ tag_tel/0
+            , tel/1
+            ] 
+).
 
 :- use_module(kb).
 :- use_module(lexer).
 :- consult('tel_kb').
-    
+
+tag_tel :- kb:fatto(tel),!.
+tag_tel :- findall(_Tel, tag_tel(_Tel), _), asserta(kb:fatto(tel)).
+
 tel(Tel) :-
+    kb:tag(_, tel(Tel)).
+    
+tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
     kb:next(IDToken3,IDToken4),
@@ -23,7 +33,7 @@ tel(Tel) :-
     kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
-tel(Tel) :-
+tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
     kb:next(IDToken3,IDToken4),
@@ -40,7 +50,7 @@ tel(Tel) :-
     kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
-tel(Tel) :-
+tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
     check_tel(IDToken1, IDToken2, IDToken3),
@@ -54,7 +64,7 @@ tel(Tel) :-
     atomic_list_concat(['[TELEFONO] Nel documento e’ presente',Token1,Token2,Token3],' ',Spiegazione),
     kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-tel(Tel) :-
+tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),
     check_tel(IDToken1, IDToken2),
     kb:token(IDToken1, Token1),
@@ -66,7 +76,7 @@ tel(Tel) :-
     atomic_list_concat(['[TELEFONO] Nel documento e’ presente',Token1,Token2],' ',Spiegazione),
     kb:assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-tel(Tel) :-
+tag_tel(Tel):-
     check_tel(IDTel),
     kb:token(IDTel, Tel),
     

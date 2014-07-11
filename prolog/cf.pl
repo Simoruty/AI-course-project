@@ -1,9 +1,19 @@
-:- module( cf, [cf/1] ).
+:- module( cf, 
+            [ tag_cf/0
+            , cf/1
+            ] 
+).
 
 :- use_module(kb).
 :- use_module(lexer).
 
-cf(CF) :- 
+tag_cf :- kb:fatto(cf),!.
+tag_cf :- findall(_CF, tag_cf(_CF), _), asserta(kb:fatto(cf)).
+
+cf(CF) :-
+    kb:tag(_, cf(CF)).
+
+tag_cf(CF) :- 
     kb:token(IDToken, CF),
     check_cf(CF),
 
