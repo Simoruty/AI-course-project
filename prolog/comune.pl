@@ -2,7 +2,7 @@
             [tag_comune/0
             , comune/1
             , comune/2
-            , allComune/1
+            , allComuni/1
             ] 
 ).
 
@@ -26,7 +26,7 @@ comune(Comune) :-
 comune(IDTag,Comune) :-
     kb:tag(IDTag, comune(Comune)).
 
-allComune(ListaComuni) :-
+allComuni(ListaComuni) :-
     findall((IDTag,Comune) ,kb:tag(IDTag, comune(Comune)), ListaComuni).
 
 tag_comune(Comune) :-

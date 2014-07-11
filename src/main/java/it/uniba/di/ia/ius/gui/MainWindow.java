@@ -107,17 +107,17 @@ public class MainWindow {
 
         java.util.List<String> daElaborare = new ArrayList<String>(11);
 
-        if (comuniCB.isSelected()) daElaborare.add("comune");
-        if (telCB.isSelected()) daElaborare.add("tel");
-        if (dateCB.isSelected()) daElaborare.add("data");
-        if (cfCB.isSelected()) daElaborare.add("cf");
-        if (richiestaValutaCB.isSelected()) daElaborare.add("richiesta_valuta");
-        if (soggettoCB.isSelected()) daElaborare.add("soggetto");
-        if (personeCB.isSelected()) daElaborare.add("persona");
-        if (curatoreCB.isSelected()) daElaborare.add("curatore");
-        if (giudiceCB.isSelected()) daElaborare.add("giudice");
-        if (numeroPraticaCB.isSelected()) daElaborare.add("numero_pratica");
-        if (eMailCB.isSelected()) daElaborare.add("mail");
+        if (comuniCB.isSelected()) daElaborare.add("allComuni");
+        if (telCB.isSelected()) daElaborare.add("allTel");
+        if (dateCB.isSelected()) daElaborare.add("allData");
+        if (cfCB.isSelected()) daElaborare.add("allCf");
+        if (richiestaValutaCB.isSelected()) daElaborare.add("allRichieste_valute");
+        if (soggettoCB.isSelected()) daElaborare.add("allSoggetti");
+        if (personeCB.isSelected()) daElaborare.add("allPersone");
+        if (curatoreCB.isSelected()) daElaborare.add("allCuratori");
+        if (giudiceCB.isSelected()) daElaborare.add("allGiudici");
+        if (numeroPraticaCB.isSelected()) daElaborare.add("allNumeri_pratiche");
+        if (eMailCB.isSelected()) daElaborare.add("allMail");
 
         for (String s : daElaborare) {
             pi.asserta("vuole", Arrays.asList(s));
@@ -126,31 +126,15 @@ public class MainWindow {
         pi.statisfied("start", null);
 
 
-//        java.util.List<Map<String, String>> listMap = null;
-//        for (String s : daElaborare) {
-//            listMap = pi.allSolutions(s, Arrays.asList("X"));
-//
-//            for (Map<String, String> solution : listMap) {
-//                System.out.println(solution.get("X"));
-//            }
-//        }
+        java.util.List<Map<String, String>> listMap = null;
+        for (String s : daElaborare) {
+            listMap = pi.allSolutions(s, Arrays.asList("X"));
 
-        java.util.List<String> daFare = new ArrayList<String>(11);
-        daFare.add("comune");
-        daFare.add("tel");
-
-        Map<String, String> list=null;
-        for (String s : daFare) {
-            try {
-                list = pi.oneSolution(s, Arrays.asList("X"));
-            } catch (NoVariableException e) {
-                e.printStackTrace();
+            for (Map<String, String> solution : listMap) {
+                System.out.println(solution.get("X"));
             }
         }
 
-        for (String s : list.keySet()) {
-            System.out.println(list.get(s));
-        }
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
         pi.close();

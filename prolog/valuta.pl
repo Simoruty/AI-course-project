@@ -13,7 +13,7 @@
                     , allValute/1
                     , richiesta_valuta/3
                     , richiesta_valuta/4
-                    , allRichieste_Valute/1
+                    , allRichieste_valute/1
                     , tag_simbolo_valuta/0
                     , tag_numero/0
                     , tag_tipologia/0
@@ -59,7 +59,7 @@ allSimboliValute(ListaSimboliValute) :-
 allValute(ListaValute) :-
     findall((IDTag, (M,S)) ,kb:tag(IDTag, valuta(M,S)), ListaValute).
 
-allRichieste_Valute(ListaRichieste) :-
+allRichieste_valute(ListaRichieste) :-
     findall((IDTag, (M,S,T)) ,kb:tag(IDTag, richiesta_valuta(M,S,T)), ListaRichieste).
 
 tag_richiesta_valuta :-
