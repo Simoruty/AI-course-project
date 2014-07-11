@@ -13,7 +13,7 @@ tag_cf :-
 tag_cf :- 
     kb:fatto(cf),!.
 tag_cf :- 
-    findall(_CF, tag_cf(_), _), 
+    findall(_, tag_cf(_), _), 
     asserta(kb:fatto(cf)).
 
 cf(CF) :-
