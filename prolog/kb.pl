@@ -1,5 +1,4 @@
 :- module( kb, [ stessa_frase/2
-               , token/1
                , tag/1
                , tag/2
                , request/0
@@ -15,13 +14,19 @@
                , nextIDTag/1
                , vicini/2
                , distanza/3
-               , vuole/1
-               , fatto/1
                ]
 ).
 
 :- use_module(library(lists)).
 :- use_module(lexer).
+
+:-dynamic(fatto/1).
+:-dynamic(kb:tag/2).
+:-dynamic(kb:spiega/2).
+:-dynamic(kb:dipende_da/2).
+:-dynamic(kb:next/2).
+:-dynamic(kb:token/2).
+:-dynamic(kb:vuole/1).
 
 lista_parole(ListaParole) :- 
     documento(Doc), 
@@ -31,10 +36,7 @@ set_vuole(Lista) :-
     forall(member(X, Lista), (asserta(kb:vuole(X))) ).
 
 :-  set_vuole([cf, comune, mail, tel, persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
-:-    asserta(fatto(x)).
-:-    asserta(kb:tag(x,y)).
-:-    asserta(kb:spiega(x,y)).
-:-    asserta(kb:dipende_da(x,y)).
+
 %:- set_vuole([persona, data, soggetto, curatore, giudice, richiesta_valuta, numero_pratica]).
 
 expandKB :-
