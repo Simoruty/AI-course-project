@@ -11,8 +11,11 @@
 numero_pratica(Num) :-
     kb:tag(_, numero_pratica(Num)).
 
-tag_numero_pratica :- kb:fatto(numero_pratica), !.
 tag_numero_pratica :-
+    kb:vuole(numero_pratica),
+    kb:fatto(numero_pratica), !.
+tag_numero_pratica :-
+    kb:vuole(numero_pratica),
     tag_numero,
     tag_anno,
     findall(_X, tag_numero_pratica(_X), _),

@@ -7,8 +7,11 @@
 :- use_module(kb).
 :- use_module(lexer).
 
+tag_cf :- \+kb:vuole(cf),!.
 tag_cf :- kb:fatto(cf),!.
-tag_cf :- findall(_CF, tag_cf(_CF), _), asserta(kb:fatto(cf)).
+tag_cf :-
+    findall(_CF, tag_cf(_CF), _),
+    asserta(kb:fatto(cf)).
 
 cf(CF) :-
     kb:tag(_, cf(CF)).

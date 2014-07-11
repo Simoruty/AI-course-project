@@ -18,6 +18,7 @@
 :- use_module(kb).
 
 
+tag_persona :- \+kb:vuole(persona), !.
 tag_persona :- kb:fatto(persona), !.
 tag_persona :-
     tag_cognome,

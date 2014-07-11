@@ -15,10 +15,8 @@
 :- use_module(lexer).
 :- use_module(kb).
 
-
-tag_richiesta_valuta :-
-    kb:vuole(richiesta_valuta),
-    kb:fatto(richiesta_valuta), !.
+tag_richiesta_valuta :- \+kb:vuole(richiesta_valuta), !.
+tag_richiesta_valuta :- kb:fatto(richiesta_valuta), !.
 tag_richiesta_valuta :-
     tag_valuta,
     tag_tipologia,
