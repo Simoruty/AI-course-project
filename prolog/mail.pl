@@ -7,8 +7,15 @@
 :- use_module(lexer).
 :- use_module(kb).
 
-tag_mail :- kb:fatto(mail),!.
-tag_mail :- findall(_Mail, tag_mail(_Mail), _), asserta(kb:fatto(mail)).
+tag_mail :- 
+    \+kb:vuole(mail),!.
+
+tag_mail :- 
+    kb:fatto(mail),!.
+
+tag_mail :- 
+    findall(_Mail, tag_mail(_Mail), _), 
+    asserta(kb:fatto(mail)).
 
 mail(Mail) :-
     kb:tag(_, mail(Mail)).
