@@ -2,7 +2,6 @@ package it.uniba.di.ia.ius.gui;
 
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
 import it.uniba.di.ia.ius.prologAPI.JPLInterface;
-import it.uniba.di.ia.ius.prologAPI.NoVariableException;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -10,7 +9,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class MainWindow {
 
@@ -105,36 +107,62 @@ public class MainWindow {
 //        pi.asserta("documento", Arrays.asList("\"" + textPane.getText() + "\""));
 
 
-        java.util.List<String> daElaborare = new ArrayList<String>(11);
+        java.util.List<String> daElaborare2 = new ArrayList<>(11);
+        java.util.List<String> daElaborare3 = new ArrayList<>(11);
+        java.util.List<String> daElaborare4 = new ArrayList<>(11);
 
-        if (comuniCB.isSelected()) daElaborare.add("allComuni");
-        if (telCB.isSelected()) daElaborare.add("allTel");
-        if (dateCB.isSelected()) daElaborare.add("allData");
-        if (cfCB.isSelected()) daElaborare.add("allCf");
-        if (richiestaValutaCB.isSelected()) daElaborare.add("allRichieste_valute");
-        if (soggettoCB.isSelected()) daElaborare.add("allSoggetti");
-        if (personeCB.isSelected()) daElaborare.add("allPersone");
-        if (curatoreCB.isSelected()) daElaborare.add("allCuratori");
-        if (giudiceCB.isSelected()) daElaborare.add("allGiudici");
-        if (numeroPraticaCB.isSelected()) daElaborare.add("allNumeri_pratiche");
-        if (eMailCB.isSelected()) daElaborare.add("allMail");
+        if (comuniCB.isSelected()) daElaborare2.add("comune");
+        if (telCB.isSelected()) daElaborare2.add("tel");
+        if (dateCB.isSelected()) daElaborare4.add("data");
+        if (cfCB.isSelected()) daElaborare2.add("cf");
+        if (richiestaValutaCB.isSelected()) daElaborare3.add("richiesta_valuta");
+        if (soggettoCB.isSelected()) daElaborare3.add("soggetto");
+        if (personeCB.isSelected()) daElaborare3.add("persona");
+        if (curatoreCB.isSelected()) daElaborare3.add("curatore");
+        if (giudiceCB.isSelected()) daElaborare3.add("giudice");
+        if (numeroPraticaCB.isSelected()) daElaborare2.add("numero_pratica");
+        if (eMailCB.isSelected()) daElaborare2.add("mail");
 
-        for (String s : daElaborare) {
+        for (String s : daElaborare2) {
+            pi.asserta("vuole", Arrays.asList(s));
+        }
+
+        for (String s : daElaborare3) {
+            pi.asserta("vuole", Arrays.asList(s));
+        }
+        for (String s : daElaborare4) {
             pi.asserta("vuole", Arrays.asList(s));
         }
 
         pi.statisfied("start", null);
 
-
+        List<List<Map<String, String>>> lists = new ArrayList<>();
         java.util.List<Map<String, String>> listMap = null;
-        for (String s : daElaborare) {
-            listMap = pi.allSolutions(s, Arrays.asList("X"));
-
-            for (Map<String, String> solution : listMap) {
-                System.out.println(solution.get("X"));
-            }
+        for (String s : daElaborare2) {
+            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val"));
+            lists.add(listMap);
         }
 
+        for (String s : daElaborare3) {
+            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2"));
+            lists.add(listMap);
+        }
+
+        for (String s : daElaborare4) {
+            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2", "Val3"));
+            lists.add(listMap);
+        }
+
+        for (List<Map<String, String>> list : lists) {
+            for (Map<String, String> solution : list) {
+                if (solution.get("Val2")==null)
+                    System.out.println(solution.get("ID") + " " + solution.get("Val"));
+                else if (solution.get("Val3")==null)
+                    System.out.println(solution.get("ID") + " " + solution.get("Val") + " " + solution.get("Val2"));
+                else
+                    System.out.println(solution.get("ID") + " " + solution.get("Val") + " " + solution.get("Val2") + " " + solution.get("Val3"));
+            }
+        }
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
         pi.close();

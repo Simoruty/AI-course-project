@@ -2,6 +2,7 @@ package it.uniba.di.ia.ius.prologAPI;
 
 import com.declarativa.interprolog.PrologEngine;
 import com.declarativa.interprolog.SWISubprocessEngine;
+import com.declarativa.interprolog.TermModel;
 import com.declarativa.interprolog.YAPSubprocessEngine;
 
 import java.io.File;
@@ -145,6 +146,13 @@ public class InterprologInterface extends PrologInterface {
 
     @Override
     public List<Map<String, String>> allSolutions(String pred, List<String> args) {
+
+//        String goal = "nonDeterministicGoal(A+B,"+pred+"(A,B),ListModel)";
+        String goal ="findall(B,"+pred+"(A,B),L), buildTermModel(L,ListModel)";
+// Notice that 'ListModel' is referred in both deterministicGoal arguments:
+        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
+        System.out.println("Solution bindings list:"+solutionVars);
+
         return null;
     }
 
