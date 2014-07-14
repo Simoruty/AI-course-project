@@ -7,8 +7,21 @@
 :- use_module(persona).
 :- use_module(tel).
 :- use_module(valuta).
+:- use_module(interface).
 
 main :-
+    intestazione,
+    %write('Inserisci il testo del documento: '),nl,nl,
+    %read(Documento),
+%    writeKB(Documento), %TODO Forse working memory
+    writeKB,   
+    tag_default,
+    mostra_tag_da_estrarre,
+    expandKB,
+%    explainKB,
+    true.
+
+intestazione :- 
     write('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'),nl,    
     write('                                                                               '),nl,
     write('████████╗ █████╗  ██████╗  ██████╗ ███████╗██████╗         ██╗██╗   ██╗███████╗'),nl,
@@ -18,16 +31,8 @@ main :-
     write('   ██║   ██║  ██║╚██████╔╝╚██████╔╝███████╗██║  ██║        ██║╚██████╔╝███████║'),nl,
     write('   ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝        ╚═╝ ╚═════╝ ╚══════╝'),nl,
     write('                                                                               '),nl,
-    write('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'),nl,nl,    
-
-    write('Inserisci il testo del documento: '),nl,nl,
-    read(Documento),
-%    writeKB(Documento), %TODO Forse working memory
-    writeKB,   
-% request,
-    expandKB,
-%    explainKB,
-    true.
+    write('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'),nl,nl.    
+    
 
 start :-
     writeKB,

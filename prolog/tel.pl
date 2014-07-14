@@ -10,15 +10,18 @@
 :- use_module(lexer).
 :- consult('tel_kb').
 
+%% Trova il primo numero di telefono
 tel(Tel) :-
     kb:tag(_, tel(Tel)).
 
 tel(IDTag, Tel) :-
     kb:tag(IDTag, tel(Tel)).
 
+%% Trova tutti i numeri di telefono
 alltel(ListaTel) :-
     findall((IDTag, Tel) ,kb:tag(IDTag, tel(Tel)), ListaTel).
 
+%% Tagga tutti i numeri di telefono
 tag_tel :-     
     \+kb:vuole(tel),!.
 
@@ -101,8 +104,7 @@ tag_tel(Tel):-
     atomic_list_concat(['[TELEFONO] Nel documento e’ presente',Tel],' ',Spiegazione),
     assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-% +39 346 21 00 360
-
+%% Controlla che il numero di telefono sia di questo formato +39 346 21 00 360
 check_tel(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -119,8 +121,7 @@ check_tel(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5) :-
     atom_length(Token4,Token4length), Token4length == 2,
     atom_length(Token5,Token5length), Token5length == 3.
 
-% +39 346 210 0360
-
+%% Controlla che il numero di telefono sia di questo formato +39 346 210 0360
 check_tel(IDToken1, IDToken2, IDToken3, IDToken4) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -134,8 +135,7 @@ check_tel(IDToken1, IDToken2, IDToken3, IDToken4) :-
     atom_length(Token3,Token3length), Token3length == 3,
     atom_length(Token4,Token4length), Token4length == 4.
 
-% 346 21 00 360
-
+%% Controlla che il numero di telefono sia di questo formato 346 21 00 360
 check_tel(IDToken1, IDToken2, IDToken3, IDToken4) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -150,8 +150,7 @@ check_tel(IDToken1, IDToken2, IDToken3, IDToken4) :-
     atom_length(Token3,Token3length), Token3length == 2, 
     atom_length(Token4,Token4length), Token4length == 3.
 
-% +39 346 2100360
-
+%% Controlla che il numero di telefono sia di questo formato +39 346 2100360
 check_tel(IDToken1, IDToken2, IDToken3) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -162,8 +161,7 @@ check_tel(IDToken1, IDToken2, IDToken3) :-
     atom_length(Token2,Token2length), Token2length == 3,
     atom_length(Token3,Token3length), Token3length == 7.
 
-% 346 210 0360
-
+%% Controlla che il numero di telefono sia di questo formato 346 210 0360
 check_tel(IDToken1, IDToken2, IDToken3) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -175,8 +173,7 @@ check_tel(IDToken1, IDToken2, IDToken3) :-
     atom_length(Token2,Token2length), Token2length == 3,
     atom_length(Token3,Token3length), Token3length == 4.
 
-%+39 3462100360
-
+%% Controlla che il numero di telefono sia di questo formato +39 3462100360
 check_tel(IDToken1, IDToken2) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -184,8 +181,7 @@ check_tel(IDToken1, IDToken2) :-
     atom_is_number(Token2),
     atom_length(Token2,Token2length), Token2length==10.
 
-% 346 2100360
-
+%% Controlla che il numero di telefono sia di questo formato 346 2100360
 check_tel(IDToken1, IDToken2) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
@@ -194,8 +190,7 @@ check_tel(IDToken1, IDToken2) :-
     atom_length(Token1,Token1length), Token1length==3,
     atom_length(Token2,Token2length), Token2length==7.
 
-% 006703462100360
-
+%% Controlla che il numero di telefono sia di questo formato 006703462100360
 check_tel(IDTel) :-
     kb:token(IDTel, Tel),
     atom_length(Tel,Token1length),
@@ -206,8 +201,7 @@ check_tel(IDTel) :-
     sub_atom(Tel,5,10,_,Numero),
     atom_is_number(Numero).
 
-% +6703462100360
-
+%% Controlla che il numero di telefono sia di questo formato +6703462100360
 check_tel(IDTel) :-
     kb:token(IDTel, Tel),
     atom_length(Tel,Token1length),
@@ -218,8 +212,7 @@ check_tel(IDTel) :-
     sub_atom(Tel,4,10,_,Numero),
     atom_is_number(Numero).
 
-% +393462100360
-
+%% Controlla che il numero di telefono sia di questo formato +393462100360
 check_tel(IDTel) :-
     kb:token(IDTel, Tel),
     atom_length(Tel,Token1length),
@@ -230,8 +223,7 @@ check_tel(IDTel) :-
     sub_atom(Tel,3,10,_,Numero),
     atom_is_number(Numero).
 
-% +13462100360
-
+%% Controlla che il numero di telefono sia di questo formato +13462100360
 check_tel(IDTel) :-
     kb:token(IDTel, Tel),
     atom_length(Tel,Token1length),
@@ -242,8 +234,7 @@ check_tel(IDTel) :-
     sub_atom(Tel,2,10,_,Numero),
     atom_is_number(Numero).
 
-% 3462100360
-
+%% Controlla che il numero di telefono sia di questo formato 3462100360
 check_tel(IDTel) :-
     kb:token(IDTel, Tel),
     atom_is_number(Tel),

@@ -81,7 +81,7 @@ allcognome(ListaCognomi) :-
     findall((IDTag, Cognome) ,kb:tag(IDTag, cognome(Cognome)), ListaCognomi).
 
 %% Trova tutti i nomi
-allNomi(ListaNomi) :-
+allnome(ListaNomi) :-
     findall((IDTag, Nome) ,kb:tag(IDTag, nome(Nome)), ListaNomi).
 
 %% Trova tutti i soggetti
@@ -156,6 +156,14 @@ tag_cognome(Cognome) :-
     atomic_list_concat(['[COGNOME] Nel documento e’ presente',Cognome],' ',Spiegazione),
     assertTag(cognome(Cognome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
+cognome_kb(A, B) :-
+	cognome_kb(A),
+	cognome_kb(B).
+
+cognome_kb(A, B) :-
+    atomic_list_concat([A, B], ' ', C),
+    cognome_kb(C).
+
 %% Tagga tutti i nomi
 tag_nome :-
     kb:fatto(nome), !.
@@ -196,32 +204,6 @@ tag_nome(Nome) :-
     atomic_list_concat(['[NOME] Nel documento e’ presente',Nome],' ',Spiegazione),
     assertTag(nome(Nome), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-%% Tagga tutti i soggetti
-tag_soggetto :-
-    kb:fatto(soggetto), !.
-tag_soggetto :- 
-    tag_persona,
-    findall((C,N), tag_soggetto(C,N), _),
-    asserta(kb:fatto(soggetto)).
-
-%% Tagga tutti i curatori
-tag_curatore :-
-    kb:fatto(curatore), !.
-tag_curatore :- 
-    tag_persona,
-    findall((C,N), tag_curatore(C,N), _),
-    asserta(kb:fatto(curatore)).
-
-%% Tagga tutti i giudici
-tag_giudice :-
-    kb:fatto(giudice), !.
-tag_giudice :- 
-    tag_persona,
-    findall((C,N), tag_giudice(C,N), _),
-    asserta(kb:fatto(giudice)).
-
-
-
 nome_kb(A,B,C) :- 
     nome_kb(A),
     nome_kb(B),
@@ -231,15 +213,13 @@ nome_kb(A,B) :-
     nome_kb(A),
     nome_kb(B).
 
-
-cognome_kb(A, B) :-
-	cognome_kb(A),
-	cognome_kb(B).
-
-cognome_kb(A, B) :-
-    atomic_list_concat([A, B], ' ', C),
-    cognome_kb(C).
-
+%% Tagga tutti i soggetti
+tag_soggetto :-
+    kb:fatto(soggetto), !.
+tag_soggetto :- 
+    tag_persona,
+    findall((C,N), tag_soggetto(C,N), _),
+    asserta(kb:fatto(soggetto)).
 
 tag_soggetto(C,N) :-
     kb:tag(IDTag, persona(C,N)),
@@ -250,6 +230,16 @@ tag_soggetto(C,N) :-
     atomic_list_concat(['[SOGGETTO] Nel documento e’ presente il termine',Token,'e la persona',C,N,'all’interno della stessa frase'],' ',Spiegazione),
     assertTag(soggetto(C,N), Spiegazione, [IDTag]).
 
+soggetto('sottoscritto').
+soggetto('sottoscritta').
+
+%% Tagga tutti i curatori
+tag_curatore :-
+    kb:fatto(curatore), !.
+tag_curatore :- 
+    tag_persona,
+    findall((C,N), tag_curatore(C,N), _),
+    asserta(kb:fatto(curatore)).
 tag_curatore(C,N) :-
     kb:tag(IDTag, persona(C,N)),
     kb:token(IDToken, Token),
@@ -258,6 +248,17 @@ tag_curatore(C,N) :-
 %    !,
     atomic_list_concat(['[CURATORE] Nel documento e’ presente il termine',Token,'e la persona',C,N,'all’interno della stessa frase'],' ',Spiegazione),
     assertTag(curatore(C,N), Spiegazione, [IDTag]).
+
+curatore('curatore').
+curatore('commissario').
+
+%% Tagga tutti i giudici
+tag_giudice :-
+    kb:fatto(giudice), !.
+tag_giudice :- 
+    tag_persona,
+    findall((C,N), tag_giudice(C,N), _),
+    asserta(kb:fatto(giudice)).
 
 tag_giudice(C,N) :-
     kb:tag(IDTag, persona(C,N)),
@@ -268,9 +269,5 @@ tag_giudice(C,N) :-
     atomic_list_concat(['[GIUDICE] Nel documento e’ presente il termine',Token,'e la persona',C,N,'all’interno della stessa frase'],' ',Spiegazione),
     assertTag(giudice(C,N), Spiegazione, [IDTag]).
 
-soggetto('sottoscritto').
-soggetto('sottoscritta').
-curatore('curatore').
-curatore('commissario').
 giudice('giudice').
 

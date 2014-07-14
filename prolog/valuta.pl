@@ -25,43 +25,62 @@
 :- use_module(lexer).
 :- use_module(kb).
 
+%% Trova la prima tipologia di richiesta
 tipologia(T) :-
     kb:tag(_, tipologia(T)).
-numero(N) :-
-    kb:tag(_, numero(N)).
-simbolo_valuta(S) :-
-    kb:tag(_, simbolo_valuta(S)).
-valuta(M,S) :-
-    kb:tag(_, valuta(M, S)).
-richiesta_valuta(M,S,T) :-
-    kb:tag(_, richiesta_valuta(M,S,T)).
 
 tipologia(IDTag, T) :-
     kb:tag(IDTag, tipologia(T)).
+
+%% Trova il primo numero 
+numero(N) :-
+    kb:tag(_, numero(N)).
+
 numero(IDTag, N) :-
     kb:tag(IDTag, numero(N)).
+
+%% Trova il primo simbolo di valuta
+simbolo_valuta(S) :-
+    kb:tag(_, simbolo_valuta(S)).
+
 simbolo_valuta(IDTag, S) :-
     kb:tag(IDTag, simbolo_valuta(S)).
+
+%% Trova la prima valuta
+valuta(M,S) :-
+    kb:tag(_, valuta(M, S)).
+
 valuta(IDTag, M, S) :-
     kb:tag(IDTag, valuta(M, S)).
+
+%% Trova la prima richiesta di valuta
+richiesta_valuta(M,S,T) :-
+    kb:tag(_, richiesta_valuta(M,S,T)).
+
 richiesta_valuta(IDTag, M, S, T) :-
     kb:tag(IDTag, richiesta_valuta(M,S,T)).
 
+%% Trova tutte le tipologie di richieste
 alltipologia(ListaTipologie) :-
     findall((IDTag, T) ,kb:tag(IDTag, tipologia(T)), ListaTipologie).
 
+%% Trova tutti i numeri
 allnumero(ListaNumeri) :-
     findall((IDTag, N) ,kb:tag(IDTag, numero(N)), ListaNumeri).
 
+%% Trova tutti i simboli di valuta
 allsimbolo_valuta(ListaSimboliValute) :-
     findall((IDTag, S) ,kb:tag(IDTag, simbolo_valuta(S)), ListaSimboliValute).
 
+%% Trova tutte le valute
 allvaluta(ListaValute) :-
     findall((IDTag, M, S) ,kb:tag(IDTag, valuta(M,S)), ListaValute).
 
+%% Trova tutte le richieste di valuta
 allrichiesta_valuta(ListaRichieste) :-
     findall((IDTag, M, S, T) ,kb:tag(IDTag, richiesta_valuta(M,S,T)), ListaRichieste).
 
+%% Tagga le richieste di valuta
 tag_richiesta_valuta :-
     \+kb:vuole(richiesta_valuta), !.
 tag_richiesta_valuta :-
@@ -72,7 +91,7 @@ tag_richiesta_valuta :-
     findall((_,_,_), tag_richiesta_valuta(_,_,_), _),
     asserta(kb:fatto(richiesta_valuta)).
 
-
+%% Tagga le valute
 tag_valuta :-
     kb:fatto(valuta), !.
 tag_valuta :-
@@ -81,25 +100,28 @@ tag_valuta :-
     findall((_,_), tag_valuta(_,_), _),
     asserta(kb:fatto(valuta)).
 
-
+%% Tagga i simboli di valuta
 tag_simbolo_valuta :-
     kb:fatto(simbolo_valuta), !.
 tag_simbolo_valuta :-
     findall(_, tag_simbolo_valuta(_), _),
     asserta(kb:fatto(simbolo_valuta)).
 
+%% Tagga i numeri
 tag_numero :-
     kb:fatto(numero), !.
 tag_numero :-
     findall(_, tag_numero(_), _),
     asserta(kb:fatto(numero)).
 
+%% Tagga le tipologie
 tag_tipologia :-
     kb:fatto(tipologia), !.
 tag_tipologia :-
     findall(_, tag_tipologia(_), _),
     asserta(kb:fatto(tipologia)).
 
+%% Tagga i simboli di valuta
 tag_simbolo_valuta(Valuta) :- 
     kb:token(IDToken, Token),
     std_valuta(Token, Valuta),
@@ -114,6 +136,7 @@ std_valuta('eur', 'euro').
 std_valuta('$', 'dollari').
 std_valuta('£', 'sterline').
 
+%% Tagga i numeri
 tag_numero(Num) :- 
     kb:token(IDToken1, Token1),
     atom_is_number(Token1),
@@ -123,6 +146,7 @@ tag_numero(Num) :-
     atomic_list_concat(['[NUMERO] Nel documento e’ presente il numero',Num],' ',Spiegazione),
     assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
+%% Tagga le tipologie
 tag_tipologia(Tipologia) :- 
     kb:token(IDToken, Token),
     std_tipologia(Token, Tipologia),
@@ -145,6 +169,7 @@ std_tipologia('totale', 'totale').
 std_tipologia('total', 'totale').
 std_tipologia('tot', 'totale').
 
+%% Tagga le valute
 tag_valuta(Moneta, Simbolo) :-
     kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, simbolo_valuta(Simbolo)),
@@ -165,6 +190,7 @@ tag_valuta(Moneta, Simbolo) :-
     Dipendenze=[IDTag1, IDTag2],
     assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
+%% Tagga le richieste di valuta
 tag_richiesta_valuta(Moneta, Simbolo, Tipologia) :-
     kb:tag(IDTag1, tipologia(Tipologia)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
