@@ -90,7 +90,7 @@ public class MainWindow {
                     try {
                         Map<String, String> res = pi.oneSolution("kb:spiega", Arrays.asList(tag.getId(), "Spiegazione"));
                         String spiegazione = res.get("Spiegazione");
-                        String text = "Tag " + tag.getId() + "spiegato.\n";
+                        String text = "Tag " + tag.getId() + " spiegato.\n";
                         text += spiegazione + "\n";
                         spiegaTextPane.setText(text);
                     } catch (NoVariableException e) {
@@ -107,6 +107,8 @@ public class MainWindow {
         //pi = new JPLInterface(PrologInterface.SWI);
         pi = new InterprologInterface(PrologInterface.YAP);
 
+        ListCellRenderer renderer = new MyListCellRenderer();
+        jlist.setCellRenderer(renderer);
 
     }
 
@@ -140,8 +142,10 @@ public class MainWindow {
 
         for (Predicato predicato : predicatoList) {
             List<Tag> tagList = predicato.run();
-            for (Tag tag : tagList)
+            for (Tag tag : tagList) {
+
                 listModel.addElement(tag);
+            }
         }
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
@@ -208,43 +212,43 @@ public class MainWindow {
         });
     }
 
-//    private class MyListCellRenderer extends JLabel implements ListCellRenderer {
-//        public MyListCellRenderer() {
-//            setOpaque(true);
-//        }
-//
-//        public Component getListCellRendererComponent(JList paramlist, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-//            setText(value.toString());
-//            if (value.toString().contains("persona")) {
-//                setForeground(Color.BLACK);
-//                setBackground(Color.WHITE);
-//            }
-//            if (value.toString().contains("mail")) {
-//                setForeground(Color.BLUE);
-//                setBackground(Color.WHITE);
-//            }
-//            if (value.toString().contains("richiesta")) {
-//                setForeground(Color.RED);
-//                setBackground(Color.WHITE);
-//            }
-//            if (value.toString().contains("tel")) {
-//                setForeground(Color.GREEN);
-//                setBackground(Color.WHITE);
-//            }
-//            if (value.toString().contains("comune")) {
-//                setForeground(Color.ORANGE);
-//                setBackground(Color.WHITE);
-//            }
-//            if (value.toString().contains("date")) {
-//                setForeground(Color.magenta);
-//                setBackground(Color.WHITE);
-//            }
-//            if (value.toString().contains("cf")) {
-//                setForeground(Color.CYAN);
-//                setBackground(Color.WHITE);
-//            }
-//            return this;
-//        }
-//    }
+    private class MyListCellRenderer extends JLabel implements ListCellRenderer {
+        public MyListCellRenderer() {
+            setOpaque(true);
+        }
+
+        public Component getListCellRendererComponent(JList paramlist, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            setText(value.toString());
+            if (value.toString().contains("persona") || value.toString().contains("soggetto") || value.toString().contains("giudice") || value.toString().contains("curatore")) {
+                setForeground(Color.BLACK);
+                setBackground(Color.WHITE);
+            }
+            if (value.toString().contains("mail")) {
+                setForeground(Color.BLUE);
+                setBackground(Color.WHITE);
+            }
+            if (value.toString().contains("richiesta_valuta")) {
+                setForeground(Color.RED);
+                setBackground(Color.WHITE);
+            }
+            if (value.toString().contains("tel")) {
+                setForeground(Color.GREEN);
+                setBackground(Color.WHITE);
+            }
+            if (value.toString().contains("comune")) {
+                setForeground(Color.ORANGE);
+                setBackground(Color.WHITE);
+            }
+            if (value.toString().contains("data")) {
+                setForeground(Color.magenta);
+                setBackground(Color.WHITE);
+            }
+            if (value.toString().contains("cf")) {
+                setForeground(Color.CYAN);
+                setBackground(Color.WHITE);
+            }
+            return this;
+        }
+    }
 
 }

@@ -125,6 +125,7 @@ assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
     assertFact(spiega(IDTag,Spiegazione)),
     forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
 
+%TODO LISTA DI SPIEGAZIONI
 spiega(IDTag) :-
     spiega(IDTag, Spiegazione),
     write(Spiegazione),nl,
