@@ -57,6 +57,6 @@ tag_numero_pratica(X) :-
 
     atomic_list_concat([N,'/',A], '', X),
 
-    atomic_list_concat(['[NUMERO PRATICA] Nel documento è presente `n` ', N, '/', A],'',Spiegazione),
+    atomic_list_concat(['[NUMERO PRATICA] Presenza nel documento di `n` ', N, '/', A],'',Spiegazione),
     Dipendenze = [IDTag1, IDTag2],
     assertTag(numero_pratica(X), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).    

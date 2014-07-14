@@ -136,7 +136,7 @@ tag_simbolo_valuta(Valuta) :-
     std_valuta(Token, Valuta),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO VALUTA] Nel documento e’ presente il simbolo',Token],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
     assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
 
 std_valuta('€', 'euro').
@@ -152,7 +152,7 @@ tag_numero(Num) :-
     atom_number(Token1, Num),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NUMERO] Nel documento e’ presente il numero',Num],' ',Spiegazione),
+    atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Num],' ',Spiegazione),
     assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 %% Tagga le tipologie
@@ -161,7 +161,7 @@ tag_tipologia(Tipologia) :-
     std_tipologia(Token, Tipologia),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TIPOLOGIA] Nel documento e’ presente il termine',Token],' ',Spiegazione),
+    atomic_list_concat(['[TIPOLOGIA] Presenza nel documento del termine',Token],' ',Spiegazione),
     assertTag(tipologia(Tipologia), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 std_tipologia('chirografario', 'chirografario').
@@ -185,7 +185,7 @@ tag_valuta(Moneta, Simbolo) :-
     kb:next(IDTag1, IDTag2),    
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[VALUTA] Nel documento e’ presente il numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
+    atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
     assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
@@ -195,7 +195,7 @@ tag_valuta(Moneta, Simbolo) :-
     kb:next(IDTag2, IDTag1),    
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[VALUTA] Nel documento e’ presente il numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
+    atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
     assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
@@ -204,6 +204,6 @@ tag_richiesta_valuta(Moneta, Simbolo, Tipologia) :-
     kb:tag(IDTag1, tipologia(Tipologia)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
     stessa_frase(IDTag1, IDTag2),
-    atomic_list_concat(['[RICHIESTA VALUTA] Nel documento e’ presente nella stessa frase la valuta',Moneta,Simbolo,'e il termine',Tipologia],' ',Spiegazione),
+    atomic_list_concat(['[RICHIESTA VALUTA] Presenza nella stessa frase della valuta',Moneta,Simbolo,'e del termine',Tipologia],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
     assertTag(richiesta_valuta(Moneta, Simbolo, Tipologia) , Spiegazione, Dipendenze).

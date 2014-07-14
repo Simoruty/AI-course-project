@@ -91,7 +91,6 @@ writeKB( [ T1,T2 | Xs ], Num) :-
     atom_concat('t',AtomNum1, IDToken1),
     atom_concat('t',AtomNum2, IDToken2),
     assertz(kb:token(IDToken1, T1)),
-    %assertFact(kb:token(IDToken2, T2)),
     assertz(kb:next(IDToken1, IDToken2)),
     writeKB( [T2|Xs], Temp).
 
