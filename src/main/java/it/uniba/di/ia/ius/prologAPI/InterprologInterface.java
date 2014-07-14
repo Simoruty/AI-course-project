@@ -2,14 +2,10 @@ package it.uniba.di.ia.ius.prologAPI;
 
 import com.declarativa.interprolog.PrologEngine;
 import com.declarativa.interprolog.SWISubprocessEngine;
-import com.declarativa.interprolog.TermModel;
 import com.declarativa.interprolog.YAPSubprocessEngine;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class InterprologInterface extends PrologInterface {
 
@@ -147,24 +143,47 @@ public class InterprologInterface extends PrologInterface {
     @Override
     public List<Map<String, String>> allSolutions(String pred, List<String> args) {
 
-//        String goal = "nonDeterministicGoal(A+B,"+pred+"(A,B),ListModel)";
-        String goal ="findall(B,"+pred+"(A,B),L), buildTermModel(L,ListModel)";
-// Notice that 'ListModel' is referred in both deterministicGoal arguments:
-        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
-        System.out.println("Solution bindings list:"+solutionVars);
+        String goal = "all" + pred;
+        Map<String, String> map = null;
+        try {
+            map = oneSolution(goal, Arrays.asList("ResultList"));
+        } catch (NoVariableException e) {
+            e.printStackTrace();
+        }
+        String temp = map.get("ResultList").replaceAll("\\),\\(", "#").replaceAll("\\[\\(", "").replaceAll("\\)\\]", "");
+        String[] parsered = temp.split("#");
+        List<Map<String, String>> listMap = new ArrayList<>(10);
 
-        return null;
+        for (String s1 : parsered) {
+            String[] tags = s1.split(",");
+            int i = 0;
+            Map<String, String> map1 = new HashMap<>();
+            for (String arg : args) {
+                map1.put(arg, tags[i]);
+                i++;
+            }
+            listMap.add(map1);
+        }
+
+        return listMap;
+
+
+//        String goal = "nonDeterministicGoal(A+B,"+pred+"(A,B),ListModel)";
+//        String goal ="findall(B,"+pred+"(A,B),L), buildTermModel(L,ListModel)";
+// Notice that 'ListModel' is referred in both deterministicGoal arguments:
+//        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
+//        System.out.println("Solution bindings list:"+solutionVars);
     }
 
-//    @Override
-//    public String oneSolution(String goal) {
 
-//    }
+//        Pattern pattern = Pattern.compile("\\((.*)\\)");
+//        Matcher matcher =pattern.matcher(var);
 //
-//    @Override
-//    public List<String> nSolutions(String t, int size) {
-//    }
-//
+//        String[] a = var.split("\\((.*)\\)");
+//        for (String s : a) {
+//            System.out.println(s);
+//        }
+
 //    @Override
 //    public List<String> allSolutions(String t) {
 //        String goal = "domanda(X),extract(X,Y), term_to_atom(Y,Result)";

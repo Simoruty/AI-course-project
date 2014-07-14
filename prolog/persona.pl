@@ -3,19 +3,19 @@
                     , allNomi/1
                     , cognome/1
                     , cognome/2
-                    , allCognomi/1
+                    , allcognome/1
                     , persona/2
                     , persona/3
-                    , allPersone/1
+                    , allpersona/1
                     , soggetto/2
                     , soggetto/3
-                    , allSoggetti/1
+                    , allsoggetto/1
                     , giudice/2
                     , giudice/3
-                    , allGiudici/1
+                    , allgiudice/1
                     , curatore/2
                     , curatore/3
-                    , allCuratori/1
+                    , allcuratore/1
                     , tag_nome/0
                     , tag_cognome/0
                     , tag_persona/0
@@ -55,23 +55,23 @@ giudice(IDTag, Cognome, Nome) :-
 curatore(IDTag, Cognome, Nome) :-
     kb:tag(IDTag, curatore(Cognome, Nome)).
 
-allPersone(ListaPersone) :-
-    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, persona(Cognome,Nome)), ListaPersone).
+allpersona(ListaPersone) :-
+    findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, persona(Cognome,Nome)), ListaPersone).
 
-allCognomi(ListaCognomi) :-
+allcognome(ListaCognomi) :-
     findall((IDTag, Cognome) ,kb:tag(IDTag, cognome(Cognome)), ListaCognomi).
 
 allNomi(ListaNomi) :-
     findall((IDTag, Nome) ,kb:tag(IDTag, nome(Nome)), ListaNomi).
 
-allSoggetti(ListaSoggetti) :-
-    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, soggetto(Cognome, Nome)), ListaSoggetti).
+allsoggetto(ListaSoggetti) :-
+    findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, soggetto(Cognome, Nome)), ListaSoggetti).
 
-allGiudici(ListaGiudici) :-
-    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, giudice(Cognome, Nome)), ListaGiudici).
+allgiudice(ListaGiudici) :-
+    findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, giudice(Cognome, Nome)), ListaGiudici).
 
-allCuratori(ListaCuratori) :-
-    findall((IDTag, (Cognome, Nome)) ,kb:tag(IDTag, curatore(Cognome, Nome)), ListaCuratori).
+allcuratore(ListaCuratori) :-
+    findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, curatore(Cognome, Nome)), ListaCuratori).
 
 tag_persona :-
     \+kb:vuole(persona), !.

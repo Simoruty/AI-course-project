@@ -1,19 +1,19 @@
 :- module( valuta, [
                       simbolo_valuta/1
                     , simbolo_valuta/2
-                    , allSimboliValute/1
+                    , allsimbolo_valuta/1
                     , numero/1  
                     , numero/2
-                    , allNumeri/1
+                    , allnumero/1
                     , tipologia/1
                     , tipologia/2
-                    , allTipologie/1
+                    , alltipologia/1
                     , valuta/2
                     , valuta/3
-                    , allValute/1
+                    , allvaluta/1
                     , richiesta_valuta/3
                     , richiesta_valuta/4
-                    , allRichieste_valute/1
+                    , allrichiesta_valuta/1
                     , tag_simbolo_valuta/0
                     , tag_numero/0
                     , tag_tipologia/0
@@ -47,20 +47,20 @@ valuta(IDTag, M, S) :-
 richiesta_valuta(IDTag, M, S, T) :-
     kb:tag(IDTag, richiesta_valuta(M,S,T)).
 
-allTipologie(ListaTipologie) :-
+alltipologia(ListaTipologie) :-
     findall((IDTag, T) ,kb:tag(IDTag, tipologia(T)), ListaTipologie).
 
-allNumeri(ListaNumeri) :-
+allnumero(ListaNumeri) :-
     findall((IDTag, N) ,kb:tag(IDTag, numero(N)), ListaNumeri).
 
-allSimboliValute(ListaSimboliValute) :-
+allsimbolo_valuta(ListaSimboliValute) :-
     findall((IDTag, S) ,kb:tag(IDTag, simbolo_valuta(S)), ListaSimboliValute).
 
-allValute(ListaValute) :-
-    findall((IDTag, (M,S)) ,kb:tag(IDTag, valuta(M,S)), ListaValute).
+allvaluta(ListaValute) :-
+    findall((IDTag, M, S) ,kb:tag(IDTag, valuta(M,S)), ListaValute).
 
-allRichieste_valute(ListaRichieste) :-
-    findall((IDTag, (M,S,T)) ,kb:tag(IDTag, richiesta_valuta(M,S,T)), ListaRichieste).
+allrichiesta_valuta(ListaRichieste) :-
+    findall((IDTag, M, S, T) ,kb:tag(IDTag, richiesta_valuta(M,S,T)), ListaRichieste).
 
 tag_richiesta_valuta :-
     \+kb:vuole(richiesta_valuta), !.

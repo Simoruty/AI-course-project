@@ -7,7 +7,7 @@
           , mese/2
           , anno/1
           , anno/2
-          , allData/1
+          , alldata/1
           , tag_data/0
           , tag_giorno/0
           , tag_mese/0
@@ -42,8 +42,8 @@ mese(IDTag, M) :-
 anno(IDTag, A) :-
     kb:tag(IDTag, anno(A)).
 
-allData(ListaData) :-
-    findall((IDTag,(G,M,A)) ,kb:tag(IDTag, data(G,M,A)), ListaData).
+alldata(ListaData) :-
+    findall((IDTag,G,M,A) ,kb:tag(IDTag, data(G,M,A)), ListaData).
 
 tag_data :-     
     \+kb:vuole(data),!.

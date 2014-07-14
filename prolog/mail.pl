@@ -2,7 +2,7 @@
             [ tag_mail/0
             , mail/1
             , mail/2
-            , allMail/1
+            , allmail/1
             ] 
 ).
 
@@ -15,7 +15,7 @@ mail(Mail) :-
 mail(IDTag, Mail) :-
     kb:tag(IDTag, mail(Mail)).
 
-allMail(ListaMail) :-
+allmail(ListaMail) :-
     findall((IDTag,Mail) ,kb:tag(IDTag, mail(Mail)), ListaMail).
 
 tag_mail :- 

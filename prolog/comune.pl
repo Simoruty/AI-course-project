@@ -2,15 +2,13 @@
             [tag_comune/0
             , comune/1
             , comune/2
-            , allComuni/1
+            , allcomune/1
             ] 
 ).
 
 :- use_module(kb).
 
 :- consult('comune_kb.pl').
-
-
 
 tag_comune :-
     \+kb:vuole(comune), !.
@@ -26,7 +24,7 @@ comune(Comune) :-
 comune(IDTag,Comune) :-
     kb:tag(IDTag, comune(Comune)).
 
-allComuni(ListaComuni) :-
+allcomune(ListaComuni) :-
     findall((IDTag,Comune) ,kb:tag(IDTag, comune(Comune)), ListaComuni).
 
 tag_comune(Comune) :-

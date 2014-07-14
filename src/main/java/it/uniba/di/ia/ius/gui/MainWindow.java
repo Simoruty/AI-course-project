@@ -2,6 +2,7 @@ package it.uniba.di.ia.ius.gui;
 
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
 import it.uniba.di.ia.ius.prologAPI.JPLInterface;
+import it.uniba.di.ia.ius.prologAPI.NoVariableException;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -99,8 +100,8 @@ public class MainWindow {
     private void run() {
         defaultListModel.clear();
 
-        PrologInterface pi = new JPLInterface(PrologInterface.SWI);
-//              PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
+//        PrologInterface pi = new JPLInterface(PrologInterface.SWI);
+              PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
 
         pi.consult(new File("prolog/main.pl"));
 //        pi.retractAll("documento", Arrays.asList("_"));
@@ -143,15 +144,15 @@ public class MainWindow {
             lists.add(listMap);
         }
 
-        for (String s : daElaborare3) {
-            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2"));
-            lists.add(listMap);
-        }
-
-        for (String s : daElaborare4) {
-            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2", "Val3"));
-            lists.add(listMap);
-        }
+//        for (String s : daElaborare3) {
+//            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2"));
+//            lists.add(listMap);
+//        }
+////
+//        for (String s : daElaborare4) {
+//            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2", "Val3"));
+//            lists.add(listMap);
+//        }
 
         for (List<Map<String, String>> list : lists) {
             for (Map<String, String> solution : list) {
