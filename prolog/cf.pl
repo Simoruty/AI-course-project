@@ -3,6 +3,7 @@
             , cf/1
             , cf/2
             , allcf/1
+            , riscf/0
             ] 
 ).
 
@@ -19,6 +20,14 @@ cf(IDTag,CF) :-
 %% Trova tutti i codici fiscali
 allcf(ListaCF) :-
     findall((IDTag,CF) ,kb:tag(IDTag, cf(CF)), ListaCF).
+
+%% Risultati
+riscf :-
+    \+kb:vuole(cf), !.
+riscf :-
+    findall(Cf ,kb:tag(_, cf(Cf)), ListaCf),
+    write('I codici fiscali trovati sono: '), 
+    write( ListaCf ).
 
 %% Tagga i codici fiscali
 tag_cf :-

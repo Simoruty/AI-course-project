@@ -3,6 +3,7 @@
             , mail/1
             , mail/2
             , allmail/1
+            , rismail/0
             ] 
 ).
 
@@ -19,6 +20,14 @@ mail(IDTag, Mail) :-
 %% Trova tutte le mail
 allmail(ListaMail) :-
     findall((IDTag,Mail) ,kb:tag(IDTag, mail(Mail)), ListaMail).
+
+%% Risultati
+rismail :-
+    \+kb:vuole(mail), !.
+rismail :-
+    findall(Mail ,kb:tag(_, mail(Mail)), ListaMail),
+    write('Le mail trovate sono: '), 
+    write( ListaMail ).
 
 %% Tagga tutte le mail
 tag_mail :- 

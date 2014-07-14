@@ -14,6 +14,7 @@
                     , richiesta_valuta/3
                     , richiesta_valuta/4
                     , allrichiesta_valuta/1
+                    , risrichiesta_valuta/0
                     , tag_simbolo_valuta/0
                     , tag_numero/0
                     , tag_tipologia/0
@@ -79,6 +80,14 @@ allvaluta(ListaValute) :-
 %% Trova tutte le richieste di valuta
 allrichiesta_valuta(ListaRichieste) :-
     findall((IDTag, M, S, T) ,kb:tag(IDTag, richiesta_valuta(M,S,T)), ListaRichieste).
+
+%% Risultati
+risrichiesta_valuta :-
+    \+kb:vuole(richiesta_valuta), !.
+risrichiesta_valuta :-
+    findall(( M, S, T) ,kb:tag(_, richiesta_valuta(M,S,T)), ListaRichieste),
+    write('Le richieste di valuta trovate sono: '), 
+    write( ListaRichieste ).
 
 %% Tagga le richieste di valuta
 tag_richiesta_valuta :-

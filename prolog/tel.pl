@@ -3,6 +3,7 @@
             , tel/1
             , tel/2
             , alltel/1
+            , ristel/0
             ] 
 ).
 
@@ -20,6 +21,14 @@ tel(IDTag, Tel) :-
 %% Trova tutti i numeri di telefono
 alltel(ListaTel) :-
     findall((IDTag, Tel) ,kb:tag(IDTag, tel(Tel)), ListaTel).
+
+%% Risultati
+ristel :-
+    \+kb:vuole(tel), !.
+ristel :-
+    findall( Tel ,kb:tag(_, tel(Tel)), ListaTel),
+    write('I numeri di telefoni trovati sono: '), 
+    write( ListaTel ).
 
 %% Tagga tutti i numeri di telefono
 tag_tel :-     

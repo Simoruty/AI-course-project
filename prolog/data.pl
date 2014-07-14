@@ -8,6 +8,7 @@
           , anno/1
           , anno/2
           , alldata/1
+          , risdata/0
           , tag_data/0
           , tag_giorno/0
           , tag_mese/0
@@ -49,6 +50,14 @@ anno(IDTag, A) :-
 %% Trova tutte le date
 alldata(ListaData) :-
     findall((IDTag,G,M,A) ,kb:tag(IDTag, data(G,M,A)), ListaData).
+
+%% Risultati
+risdata :-
+    \+kb:vuole(data), !.
+risdata :-
+    findall((G,M,A) ,kb:tag(_, data(G,M,A)), ListaData),
+    write('Le date trovate sono: '), 
+    write( ListaData ).
 
 %% Tagga le date
 tag_data :-     

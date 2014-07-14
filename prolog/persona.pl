@@ -8,15 +8,19 @@
             , persona/2
             , persona/3
             , allpersona/1
+            , rispersona/0
             , soggetto/2
             , soggetto/3
             , allsoggetto/1
+            , rissoggetto/0
             , giudice/2
             , giudice/3
             , allgiudice/1
+            , risgiudice/0
             , curatore/2
             , curatore/3
             , allcuratore/1
+            , riscuratore/0
             , tag_nome/0
             , tag_cognome/0
             , tag_persona/0
@@ -76,6 +80,14 @@ curatore(IDTag, Cognome, Nome) :-
 allpersona(ListaPersone) :-
     findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, persona(Cognome,Nome)), ListaPersone).
 
+%% Risultati
+rispersona :-
+    \+kb:vuole(persona), !.
+rispersona :-
+    findall((Cognome, Nome) ,kb:tag(_, persona(Cognome,Nome)), ListaPersone),
+    write('Le persone trovate sono: '), 
+    write( ListaPersone ).
+
 %% Trova tutti i cognomi
 allcognome(ListaCognomi) :-
     findall((IDTag, Cognome) ,kb:tag(IDTag, cognome(Cognome)), ListaCognomi).
@@ -88,13 +100,37 @@ allnome(ListaNomi) :-
 allsoggetto(ListaSoggetti) :-
     findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, soggetto(Cognome, Nome)), ListaSoggetti).
 
+%% Risultati
+rissoggetto :-
+    \+kb:vuole(soggetto), !.
+rissoggetto :-
+    findall((Cognome, Nome) ,kb:tag(_, soggetto(Cognome,Nome)), ListaPersone),
+    write('I soggetti trovati sono: '), 
+    write( ListaPersone ).
+
 %% Trova tutti i giudici
 allgiudice(ListaGiudici) :-
     findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, giudice(Cognome, Nome)), ListaGiudici).
 
+%% Risultati
+risgiudice :-
+    \+kb:vuole(giudice), !.
+risgiudice :-
+    findall((Cognome, Nome) ,kb:tag(_, giudice(Cognome,Nome)), ListaPersone),
+    write('I giudici trovati sono: '), 
+    write( ListaPersone ).
+
 %% Trova tutti i curatori
 allcuratore(ListaCuratori) :-
     findall((IDTag, Cognome, Nome) ,kb:tag(IDTag, curatore(Cognome, Nome)), ListaCuratori).
+
+%% Risultati
+riscuratore :-
+    \+kb:vuole(curatore), !.
+riscuratore :-
+    findall((Cognome, Nome) ,kb:tag(_, curatore(Cognome,Nome)), ListaPersone),
+    write('I curatori trovati sono: '), 
+    write( ListaPersone ).
 
 %% Tagga tutte le persone
 tag_persona :-

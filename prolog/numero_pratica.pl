@@ -2,6 +2,7 @@
             [ numero_pratica/1
             , numero_pratica/2
             , allnumero_pratica/1
+            , risnumero_pratica/0
             , tag_numero_pratica/0
             ] 
 ).
@@ -20,6 +21,14 @@ numero_pratica(IDTag, Num) :-
 %% Trova tutti i numeri di pratica
 allnumero_pratica(ListaNumeri_pratica) :-
     findall((IDTag,Num) ,kb:tag(IDTag, numero_pratica(Num)), ListaNumeri_pratica).
+
+%% Risultati
+risnumero_pratica :-
+    \+kb:vuole(numero_pratica), !.
+risnumero_pratica :-
+   findall(Num ,kb:tag(_, numero_pratica(Num)), ListaNumeri_pratica),
+    write('I numeri di pratica trovati sono: '), 
+    write( ListaNumeri_pratica ).
 
 %% Tagga i numeri di pratica
 tag_numero_pratica :-

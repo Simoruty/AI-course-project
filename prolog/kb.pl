@@ -5,6 +5,7 @@
                , writeKB/1
                , expandKB/0
                , explainKB/0
+               , resultKB/0
                , lista_parole/1
                , assertFact/1
                , assertTag/3
@@ -42,8 +43,20 @@ expandKB :-
     persona:tag_curatore,
     persona:tag_giudice,
     valuta:tag_richiesta_valuta,
-    numero_pratica:tag_numero_pratica,
-    true.
+    numero_pratica:tag_numero_pratica.
+
+resultKB :-
+    riscomune,nl,
+    riscf,nl,
+    rismail,nl,
+    ristel,nl,
+    rispersona,nl,
+    risdata,nl,
+    riscuratore,nl,
+    rissoggetto,nl,
+    risgiudice,nl,
+    risrichiesta_valuta,nl,
+    risnumero_pratica.
 
 explainKB:-
     findall((Tag,Spiegazione), (kb:tag(IDTag, Tag),spiega(IDTag,Spiegazione)), ListaSpiegazioni),
@@ -93,8 +106,8 @@ assertTag(Tag, Spiegazione, Dipendenze) :-
     atom_number(AtomIDTag, NextIDTag),
     atom_concat('tag', AtomIDTag, IDTag),
     assertFact(kb:tag(IDTag, Tag)),
-    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
-    write(Message), write(Tag), nl,
+%    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
+%    write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
     forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
 
@@ -108,8 +121,8 @@ assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
     assertFact(kb:tag(IDTag, Tag)),
     forall( member( Precedente, ListaPrecedenti ), ( assertFact(kb:next(Precedente, IDTag)) ) ),
     forall( member( Successivo, ListaSuccessivi ), ( assertFact(kb:next(IDTag, Successivo)) ) ),
-    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
-    write(Message), write(Tag), nl,
+%    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
+%    write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
     forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
 

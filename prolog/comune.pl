@@ -3,6 +3,7 @@
             , comune/1
             , comune/2
             , allcomune/1
+            , riscomune/0
             ] 
 ).
 
@@ -20,6 +21,14 @@ comune(IDTag,Comune) :-
 %% Trova tutti i comuni
 allcomune(ListaComuni) :-
     findall((IDTag,Comune) ,kb:tag(IDTag, comune(Comune)), ListaComuni).
+
+%% Risultati
+riscomune :-
+    \+kb:vuole(comune), !.
+riscomune :-
+    findall(Comune ,kb:tag(_, comune(Comune)), ListaComuni),
+    write('I comuni trovati sono: '), 
+    write( ListaComuni ).
 
 %% Tagga tutti i comuni
 tag_comune :-

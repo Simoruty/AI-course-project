@@ -18,6 +18,7 @@ main :-
     tag_default,
     mostra_tag_da_estrarre,
     expandKB,
+    resultKB,
 %    explainKB,
     true.
 

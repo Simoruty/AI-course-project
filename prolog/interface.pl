@@ -124,7 +124,7 @@ seleziona_tag(3) :-
     kb:vuole(giudice),
     retract(kb:vuole(giudice)).
 
-seleziona_tag(3) :- 
+seleziona_tag(3) :-
     asserta(kb:vuole(giudice)).
 
 % Cambia settaggi richiesta di valuta
@@ -137,7 +137,7 @@ seleziona_tag(4) :-
 
 % Cambia settaggi curatore
 seleziona_tag(5) :- 
-    kb:vuole(curatore),
+    kb:vuole(curatore), !,
     retract(kb:vuole(curatore)).
 
 seleziona_tag(5) :- 
@@ -162,7 +162,10 @@ seleziona_tag(7) :-
 % Cambia settaggi persona
 seleziona_tag(8) :- 
     kb:vuole(persona),
-    retract(kb:vuole(persona)).
+    retract(kb:vuole(persona)),
+    retract(kb:vuole(soggetto)),
+    retract(kb:vuole(curatore)),
+    retract(kb:vuole(giudice)).
 
 seleziona_tag(8) :- 
     asserta(kb:vuole(persona)).
