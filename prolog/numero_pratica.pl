@@ -1,33 +1,38 @@
-:- module( numero_pratica, [
-                             numero_pratica/1
-                           , numero_pratica/2
-                           , allnumero_pratica/1
-                           , tag_numero_pratica/0
-                           ] ).
+:- module( numero_pratica, 
+            [ numero_pratica/1
+            , numero_pratica/2
+            , allnumero_pratica/1
+            , tag_numero_pratica/0
+            ] 
+).
 
 :- use_module(kb).
 :- use_module(data).
 :- use_module(valuta).
 
+%% Trova il primo numero di pratica
 numero_pratica(Num) :-
     kb:tag(_, numero_pratica(Num)).
 
 numero_pratica(IDTag, Num) :-
     kb:tag(IDTag, numero_pratica(Num)).
 
+%% Trova tutti i numeri di pratica
 allnumero_pratica(ListaNumeri_pratica) :-
     findall((IDTag,Num) ,kb:tag(IDTag, numero_pratica(Num)), ListaNumeri_pratica).
 
+%% Tagga i numeri di pratica
 tag_numero_pratica :-
     \+kb:vuole(numero_pratica), !.
+
 tag_numero_pratica :-
     kb:fatto(numero_pratica), !.
+
 tag_numero_pratica :-
     tag_numero,
     tag_anno,
     findall(_, tag_numero_pratica(_), _),
     asserta(kb:fatto(numero_pratica)).
-
 
 tag_numero_pratica(X) :-
     kb:token(IDToken1, 'n'),

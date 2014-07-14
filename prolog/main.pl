@@ -1,5 +1,3 @@
-%:- consult('dataset.pl').
-
 :- use_module(kb).
 :- use_module(cf).
 :- use_module(comune).

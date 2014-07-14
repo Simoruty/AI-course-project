@@ -1,5 +1,5 @@
 :- module( comune, 
-            [tag_comune/0
+            [ tag_comune/0
             , comune/1
             , comune/2
             , allcomune/1
@@ -10,6 +10,18 @@
 
 :- consult('comune_kb.pl').
 
+%% Trova il primo comune
+comune(Comune) :-
+    kb:tag(_, comune(Comune)).
+
+comune(IDTag,Comune) :-
+    kb:tag(IDTag, comune(Comune)).
+
+%% Trova tutti i comuni
+allcomune(ListaComuni) :-
+    findall((IDTag,Comune) ,kb:tag(IDTag, comune(Comune)), ListaComuni).
+
+%% Tagga tutti i comuni
 tag_comune :-
     \+kb:vuole(comune), !.
 tag_comune :- 
@@ -17,15 +29,6 @@ tag_comune :-
 tag_comune :-
     findall(X, tag_comune(X), _),
     asserta(kb:fatto(comune)).
-
-comune(Comune) :-
-    kb:tag(_, comune(Comune)).
-
-comune(IDTag,Comune) :-
-    kb:tag(IDTag, comune(Comune)).
-
-allcomune(ListaComuni) :-
-    findall((IDTag,Comune) ,kb:tag(IDTag, comune(Comune)), ListaComuni).
 
 tag_comune(Comune) :-
     kb:next(IDToken1,IDToken2),
@@ -87,7 +90,6 @@ tag_comune(Comune) :-
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-
 tag_comune(Comune) :-
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
@@ -104,7 +106,6 @@ tag_comune(Comune) :-
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-
 tag_comune(Comune) :-
     kb:next(IDToken1,IDToken2),
     kb:token(IDToken1, Token1),
@@ -115,7 +116,6 @@ tag_comune(Comune) :-
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COMUNE] Nel documento e’ presente',Comune],' ',Spiegazione),
     assertTag(comune(Comune), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
-
 
 tag_comune(Comune) :-
     kb:token(IDToken1, Comune),

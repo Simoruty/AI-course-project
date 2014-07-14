@@ -6,18 +6,21 @@
             ] 
 ).
 
-:- use_module(lexer).
 :- use_module(kb).
+:- use_module(lexer).
 
+%% Trova la prima mail
 mail(Mail) :-
     kb:tag(_, mail(Mail)).
 
 mail(IDTag, Mail) :-
     kb:tag(IDTag, mail(Mail)).
 
+%% Trova tutte le mail
 allmail(ListaMail) :-
     findall((IDTag,Mail) ,kb:tag(IDTag, mail(Mail)), ListaMail).
 
+%% Tagga tutte le mail
 tag_mail :- 
     \+kb:vuole(mail),!.
 
