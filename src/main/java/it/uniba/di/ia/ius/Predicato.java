@@ -28,7 +28,7 @@ public class Predicato {
             this.vars.add("R" + i);
         }
         if (vuole)
-            PrologInterface.getInstance().asserta("vuole", Arrays.asList(nomePredicato));
+            PrologInterface.getInstance().asserta("kb:vuole", Arrays.asList(nomePredicato));
     }
 
     public List<Tag> run() {

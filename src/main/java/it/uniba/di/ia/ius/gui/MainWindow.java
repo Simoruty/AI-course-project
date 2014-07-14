@@ -113,7 +113,7 @@ public class MainWindow {
     private void reset() {
         listModel.clear();
         textPane.setText("");
-        pi.retractAll("vuole", Arrays.asList("_"));
+        pi.retractAll("kb:vuole", Arrays.asList("_"));
     }
 
     private void run() {
