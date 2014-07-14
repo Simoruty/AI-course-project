@@ -108,11 +108,11 @@ tag_simbolo_valuta(Valuta) :-
     atomic_list_concat(['[SIMBOLO VALUTA] Nel documento e’ presente il simbolo',Token],' ',Spiegazione),
     assertTag(simbolo_valuta(Valuta), ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
 
-std_valuta('€', '€').
-std_valuta('euro', '€').
-std_valuta('eur', '€').
-std_valuta('$', '$').
-std_valuta('£', '£').
+std_valuta('€', 'euro').
+std_valuta('euro', 'euro').
+std_valuta('eur', 'euro').
+std_valuta('$', 'dollari').
+std_valuta('£', 'sterline').
 
 tag_numero(Num) :- 
     kb:token(IDToken1, Token1),
