@@ -1,14 +1,14 @@
 package it.uniba.di.ia.ius.gui;
 
+import it.uniba.di.ia.ius.Predicato;
+import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
-import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.NoVariableException;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,9 +18,8 @@ import java.util.Map;
 public class MainWindow {
 
     private final JFrame frame;
-    DefaultListModel defaultListModel;
-    private JPLInterface JPLInterface;
-    private InterprologInterface interprologInterface;
+    private DefaultListModel<Tag> listModel;
+    private PrologInterface pi;
     private JTextPane textPane;
     private JList jlist;
     private JButton extractButton;
@@ -39,6 +38,7 @@ public class MainWindow {
     private JCheckBox giudiceCB;
     private JCheckBox numeroPraticaCB;
     private JCheckBox eMailCB;
+    private JTextPane spiegaTextPane;
 
 
     public MainWindow() {
@@ -75,146 +75,176 @@ public class MainWindow {
 //        style = logTextPane.addStyle("Logger Style", null);
 //        logger = logTextPane.getStyledDocument();
 
-        defaultListModel = new DefaultListModel();
+        listModel = new DefaultListModel<>();
 
-        jlist.setModel(defaultListModel);
-        jlist.setCellRenderer(new MyListCellRenderer());
+        jlist.setModel(listModel);
+//        jlist.setCellRenderer(new MyListCellRenderer());
+
+        jlist.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                JList list = (JList) evt.getSource();
+                if (evt.getClickCount() == 2) {
+                    int index = list.locationToIndex(evt.getPoint());
+                    Tag tag = (Tag) jlist.getSelectedValue();
+                    spiegaTextPane.setText("");
+                    try {
+                        Map<String, String> res = pi.oneSolution("kb:spiega", Arrays.asList(tag.getId(), "Spiegazione"));
+                        String spiegazione = res.get("Spiegazione");
+                        String text = "Tag " + tag.getId() + "spiegato.\n";
+                        text += spiegazione + "\n";
+                        spiegaTextPane.setText(text);
+                    } catch (NoVariableException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        resetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                String message = "Reset all?";
-                String title = "Reset";
-                int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-                if (reply == JOptionPane.YES_OPTION) {
-                    defaultListModel.clear();
-                    textPane.setText("");
-                }
-            }
-        });
+
+        //pi = new JPLInterface(PrologInterface.SWI);
+        pi = new InterprologInterface(PrologInterface.YAP);
+
+
+    }
+
+    private void reset() {
+        listModel.clear();
+        textPane.setText("");
+        pi.retractAll("vuole", Arrays.asList("_"));
     }
 
     private void run() {
-        defaultListModel.clear();
-
-//        PrologInterface pi = new JPLInterface(PrologInterface.SWI);
-              PrologInterface pi = new InterprologInterface(PrologInterface.YAP);
+        reset();
 
         pi.consult(new File("prolog/main.pl"));
 //        pi.retractAll("documento", Arrays.asList("_"));
 //        pi.asserta("documento", Arrays.asList("\"" + textPane.getText() + "\""));
 
-
-        java.util.List<String> daElaborare2 = new ArrayList<>(11);
-        java.util.List<String> daElaborare3 = new ArrayList<>(11);
-        java.util.List<String> daElaborare4 = new ArrayList<>(11);
-
-        if (comuniCB.isSelected()) daElaborare2.add("comune");
-        if (telCB.isSelected()) daElaborare2.add("tel");
-        if (dateCB.isSelected()) daElaborare4.add("data");
-        if (cfCB.isSelected()) daElaborare2.add("cf");
-        if (richiestaValutaCB.isSelected()) daElaborare3.add("richiesta_valuta");
-        if (soggettoCB.isSelected()) daElaborare3.add("soggetto");
-        if (personeCB.isSelected()) daElaborare3.add("persona");
-        if (curatoreCB.isSelected()) daElaborare3.add("curatore");
-        if (giudiceCB.isSelected()) daElaborare3.add("giudice");
-        if (numeroPraticaCB.isSelected()) daElaborare2.add("numero_pratica");
-        if (eMailCB.isSelected()) daElaborare2.add("mail");
-
-        for (String s : daElaborare2) {
-            pi.asserta("vuole", Arrays.asList(s));
-        }
-
-        for (String s : daElaborare3) {
-            pi.asserta("vuole", Arrays.asList(s));
-        }
-        for (String s : daElaborare4) {
-            pi.asserta("vuole", Arrays.asList(s));
-        }
+        List<Predicato> predicatoList = new ArrayList<>(11);
+        predicatoList.add(new Predicato("comune", 2, comuniCB));
+        predicatoList.add(new Predicato("tel", 2, telCB));
+        predicatoList.add(new Predicato("data", 4, dateCB));
+        predicatoList.add(new Predicato("cf", 2, cfCB));
+        predicatoList.add(new Predicato("richiesta_valuta", 3, richiestaValutaCB));
+        predicatoList.add(new Predicato("soggetto", 3, soggettoCB));
+        predicatoList.add(new Predicato("persona", 3, personeCB));
+        predicatoList.add(new Predicato("curatore", 3, curatoreCB));
+        predicatoList.add(new Predicato("giudice", 3, giudiceCB));
+        predicatoList.add(new Predicato("numero_pratica", 2, numeroPraticaCB));
+        predicatoList.add(new Predicato("mail", 2, eMailCB));
 
         pi.statisfied("start", null);
 
-        List<List<Map<String, String>>> lists = new ArrayList<>();
-        java.util.List<Map<String, String>> listMap = null;
-        for (String s : daElaborare2) {
-            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val"));
-            lists.add(listMap);
-        }
-
-        for (String s : daElaborare3) {
-            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2"));
-            lists.add(listMap);
-        }
-
-        for (String s : daElaborare4) {
-            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2", "Val3"));
-            lists.add(listMap);
-        }
-
-        for (List<Map<String, String>> list : lists) {
-            for (Map<String, String> solution : list) {
-                if (solution.get("Val2")==null)
-                    System.out.println(solution.get("ID") + " " + solution.get("Val"));
-                else if (solution.get("Val3")==null)
-                    System.out.println(solution.get("ID") + " " + solution.get("Val") + " " + solution.get("Val2"));
-                else
-                    System.out.println(solution.get("ID") + " " + solution.get("Val") + " " + solution.get("Val2") + " " + solution.get("Val3"));
-            }
+        for (Predicato predicato : predicatoList) {
+            List<Tag> tagList = predicato.run();
+            for (Tag tag : tagList)
+                listModel.addElement(tag);
         }
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
-        pi.close();
+
     }
 
     private void addListeners() {
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         extractButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 run();
             }
         });
+
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int reply = JOptionPane.showConfirmDialog(null, "Reset all?", "Reset", JOptionPane.YES_NO_OPTION);
+                if (reply == JOptionPane.YES_OPTION) {
+                    reset();
+                }
+            }
+        });
+
+
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                pi.close();
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
     }
 
-    private class MyListCellRenderer extends JLabel implements ListCellRenderer {
-        public MyListCellRenderer() {
-            setOpaque(true);
-        }
-
-        public Component getListCellRendererComponent(JList paramlist, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            setText(value.toString());
-            if (value.toString().contains("persona")) {
-                setForeground(Color.BLACK);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("mail")) {
-                setForeground(Color.BLUE);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("richiesta")) {
-                setForeground(Color.RED);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("tel")) {
-                setForeground(Color.GREEN);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("comune")) {
-                setForeground(Color.ORANGE);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("date")) {
-                setForeground(Color.magenta);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("cf")) {
-                setForeground(Color.CYAN);
-                setBackground(Color.WHITE);
-            }
-            return this;
-        }
-    }
+//    private class MyListCellRenderer extends JLabel implements ListCellRenderer {
+//        public MyListCellRenderer() {
+//            setOpaque(true);
+//        }
+//
+//        public Component getListCellRendererComponent(JList paramlist, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+//            setText(value.toString());
+//            if (value.toString().contains("persona")) {
+//                setForeground(Color.BLACK);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("mail")) {
+//                setForeground(Color.BLUE);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("richiesta")) {
+//                setForeground(Color.RED);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("tel")) {
+//                setForeground(Color.GREEN);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("comune")) {
+//                setForeground(Color.ORANGE);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("date")) {
+//                setForeground(Color.magenta);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("cf")) {
+//                setForeground(Color.CYAN);
+//                setBackground(Color.WHITE);
+//            }
+//            return this;
+//        }
+//    }
 
 }

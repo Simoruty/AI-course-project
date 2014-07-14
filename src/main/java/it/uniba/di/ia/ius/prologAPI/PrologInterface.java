@@ -6,6 +6,12 @@ import java.util.Map;
 
 public abstract class PrologInterface {
 
+    protected static PrologInterface self;
+
+    public static PrologInterface getInstance() {
+        return self;
+    }
+
     public static final int SWI = 2;
     public static final int YAP = 4;
     protected static String YAP_BIN_PATH = "/usr/local/bin/yap";
@@ -42,8 +48,6 @@ public abstract class PrologInterface {
     public abstract boolean statisfied(String pred, List<String> args);
 
     public abstract Map<String, String> oneSolution(String pred, List<String> args) throws NoVariableException;
-
-    public abstract List<Map<String, String>> nSolutions(String pred, List<String> args, int size);
 
     public abstract List<Map<String, String>> allSolutions(String pred, List<String> args);
 

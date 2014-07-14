@@ -13,6 +13,7 @@ public class InterprologInterface extends PrologInterface {
 
     public InterprologInterface(int type) {
         super(type);
+        self = this;
         switch (type) {
             case SWI:
                 engine = new SWISubprocessEngine(SWI_BIN_PATH, true);
@@ -136,11 +137,6 @@ public class InterprologInterface extends PrologInterface {
     }
 
     @Override
-    public List<Map<String, String>> nSolutions(String pred, List<String> args, int size) {
-        return null;
-    }
-
-    @Override
     public List<Map<String, String>> allSolutions(String pred, List<String> args) {
 
         String goal = "all" + pred;
@@ -150,7 +146,7 @@ public class InterprologInterface extends PrologInterface {
         } catch (NoVariableException e) {
             e.printStackTrace();
         }
-        String result= map.get("ResultList");
+        String result = map.get("ResultList");
         List<Map<String, String>> listMap = new ArrayList<>(10);
         if (!result.equals("[]")) {
             String temp = map.get("ResultList").replaceAll("\\),\\(", "#").replaceAll("\\[\\(", "").replaceAll("\\)\\]", "");

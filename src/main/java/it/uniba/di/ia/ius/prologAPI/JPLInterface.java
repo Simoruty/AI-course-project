@@ -9,6 +9,7 @@ public class JPLInterface extends PrologInterface {
 
     public JPLInterface(int type) {
         super(type);
+        self = this;
         switch (type) {
             case SWI:
                 jpl.JPL.setNativeLibraryDir(SWI_LIB_PATH);
@@ -121,38 +122,6 @@ public class JPLInterface extends PrologInterface {
         return map;
     }
 
-    @Override
-    public List<Map<String, String>> nSolutions(String pred, List<String> args, int size) {
-        List<Map<String, String>> listMap = new ArrayList<>(10);
-        List<String> vars = new ArrayList<>(args.size());
-        Term term;
-        if ((args == null) || (args.size() == 0))
-            term = new Atom(pred);
-        else {
-            Term[] termArgs = new Term[args.size()];
-            for (int i = 0; i < args.size(); i++) {
-                String arg = args.get(i);
-                termArgs[i] = Util.textToTerm(arg);
-                if (prologNamedVariable(arg)) {
-                    vars.add(arg);
-                }
-            }
-            term = new Compound(pred, termArgs);
-        }
-        Query query = new Query(term);
-        System.err.print("[Prolog] query: " + term + " ");
-        System.err.println(query.hasSolution() ? "succeeded" : "failed");
-        java.util.Hashtable<String, Term>[] hts = query.nSolutions(size);
-        for (Hashtable<String, Term> ht : hts) {
-            Map<String, String> map = new HashMap<>();
-            for (String var : vars) {
-                map.put(var, ht.get(var).toString());
-            }
-            listMap.add(map);
-        }
-
-        return listMap;
-    }
 
     @Override
     public List<Map<String, String>> allSolutions(String pred, List<String> args) {
