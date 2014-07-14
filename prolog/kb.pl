@@ -46,17 +46,17 @@ expandKB :-
     numero_pratica:tag_numero_pratica.
 
 resultKB :-
-    riscomune,nl,
-    riscf,nl,
-    rismail,nl,
-    ristel,nl,
-    rispersona,nl,
-    risdata,nl,
-    riscuratore,nl,
-    rissoggetto,nl,
-    risgiudice,nl,
-    risrichiesta_valuta,nl,
-    risnumero_pratica.
+    comune:riscomune,nl,
+    cf:riscf,nl,
+    mail:rismail,nl,
+    tel:ristel,nl,
+    persona:rispersona,nl,
+    data:risdata,nl,
+    persona:riscuratore,nl,
+    persona:rissoggetto,nl,
+    persona:risgiudice,nl,
+    valuta:risrichiesta_valuta,nl,
+    numero_pratica:risnumero_pratica.
 
 explainKB:-
     findall((Tag,Spiegazione), (kb:tag(IDTag, Tag),spiega(IDTag,Spiegazione)), ListaSpiegazioni),
