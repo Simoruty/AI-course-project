@@ -150,52 +150,25 @@ public class InterprologInterface extends PrologInterface {
         } catch (NoVariableException e) {
             e.printStackTrace();
         }
-        String temp = map.get("ResultList").replaceAll("\\),\\(", "#").replaceAll("\\[\\(", "").replaceAll("\\)\\]", "");
-        String[] parsered = temp.split("#");
+        String result= map.get("ResultList");
         List<Map<String, String>> listMap = new ArrayList<>(10);
-
-        for (String s1 : parsered) {
-            String[] tags = s1.split(",");
-            int i = 0;
-            Map<String, String> map1 = new HashMap<>();
-            for (String arg : args) {
-                map1.put(arg, tags[i]);
-                i++;
+        if (!result.equals("[]")) {
+            String temp = map.get("ResultList").replaceAll("\\),\\(", "#").replaceAll("\\[\\(", "").replaceAll("\\)\\]", "");
+            String[] parsered = temp.split("#");
+            for (String s1 : parsered) {
+                String[] tags = s1.split(",");
+                int i = 0;
+                Map<String, String> map1 = new HashMap<>();
+                for (String arg : args) {
+                    map1.put(arg, tags[i]);
+                    i++;
+                }
+                listMap.add(map1);
             }
-            listMap.add(map1);
         }
-
         return listMap;
 
-
-//        String goal = "nonDeterministicGoal(A+B,"+pred+"(A,B),ListModel)";
-//        String goal ="findall(B,"+pred+"(A,B),L), buildTermModel(L,ListModel)";
-// Notice that 'ListModel' is referred in both deterministicGoal arguments:
-//        TermModel solutionVars = (TermModel)(engine.deterministicGoal(goal,"[ListModel]")[0]);
-//        System.out.println("Solution bindings list:"+solutionVars);
     }
-
-
-//        Pattern pattern = Pattern.compile("\\((.*)\\)");
-//        Matcher matcher =pattern.matcher(var);
-//
-//        String[] a = var.split("\\((.*)\\)");
-//        for (String s : a) {
-//            System.out.println(s);
-//        }
-
-//    @Override
-//    public List<String> allSolutions(String t) {
-//        String goal = "domanda(X),extract(X,Y), term_to_atom(Y,Result)";
-//        return (String) (engine.deterministicGoal(goal, "[string(Result)]")[0]);
-//
-////        String goal = "findall(_X,nextTag(_X),_L), buildTermModel(_L,ListModel)";
-////
-////        TermModel solutionVars = (TermModel) (engine.deterministicGoal(goal, "[ListModel]")[0]);
-////        System.out.println(solutionVars.getChildCount());
-//
-////        System.out.println("Solution bindings list:"+solutionVars);
-//    }
 
     @Override
     public void close() {

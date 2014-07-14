@@ -144,15 +144,15 @@ public class MainWindow {
             lists.add(listMap);
         }
 
-//        for (String s : daElaborare3) {
-//            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2"));
-//            lists.add(listMap);
-//        }
-////
-//        for (String s : daElaborare4) {
-//            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2", "Val3"));
-//            lists.add(listMap);
-//        }
+        for (String s : daElaborare3) {
+            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2"));
+            lists.add(listMap);
+        }
+
+        for (String s : daElaborare4) {
+            listMap = pi.allSolutions(s, Arrays.asList("ID", "Val", "Val2", "Val3"));
+            lists.add(listMap);
+        }
 
         for (List<Map<String, String>> list : lists) {
             for (Map<String, String> solution : list) {
