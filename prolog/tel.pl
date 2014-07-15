@@ -26,7 +26,7 @@ alltel(ListaTel) :-
 ristel :-
     \+kb:vuole(tel), !.
 ristel :-
-    findall( Tel ,kb:tag(_, tel(Tel)), ListaTel),
+    alltel( ListaTel ),
     write('I numeri di telefoni trovati sono: '), 
     write( ListaTel ).
 

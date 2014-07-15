@@ -25,7 +25,7 @@ allmail(ListaMail) :-
 rismail :-
     \+kb:vuole(mail), !.
 rismail :-
-    findall(Mail ,kb:tag(_, mail(Mail)), ListaMail),
+    allmail( ListaMail ),
     write('Le mail trovate sono: '), 
     write( ListaMail ).
 

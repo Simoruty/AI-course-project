@@ -55,7 +55,7 @@ alldata(ListaData) :-
 risdata :-
     \+kb:vuole(data), !.
 risdata :-
-    findall((G,M,A) ,kb:tag(_, data(G,M,A)), ListaData),
+    alldata ( ListaData ),
     write('Le date trovate sono: '), 
     write( ListaData ).
 

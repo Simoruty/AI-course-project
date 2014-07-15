@@ -26,7 +26,7 @@ allcomune(ListaComuni) :-
 riscomune :-
     \+kb:vuole(comune), !.
 riscomune :-
-    findall(Comune ,kb:tag(_, comune(Comune)), ListaComuni),
+    allcomune( ListaComuni ),
     write('I comuni trovati sono: '), 
     write( ListaComuni ).
 

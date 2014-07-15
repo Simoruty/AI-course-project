@@ -85,7 +85,7 @@ allrichiesta_valuta(ListaRichieste) :-
 risrichiesta_valuta :-
     \+kb:vuole(richiesta_valuta), !.
 risrichiesta_valuta :-
-    findall(( M, S, T) ,kb:tag(_, richiesta_valuta(M,S,T)), ListaRichieste),
+    allrichiesta_valuta( ListaRichieste ),
     write('Le richieste di valuta trovate sono: '), 
     write( ListaRichieste ).
 

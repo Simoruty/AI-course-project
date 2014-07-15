@@ -26,7 +26,7 @@ allnumero_pratica(ListaNumeri_pratica) :-
 risnumero_pratica :-
     \+kb:vuole(numero_pratica), !.
 risnumero_pratica :-
-   findall(Num ,kb:tag(_, numero_pratica(Num)), ListaNumeri_pratica),
+    allnumero_pratica( ListaNumeri_pratica ),
     write('I numeri di pratica trovati sono: '), 
     write( ListaNumeri_pratica ).
 

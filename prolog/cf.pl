@@ -25,7 +25,7 @@ allcf(ListaCF) :-
 riscf :-
     \+kb:vuole(cf), !.
 riscf :-
-    findall(Cf ,kb:tag(_, cf(Cf)), ListaCf),
+    allcf( ListaCf ),
     write('I codici fiscali trovati sono: '), 
     write( ListaCf ).
 

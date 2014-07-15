@@ -84,7 +84,7 @@ allpersona(ListaPersone) :-
 rispersona :-
     \+kb:vuole(persona), !.
 rispersona :-
-    findall((Cognome, Nome) ,kb:tag(_, persona(Cognome,Nome)), ListaPersone),
+    allpersona( ListaPersone ),
     write('Le persone trovate sono: '), 
     write( ListaPersone ).
 
@@ -104,9 +104,9 @@ allsoggetto(ListaSoggetti) :-
 rissoggetto :-
     \+kb:vuole(soggetto), !.
 rissoggetto :-
-    findall((Cognome, Nome) ,kb:tag(_, soggetto(Cognome,Nome)), ListaPersone),
+    allsoggetto( ListaSoggetti ),
     write('I soggetti trovati sono: '), 
-    write( ListaPersone ).
+    write( ListaSoggetti ).
 
 %% Trova tutti i giudici
 allgiudice(ListaGiudici) :-
@@ -116,9 +116,9 @@ allgiudice(ListaGiudici) :-
 risgiudice :-
     \+kb:vuole(giudice), !.
 risgiudice :-
-    findall((Cognome, Nome) ,kb:tag(_, giudice(Cognome,Nome)), ListaPersone),
+    allgiudice( ListaGiudici ),
     write('I giudici trovati sono: '), 
-    write( ListaPersone ).
+    write( ListaGiudici ).
 
 %% Trova tutti i curatori
 allcuratore(ListaCuratori) :-
@@ -128,9 +128,9 @@ allcuratore(ListaCuratori) :-
 riscuratore :-
     \+kb:vuole(curatore), !.
 riscuratore :-
-    findall((Cognome, Nome) ,kb:tag(_, curatore(Cognome,Nome)), ListaPersone),
+    allcuratore( ListaCuratori ),
     write('I curatori trovati sono: '), 
-    write( ListaPersone ).
+    write( ListaCuratori ).
 
 %% Tagga tutte le persone
 tag_persona :-

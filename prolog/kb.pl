@@ -32,6 +32,7 @@ lista_parole(ListaParole) :-
     documento(Doc), 
     lexer(Doc, ListaParole).
 
+%% Crea la Knowledge Base
 expandKB :-
     comune:tag_comune,
     cf:tag_cf,
@@ -45,6 +46,7 @@ expandKB :-
     valuta:tag_richiesta_valuta,
     numero_pratica:tag_numero_pratica.
 
+%% Mostra i risultati
 resultKB :-
     comune:riscomune,nl,
     cf:riscf,nl,
@@ -58,6 +60,7 @@ resultKB :-
     valuta:risrichiesta_valuta,nl,
     numero_pratica:risnumero_pratica.
 
+%% Mostra le spiegazioni
 explainKB:-
     findall((Tag,Spiegazione), (kb:tag(IDTag, Tag),spiega(IDTag,Spiegazione)), ListaSpiegazioni),
     write('SPIEGAZIONI: '), 
@@ -131,7 +134,6 @@ spiega(IDTag) :-
     write(Spiegazione),nl,
     findall(X, dipende_da(IDTag, X), Dipendenze),
     forall( member(D, Dipendenze), (spiega(D)) ).
-
 
 token(IDToken) :- 
     kb:token(IDToken, _).
