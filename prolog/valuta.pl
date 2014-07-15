@@ -19,7 +19,8 @@
                     , tag_numero/0
                     , tag_tipologia/0
                     , tag_valuta/0
-                    , tag_richiesta_valuta/0  
+                    , tag_richiesta_valuta/0
+                    , std_valuta/2  
                    ] 
 ).
 

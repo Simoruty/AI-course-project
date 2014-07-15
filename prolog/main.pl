@@ -8,13 +8,14 @@
 :- use_module(tel).
 :- use_module(valuta).
 :- use_module(interface).
+:- use_module(serialize).
 
 main :-
     intestazione,
-    %write('Inserisci il testo del documento: '),nl,nl,
-    %read(Documento),
-%    writeKB(Documento), %TODO Forse working memory
-    writeKB,   
+    write('Inserisci il testo del documento: '),nl,nl,
+    read(Documento),
+    writeKB(Documento), %TODO Forse working memory
+%    writeKB,   
     tag_default,
     mostra_tag_da_estrarre,
     expandKB,
@@ -38,4 +39,5 @@ intestazione :-
 start :-
     writeKB,
     expandKB,
+    serialize,
     true.

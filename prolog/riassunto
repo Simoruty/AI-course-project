@@ -1,0 +1,16 @@
+parola(IDToken).
+numero(IDToken).
+valuta(IDTag).
+euro(IDToken).
+chiro(IDToken).
+...
+
+next().
+
+depends().
+
+tax(IDToken, ['parola']).
+
+appartiene(IDToken, Doc).
+
+neg(appartiene(IDToken, Doc)).
