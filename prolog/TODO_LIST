@@ -1,0 +1,5 @@
+1) eliminare "tag" e sostituirlo con "token" su quelli singoli e banali. Sostituire il token senza semantica col nuovo token
+2) asserire val() tutte le volte che trovi un numero
+3) Aggiungere tag iscrizione_al_passivo che classifica il documento
+4) creare dataset con i 3 modelli di iscrizione_al_passivo e con altri modelli NON iscrizione_al_passivo.
+
