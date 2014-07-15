@@ -55,7 +55,7 @@ alldata(ListaData) :-
 risdata :-
     \+kb:vuole(data), !.
 risdata :-
-    alldata ( ListaData ),
+    alldata( ListaData ),
     write('Le date trovate sono: '), 
     write( ListaData ).
 
