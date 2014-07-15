@@ -4,7 +4,7 @@ run:
 	./run.sh
 
 yap:
-	yap -l main.pl -g main.
+	yap -l main.pl
 
 swi:
 	swipl -f main.pl

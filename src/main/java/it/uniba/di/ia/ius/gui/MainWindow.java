@@ -107,23 +107,22 @@ public class MainWindow {
         //pi = new JPLInterface(PrologInterface.SWI);
         pi = new InterprologInterface(PrologInterface.YAP);
 
-        ListCellRenderer renderer = new MyListCellRenderer();
-        jlist.setCellRenderer(renderer);
+//        ListCellRenderer renderer = new MyListCellRenderer();
+//        jlist.setCellRenderer(renderer);
 
     }
 
     private void reset() {
         listModel.clear();
-        textPane.setText("");
+//        textPane.setText("");
         pi.retractAll("kb:vuole", Arrays.asList("_"));
     }
 
     private void run() {
         reset();
-
         pi.consult(new File("prolog/main.pl"));
-//        pi.retractAll("documento", Arrays.asList("_"));
-//        pi.asserta("documento", Arrays.asList("\"" + textPane.getText() + "\""));
+        pi.retractAll("documento", Arrays.asList("_"));
+        pi.asserta("kb:documento", Arrays.asList("\"" + textPane.getText() + "\""));
 
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
@@ -168,6 +167,7 @@ public class MainWindow {
                 int reply = JOptionPane.showConfirmDialog(null, "Reset all?", "Reset", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {
                     reset();
+                    textPane.setText("");
                 }
             }
         });
@@ -212,43 +212,43 @@ public class MainWindow {
         });
     }
 
-    private class MyListCellRenderer extends JLabel implements ListCellRenderer {
-        public MyListCellRenderer() {
-            setOpaque(true);
-        }
-
-        public Component getListCellRendererComponent(JList paramlist, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            setText(value.toString());
-            if (value.toString().contains("persona") || value.toString().contains("soggetto") || value.toString().contains("giudice") || value.toString().contains("curatore")) {
-                setForeground(Color.BLACK);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("mail")) {
-                setForeground(Color.BLUE);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("richiesta_valuta")) {
-                setForeground(Color.RED);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("tel")) {
-                setForeground(Color.GREEN);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("comune")) {
-                setForeground(Color.ORANGE);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("data")) {
-                setForeground(Color.magenta);
-                setBackground(Color.WHITE);
-            }
-            if (value.toString().contains("cf")) {
-                setForeground(Color.CYAN);
-                setBackground(Color.WHITE);
-            }
-            return this;
-        }
-    }
+//    private class MyListCellRenderer extends JLabel implements ListCellRenderer {
+//        public MyListCellRenderer() {
+//            setOpaque(true);
+//        }
+//
+//        public Component getListCellRendererComponent(JList paramlist, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+//            setText(value.toString());
+//            if (value.toString().contains("persona") || value.toString().contains("soggetto") || value.toString().contains("giudice") || value.toString().contains("curatore")) {
+//                setForeground(Color.BLACK);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("mail")) {
+//                setForeground(Color.BLUE);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("richiesta_valuta")) {
+//                setForeground(Color.RED);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("tel")) {
+//                setForeground(Color.GREEN);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("comune")) {
+//                setForeground(Color.ORANGE);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("data")) {
+//                setForeground(Color.magenta);
+//                setBackground(Color.WHITE);
+//            }
+//            if (value.toString().contains("cf")) {
+//                setForeground(Color.CYAN);
+//                setBackground(Color.WHITE);
+//            }
+//            return this;
+//        }
+//    }
 
 }

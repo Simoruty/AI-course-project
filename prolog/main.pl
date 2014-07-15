@@ -8,6 +8,7 @@
 :- use_module(tel).
 :- use_module(valuta).
 :- use_module(interface).
+:- use_module(serialize).
 
 main :-
     intestazione,
@@ -38,4 +39,5 @@ intestazione :-
 start :-
     writeKB,
     expandKB,
+    serialize,
     true.
