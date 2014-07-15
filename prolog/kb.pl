@@ -23,7 +23,7 @@
 :-dynamic(fatto/1).
 :-dynamic(kb:tag/2).
 :-dynamic(kb:spiega/2).
-:-dynamic(kb:dipende_da/2).
+:-dynamic(kb:depends/2).
 :-dynamic(kb:next/2).
 :-dynamic(kb:token/2).
 :-dynamic(kb:vuole/1).
@@ -111,7 +111,7 @@ assertTag(Tag, Spiegazione, Dipendenze) :-
 %    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
 %    write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
-    forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
+    forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
 assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione) :-
     assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
@@ -126,13 +126,13 @@ assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
 %    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
 %    write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
-    forall( member(D,Dipendenze), (assertFact(dipende_da(IDTag, D))) ).
+    forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
 %TODO LISTA DI SPIEGAZIONI
 spiega(IDTag) :-
     spiega(IDTag, Spiegazione),
     write(Spiegazione),nl,
-    findall(X, dipende_da(IDTag, X), Dipendenze),
+    findall(X, depends(IDTag, X), Dipendenze),
     forall( member(D, Dipendenze), (spiega(D)) ).
 
 token(IDToken) :- 
