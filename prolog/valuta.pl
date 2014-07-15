@@ -5,9 +5,9 @@
                     , numero/1  
                     , numero/2
                     , allnumero/1
-                    , tipologia/1
-                    , tipologia/2
-                    , alltipologia/1
+                    , tipo_richiesta/1
+                    , tipo_richiesta/2
+                    , alltipo_richiesta/1
                     , valuta/2
                     , valuta/3
                     , allvaluta/1
@@ -17,7 +17,7 @@
                     , risrichiesta_valuta/0
                     , tag_simbolo_valuta/0
                     , tag_numero/0
-                    , tag_tipologia/0
+                    , tag_tipo_richiesta/0
                     , tag_valuta/0
                     , tag_richiesta_valuta/0
                     , std_valuta/2  
@@ -27,12 +27,12 @@
 :- use_module(lexer).
 :- use_module(kb).
 
-%% Trova la prima tipologia di richiesta
-tipologia(T) :-
-    kb:tag(_, tipologia(T)).
+%% Trova la prima tipo_richiesta di richiesta
+tipo_richiesta(T) :-
+    kb:tag(_, tipo_richiesta(T)).
 
-tipologia(IDTag, T) :-
-    kb:tag(IDTag, tipologia(T)).
+tipo_richiesta(IDTag, T) :-
+    kb:tag(IDTag, tipo_richiesta(T)).
 
 %% Trova il primo numero 
 numero(N) :-
@@ -63,8 +63,8 @@ richiesta_valuta(IDTag, M, S, T) :-
     kb:tag(IDTag, richiesta_valuta(M,S,T)).
 
 %% Trova tutte le tipologie di richieste
-alltipologia(ListaTipologie) :-
-    findall((IDTag, T) ,kb:tag(IDTag, tipologia(T)), ListaTipologie).
+alltipo_richiesta(ListaTipologie) :-
+    findall((IDTag, T) ,kb:tag(IDTag, tipo_richiesta(T)), ListaTipologie).
 
 %% Trova tutti i numeri
 allnumero(ListaNumeri) :-
@@ -97,7 +97,7 @@ tag_richiesta_valuta :-
     kb:fatto(richiesta_valuta), !.
 tag_richiesta_valuta :-
     tag_valuta,
-    tag_tipologia,
+    tag_tipo_richiesta,
     findall((_,_,_), tag_richiesta_valuta(_,_,_), _),
     asserta(kb:fatto(richiesta_valuta)).
 
@@ -125,11 +125,11 @@ tag_numero :-
     asserta(kb:fatto(numero)).
 
 %% Tagga le tipologie
-tag_tipologia :-
-    kb:fatto(tipologia), !.
-tag_tipologia :-
-    findall(_, tag_tipologia(_), _),
-    asserta(kb:fatto(tipologia)).
+tag_tipo_richiesta :-
+    kb:fatto(tipo_richiesta), !.
+tag_tipo_richiesta :-
+    findall(_, tag_tipo_richiesta(_), _),
+    asserta(kb:fatto(tipo_richiesta)).
 
 %% Tagga i simboli di valuta
 tag_simbolo_valuta(Valuta) :- 
@@ -157,27 +157,27 @@ tag_numero(Num) :-
     assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 %% Tagga le tipologie
-tag_tipologia(Tipologia) :- 
+tag_tipo_richiesta(Tipo_richiesta) :- 
     kb:token(IDToken, Token),
-    std_tipologia(Token, Tipologia),
+    std_tipo_richiesta(Token, Tipo_richiesta),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TIPOLOGIA] Presenza nel documento del termine',Token],' ',Spiegazione),
-    assertTag(tipologia(Tipologia), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
+    assertTag(tipo_richiesta(Tipo_richiesta), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-std_tipologia('chirografario', 'chirografario').
-std_tipologia('chirografaria', 'chirografario').
-std_tipologia('chirografo', 'chirografario').
-std_tipologia('chirografa', 'chirografario').
-std_tipologia('chiro', 'chirografario').
-std_tipologia('chir', 'chirografario').
-std_tipologia('privilegiato', 'privilegiato').
-std_tipologia('privilegiata', 'privilegiato').
-std_tipologia('privil', 'privilegiato').
-std_tipologia('priv', 'privilegiato').
-std_tipologia('totale', 'totale').
-std_tipologia('total', 'totale').
-std_tipologia('tot', 'totale').
+std_tipo_richiesta('chirografario', 'chirografario').
+std_tipo_richiesta('chirografaria', 'chirografario').
+std_tipo_richiesta('chirografo', 'chirografario').
+std_tipo_richiesta('chirografa', 'chirografario').
+std_tipo_richiesta('chiro', 'chirografario').
+std_tipo_richiesta('chir', 'chirografario').
+std_tipo_richiesta('privilegiato', 'privilegiato').
+std_tipo_richiesta('privilegiata', 'privilegiato').
+std_tipo_richiesta('privil', 'privilegiato').
+std_tipo_richiesta('priv', 'privilegiato').
+std_tipo_richiesta('totale', 'totale').
+std_tipo_richiesta('total', 'totale').
+std_tipo_richiesta('tot', 'totale').
 
 %% Tagga le valute
 tag_valuta(Moneta, Simbolo) :-
@@ -201,10 +201,10 @@ tag_valuta(Moneta, Simbolo) :-
     assertTag(valuta(Moneta, Simbolo), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 %% Tagga le richieste di valuta
-tag_richiesta_valuta(Moneta, Simbolo, Tipologia) :-
-    kb:tag(IDTag1, tipologia(Tipologia)),
+tag_richiesta_valuta(Moneta, Simbolo, Tipo_richiesta) :-
+    kb:tag(IDTag1, tipo_richiesta(Tipo_richiesta)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
     stessa_frase(IDTag1, IDTag2),
-    atomic_list_concat(['[RICHIESTA VALUTA] Presenza nella stessa frase della valuta',Moneta,Simbolo,'e del termine',Tipologia],' ',Spiegazione),
+    atomic_list_concat(['[RICHIESTA VALUTA] Presenza nella stessa frase della valuta',Moneta,Simbolo,'e del termine',Tipo_richiesta],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    assertTag(richiesta_valuta(Moneta, Simbolo, Tipologia) , Spiegazione, Dipendenze).
+    assertTag(richiesta_valuta(Moneta, Simbolo, Tipo_richiesta) , Spiegazione, Dipendenze).

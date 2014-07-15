@@ -73,7 +73,7 @@ useless_char(34). % "
 useless_char(39). % '
 useless_char(40). % (
 useless_char(41). % )
-useless_char(44). % ,
+%useless_char(44). % ,
 useless_char(45). % -
 useless_char(58). % :
 useless_char(59). % ;
@@ -111,17 +111,22 @@ strip_sep( [], [] ) :- !.
 strip_sep( [''|Xs], Ys ) :-
     !,
     strip_sep(Xs, Ys).
-strip_sep( ['.'|Xs], Ys ) :-
+strip_sep( [X|Xs], Ys ) :-
+    endword(X),
     !,
     strip_sep(Xs, Ys).
 strip_sep( [X|Xs], [Y|Ys] ) :-
     atom_length(X, L),
     L>0,
     Start is L-1,
-    sub_atom(X, Start, 1, _, '.'),
+    sub_atom(X, Start, 1, _, EW),
+    endword(EW),
     Len is L-1,
     sub_atom(X, 0, Len, _, Y),
     !,
     strip_sep(Xs, Ys).
 strip_sep( [X|Xs], [X|Ys] ) :-
     strip_sep(Xs, Ys).
+
+endword('.').
+endword(',').

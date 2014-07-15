@@ -7,7 +7,7 @@
 
 
 serialize :-    
-    tell('serializzazione'),
+    tell('aserializzazione'),
     s_token,
     s_token2,
     s_token3,
