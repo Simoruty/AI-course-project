@@ -1,16 +1,23 @@
-parola(IDToken).
-numero(IDToken).
+token(IDToken).
+tag(IDTag). %solo quelli banali
+
+
+next(IDTokTag, IDTokTag).
+depends(IDTag, IDTag).
+
+appartiene(IDToken, Doc).
+
+
+numero(IDToken). 
 valuta(IDTag).
-euro(IDToken).
-chiro(IDToken).
+parola(IDToken). %qualsiasi token non numero, non simbolo, non valuta, non euro
+tipo_richiesta(IDToken).
+
 ...
 
-next().
 
-depends().
 
 tax(IDToken, ['parola']).
 
-appartiene(IDToken, Doc).
 
 neg(appartiene(IDToken, Doc)).

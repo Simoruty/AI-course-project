@@ -156,6 +156,24 @@ tag_numero(Num) :-
     atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Num],' ',Spiegazione),
     assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
+%% Tagga i numeri con virgola
+tag_numero(Num) :- 
+    kb:token(IDToken1, Token1),
+
+    atom_concat(_ParteInteraConVirgola, Decimale, Token1),
+    atom_concat(ParteIntera, _DecimaleConVirgola, Token1),
+    atom_concat(ParteIntera,',',_ParteInteraConVirgola),
+    atom_concat(',',Decimale,_DecimaleConVirgola),
+
+    atomic_list_concat([ParteIntera, Decimale],'.', AtomNum),
+
+    atom_number(AtomNum, Num),
+
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[NUMERO] Presenza nel documento del numero ',ParteIntera,',',Decimale],'',Spiegazione),
+    assertTag(numero(Num), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+
 %% Tagga le tipologie
 tag_tipologia(Tipologia) :- 
     kb:token(IDToken, Token),
