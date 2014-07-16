@@ -36,44 +36,16 @@ s_livello1 :-
         write('val('),write(ID),write(','),write(Num),write(').'),nl
     ) ),
 
-    s_tag( cf(_), cf ),    
-
-%    findall( ID, kb:tag(ID, cf(_)), ListaTag2),
-%    forall( member((ID,Cf), ListaTag2), (
-%        write('tag('),write(ID),write(').'),nl,
-%        write('cf('),write(ID),write(').'),nl
-%    ) ),
-
-
-    findall( ID, kb:tag(ID, mail(_)), ListaTag3),
-    forall( member(ID, ListaTag3), (
-        write('tag('),write(ID),write(').'),nl,
-        write('mail('),write(ID),write(').'),nl
-    ) ),
-
-    findall( ID, kb:tag(ID, chiro(Token)), ListaTag4),
-    forall( member((ID,Mail), ListaTag4), (
-        write('tag('),write(ID),write(').'),nl,
-        write('chiro('),write(ID),write(').'),nl
-    ) ),
-
-    findall( ID, kb:tag(ID, totale(Token)), ListaTag5),
-    forall( member((ID,Mail), ListaTag5), (
-        write('tag('),write(ID),write(').'),nl,
-        write('totale('),write(ID),write(').'),nl
-    ) ),
-
-    findall( ID, kb:tag(ID, privilegiato(Token)), ListaTag6),
-    forall( member((ID,Mail), ListaTag6), (
-        write('tag('),write(ID),write(').'),nl,
-        write('privilegiato('),write(ID),write(').'),nl
-    ) ),
-
-    findall( ID, kb:tag(ID, privilegiato(Token)), ListaTag6),
-    forall( member((ID,Mail), ListaTag6), (
-        write('tag('),write(ID),write(').'),nl,
-        write('privilegiato('),write(ID),write(').'),nl
-    ) ),
+    s_tag( cf(_), cf ),
+    s_tag( mail(_), mail ),
+    s_tag( chiro(_), chiro ),
+    s_tag( totale(_), totale ),
+    s_tag( privilegiato(_), privilegiato ),
+    s_tag( simbolo_soggetto(_), simbolo_soggetto ),
+    s_tag( simbolo_curatore(_), simbolo_curatore ),    
+    s_tag( simbolo_giudice(_), simbolo_giudice ),
+    s_tag( euro(_), euro ),
+    s_tag( dollaro(_), dollaro ),
 
 %    findall(ID, kb:token(ID), ListaToken),
 %    forall( member(T, ListaToken), (write('token('),write(T),write(').'),nl) )

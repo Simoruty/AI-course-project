@@ -13,14 +13,15 @@
 main :-
     intestazione,
     write('Inserisci il testo del documento: '),nl,nl,
-    read(Documento),
-    writeKB(Documento), %TODO Forse working memory
-%    writeKB,   
+%    read(Documento),
+%    writeKB(Documento), %TODO Forse working memory
+    writeKB,   
     tag_default,
-    mostra_tag_da_estrarre,
+%    mostra_tag_da_estrarre,
     expandKB,
     resultKB,
 %    explainKB,
+    serialize,
     true.
 
 intestazione :- 
@@ -39,5 +40,4 @@ intestazione :-
 start :-
     writeKB,
     expandKB,
-    serialize,
     true.
