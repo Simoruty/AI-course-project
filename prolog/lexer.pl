@@ -40,6 +40,9 @@ ascii_number(X) :-
 ascii_number(X) :-
 	number(X),
 	X==46.
+ascii_number(X) :-
+	number(X),
+	X==44.
 
 ascii_char(X):-
     number(X),
