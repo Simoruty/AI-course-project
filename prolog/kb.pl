@@ -13,7 +13,6 @@
                , assertTag/5
                , nextIDTag/1
                , vicini/2
-               , distanza/3
                ]
 ).
 
