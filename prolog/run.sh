@@ -4,5 +4,4 @@
 
 :- consult('main.pl').
 
-
 :- initialization(main).

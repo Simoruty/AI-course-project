@@ -10,8 +10,9 @@ serialize :-
     tell('aserializzazione'),
     s_base,
     s_livello1,
-    %s_livello2,
-    %s_livello3,
+    s_livello2,
+    s_livello3,
+    s_depends,
     told.
 
 s_base :- 

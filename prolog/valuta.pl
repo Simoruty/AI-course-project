@@ -169,10 +169,10 @@ tag_numero(Num) :-
 tag_numero(Num) :- 
     kb:token(IDToken1, Token1),
 
-    atom_concat(_ParteInteraConVirgola, Decimale, Token1),
-    atom_concat(ParteIntera, _DecimaleConVirgola, Token1),
-    atom_concat(ParteIntera,',',_ParteInteraConVirgola),
-    atom_concat(',',Decimale,_DecimaleConVirgola),
+    atom_concat(ParteInteraConVirgola, Decimale, Token1),
+    atom_concat(ParteIntera, DecimaleConVirgola, Token1),
+    atom_concat(ParteIntera,',',ParteInteraConVirgola),
+    atom_concat(',',Decimale,DecimaleConVirgola),
 
     atomic_list_concat([ParteIntera, Decimale],'.', AtomNum),
 
