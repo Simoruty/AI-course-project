@@ -77,6 +77,7 @@ tokenizer( IDDoc, [ Parola | Lista ], IDTokenPrecedente) :-
 
 %% Crea la Knowledge Base
 expandKB :-
+    kb:tag_newline,
     comune:tag_comune,
     cf:tag_cf,
     mail:tag_mail,
@@ -174,6 +175,16 @@ nextIDToken(IDTok) :-
 
 newline(ID) :- 
     kb:token(ID, '\n').
+
+tag_newline :-
+    findall(_, tag_newline(_), _).
+
+tag_newline(IDToken) :- 
+    newline(IDToken),
+    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[NEW LINE] Presenza nel documento del newline'],' ',Spiegazione),
+    assertTag(newline(IDToken), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 vicini(ID1, ID2) :- 
     kb:next(ID1, ID2).

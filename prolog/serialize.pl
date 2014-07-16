@@ -47,9 +47,7 @@ s_livello1 :-
     s_tag( simbolo_giudice(_), simbolo_giudice ),
     s_tag( euro(_), euro ),
     s_tag( dollaro(_), dollaro ),
-
-%    findall(ID, kb:token(ID), ListaToken),
-%    forall( member(T, ListaToken), (write('token('),write(T),write(').'),nl) )
+    s_tag( newline(_), newline ),
     true.
 
 s_tag(Goal, Atom) :-
@@ -58,3 +56,28 @@ s_tag(Goal, Atom) :-
         write('tag('), write(ID), write(').'),nl,
         write(Atom),write('('),write(ID),write(').'),nl
     ) ).
+
+s_livello2 :-
+    s_tag( cognome(_), cognome ),
+    s_tag( nome(_), nome ),
+    s_tag( comune(_), comune ),
+    s_tag( giorno(_), giorno ),
+    s_tag( mese(_), mese ),
+    s_tag( anno(_), anno ),
+    s_tag( persona(_,_), persona ),
+    s_tag( data(_,_,_), data ),
+    s_tag( valuta(_,_), valuta ),
+    true.
+
+s_livello3 :-
+    s_tag( soggetto(_,_), soggetto ),
+    s_tag( curatore(_,_), curatore ),
+    s_tag( giudice(_,_), giudice ),
+    s_tag( richiesta_valuta(_,_,_), richiesta_valuta ),
+    s_tag( numero_pratica(_), numero_pratica ),
+    true.
+
+s_depends :-
+    findall((ID1,ID2), kb:depends(ID1, ID2), ListaToken2),
+    forall( member((T1,T2), ListaToken2), (write('depends('),write(T1),write(','),write(T2),write(').'),nl) ),
+    true.
