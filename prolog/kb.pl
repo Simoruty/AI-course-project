@@ -175,6 +175,8 @@ nextIDToken(IDTok) :-
 
 newline(ID) :- 
     kb:token(ID, '\n').
+newline(ID) :-
+    kb:tag(ID, newline(_)).
 
 tag_newline :-
     findall(_, tag_newline(_), _).
