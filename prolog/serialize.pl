@@ -21,11 +21,11 @@ s_base :-
     forall( member(T, ListaDoc), (write('documento('),write(T),write(').'),nl) ),
     
     %tutti i token
-    findall(ID, (kb:token(ID)), ListaToken),
+    findall(ID, (kb:token(ID,_)), ListaToken),
     forall( member(T, ListaToken), (write('token('),write(T),write(').'),nl) ),
 
     %tutti i tag
-    findall(ID, (kb:tag(ID)), ListaTag),
+    findall(ID, (kb:tag(ID,_)), ListaTag),
     forall( member(T, ListaTag), (write('tag('),write(T),write(').'),nl) ),
 
     %tutti gli appartiene

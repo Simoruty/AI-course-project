@@ -1,7 +1,5 @@
 :- module( tel, 
             [ tag_tel/0
-            , tel/1
-            , tel/2
             , alltel/1
             , ristel/0
             ] 
@@ -10,13 +8,6 @@
 :- use_module(kb).
 :- use_module(lexer).
 :- consult('tel_kb').
-
-%% Trova il primo numero di telefono
-tel(Tel) :-
-    kb:tag(_, tel(Tel)).
-
-tel(IDTag, Tel) :-
-    kb:tag(IDTag, tel(Tel)).
 
 %% Trova tutti i numeri di telefono
 alltel(ListaTel) :-
@@ -39,7 +30,7 @@ tag_tel :-
 
 tag_tel :- 
     findall(_, tag_tel(_), _), 
-    asserta(kb:fatto(tel)).
+    kb:assertFact(kb:fatto(tel)).
     
 tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),

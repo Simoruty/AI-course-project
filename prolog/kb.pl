@@ -1,6 +1,4 @@
 :- module( kb, [ stessa_frase/2
-               , tag/1
-               , token/1
                , writeKB/0
                , expandKB/0
                , explainKB/0
@@ -145,16 +143,6 @@ spiega(IDTag) :-
     findall(X, depends(IDTag, X), Dipendenze),
     forall( member(D, Dipendenze), (spiega(D)) ).
 
-
-
-token(IDToken) :- 
-    kb:token(IDToken, _).
-
-tag(IDTag) :- 
-    kb:tag(IDTag, _).
-
-
-
 nextIDDocument(IDDoc) :- 
     findall(_, kb:documento(_,_), List), 
     length(List, NDoc),
@@ -191,9 +179,9 @@ tag_newline(IDToken) :-
     assertTag(newline(IDToken), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 vicini(ID1, ID2) :- 
-    kb:next(ID1, ID2).
+    kb:next(ID1, ID2), !.
 vicini(ID1, ID2) :- 
-    kb:next(ID2, ID1).
+    kb:next(ID2, ID1), !.
 
 seguente_in_frase(ID1, ID2) :-
     kb:next(ID1, ID2),

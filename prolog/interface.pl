@@ -7,17 +7,17 @@
 :- use_module(kb).
 
 tag_default :-
-    asserta(kb:vuole(cf)),
-    asserta(kb:vuole(comune)),
-    asserta(kb:vuole(mail)),
-    asserta(kb:vuole(tel)),
-    asserta(kb:vuole(persona)),
-    asserta(kb:vuole(data)),
-    asserta(kb:vuole(soggetto)),
-    asserta(kb:vuole(curatore)), 
-    asserta(kb:vuole(giudice)),
-    asserta(kb:vuole(richiesta_valuta)),
-    asserta(kb:vuole(numero_pratica)).
+    kb:assertFact(kb:vuole(cf)),
+    kb:assertFact(kb:vuole(comune)),
+    kb:assertFact(kb:vuole(mail)),
+    kb:assertFact(kb:vuole(tel)),
+    kb:assertFact(kb:vuole(persona)),
+    kb:assertFact(kb:vuole(data)),
+    kb:assertFact(kb:vuole(soggetto)),
+    kb:assertFact(kb:vuole(curatore)), 
+    kb:assertFact(kb:vuole(giudice)),
+    kb:assertFact(kb:vuole(richiesta_valuta)),
+    kb:assertFact(kb:vuole(numero_pratica)).
 
 check_vuole_numero_pratica('Selezionato') :-
     kb:vuole(numero_pratica), !.
@@ -109,7 +109,7 @@ seleziona_tag(1) :-
     retract(kb:vuole(numero_pratica)).
 
 seleziona_tag(1) :- 
-    asserta(kb:vuole(numero_pratica)).
+    kb:assertFact(kb:vuole(numero_pratica)).
 
 % Cambia settaggi soggetto
 seleziona_tag(2) :- 
@@ -117,7 +117,7 @@ seleziona_tag(2) :-
     retract(kb:vuole(soggetto)).
 
 seleziona_tag(2) :- 
-    asserta(kb:vuole(soggetto)).
+    kb:assertFact(kb:vuole(soggetto)).
 
 % Cambia settaggi giudice
 seleziona_tag(3) :- 
@@ -125,7 +125,7 @@ seleziona_tag(3) :-
     retract(kb:vuole(giudice)).
 
 seleziona_tag(3) :-
-    asserta(kb:vuole(giudice)).
+    kb:assertFact(kb:vuole(giudice)).
 
 % Cambia settaggi richiesta di valuta
 seleziona_tag(4) :- 
@@ -133,7 +133,7 @@ seleziona_tag(4) :-
     retract(kb:vuole(richiesta_valuta)).
 
 seleziona_tag(4) :- 
-    asserta(kb:vuole(numero_pratica)).
+    kb:assertFact(kb:vuole(numero_pratica)).
 
 % Cambia settaggi curatore
 seleziona_tag(5) :- 
@@ -141,7 +141,7 @@ seleziona_tag(5) :-
     retract(kb:vuole(curatore)).
 
 seleziona_tag(5) :- 
-    asserta(kb:vuole(curatore)).
+    kb:assertFact(kb:vuole(curatore)).
 
 % Cambia settaggi comune
 seleziona_tag(6) :- 
@@ -149,7 +149,7 @@ seleziona_tag(6) :-
     retract(kb:vuole(comune)).
 
 seleziona_tag(6) :- 
-    asserta(kb:vuole(comune)).
+    kb:assertFact(kb:vuole(comune)).
 
 % Cambia settaggi codice fiscale
 seleziona_tag(7) :- 
@@ -157,7 +157,7 @@ seleziona_tag(7) :-
     retract(kb:vuole(cf)).
 
 seleziona_tag(7) :- 
-    asserta(kb:vuole(cf)).
+    kb:assertFact(kb:vuole(cf)).
 
 % Cambia settaggi persona
 seleziona_tag(8) :- 
@@ -168,7 +168,7 @@ seleziona_tag(8) :-
     retract(kb:vuole(giudice)).
 
 seleziona_tag(8) :- 
-    asserta(kb:vuole(persona)).
+    kb:assertFact(kb:vuole(persona)).
 
 % Cambia settaggi mail
 seleziona_tag(9) :- 
@@ -176,7 +176,7 @@ seleziona_tag(9) :-
     retract(kb:vuole(mail)).
 
 seleziona_tag(9) :- 
-    asserta(kb:vuole(mail)).
+    kb:assertFact(kb:vuole(mail)).
 
 % Cambia settaggi telefono
 seleziona_tag(10) :- 
@@ -184,7 +184,7 @@ seleziona_tag(10) :-
     retract(kb:vuole(tel)).
 
 seleziona_tag(10) :- 
-    asserta(kb:vuole(tel)).
+    kb:assertFact(kb:vuole(tel)).
 
 % Cambia settaggi data
 seleziona_tag(11) :- 
@@ -192,7 +192,7 @@ seleziona_tag(11) :-
     retract(kb:vuole(data)).
 
 seleziona_tag(11) :- 
-    asserta(kb:vuole(data)).
+    kb:assertFact(kb:vuole(data)).
 
 % Seleziona tutto
 seleziona_tag(12) :- 

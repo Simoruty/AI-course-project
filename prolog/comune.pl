@@ -1,7 +1,5 @@
 :- module( comune, 
             [ tag_comune/0
-            , comune/1
-            , comune/2
             , allcomune/1
             , riscomune/0
             ] 
@@ -10,13 +8,6 @@
 :- use_module(kb).
 
 :- consult('comune_kb.pl').
-
-%% Trova il primo comune
-comune(Comune) :-
-    kb:tag(_, comune(Comune)).
-
-comune(IDTag,Comune) :-
-    kb:tag(IDTag, comune(Comune)).
 
 %% Trova tutti i comuni
 allcomune(ListaComuni) :-
@@ -37,7 +28,7 @@ tag_comune :-
     kb:fatto(comune), !.
 tag_comune :-
     findall(X, tag_comune(X), _),
-    asserta(kb:fatto(comune)).
+    kb:assertFact(kb:fatto(comune)).
 
 tag_comune(Comune) :-
     kb:next(IDToken1,IDToken2),

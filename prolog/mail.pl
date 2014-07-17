@@ -1,7 +1,5 @@
 :- module( mail, 
             [ tag_mail/0
-            , mail/1
-            , mail/2
             , allmail/1
             , rismail/0
             ] 
@@ -9,13 +7,6 @@
 
 :- use_module(kb).
 :- use_module(lexer).
-
-%% Trova la prima mail
-mail(Mail) :-
-    kb:tag(_, mail(Mail)).
-
-mail(IDTag, Mail) :-
-    kb:tag(IDTag, mail(Mail)).
 
 %% Trova tutte le mail
 allmail(ListaMail) :-
@@ -38,7 +29,7 @@ tag_mail :-
 
 tag_mail :- 
     findall(_Mail, tag_mail(_), _), 
-    asserta(kb:fatto(mail)).
+    kb:assertFact(kb:fatto(mail)).
 
 tag_mail(Mail) :-
     kb:next(IDToken1,IDToken2),

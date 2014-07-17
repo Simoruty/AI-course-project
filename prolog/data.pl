@@ -1,13 +1,6 @@
 :- module(data,
-          [ data/3
-          , data/4
-          , giorno/1
-          , giorno/2
-          , mese/1
-          , mese/2
-          , anno/1
-          , anno/2
-          , alldata/1
+          [ 
+            alldata/1
           , risdata/0
           , tag_data/0
           , tag_giorno/0
@@ -18,34 +11,6 @@
 
 :- use_module(kb).
 :- use_module(lexer).
-
-%% Trova la prima data
-data(G,M,A) :-
-    kb:tag(_, data(G,M,A)).
-
-data(IDTag, G, M, A) :-
-    kb:tag(IDTag, data(G,M,A)).
-
-%% Trova il primo giorno
-giorno(G) :-
-    kb:tag(_, giorno(G)).
-
-giorno(IDTag, G) :-
-    kb:tag(IDTag, giorno(G)).
-
-%% Trova il primo mese
-mese(M) :-
-    kb:tag(_, mese(M)).
-
-mese(IDTag, M) :-
-    kb:tag(IDTag, mese(M)).
-
-%% Trova il primo anno
-anno(A) :-
-    kb:tag(_, anno(A)).
-
-anno(IDTag, A) :-
-    kb:tag(IDTag, anno(A)).
 
 %% Trova tutte le date
 alldata(ListaData) :-
@@ -71,7 +36,7 @@ tag_data :-
     tag_mese,
     tag_anno, 
     findall((_,_,_), tag_data(_,_,_), _),
-    asserta(kb:fatto(data)).
+    kb:assertFact(kb:fatto(data)).
 
 tag_data(G,M,A) :-
     kb:tag(IDTag1, giorno(G)),
@@ -116,7 +81,7 @@ tag_giorno :-
 tag_giorno :-
     base:tag_numero, 
     findall(_, tag_giorno(_), _),
-    asserta(kb:fatto(giorno)).
+    kb:assertFact(kb:fatto(giorno)).
 
 tag_giorno(N) :-
     kb:tag(IDTag, numero(N)),
@@ -134,7 +99,7 @@ tag_mese :-
 
 tag_mese :- 
     findall(_, tag_mese(_), _),
-    asserta(kb:fatto(mese)).
+    kb:assertFact(kb:fatto(mese)).
 
 tag_mese(N) :- 
     kb:token(IDToken, Token), 
@@ -188,7 +153,7 @@ tag_anno :-
 tag_anno :- 
     base:tag_numero,
     findall(_, tag_anno(_), _),
-    asserta(kb:fatto(anno)).
+    kb:assertFact(kb:fatto(anno)).
 
 tag_anno(N) :-
     kb:tag(IDTag, numero(N)),

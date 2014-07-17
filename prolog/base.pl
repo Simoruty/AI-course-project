@@ -2,8 +2,6 @@
                       tag_parola/0
                     , tag_numero/0
                     , allnumero/1
-                    , numero/1
-                    , numero/2
                    ] 
 ).
 
@@ -31,7 +29,7 @@ tag_numero :-
     kb:fatto(numero), !.
 tag_numero :-
     findall(_, tag_numero(_), _),
-    asserta(kb:fatto(numero)).
+    kb:assertFact(kb:fatto(numero)).
 
 %% Tagga i numeri
 tag_numero(Num) :- 
@@ -62,13 +60,6 @@ tag_numero(Num) :-
     atomic_list_concat(['[NUMERO] Presenza nel documento del numero ',ParteIntera,',',Decimale],'',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
     assertTag(numero(Num), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
-
-%% Trova il primo numero 
-numero(N) :-
-    kb:tag(_, numero(N)).
-
-numero(IDTag, N) :-
-    kb:tag(IDTag, numero(N)).
 
 %% Trova tutti i numeri
 allnumero(ListaNumeri) :-

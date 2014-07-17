@@ -1,15 +1,7 @@
 :- module( valuta, [
-                      simbolo_valuta/1
-                    , simbolo_valuta/2
-                    , allsimbolo_valuta/1
-                    , tipo_richiesta/1
-                    , tipo_richiesta/2
+                      allsimbolo_valuta/1
                     , alltipo_richiesta/1
-                    , valuta/2
-                    , valuta/3
                     , allvaluta/1
-                    , richiesta_valuta/3
-                    , richiesta_valuta/4
                     , allrichiesta_valuta/1
                     , risrichiesta_valuta/0
                     , tag_richiesta_valuta/0
@@ -18,34 +10,6 @@
 
 :- use_module(lexer).
 :- use_module(kb).
-
-%% Trova la prima tipo_richiesta di richiesta
-tipo_richiesta(T) :-
-    kb:tag(_, tipo_richiesta(T)).
-
-tipo_richiesta(IDTag, T) :-
-    kb:tag(IDTag, tipo_richiesta(T)).
-
-%% Trova il primo simbolo di valuta
-simbolo_valuta(S) :-
-    kb:tag(_, simbolo_valuta(S)).
-
-simbolo_valuta(IDTag, S) :-
-    kb:tag(IDTag, simbolo_valuta(S)).
-
-%% Trova la prima valuta
-valuta(M,S) :-
-    kb:tag(_, valuta(M, S)).
-
-valuta(IDTag, M, S) :-
-    kb:tag(IDTag, valuta(M, S)).
-
-%% Trova la prima richiesta di valuta
-richiesta_valuta(M,S,T) :-
-    kb:tag(_, richiesta_valuta(M,S,T)).
-
-richiesta_valuta(IDTag, M, S, T) :-
-    kb:tag(IDTag, richiesta_valuta(M,S,T)).
 
 %% Trova tutte le tipologie di richieste
 alltipo_richiesta(ListaTipologie) :-
@@ -81,7 +45,7 @@ tag_richiesta_valuta :-
     tag_valuta,
     tag_tipo_richiesta,
     findall((_,_,_), tag_richiesta_valuta(_,_,_), _),
-    asserta(kb:fatto(richiesta_valuta)).
+    kb:assertFact(kb:fatto(richiesta_valuta)).
 
 %% Tagga le valute
 tag_valuta :-
@@ -90,7 +54,7 @@ tag_valuta :-
     tag_simbolo_valuta,
     base:tag_numero,
     findall((_,_), tag_valuta(_,_), _),
-    asserta(kb:fatto(valuta)).
+    kb:assertFact(kb:fatto(valuta)).
 
 %% Tagga i simboli di valuta
 tag_simbolo_valuta :-
@@ -98,7 +62,7 @@ tag_simbolo_valuta :-
 tag_simbolo_valuta :-
     findall(_, tag_euro(_), _),
     findall(_, tag_dollaro(_), _),
-    asserta(kb:fatto(simbolo_valuta)).
+    kb:assertFact(kb:fatto(simbolo_valuta)).
 
 
 
@@ -109,7 +73,7 @@ tag_tipo_richiesta :-
     findall(_, tag_chirografario(_), _),
     findall(_, tag_totale(_), _),
     findall(_, tag_privilegiato(_), _),
-    asserta(kb:fatto(tipo_richiesta)).
+    kb:assertFact(kb:fatto(tipo_richiesta)).
 
 %% Tagga i simboli di valuta
 tag_euro(Token) :- 

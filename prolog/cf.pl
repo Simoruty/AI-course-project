@@ -1,7 +1,5 @@
 :- module( cf, 
             [ tag_cf/0
-            , cf/1
-            , cf/2
             , allcf/1
             , riscf/0
             ] 
@@ -9,13 +7,6 @@
 
 :- use_module(kb).
 :- use_module(lexer).
-
-%% Trova il primo codice fiscale
-cf(CF) :-
-    kb:tag(_, cf(CF)).
-
-cf(IDTag,CF) :-
-    kb:tag(IDTag, cf(CF)).
 
 %% Trova tutti i codici fiscali
 allcf(ListaCF) :-
@@ -36,7 +27,7 @@ tag_cf :-
     kb:fatto(cf),!.
 tag_cf :- 
     findall(_, tag_cf(_), _),
-    asserta(kb:fatto(cf)).
+    kb:assertFact(kb:fatto(cf)).
 
 tag_cf(CF) :- 
     kb:token(IDToken, CF),

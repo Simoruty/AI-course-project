@@ -1,25 +1,14 @@
 :- module( persona, 
-            [ nome/1
-            , nome/2
-            , allnome/1
-            , cognome/1
-            , cognome/2
+            [ 
+              allnome/1
             , allcognome/1
-            , persona/2
-            , persona/3
             , allpersona/1
-            , rispersona/0
-            , soggetto/2
-            , soggetto/3
             , allsoggetto/1
-            , rissoggetto/0
-            , giudice/2
-            , giudice/3
             , allgiudice/1
-            , risgiudice/0
-            , curatore/2
-            , curatore/3
             , allcuratore/1
+            , rispersona/0
+            , rissoggetto/0
+            , risgiudice/0
             , riscuratore/0
             , tag_nome/0
             , tag_cognome/0
@@ -33,48 +22,6 @@
 :- consult('persona_kb.pl').
 
 :- use_module(kb).
-
-%% Trova la prima persona
-persona(Cognome, Nome) :-
-    kb:tag(_, persona(Cognome, Nome)).
-
-persona(IDTag, Cognome, Nome) :-
-    kb:tag(IDTag, persona(Cognome, Nome)).
-
-%% Trova il primo cognome 
-cognome(Cognome) :-
-    kb:tag(_, cognome(Cognome)).
-
-cognome(IDTag, Cognome) :-
-    kb:tag(IDTag, cognome(Cognome)).
-
-%% Trova il primo nome
-nome(Nome) :-
-    kb:tag(_, nome(Nome)).
-
-nome(IDTag, Nome) :-
-    kb:tag(IDTag, nome(Nome)).    
-
-%% Trova il primo soggetto    
-soggetto(Cognome, Nome) :-
-    kb:tag(_, soggetto(Cognome, Nome)).
-
-soggetto(IDTag, Cognome, Nome) :-
-    kb:tag(IDTag, soggetto(Cognome, Nome)).
-
-%% Trova il primo giudice    
-giudice(Cognome, Nome) :-
-    kb:tag(_, giudice(Cognome, Nome)).
-
-giudice(IDTag, Cognome, Nome) :-
-    kb:tag(IDTag, giudice(Cognome, Nome)).
-
-%% Trova il primo curatore    
-curatore(Cognome, Nome) :-
-    kb:tag(_, curatore(Cognome, Nome)).
-
-curatore(IDTag, Cognome, Nome) :-
-    kb:tag(IDTag, curatore(Cognome, Nome)).
 
 %% Trova tutte le persone
 allpersona(ListaPersone) :-
@@ -141,7 +88,7 @@ tag_persona :-
     tag_cognome,
     tag_nome,
     findall((X,Y), tag_persona(X,Y), _),
-    asserta(kb:fatto(persona)).
+    kb:assertFact(kb:fatto(persona)).
 
 tag_persona(C, N) :-
     kb:tag(IDTag1, cognome(C)),
@@ -175,7 +122,7 @@ tag_cognome :-
     kb:fatto(cognome), !.
 tag_cognome :- 
     findall(X, tag_cognome(X), _),
-    asserta(kb:fatto(cognome)).
+    kb:assertFact(kb:fatto(cognome)).
 
 tag_cognome(Cognome) :- 
     kb:next(IDToken1, IDToken2),
@@ -213,7 +160,7 @@ tag_nome :-
 
 tag_nome :- 
     findall(X, tag_nome(X), _),
-    asserta(kb:fatto(nome)).
+    kb:assertFact(kb:fatto(nome)).
 
 tag_nome(Nome) :- 
     kb:next(IDToken1, IDToken2),
@@ -269,7 +216,7 @@ tag_soggetto :-
     tag_persona,
     tag_simbolo_soggetto,
     findall((C,N), tag_soggetto(C,N), _),
-    asserta(kb:fatto(soggetto)).
+    kb:assertFact(kb:fatto(soggetto)).
 
 tag_soggetto(C,N) :-
     kb:tag(IDTag1, persona(C,N)),
@@ -291,7 +238,7 @@ tag_curatore :-
     tag_persona,
     tag_simbolo_curatore,
     findall((C,N), tag_curatore(C,N), _),
-    asserta(kb:fatto(curatore)).
+    kb:assertFact(kb:fatto(curatore)).
 tag_curatore(C,N) :-
     kb:tag(IDTag1, persona(C,N) ),
     kb:tag(IDTag2, simbolo_curatore(SimboloCuratore) ),
@@ -312,7 +259,7 @@ tag_giudice :-
     tag_persona,
     tag_simbolo_giudice,
     findall((C,N), tag_giudice(C,N), _),
-    asserta(kb:fatto(giudice)).
+    kb:assertFact(kb:fatto(giudice)).
 
 tag_giudice(C,N) :-
     kb:tag( IDTag1, persona(C,N) ),
