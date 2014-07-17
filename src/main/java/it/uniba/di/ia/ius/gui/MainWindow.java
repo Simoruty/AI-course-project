@@ -90,7 +90,7 @@ public class MainWindow {
                     try {
                         Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
                         String spiegazione = res.get("Spiegazione");
-                        spiegazione = spiegazione.replaceAll("   ", "\n");
+                        spiegazione=spiegazione.replace("\r","");
                         spiegaTextPane.setText(spiegazione);
                     } catch (NoVariableException e) {
                         e.printStackTrace();
