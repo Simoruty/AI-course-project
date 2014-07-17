@@ -8,8 +8,6 @@
 ).
 
 :- use_module(kb).
-:- use_module(data).
-:- use_module(valuta).
 
 %% Trova il primo numero di pratica
 numero_pratica(Num) :-
@@ -38,8 +36,8 @@ tag_numero_pratica :-
     kb:fatto(numero_pratica), !.
 
 tag_numero_pratica :-
-    tag_numero,
-    tag_anno,
+    base:tag_numero,
+    data:tag_anno,
     findall(_, tag_numero_pratica(_), _),
     asserta(kb:fatto(numero_pratica)).
 

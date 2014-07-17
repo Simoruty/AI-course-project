@@ -2,7 +2,6 @@
 
 :- use_module(kb).
 :- use_module(lexer).
-:- use_module(valuta).
 :- use_module(library(lists)).
 
 
