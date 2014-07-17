@@ -82,18 +82,16 @@ public class MainWindow {
 
         jlist.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
-                JList list = (JList) evt.getSource();
+//                JList list = (JList) evt.getSource();
                 if (evt.getClickCount() == 2) {
-                    int index = list.locationToIndex(evt.getPoint());
+//                    int index = list.locationToIndex(evt.getPoint());
                     Tag tag = (Tag) jlist.getSelectedValue();
                     spiegaTextPane.setText("");
                     try {
                         Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
                         String spiegazione = res.get("Spiegazione");
                         spiegazione = spiegazione.replaceAll("   ", "\n");
-                        String text = "Tag " + tag.getId() + " spiegato.\n";
-                        text += spiegazione + "\n";
-                        spiegaTextPane.setText(text);
+                        spiegaTextPane.setText(spiegazione);
                     } catch (NoVariableException e) {
                         e.printStackTrace();
                     }
@@ -104,23 +102,49 @@ public class MainWindow {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        openInterface();
 
-        //pi = new JPLInterface(PrologInterface.SWI);
-        pi = new InterprologInterface(PrologInterface.YAP);
 
 //        ListCellRenderer renderer = new MyListCellRenderer();
 //        jlist.setCellRenderer(renderer);
 
     }
 
+    private void openInterface() {
+        //pi = new JPLInterface(PrologInterface.SWI);
+        pi = new InterprologInterface(PrologInterface.YAP);
+    }
+
+    private void closeInterface(){
+        pi.close();
+    }
+
+    private void resetAll() {
+        listModel.clear();
+        spiegaTextPane.setText("");
+        textPane.setText("");
+        comuniCB.setSelected(true);
+        telCB.setSelected(true);
+        dateCB.setSelected(true);
+        cfCB.setSelected(true);
+        richiestaValutaCB.setSelected(true);
+        soggettoCB.setSelected(true);
+        personeCB.setSelected(true);
+        curatoreCB.setSelected(true);
+        giudiceCB.setSelected(true);
+        numeroPraticaCB.setSelected(true);
+        eMailCB.setSelected(true);
+    }
+
     private void reset() {
         listModel.clear();
-//        textPane.setText("");
-        pi.retractAll("kb:vuole", Arrays.asList("_"));
+        spiegaTextPane.setText("");
     }
 
     private void run() {
         reset();
+        closeInterface();
+        openInterface();
         pi.consult(new File("prolog/main.pl"));
 //        pi.retractAll("assertDoc", Arrays.asList("_"));
         pi.statisfied("kb:assertDoc", Arrays.asList("\"" + textPane.getText() + "\""));
@@ -149,7 +173,6 @@ public class MainWindow {
         }
 
         JOptionPane.showMessageDialog(null, "Tagger finished");
-
     }
 
     private void addListeners() {
@@ -167,8 +190,7 @@ public class MainWindow {
             public void actionPerformed(ActionEvent actionEvent) {
                 int reply = JOptionPane.showConfirmDialog(null, "Reset all?", "Reset", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {
-                    reset();
-                    textPane.setText("");
+                    resetAll();
                 }
             }
         });
@@ -182,7 +204,7 @@ public class MainWindow {
 
             @Override
             public void windowClosing(WindowEvent e) {
-                pi.close();
+                closeInterface();
             }
 
             @Override
