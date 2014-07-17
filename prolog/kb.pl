@@ -148,8 +148,9 @@ spiegaTutto(IDTag, Spiegazione) :-
     spiega(IDTag, SpiegazioneTag),
     findall(X, depends(IDTag, X), ListaDipendenze),
     spiegaLista(ListaDipendenze, ListaSpiegazioniDipendenze),
-    atomic_list_concat(ListaSpiegazioniDipendenze, '   ', SpiegazioneDipendenze ),    
-    atomic_list_concat([SpiegazioneTag,SpiegazioneDipendenze], '   ', Spiegazione).    
+    atom_codes(NewLine,[10,13]),
+    atomic_list_concat(ListaSpiegazioniDipendenze, NewLine, SpiegazioneDipendenze ),    
+    atomic_list_concat([SpiegazioneTag,SpiegazioneDipendenze], NewLine, Spiegazione).    
 
 spiegaLista([],[]).
 spiegaLista([D|Ds],[S|Ss]):-
