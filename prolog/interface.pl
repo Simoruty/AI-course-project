@@ -1,6 +1,7 @@
 :- module( interface, 
             [ tag_default/0
             , mostra_tag_da_estrarre/0
+            , spiegazioneGUI/0
             ] 
 ).
 
@@ -92,6 +93,47 @@ condizione(Scelta):-
     seleziona_tag(Scelta), 
     mostra_tag_da_estrarre.
 
+spiegazioneGUI:-
+    nl,nl,
+    write('Spiegazione di tag? (y/n): '),
+    read(Risposta),nl,
+    spiegaGUI(Risposta).
+
+spiegaGUI('y'):-
+    richiediTagdaSpiegare.
+    
+spiegaGUI('n'):-
+    write('Bye').
+
+spiegaGUI(_):-
+    write('Inserire y o n : '),
+    spiegazioneGUI.
+
+check_risposta(Risposta,Spiegazioni):-
+    kb:spiegaTutto(Risposta,Spiegazioni).
+
+check_risposta(Risposta,'Tag sbagliato').
+
+richiediTagdaSpiegare:-
+    write('Inserisci il nome del tag da spiegare: '),
+    read(Risposta),
+    check_risposta(Risposta,Spiegazioni),
+    write(Spiegazioni),
+    nl,nl,
+    write('Altra spiegazione? (y/n): '),
+    read(Risp),
+    altraspiegaGUI(Risp).
+
+altraspiegaGUI('y'):-
+    richiediTagdaSpiegare.
+    
+altraspiegaGUI('n'):-
+    write('Bye').
+
+altraspiegaGUI(_):-
+    write('Inserire y o n : '),
+    richiediTagdaSpiegare.
+    
 %% Inserire numero compreso tra 0 e 13
 leggi_scelta(Domanda,Valore1,Valore2,Risposta):-
 	write(Domanda),
