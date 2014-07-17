@@ -57,7 +57,12 @@ tag_tel(Tel):-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2,Token3,Token4,Token5],' ',Spiegazione),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken1, IDDoc),    
+    kb:appartiene(IDToken2, IDDoc),    
+    kb:appartiene(IDToken3, IDDoc),
+    kb:appartiene(IDToken4, IDDoc),    
+    kb:appartiene(IDToken5, IDDoc),  
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 tag_tel(Tel):-
@@ -74,7 +79,11 @@ tag_tel(Tel):-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken4, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2,Token3,Token4],' ',Spiegazione),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken1, IDDoc),    
+    kb:appartiene(IDToken2, IDDoc),    
+    kb:appartiene(IDToken3, IDDoc),
+    kb:appartiene(IDToken4, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 
 tag_tel(Tel):-
@@ -89,7 +98,10 @@ tag_tel(Tel):-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2,Token3],' ',Spiegazione),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken1, IDDoc),    
+    kb:appartiene(IDToken2, IDDoc),    
+    kb:appartiene(IDToken3, IDDoc),
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_tel(Tel):-
     kb:next(IDToken1,IDToken2),
@@ -101,7 +113,9 @@ tag_tel(Tel):-
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2],' ',Spiegazione),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken1, IDDoc),    
+    kb:appartiene(IDToken2, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_tel(Tel):-
     check_tel(IDTel),
@@ -111,7 +125,8 @@ tag_tel(Tel):-
     findall( Successivo, kb:next(IDTel, Successivo), ListaSuccessivi ),
 
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Tel],' ',Spiegazione),
-    assertTag(tel(Tel), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDTel, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 %% Controlla che il numero di telefono sia di questo formato +39 346 21 00 360
 check_tel(IDToken1, IDToken2, IDToken3, IDToken4, IDToken5) :-

@@ -89,7 +89,10 @@ tag_data(G,M,A) :-
     findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[DATA] Nel documento sono presenti giorno, mese e anno separati dal separatore ', Token1],'',Spiegazione),
     Dipendenze = [IDTag1, IDTag2, IDTag3],
-    assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),        
+    assertTag(data(G,M,A), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_data(G,M,A) :-
     kb:tag(IDTag1, giorno(G)),
@@ -102,26 +105,28 @@ tag_data(G,M,A) :-
     findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[DATA] Nel documento sono presenti giorno, mese e anno'],'',Spiegazione),
     Dipendenze = [IDTag1, IDTag2, IDTag3],
-    assertTag(data(G,M,A), ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),  
+    assertTag(data(G,M,A), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 %% Tagga i giorni
 tag_giorno :- 
     kb:fatto(giorno),!.
-
-tag_giorno :- 
+tag_giorno :-
+    base:tag_numero, 
     findall(_, tag_giorno(_), _),
     asserta(kb:fatto(giorno)).
 
 tag_giorno(N) :-
-    kb:token(IDToken, Token),
-    atom_is_number(Token),
-    atom_number(Token, N), 
+    kb:tag(IDTag, numero(N)),
     N>=1, 
     N=<31,
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[GIORNO] Il numero ',Token,' potrebbe essere un giorno'],'',Spiegazione),
-    assertTag(giorno(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[GIORNO] Il numero ',N,' potrebbe essere un giorno'],'',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),    
+    assertTag(giorno(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 %% Tagga i mesi
 tag_mese :- 
@@ -137,7 +142,8 @@ tag_mese(N) :-
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[MESE] La stringa ', Token,' potrebbe essere un mese'],'',Spiegazione),
-    assertTag(mese(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken, IDDoc),    
+    assertTag(mese(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 numero_mese('1', 1).
 numero_mese('2', 2).
@@ -180,30 +186,29 @@ numero_mese('dic', 12).
 tag_anno :- 
     kb:fatto(anno),!.
 tag_anno :- 
+    base:tag_numero,
     findall(_, tag_anno(_), _),
     asserta(kb:fatto(anno)).
 
 tag_anno(N) :-
-    kb:token(IDToken, Token),
-    atom_is_number(Token),
-    atom_number(Token, N), 
+    kb:tag(IDTag, numero(N)),
     N>1900, 
     N<2050,
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[ANNO] Il numero ',Token,' potrebbe essere un anno'],'',Spiegazione),
-    assertTag(anno(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[ANNO] Il numero ',N,' potrebbe essere un anno'],'',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),  
+    assertTag(anno(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 tag_anno(N) :-
-    kb:token(IDToken, Token),
-    atom_is_number(Token),
-    atom_number(Token, N), 
+    kb:tag(IDTag, numero(N)),
     N>=0, 
     N=<99,
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[ANNO] Il numero ',Token,' potrebbe essere un anno'],'',Spiegazione),
-    assertTag(anno(N), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[ANNO] Il numero ',N,' potrebbe essere un anno'],'',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),  
+    assertTag(anno(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 %% Controlli su separatori data
 separatore_data('/').

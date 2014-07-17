@@ -2,7 +2,9 @@
           [ to_string/2
           , lexer/2
           , atom_is_number/1
+          , atom_is_word/1
           , string_is_number/1
+          , string_is_word/1
           , ascii_number/1
           , ascii_char/1
           , ascii_id_char/1
@@ -33,6 +35,11 @@ atom_is_number(X):-
 	atom_codes(X,String),
 	string_is_number(String).
 
+atom_is_word(X):-
+	atom(X),
+	atom_codes(X,String),
+	string_is_word(String).
+
 ascii_number(X) :-
 	number(X),
 	X>=48,
@@ -60,6 +67,10 @@ ascii_id_char('.').
 string_is_number(String) :- 
     maplist(ascii_number, String).
 
+string_is_word(String) :-
+    length(String,Len),
+    Len > 1,
+    maplist(ascii_char, String).
 
 %useful_char(46). % punto
 useful_char(64). % chiocciola

@@ -16,23 +16,33 @@ serialize :-
     told.
 
 s_base :- 
-    %tutti i token
-    findall(ID, (kb:token(ID)), ListaToken1),
-    forall( member(T, ListaToken1), (write('token('),write(T),write(').'),nl) ),
 
-    %tutti i next fra token
-    %findall((ID1,ID2), (kb:next(ID1, ID2), kb:token(ID1), kb:token(ID2)), ListaToken2),
-    %forall( member((T1,T2), ListaToken2), (write('next('),write(T1),write(','),write(T2),write(').'),nl) ),
+    %tutti i documenti
+    findall(ID, (kb:documento(ID,_)), ListaDoc),
+    forall( member(T, ListaDoc), (write('documento('),write(T),write(').'),nl) ),
+    
+    %tutti i token
+    findall(ID, (kb:token(ID)), ListaToken),
+    forall( member(T, ListaToken), (write('token('),write(T),write(').'),nl) ),
+
+    %tutti i tag
+    findall(ID, (kb:tag(ID)), ListaTag),
+    forall( member(T, ListaTag), (write('tag('),write(T),write(').'),nl) ),
+
+    %tutti gli appartiene
+    findall((ID1,ID2), (kb:appartiene(ID1,ID2)), ListaApp),
+    forall( member((T1, T2), ListaApp), (write('appartiene('),write(T1), write(','),write(T2),write(').'),nl) ),
 
     %tutti i next
-    findall((ID1,ID2), kb:next(ID1, ID2), ListaToken2),
-    forall( member((T1,T2), ListaToken2), (write('next('),write(T1),write(','),write(T2),write(').'),nl) ),
+    findall((ID1,ID2), kb:next(ID1, ID2), ListaNext),
+    forall( member((T1,T2), ListaNext), (write('next('),write(T1),write(','),write(T2),write(').'),nl) ),
+
+    
     true.
 
 s_livello1 :-
     findall( (ID,Num), kb:tag(ID, numero(Num)), ListaTag1),
     forall( member((ID,Num), ListaTag1), (
-        write('tag('),write(ID),write(').'),nl,
         write('numero('),write(ID),write(').'),nl,
         write('val('),write(ID),write(','),write(Num),write(').'),nl
     ) ),

@@ -6,9 +6,9 @@
                , explainKB/0
                , resultKB/0
                , assertFact/1
-               , assertTag/3
                , assertTag/4
                , assertTag/5
+               , assertTag/6
                , nextIDTag/1
                , assertDoc/1
                , assertDocs/1
@@ -27,19 +27,19 @@
 :- dynamic(kb:token/2).
 :- dynamic(kb:vuole/1).
 :- dynamic(kb:documento/2).
+:- dynamic(kb:appartiene/2).
 
 
 assertDoc( Documento ) :-
     to_string(Documento, Stringa),
     nextIDDocument(ID),
-    assertz(kb:documento(ID, Stringa)).
-
+    assertFact(kb:documento(ID, Stringa)).
 
 assertDocs([]).
 assertDocs([X|Xs]) :-
     to_string(X, Stringa),
     nextIDDocument(ID),
-    assertz(kb:documento(ID, Stringa)),
+    assertFact(kb:documento(ID, Stringa)),
     assertDocs(Xs).
 
 writeKB :-
@@ -49,34 +49,35 @@ writeKB :-
 
         nextIDToken(IDTokBOF),
         atom_concat(IDDoc, '_BOF', NomeToken),
-        assertz(kb:token(IDTokBOF, NomeToken)),
-        assertz(kb:appartiene(IDTokBOF, IDDoc)),        
+        assertFact(kb:token(IDTokBOF, NomeToken)),
+        assertFact(kb:appartiene(IDTokBOF, IDDoc)),        
         
         tokenizer(IDDoc, ListaParole, IDTokBOF)    
     ) ).
 
 tokenizer( IDDoc, [ Parola | [] ], IDTokenPrecedente ) :-
     nextIDToken(IDTok),
-    assertz(kb:token(IDTok, Parola)),
-    assertz(kb:appartiene(IDTok, IDDoc)),
-    assertz(kb:next(IDTokenPrecedente, IDTok)),
+    assertFact(kb:token(IDTok, Parola)),
+    assertFact(kb:appartiene(IDTok, IDDoc)),
+    assertFact(kb:next(IDTokenPrecedente, IDTok)),
 
     nextIDToken(IDTokEOF),
     atom_concat(IDDoc, '_EOF', EndToken),
-    assertz(kb:token(IDTokEOF, EndToken)),
-    assertz(kb:appartiene(IDTokEOF, IDDoc)),
-    assertz(kb:next(IDTok, IDTokEOF)).
+    assertFact(kb:token(IDTokEOF, EndToken)),
+    assertFact(kb:appartiene(IDTokEOF, IDDoc)),
+    assertFact(kb:next(IDTok, IDTokEOF)).
 
 tokenizer( IDDoc, [ Parola | Lista ], IDTokenPrecedente) :-
     nextIDToken(IDTok),
-    assertz(kb:token(IDTok, Parola)),
-    assertz(kb:appartiene(IDTok, IDDoc)),
-    assertz(kb:next(IDTokenPrecedente, IDTok)),
+    assertFact(kb:token(IDTok, Parola)),
+    assertFact(kb:appartiene(IDTok, IDDoc)),
+    assertFact(kb:next(IDTokenPrecedente, IDTok)),
     tokenizer( IDDoc, Lista, IDTok).
-
 
 %% Crea la Knowledge Base
 expandKB :-
+    base:tag_parola,
+    base:tag_numero,
     kb:tag_newline,
     comune:tag_comune,
     cf:tag_cf,
@@ -116,18 +117,17 @@ assertFact(Fact):-
     assertz(Fact).
 assertFact(_).
 
-assertTag(Tag, Spiegazione, Dipendenze) :-
+assertTag(Tag, IDDoc, Spiegazione, Dipendenze) :-
     nextIDTag(IDTag),
     assertFact(kb:tag(IDTag, Tag)),
-%    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
-%    write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
+    assertFact(kb:appartiene(IDTag, IDDoc)),
     forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
-assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione) :-
-    assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+assertTag(Tag, IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione) :-
+    assertTag(Tag, IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
+assertTag(Tag, IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
     nextIDTag(IDTag),
     assertFact(kb:tag(IDTag, Tag)),
     forall( member( Precedente, ListaPrecedenti ), ( assertFact(kb:next(Precedente, IDTag)) ) ),
@@ -135,6 +135,7 @@ assertTag(Tag, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze) :-
 %    atomic_list_concat( ['Trovato tag:', IDTag, 'con contenuto: '], ' ', Message),
 %    write(Message), write(Tag), nl,
     assertFact(spiega(IDTag,Spiegazione)),
+    assertFact(kb:appartiene(IDTag, IDDoc)),
     forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
 %TODO LISTA DI SPIEGAZIONI
@@ -186,7 +187,8 @@ tag_newline(IDToken) :-
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NEW LINE] Presenza nel documento del newline'],' ',Spiegazione),
-    assertTag(newline(IDToken), ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken, IDDoc),
+    assertTag(newline(IDToken), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 vicini(ID1, ID2) :- 
     kb:next(ID1, ID2).
