@@ -88,8 +88,9 @@ public class MainWindow {
                     Tag tag = (Tag) jlist.getSelectedValue();
                     spiegaTextPane.setText("");
                     try {
-                        Map<String, String> res = pi.oneSolution("kb:spiega", Arrays.asList(tag.getId(), "Spiegazione"));
+                        Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
                         String spiegazione = res.get("Spiegazione");
+                        spiegazione = spiegazione.replaceAll("   ", "\n");
                         String text = "Tag " + tag.getId() + " spiegato.\n";
                         text += spiegazione + "\n";
                         spiegaTextPane.setText(text);
@@ -121,8 +122,8 @@ public class MainWindow {
     private void run() {
         reset();
         pi.consult(new File("prolog/main.pl"));
-        pi.retractAll("documento", Arrays.asList("_"));
-        pi.asserta("kb:documento", Arrays.asList("\"" + textPane.getText() + "\""));
+//        pi.retractAll("assertDoc", Arrays.asList("_"));
+        pi.statisfied("kb:assertDoc", Arrays.asList("\"" + textPane.getText() + "\""));
 
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
