@@ -40,9 +40,9 @@ public class Predicato {
 
         for (Map<String, String> map : listMap) {
             String id = map.get(vars.get(0));
-            String[] args = new String[arity-1];
+            String[] args = new String[arity - 1];
             for (int i = 1; i < vars.size(); i++) {
-                args[i-1] = map.get(vars.get(i));
+                args[i - 1] = map.get(vars.get(i));
             }
             Tag tag = new Tag(nomePredicato, id, args);
             list.add(tag);

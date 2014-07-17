@@ -6,20 +6,22 @@ import java.util.Map;
 
 public abstract class PrologInterface {
 
-    protected static PrologInterface self;
-
-    public static PrologInterface getInstance() {
-        return self;
-    }
-
     public static final int SWI = 2;
+    public int type = SWI;
     public static final int YAP = 4;
+    protected static PrologInterface self;
     protected static String YAP_BIN_PATH = "/usr/local/bin/yap";
     protected static String SWI_BIN_PATH = "/usr/local/bin/swipl";
     protected static String YAP_LIB_PATH = "/usr/local/lib/Yap";
     protected static String SWI_LIB_PATH = "/usr/local/lib/swipl-6.6.6/lib/x86_64-linux";
 
-    public int type = SWI;
+    protected PrologInterface(int type) {
+        this.type = type;
+    }
+
+    public static PrologInterface getInstance() {
+        return self;
+    }
 
     public void setYAP() {
         type = YAP;
@@ -27,10 +29,6 @@ public abstract class PrologInterface {
 
     public void setSWI() {
         type = SWI;
-    }
-
-    protected PrologInterface(int type) {
-        this.type = type;
     }
 
     public abstract void close();

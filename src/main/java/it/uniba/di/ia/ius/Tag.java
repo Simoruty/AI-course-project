@@ -27,7 +27,7 @@ public class Tag {
         for (String arg : args) {
             s += " " + arg + ',';
         }
-        s = s.substring(0, s.length()-1);
+        s = s.substring(0, s.length() - 1);
         s += " )";
         return s;
     }

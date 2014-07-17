@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class ParseList {
 
-    private static final String PATTERN ="";
+    private static final String PATTERN = "";
     private static final String PATTERN_STRING_JPL = "^#\\(([^#]+), (#\\(.*\\))\\)$";
     private static final String PATTERN_STRING_INTERPROLOG = "^$";
     public final int JPL = 0;
