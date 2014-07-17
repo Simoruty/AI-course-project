@@ -11,6 +11,7 @@
                , assertDoc/1
                , assertDocs/1
                , vicini/2
+               , spiegaTutto/2
                ]
 ).
 
@@ -136,12 +137,25 @@ assertTag(Tag, IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze)
     assertFact(kb:appartiene(IDTag, IDDoc)),
     forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
-%TODO LISTA DI SPIEGAZIONI
-spiega(IDTag) :-
-    spiega(IDTag, Spiegazione),
-    write(Spiegazione),nl,
+
+
+spiegaTutto(IDTag, Spiegazione) :-
     findall(X, depends(IDTag, X), Dipendenze),
-    forall( member(D, Dipendenze), (spiega(D)) ).
+    length(Dipendenze,0),
+    !,
+    spiega(IDTag, Spiegazione).
+spiegaTutto(IDTag, Spiegazione) :-
+    spiega(IDTag, SpiegazioneTag),
+    findall(X, depends(IDTag, X), ListaDipendenze),
+    spiegaLista(ListaDipendenze, ListaSpiegazioniDipendenze),
+    atomic_list_concat(ListaSpiegazioniDipendenze, '   ', SpiegazioneDipendenze ),    
+    atomic_list_concat([SpiegazioneTag,SpiegazioneDipendenze], '   ', Spiegazione).    
+
+spiegaLista([],[]).
+spiegaLista([D|Ds],[S|Ss]):-
+    spiegaTutto(D,S),
+    spiegaLista(Ds,Ss).
+    
 
 nextIDDocument(IDDoc) :- 
     findall(_, kb:documento(_,_), List), 

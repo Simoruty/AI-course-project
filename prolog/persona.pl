@@ -285,7 +285,7 @@ tag_simbolo_giudice(Token) :-
     simbolo_giudice(Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[GIUDICE] Presenza nel documento del termine',Token],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO GIUDICE] Presenza nel documento del termine',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
     assertTag(simbolo_giudice(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
@@ -302,7 +302,7 @@ tag_simbolo_curatore(Token) :-
     simbolo_curatore(Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[CURATORE] Presenza nel documento del termine',Token],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO CURATORE] Presenza nel documento del termine',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
     assertTag(simbolo_curatore(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
@@ -318,7 +318,7 @@ tag_simbolo_soggetto(Token) :-
     simbolo_soggetto(Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SOGGETTO] Presenza nel documento del termine',Token],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO SOGGETTO] Presenza nel documento del termine',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
     assertTag(simbolo_soggetto(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
