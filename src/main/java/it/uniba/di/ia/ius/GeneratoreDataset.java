@@ -38,11 +38,12 @@ public class GeneratoreDataset {
         sb.append(" al ");
         sb.append(info.getDataFine());
         sb.append(".\nTotale avere: ");
-//        sb.append();
+        sb.append(info.getValuta());
         sb.append(". Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della ");
         sb.append("procedura in epigrafe dell’importo di ");
-//        sb.append();
-//        sb.append();
+        sb.append(info.getValuta());
+        sb.append(" ");
+        sb.append(info.getTipoRichiesta());
         sb.append(" oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato ");
         sb.append("passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi ");
         sb.append("in sede di liquidazione,\n");

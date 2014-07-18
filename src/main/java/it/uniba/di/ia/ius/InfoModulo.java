@@ -12,7 +12,17 @@ public class InfoModulo {
             "Giuseppe",
             "Francesco",
             "Antonio",
-            "Giovanni"
+            "Giovanni",
+            "Paolo",
+            "Christian",
+            "Vincenzo",
+            "Mario",
+            "Carlo",
+            "Nicola",
+            "Riccardo",
+            "Federico",
+            "Fabio",
+            "Gianluca"
     );
     private static List<String> cognomi = Arrays.asList(
             "Quercia",
@@ -21,12 +31,42 @@ public class InfoModulo {
             "Mazzilli",
             "Malerba",
             "Di Mauro",
-            "Abbattista"
+            "Abbattista",
+            "Amorese",
+            "Torelli",
+            "Mastrogiacomo",
+            "Mastrototaro",
+            "D'Oria",
+            "D'Introno",
+            "Di Francesco",
+            "Mininno",
+            "Scalfaro",
+            "Napolitano",
+            "Rossi",
+            "Conti",
+            "Scotti",
+            "Speranza",
+            "Altobello",
+            "Altobelli"
     );
     private static List<String> comuni = Arrays.asList(
             "Rutigliano",
             "Corato",
             "Terlizzi",
+            "Molfetta",
+            "Santo Spirito",
+            "Lecce",
+            "Foggia",
+            "Andria",
+            "Barletta",
+            "Cirò Marina",
+            "Caserta",
+            "Casal di Principe",
+            "Roccaporena",
+            "Trani",
+            "Bisceglie",
+            "Barletta",
+            "Santa Maria di Leuca",
             "Bari",
             "San Giovanni Rotondo",
             "Giovinazzo",
@@ -93,6 +133,31 @@ public class InfoModulo {
             "16 giu 1999"
             //TODO
     );
+    private static List<String> valute = Arrays.asList(
+            "122 €",
+            "20.50 €",
+            "€12",
+            "euro 2000",
+            "12000 $",
+            "1580 eur",
+            "1980 USD",
+            "189 dollari",
+            "3000 euro",
+            "80 €",
+            "1923 eur"
+    );
+    private static List<String> tipiRichiesta = Arrays.asList(
+            "in via chirografaria",
+            "in via privilegiata",
+            "chirografario",
+            "privilegiato",
+            "in modalità chirografaria",
+            "in modalità privilegiata",
+            "in modo chirografo",
+            "in modo privilegiato"
+    );
+
+
     private int numeroAllegati;
     private String dataOggi;
     private String nomeSottoscritto;
@@ -112,6 +177,8 @@ public class InfoModulo {
     private String dataNascita;
     private String dataInizio;
     private String dataFine;
+    private String valuta;
+    private String tipoRichiesta;
 
     public InfoModulo() {
         this.nomeSottoscritto = estraiUno(nomi);
@@ -136,6 +203,8 @@ public class InfoModulo {
         this.dataInizio = estraiUno(date);
         this.dataFine = estraiUno(date);
         this.numeroAllegati = (int) Math.round(Math.floor(Math.random() * 5)) + 1;
+        this.valuta = estraiUno(valute);
+        this.tipoRichiesta = estraiUno(tipiRichiesta);
     }
 
     private static String estraiUno(List<String> list) {
@@ -222,5 +291,13 @@ public class InfoModulo {
 
     public String getDataOggi() {
         return dataOggi;
+    }
+
+    public String getValuta() {
+        return valuta;
+    }
+
+    public String getTipoRichiesta() {
+        return tipoRichiesta;
     }
 }
