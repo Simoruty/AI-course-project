@@ -21,6 +21,9 @@ public class InfoModulo {
             "Nicola",
             "Riccardo",
             "Federico",
+            "Michele",
+            "Luca",
+            "Marco",
             "Fabio",
             "Gianluca"
     );
@@ -44,6 +47,8 @@ public class InfoModulo {
             "Napolitano",
             "Rossi",
             "Conti",
+            "Ferilli",
+            "Esposito",
             "Scotti",
             "Speranza",
             "Altobello",
@@ -59,7 +64,6 @@ public class InfoModulo {
             "Foggia",
             "Andria",
             "Barletta",
-            "Cirò Marina",
             "Caserta",
             "Casal di Principe",
             "Roccaporena",
@@ -84,6 +88,7 @@ public class InfoModulo {
             "viale Federico II di Svevia, 28",
             "via Roma, 12",
             "via Claudio Traina, 24",
+            "via pacecco, 12",
             "p.za Caduti di Via Fani, 2",
             "piazza Vittorio Emanuele, 3",
             "via della Liberazione, 9",
@@ -93,6 +98,7 @@ public class InfoModulo {
             "346-8594782",
             "080-5584794",
             "3284699785",
+            "3475459798",
             "+39-345 12 58 789"
     );
     private static List<String> codiciFiscali = Arrays.asList(
@@ -125,14 +131,42 @@ public class InfoModulo {
             "acquisto materiale",
             "locazione immobile"
     );
-    private static List<String> date = Arrays.asList(
-            "25/5/2013",
-            "12 febbraio 1995",
-            "5-12-2013",
-            "15 giugno 2003",
-            "16 giu 1999"
-            //TODO
+    private static List<String> dateNascita = Arrays.asList(
+            "25/5/1989",
+            "12 febbraio 1978",
+            "5-12-1966",
+            "15 giugno 1980",
+            "16 giu 1947",
+            "21 novembre 1978",
+            "15-10-1957",
+            "15 luglio 1974 ",
+            "2 giu 1947"
     );
+
+    private static List<String> dateInizio = Arrays.asList(
+            "25/5/2000",
+            "12 febbraio 2001",
+            "5-12-2008",
+            "15 giugno 2002",
+            "16 giu 2003"
+    );
+
+    private static List<String> dateFine = Arrays.asList(
+            "25/5/2010",
+            "12 febbraio 2011",
+            "5-12-2012",
+            "15 giugno 2010",
+            "16 giu 2009"
+    );
+
+    private static List<String> datePostFine = Arrays.asList(
+            "25/5/2013",
+            "12 febbraio 2012",
+            "5-09-2013",
+            "15 settembre 2013",
+            "16 ago 2014"
+    );
+
     private static List<String> valute = Arrays.asList(
             "122 €",
             "20.50 €",
@@ -198,10 +232,10 @@ public class InfoModulo {
         this.motivazioneRichiesta = estraiUno(motivazioni);
         this.comuneTribunale = estraiUno(comuni);
         this.comuneNascita = estraiUno(comuni);
-        this.dataOggi = estraiUno(date);
-        this.dataNascita = estraiUno(date);
-        this.dataInizio = estraiUno(date);
-        this.dataFine = estraiUno(date);
+        this.dataOggi = estraiUno(datePostFine);
+        this.dataNascita = estraiUno(dateNascita);
+        this.dataInizio = estraiUno(dateInizio);
+        this.dataFine = estraiUno(dateFine);
         this.numeroAllegati = (int) Math.round(Math.floor(Math.random() * 5)) + 1;
         this.valuta = estraiUno(valute);
         this.tipoRichiesta = estraiUno(tipiRichiesta);

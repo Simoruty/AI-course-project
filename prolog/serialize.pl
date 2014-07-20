@@ -7,12 +7,25 @@
 
 serialize :-    
     tell('aserializzazione'),
+    s_docs,
     s_base,
     s_livello1,
     s_livello2,
     s_livello3,
     s_depends,
     told.
+
+s_docs :-
+    findall((ID,Doc), (kb:documento(ID,Doc)), ListaDoc),
+    forall( member((ID,Doc), ListaDoc), (
+        write('TestoDoc('),
+        write(ID),
+        write(',"'),
+        atom_codes(X,Doc),
+        write(X),
+        write('").'),nl)
+        ),
+    true.
 
 s_base :- 
 

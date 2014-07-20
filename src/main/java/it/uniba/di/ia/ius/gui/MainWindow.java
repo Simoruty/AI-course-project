@@ -1,5 +1,7 @@
 package it.uniba.di.ia.ius.gui;
 
+import it.uniba.di.ia.ius.GeneratoreDataset;
+import it.uniba.di.ia.ius.InfoModulo;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
@@ -90,7 +92,7 @@ public class MainWindow {
                     try {
                         Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
                         String spiegazione = res.get("Spiegazione");
-                        spiegazione=spiegazione.replace("\r","");
+                        spiegazione = spiegazione.replace("\r", "");
                         spiegaTextPane.setText(spiegazione);
                     } catch (NoVariableException e) {
                         e.printStackTrace();
@@ -115,7 +117,7 @@ public class MainWindow {
         pi = new InterprologInterface(PrologInterface.YAP);
     }
 
-    private void closeInterface(){
+    private void closeInterface() {
         pi.close();
     }
 
@@ -147,8 +149,17 @@ public class MainWindow {
         openInterface();
         pi.consult(new File("prolog/main.pl"));
 //        pi.retractAll("assertDoc", Arrays.asList("_"));
-        pi.statisfied("kb:assertDoc", Arrays.asList("\"" + textPane.getText() + "\""));
-
+//        pi.statisfied("kb:assertDoc", Arrays.asList("\"" + textPane.getText() + "\""));
+//        pi.statisfied("kb:assertDoc", Arrays.asList("\"" + GeneratoreDataset.modulo1(new InfoModulo()) + "\""));
+        String texts = "[";
+        for (int i = 0; i < 3; i++) {
+            String a = GeneratoreDataset.modulo1(new InfoModulo());
+            texts += "\"" + a + "\",";
+        }
+        texts = texts.substring(0, texts.length() - 1);
+        texts += "]";
+        textPane.setText(texts);
+        pi.statisfied("kb:assertDocs", Arrays.asList(texts));
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
         predicatoList.add(new Predicato("tel", 2, telCB));

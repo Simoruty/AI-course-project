@@ -112,7 +112,7 @@ spiegaGUI(_):-
 check_risposta(Risposta,Spiegazioni):-
     kb:spiegaTutto(Risposta,Spiegazioni).
 
-check_risposta(Risposta,'Tag sbagliato').
+check_risposta(_,'Tag sbagliato').
 
 richiediTagdaSpiegare:-
     write('Inserisci il nome del tag da spiegare: '),

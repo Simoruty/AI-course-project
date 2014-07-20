@@ -44,4 +44,5 @@ intestazione :-
 start :-
     writeKB,
     expandKB,
+    serialize,
     true.

@@ -12,7 +12,7 @@ public class GeneratoreDataset {
         StringBuilder sb = new StringBuilder();
         sb.append("TRIBUNALE CIVILE DI ");
         sb.append(info.getComuneTribunale());
-        sb.append("\nAll’Ill.mo Giudice Delegato al fallimento ");
+        sb.append("\nAll'Ill.mo Giudice Delegato al fallimento ");
         sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice());
         sb.append("\nn. pratica ");
         sb.append(info.getNumeroPratica());
@@ -39,8 +39,8 @@ public class GeneratoreDataset {
         sb.append(info.getDataFine());
         sb.append(".\nTotale avere: ");
         sb.append(info.getValuta());
-        sb.append(". Come da giustificativi allegati.\nPERTANTO CHIEDE\nl’ammissione allo stato passivo della ");
-        sb.append("procedura in epigrafe dell’importo di ");
+        sb.append(". Come da giustificativi allegati.\nPERTANTO CHIEDE\nl'ammissione allo stato passivo della ");
+        sb.append("procedura in epigrafe dell'importo di ");
         sb.append(info.getValuta());
         sb.append(" ");
         sb.append(info.getTipoRichiesta());
@@ -58,16 +58,6 @@ public class GeneratoreDataset {
         for (int idx = 1; idx <= info.getNumeroAllegati(); idx++) {
             sb.append("\nfattura n. " + idx);
         }
-        sb.append("\nPROCURA SPECIALE\nDelego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame,");
-        sb.append("del presente giudizio, l’Avv.to ");
-        sb.append(info.getCognomeAvvocato() + " " + info.getNomeAvvocato());
-        sb.append(", conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di ");
-        sb.append("rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare ");
-        sb.append("somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, ");
-        sb.append("promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre ");
-        sb.append("domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. ");
-        sb.append(info.getCognomeAvvocato() + " " + info.getNomeAvvocato());
-        sb.append("\n");
         return sb.toString();
     }
 }
