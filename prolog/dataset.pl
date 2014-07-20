@@ -19,3 +19,25 @@ Delego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, d
 comune, persona, numero_pratica, persona, indirizzo, num_telefono, codice_fiscale, motivazione, data1, data2, tipo_richiesta, valuta, valuta, tipo_richiesta, data, firma(stesso sottoscritto), numeroAllegati, for indice allegato,  
 
 
+
+"DOMANDA DI AMMISSIONE ALLO STATO PASSIVO 
+TRIBUNALE CIVILE DI Catania 
+SEZIONE FALLIMENTARE Procedura n. 125 
+Denominazione Pippo 
+GIUDICE DELEGATO - Giovanni Simone 
+CURATORE/COMMISSARIO Francesco Stolfa 
+
+DOMANDA DI AMMISSIONE AL PASSIVO  
+Ill.mo signor Giudice Delegato alla procedura sopra indicata, la sottoscritta Simone Rutigliano nato/a a Terlizzi il 12/5/1950 con sede in Bari C.F. / P.I. RTGSMN88S20L109J domiciliato in Bari via Edoardo Orabona, 4 
+il quale dichiara di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. 080/1254786, oppure per email al seguente indirizzo pippo@pippo.com 
+PREMESSO 
+(esporre le ragioni di fatto e di diritto della domanda di insinuazione) 
+CHIEDE 	
+di essere ammesso/a allo stato passivo della procedura in epigrafe indicata:  
+a) in via chirografaria per Euro 100 Precisando che il proprio credito deriva da: prestazioni abituali di lavoro di ripetizione. Allega numero 2 documenti, come sotto elencati : - primo documento - secondo documento 
+b) in via privilegiata per Euro 250 Precisando che il proprio credito deriva da: NIENTE  Allega numero 0 documenti come sotto elencati :  
+Per un totale di Euro: 350  
+Bari, 15/8/2014 
+Simone Rutigliano").
+
+

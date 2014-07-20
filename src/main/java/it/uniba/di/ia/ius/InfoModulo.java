@@ -213,6 +213,11 @@ public class InfoModulo {
     private String dataFine;
     private String valuta;
     private String tipoRichiesta;
+    private String cognomeCuratore;
+    private String nomeCuratore;
+    private String comuneResidenza;
+    private String NValuta;
+    private String NMotivazioneRichiesta;
 
     public InfoModulo() {
         this.nomeSottoscritto = estraiUno(nomi);
@@ -221,6 +226,8 @@ public class InfoModulo {
         this.cognomeAvvocato = estraiUno(cognomi);
         this.nomeGiudice = estraiUno(nomi);
         this.cognomeGiudice = estraiUno(cognomi);
+        this.nomeCuratore = estraiUno(nomi);
+        this.cognomeCuratore = estraiUno(cognomi);
         this.indirizzo = estraiUno(indirizzi);
         this.telefono = estraiUno(telefoni);
         this.codiceFiscale = estraiUno(codiciFiscali);
@@ -230,14 +237,17 @@ public class InfoModulo {
             this.email = nomeSottoscritto.toLowerCase() + "." + cognomeSottoscritto.toLowerCase() + "@gmail.it";
         this.numeroPratica = estraiUno(numeriRichieste);
         this.motivazioneRichiesta = estraiUno(motivazioni);
+        this.NMotivazioneRichiesta = estraiUno(motivazioni);
         this.comuneTribunale = estraiUno(comuni);
         this.comuneNascita = estraiUno(comuni);
+        this.comuneResidenza = estraiUno(comuni);
         this.dataOggi = estraiUno(datePostFine);
         this.dataNascita = estraiUno(dateNascita);
         this.dataInizio = estraiUno(dateInizio);
         this.dataFine = estraiUno(dateFine);
         this.numeroAllegati = (int) Math.round(Math.floor(Math.random() * 5)) + 1;
         this.valuta = estraiUno(valute);
+        this.NValuta = estraiUno(valute);
         this.tipoRichiesta = estraiUno(tipiRichiesta);
     }
 
@@ -333,5 +343,25 @@ public class InfoModulo {
 
     public String getTipoRichiesta() {
         return tipoRichiesta;
+    }
+
+    public String getNomeCuratore() {
+        return nomeCuratore;
+    }
+
+    public String getCognomeCuratore() {
+        return cognomeCuratore;
+    }
+
+    public String getComuneResidenza() {
+        return comuneResidenza;
+    }
+
+    public String getNValuta() {
+        return NValuta;
+    }
+
+    public String getNMotivazioneRichiesta() {
+        return NMotivazioneRichiesta;
     }
 }
