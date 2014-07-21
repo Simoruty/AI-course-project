@@ -152,6 +152,7 @@ public class GeneratoreDataset {
         sb.append(" cod. fis. "+ info.getCodiceFiscale());
         sb.append(" email "+ info.getEmail());
         sb.append("\n PREMESSO \n");
+//        TODO da finire
         return sb.toString();
     }
 }
