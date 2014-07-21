@@ -1,43 +1,124 @@
-"TRIBUNALE CIVILE DI Bari\n
-All’Ill.mo Giudice Delegato al fallimento Giovanni Tarantini n. 618/2011\n
-ISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\n
-Il sottoscritto, Quercia Luciano, elettivamente domiciliato agli effetti del presente atto in viale Federico II, 28\n
-Recapito tel. 080-8989898, Codice Fiscale: QRCLCN88L01A285K, indirizzo e-mail luciano.quercia@gmail.com\n
-DICHIARA\n
-di essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per prestazioni di lavoro subordinato in qualità di operaio per il periodo dal 25/7/1999 al 12/2/2001.\n
-Totale avere: 122.50 €. Come da giustificativi allegati.\n
-PERTANTO CHIEDE\n
-l’ammissione allo stato passivo della procedura in epigrafe dell’importo di euro 122.25 chirografo oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,\n
-lì 9 giugno 2014\n
-Luciano Quercia\n
-Si allegano 1. fattura n.12\n
-\n
-PROCURA SPECIALE\n
-Delego a rappresentarmi e difendermi in ogni fase, anche di eventuale gravame, del presente giudizio, l’Avv.to Felice Soldano, conferendo loro, sia unitamente che disgiuntamente, ogni potere di legge, compreso quello di rinunciare agli atti ed accettare la rinuncia, conciliare, transigere, quietanzare, incassare somme, farsi sostituire, nominare altri difensori o domiciliatari, chiedere misure cautelari, promuovere procedimenti esecutivi ed atti preliminari ad essi, chiamare in causa terzi, proporre domande riconvenzionali e costituirsi. Eleggo domicilio presso lo studio del suddetto avv. Soldano Felice.\n"
+kb:assertDocs(["TRIBUNALE CIVILE DI Casal di Principe
+All'Ill.mo Giudice Delegato al fallimento Rutigliano Giovanni
+n. pratica 3/2009
+ISTANZA DI INSINUAZIONE ALLO STATO PASSIVO
 
+Il sottoscritto, Malerba Andrea, nato a Rutigliano il 15 giugno 1980, elettivamente domiciliato agli effetti del presente atto in via pacecco, 12
+Recapito tel. 346-8594782, Codice Fiscale: CCNGRT55A25C983Z, indirizzo e-mail a.malerba@libero.it
+DICHIARA
+di essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per interventi di manutenzione ordinaria per il periodo dal 12 febbraio 2001 al 12 febbraio 2011.
+Totale avere: 1220 €. Come da giustificativi allegati.
+PERTANTO CHIEDE
+l'ammissione allo stato passivo della procedura in epigrafe dell'importo di 1220 € privilegiato oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,
+Casal di Principe, li 15 settembre 2013
+Malerba Andrea
+Si allegano 2 documenti:
+fattura n. 1
+fattura n. 2","TRIBUNALE CIVILE DI Trani
+All'Ill.mo Giudice Delegato al fallimento Napolitano Giovanni
+n. pratica 4/2009
+ISTANZA DI INSINUAZIONE ALLO STATO PASSIVO
 
-comune, persona, numero_pratica, persona, indirizzo, num_telefono, codice_fiscale, motivazione, data1, data2, tipo_richiesta, valuta, valuta, tipo_richiesta, data, firma(stesso sottoscritto), numeroAllegati, for indice allegato,  
+Il sottoscritto, Mastrogiacomo Marco, nato a Bari il 21 novembre 1978, elettivamente domiciliato agli effetti del presente atto in via della Liberazione, 9
+Recapito tel. +39-345 12 58 789, Codice Fiscale: FCNSMN75L15L109J, indirizzo e-mail marco.mastrogiacomo@gmail.it
+DICHIARA
+di essere creditore nei confronti della Ditta di cui sopra, della somma dovutagli per locazione immobile per il periodo dal 15 giugno 2002 al 5-12-2012.
+Totale avere: €120. Come da giustificativi allegati.
+PERTANTO CHIEDE
+l'ammissione allo stato passivo della procedura in epigrafe dell'importo di €120 chirografario oltre rivalutazione monetaria ed interessi di legge fino alla data di chiusura dello stato passivo e soli interessi legali fino alla liquidazione delle attività mobiliari da quantificarsi in sede di liquidazione,
+Trani, li 16 ago 2014
+Mastrogiacomo Marco
+Si allegano 2 documenti:
+fattura n. 1
+fattura n. 2","DOMANDA DI AMMISSIONE ALLO STATO PASSIVO
+TRIBUNALE CIVILE DI Foggia
+SEZIONE FALLIMENTARE Procedura n.46/2011
+GIUDICE DELEGATO -  Mastrogiacomo Simone
+CURATORE - Scotti Nicola
+DOMANDA DI AMMISSIONE AL PASSIVO
+Ill.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto Altobello Carlo nato a Rocca di Papa il 15 giugno 1980 con sede in Rocca di Papa C.F. LCNLCN85C05L109I domiciliato in Terlizzi in p.za Caduti di Via Fani, 2 il quale dichiare di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. 080-5584794 oppure per email al seguente indirizzo carlo.altobello@gmail.it
+CHIEDE 
+di essere ammesso allo stato passivo della procedure in epigrafe indicata : 
+in via chirografaria per 10000 dollari Precisando che il proprio credito deriva da: 
+ prestazioni di lavoro occasionale
+Si allegano 2 documenti:
+fattura n. 1
+fattura n. 2
+in via privilegiata per 1980 USD Precisando che il proprio credito deriva da: 
+ prestazioni di lavoro occasionale
+Si allegano 2 documenti:
+fattura n. 1
+fattura n. 2
+Foggia, li 21 luglio 2012
+Altobello Carlo","DOMANDA DI AMMISSIONE ALLO STATO PASSIVO
+TRIBUNALE CIVILE DI Ivrea
+SEZIONE FALLIMENTARE Procedura n.40/2014
+GIUDICE DELEGATO -  Amorese Fabio
+CURATORE - Mastrogiacomo Nicola
+DOMANDA DI AMMISSIONE AL PASSIVO
+Ill.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto Napolitano Gianluca nato a Barletta il 21 novembre 1978 con sede in Barletta C.F. LCNLCN85C05L109I domiciliato in Lecce in via pacecco, 12 il quale dichiare di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. +39-345 12 58 789 oppure per email al seguente indirizzo g.napolitano@libero.it
+CHIEDE 
+di essere ammesso allo stato passivo della procedure in epigrafe indicata : 
+in via chirografaria per 10000 dollari Precisando che il proprio credito deriva da: 
+ interventi di manutenzione ordinaria
+Si allegano 3 documenti:
+fattura n. 1
+fattura n. 2
+fattura n. 3
+in via privilegiata per 2000 euro Precisando che il proprio credito deriva da: 
+ locazione immobile
+Si allegano 3 documenti:
+fattura n. 1
+fattura n. 2
+fattura n. 3
+Ivrea, li 12 febbraio 2012
+Napolitano Gianluca","
+TRIBUNALE CIVILE E PENALE DI Santa Maria di Leuca
+SEZIONE FALLIMENTARE
+ Fallimento: Sony
+Sentenza n. 16/2010
+Giudice Delegato: Quercia Riccardo
+Curatore: Altobello Luciano
+Verifica dei Crediti: 5-12-2012
+ Domanda di ammissione al passivo 
+A norma dell'art 93 LF 
 
+ Il sottoscritto Di Francesco Stefano con studio in piazza Vittorio Emanuele, 3  tel. +39-345 12 58 789 cod. fis. ZCNCTL65B65A285K email s.di francesco@libero.it
+ PREMESSO 
+di risultare creditore della società fallita, dichiarata in epigrafe, per prestazioni professionali per i seguenti importi: 
+1890 dollari per onorari, oltre Iva e CP 4% 
+ come da parcella allegata. 
+Tanto premesso, il sottoscritto Di Francesco Stefano , porge rispettosa
+ISTANZA
+affinché la S.V. Ill.ma voglia ammetterlo al passivo del fallimento in epigrafe per i seguenti importi:
+1890 dollari oltre CP 4% al privilegio ex art.2753 bis n.2 c.c nonché oltre iva al chirografo per 1980 USD
+Si allegano 3 documenti:
+fattura n. 1
+fattura n. 2
+fattura n. 3
+Santa Maria di Leuca, li 12 febbraio 2012
+Di Francesco Stefano","
+TRIBUNALE CIVILE E PENALE DI Bisceglie
+SEZIONE FALLIMENTARE
+ Fallimento: Bridgestone
+Sentenza n. 40/2014
+Giudice Delegato: Mininno Paolo
+Curatore: Abbattista Riccardo
+Verifica dei Crediti: 5-12-2012
+ Domanda di ammissione al passivo 
+A norma dell'art 93 LF 
 
-
-"DOMANDA DI AMMISSIONE ALLO STATO PASSIVO 
-TRIBUNALE CIVILE DI Catania 
-SEZIONE FALLIMENTARE Procedura n. 125 
-Denominazione Pippo 
-GIUDICE DELEGATO - Giovanni Simone 
-CURATORE/COMMISSARIO Francesco Stolfa 
-
-DOMANDA DI AMMISSIONE AL PASSIVO  
-Ill.mo signor Giudice Delegato alla procedura sopra indicata, la sottoscritta Simone Rutigliano nato/a a Terlizzi il 12/5/1950 con sede in Bari C.F. / P.I. RTGSMN88S20L109J domiciliato in Bari via Edoardo Orabona, 4 
-il quale dichiara di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. 080/1254786, oppure per email al seguente indirizzo pippo@pippo.com 
-PREMESSO 
-(esporre le ragioni di fatto e di diritto della domanda di insinuazione) 
-CHIEDE 	
-di essere ammesso/a allo stato passivo della procedura in epigrafe indicata:  
-a) in via chirografaria per Euro 100 Precisando che il proprio credito deriva da: prestazioni abituali di lavoro di ripetizione. Allega numero 2 documenti, come sotto elencati : - primo documento - secondo documento 
-b) in via privilegiata per Euro 250 Precisando che il proprio credito deriva da: NIENTE  Allega numero 0 documenti come sotto elencati :  
-Per un totale di Euro: 350  
-Bari, 15/8/2014 
-Simone Rutigliano").
-
-
+ Il sottoscritto Rossi Luciano con studio in p.za Caduti di Via Fani, 2  tel. +39-345 12 58 789 cod. fis. FCNSMN75L15L109J email luciano.rossi@gmail.it
+ PREMESSO 
+di risultare creditore della società fallita, dichiarata in epigrafe, per prestazioni professionali per i seguenti importi: 
+1220 € per onorari, oltre Iva e CP 4% 
+ come da parcella allegata. 
+Tanto premesso, il sottoscritto Rossi Luciano , porge rispettosa
+ISTANZA
+affinché la S.V. Ill.ma voglia ammetterlo al passivo del fallimento in epigrafe per i seguenti importi:
+1220 € oltre CP 4% al privilegio ex art.2753 bis n.2 c.c nonché oltre iva al chirografo per 1580 eur
+Si allegano 2 documenti:
+fattura n. 1
+fattura n. 2
+Bisceglie, li 12 maggio 2011
+Rossi Luciano"]).

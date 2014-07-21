@@ -7,7 +7,7 @@ import java.io.IOException;
 public class GeneratoreDataset {
 
     public static void main(String[] args) {
-        File file = new File("dataset");
+        File file = new File("prolog/dataset.pl");
         if (file.exists())
             file.delete();
         try {
