@@ -13,24 +13,33 @@ public class GeneratoreDataset {
         try {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);
-            fw.append("kb:assertDocs([");
+            fw.append("asserta(kb:assertDocs([");
             for (int i = 0; i < 2; i++) {
-                fw.append("\"");
+                if (i == 0)
+                    fw.append("\"");
+                else
+                    fw.append(",\"");
                 fw.append(modulo1(new InfoModulo()));
-                fw.append("\",");
+                fw.append("\"");
 
             }
             for (int i = 0; i < 2; i++) {
-                fw.append("\"");
+                if (i == 0)
+                    fw.append("\"");
+                else
+                    fw.append(",\"");
                 fw.append(modulo2(new InfoModulo()));
-                fw.append("\",");
+                fw.append("\"");
             }
             for (int i = 0; i < 2; i++) {
-                fw.append("\"");
+                if (i == 0)
+                    fw.append("\"");
+                else
+                    fw.append(",\"");
                 fw.append(modulo3(new InfoModulo()));
-                fw.append("\",");
+                fw.append("\"");
             }
-            fw.append("]).");
+            fw.append("])).");
             fw.flush();
             fw.close();
 
