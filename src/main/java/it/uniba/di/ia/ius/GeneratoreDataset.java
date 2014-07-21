@@ -87,20 +87,21 @@ public class GeneratoreDataset {
         return sb.toString();
     }
 
-    public static String modulo2(InfoModulo info) {
 
+
+    public static String modulo2(InfoModulo info) {
         StringBuilder sb = new StringBuilder();
-        sb.append("DOMANDA DI AMMISSIONE ALLO STATO PASSIVO\n");
-        sb.append("TRIBUNALE CIVILE DI ");
-        sb.append(info.getComuneTribunale()+"\n");
-        sb.append("SEZIONE FALLIMENTARE Procedura n.");
+        sb.append("DOMANDA DI AMMISSIONE ALLO STATO PASSIVO");
+        sb.append("\nTRIBUNALE CIVILE DI ");
+        sb.append(info.getComuneTribunale());
+        sb.append("\nSEZIONE FALLIMENTARE Procedura n.");
         sb.append(info.getNumeroPratica());
         sb.append("\nGIUDICE DELEGATO -  ");
-        sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice()+"\n");
-        sb.append("CURATORE - ");
-        sb.append(info.getCognomeCuratore() + " " + info.getNomeCuratore()+"\n");
-        sb.append("DOMANDA DI AMMISSIONE AL PASSIVO\n");
-        sb.append("Ill.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto ");
+        sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice());
+        sb.append("\nCURATORE - ");
+        sb.append(info.getCognomeCuratore() + " " + info.getNomeCuratore());
+        sb.append("\nDOMANDA DI AMMISSIONE AL PASSIVO");
+        sb.append("\nIll.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto ");
         sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
         sb.append(" nato a ");
         sb.append(info.getComuneNascita());

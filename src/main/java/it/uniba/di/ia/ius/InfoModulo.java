@@ -191,7 +191,6 @@ public class InfoModulo {
             "in modo privilegiato"
     );
 
-
     private int numeroAllegati;
     private String dataOggi;
     private String nomeSottoscritto;
@@ -245,7 +244,7 @@ public class InfoModulo {
         this.dataNascita = estraiUno(dateNascita);
         this.dataInizio = estraiUno(dateInizio);
         this.dataFine = estraiUno(dateFine);
-        this.numeroAllegati = (int) Math.round(Math.floor(Math.random() * 5)) + 1;
+        this.numeroAllegati = (int) Math.round(Math.floor(Math.random() * 3)) + 1;
         this.valuta = estraiUno(valute);
         this.NValuta = estraiUno(valute);
         this.tipoRichiesta = estraiUno(tipiRichiesta);

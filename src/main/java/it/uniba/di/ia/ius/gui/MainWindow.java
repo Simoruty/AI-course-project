@@ -1,7 +1,5 @@
 package it.uniba.di.ia.ius.gui;
 
-import it.uniba.di.ia.ius.GeneratoreDataset;
-import it.uniba.di.ia.ius.InfoModulo;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
