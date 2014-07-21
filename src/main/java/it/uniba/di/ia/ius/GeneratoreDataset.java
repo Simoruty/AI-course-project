@@ -7,32 +7,36 @@ import java.io.IOException;
 public class GeneratoreDataset {
 
     public static void main(String[] args) {
-        System.out.println(modulo3(new InfoModulo()));
-//        File file = new File("dataset");
-//        if (file.exists())
-//            file.delete();
-//        try {
-//            file.createNewFile();
-//            FileWriter fw = new FileWriter(file);
-//            fw.append("kb:assertDocs([");
-//            for (int i = 0; i < 21; i++) {
-//                fw.append("\"");
-//                fw.append(modulo1(new InfoModulo()));
-//                fw.append("\",");
-//
-//            }
-//            for (int i = 0; i < 21; i++) {
-//                fw.append("\"");
-//                fw.append(modulo2(new InfoModulo()));
-//                fw.append("\",");
-//            }
-//            fw.append("]).");
-//            fw.flush();
-//            fw.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        File file = new File("dataset");
+        if (file.exists())
+            file.delete();
+        try {
+            file.createNewFile();
+            FileWriter fw = new FileWriter(file);
+            fw.append("kb:assertDocs([");
+            for (int i = 0; i < 2; i++) {
+                fw.append("\"");
+                fw.append(modulo1(new InfoModulo()));
+                fw.append("\",");
+
+            }
+            for (int i = 0; i < 2; i++) {
+                fw.append("\"");
+                fw.append(modulo2(new InfoModulo()));
+                fw.append("\",");
+            }
+            for (int i = 0; i < 2; i++) {
+                fw.append("\"");
+                fw.append(modulo3(new InfoModulo()));
+                fw.append("\",");
+            }
+            fw.append("]).");
+            fw.flush();
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String modulo1(InfoModulo info) {
@@ -88,8 +92,6 @@ public class GeneratoreDataset {
         return sb.toString();
     }
 
-
-
     public static String modulo2(InfoModulo info) {
         StringBuilder sb = new StringBuilder();
         sb.append("DOMANDA DI AMMISSIONE ALLO STATO PASSIVO");
@@ -139,26 +141,26 @@ public class GeneratoreDataset {
         sb.append("\nTRIBUNALE CIVILE E PENALE DI ");
         sb.append(info.getComuneTribunale());
         sb.append("\nSEZIONE FALLIMENTARE");
-        sb.append("\n Fallimento: ");
+        sb.append("\n Fallimento: " + info.getAziendaFallimento());
         sb.append("\nSentenza n. ");
         sb.append(info.getNumeroPratica());
-        sb.append("\nGiudice Delegato: " + info.getCognomeGiudice()+" "+info.getNomeGiudice());
-        sb.append("\nCuratore: " + info.getCognomeCuratore()+" "+info.getNomeCuratore());
+        sb.append("\nGiudice Delegato: " + info.getCognomeGiudice() + " " + info.getNomeGiudice());
+        sb.append("\nCuratore: " + info.getCognomeCuratore() + " " + info.getNomeCuratore());
         sb.append("\nVerifica dei Crediti: " + info.getDataVerifica());
         sb.append("\n Domanda di ammissione al passivo \n");
         sb.append("A norma dell'art 93 LF \n");
-        sb.append("\n Il sottoscritto "+info.getCognomeSottoscritto()+ " "+info.getNomeSottoscritto());
-        sb.append(" con studio in "+info.getIndirizzo()+ " ");
-        sb.append(" tel. "+ info.getTelefono());
-        sb.append(" cod. fis. "+ info.getCodiceFiscale());
-        sb.append(" email "+ info.getEmail());
+        sb.append("\n Il sottoscritto " + info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
+        sb.append(" con studio in " + info.getIndirizzo() + " ");
+        sb.append(" tel. " + info.getTelefono());
+        sb.append(" cod. fis. " + info.getCodiceFiscale());
+        sb.append(" email " + info.getEmail());
         sb.append("\n PREMESSO \n");
         sb.append("di risultare creditore della società fallita, dichiarata in epigrafe, per prestazioni professionali per i seguenti importi: \n");
-        sb.append(info.getValuta()+ " per onorari, oltre Iva e CP 4% \n come da parcella allegata. \n");
-        sb.append("Tanto premesso, il sottoscritto "+ info.getCognomeSottoscritto() + " "+info.getNomeSottoscritto()+" , porge rispettosa");
+        sb.append(info.getValuta() + " per onorari, oltre Iva e CP 4% \n come da parcella allegata. \n");
+        sb.append("Tanto premesso, il sottoscritto " + info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto() + " , porge rispettosa");
         sb.append("\nISTANZA\n");
         sb.append("affinché la S.V. Ill.ma voglia ammetterlo al passivo del fallimento in epigrafe per i seguenti importi:\n");
-        sb.append(info.getValuta()+" oltre CP 4% al privilegio ex art.2753 bis n.2 c.c nonché oltre iva al chirografo per "+info.getNValuta());
+        sb.append(info.getValuta() + " oltre CP 4% al privilegio ex art.2753 bis n.2 c.c nonché oltre iva al chirografo per " + info.getNValuta());
         sb.append("\nSi allegano ");
         sb.append(info.getNumeroAllegati());
         sb.append(" documenti:");

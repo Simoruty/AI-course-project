@@ -22,6 +22,7 @@ public class InfoModulo {
             "Riccardo",
             "Federico",
             "Michele",
+            "Andrea",
             "Luca",
             "Marco",
             "Fabio",
@@ -34,6 +35,7 @@ public class InfoModulo {
             "Mazzilli",
             "Malerba",
             "Di Mauro",
+            "Livraghi",
             "Abbattista",
             "Amorese",
             "Torelli",
@@ -57,6 +59,8 @@ public class InfoModulo {
     private static List<String> comuni = Arrays.asList(
             "Rutigliano",
             "Corato",
+            "Mola",
+            "Squinzano",
             "Terlizzi",
             "Molfetta",
             "Santo Spirito",
@@ -161,6 +165,9 @@ public class InfoModulo {
 
     private static List<String> datePostFine = Arrays.asList(
             "25/5/2013",
+            "21 luglio 2012",
+            "12 maggio 2011",
+            "24-04-2012",
             "12 febbraio 2012",
             "5-09-2013",
             "15 settembre 2013",
@@ -168,18 +175,39 @@ public class InfoModulo {
     );
 
     private static List<String> valute = Arrays.asList(
-            "122 €",
-            "20.50 €",
-            "€12",
+            "1220 €",
+            "200.50 €",
+            "€120",
             "euro 2000",
             "12000 $",
             "1580 eur",
             "1980 USD",
-            "189 dollari",
+            "1890 dollari",
             "3000 euro",
-            "80 €",
+            "3330.00 eur",
+            "10000 dollari",
+            "2000 euro",
+            "800 €",
             "1923 eur"
     );
+
+    private static List<String> aziendeFallite = Arrays.asList(
+            "Parmalat",
+            "Bridgestone",
+            "Microsoft",
+            "Fincons",
+            "Algida",
+            "Frisco",
+            "Vodafone",
+            "Kappa",
+            "LG",
+            "Samsung",
+            "Acer",
+            "IBM",
+            "Apple",
+            "Sony"
+    );
+
     private static List<String> tipiRichiesta = Arrays.asList(
             "in via chirografaria",
             "in via privilegiata",
@@ -218,6 +246,7 @@ public class InfoModulo {
     private String NValuta;
     private String NMotivazioneRichiesta;
     private String dataVerifica;
+    private String aziendaFallimento;
 
     public InfoModulo() {
         this.nomeSottoscritto = estraiUno(nomi);
@@ -250,6 +279,7 @@ public class InfoModulo {
         this.NValuta = estraiUno(valute);
         this.tipoRichiesta = estraiUno(tipiRichiesta);
         this.dataVerifica = estraiUno(dateFine);
+        this.aziendaFallimento = estraiUno(aziendeFallite);
     }
 
     private static String estraiUno(List<String> list) {
@@ -368,5 +398,9 @@ public class InfoModulo {
 
     public String getDataVerifica() {
         return dataVerifica;
+    }
+
+    public String getAziendaFallimento() {
+        return aziendaFallimento;
     }
 }
