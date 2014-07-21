@@ -7,31 +7,32 @@ import java.io.IOException;
 public class GeneratoreDataset {
 
     public static void main(String[] args) {
-        File file = new File("dataset");
-        if (file.exists())
-            file.delete();
-        try {
-            file.createNewFile();
-            FileWriter fw = new FileWriter(file);
-            fw.append("kb:assertDocs([");
-            for (int i = 0; i < 21; i++) {
-                fw.append("\"");
-                fw.append(modulo1(new InfoModulo()));
-                fw.append("\",");
-
-            }
-            for (int i = 0; i < 21; i++) {
-                fw.append("\"");
-                fw.append(modulo2(new InfoModulo()));
-                fw.append("\",");
-            }
-            fw.append("]).");
-            fw.flush();
-            fw.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println(modulo3(new InfoModulo()));
+//        File file = new File("dataset");
+//        if (file.exists())
+//            file.delete();
+//        try {
+//            file.createNewFile();
+//            FileWriter fw = new FileWriter(file);
+//            fw.append("kb:assertDocs([");
+//            for (int i = 0; i < 21; i++) {
+//                fw.append("\"");
+//                fw.append(modulo1(new InfoModulo()));
+//                fw.append("\",");
+//
+//            }
+//            for (int i = 0; i < 21; i++) {
+//                fw.append("\"");
+//                fw.append(modulo2(new InfoModulo()));
+//                fw.append("\",");
+//            }
+//            fw.append("]).");
+//            fw.flush();
+//            fw.close();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public static String modulo1(InfoModulo info) {
@@ -139,8 +140,8 @@ public class GeneratoreDataset {
         sb.append(info.getComuneTribunale());
         sb.append("\nSEZIONE FALLIMENTARE");
         sb.append("\n Fallimento: ");
-        sb.append(info.getNumeroPratica());
         sb.append("\nSentenza n. ");
+        sb.append(info.getNumeroPratica());
         sb.append("\nGiudice Delegato: " + info.getCognomeGiudice()+" "+info.getNomeGiudice());
         sb.append("\nCuratore: " + info.getCognomeCuratore()+" "+info.getNomeCuratore());
         sb.append("\nVerifica dei Crediti: " + info.getDataVerifica());
@@ -152,7 +153,23 @@ public class GeneratoreDataset {
         sb.append(" cod. fis. "+ info.getCodiceFiscale());
         sb.append(" email "+ info.getEmail());
         sb.append("\n PREMESSO \n");
-//        TODO da finire
+        sb.append("di risultare creditore della società fallita, dichiarata in epigrafe, per prestazioni professionali per i seguenti importi: \n");
+        sb.append(info.getValuta()+ " per onorari, oltre Iva e CP 4% \n come da parcella allegata. \n");
+        sb.append("Tanto premesso, il sottoscritto "+ info.getCognomeSottoscritto() + " "+info.getNomeSottoscritto()+" , porge rispettosa");
+        sb.append("\nISTANZA\n");
+        sb.append("affinché la S.V. Ill.ma voglia ammetterlo al passivo del fallimento in epigrafe per i seguenti importi:\n");
+        sb.append(info.getValuta()+" oltre CP 4% al privilegio ex art.2753 bis n.2 c.c nonché oltre iva al chirografo per "+info.getNValuta());
+        sb.append("\nSi allegano ");
+        sb.append(info.getNumeroAllegati());
+        sb.append(" documenti:");
+        for (int idx = 1; idx <= info.getNumeroAllegati(); idx++) {
+            sb.append("\nfattura n. " + idx);
+        }
+        sb.append("\n" + info.getComuneTribunale());
+        sb.append(", li ");
+        sb.append(info.getDataOggi());
+        sb.append("\n");
+        sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
         return sb.toString();
     }
 }
