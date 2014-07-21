@@ -14,28 +14,22 @@ public class GeneratoreDataset {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);
             fw.append("asserta(kb:assertDocs([");
+            fw.append("\"");
+            fw.append(modulo1(new InfoModulo()));
+            fw.append("\"");
             for (int i = 0; i < 2; i++) {
-                if (i == 0)
-                    fw.append("\"");
-                else
-                    fw.append(",\"");
+                fw.append(",\"");
                 fw.append(modulo1(new InfoModulo()));
                 fw.append("\"");
 
             }
             for (int i = 0; i < 2; i++) {
-                if (i == 0)
-                    fw.append("\"");
-                else
-                    fw.append(",\"");
+                fw.append(",\"");
                 fw.append(modulo2(new InfoModulo()));
                 fw.append("\"");
             }
             for (int i = 0; i < 2; i++) {
-                if (i == 0)
-                    fw.append("\"");
-                else
-                    fw.append(",\"");
+                fw.append(",\"");
                 fw.append(modulo3(new InfoModulo()));
                 fw.append("\"");
             }
@@ -56,7 +50,7 @@ public class GeneratoreDataset {
         sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice());
         sb.append("\nn. pratica ");
         sb.append(info.getNumeroPratica());
-        sb.append("\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\n");
+        sb.append('\n'+"ISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\n");
         sb.append("\nIl sottoscritto, ");
         sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
         sb.append(", nato a ");
