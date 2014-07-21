@@ -1,10 +1,36 @@
 package it.uniba.di.ia.ius;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class GeneratoreDataset {
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(modulo1(new InfoModulo()));
+        File file = new File("dataset");
+        if (file.exists())
+            file.delete();
+        try {
+            file.createNewFile();
+            FileWriter fw = new FileWriter(file);
+            fw.append("kb:assertDocs([");
+            for (int i = 0; i < 21; i++) {
+                fw.append("\"");
+                fw.append(modulo1(new InfoModulo()));
+                fw.append("\",");
+
+            }
+            for (int i = 0; i < 21; i++) {
+                fw.append("\"");
+                fw.append(modulo2(new InfoModulo()));
+                fw.append("\",");
+            }
+            fw.append("]).");
+            fw.flush();
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -66,41 +92,39 @@ public class GeneratoreDataset {
         StringBuilder sb = new StringBuilder();
         sb.append("DOMANDA DI AMMISSIONE ALLO STATO PASSIVO\n");
         sb.append("TRIBUNALE CIVILE DI ");
-        sb.append(info.getComuneTribunale());
+        sb.append(info.getComuneTribunale()+"\n");
         sb.append("SEZIONE FALLIMENTARE Procedura n.");
         sb.append(info.getNumeroPratica());
         sb.append("\nGIUDICE DELEGATO -  ");
-        sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice());
+        sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice()+"\n");
         sb.append("CURATORE - ");
-        sb.append(info.getCognomeCuratore() + " " + info.getNomeCuratore());
-        sb.append("DOMANDA DI AMMISSIONE AL PASSIVO");
-        sb.append("Ill.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto");
-        sb.append(info.getCognomeSottoscritto()+" "+info.getNomeSottoscritto());
-        sb.append("nato a ");
+        sb.append(info.getCognomeCuratore() + " " + info.getNomeCuratore()+"\n");
+        sb.append("DOMANDA DI AMMISSIONE AL PASSIVO\n");
+        sb.append("Ill.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto ");
+        sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
+        sb.append(" nato a ");
         sb.append(info.getComuneNascita());
-        sb.append("il "+ info.getDataNascita() + " con sede in "+ info.getComuneNascita());
-        sb.append(" C.F. "+info.getCodiceFiscale() + " domiciliato in " + info.getComuneResidenza() + " in " + info.getIndirizzo());
-        sb.append(" il quale dichiare di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. "+info.getTelefono());
-        sb.append(" oppure per email al seguente indirizzo "+info.getEmail());
-        sb.append("\n PREMESSO\n");
-        sb.append(info.getMotivazioneRichiesta()+"\n");
-        sb.append("CHIEDE \n");
+        sb.append(" il " + info.getDataNascita() + " con sede in " + info.getComuneNascita());
+        sb.append(" C.F. " + info.getCodiceFiscale() + " domiciliato in " + info.getComuneResidenza() + " in " + info.getIndirizzo());
+        sb.append(" il quale dichiare di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. " + info.getTelefono());
+        sb.append(" oppure per email al seguente indirizzo " + info.getEmail());
+        sb.append("\nCHIEDE \n");
         sb.append("di essere ammesso allo stato passivo della procedure in epigrafe indicata : \n");
-        sb.append("a) in via chirografaria per "+info.getValuta() + " Precisando che il proprio credito deriva da: \n "+info.getMotivazioneRichiesta());
+        sb.append("in via chirografaria per " + info.getValuta() + " Precisando che il proprio credito deriva da: \n " + info.getMotivazioneRichiesta());
         sb.append("\nSi allegano ");
         sb.append(info.getNumeroAllegati());
         sb.append(" documenti:");
         for (int idx = 1; idx <= info.getNumeroAllegati(); idx++) {
             sb.append("\nfattura n. " + idx);
         }
-        sb.append("a) in via privilegiata per "+info.getNValuta() + " Precisando che il proprio credito deriva da: \n "+info.getNMotivazioneRichiesta());
+        sb.append("\nin via privilegiata per " + info.getNValuta() + " Precisando che il proprio credito deriva da: \n " + info.getNMotivazioneRichiesta());
         sb.append("\nSi allegano ");
         sb.append(info.getNumeroAllegati());
         sb.append(" documenti:");
         for (int idx = 1; idx <= info.getNumeroAllegati(); idx++) {
             sb.append("\nfattura n. " + idx);
         }
-        sb.append(info.getComuneTribunale());
+        sb.append("\n" + info.getComuneTribunale());
         sb.append(", li ");
         sb.append(info.getDataOggi());
         sb.append("\n");
