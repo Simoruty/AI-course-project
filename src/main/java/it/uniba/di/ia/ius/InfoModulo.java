@@ -217,6 +217,7 @@ public class InfoModulo {
     private String comuneResidenza;
     private String NValuta;
     private String NMotivazioneRichiesta;
+    private String dataVerifica;
 
     public InfoModulo() {
         this.nomeSottoscritto = estraiUno(nomi);
@@ -248,6 +249,7 @@ public class InfoModulo {
         this.valuta = estraiUno(valute);
         this.NValuta = estraiUno(valute);
         this.tipoRichiesta = estraiUno(tipiRichiesta);
+        this.dataVerifica = estraiUno(dateFine);
     }
 
     private static String estraiUno(List<String> list) {
@@ -362,5 +364,9 @@ public class InfoModulo {
 
     public String getNMotivazioneRichiesta() {
         return NMotivazioneRichiesta;
+    }
+
+    public String getDataVerifica() {
+        return dataVerifica;
     }
 }

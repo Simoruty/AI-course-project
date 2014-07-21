@@ -132,4 +132,26 @@ public class GeneratoreDataset {
         sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
         return sb.toString();
     }
+
+    public static String modulo3(InfoModulo info) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nTRIBUNALE CIVILE E PENALE DI ");
+        sb.append(info.getComuneTribunale());
+        sb.append("\nSEZIONE FALLIMENTARE");
+        sb.append("\n Fallimento: ");
+        sb.append(info.getNumeroPratica());
+        sb.append("\nSentenza n. ");
+        sb.append("\nGiudice Delegato: " + info.getCognomeGiudice()+" "+info.getNomeGiudice());
+        sb.append("\nCuratore: " + info.getCognomeCuratore()+" "+info.getNomeCuratore());
+        sb.append("\nVerifica dei Crediti: " + info.getDataVerifica());
+        sb.append("\n Domanda di ammissione al passivo \n");
+        sb.append("A norma dell'art 93 LF \n");
+        sb.append("\n Il sottoscritto "+info.getCognomeSottoscritto()+ " "+info.getNomeSottoscritto());
+        sb.append(" con studio in "+info.getIndirizzo()+ " ");
+        sb.append(" tel. "+ info.getTelefono());
+        sb.append(" cod. fis. "+ info.getCodiceFiscale());
+        sb.append(" email "+ info.getEmail());
+        sb.append("\n PREMESSO \n");
+        return sb.toString();
+    }
 }
