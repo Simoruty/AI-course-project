@@ -50,7 +50,7 @@ public class GeneratoreDataset {
         sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice());
         sb.append("\nn. pratica ");
         sb.append(info.getNumeroPratica());
-        sb.append('\n'+"ISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\n");
+        sb.append("\nISTANZA DI INSINUAZIONE ALLO STATO PASSIVO\n");
         sb.append("\nIl sottoscritto, ");
         sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
         sb.append(", nato a ");
