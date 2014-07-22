@@ -12,9 +12,10 @@
                , assertDocs/1
                , vicini/2
                , spiegaTutto/2
+               , assertadocumenti/0
                ]
 ).
-
+:- consult('dataset.pl').
 :- use_module(library(lists)).
 :- use_module(lexer).
 
@@ -28,6 +29,9 @@
 :- dynamic(kb:documento/2).
 :- dynamic(kb:appartiene/2).
 
+assertadocumenti:-
+    findall(Doc, doc(Doc), ListaDocumenti),
+    assertDocs(ListaDocumenti).
 
 assertDoc( Documento ) :-
     to_string(Documento, Stringa),

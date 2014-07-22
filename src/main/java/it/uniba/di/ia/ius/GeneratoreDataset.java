@@ -13,6 +13,26 @@ public class GeneratoreDataset {
         try {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);
+            for (int i = 0; i < 2; i++) {
+                fw.append("doc(\"");
+                fw.append(modulo1(new InfoModulo()));
+                fw.append("\").\n");
+            }
+            fw.flush();
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void temp(){
+        File file = new File("prolog/dataset.pl");
+        if (file.exists())
+            file.delete();
+        try {
+            file.createNewFile();
+            FileWriter fw = new FileWriter(file);
             fw.append("asserta(kb:assertDocs([");
             fw.append("\"");
             fw.append(modulo1(new InfoModulo()));
@@ -41,7 +61,6 @@ public class GeneratoreDataset {
             e.printStackTrace();
         }
     }
-
     public static String modulo1(InfoModulo info) {
         StringBuilder sb = new StringBuilder();
         sb.append("TRIBUNALE CIVILE DI ");

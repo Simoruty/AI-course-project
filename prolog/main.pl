@@ -42,6 +42,7 @@ intestazione :-
     
 
 start :-
+    assertadocumenti,
     writeKB,
     expandKB,
     serialize,
