@@ -18,7 +18,7 @@ serialize :-
 s_docs :-
     findall((ID,Doc), (kb:documento(ID,Doc)), ListaDoc),
     forall( member((ID,Doc), ListaDoc), (
-        write('TestoDoc('),
+        write('testoDoc('),
         write(ID),
         write(',"'),
         atom_codes(X,Doc),
@@ -75,7 +75,6 @@ s_livello1 :-
 s_tag(Goal, Atom) :-
     findall( ID, kb:tag(ID, Goal), ListaTag),
     forall( member( ID, ListaTag ), (
-        write('tag('), write(ID), write(').'),nl,
         write(Atom),write('('),write(ID),write(').'),nl
     ) ).
 
