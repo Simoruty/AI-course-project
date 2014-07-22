@@ -48,14 +48,17 @@ assertDocs([X|Xs]) :-
 writeKB :-
     findall((IDDoc, Doc), kb:documento(IDDoc, Doc), ListaDoc),
     forall(member((IDDoc,Doc), ListaDoc), (
+        write(IDDoc),nl,
+        write(IDDoc),write(': lexer...'),flush_output,
         lexer(Doc, ListaParole),
-
+        write(' DONE'),nl,flush_output,
         nextIDToken(IDTokBOF),
         atom_concat(IDDoc, '_BOF', NomeToken),
         assertFact(kb:token(IDTokBOF, NomeToken)),
         assertFact(kb:appartiene(IDTokBOF, IDDoc)),        
-        
-        tokenizer(IDDoc, ListaParole, IDTokBOF)    
+        write(IDDoc),write(': tokenizer...'),flush_output,
+        tokenizer(IDDoc, ListaParole, IDTokBOF),
+        write(' DONE'),nl,flush_output
     ) ).
 
 tokenizer( IDDoc, [ Parola | [] ], IDTokenPrecedente ) :-
@@ -77,22 +80,38 @@ tokenizer( IDDoc, [ Parola | Lista ], IDTokenPrecedente) :-
     assertFact(kb:next(IDTokenPrecedente, IDTok)),
     tokenizer( IDDoc, Lista, IDTok).
 
+
 %% Crea la Knowledge Base
 expandKB :-
+    write('1'),nl,flush_output,
     base:tag_parola,
+    write('2'),nl,flush_output,
     base:tag_numero,
+    write('3'),nl,flush_output,
     kb:tag_newline,
+    write('4'),nl,flush_output,
     comune:tag_comune,
+    write('5'),nl,flush_output,
     cf:tag_cf,
+    write('6'),nl,flush_output,
     mail:tag_mail,
-    tel:tag_tel,    
-    persona:tag_persona,    
+    write('7'),nl,flush_output,
+    tel:tag_tel,
+    write('8'),nl,flush_output,
+    persona:tag_persona,
+    write('9'),nl,flush_output,
     data:tag_data,
+    write('10'),nl,flush_output,
     persona:tag_soggetto,
+    write('11'),nl,flush_output,
     persona:tag_curatore,
+    write('12'),nl,flush_output,
     persona:tag_giudice,
+    write('13'),nl,flush_output,
     valuta:tag_richiesta_valuta,
-    numero_pratica:tag_numero_pratica.
+    write('14'),nl,flush_output,
+    numero_pratica:tag_numero_pratica,
+    write('FINE'),nl,flush_output.
 
 %% Mostra i risultati
 resultKB :-

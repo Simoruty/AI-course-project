@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GeneratoreDataset {
 
-    private static final int NUM_FILES = 10;
+    private static final int NUM_FILES = 100;
 
     public static void main(String[] args) {
         File file = new File("prolog/dataset.pl");
@@ -93,7 +93,7 @@ public class GeneratoreDataset {
         sb.append("DOMANDA DI AMMISSIONE ALLO STATO PASSIVO");
         sb.append("\\nTRIBUNALE CIVILE DI ");
         sb.append(info.getComuneTribunale());
-        sb.append("\\nSEZIONE FALLIMENTARE Procedura n. ");
+        sb.append("\\nSEZIONE FALLIMENTARE\\nProcedura n. ");
         sb.append(info.getNumeroPratica());
         sb.append("\\nGIUDICE DELEGATO -  ");
         sb.append(info.getCognomeGiudice() + " " + info.getNomeGiudice());
@@ -137,7 +137,7 @@ public class GeneratoreDataset {
         sb.append("TRIBUNALE CIVILE E PENALE DI ");
         sb.append(info.getComuneTribunale());
         sb.append("\\nSEZIONE FALLIMENTARE");
-        sb.append("\\n Fallimento: " + info.getAziendaFallimento());
+        sb.append("\\nFallimento: " + info.getAziendaFallimento());
         sb.append("\\nSentenza n. ");
         sb.append(info.getNumeroPratica());
         sb.append("\\nGiudice Delegato: " + info.getCognomeGiudice() + " " + info.getNomeGiudice());
