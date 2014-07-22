@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GeneratoreDataset {
 
-    private static final int NUM_FILES = 2;
+    private static final int NUM_FILES = 30;
 
     public static void main(String[] args) {
         File file = new File("prolog/dataset.pl");
@@ -18,12 +18,12 @@ public class GeneratoreDataset {
             for (int i = 1; i <= NUM_FILES; i++) {
                 fw.append("doc(\"");
                 double randomNum = Math.random();
-//                if (randomNum < (1.0 / 3.0))
+                if (randomNum < (1.0 / 3.0))
                     fw.append(modulo1(new InfoModulo()));
-//                else if (randomNum < 2.0 / 3.0)
-//                    fw.append(modulo2(new InfoModulo()));
-//                else
-//                    fw.append(modulo3(new InfoModulo()));
+                else if (randomNum < 2.0 / 3.0)
+                    fw.append(modulo2(new InfoModulo()));
+                else
+                    fw.append(modulo3(new InfoModulo()));
                 fw.append("\").\n\n\n");
                 System.out.println("Modulo " + i + " scritto su file.");
             }
