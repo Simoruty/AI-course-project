@@ -202,32 +202,32 @@ vicini(ID1, ID2) :-
 vicini(ID1, ID2) :- 
     kb:next(ID2, ID1), !.
 
-seguente_in_frase(ID1, ID2) :-
-    kb:next(ID1, ID2),
-    \+newline(ID1),
-    \+newline(ID2),
-    !.
-
-seguente_in_frase(ID1, ID2) :-
-    kb:next(ID1, ID3),
-    \+newline(ID1),
-    \+newline(ID2),
-    \+newline(ID3),
-    !,
-    seguente_in_frase(ID3,ID2).
-
-
-%TODO da sistemare
-%distanza(ID1, ID2, 0) :-
-%    kb:next(ID1, ID2), !.
-%distanza(ID1, ID2, Dist) :-
-%    kb:next(ID1, ID3),
-%    distanza(ID3,ID2, Temp),
-%    Dist is Temp+1.
-
-
 stessa_frase(ID1, ID1).
+stessa_frase(ID1, ID2) :-
+    \+newline(ID1),
+    \+newline(ID2),
+    kb:vicini(ID1, ID2),
+    !.
+stessa_frase(ID1, ID2) :-
+    appartiene(ID1, Doc1),
+    appartiene(ID2, Doc2),
+    Doc1\=Doc2,
+    !,
+    fail.
 stessa_frase(ID1, ID2) :-
     seguente_in_frase(ID1,ID2).
 stessa_frase(ID1, ID2) :-
     seguente_in_frase(ID2,ID1).
+
+seguente_in_frase(ID1, ID2) :-
+    \+newline(ID1),
+    \+newline(ID2),
+    kb:next(ID1, ID2),
+    !.
+seguente_in_frase(ID1, ID2) :-
+    \+newline(ID1),
+    \+newline(ID2),
+    kb:next(ID1, ID3),
+    \+newline(ID3),
+    !,
+    seguente_in_frase(ID3,ID2).
