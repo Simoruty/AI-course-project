@@ -38,7 +38,7 @@ tag_numero_pratica(X) :-
     kb:tag(IDTag1, numero(N)),
     kb:token(IDToken2, '/'),
     kb:tag(IDTag2, anno(A)),
-    kb:next(IDToken1, IDTag1),
+    kb:stessa_frase(IDToken1, IDTag1),
     kb:next(IDTag1, IDToken2),
     kb:next(IDToken2, IDTag2),
 

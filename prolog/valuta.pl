@@ -101,6 +101,8 @@ euro('eur').
 dollaro('$').
 dollaro('usd').
 dollaro('dollar').
+dollaro('dollaro').
+dollaro('dollari').
 
 
 %% Tagga le tipologie
