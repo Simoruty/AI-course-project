@@ -1,0 +1,40 @@
+documento(IDdoc).
+token(IDt).
+tag(IDt).
+appartiene(IDt, IDdoc).
+next(IDt1, IDt2).
+depends(IDt1, IDt2).
+
+parola(ID).
+numero(ID).
+val(IDnum, Num).
+%tax
+cf(ID).
+mail(ID).
+chiro(ID).
+totale(ID).
+privilegiato(ID).
+simbolo_soggetto(ID).
+simbolo_giudice(ID).
+simbolo_curatore(ID).
+euro(ID).
+dollaro(ID).
+newline(ID).
+
+
+cognome(ID).
+nome(ID).
+comune(ID).
+giorno(ID).
+mese(ID).
+anno(ID).
+persona(Cog,Nome).
+data(G,M,A).
+valuta(Num, Sym).
+
+
+soggetto(Cog, Nom).
+curatore(Cog, Nom).
+giudice(Cog, Nom).
+richiesta_valuta(Num, Sym, Type).
+numero_pratica(ID).

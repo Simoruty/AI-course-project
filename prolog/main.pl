@@ -44,6 +44,7 @@ intestazione :-
 start :-
     assertadocumenti,
     writeKB,
+    tag_default2,
     expandKB,
     serialize,
     true.
