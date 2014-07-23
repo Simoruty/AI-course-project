@@ -9,6 +9,7 @@
 :- use_module(valuta).
 :- use_module(interface).
 :- use_module(serialize).
+:- use_module(dotserialize).
 :- use_module(base).
 
 main :-
@@ -26,6 +27,7 @@ main :-
     spiegazioneGUI,
 %    explainKB,
     serialize,
+    dotserialize,
     true.
 
 intestazione :- 
@@ -47,4 +49,5 @@ start :-
     tag_default2,
     expandKB,
     serialize,
+    dotserialize,
     true.
