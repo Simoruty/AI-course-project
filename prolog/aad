@@ -1,0 +1,14 @@
+digraph{
+rankdir="LR";
+t0 [shape=box];
+t1 [shape=box];
+t2 [shape=box];
+t3 [shape=box];
+t4;
+t0 -> t1;
+t0 -> t2;
+t1 -> t3;
+t3 -> t4;
+{rank=same; t0 t3}
+{rank=same; t1 t2}
+}
