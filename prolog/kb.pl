@@ -84,33 +84,33 @@ tokenizer( IDDoc, [ Parola | Lista ], IDTokenPrecedente) :-
 %% Crea la Knowledge Base
 expandKB :-
     write('1 - Parola'),nl,flush_output,
-    base:tag_parola,
+    profile(base:tag_parola),
     write('2 - Numero'),nl,flush_output,
-    base:tag_numero,
+    profile(base:tag_numero),
     write('3 - NewLine'),nl,flush_output,
-    kb:tag_newline,
+    profile(kb:tag_newline),
     write('4 - Comune'),nl,flush_output,
-    comune:tag_comune,
+    profile(comune:tag_comune),
     write('5 - CF'),nl,flush_output,
-    cf:tag_cf,
+    profile(cf:tag_cf),
     write('6 - Mail'),nl,flush_output,
-    mail:tag_mail,
+    profile(mail:tag_mail),
     write('7 - Tel'),nl,flush_output,
-    tel:tag_tel,
+    profile(tel:tag_tel),
     write('8 - Persona'),nl,flush_output,
-    persona:tag_persona,
+    profile(persona:tag_persona),
     write('9 - Data'),nl,flush_output,
-    data:tag_data,
+    profile(data:tag_data),
     write('10 - Soggetto'),nl,flush_output,
-    persona:tag_soggetto,
+    profile(persona:tag_soggetto),
     write('11 - Curatore'),nl,flush_output,
-    persona:tag_curatore,
+    profile(persona:tag_curatore),
     write('12 - Giudice'),nl,flush_output,
-    persona:tag_giudice,
+    profile(persona:tag_giudice),
     write('13 - richiesta valuta'),nl,flush_output,
-    valuta:tag_richiesta_valuta,
+    profile(valuta:tag_richiesta_valuta),
     write('14 - Numero Pratica'),nl,flush_output,
-    numero_pratica:tag_numero_pratica,
+    profile(numero_pratica:tag_numero_pratica),
     write('FINE'),nl,flush_output.
 
 %% Mostra i risultati
@@ -201,20 +201,21 @@ nextIDToken(IDTok) :-
 
 
 newline(ID) :- 
-    kb:token(ID, '\n').
-newline(ID) :-
-    kb:tag(ID, newline(_)).
+    kb:token(ID, '\n');kb:tag(ID, newline(_)).
+%newline(ID) :-
+%    .
 
 tag_newline :-
     findall(_, tag_newline(_), _).
 
-tag_newline(IDToken) :- 
+tag_newline(IDToken) :-
     newline(IDToken),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NEW LINE] Presenza nel documento del newline'],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
     assertTag(newline(IDToken), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+
 
 vicini(ID1, ID2) :- 
     kb:next(ID1, ID2), !.

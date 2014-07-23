@@ -31,13 +31,12 @@ tag_comune :-
     kb:assertFact(kb:fatto(comune)).
 
 tag_comune(Comune) :-
+    kb:token(IDToken1, Token1),
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
     kb:next(IDToken3,IDToken4),
     kb:next(IDToken4,IDToken5),
     kb:next(IDToken5,IDToken6),
-
-    kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
     kb:token(IDToken3, Token3),
     kb:token(IDToken4, Token4),
@@ -60,12 +59,12 @@ tag_comune(Comune) :-
     assertTag(comune(Comune), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_comune(Comune) :-
+    kb:token(IDToken1, Token1),
     kb:next(IDToken1,IDToken2),
     kb:next(IDToken2,IDToken3),
     kb:next(IDToken3,IDToken4),
     kb:next(IDToken4,IDToken5),
 
-    kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
     kb:token(IDToken3, Token3),
     kb:token(IDToken4, Token4),
