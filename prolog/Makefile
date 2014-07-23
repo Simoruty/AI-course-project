@@ -11,4 +11,4 @@ swi:
 
 
 swirun:
-	swipl -l main.pl -g main,halt -t 'halt(0)'
+	swipl -l main.pl -g start,halt -t 'halt(0)'

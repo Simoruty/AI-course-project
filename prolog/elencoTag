@@ -28,13 +28,13 @@ comune(ID).
 giorno(ID).
 mese(ID).
 anno(ID).
-persona(Cog,Nome).
-data(G,M,A).
-valuta(Num, Sym).
+persona(ID).
+data(ID).
+valuta(ID).
 
 
-soggetto(Cog, Nom).
-curatore(Cog, Nom).
-giudice(Cog, Nom).
-richiesta_valuta(Num, Sym, Type).
-numero_pratica(ID).
+soggetto(IDsoggetto).
+curatore(IDcuratore).
+giudice(IDgiudice).
+richiesta_valuta(IDrichiesta).
+numero_pratica(IDpratica).

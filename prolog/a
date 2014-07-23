@@ -1,0 +1,79 @@
+digraph {
+    rankdir=LR;
+
+    subgraph cluster_1 {
+        label="Start";
+        color=red;
+        p1_0 [label="ciao", shape=ellipse];
+
+    }
+    subgraph cluster_2 {
+        label="phase1";
+        rank=same;
+        p2_0 [label="foo: 0.2229648733341804", shape=rectangle];
+        p2_1 [label="foo: 0.4344104743445896", shape=rectangle];
+        p2_2 [label="foo: 0.48870936286436595", shape=rectangle];
+        p2_0 -> p2_1 -> p2_2 [style="invis"];
+    }
+    subgraph cluster_3 {
+        label="phase2";
+        p3_0 [label="bar: dog", shape=diamond];
+        p3_1 [label="bar: cat", shape=diamond];
+        rank=same;
+        p3_0 -> {p3_1} [style="invis"];
+    }
+    subgraph cluster_4 {
+        label="phase3";
+        p4_0 [label="spam: 1", shape=parallelogram];
+        p4_1 [label="spam: 2", shape=parallelogram];
+        p4_2 [label="spam: 3", shape=parallelogram];
+        p4_3 [label="spam: 4", shape=parallelogram];
+        p4_0 -> {p4_1} [style="invis", constraint="false"];
+        p4_1 -> {p4_2} [style="invis", constraint="false"];
+        p4_2 -> {p4_3} [style="invis", constraint="false"];
+    }
+    subgraph cluster_5 {
+        label="phase4";
+        p5_0 [label="parameter-b: value300\nparameter-a: value100", shape=house];
+        p5_1 [label="parameter-b: value400\nparameter-a: value100", shape=house];
+        p5_2 [label="parameter-b: value300\nparameter-a: value200", shape=house];
+        p5_3 [label="parameter-b: value400\nparameter-a: value200", shape=house];
+        p5_0 -> {p5_1} [style="invis", constraint="false"];
+        p5_1 -> {p5_2} [style="invis", constraint="false"];
+        p5_2 -> {p5_3} [style="invis", constraint="false"];
+    }
+
+    p4_0 -> {p5_3};
+    p1_0 -> {p2_2};
+    p4_1 -> {p5_2};
+    p2_1 -> {p3_1};
+    p3_0 -> {p4_0};
+    p3_0 -> {p4_3};
+    p3_1 -> {p4_2};
+    p3_0 -> {p4_2};
+    p4_3 -> {p5_1};
+    p3_1 -> {p4_1};
+    p4_0 -> {p5_0};
+    p4_2 -> {p5_2};
+    p4_3 -> {p5_2};
+    p4_1 -> {p5_1};
+    p4_3 -> {p5_0};
+    p1_0 -> {p2_1};
+    p1_0 -> {p2_0};
+    p2_2 -> {p3_0};
+    p2_0 -> {p3_0};
+    p4_2 -> {p5_0};
+    p4_0 -> {p5_1};
+    p2_0 -> {p3_1};
+    p4_0 -> {p5_2};
+    p2_2 -> {p3_1};
+    p4_2 -> {p5_3};
+    p4_3 -> {p5_3};
+    p3_1 -> {p4_3};
+    p3_0 -> {p4_1};
+    p4_2 -> {p5_1};
+    p2_1 -> {p3_0};
+    p4_1 -> {p5_3};
+    p3_1 -> {p4_0};
+    p4_1 -> {p5_0};
+}
