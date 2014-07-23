@@ -91,29 +91,29 @@ tag_persona :-
     kb:assertFact(kb:fatto(persona)).
 
 tag_persona(C, N) :-
-    kb:tag(IDTag1, cognome(C)),
     kb:tag(IDTag2, nome(N)),
     kb:next(IDTag1, IDTag2),
+    kb:tag(IDTag1, cognome(C)),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[PERSONA] Presenza nel documento di : ',C,N],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(persona(C, N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_persona(C, N) :-
-    kb:tag(IDTag1, cognome(C)),
     kb:tag(IDTag2, nome(N)),
     kb:next(IDTag2, IDTag1),
+    kb:tag(IDTag1, cognome(C)),
+    kb:appartiene(IDTag2, IDDoc),
+    kb:appartiene(IDTag1, IDDoc),
     
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[PERSONA] Presenza nel documento di : ',C,N],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:appartiene(IDTag2, IDDoc),
-    kb:appartiene(IDTag1, IDDoc),
     assertTag(persona(C, N),IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 
@@ -129,12 +129,12 @@ tag_cognome(Cognome) :-
     kb:token(IDToken1, Token1),
     kb:token(IDToken2, Token2),
     cognome_kb(Token1, Token2),
+    kb:appartiene(IDToken1, IDDoc),
+    kb:appartiene(IDToken2, IDDoc),
     atomic_list_concat([Token1, Token2], ' ', Cognome),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[COGNOME] Presenza nel documento di : ',Cognome],' ',Spiegazione),
-    kb:appartiene(IDToken1, IDDoc),
-    kb:appartiene(IDToken2, IDDoc),
     assertTag(cognome(Cognome), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
 tag_cognome(Cognome) :- 
@@ -221,11 +221,11 @@ tag_soggetto :-
 tag_soggetto(C,N) :-
     kb:tag(IDTag1, persona(C,N)),
     kb:tag(IDTag2, simbolo_soggetto(SimboloSoggetto)),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     stessa_frase(IDTag1, IDTag2),
 %    !,    
     atomic_list_concat(['[SOGGETTO] Presenza nel documento dell termine',SimboloSoggetto,'e della persona',C,N,' nella stessa frase'],' ',Spiegazione),
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(soggetto(C,N), IDDoc, Spiegazione, [IDTag1,IDTag2]).
 
 simbolo_soggetto('sottoscritto').
@@ -242,11 +242,11 @@ tag_curatore :-
 tag_curatore(C,N) :-
     kb:tag(IDTag1, persona(C,N) ),
     kb:tag(IDTag2, simbolo_curatore(SimboloCuratore) ),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     stessa_frase(IDTag1, IDTag2),
 %    !,
     atomic_list_concat(['[CURATORE] Presenza nel documento dell termine',SimboloCuratore,'e della persona',C,N,' nella stessa frase'],' ',Spiegazione),
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(curatore(C,N), IDDoc, Spiegazione, [IDTag1, IDTag2]).
 
 simbolo_curatore('curatore').
@@ -264,11 +264,11 @@ tag_giudice :-
 tag_giudice(C,N) :-
     kb:tag( IDTag1, persona(C,N) ),
     kb:tag( IDTag2, simbolo_giudice(SimboloGiudice) ),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     stessa_frase(IDTag1, IDTag2),
 %    !,
     atomic_list_concat(['[GIUDICE] Presenza nel documento dell termine',SimboloGiudice,'e della persona',C,N,'nella stessa frase'],' ',Spiegazione),
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(giudice(C,N), IDDoc, Spiegazione, [IDTag1, IDTag2]).
 
 simbolo_giudice('giudice').

@@ -15,7 +15,6 @@
 alltipo_richiesta(ListaTipologie) :-
     findall((IDTag, T) ,kb:tag(IDTag, tipo_richiesta(T)), ListaTipologie).
 
-
 %% Trova tutti i simboli di valuta
 allsimbolo_valuta(ListaSimboliValute) :-
     findall((IDTag, S) ,kb:tag(IDTag, simbolo_valuta(S)), ListaSimboliValute).
@@ -77,8 +76,8 @@ tag_tipo_richiesta :-
 
 %% Tagga i simboli di valuta
 tag_euro(Token) :- 
-    kb:token(IDToken, Token),
     euro(Token),
+    kb:token(IDToken, Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
@@ -86,8 +85,8 @@ tag_euro(Token) :-
     assertTag(euro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
 
 tag_dollaro(Token) :- 
-    kb:token(IDToken, Token),
     dollaro(Token),
+    kb:token(IDToken, Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
@@ -107,8 +106,8 @@ dollaro('dollari').
 
 %% Tagga le tipologie
 tag_chirografario(Token) :- 
-    kb:token(IDToken, Token),
     chiro(Token),
+    kb:token(IDToken, Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
@@ -117,8 +116,8 @@ tag_chirografario(Token) :-
 
 %% Tagga le tipologie
 tag_privilegiato(Token) :- 
-    kb:token(IDToken, Token),
     privilegiato(Token),
+    kb:token(IDToken, Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
@@ -127,8 +126,8 @@ tag_privilegiato(Token) :-
 
 %% Tagga le tipologie
 tag_totale(Token) :- 
-    kb:token(IDToken, Token),
     totale(Token),
+    kb:token(IDToken, Token),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
@@ -151,9 +150,9 @@ totale('tot').
 
 %% Tagga le valute €
 tag_valuta(Moneta, 'euro') :-
-    kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, euro(Simbolo)),
     kb:next(IDTag1, IDTag2),    
+    kb:tag(IDTag1, numero(Moneta)),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
@@ -163,9 +162,9 @@ tag_valuta(Moneta, 'euro') :-
     assertTag(valuta(Moneta, 'euro'), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_valuta(Moneta, 'euro') :-
-    kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, euro(Simbolo)),
     kb:next(IDTag2, IDTag1),    
+    kb:tag(IDTag1, numero(Moneta)),
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
@@ -176,9 +175,9 @@ tag_valuta(Moneta, 'euro') :-
 
 %% Tagga le valute $
 tag_valuta(Moneta, 'dollaro') :-
-    kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, dollaro(Simbolo)),
     kb:next(IDTag1, IDTag2),    
+    kb:tag(IDTag1, numero(Moneta)),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
@@ -188,9 +187,9 @@ tag_valuta(Moneta, 'dollaro') :-
     assertTag(valuta(Moneta, 'dollaro'), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_valuta(Moneta, 'dollaro') :-
-    kb:tag(IDTag1, numero(Moneta)),
     kb:tag(IDTag2, dollaro(Simbolo)),
     kb:next(IDTag2, IDTag1),    
+    kb:tag(IDTag1, numero(Moneta)),
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
@@ -204,29 +203,29 @@ tag_valuta(Moneta, 'dollaro') :-
 tag_richiesta_valuta(Moneta, Simbolo, 'totale') :-
     kb:tag(IDTag1, totale(Totale)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     stessa_frase(IDTag1, IDTag2),
     atomic_list_concat(['[RICHIESTA VALUTA] Presenza nella stessa frase della valuta',Moneta,Simbolo,'e del termine',Totale],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(richiesta_valuta(Moneta, Simbolo, 'totale') , IDDoc, Spiegazione, Dipendenze).
 
 tag_richiesta_valuta(Moneta, Simbolo, 'privilegiato') :-
     kb:tag(IDTag1, privilegiato(Priv)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     stessa_frase(IDTag1, IDTag2),
     atomic_list_concat(['[RICHIESTA VALUTA] Presenza nella stessa frase della valuta',Moneta,Simbolo,'e del termine',Priv],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(richiesta_valuta(Moneta, Simbolo, 'privilegiato') , IDDoc, Spiegazione, Dipendenze).
 
 tag_richiesta_valuta(Moneta, Simbolo, 'chirografario') :-
     kb:tag(IDTag1, chiro(Chiro)),
     kb:tag(IDTag2, valuta(Moneta, Simbolo)),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     stessa_frase(IDTag1, IDTag2),
     atomic_list_concat(['[RICHIESTA VALUTA] Presenza nella stessa frase della valuta',Moneta,Simbolo,'e del termine',Chiro],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
-    kb:appartiene(IDTag1, IDDoc),
-    kb:appartiene(IDTag2, IDDoc),
     assertTag(richiesta_valuta(Moneta, Simbolo, 'chirografario') ,IDDoc, Spiegazione, Dipendenze).

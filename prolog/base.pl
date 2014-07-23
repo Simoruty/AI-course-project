@@ -46,7 +46,8 @@ tag_numero(Num) :-
 tag_numero(Num) :- 
     kb:token(IDToken1, Token1),
 
-    atomic_list_concat( [ParteIntera, ParteDecimale], ',', Token1),
+    atomic_list_concat( List, ',', Token1),
+    List=[ParteIntera, ParteDecimale],
     atom_is_number(ParteIntera),
     atom_is_number(ParteDecimale),
     atomic_list_concat( [ParteIntera, ParteDecimale], '.', AtomNum),
