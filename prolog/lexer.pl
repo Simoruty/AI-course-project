@@ -41,20 +41,21 @@ atom_is_word(X):-
 	string_is_word(String).
 
 ascii_number(X) :-
-	number(X),
-	X>=48,
-	X=<57.
-ascii_number(X) :-
-	number(X),
-	X==46.
-ascii_number(X) :-
-	number(X),
-	X==44.
+	number(X), (
+	(X>=48,X=<57);(X==46);(X==44)
+    ).
 
 ascii_char(X):-
     number(X),
-    X>=97,
-    X=<122.
+    (
+    (X>=97,X=<122);
+    (X==224);
+    (X==232);
+    (X==233);
+    (X==236);
+    (X==242);
+    (X==249)
+    ).
 
 ascii_id_char(X) :- 
     ascii_char(X), !.
@@ -69,7 +70,6 @@ string_is_number(String) :-
 
 string_is_word(String) :-
     length(String,Len),
-    Len > 1,
     maplist(ascii_char, String).
 
 %useful_char(46). % punto
