@@ -6,7 +6,7 @@
 
 
 dotserialize :-    
-    tell('dotserialization.dot'),
+    tell('filedot.dot'),
     s_init,    
     s_token,
     s_livello1,
@@ -21,7 +21,7 @@ s_init :-
     write('rankdir=LR;'),nl.
 s_token :- 
     write('subgraph {'),nl,
-%    write('rank="max";'),nl,
+    write('rank="same";'),nl,
     %tutti i token
     findall(ID, (kb:token(ID,_)), ListaToken),
     forall( member(T, ListaToken), (write(T),write(' [shape=box];'),nl) ),
@@ -41,7 +41,7 @@ s_end :-
 
 s_livello1 :- 
     write('subgraph {'),nl,
-%    write('rank="sink";'),nl,
+    write('rank="same";'),nl,
     s_tag( numero(_), red),
     s_tag( parola(_), red),
     s_tag( cf(_), red),
@@ -60,7 +60,7 @@ true.
 
 s_livello2 :-
     write('subgraph {'),nl,
-%    write('rank="same";'),nl,
+    write('rank="same";'),nl,
     s_tag( cognome(_),blue ),
     s_tag( nome(_),blue ),
     s_tag( persona(_,_),blue ),
@@ -75,7 +75,7 @@ s_livello2 :-
 
 s_livello3 :-
     write('subgraph {'),nl,
-%    write('rank="min";'),nl,
+    write('rank="same";'),nl,
     s_tag( soggetto(_,_),green ),
     s_tag( curatore(_,_),green ),
     s_tag( giudice(_,_),green ),
