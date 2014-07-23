@@ -42,8 +42,8 @@ tag_numero_pratica(X) :-
     kb:next(IDTag1, IDToken2),
     kb:tag(IDTag1, numero(N)),
     kb:appartiene(IDTag1, IDDoc),
-    kb:token(IDToken1, 'n'),
     kb:appartiene(IDToken1, IDDoc),
+    kb:token(IDToken1, 'n'),
     kb:stessa_frase(IDToken1, IDTag1),
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
