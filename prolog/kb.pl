@@ -8,6 +8,8 @@
                , assertTag/5
                , assertTag/6
                , nextIDTag/1
+               , nextIDToken/1
+               , nextIDDocument/1
                , assertDoc/1
                , assertDocs/1
                , vicini/2
@@ -28,6 +30,9 @@
 :- dynamic(kb:vuole/1).
 :- dynamic(kb:documento/2).
 :- dynamic(kb:appartiene/2).
+:- dynamic(kb:lastIDTag/1).
+:- dynamic(kb:lastIDToken/1).
+:- dynamic(kb:lastIDDocument/1).
 
 assertadocumenti:-
     findall(Doc, doc(Doc), ListaDocumenti),
@@ -160,8 +165,6 @@ assertTag(Tag, IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze)
     assertFact(kb:appartiene(IDTag, IDDoc)),
     forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
-
-
 spiegaTutto(IDTag, Spiegazione) :-
     findall(X, depends(IDTag, X), Dipendenze),
     length(Dipendenze,0),
@@ -179,31 +182,49 @@ spiegaLista([],[]).
 spiegaLista([D|Ds],[S|Ss]):-
     spiegaTutto(D,S),
     spiegaLista(Ds,Ss).
-    
-
-nextIDDocument(IDDoc) :- 
-    findall(_, kb:documento(_,_), List), 
-    length(List, NDoc),
-    atom_number(AtomNDoc, NDoc),
-    atom_concat('doc', AtomNDoc, IDDoc).
 
 nextIDTag(IDTag) :- 
-    findall(_, kb:tag(_,_), List), 
-    length(List, NTag),
-    atom_number(AtomNTag, NTag),
-    atom_concat('tag', AtomNTag, IDTag).
+    lastIDTag(LastTag),
+    NewTag is LastTag+1,
+    atom_number(AtomNewTag, NewTag),
+    atom_concat('tag', AtomNewTag, IDTag),
+    retract(lastIDTag(_)),
+    asserta(lastIDTag(NewTag)),
+    !.
+nextIDTag(IDTag) :-
+    asserta(lastIDTag(0)),
+    IDTag = 'tag0',
+    !.
 
-nextIDToken(IDTok) :- 
-    findall(_, kb:token(_,_), List), 
-    length(List, NTok),
-    atom_number(AtomNTok, NTok),
-    atom_concat('t', AtomNTok, IDTok).
+nextIDToken(IDToken) :- 
+    lastIDToken(LastToken),
+    NewToken is LastToken+1,
+    atom_number(AtomNewToken, NewToken),
+    atom_concat('t', AtomNewToken, IDToken),
+    retract(lastIDToken(_)),
+    asserta(lastIDToken(NewToken)),
+    !.
+nextIDToken(IDToken) :-
+    asserta(lastIDToken(0)),
+    IDToken = 't0',
+    !.
 
+nextIDDocument(IDDoc) :- 
+    lastIDDocument(LastDoc),
+    NewDoc is LastDoc+1,
+    atom_number(AtomNewDoc, NewDoc),
+    atom_concat('doc', AtomNewDoc, IDDoc),
+    retract(lastIDDocument(_)),
+    asserta(lastIDDocument(NewDoc)),
+    !.
+nextIDDocument(IDDoc) :-
+    asserta(lastIDDocument(0)),
+    IDDoc = 'doc0',
+    !.
 
 newline(ID) :- 
-    kb:token(ID, '\n');kb:tag(ID, newline(_)).
-%newline(ID) :-
-%    .
+    (kb:token(ID, '\n'));
+    (kb:tag(ID, newline(_))).
 
 tag_newline :-
     findall(_, tag_newline(_), _).

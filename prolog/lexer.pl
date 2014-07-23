@@ -30,12 +30,12 @@ lexer(String,ListToken) :-
 	maplist(downcase_atom, Temp5, Temp6),
     strip_sep(Temp6, ListToken).
 
-atom_is_number(X):-
+atom_is_number(X) :-
 	atom(X),
 	atom_codes(X,String),
 	string_is_number(String).
 
-atom_is_word(X):-
+atom_is_word(X) :-
 	atom(X),
 	atom_codes(X,String),
 	string_is_word(String).
@@ -69,7 +69,6 @@ string_is_number(String) :-
     maplist(ascii_number, String).
 
 string_is_word(String) :-
-    length(String,Len),
     maplist(ascii_char, String).
 
 %useful_char(46). % punto

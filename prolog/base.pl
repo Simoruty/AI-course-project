@@ -46,18 +46,16 @@ tag_numero(Num) :-
 tag_numero(Num) :- 
     kb:token(IDToken1, Token1),
 
-    atom_concat(ParteInteraConVirgola, Decimale, Token1),
-    atom_concat(ParteIntera, DecimaleConVirgola, Token1),
-    atom_concat(ParteIntera,',',ParteInteraConVirgola),
-    atom_concat(',',Decimale,DecimaleConVirgola),
-
-    atomic_list_concat([ParteIntera, Decimale],'.', AtomNum),
+    atomic_list_concat( [ParteIntera, ParteDecimale], ',', Token1),
+    atom_is_number(ParteIntera),
+    atom_is_number(ParteDecimale),
+    atomic_list_concat( [ParteIntera, ParteDecimale], '.', AtomNum),
 
     atom_number(AtomNum, Num),
 
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NUMERO] Presenza nel documento del numero ',ParteIntera,',',Decimale],'',Spiegazione),
+    atomic_list_concat(['[NUMERO] Presenza nel documento del numero ',ParteIntera,',',ParteDecimale],'',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
     assertTag(numero(Num), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
