@@ -39,46 +39,43 @@ tag_data :-
     kb:assertFact(kb:fatto(data)).
 
 tag_data(G,M,A) :-
-    kb:tag(IDTag1, giorno(G)),
-    appartiene(IDTag1, IDDoc),
-    kb:next(IDTag1, IDToken1),
-    kb:token(IDToken1, Token1),
-    appartiene(IDToken1, IDDoc),
-    separatore_data(Token1),
-    kb:next(IDToken1,IDTag2),
     kb:tag(IDTag2, mese(M)),
-    appartiene(IDTag2, IDDoc),
+    kb:appartiene(IDTag2, IDDoc),
     kb:next(IDTag2,IDToken2),
     kb:token(IDToken2, Token2),
-    appartiene(IDToken2, IDDoc),
     separatore_data(Token2),
+    kb:appartiene(IDToken2, IDDoc),
+    kb:next(IDToken1,IDTag2),
+    kb:token(IDToken1, Token1),
+    separatore_data(Token1),
+    kb:appartiene(IDToken1, IDDoc),
+    kb:next(IDTag1, IDToken1),
+    kb:appartiene(IDTag1, IDDoc),
+    kb:tag(IDTag1, giorno(G)),
     kb:next(IDToken2, IDTag3),
     kb:tag(IDTag3, anno(A)),
-    appartiene(IDTag3, IDDoc),
+    kb:appartiene(IDTag3, IDDoc),
 
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[DATA] Nel documento sono presenti giorno, mese e anno separati dal separatore ', Token1],'',Spiegazione),
     Dipendenze = [IDTag1, IDTag2, IDTag3],
-    kb:appartiene(IDTag1, IDDoc),    
-    kb:appartiene(IDTag2, IDDoc),    
-    kb:appartiene(IDTag3, IDDoc),        
     assertTag(data(G,M,A), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_data(G,M,A) :-
-    kb:tag(IDTag1, giorno(G)),
     kb:tag(IDTag2, mese(M)),
-    kb:tag(IDTag3, anno(A)),
+    kb:appartiene(IDTag2, IDDoc),    
     kb:next(IDTag1, IDTag2),
+    kb:tag(IDTag1, giorno(G)),
+    kb:appartiene(IDTag1, IDDoc),    
     kb:next(IDTag2, IDTag3),
+    kb:appartiene(IDTag3, IDDoc),  
+    kb:tag(IDTag3, anno(A)),
 
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[DATA] Nel documento sono presenti giorno, mese e anno'],'',Spiegazione),
     Dipendenze = [IDTag1, IDTag2, IDTag3],
-    kb:appartiene(IDTag1, IDDoc),    
-    kb:appartiene(IDTag2, IDDoc),    
-    kb:appartiene(IDTag3, IDDoc),  
     assertTag(data(G,M,A), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 %% Tagga i giorni
