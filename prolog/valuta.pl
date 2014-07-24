@@ -82,7 +82,7 @@ tag_euro(Token) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(euro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
+    assertTag(euro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDToken]).
 
 tag_dollaro(Token) :- 
     dollaro(Token),
@@ -91,7 +91,7 @@ tag_dollaro(Token) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(dollaro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, []).
+    assertTag(dollaro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDToken]).
 
 
 euro('€').
@@ -112,7 +112,7 @@ tag_chirografario(Token) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(chiro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(chiro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
 
 %% Tagga le tipologie
 tag_privilegiato(Token) :- 
@@ -122,7 +122,7 @@ tag_privilegiato(Token) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(privilegiato(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(privilegiato(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
 
 %% Tagga le tipologie
 tag_totale(Token) :- 
@@ -132,7 +132,7 @@ tag_totale(Token) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(totale(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(totale(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
 
 chiro('chirografario').
 chiro('chirografaria').

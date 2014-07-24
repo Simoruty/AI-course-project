@@ -53,7 +53,7 @@ tag_tel(Tel):-
     kb:appartiene(IDToken3, IDDoc),
     kb:appartiene(IDToken4, IDDoc),    
     kb:appartiene(IDToken5, IDDoc),  
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2,IDToken3,IDToken4,IDToken5]).
 
 
 tag_tel(Tel):-
@@ -74,7 +74,7 @@ tag_tel(Tel):-
     kb:appartiene(IDToken2, IDDoc),    
     kb:appartiene(IDToken3, IDDoc),
     kb:appartiene(IDToken4, IDDoc),    
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2,IDToken3,IDToken4]).
 
 
 tag_tel(Tel):-
@@ -92,7 +92,7 @@ tag_tel(Tel):-
     kb:appartiene(IDToken1, IDDoc),    
     kb:appartiene(IDToken2, IDDoc),    
     kb:appartiene(IDToken3, IDDoc),
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2,IDToken3]).
 
 tag_tel(Tel):-
     kb:token(IDToken1, Token1),
@@ -106,18 +106,18 @@ tag_tel(Tel):-
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2],' ',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),    
     kb:appartiene(IDToken2, IDDoc),    
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2]).
 
 tag_tel(Tel):-
-    kb:token(IDTel, Tel),
+    kb:token(IDToken1, Tel),
     check_tel(Tel),
     
-    findall( Precedente, kb:next(Precedente, IDTel), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDTel, Successivo), ListaSuccessivi ),
+    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
 
     atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Tel],' ',Spiegazione),
-    kb:appartiene(IDTel, IDDoc),    
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    kb:appartiene(IDToken1, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
 
 %% Controlla che il numero di telefono sia di questo formato +39 346 21 00 360
 check_tel(Token1, Token2, Token3, Token4, Token5) :-

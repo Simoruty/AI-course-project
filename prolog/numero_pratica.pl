@@ -52,7 +52,7 @@ tag_numero_pratica(X) :-
     atomic_list_concat([N,'/',A], '', X),
 
     atomic_list_concat(['[NUMERO PRATICA] Presenza nel documento di `n` ', N, '/', A],'',Spiegazione),
-    Dipendenze = [IDTag1, IDTag2],
+    Dipendenze = [IDTag1, IDTag2, IDToken1, IDToken2],
     kb:appartiene(IDTag1, IDDoc),  
     kb:appartiene(IDTag2, IDDoc),    
     assertTag(numero_pratica(X), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).    

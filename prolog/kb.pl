@@ -235,7 +235,7 @@ tag_newline(IDToken) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NEW LINE] Presenza nel documento del newline'],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(newline(IDToken), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(newline(IDToken), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
 
 
 vicini(ID1, ID2) :- 

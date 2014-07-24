@@ -37,7 +37,7 @@ tag_cf(CF) :-
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[CODICE FISCALE] Presenza nel documento di : ',CF],' ',Spiegazione),
     kb:appartiene(IDToken, IDDoc),
-    assertTag(cf(CF), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(cf(CF), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
 
 check_cf(CF) :-
     atom(CF),

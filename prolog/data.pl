@@ -59,7 +59,7 @@ tag_data(G,M,A) :-
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[DATA] Nel documento sono presenti giorno, mese e anno separati dal separatore ', Token1],'',Spiegazione),
-    Dipendenze = [IDTag1, IDTag2, IDTag3],
+    Dipendenze = [IDTag1, IDTag2, IDTag3, IDToken1, IDToken2],
     assertTag(data(G,M,A), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
 tag_data(G,M,A) :-
@@ -104,27 +104,38 @@ tag_mese :-
     findall(_, tag_mese(_), _),
     kb:assertFact(kb:fatto(mese)).
 
-tag_mese(N) :- 
-    kb:token(IDToken, Token), 
-    numero_mese(Token, N),
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[MESE] La stringa ', Token,' potrebbe essere un mese'],'',Spiegazione),
-    kb:appartiene(IDToken, IDDoc),    
-    assertTag(mese(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
 
-numero_mese('1', 1).
-numero_mese('2', 2).
-numero_mese('3', 3).
-numero_mese('4', 4).
-numero_mese('5', 5).
-numero_mese('6', 6).
-numero_mese('7', 7).
-numero_mese('8', 8).
-numero_mese('9', 9).
-numero_mese('10', 10).
-numero_mese('11', 11).
-numero_mese('12', 12).
+tag_mese(N) :-
+    kb:tag(IDTag, numero(N)),
+    N>=1, 
+    N=<12,
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[MESE] Il tag numerico', N,'potrebbe essere un mese'],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),    
+    assertTag(mese(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
+
+tag_mese(N) :- 
+    kb:tag(IDTag, parola(P)),
+    numero_mese(P, N),
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[MESE] La parola', P,'potrebbe essere un mese'],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),    
+    assertTag(mese(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
+
+%numero_mese('1', 1).
+%numero_mese('2', 2).
+%numero_mese('3', 3).
+%numero_mese('4', 4).
+%numero_mese('5', 5).
+%numero_mese('6', 6).
+%numero_mese('7', 7).
+%numero_mese('8', 8).
+%numero_mese('9', 9).
+%numero_mese('10', 10).
+%numero_mese('11', 11).
+%numero_mese('12', 12).
 numero_mese('gennaio', 1).
 numero_mese('febbraio', 2).
 numero_mese('marzo', 3).

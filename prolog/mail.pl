@@ -47,4 +47,4 @@ tag_mail(Mail) :-
     kb:appartiene(IDToken1, IDDoc),    
     kb:appartiene(IDToken2, IDDoc),
     kb:appartiene(IDToken3, IDDoc),  
-    assertTag(mail(Mail), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, []).
+    assertTag(mail(Mail), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1, IDToken2, IDToken3]).

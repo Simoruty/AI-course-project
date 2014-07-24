@@ -4,7 +4,6 @@
 :- use_module(lexer).
 :- use_module(library(lists)).
 
-
 dotserialize :-    
     tell('filedot.dot'),
     s_init,    
@@ -12,95 +11,149 @@ dotserialize :-
     s_livello1,
     s_livello2,
     s_livello3,
-    s_next,
+    s_livello4,
+%    s_livello5,
+    s_depends,
     s_end,
     told.
 
 s_init :-
-    write('digraph {'),nl,
-    write('rankdir=LR;'),nl.
-s_token :- 
-    write('subgraph {'),nl,
-    write('rank="same";'),nl,
-    %tutti i token
-    findall(ID, (kb:token(ID,_)), ListaToken),
-    forall( member(T, ListaToken), (write(T),write(' [shape=box];'),nl) ),
-
-    findall((ID1,ID2), (kb:next(ID1, ID2), kb:token(ID1,_), kb:token(ID2,_)), ListaNext),
-    forall( member((T1,T2), ListaNext), (write(T1),write(' -> '),write(T2),write(';'),nl) ),
-    
-    write('}'),nl,
-%    tutti i tag
-%    findall(ID, (kb:tag(ID,_)), ListaTag),
-%    forall( member(T, ListaTag), (write(T),write(' [shape=circle];'),nl) ),
-    true.
+    write('digraph {'), nl,
+    write('   rankdir=TB;'), nl,
+    write('   edge [arrowhead=empty];'), nl.
 
 s_end :-
     write('}').
 
+s_token :- 
+    nl, write('   subgraph {'), nl,
+    write('      rank="source";'), nl,
+    write('      edge [arrowhead=normal];'), nl,
+    write('      node [shape=box];'), nl,
+    findall((ID,Label), (kb:token(ID,Label)), ListaToken),
+    forall( member((T1,T2), ListaToken),
+      (
+        write('      '),
+        write(T1),
+        write(' [label="'),
+        clean(T2,T2c),
+        write(T2c),
+        write('"];'), nl
+      )
+    ),
+    findall((ID1,ID2), (kb:next(ID1, ID2), kb:token(ID1,_), kb:token(ID2,_)), ListaNextFraToken),
+    forall( member((T1,T2), ListaNextFraToken),
+      (
+        write('      '),
+        write(T1),
+        write(' -> '),
+        write(T2),
+        write(';'),
+        nl
+      )
+    ),
+    write('   }'), nl,
+    true.
+
+clean('\n','\\n').
+clean(A,A).
 
 s_livello1 :- 
-    write('subgraph {'),nl,
-    write('rank="same";'),nl,
-    s_tag( numero(_), red),
-    s_tag( parola(_), red),
-    s_tag( cf(_), red),
-    s_tag( mail(_),red),
-    s_tag( chiro(_),red),
-    s_tag( totale(_),red ),
-    s_tag( privilegiato(_),red ),
-    s_tag( simbolo_soggetto(_),red ),
-    s_tag( simbolo_curatore(_),red ),    
-    s_tag( simbolo_giudice(_),red ),
-    s_tag( euro(_),red ),
-    s_tag( dollaro(_),red ),
-    s_tag( newline(_),red ),   
-    write('}'), nl,
-true.
+    nl, write('   subgraph {'), nl,
+    write('      rank="same";'), nl,
+    write('      node [color=red,shape=circle];'),nl,
+    s_tag( numero(_), 'numero'),
+    s_tag( parola(_), 'parola'),
+    s_tag( newline(_),'newline' ),   
+    s_tag( euro(_),'euro' ),
+    s_tag( dollaro(_),'dollaro' ),
+    s_tag( mail(_),'mail'),
+    s_tag( cf(_), 'cf'),
+
+    write('   }'), nl,
+    true.
 
 s_livello2 :-
-    write('subgraph {'),nl,
-    write('rank="same";'),nl,
-    s_tag( cognome(_),blue ),
-    s_tag( nome(_),blue ),
-    s_tag( persona(_,_),blue ),
-    s_tag( valuta(_,_),blue ),
-    s_tag( comune(_),blue ),
-    s_tag( giorno(_),blue ),
-    s_tag( mese(_),blue ),
-    s_tag( anno(_),blue ),
-    s_tag( data(_,_,_),blue ),
-    write('}'),nl,
+    nl, write('   subgraph {'),nl,
+    write('      rank="same";'),nl,
+    write('      node [color=blue,shape=circle];'),nl,
+    s_tag( chiro(_),'chiro'),
+    s_tag( totale(_),'totale' ),
+    s_tag( privilegiato(_),'privilegiato' ),
+    s_tag( simbolo_soggetto(_),'sym_soggetto' ),
+    s_tag( simbolo_curatore(_),'sym_curatore' ),    
+    s_tag( simbolo_giudice(_),'sym_giudice' ),
+    s_tag( cognome(_),cognome ),
+    s_tag( nome(_),nome ),
+    s_tag( valuta(_,_),valuta ),
+    s_tag( comune(_),comune ),
+    s_tag( giorno(_),giorno ),
+    s_tag( mese(_),mese ),
+    s_tag( anno(_),anno ),
+    write('   }'), nl,
     true.
 
 s_livello3 :-
-    write('subgraph {'),nl,
-    write('rank="same";'),nl,
-    s_tag( soggetto(_,_),green ),
-    s_tag( curatore(_,_),green ),
-    s_tag( giudice(_,_),green ),
-    s_tag( richiesta_valuta(_,_,_),green ),
-    s_tag( numero_pratica(_),green ),
-    write('}'),nl,
+    nl, write('   subgraph {'), nl,
+    write('      rank="same";'), nl,
+    write('      node [color=green,shape=circle];'),nl,
+    s_tag( data(_,_,_),data ),
+    s_tag( persona(_,_),persona ),
+    s_tag( numero_pratica(_),n_pratica ),
+    write('   }'), nl,
     true.
 
+s_livello4 :-
+    nl, write('   subgraph {'), nl,
+    write('      rank="same";'), nl,
+    write('      node [color=orange,shape=circle];'),nl,
+    s_tag( soggetto(_,_),soggetto ),
+    s_tag( curatore(_,_),curatore ),
+    s_tag( giudice(_,_),giudice ),
+    s_tag( richiesta_valuta(_,_,_),richiesta_valuta ),
+    write('   }'), nl,
+    true.
 
-s_next :-
-    %tutti i next
-    findall((ID1,ID2), (kb:next(ID1, ID2), kb:tag(ID1,_), kb:token(ID2,_)), ListaTagToken),
-    forall( member((T1,T2), ListaTagToken), (write(T1),write(' -> '),write(T2),write(';'),nl) ),
+%s_livello5 :-
+%    nl, write('   subgraph {'), nl,
+%    write('      rank="sink";'), nl,
+%    write('      node [color=yellow,shape=circle];'),nl,
+%    s_tag( data(_,_,_),data ),
+%    s_tag( soggetto(_,_),soggetto ),
+%    s_tag( curatore(_,_),curatore ),
+%    s_tag( giudice(_,_),giudice ),
+%    s_tag( richiesta_valuta(_,_,_),richiesta_valuta ),
+%    s_tag( numero_pratica(_),n_pratica ),
+%    write('   }'), nl,
+%    true.
 
-    findall((ID1,ID2), (kb:next(ID1, ID2), kb:tag(ID2,_), kb:token(ID1,_)), ListaTokenTag),
-    forall( member((T1,T2), ListaTokenTag), (write(T1),write(' -> '),write(T2),write(';'),nl) ),
-
-    findall((ID1,ID2), (kb:next(ID1, ID2), kb:tag(ID1,_), kb:tag(ID2,_)), ListaTagTag),
-    forall( member((T1,T2), ListaTagTag), (write(T1),write(' -> '),write(T2),write(';'),nl) ),
-true.
-
-
-s_tag(Goal, Color) :-
+s_tag(Goal, Label) :-
     findall( ID, kb:tag(ID, Goal), ListaTag),
-    forall( member( ID, ListaTag ), (
-        write(ID),write(' [shape=circle color='), write(Color),write(']; '),nl
-    ) ),
+    forall( member( ID, ListaTag ),
+      (
+        write('      '),
+        write(ID),
+        write(' [label='),
+        write(Label),
+        write(']; '),
+        nl
+      )
+    ),
     true.
+
+s_depends :-
+    findall((ID1,ID2), kb:depends(ID1, ID2), ListaDepends),
+    forall( member((T1,T2), ListaDepends),
+      (
+        write('   '),
+        write(T2),
+        write(' -> '),
+        write(T1),
+        write(';'),
+        nl
+      )
+    ),
+    true.
+
+
+
