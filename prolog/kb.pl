@@ -230,7 +230,7 @@ tag_newline :-
     findall(_, tag_newline(_), _).
 
 tag_newline(IDToken) :-
-    newline(IDToken),
+    kb:token(IDToken, '\n'),
     findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NEW LINE] Presenza nel documento del newline'],' ',Spiegazione),
