@@ -68,7 +68,8 @@ s_livello1 :-
     s_tag( euro(_),'euro' ),
     s_tag( dollaro(_),'dollaro' ),
     s_tag( mail(_),'mail'),
-    s_tag( cf(_), 'cf'),
+    s_tag( cf(_), 'cod_fiscale'),
+    s_tag( separatore_data(_), 'sep_data'),
 
     write('   }'), nl,
     true.
@@ -83,13 +84,14 @@ s_livello2 :-
     s_tag( simbolo_soggetto(_),'sym_soggetto' ),
     s_tag( simbolo_curatore(_),'sym_curatore' ),    
     s_tag( simbolo_giudice(_),'sym_giudice' ),
-    s_tag( cognome(_),cognome ),
-    s_tag( nome(_),nome ),
-    s_tag( valuta(_,_),valuta ),
-    s_tag( comune(_),comune ),
-    s_tag( giorno(_),giorno ),
-    s_tag( mese(_),mese ),
-    s_tag( anno(_),anno ),
+    s_tag( cognome(_), 'cognome' ),
+    s_tag( nome(_), 'nome' ),
+    s_tag( valuta(_,_), 'valuta' ),
+    s_tag( comune(_), 'comune' ),
+    s_tag( giorno(_), 'giorno' ),
+    s_tag( mese(_), 'mese' ),
+    s_tag( anno(_), 'anno' ),
+    s_tag( tel(_), 'telefono' ),
     write('   }'), nl,
     true.
 
@@ -97,9 +99,9 @@ s_livello3 :-
     nl, write('   subgraph {'), nl,
     write('      rank="same";'), nl,
     write('      node [color=green,shape=circle];'),nl,
-    s_tag( data(_,_,_),data ),
-    s_tag( persona(_,_),persona ),
-    s_tag( numero_pratica(_),n_pratica ),
+    s_tag( data(_,_,_), 'data' ),
+    s_tag( persona(_,_), 'persona' ),
+    s_tag( numero_pratica(_), 'n_pratica' ),
     write('   }'), nl,
     true.
 
@@ -107,10 +109,10 @@ s_livello4 :-
     nl, write('   subgraph {'), nl,
     write('      rank="same";'), nl,
     write('      node [color=orange,shape=circle];'),nl,
-    s_tag( soggetto(_,_),soggetto ),
-    s_tag( curatore(_,_),curatore ),
-    s_tag( giudice(_,_),giudice ),
-    s_tag( richiesta_valuta(_,_,_),richiesta_valuta ),
+    s_tag( soggetto(_,_), 'soggetto' ),
+    s_tag( curatore(_,_), 'curatore' ),
+    s_tag( giudice(_,_), 'giudice' ),
+    s_tag( richiesta_valuta(_,_,_), 'richiesta_valuta' ),
     write('   }'), nl,
     true.
 

@@ -261,9 +261,9 @@ public class InfoModulo {
         this.telefono = estraiUno(telefoni);
         this.codiceFiscale = estraiUno(codiciFiscali);
         if (coin())
-            this.email = nomeSottoscritto.substring(0, 1).toLowerCase() + "." + cognomeSottoscritto.toLowerCase() + "@libero.it";
+            this.email = nomeSottoscritto.substring(0, 1).toLowerCase() + "." + cognomeSottoscritto.toLowerCase().replaceAll("'","") + "@libero.it";
         else
-            this.email = nomeSottoscritto.toLowerCase() + "." + cognomeSottoscritto.toLowerCase() + "@gmail.it";
+            this.email = nomeSottoscritto.toLowerCase() + "." + cognomeSottoscritto.toLowerCase().replaceAll("'","") + "@gmail.it";
         this.numeroPratica = estraiUno(numeriRichieste);
         this.motivazioneRichiesta = estraiUno(motivazioni);
         this.NMotivazioneRichiesta = estraiUno(motivazioni);

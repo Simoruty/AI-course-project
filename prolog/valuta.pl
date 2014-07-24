@@ -75,23 +75,23 @@ tag_tipo_richiesta :-
     kb:assertFact(kb:fatto(tipo_richiesta)).
 
 %% Tagga i simboli di valuta
-tag_euro(Tag) :- 
-    euro(Tag),
-    kb:tag(IDTag, parola(Tag)),
-    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Tag],' ',Spiegazione),
-    kb:appartiene(IDTag, IDDoc),
-    assertTag(euro(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDTag]).
+tag_euro(Token) :- 
+    euro(Token),
+    kb:token(IDToken, Token),
+    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
+    kb:appartiene(IDToken, IDDoc),
+    assertTag(euro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDToken]).
 
-tag_dollaro(Tag) :- 
-    dollaro(Tag),
-    kb:tag(IDTag, parola(Tag)),
-    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Tag],' ',Spiegazione),
-    kb:appartiene(IDTag, IDDoc),
-    assertTag(dollaro(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDTag]).
+tag_dollaro(Token) :- 
+    dollaro(Token),
+    kb:token(IDToken, Token),
+    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
+    kb:appartiene(IDToken, IDDoc),
+    assertTag(dollaro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDToken]).
 
 
 euro('€').
