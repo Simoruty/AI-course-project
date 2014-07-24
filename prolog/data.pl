@@ -42,12 +42,10 @@ tag_data(G,M,A) :-
     kb:tag(IDTag2, mese(M)),
     kb:appartiene(IDTag2, IDDoc),
     kb:next(IDTag2,IDToken2),
-    kb:token(IDToken2, Token2),
-    separatore_data(Token2),
+    kb:tag(IDToken2,separatore_data(_)),
     kb:appartiene(IDToken2, IDDoc),
     kb:next(IDToken1,IDTag2),
-    kb:token(IDToken1, Token1),
-    separatore_data(Token1),
+    kb:tag(IDToken1,separatore_data(Token1)),
     kb:appartiene(IDToken1, IDDoc),
     kb:next(IDTag1, IDToken1),
     kb:appartiene(IDTag1, IDDoc),
@@ -190,5 +188,5 @@ tag_anno(N) :-
     assertTag(anno(N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 %% Controlli su separatori data
-separatore_data('/').
-separatore_data('-').
+%separatore_data('/').
+%separatore_data('-').

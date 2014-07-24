@@ -37,7 +37,7 @@ tag_numero_pratica(X) :-
     kb:tag(IDTag2, anno(A)),
     kb:appartiene(IDTag2, IDDoc),
     kb:next(IDToken2, IDTag2),
-    kb:token(IDToken2, '/'),
+    kb:tag(IDToken2, separatore_data('/')),
     kb:appartiene(IDToken2, IDDoc),
     kb:next(IDTag1, IDToken2),
     kb:tag(IDTag1, numero(N)),

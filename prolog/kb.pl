@@ -94,6 +94,8 @@ expandKB :-
     time(base:tag_numero),
     write('3 - NewLine'),nl,flush_output,
     time(kb:tag_newline),
+    write('3 - Separatore'),nl,flush_output,
+    time(base:tag_separatore_data),
     write('4 - Comune'),nl,flush_output,
     time(comune:tag_comune),
     write('5 - CF'),nl,flush_output,
