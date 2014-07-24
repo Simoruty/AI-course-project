@@ -1,5 +1,5 @@
 digraph {
-   rankdir=TB;
+   rankdir=BT;
    edge [arrowhead=empty];
 
    subgraph {

@@ -19,7 +19,7 @@ dotserialize :-
 
 s_init :-
     write('digraph {'), nl,
-    write('   rankdir=TB;'), nl,
+    write('   rankdir=BT;'), nl,
     write('   edge [arrowhead=empty];'), nl.
 
 s_end :-

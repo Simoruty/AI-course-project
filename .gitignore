@@ -1,3 +1,4 @@
+*.png
 prolog/aserializzazione
 prolog/*.png
 *~
