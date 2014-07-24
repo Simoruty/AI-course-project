@@ -55,7 +55,7 @@ s_token :-
     write('   }'), nl,
     true.
 
-clean('\n','\\n').
+clean('\n','\\n') :- !.
 clean(A,A).
 
 s_livello1 :- 
@@ -70,6 +70,7 @@ s_livello1 :-
     s_tag( mail(_),'mail'),
     s_tag( cf(_), 'cod_fiscale'),
     s_tag( separatore_data(_), 'sep_data'),
+    s_tag( prefisso(_), 'prefisso'),
 
     write('   }'), nl,
     true.

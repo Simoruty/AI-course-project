@@ -21,6 +21,24 @@ ristel :-
     write('I numeri di telefoni trovati sono: '), 
     write( ListaTel ).
 
+%% Tagga i prefissi
+tag_prefisso :- 
+    kb:fatto(prefisso),!.
+tag_prefisso :-
+    findall(_, tag_prefisso(_), _),
+    kb:assertFact(kb:fatto(prefisso)).
+
+tag_prefisso(Token) :-
+    kb:token(IDToken, Token),
+    prefisso(Token),
+    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[PREFISSO] Presenza nel documento di ',Token],' ',Spiegazione),
+    kb:appartiene(IDToken, IDDoc),
+    assertTag(prefisso(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]). 
+    
+
+
 %% Tagga tutti i numeri di telefono
 tag_tel :-     
     \+kb:vuole(tel),!.
@@ -29,6 +47,7 @@ tag_tel :-
     kb:fatto(tel),!.
 
 tag_tel :- 
+    tag_prefisso,
     findall(_, tag_tel(_), _), 
     kb:assertFact(kb:fatto(tel)).
     
