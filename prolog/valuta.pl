@@ -75,23 +75,23 @@ tag_tipo_richiesta :-
     kb:assertFact(kb:fatto(tipo_richiesta)).
 
 %% Tagga i simboli di valuta
-tag_euro(Token) :- 
-    euro(Token),
-    kb:token(IDToken, Token),
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
-    kb:appartiene(IDToken, IDDoc),
-    assertTag(euro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDToken]).
+tag_euro(Tag) :- 
+    euro(Tag),
+    kb:tag(IDTag, parola(Tag)),
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Tag],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),
+    assertTag(euro(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDTag]).
 
-tag_dollaro(Token) :- 
-    dollaro(Token),
-    kb:token(IDToken, Token),
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Token],' ',Spiegazione),
-    kb:appartiene(IDToken, IDDoc),
-    assertTag(dollaro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDToken]).
+tag_dollaro(Tag) :- 
+    dollaro(Tag),
+    kb:tag(IDTag, parola(Tag)),
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[SIMBOLO VALUTA] Presenza nel documento del simbolo',Tag],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),
+    assertTag(dollaro(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi,Spiegazione, [IDTag]).
 
 
 euro('€').
@@ -105,34 +105,34 @@ dollaro('dollari').
 
 
 %% Tagga le tipologie
-tag_chirografario(Token) :- 
-    chiro(Token),
-    kb:token(IDToken, Token),
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
-    kb:appartiene(IDToken, IDDoc),
-    assertTag(chiro(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
+tag_chirografario(Tag) :- 
+    chiro(Tag),
+    kb:tag(IDTag, parola(Tag)),
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Tag],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),
+    assertTag(chiro(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 %% Tagga le tipologie
-tag_privilegiato(Token) :- 
-    privilegiato(Token),
-    kb:token(IDToken, Token),
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
-    kb:appartiene(IDToken, IDDoc),
-    assertTag(privilegiato(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
+tag_privilegiato(Tag) :- 
+    privilegiato(Tag),
+    kb:tag(IDTag, parola(Tag)),
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Tag],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),
+    assertTag(privilegiato(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 %% Tagga le tipologie
-tag_totale(Token) :- 
-    totale(Token),
-    kb:token(IDToken, Token),
-    findall( Precedente, kb:next(Precedente, IDToken), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Token],' ',Spiegazione),
-    kb:appartiene(IDToken, IDDoc),
-    assertTag(totale(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]).
+tag_totale(Tag) :- 
+    totale(Tag),
+    kb:tag(IDTag, parola(Tag)),
+    findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TIPO_RICHIESTA] Presenza nel documento del termine',Tag],' ',Spiegazione),
+    kb:appartiene(IDTag, IDDoc),
+    assertTag(totale(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
 chiro('chirografario').
 chiro('chirografaria').
