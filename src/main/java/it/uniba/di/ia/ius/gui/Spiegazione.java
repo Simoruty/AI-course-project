@@ -12,7 +12,7 @@ import java.util.Map;
 public class Spiegazione {
     private final JFrame frame;
     private JTextPane spiegaTextPane;
-    private JLabel image;
+    private JLabel imageLabel;
     private JPanel contentPane;
 
     public Spiegazione(Tag tag, PrologInterface pi) {
@@ -36,8 +36,8 @@ public class Spiegazione {
         this.addListeners();
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = 500;
-        int height = 500;
+        int width = screenSize.width;
+        int height = screenSize.height;
         screenSize = new Dimension(width, height);
         frame.setSize(screenSize);
 
@@ -51,7 +51,12 @@ public class Spiegazione {
             String spiegazione = res.get("Spiegazione");
             spiegazione = spiegazione.replace("\r", "");
             spiegaTextPane.setText(spiegazione);
-            image = new JLabel(new ImageIcon("./prolog/spiegazioni/" + tag.getId() + ".png"));
+
+            imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
+            imageLabel.setHorizontalTextPosition(JLabel.CENTER);
+            imageLabel.setHorizontalAlignment(JLabel.CENTER);
+            imageLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            imageLabel.setIcon(new ImageIcon("/home/lusio/dev/university/ia-ius-project/prolog/spiegazioni/" + tag.getId() + ".png"));
         } catch (NoVariableException e) {
             e.printStackTrace();
         }
