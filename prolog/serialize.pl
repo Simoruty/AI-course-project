@@ -53,7 +53,7 @@ s_base :-
     true.
 
 s_livello1 :-
-    findall( (ID,Num), kb:tag(ID, numero(Num)), ListaTag1),
+    findall( (ID,Num), ( kb:tag(ID, numero(_)) , kb:val(ID, Num) ), ListaTag1),
     forall( member((ID,Num), ListaTag1), (
         write('numero('),write(ID),write(').'),nl,
         write('val('),write(ID),write(','),write(Num),write(').'),nl

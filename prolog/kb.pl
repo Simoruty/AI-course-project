@@ -10,6 +10,9 @@
                , nextIDTag/1
                , nextIDToken/1
                , nextIDDocument/1
+               , lastIDTag/1
+               , lastIDToken/1
+               , lastIDDocument/1
                , assertDoc/1
                , assertDocs/1
                , vicini/2
@@ -21,18 +24,19 @@
 :- use_module(library(lists)).
 :- use_module(lexer).
 
-:- dynamic(fatto/1).
-:- dynamic(kb:tag/2).
-:- dynamic(kb:spiega/2).
 :- dynamic(kb:depends/2).
 :- dynamic(kb:next/2).
 :- dynamic(kb:token/2).
+:- dynamic(kb:tag/2).
+:- dynamic(kb:spiega/2).
 :- dynamic(kb:vuole/1).
+:- dynamic(kb:fatto/1).
 :- dynamic(kb:documento/2).
 :- dynamic(kb:appartiene/2).
 :- dynamic(kb:lastIDTag/1).
 :- dynamic(kb:lastIDToken/1).
 :- dynamic(kb:lastIDDocument/1).
+:- dynamic(kb:val/2).
 
 assertadocumenti:-
     findall(Doc, doc(Doc), ListaDocumenti),

@@ -60,7 +60,11 @@ tag_numero(Num) :-
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Num],' ',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
-    assertTag(numero(Num), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
+    assertTag(numero(Token1), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]),
+    kb:lastIDTag(NIDTag),
+    atom_number(AtomNIDTag, NIDTag),
+    atom_concat('tag', AtomNIDTag, IDTag),
+    kb:asserFact(kb:val(IDTag, Num)).
 
 %% Tagga i numeri con virgola
 tag_numero(Num) :- 
@@ -78,7 +82,13 @@ tag_numero(Num) :-
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NUMERO] Presenza nel documento del numero ',ParteIntera,',',ParteDecimale],'',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
-    assertTag(numero(Num), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
+    assertTag(numero(Token1), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]),
+    kb:lastIDTag(NIDTag),
+    atom_number(AtomNIDTag, NIDTag),
+    atom_concat('tag', AtomNIDTag, IDTag),
+    kb:asserFact(kb:val(IDTag, Num)).
+
+
 
 %% Trova tutti i numeri
 allnumero(ListaNumeri) :-
