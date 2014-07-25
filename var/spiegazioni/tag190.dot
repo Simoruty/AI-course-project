@@ -1,0 +1,45 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t51 [label="casal"];
+      t52 [label="di"];
+      t53 [label="principe"];
+      t51 -> t52;
+      t52 -> t53;
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag39 [label=parola]; 
+      tag40 [label=parola]; 
+      tag41 [label=parola]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+      tag190 [label=comune]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   tag39 -> tag190;
+   tag40 -> tag190;
+   tag41 -> tag190;
+   t51 -> tag39;
+   t52 -> tag40;
+   t53 -> tag41;
+}

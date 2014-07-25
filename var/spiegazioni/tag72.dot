@@ -1,0 +1,33 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t92 [label="per"];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag72 [label=parola]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   t92 -> tag72;
+}

@@ -1,0 +1,35 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t108 [label="passivo"];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag83 [label=parola]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+      tag210 [label=cognome]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   tag83 -> tag210;
+   t108 -> tag83;
+}

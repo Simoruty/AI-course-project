@@ -1,12 +1,13 @@
-:- module( serialize, [ serialize/0 ]).
+:- module( serialize, [ serialize/1 ]).
 
 :- use_module(kb).
 :- use_module(lexer).
 :- use_module(library(lists)).
 
 
-serialize :-    
-    tell('aserializzazione'),
+serialize(Path) :- 
+    atom_concat(Path,'serialized', NomeFile),    
+    tell(NomeFile),
     s_docs,
     s_base,
     s_livello1,

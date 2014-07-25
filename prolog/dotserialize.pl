@@ -1,5 +1,5 @@
 :- module( dotserialize, [ 
-                           dotserialize/0 
+                           dotserialize/1 
                          , grafo/2
                          ]
 ).
@@ -8,8 +8,9 @@
 :- use_module(lexer).
 :- use_module(library(lists)).
 
-dotserialize :-    
-    tell('all.dot'),
+dotserialize(Path) :-
+    atom_concat(Path,'all.dot', NomeFile),   
+    tell(NomeFile),
     s_init,    
     s_token,
     s_livello1,

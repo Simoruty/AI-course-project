@@ -1,0 +1,35 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t174 [label="3"];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag160 [label=numero]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+      tag254 [label=anno]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   tag160 -> tag254;
+   t174 -> tag160;
+}

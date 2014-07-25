@@ -1,0 +1,35 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t117 [label="chirografaria"];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag91 [label=parola]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+      tag274 [label=chiro]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   tag91 -> tag274;
+   t117 -> tag91;
+}

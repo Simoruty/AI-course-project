@@ -1,0 +1,44 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t24 [label="torelli"];
+      t25 [label="carlo"];
+      t24 -> t25;
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag16 [label=parola]; 
+      tag17 [label=parola]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+      tag201 [label=cognome]; 
+      tag213 [label=nome]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+      tag217 [label=persona]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   tag201 -> tag217;
+   tag213 -> tag217;
+   tag16 -> tag201;
+   t24 -> tag16;
+   tag17 -> tag213;
+   t25 -> tag17;
+}

@@ -1,0 +1,39 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t97 [label="m.speranza"];
+      t98 [label="@"];
+      t99 [label="libero.it"];
+      t97 -> t98;
+      t98 -> t99;
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag196 [label=mail]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   t97 -> tag196;
+   t98 -> tag196;
+   t99 -> tag196;
+}

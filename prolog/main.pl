@@ -48,10 +48,10 @@ start :-
     writeKB,
     tag_default2,
     expandKB,
-    serialize,
-    dotserialize,
+    serialize('../var/'),
+    dotserialize('../var/'),
     findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (grafo(Tag, 'spiegazioni/')) ),
+    forall(member(Tag, ListaTag), (grafo(Tag, '../var/spiegazioni/')) ),
     true.
 
 startJava :-
@@ -59,8 +59,8 @@ startJava :-
     writeKB,
     tag_default2,
     expandKB,
-    serialize,
-    dotserialize,
+    serialize('var/'),
+    dotserialize('var/'),
     findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (grafo(Tag, 'prolog/spiegazioni/')) ),
+    forall(member(Tag, ListaTag), (grafo(Tag, 'var/spiegazioni/')) ),
     true.
