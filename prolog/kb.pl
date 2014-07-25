@@ -171,6 +171,19 @@ assertTag(Tag, IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze)
     assertFact(kb:appartiene(IDTag, IDDoc)),
     forall( member(D,Dipendenze), (assertFact(depends(IDTag, D))) ).
 
+
+listaDep([], []) :- !.
+listaDep([Tag|AltriTag], Dep) :-
+    listaDep(Tag,DepTag),
+    listaDep(AltriTag,DepAltri),
+    append(DepTag, DepAltri, Dep),
+    !.   
+listaDep(IDTag, [IDTag|Dep]) :-
+    findall(Tag, depends(IDTag, Tag), List),
+    listaDep(List,Dep).
+
+
+
 spiegaTutto(IDToken, '') :-
     kb:token(IDToken, _).
 spiegaTutto(IDTag, Spiegazione) :-
