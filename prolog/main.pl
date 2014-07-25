@@ -50,6 +50,8 @@ start :-
     expandKB,
     serialize,
     dotserialize,
+    findall(IDTag, kb:tag(IDTag, _), ListaTag),
+    forall(member(Tag, ListaTag), (grafo(Tag)) ),
     true.
 
 startJava :-

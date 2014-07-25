@@ -279,10 +279,11 @@ s_depends(Dipendenze) :-
     ),
     true.
 
-grafo(Dipendenze) :-
-    Dipendenze = [Tag|T],
-    atom_concat(Tag,'.dot', NomeFile),    
-    tell(NomeFile),
+grafo(IDTag) :-
+    kb:listaDep(IDTag, Dipendenze),
+    atom_concat(IDTag,'.dot', NomeFile),
+    atom_concat('spiegazioni/', NomeFile, NomeFile2),    
+    tell(NomeFile2),
     s_init,
     s_token(Dipendenze), 
     s_livello1(Dipendenze),
