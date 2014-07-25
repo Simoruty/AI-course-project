@@ -151,7 +151,7 @@ s_livello2(Dipendenze) :-
     nl, write('   subgraph {'),nl,
     write('      rank="same";'),nl,
     write('      node [color=blue,shape=circle];'),nl,
-    s_tag( chiro(_),'chiro'),
+    s_tag( chiro(_),'chiro', Dipendenze),
     s_tag( totale(_),'totale', Dipendenze),
     s_tag( privilegiato(_),'privilegiato', Dipendenze),
     s_tag( simbolo_soggetto(_),'sym_soggetto', Dipendenze),
@@ -279,10 +279,12 @@ s_depends(Dipendenze) :-
     ),
     true.
 
-grafo([Tag|Dipendenze]) :-
+grafo(Dipendenze) :-
+    Dipendenze = [Tag|T],
     atom_concat(Tag,'.dot', NomeFile),    
     tell(NomeFile),
-    s_init, 
+    s_init,
+    s_token(Dipendenze), 
     s_livello1(Dipendenze),
     s_livello2(Dipendenze),
     s_livello3(Dipendenze),
