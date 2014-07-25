@@ -37,7 +37,6 @@ public class MainWindow {
     private JCheckBox giudiceCB;
     private JCheckBox numeroPraticaCB;
     private JCheckBox eMailCB;
-    private JTextPane spiegaTextPane;
 
 
     public MainWindow() {
@@ -112,7 +111,6 @@ public class MainWindow {
 
     private void resetAll() {
         listModel.clear();
-        spiegaTextPane.setText("");
         textPane.setText("");
         comuniCB.setSelected(true);
         telCB.setSelected(true);
@@ -134,7 +132,6 @@ public class MainWindow {
 
     private void reset() {
         listModel.clear();
-        spiegaTextPane.setText("");
         try {
             Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./prolog/spiegazioni/*"});
         } catch (IOException e) {
