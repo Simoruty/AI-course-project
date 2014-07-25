@@ -9,7 +9,7 @@
 :- use_module(library(lists)).
 
 dotserialize :-    
-    tell('filedot.dot'),
+    tell('all.dot'),
     s_init,    
     s_token,
     s_livello1,
