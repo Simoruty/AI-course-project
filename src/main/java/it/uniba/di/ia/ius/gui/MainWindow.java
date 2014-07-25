@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -92,6 +93,7 @@ public class MainWindow {
                         String spiegazione = res.get("Spiegazione");
                         spiegazione = spiegazione.replace("\r", "");
                         spiegaTextPane.setText(spiegazione);
+
                     } catch (NoVariableException e) {
                         e.printStackTrace();
                     }
@@ -184,8 +186,24 @@ public class MainWindow {
             }
         }
 
+        File folder = new File("./prolog/spiegazioni/");
+        File[] listOfFiles = folder.listFiles();
+
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                try {
+                    String command="dot -Tpng ./prolog/spiegazioni/"+file.getName()+" > ./prolog/spiegazioni/"+file.getName().replaceFirst("[.][^.]+$", "")+".png";
+                    Process p = Runtime.getRuntime().exec(new String[]{"bash","-c",command});
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(file.getName());
+            }
+        }
+
         JOptionPane.showMessageDialog(null, "Tagger finished");
     }
+
 
     private void addListeners() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

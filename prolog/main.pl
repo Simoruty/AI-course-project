@@ -51,7 +51,7 @@ start :-
     serialize,
     dotserialize,
     findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (grafo(Tag)) ),
+    forall(member(Tag, ListaTag), (grafo(Tag, 'spiegazioni/')) ),
     true.
 
 startJava :-
@@ -61,4 +61,6 @@ startJava :-
     expandKB,
     serialize,
     dotserialize,
+    findall(IDTag, kb:tag(IDTag, _), ListaTag),
+    forall(member(Tag, ListaTag), (grafo(Tag, 'prolog/spiegazioni/')) ),
     true.

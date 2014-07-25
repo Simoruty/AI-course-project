@@ -1,6 +1,6 @@
 :- module( dotserialize, [ 
                            dotserialize/0 
-                         , grafo/1
+                         , grafo/2
                          ]
 ).
 
@@ -279,10 +279,10 @@ s_depends(Dipendenze) :-
     ),
     true.
 
-grafo(IDTag) :-
+grafo(IDTag, Path) :-
     kb:listaDep(IDTag, Dipendenze),
     atom_concat(IDTag,'.dot', NomeFile),
-    atom_concat('spiegazioni/', NomeFile, NomeFile2),    
+    atom_concat(Path, NomeFile, NomeFile2),    
     tell(NomeFile2),
     s_init,
     s_token(Dipendenze), 
