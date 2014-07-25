@@ -136,21 +136,11 @@ public class MainWindow {
         giudiceCB.setSelected(true);
         numeroPraticaCB.setSelected(true);
         eMailCB.setSelected(true);
-        try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./prolog/spiegazioni/*"});
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void reset() {
         listModel.clear();
         spiegaTextPane.setText("");
-        try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./prolog/spiegazioni/*"});
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void run() {
