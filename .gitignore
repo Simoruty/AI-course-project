@@ -1,9 +1,7 @@
 *.png
-prolog/aserializzazione
-prolog/*.png
-prolog/spiegazioni/*
-prolog/spiegazioni
 *~
+var/*
+var
 
 *.class
 
