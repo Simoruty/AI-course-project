@@ -1,0 +1,61 @@
+digraph {
+   rankdir=BT;
+   edge [arrowhead=empty];
+
+   subgraph {
+      rank="source";
+      edge [arrowhead=normal];
+      node [shape=box];
+      t0 [label="doc0_BOF"];
+      t1 [label="ciao"];
+      t2 [label="sono"];
+      t3 [label="luciano"];
+      t4 [label="quercia"];
+      t5 [label="doc0_EOF"];
+      t0 -> t1;
+      t1 -> t2;
+      t2 -> t3;
+      t3 -> t4;
+      t4 -> t5;
+   }
+
+   subgraph {
+      rank="same";
+      node [color=red,shape=circle];
+      tag0 [label=parola]; 
+      tag1 [label=parola]; 
+      tag2 [label=parola]; 
+      tag3 [label=parola]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=blue,shape=circle];
+      tag4 [label=cognome]; 
+      tag5 [label=cognome]; 
+      tag6 [label=cognome]; 
+      tag7 [label=nome]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=green,shape=circle];
+      tag8 [label=persona]; 
+   }
+
+   subgraph {
+      rank="same";
+      node [color=orange,shape=circle];
+   }
+   t1 -> tag0;
+   t2 -> tag1;
+   t3 -> tag2;
+   t4 -> tag3;
+   tag2 -> tag4;
+   tag3 -> tag4;
+   tag2 -> tag5;
+   tag3 -> tag6;
+   tag2 -> tag7;
+   tag6 -> tag8;
+   tag7 -> tag8;
+}
