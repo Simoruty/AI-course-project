@@ -9,6 +9,5 @@ yap:
 swi:
 	swipl -f main.pl
 
-
 swirun:
 	swipl -l main.pl -g start,halt -t 'halt(0)'
