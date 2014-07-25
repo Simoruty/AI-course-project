@@ -6,7 +6,7 @@ digraph {
       rank="source";
       edge [arrowhead=normal];
       node [shape=box];
-      t1 [label="domanda"];
+      t1 [label="simone"];
    }
 
    subgraph {

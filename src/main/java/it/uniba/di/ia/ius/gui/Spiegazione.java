@@ -56,7 +56,7 @@ public class Spiegazione {
             imageLabel.setHorizontalTextPosition(JLabel.CENTER);
             imageLabel.setHorizontalAlignment(JLabel.CENTER);
             imageLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-            imageLabel.setIcon(new ImageIcon("/home/lusio/dev/university/ia-ius-project/prolog/spiegazioni/" + tag.getId() + ".png"));
+            imageLabel.setIcon(new ImageIcon("./var/spiegazioni/" + tag.getId() + ".png"));
         } catch (NoVariableException e) {
             e.printStackTrace();
         }

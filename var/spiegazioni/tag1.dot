@@ -6,7 +6,7 @@ digraph {
       rank="source";
       edge [arrowhead=normal];
       node [shape=box];
-      t2 [label="di"];
+      t2 [label="rutigliano"];
    }
 
    subgraph {

@@ -6,18 +6,19 @@ digraph {
       rank="source";
       edge [arrowhead=normal];
       node [shape=box];
-      t6 [label="passivo"];
+      t2 [label="rutigliano"];
    }
 
    subgraph {
       rank="same";
       node [color=red,shape=circle];
-      tag5 [label=parola]; 
+      tag1 [label=parola]; 
    }
 
    subgraph {
       rank="same";
       node [color=blue,shape=circle];
+      tag5 [label=cognome]; 
    }
 
    subgraph {
@@ -29,5 +30,6 @@ digraph {
       rank="same";
       node [color=orange,shape=circle];
    }
-   t6 -> tag5;
+   tag1 -> tag5;
+   t2 -> tag1;
 }

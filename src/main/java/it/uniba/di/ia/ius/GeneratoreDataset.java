@@ -14,7 +14,7 @@ public class GeneratoreDataset {
             numFiles = Integer.parseInt(args[0]);
         else
             numFiles = DEFAULT_NUM_FILES;
-        File file = new File("/home/lusio/dev/university/ia-ius-project/prolog/dataset.pl");
+        File file = new File("/prolog/dataset.pl");
         if (file.exists())
             file.delete();
         try {

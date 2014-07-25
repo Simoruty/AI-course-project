@@ -6,18 +6,19 @@ digraph {
       rank="source";
       edge [arrowhead=normal];
       node [shape=box];
-      t8 [label="tribunale"];
+      t1 [label="simone"];
    }
 
    subgraph {
       rank="same";
       node [color=red,shape=circle];
-      tag6 [label=parola]; 
+      tag0 [label=parola]; 
    }
 
    subgraph {
       rank="same";
       node [color=blue,shape=circle];
+      tag6 [label=nome]; 
    }
 
    subgraph {
@@ -29,5 +30,6 @@ digraph {
       rank="same";
       node [color=orange,shape=circle];
    }
-   t8 -> tag6;
+   tag0 -> tag6;
+   t1 -> tag0;
 }

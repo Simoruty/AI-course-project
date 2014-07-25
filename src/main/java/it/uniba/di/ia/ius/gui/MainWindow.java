@@ -123,12 +123,17 @@ public class MainWindow {
         giudiceCB.setSelected(true);
         numeroPraticaCB.setSelected(true);
         eMailCB.setSelected(true);
+        try {
+            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./var/spiegazioni/*"});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void reset() {
         listModel.clear();
         try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./prolog/spiegazioni/*"});
+            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./var/spiegazioni/*"});
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -163,13 +168,13 @@ public class MainWindow {
             }
         }
 
-        File folder = new File("./prolog/spiegazioni/");
+        File folder = new File("./var/spiegazioni/");
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 try {
-                    String command = "dot -Tpng ./prolog/spiegazioni/" + file.getName() + " > ./prolog/spiegazioni/" + file.getName().replaceFirst("[.][^.]+$", "") + ".png";
+                    String command = "dot -Tpng ./var/spiegazioni/" + file.getName() + " > ./var/spiegazioni/" + file.getName().replaceFirst("[.][^.]+$", "") + ".png";
                     Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
                 } catch (IOException e) {
                     e.printStackTrace();
