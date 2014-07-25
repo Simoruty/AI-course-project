@@ -6,6 +6,7 @@ import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class Spiegazione {
     public Spiegazione(Tag tag, PrologInterface pi) {
         frame = new JFrame("Spiegazione");
         frame.setContentPane(contentPane);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         try {
             UIManager.setLookAndFeel(
@@ -35,11 +36,11 @@ public class Spiegazione {
 
         this.addListeners();
 
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = screenSize.width;
-        int height = screenSize.height;
-        screenSize = new Dimension(width, height);
-        frame.setSize(screenSize);
+        Dimension screenSize;
+//        int width = 1000;
+//        int height = 700;
+//        screenSize = new Dimension(width, height);
+//        frame.setSize(screenSize);
 
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -49,14 +50,24 @@ public class Spiegazione {
         try {
             Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
             String spiegazione = res.get("Spiegazione");
-            spiegazione = spiegazione.replace("\r", "");
+            spiegazione = spiegazione.replaceAll("\r", "");
             spiegaTextPane.setText(spiegazione);
 
             imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
             imageLabel.setHorizontalTextPosition(JLabel.CENTER);
             imageLabel.setHorizontalAlignment(JLabel.CENTER);
             imageLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-            imageLabel.setIcon(new ImageIcon("./var/spiegazioni/" + tag.getId() + ".png"));
+
+            ImageIcon imgIcon = new ImageIcon("./var/spiegazioni/" + tag.getId() + ".png");
+            Image img = imgIcon.getImage();
+            Image newimg = img.getScaledInstance(600, 700,  java.awt.Image.SCALE_SMOOTH);
+            ImageIcon newIcon = new ImageIcon(newimg);
+//            BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+//            Graphics g = bi.createGraphics();
+//            g.drawImage(img, 140, 199, imageW, imageH, null, null);
+//            newIcon = new ImageIcon(bi);
+
+            imageLabel.setIcon(newIcon);
         } catch (NoVariableException e) {
             e.printStackTrace();
         }

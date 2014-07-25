@@ -1,7 +1,7 @@
 *.png
 *~
 var/*
-var
+var/serialized
 
 *.class
 
