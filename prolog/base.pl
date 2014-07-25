@@ -52,15 +52,15 @@ tag_numero :-
     kb:assertFact(kb:fatto(numero)).
 
 %% Tagga i numeri
-tag_numero(Num) :- 
+tag_numero(Token1) :- 
     kb:token(IDToken1, Token1),
     atom_is_number(Token1),
-    atom_number(Token1, Num),
+%    atom_number(Token1, Num),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Num],' ',Spiegazione),
+    atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Token1],' ',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
-    assertTag(numero(Num), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
+    assertTag(numero(Token1), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
 
 %% Tagga i numeri con virgola
 tag_numero(Num) :- 

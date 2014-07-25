@@ -152,7 +152,8 @@ totale('tot').
 tag_valuta(Moneta, 'euro') :-
     kb:tag(IDTag2, euro(Simbolo)),
     kb:next(IDTag1, IDTag2),    
-    kb:tag(IDTag1, numero(Moneta)),
+    kb:tag(IDTag1, numero(_)),
+    kb:val(IDTag1,Moneta),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
@@ -164,7 +165,8 @@ tag_valuta(Moneta, 'euro') :-
 tag_valuta(Moneta, 'euro') :-
     kb:tag(IDTag2, euro(Simbolo)),
     kb:next(IDTag2, IDTag1),    
-    kb:tag(IDTag1, numero(Moneta)),
+    kb:tag(IDTag1, numero(_)),
+    kb:val(IDTag1,Moneta),
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
@@ -177,7 +179,8 @@ tag_valuta(Moneta, 'euro') :-
 tag_valuta(Moneta, 'dollaro') :-
     kb:tag(IDTag2, dollaro(Simbolo)),
     kb:next(IDTag1, IDTag2),    
-    kb:tag(IDTag1, numero(Moneta)),
+    kb:tag(IDTag1, numero(_)),
+    kb:val(IDTag1,Moneta),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'seguito dal simbolo',Simbolo],' ',Spiegazione),
@@ -189,7 +192,8 @@ tag_valuta(Moneta, 'dollaro') :-
 tag_valuta(Moneta, 'dollaro') :-
     kb:tag(IDTag2, dollaro(Simbolo)),
     kb:next(IDTag2, IDTag1),    
-    kb:tag(IDTag1, numero(Moneta)),
+    kb:tag(IDTag1, numero(_)),
+    kb:val(IDTag1,Moneta),
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[VALUTA] Presenza nel documento del numero',Moneta,'preceduto dal simbolo',Simbolo],' ',Spiegazione),
