@@ -9,12 +9,17 @@ public class GeneratoreDataset {
     private static final int DEFAULT_NUM_FILES = 1;
 
     public static void main(String[] args) {
+
         int numFiles;
-        if (args.length > 0)
+        if (args.length > 0) {
             numFiles = Integer.parseInt(args[0]);
-        else
+        }
+        else {
             numFiles = DEFAULT_NUM_FILES;
-        File file = new File("/prolog/dataset.pl");
+        }
+
+
+        File file = new File("./dataset.pl");
         if (file.exists())
             file.delete();
         try {
