@@ -55,7 +55,7 @@ tag_numero :-
 tag_numero(Token1) :- 
     kb:token(IDToken1, Token1),
     atom_is_number(Token1),
-%    atom_number(Token1, Num),
+    atom_number(Token1, Num),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
     atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Token1],' ',Spiegazione),
@@ -64,11 +64,11 @@ tag_numero(Token1) :-
     kb:lastIDTag(NIDTag),
     atom_number(AtomNIDTag, NIDTag),
     atom_concat('tag', AtomNIDTag, IDTag),
-    kb:asserFact(kb:val(IDTag, Num)).
+    kb:assertFact(kb:val(IDTag, Num)).
 
 
 %% Tagga i numeri con virgola
-tag_numero(Num) :- 
+tag_numero(Token1) :- 
     kb:token(IDToken1, Token1),
 
     atomic_list_concat( List, ',', Token1),
@@ -87,7 +87,7 @@ tag_numero(Num) :-
     kb:lastIDTag(NIDTag),
     atom_number(AtomNIDTag, NIDTag),
     atom_concat('tag', AtomNIDTag, IDTag),
-    kb:asserFact(kb:val(IDTag, Num)).
+    kb:assertFact(kb:val(IDTag, Num)).
 
 
 
