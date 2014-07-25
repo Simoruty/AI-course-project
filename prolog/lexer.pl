@@ -42,7 +42,7 @@ atom_is_word(X) :-
 
 ascii_number(X) :-
 	number(X), (
-	(X>=48,X=<57);(X==46);(X==44)
+	(X>=48,X=<57);(X==46);(X==44);(X==43)
     ).
 
 ascii_char(X):-
