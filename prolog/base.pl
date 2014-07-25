@@ -93,5 +93,5 @@ tag_numero(Token1) :-
 
 %% Trova tutti i numeri
 allnumero(ListaNumeri) :-
-    findall((IDTag, N) ,kb:tag(IDTag, numero(N)), ListaNumeri).
+    findall((IDTag, N) ,(kb:tag(IDTag, numero(_)), kb:val(IDTag, N) ), ListaNumeri).
 
