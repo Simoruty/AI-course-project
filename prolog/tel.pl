@@ -38,7 +38,6 @@ tag_prefisso(Token) :-
     assertTag(prefisso(Token), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken]). 
     
 
-
 %% Tagga tutti i numeri di telefono
 tag_tel :-     
     \+kb:vuole(tel),!.
@@ -50,199 +49,168 @@ tag_tel :-
     tag_prefisso,
     findall(_, tag_tel(_), _), 
     kb:assertFact(kb:fatto(tel)).
-    
+ 
+%% Controlla che il numero di telefono sia di questo formato +39 346 21 00 360   
 tag_tel(Tel):-
-    kb:token(IDToken1, Token1),
-    kb:next(IDToken1,IDToken2),
-    kb:next(IDToken2,IDToken3),
-    kb:next(IDToken3,IDToken4),
-    kb:next(IDToken4,IDToken5),
-    kb:token(IDToken2, Token2),
-    kb:token(IDToken3, Token3),
-    kb:token(IDToken4, Token4),
-    kb:token(IDToken5, Token5),
-    check_tel(Token1, Token2, Token3, Token4, Token5),
-    atomic_list_concat([Token1, Token2, Token3, Token4, Token5], '', Tel),
-    
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken5, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2,Token3,Token4,Token5],' ',Spiegazione),
-    kb:appartiene(IDToken1, IDDoc),    
-    kb:appartiene(IDToken2, IDDoc),    
-    kb:appartiene(IDToken3, IDDoc),
-    kb:appartiene(IDToken4, IDDoc),    
-    kb:appartiene(IDToken5, IDDoc),  
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2,IDToken3,IDToken4,IDToken5]).
+    kb:tag(IDTag1, prefisso(Pref)),
+    kb:next(IDTag1,IDTag2),
+    kb:next(IDTag2,IDTag3),
+    kb:next(IDTag3,IDTag4),
+    kb:next(IDTag4,IDTag5),
+    kb:tag(IDTag2, numero(Num2)),
+    kb:tag(IDTag3, numero(Num3)),
+    kb:tag(IDTag4, numero(Num4)),
+    kb:tag(IDTag5, numero(Num5)),
+    atom_length(Num2,Num2length), Num2length == 3, 
+    atom_length(Num3,Num3length), Num3length == 2,
+    atom_length(Num4,Num4length), Num4length == 2,
+    atom_length(Num5,Num5length), Num5length == 3.
+    atomic_list_concat([Pref, Num2, Num3, Num4, Num5], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag5, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Pref, Num2, Num3, Num4, Num5],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),
+    kb:appartiene(IDTag4, IDDoc),    
+    kb:appartiene(IDTag5, IDDoc),  
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2,IDTag3,IDTag4,IDTag5]).
 
 
+%% Controlla che il numero di telefono sia di questo formato +39 346 210 0360 
 tag_tel(Tel):-
-    kb:token(IDToken1, Token1),
-    kb:next(IDToken1,IDToken2),
-    kb:next(IDToken2,IDToken3),
-    kb:next(IDToken3,IDToken4),
-    kb:token(IDToken2, Token2),
-    kb:token(IDToken3, Token3),
-    kb:token(IDToken4, Token4),
-    check_tel(Token1, Token2, Token3, Token4),
-    atomic_list_concat([Token1, Token2, Token3, Token4], '', Tel),
-    
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken4, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2,Token3,Token4],' ',Spiegazione),
-    kb:appartiene(IDToken1, IDDoc),    
-    kb:appartiene(IDToken2, IDDoc),    
-    kb:appartiene(IDToken3, IDDoc),
-    kb:appartiene(IDToken4, IDDoc),    
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2,IDToken3,IDToken4]).
-
-
-tag_tel(Tel):-
-    kb:token(IDToken1, Token1),
-    kb:next(IDToken1,IDToken2),
-    kb:next(IDToken2,IDToken3),
-    kb:token(IDToken2, Token2),
-    kb:token(IDToken3, Token3),
-    check_tel(Token1, Token2, Token3),
-    atomic_list_concat([Token1, Token2, Token3], '', Tel),
-
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken3, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2,Token3],' ',Spiegazione),
-    kb:appartiene(IDToken1, IDDoc),    
-    kb:appartiene(IDToken2, IDDoc),    
-    kb:appartiene(IDToken3, IDDoc),
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2,IDToken3]).
-
-tag_tel(Tel):-
-    kb:token(IDToken1, Token1),
-    kb:next(IDToken1,IDToken2),
-    kb:token(IDToken2, Token2),
-    check_tel(Token1, Token2),
-    atomic_list_concat([Token1, Token2], '', Tel),
-    
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken2, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Token1,Token2],' ',Spiegazione),
-    kb:appartiene(IDToken1, IDDoc),    
-    kb:appartiene(IDToken2, IDDoc),    
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1,IDToken2]).
-
-tag_tel(Tel):-
-    kb:token(IDToken1, Tel),
-    check_tel(Tel),
-    
-    findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
-    findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-
-    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Tel],' ',Spiegazione),
-    kb:appartiene(IDToken1, IDDoc),    
-    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
-
-%% Controlla che il numero di telefono sia di questo formato +39 346 21 00 360
-check_tel(Token1, Token2, Token3, Token4, Token5) :-
-    prefisso(Token1), 
-    atom_is_number(Token2),
-    atom_length(Token2,Token2length), Token2length == 3, 
-    atom_is_number(Token3),
-    atom_length(Token3,Token3length), Token3length == 2,
-    atom_is_number(Token4),
-    atom_length(Token4,Token4length), Token4length == 2,
-    atom_is_number(Token5),
-    atom_length(Token5,Token5length), Token5length == 3.
-
-%% Controlla che il numero di telefono sia di questo formato +39 346 210 0360
-check_tel(Token1, Token2, Token3, Token4) :-
-    prefisso(Token1), 
-    atom_is_number(Token2),
-    atom_length(Token2,Token2length), Token2length == 3,
-    atom_is_number(Token3),
-    atom_length(Token3,Token3length), Token3length == 3,
-    atom_is_number(Token4),    
-    atom_length(Token4,Token4length), Token4length == 4.
+    kb:tag(IDTag1, prefisso(Pref)),
+    kb:next(IDTag1,IDTag2),
+    kb:next(IDTag2,IDTag3),
+    kb:next(IDTag3,IDTag4),
+    kb:tag(IDTag2, numero(Num2)),
+    kb:tag(IDTag3, numero(Num3)),
+    kb:tag(IDTag4, numero(Num4)),
+    atom_length(Num2,Num2length), Num2length == 3, 
+    atom_length(Num3,Num3length), Num3length == 3,
+    atom_length(Num4,Num4length), Num4length == 4,
+    atomic_list_concat([Pref, Num2, Num3, Num4], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag4, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Pref, Num2, Num3, Num4],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),
+    kb:appartiene(IDTag4, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2,IDTag3,IDTag4]).
 
 %% Controlla che il numero di telefono sia di questo formato 346 21 00 360
-check_tel(Token1, Token2, Token3, Token4) :-
-    atom_is_number(Token1), 
-    atom_length(Token1,Token1length), Token1length == 3,
-    atom_is_number(Token2),
-    atom_length(Token2,Token2length), Token2length == 2, 
-    atom_is_number(Token3),
-    atom_length(Token3,Token3length), Token3length == 2, 
-    atom_is_number(Token4),    
-    atom_length(Token4,Token4length), Token4length == 3.
+tag_tel(Tel):-
+    kb:tag(IDTag1, numero(Num1)),
+    kb:next(IDTag1,IDTag2),
+    kb:next(IDTag2,IDTag3),
+    kb:next(IDTag3,IDTag4),
+    kb:tag(IDTag2, numero(Num2)),
+    kb:tag(IDTag3, numero(Num3)),
+    kb:tag(IDTag4, numero(Num4)),
+    atom_length(Num1,Num1length), Num1length == 3,
+    atom_length(Num2,Num2length), Num2length == 2, 
+    atom_length(Num3,Num3length), Num3length == 2,
+    atom_length(Num4,Num4length), Num4length == 3,
+    atomic_list_concat([Num1, Num2, Num3, Num4], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag4, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Num1, Num2, Num3, Num4],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),
+    kb:appartiene(IDTag4, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2,IDTag3,IDTag4]).
 
 %% Controlla che il numero di telefono sia di questo formato +39 346 2100360
-check_tel(Token1, Token2, Token3) :-
-    prefisso(Token1), 
-    atom_is_number(Token2), 
-    atom_length(Token2,Token2length), Token2length == 3,
-    atom_is_number(Token3),
-    atom_length(Token3,Token3length), Token3length == 7.
+tag_tel(Tel):-
+    kb:tag(IDTag1, prefisso(Pref)),
+    kb:next(IDTag1,IDTag2),
+    kb:next(IDTag2,IDTag3),
+    kb:tag(IDTag2, numero(Num2)),
+    kb:tag(IDTag3, numero(Num3)),
+    atom_length(Num2,Num2length), Num2length == 3, 
+    atom_length(Num3,Num3length), Num3length == 7,
+    atomic_list_concat([Pref, Num2, Num3], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Pref, Num2, Num3],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2,IDTag3]).
 
 %% Controlla che il numero di telefono sia di questo formato 346 210 0360
-check_tel(Token1, Token2, Token3) :-
-    atom_is_number(Token1),  
-    atom_length(Token1,Token1length), Token1length == 3,
-    atom_is_number(Token2),
-    atom_length(Token2,Token2length), Token2length == 3,
-    atom_is_number(Token3),
-    atom_length(Token3,Token3length), Token3length == 4.
+tag_tel(Tel):-
+    kb:tag(IDTag1, numero(Num1)),
+    kb:next(IDTag1,IDTag2),
+    kb:next(IDTag2,IDTag3),
+    kb:tag(IDTag2, numero(Num2)),
+    kb:tag(IDTag3, numero(Num3)),
+    atom_length(Num1,Num1length), Num1length == 3,
+    atom_length(Num2,Num2length), Num2length == 3, 
+    atom_length(Num3,Num3length), Num3length == 4,
+    atomic_list_concat([Num1, Num2, Num3], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Num1, Num2, Num3],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    kb:appartiene(IDTag3, IDDoc),
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2,IDTag3]).
 
 %% Controlla che il numero di telefono sia di questo formato +39 3462100360
-check_tel(Token1, Token2) :-
-    prefisso(Token1), 
-    atom_is_number(Token2),
-    atom_length(Token2,Token2length), Token2length==10.
+tag_tel(Tel):-
+    kb:tag(IDTag1, prefisso(Pref)),
+    kb:next(IDTag1,IDTag2),
+    kb:tag(IDTag2, numero(Num2)),
+    atom_length(Num2,Num2length), Num2length == 10, 
+    atomic_list_concat([Pref, Num2], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Pref, Num2],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2]).
 
 %% Controlla che il numero di telefono sia di questo formato 346 2100360
-check_tel(Token1, Token2) :-
-    atom_is_number(Token1),
-    atom_length(Token1,Token1length), Token1length==3,
-    atom_is_number(Token2),
-    atom_length(Token2,Token2length), Token2length==7.
+tag_tel(Tel):-
+    kb:tag(IDTag1, numero(Num1)),
+    kb:next(IDTag1,IDTag2),
+    kb:tag(IDTag2, numero(Num2)),
+    atom_length(Num1,Num1length), Num1length == 3,
+    atom_length(Num2,Num2length), Num2length == 7, 
+    atomic_list_concat([Num1, Num2], '', Tel),
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Num1, Num2],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    kb:appartiene(IDTag2, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1,IDTag2]).
+
 
 %% Controlla che il numero di telefono sia di questo formato 006703462100360
-check_tel(Tel) :-
+tag_tel(Tel):-
+    kb:tag(IDTag1, numero(Tel)),
     atom_length(Tel,Token1length),
-    Token1length >= 11, 
-    Token1length =< 15,
-    sub_atom(Tel,0,5,_,Prefisso),
+    Token1length >= 12, 
+    Token1length =< 16,
+    PrefissoLength is Token1length - 10,
+    sub_atom(Tel,0,PrefissoLength,_,Prefisso),
     prefisso(Prefisso),
-    sub_atom(Tel,5,10,_,Numero),
-    atom_is_number(Numero).
-
-%% Controlla che il numero di telefono sia di questo formato +6703462100360
-check_tel(Tel) :-
-    atom_length(Tel,Token1length),
-    Token1length >= 11, 
-    Token1length =< 15,
-    sub_atom(Tel,0,4,_,Prefisso),
-    prefisso(Prefisso),
-    sub_atom(Tel,4,10,_,Numero),
-    atom_is_number(Numero).
-
-%% Controlla che il numero di telefono sia di questo formato +393462100360
-check_tel(Tel) :-
-    atom_length(Tel,Token1length),
-    Token1length >= 11, 
-    Token1length =< 15,
-    sub_atom(Tel,0,3,_,Prefisso),
-    prefisso(Prefisso),
-    sub_atom(Tel,3,10,_,Numero),
-    atom_is_number(Numero).
-
-%% Controlla che il numero di telefono sia di questo formato +13462100360
-check_tel(Tel) :-
-    atom_length(Tel,Token1length),
-    Token1length >= 11, 
-    Token1length =< 15,
-    sub_atom(Tel,0,2,_,Prefisso),
-    prefisso(Prefisso),
-    sub_atom(Tel,2,10,_,Numero),
-    atom_is_number(Numero).
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Tel],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1]).
 
 %% Controlla che il numero di telefono sia di questo formato 3462100360
-check_tel(Tel) :-
+tag_tel(Tel):-
+    kb:tag(IDTag1, numero(Tel)),
     atom_length(Tel,Token1length),
-    Token1length == 10,
-    atom_is_number(Tel).
+    Token1length == 10, 
+    findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
+    findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
+    atomic_list_concat(['[TELEFONO] Presenza nel documento di : ',Tel],' ',Spiegazione),
+    kb:appartiene(IDTag1, IDDoc),    
+    assertTag(tel(Tel), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1]).
