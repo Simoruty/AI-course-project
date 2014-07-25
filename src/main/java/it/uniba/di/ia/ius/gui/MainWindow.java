@@ -3,7 +3,6 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
-import it.uniba.di.ia.ius.prologAPI.NoVariableException;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class MainWindow {
 
@@ -87,16 +85,7 @@ public class MainWindow {
                 if (evt.getClickCount() == 2) {
 //                    int index = list.locationToIndex(evt.getPoint());
                     Tag tag = (Tag) jlist.getSelectedValue();
-                    spiegaTextPane.setText("");
-                    try {
-                        Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
-                        String spiegazione = res.get("Spiegazione");
-                        spiegazione = spiegazione.replace("\r", "");
-                        spiegaTextPane.setText(spiegazione);
-
-                    } catch (NoVariableException e) {
-                        e.printStackTrace();
-                    }
+                    new Spiegazione(tag, pi);
                 }
             }
         });
@@ -178,8 +167,8 @@ public class MainWindow {
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 try {
-                    String command="dot -Tpng ./prolog/spiegazioni/"+file.getName()+" > ./prolog/spiegazioni/"+file.getName().replaceFirst("[.][^.]+$", "")+".png";
-                    Process p = Runtime.getRuntime().exec(new String[]{"bash","-c",command});
+                    String command = "dot -Tpng ./prolog/spiegazioni/" + file.getName() + " > ./prolog/spiegazioni/" + file.getName().replaceFirst("[.][^.]+$", "") + ".png";
+                    Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
