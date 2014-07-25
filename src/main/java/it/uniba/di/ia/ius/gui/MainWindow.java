@@ -136,11 +136,21 @@ public class MainWindow {
         giudiceCB.setSelected(true);
         numeroPraticaCB.setSelected(true);
         eMailCB.setSelected(true);
+        try {
+            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./prolog/spiegazioni/*"});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void reset() {
         listModel.clear();
         spiegaTextPane.setText("");
+        try {
+            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./prolog/spiegazioni/*"});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void run() {
@@ -148,21 +158,7 @@ public class MainWindow {
         closeInterface();
         openInterface();
         pi.consult(new File("prolog/main.pl"));
-//        pi.retractAll("assertDoc", Arrays.asList("_"));
         pi.statisfied("kb:assertDoc", Arrays.asList("\"" + textPane.getText() + "\""));
-//        String texts = "[";
-//        for (int i = 0; i < 2; i++) {
-//            String a = GeneratoreDataset.modulo1(new InfoModulo());
-//            texts += "\"" + a + "\",";
-//        }
-//        for (int i = 0; i < 2; i++) {
-//            String a = GeneratoreDataset.modulo2(new InfoModulo());
-//            texts += "\"" + a + "\",";
-//        }
-//        texts = texts.substring(0, texts.length() - 1);
-//        texts += "]";
-//        textPane.setText(texts);
-//        pi.statisfied("kb:assertDocs", Arrays.asList(texts));
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
         predicatoList.add(new Predicato("tel", 2, telCB));
