@@ -68,7 +68,7 @@ tag_numero(Token1) :-
 
 
 %% Tagga i numeri con virgola
-tag_numero(Num) :- 
+tag_numero(Token1) :- 
     kb:token(IDToken1, Token1),
 
     atomic_list_concat( List, ',', Token1),
