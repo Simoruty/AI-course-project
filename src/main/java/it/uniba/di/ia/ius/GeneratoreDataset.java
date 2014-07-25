@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GeneratoreDataset {
 
-    private static final int NUM_FILES = 30;
+    private static final int NUM_FILES = 1;
 
     public static void main(String[] args) {
         File file = new File("prolog/dataset.pl");
