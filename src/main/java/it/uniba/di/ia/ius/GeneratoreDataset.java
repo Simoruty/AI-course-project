@@ -6,16 +6,21 @@ import java.io.IOException;
 
 public class GeneratoreDataset {
 
-    private static final int NUM_FILES = 1;
+    private static final int DEFAULT_NUM_FILES = 1;
 
     public static void main(String[] args) {
-        File file = new File("prolog/dataset.pl");
+        int numFiles;
+        if (args.length > 0)
+            numFiles = Integer.parseInt(args[0]);
+        else
+            numFiles = DEFAULT_NUM_FILES;
+        File file = new File("/home/lusio/dev/university/ia-ius-project/prolog/dataset.pl");
         if (file.exists())
             file.delete();
         try {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);
-            for (int i = 1; i <= NUM_FILES; i++) {
+            for (int i = 0; i < numFiles; i++) {
                 fw.append("doc(\"");
                 double randomNum = Math.random();
                 if (randomNum < (1.0 / 3.0))
