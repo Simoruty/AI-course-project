@@ -86,7 +86,7 @@ tag_giorno :-
 
 tag_giorno(N) :-
     kb:tag(IDTag, numero(_)),
-    kb:val(IDTag,N),
+    kb:val(IDTag, N),
     N>=1, 
     N=<31,
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
@@ -106,7 +106,7 @@ tag_mese :-
 
 tag_mese(N) :-
     kb:tag(IDTag, numero(_)),
-    kb:val(IDTag,N),
+    kb:val(IDTag, N),
     N>=1, 
     N=<12,
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
@@ -171,7 +171,7 @@ tag_anno :-
 
 tag_anno(N) :-
     kb:tag(IDTag, numero(_)),
-    kb:val(IDTag,N),
+    kb:val(IDTag, N),
     N>1900, 
     N<2050,
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
@@ -182,7 +182,7 @@ tag_anno(N) :-
 
 tag_anno(N) :-
     kb:tag(IDTag, numero(_)),
-    kb:val(IDTag,N),
+    kb:val(IDTag, N),
     N>=0, 
     N=<99,
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
