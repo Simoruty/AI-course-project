@@ -51,3 +51,12 @@ start :-
     serialize,
     dotserialize,
     true.
+
+startJava :-
+%    assertadocumenti,
+    writeKB,
+    tag_default2,
+    expandKB,
+    serialize,
+    dotserialize,
+    true.

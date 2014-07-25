@@ -174,7 +174,7 @@ public class MainWindow {
         predicatoList.add(new Predicato("numero_pratica", 2, numeroPraticaCB));
         predicatoList.add(new Predicato("mail", 2, eMailCB));
 
-        pi.statisfied("start", null);
+        pi.statisfied("startJava", null);
 
         for (Predicato predicato : predicatoList) {
             List<Tag> tagList = predicato.run();
