@@ -64,7 +64,7 @@ tag_tel(Tel):-
     atom_length(Num2,Num2length), Num2length == 3, 
     atom_length(Num3,Num3length), Num3length == 2,
     atom_length(Num4,Num4length), Num4length == 2,
-    atom_length(Num5,Num5length), Num5length == 3.
+    atom_length(Num5,Num5length), Num5length == 3,
     atomic_list_concat([Pref, Num2, Num3, Num4, Num5], '', Tel),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag5, Successivo), ListaSuccessivi ),
