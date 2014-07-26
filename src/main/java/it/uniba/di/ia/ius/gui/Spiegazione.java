@@ -61,7 +61,7 @@ public class Spiegazione {
             ImageIcon imgIcon = new ImageIcon("./var/spiegazioni/" + tag.getId() + ".png");
             Image img = imgIcon.getImage();
             Image newimg = img.getScaledInstance(300, 500,  java.awt.Image.SCALE_SMOOTH);
-            ImageIcon newIcon = new ImageIcon(newimg);
+            ImageIcon newIcon = new ImageIcon(img);
 //            BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 //            Graphics g = bi.createGraphics();
 //            g.drawImage(img, 140, 199, imageW, imageH, null, null);
