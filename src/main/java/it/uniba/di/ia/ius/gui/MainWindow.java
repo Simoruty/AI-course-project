@@ -3,6 +3,7 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
+import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -101,7 +102,7 @@ public class MainWindow {
     }
 
     private void openInterface() {
-        //pi = new JPLInterface(PrologInterface.SWI);
+//        pi = new JPLInterface(PrologInterface.SWI);
         pi = new InterprologInterface(PrologInterface.YAP);
     }
 
@@ -145,7 +146,7 @@ public class MainWindow {
         openInterface();
         pi.consult(new File("prolog/main.pl"));
         String textCorrect = textPane.getText().replace("€"," euro").replace("$"," dollari");
-        pi.statisfied("kb:assertDoc", Arrays.asList("\"" + textCorrect + "\""));
+        pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
         predicatoList.add(new Predicato("tel", 2, telCB));
