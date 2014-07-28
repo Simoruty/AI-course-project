@@ -118,36 +118,42 @@ public class JPLInterface extends PrologInterface {
 
 
     @Override
-    public List<Map<String, String>> allSolutions(String pred, List<String> args) {
+    public List<Map<String, String>> allSolutions(String predOrig, List<String> args) {
 
-//         TODO allcomune(X)
-//        String pred = "all" + pred;
+        String pred = "all" + predOrig;
         List<Map<String, String>> listMap = new ArrayList<>(10);
         List<String> vars = new ArrayList<>(args.size());
         Term term;
-        if ((args == null) || (args.size() == 0))
-            term = new Atom(pred);
-        else {
-            Term[] termArgs = new Term[args.size()];
-            for (int i = 0; i < args.size(); i++) {
-                String arg = args.get(i);
-                termArgs[i] = Util.textToTerm(arg);
-                if (prologNamedVariable(arg)) {
-                    vars.add(arg);
-                }
-            }
-            term = new Compound(pred, termArgs);
+        Term[] termArgs = new Term[1];
+        String arg = args.get(0);
+        termArgs[0] = Util.textToTerm(arg);
+        if (prologNamedVariable(arg)) {
+            vars.add(arg);
         }
+        term = new Compound(pred, termArgs);
         Query query = new Query(term);
         java.util.Hashtable<String, Term>[] hts = query.allSolutions();
-        for (Hashtable<String, Term> ht : hts) {
-            Map<String, String> map = new HashMap<>();
-            for (String var : vars) {
-                map.put(var, ht.get(var).toString());
+        Map<String, String> map = new HashMap<>();
+        Term result = hts[0].get("R0");
+        String[] resultSplit = readall(result).replace("\',\'", "").replace("^\\(", "").split("\n");
+        for (String s : resultSplit) {
+            String[] varsExtract = s.split(", ");
+            for (int i = 0; i < vars.size(); i++) {
+                System.out.println(varsExtract[i].replace("\\(",""));
+                 map.put( vars.get(i),varsExtract[i].replace("\\(",""));
             }
-            listMap.add(map);
         }
 
+        listMap.add(map);
+
         return listMap;
+    }
+
+    private String readall(Term term){
+        if (term.arity()==2) {
+            String val =term.arg(1).toString() + " \n";
+            return val + readall(term.arg(2));
+        }
+        return "";
     }
 }
