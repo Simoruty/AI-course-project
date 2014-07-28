@@ -24,9 +24,27 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
-                <configuration>
-                    <mainClass>it.uniba.di.ia.ius.Main</mainClass>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>main</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>it.uniba.di.ia.ius.Main</mainClass>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>dataset</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>it.uniba.di.ia.ius.GeneratoreDataset</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

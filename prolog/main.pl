@@ -9,7 +9,8 @@
 :- use_module(valuta).
 :- use_module(interface).
 :- use_module(serialize).
-:- use_module(dotserialize).
+:- use_module(graph_doc).
+:- use_module(graph_explain).
 :- use_module(base).
 
 intestazione :- 
@@ -35,10 +36,9 @@ main :-
     expandKB,
     resultKB,
     spiegazioneGUI,
-    serialize('../var/'),
-    dotserialize('../var/'),
-    findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (grafo(Tag, '../var/spiegazioni/')) ),
+    serialize,
+    graph_doc_all,
+    graph_explain_all,
     true.
 
 start :-
@@ -46,18 +46,16 @@ start :-
     writeKB,
     tag_default2,
     expandKB,
-    serialize('../var/'),
-    dotserialize('../var/'),
-    findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (grafo(Tag, '../var/spiegazioni/')) ),
+    serialize,
+    graph_doc_all,
+    graph_explain_all,
     true.
 
 startJava :-
     writeKB,
     tag_default2,
     expandKB,
-    serialize('var/'),
-    dotserialize('var/'),
-    findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (grafo(Tag, 'var/spiegazioni/')) ),
+    serialize,
+    graph_doc_all,
+    graph_explain_all,
     true.

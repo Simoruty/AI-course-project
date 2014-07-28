@@ -1,0 +1,28 @@
+documento(IDDoc).
+token(IDToken).
+tag(IDTag). %solo quelli banali
+
+next(IDTokTag, IDTokTag).
+depends(IDTag, IDTag).
+
+appartiene(IDTokTag, IDDoc).
+
+
+%Per i token
+parola(IDToken). %qualsiasi token non numero, non simbolo, non valuta, non euro
+tipo_richiesta(IDToken).
+tax(IDToken, ['parola']).
+
+
+%Per i tag
+numero(IDTag).
+valuta(IDTag).
+
+
+val(IDTag, Valore). %valore numerico di un oggetto numerico 
+
+
+
+
+
+neg(appartiene(IDToken, Doc)).

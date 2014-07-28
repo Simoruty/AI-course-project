@@ -1,7 +1,9 @@
-*.png
 *~
-var/*
-var/serialized
+
+img/*
+graph/*
+prolog/dataset.pl
+prolog/ius.db
 
 *.class
 

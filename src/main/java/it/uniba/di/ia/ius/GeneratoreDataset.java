@@ -18,7 +18,7 @@ public class GeneratoreDataset {
             numFiles = DEFAULT_NUM_FILES;
         }
 
-        File file = new File("./dataset.pl");
+        File file = new File("./prolog/dataset.pl");
         if (file.exists())
             file.delete();
         try {

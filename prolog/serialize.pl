@@ -1,12 +1,12 @@
-:- module( serialize, [ serialize/1 ]).
+:- module( serialize, [ serialize/0 ]).
 
 :- use_module(kb).
 :- use_module(lexer).
 :- use_module(library(lists)).
 
 
-serialize(Path) :- 
-    atom_concat(Path,'serialized', NomeFile),    
+serialize :- 
+    NomeFile='prolog/ius.db',
     tell(NomeFile),
     %s_docs,
     s_base,
