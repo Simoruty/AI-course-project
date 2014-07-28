@@ -39,7 +39,7 @@
 :- dynamic(kb:val/2).
 
 assertadocumenti:-
-    findall(Doc, doc(Doc), ListaDocumenti),
+    findall(Doc, kb:doc(Doc), ListaDocumenti),
     assertDocs(ListaDocumenti).
 
 assertDoc( Documento ) :-
