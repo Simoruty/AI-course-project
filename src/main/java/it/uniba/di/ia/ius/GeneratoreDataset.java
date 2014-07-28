@@ -18,7 +18,6 @@ public class GeneratoreDataset {
             numFiles = DEFAULT_NUM_FILES;
         }
 
-
         File file = new File("./dataset.pl");
         if (file.exists())
             file.delete();
@@ -110,7 +109,8 @@ public class GeneratoreDataset {
         sb.append("\\nCURATORE - ");
         sb.append(info.getCognomeCuratore() + " " + info.getNomeCuratore());
         sb.append("\\nDOMANDA DI AMMISSIONE AL PASSIVO");
-        sb.append("\\nIll.mo signor Giudice Delegato alla procedura sopra indicata, il sottoscritto ");
+        sb.append("\\nIll.mo signor Giudice Delegato alla procedura sopra indicata,\n");
+        sb.append("il sottoscritto ");
         sb.append(info.getCognomeSottoscritto() + " " + info.getNomeSottoscritto());
         sb.append(" nato a ");
         sb.append(info.getComuneNascita());
@@ -118,7 +118,7 @@ public class GeneratoreDataset {
         sb.append(" C.F. " + info.getCodiceFiscale() + " domiciliato in " + info.getComuneResidenza() + " in " + info.getIndirizzo());
         sb.append(" il quale dichiare di voler ricevere comunicazioni e notifiche a mezzo fax al seguente n. " + info.getTelefono());
         sb.append(" oppure per email al seguente indirizzo " + info.getEmail());
-        sb.append("\\nCHIEDE \\n");
+        sb.append("\\nCHIEDE\\n");
         sb.append("di essere ammesso allo stato passivo della procedure in epigrafe indicata : \\n");
         sb.append("in via chirografaria per " + info.getValuta() + " Precisando che il proprio credito deriva da: \\n " + info.getMotivazioneRichiesta());
         sb.append("\\nSi allegano ");

@@ -534,6 +534,7 @@ cognome_kb('ardigooco').
 cognome_kb('ardini').
 cognome_kb('ardino').
 cognome_kb('ardissino').
+cognome_kb('ardito').
 cognome_kb('ardizio').
 cognome_kb('ardizzi').
 cognome_kb('ardizzon').
@@ -3650,6 +3651,7 @@ cognome_kb('devizzi').
 cognome_kb('dezza').
 cognome_kb('diana').
 cognome_kb('dias').
+cognome_kb('diasparra').
 cognome_kb('dibari').
 cognome_kb('dibartolo').
 cognome_kb('dibartolomeo').
@@ -6058,6 +6060,7 @@ cognome_kb('malavolta').
 cognome_kb('malavolti').
 cognome_kb('malchiodi').
 cognome_kb('maldari').
+cognome_kb('maldera').
 cognome_kb('maldi').
 cognome_kb('maldifassi').
 cognome_kb('maldini').
@@ -10578,6 +10581,7 @@ cognome_kb('verlengia').
 cognome_kb('vernaccia').
 cognome_kb('vernassa').
 cognome_kb('vernazza').
+cognome_kb('vernice').
 cognome_kb('verola').
 cognome_kb('veroli').
 cognome_kb('verolo').
@@ -12355,6 +12359,7 @@ nome_kb('rosa').
 nome_kb('rosalia').
 nome_kb('rosalinda').
 nome_kb('rosamunda').
+nome_kb('rosanna').
 nome_kb('rosario').
 nome_kb('rosita').
 nome_kb('rosmunda').

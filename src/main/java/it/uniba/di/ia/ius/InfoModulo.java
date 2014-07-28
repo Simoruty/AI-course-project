@@ -26,7 +26,16 @@ public class InfoModulo {
             "Luca",
             "Marco",
             "Fabio",
-            "Gianluca"
+            "Gianluca",
+            "Rosanna",
+            "Maria",
+            "Paola",
+            "Giovanna",
+            "Francesca",
+            "Stefania",
+            "Lucia",
+            "Luciana",
+            "Simona"
     );
     private static List<String> cognomi = Arrays.asList(
             "Quercia",
@@ -54,7 +63,14 @@ public class InfoModulo {
             "Scotti",
             "Speranza",
             "Altobello",
-            "Altobelli"
+            "Altobelli",
+            "Riccardi",
+            "Marchetti",
+            "Lucatelli",
+            "Vernice",
+            "Saracino",
+            "Maldera",
+            "Ardito"
     );
     private static List<String> comuni = Arrays.asList(
             "Rutigliano",
@@ -92,7 +108,7 @@ public class InfoModulo {
             "via Claudio Traina, 24",
             "via pacecco, 12",
             "p.za Caduti di Via Fani, 2",
-            "piazza Vittorio Emanuele, 3",
+            "p.za Vittorio Emanuele, 3",
             "via della Liberazione, 9",
             "viale Arno, 5"
     );
@@ -191,6 +207,13 @@ public class InfoModulo {
 
     private static List<String> aziendeFallite = Arrays.asList(
             "Parmalat",
+            "Lenovo",
+            "Motorola",
+            "Ducati",
+            "Lamborghini",
+            "Gilera",
+            "Invernizzi",
+            "FIAT",
             "Bridgestone",
             "Microsoft",
             "Fincons",
@@ -203,6 +226,9 @@ public class InfoModulo {
             "Acer",
             "IBM",
             "Apple",
+            "Apple",
+            "Apple INC.",
+            "Apple INC.",
             "Sony"
     );
 
@@ -259,9 +285,9 @@ public class InfoModulo {
         this.telefono = estraiUno(telefoni);
         this.codiceFiscale = estraiUno(codiciFiscali);
         if (coin())
-            this.email = nomeSottoscritto.substring(0, 1).toLowerCase() + "." + cognomeSottoscritto.toLowerCase().replaceAll("'","") + "@libero.it";
+            this.email = nomeSottoscritto.substring(0, 1).toLowerCase() + "." + cognomeSottoscritto.toLowerCase().replaceAll("'", "") + "@libero.it";
         else
-            this.email = nomeSottoscritto.toLowerCase() + "." + cognomeSottoscritto.toLowerCase().replaceAll("'","") + "@gmail.it";
+            this.email = nomeSottoscritto.toLowerCase() + "." + cognomeSottoscritto.toLowerCase().replaceAll("'", "") + "@gmail.it";
         this.numeroPratica = estraiUno(numeriRichieste);
         this.motivazioneRichiesta = estraiUno(motivazioni);
         this.NMotivazioneRichiesta = estraiUno(motivazioni);
