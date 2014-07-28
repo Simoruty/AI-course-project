@@ -41,12 +41,12 @@ swirun:
 	swipl -f prolog/main.pl -g start,halt -t 'halt(0)'
 
 yaprun:
-	yaprun -l prolog/main.pl -g start,halt -t 'halt(0)'
+	yap -l prolog/main.pl -g start,halt -t 'halt(0)'
 
-images: cleanGraph swirun
+images: cleanGraph yaprun
 	for f in `ls graph/d*.dot`; do dot -Tpng $$f > "$$(echo $$f|sed 's/dot/png/'|sed 's/graph/img/')"; done
 	eog img/doc0.png 2>&1 > /dev/null &
 
-img_spiegazioni: cleanGraph swirun
+img_spiegazioni: cleanGraph yaprun
 	for f in `ls graph/t*.dot`; do dot -Tpng $$f > "$$(echo $$f|sed 's/dot/png/'|sed 's/graph/img/')"; done
 	eog img/tag0.png 2>&1 > /dev/null &
