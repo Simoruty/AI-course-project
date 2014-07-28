@@ -102,8 +102,8 @@ public class MainWindow {
     }
 
     private void openInterface() {
-//        pi = new JPLInterface(PrologInterface.SWI);
-        pi = new InterprologInterface(PrologInterface.YAP);
+        pi = new JPLInterface(PrologInterface.SWI);
+//        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {
@@ -125,7 +125,8 @@ public class MainWindow {
         numeroPraticaCB.setSelected(true);
         eMailCB.setSelected(true);
         try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./var/spiegazioni/*"});
+            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./graph/*"});
+            Process p1 = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./img/*"});
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,7 +135,8 @@ public class MainWindow {
     private void reset() {
         listModel.clear();
         try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./var/spiegazioni/*"});
+            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./graph/*"});
+            Process p1 = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./img/*"});
         } catch (IOException e) {
             e.printStackTrace();
         }
