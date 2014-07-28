@@ -29,7 +29,7 @@ main :-
     intestazione,
     write('Inserisci il testo del documento: '),nl,nl,
     read(Documento),
-    assertDoc(Documento), %TODO Forse working memory
+    assertDoc(Documento),
     writeKB,   
     tag_default,
     mostra_tag_da_estrarre,
@@ -43,7 +43,6 @@ main :-
 
 start :-
     consult('prolog/dataset.pl'),
-    assertadocumenti,
     writeKB,
     tag_default2,
     expandKB,
@@ -53,7 +52,6 @@ start :-
     true.
 
 startJava :-
-    assertadocumenti,
     writeKB,
     tag_default2,
     expandKB,

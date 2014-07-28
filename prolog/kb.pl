@@ -17,7 +17,7 @@
                , assertDocs/1
                , vicini/2
                , spiegaTutto/2
-               , assertadocumenti/0
+               , doc/1
                ]
 ).
 
@@ -37,10 +37,7 @@
 :- dynamic(kb:lastIDToken/1).
 :- dynamic(kb:lastIDDocument/1).
 :- dynamic(kb:val/2).
-
-assertadocumenti:-
-    findall(Doc, kb:doc(Doc), ListaDocumenti),
-    assertDocs(ListaDocumenti).
+:- dynamic(kb:doc/1).
 
 assertDoc( Documento ) :-
     to_string(Documento, Stringa),

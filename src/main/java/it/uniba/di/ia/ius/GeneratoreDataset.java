@@ -25,7 +25,7 @@ public class GeneratoreDataset {
             file.createNewFile();
             FileWriter fw = new FileWriter(file);
             for (int i = 0; i < numFiles; i++) {
-                fw.append("doc(\"");
+                fw.append("kb:doc(\"");
                 double randomNum = Math.random();
                 if (randomNum < (1.0 / 3.0))
                     fw.append(modulo1(new InfoModulo()));

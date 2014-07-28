@@ -31,8 +31,7 @@ public class JPLInterface extends PrologInterface {
     public void consult(File file) {
         Term t = new Compound("consult", new Term[]{new Atom(file.getAbsolutePath())});
         Query query = new Query(t);
-        System.out.print("[Prolog] consult: " + t + " ");
-        System.out.println(query.hasSolution() ? "succeeded" : "failed");
+        query.hasSolution();
     }
 
     @Override
@@ -68,9 +67,7 @@ public class JPLInterface extends PrologInterface {
         }
         Term t = new Compound(command, new Term[]{toSend});
         Query query = new Query(t);
-        assert query.hasSolution();
-        System.err.print("[Prolog] " + command + "( " + toSend + " ) ");
-        System.err.println(query.hasSolution() ? "succeeded" : "failed");
+        query.hasSolution();
     }
 
     @Override
@@ -86,8 +83,6 @@ public class JPLInterface extends PrologInterface {
             term = new Compound(pred, termArgs);
         }
         Query query = new Query(term);
-        System.err.print("[Prolog] query: " + term + " ");
-        System.err.println(query.hasSolution() ? "succeeded" : "failed");
         return query.hasSolution();
     }
 
@@ -113,8 +108,6 @@ public class JPLInterface extends PrologInterface {
             term = new Compound(pred, termArgs);
         }
         Query query = new Query(term);
-        System.err.print("[Prolog] query: " + term + " ");
-        System.err.println(query.hasSolution() ? "succeeded" : "failed");
         java.util.Hashtable<String, Term> ht = query.oneSolution();
         for (String var : vars)
             map.put(var, ht.get(var).toString());
@@ -142,8 +135,6 @@ public class JPLInterface extends PrologInterface {
             term = new Compound(pred, termArgs);
         }
         Query query = new Query(term);
-        System.err.print("[Prolog] query: " + term + " ");
-        System.err.println(query.hasSolution() ? "succeeded" : "failed");
         java.util.Hashtable<String, Term>[] hts = query.allSolutions();
         for (Hashtable<String, Term> ht : hts) {
             Map<String, String> map = new HashMap<>();
