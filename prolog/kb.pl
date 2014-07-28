@@ -37,10 +37,11 @@
 :- dynamic(kb:lastIDToken/1).
 :- dynamic(kb:lastIDDocument/1).
 :- dynamic(kb:val/2).
+:- dynamic(kb:doc/1).
 
-assertadocumenti:-
-    findall(Doc, doc(Doc), ListaDocumenti),
-    assertDocs(ListaDocumenti).
+%assertadocumenti:-
+%    findall(Doc, kb:doc(Doc), ListaDocumenti),
+%    assertDocs(ListaDocumenti).
 
 assertDoc( Documento ) :-
     to_string(Documento, Stringa),

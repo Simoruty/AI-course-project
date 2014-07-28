@@ -43,7 +43,6 @@ main :-
 
 start :-
     consult('prolog/dataset.pl'),
-    assertadocumenti,
     writeKB,
     tag_default2,
     expandKB,
@@ -53,7 +52,6 @@ start :-
     true.
 
 startJava :-
-    assertadocumenti,
     writeKB,
     tag_default2,
     expandKB,
