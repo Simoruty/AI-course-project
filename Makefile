@@ -28,8 +28,8 @@ clean: cleanGraph
 	mvn clean
 
 cleanGraph:
-	rm -f graph/*
-	rm -f img/*
+	rm -f graph/*.dot
+	rm -f img/*.png
 
 yap:
 	yap -l prolog/main.pl

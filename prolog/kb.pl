@@ -181,6 +181,17 @@ listaDep(IDTag, [IDTag|Dep]) :-
     findall(Tag, depends(IDTag, Tag), List),
     listaDep(List,Dep).
 
+
+spiegaTutto([], []) :- !.
+spiegaTutto([Tag|AltriTag], Dep) :-
+    listaDep(Tag,DepTag),
+    listaDep(AltriTag,DepAltri),
+    append(DepTag, DepAltri, Dep),
+    !.   
+spiegaTutto(IDTag, [IDTag|Dep]) :-
+    findall(Tag, depends(IDTag, Tag), List),
+    listaDep(List,Dep).
+
 spiegaTutto(IDToken, '') :-
     kb:token(IDToken, _).
 spiegaTutto(IDTag, Spiegazione) :-

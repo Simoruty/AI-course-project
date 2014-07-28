@@ -15,7 +15,7 @@ tag_separatore_data(Symb) :-
     tipo_separatore_data(Symb),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SEPARATORE DATA] Presenza nel documento del simbolo ', Symb],' ',Spiegazione),
+    atomic_list_concat(['[SEPARATORE DATA] Presenza nel documento del simbolo ', Symb],'',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
     assertTag(separatore_data(Symb), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
 
@@ -28,7 +28,7 @@ tag_parola(Token1) :-
     atom_is_word(Token1),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[PAROLA] Presenza nel documento della parola',Token1],' ',Spiegazione),
+    atomic_list_concat(['[PAROLA] Presenza nel documento della parola ',Token1],'',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
     assertTag(parola(Token1), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]).
 
@@ -58,14 +58,13 @@ tag_numero(Token1) :-
     atom_number(Token1, Num),
     findall( Precedente, kb:next(Precedente, IDToken1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDToken1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NUMERO] Presenza nel documento del numero',Token1],' ',Spiegazione),
+    atomic_list_concat(['[NUMERO] Presenza nel documento del numero ',Token1],'',Spiegazione),
     kb:appartiene(IDToken1, IDDoc),
     assertTag(numero(Token1), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDToken1]),
     kb:lastIDTag(NIDTag),
     atom_number(AtomNIDTag, NIDTag),
     atom_concat('tag', AtomNIDTag, IDTag),
     kb:assertFact(kb:val(IDTag, Num)).
-
 
 %% Tagga i numeri con virgola
 tag_numero(Token1) :- 
@@ -88,8 +87,6 @@ tag_numero(Token1) :-
     atom_number(AtomNIDTag, NIDTag),
     atom_concat('tag', AtomNIDTag, IDTag),
     kb:assertFact(kb:val(IDTag, Num)).
-
-
 
 %% Trova tutti i numeri
 allnumero(ListaNumeri) :-
