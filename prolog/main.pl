@@ -42,6 +42,7 @@ main :-
     true.
 
 start :-
+    consult('dataset.pl'),
     assertadocumenti,
     writeKB,
     tag_default2,
@@ -52,6 +53,7 @@ start :-
     true.
 
 startJava :-
+    assertadocumenti,
     writeKB,
     tag_default2,
     expandKB,

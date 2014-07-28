@@ -102,8 +102,8 @@ public class MainWindow {
     }
 
     private void openInterface() {
-        pi = new JPLInterface(PrologInterface.SWI);
-//        pi = new InterprologInterface(PrologInterface.YAP);
+//        pi = new JPLInterface(PrologInterface.SWI);
+        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {
@@ -125,8 +125,8 @@ public class MainWindow {
         numeroPraticaCB.setSelected(true);
         eMailCB.setSelected(true);
         try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./graph/*"});
-            Process p1 = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./img/*"});
+            Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./graph/*"});
+            Process p1 = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./img/*"});
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -135,8 +135,8 @@ public class MainWindow {
     private void reset() {
         listModel.clear();
         try {
-            Process p = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./graph/*"});
-            Process p1 = Runtime.getRuntime().exec(new String[]{"bash","-c","rm ./img/*"});
+            Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./graph/*"});
+            Process p1 = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./img/*"});
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -147,8 +147,9 @@ public class MainWindow {
         closeInterface();
         openInterface();
         pi.consult(new File("prolog/main.pl"));
-        String textCorrect = textPane.getText().replace("€"," euro").replace("$"," dollari");
-        pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
+        String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
+//        pi.retractAll("doc", Arrays.asList("_"));
+        pi.asserta("doc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
         predicatoList.add(new Predicato("tel", 2, telCB));
