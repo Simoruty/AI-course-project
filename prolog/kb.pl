@@ -182,35 +182,21 @@ listaDep(IDTag, [IDTag|Dep]) :-
     listaDep(List,Dep).
 
 
-spiegaTutto([], []) :- !.
-spiegaTutto([Tag|AltriTag], Dep) :-
-    listaDep(Tag,DepTag),
-    listaDep(AltriTag,DepAltri),
-    append(DepTag, DepAltri, Dep),
+
+spiegaTutto([], '') :- !.
+spiegaTutto([Tag|AltriTag], Spiegazioni) :-
+    spiega(Tag,SpiegazioneTag),
+    spiegaTutto(AltriTag,SpiegazioniAltri),
+    atomic_list_concat([SpiegazioneTag, SpiegazioniAltri], '\n', Spiegazioni),
     !.   
-spiegaTutto(IDTag, [IDTag|Dep]) :-
-    findall(Tag, depends(IDTag, Tag), List),
-    listaDep(List,Dep).
+spiegaTutto(IDTag, Stringa) :-
+    spiega(IDTag, Spiegazione),
+    findall(Tag, (depends(IDTag, Tag), kb:tag(IDTag,_)), ListaDipendenze),
+    spiegaTutto(ListaDipendenze, RestoSpiegazione),
+    atomic_list_concat([Spiegazione, RestoSpiegazione], '\n', Stringa).
 
-spiegaTutto(IDToken, '') :-
-    kb:token(IDToken, _).
-spiegaTutto(IDTag, Spiegazione) :-
-    findall(X, depends(IDTag, X), Dipendenze),
-    length(Dipendenze,0),
-    !,
-    spiega(IDTag, Spiegazione).
-spiegaTutto(IDTag, Spiegazione) :-
-    spiega(IDTag, SpiegazioneTag),
-    findall(X, depends(IDTag, X), ListaDipendenze),
-    spiegaLista(ListaDipendenze, ListaSpiegazioniDipendenze),
-    atom_codes(NewLine,[10,13]),
-    atomic_list_concat(ListaSpiegazioniDipendenze, NewLine, SpiegazioneDipendenze ),    
-    atomic_list_concat([SpiegazioneTag,SpiegazioneDipendenze], NewLine, Spiegazione).    
-
-spiegaLista([],[]).
-spiegaLista([D|Ds],[S|Ss]):-
-    spiegaTutto(D,S),
-    spiegaLista(Ds,Ss).
+demo :-
+    spiegaTutto(tag200, Str),write(Str).
 
 nextIDTag(IDTag) :- 
     lastIDTag(LastTag),

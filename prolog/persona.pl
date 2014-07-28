@@ -99,7 +99,7 @@ tag_persona(C, N) :-
     
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[PERSONA] Presenza nel documento di : ',C,N],' ',Spiegazione),
+    atomic_list_concat(['[PERSONA] Presenza nel documento di:',C,N],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
     assertTag(persona(C, N), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
@@ -112,7 +112,7 @@ tag_persona(C, N) :-
     
     findall( Precedente, kb:next(Precedente, IDTag2), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[PERSONA] Presenza nel documento di : ',C,N],' ',Spiegazione),
+    atomic_list_concat(['[PERSONA] Presenza nel documento di:',C,N],' ',Spiegazione),
     Dipendenze=[IDTag1, IDTag2],
     assertTag(persona(C, N),IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, Dipendenze).
 
@@ -134,7 +134,7 @@ tag_cognome(Cognome) :-
     atomic_list_concat([Tag1, Tag2], ' ', Cognome),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[COGNOME] Presenza nel documento di : ',Cognome],' ',Spiegazione),
+    atomic_list_concat(['[COGNOME] Presenza nel documento di:',Cognome],' ',Spiegazione),
     assertTag(cognome(Cognome), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1, IDTag2]).
 
 tag_cognome(Cognome) :- 
@@ -142,7 +142,7 @@ tag_cognome(Cognome) :-
     cognome_kb(Cognome),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[COGNOME] Presenza nel documento di : ',Cognome],' ',Spiegazione),
+    atomic_list_concat(['[COGNOME] Presenza nel documento di:',Cognome],' ',Spiegazione),
     kb:appartiene(IDTag1, IDDoc),
     assertTag(cognome(Cognome), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1]).
 
@@ -172,7 +172,7 @@ tag_nome(Nome) :-
     atomic_list_concat([Tag1, Tag2, Tag3], ' ', Nome),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag3, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NOME] Presenza nel documento di : ',Nome],' ',Spiegazione),
+    atomic_list_concat(['[NOME] Presenza nel documento di:',Nome],' ',Spiegazione),
     kb:appartiene(IDTag1, IDDoc),
     kb:appartiene(IDTag2, IDDoc),
     kb:appartiene(IDTag3, IDDoc),
@@ -186,7 +186,7 @@ tag_nome(Nome) :-
     atomic_list_concat([Tag1, Tag2], ' ', Nome),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag2, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NOME] Presenza nel documento di : ',Nome],' ',Spiegazione),
+    atomic_list_concat(['[NOME] Presenza nel documento di:',Nome],' ',Spiegazione),
     kb:appartiene(IDTag1, IDDoc),
     kb:appartiene(IDTag2, IDDoc),
     assertTag(nome(Nome), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1, IDTag2]).
@@ -196,7 +196,7 @@ tag_nome(Nome) :-
     nome_kb(Nome),
     findall( Precedente, kb:next(Precedente, IDTag1), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag1, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[NOME] Presenza nel documento di : ',Nome],' ',Spiegazione),
+    atomic_list_concat(['[NOME] Presenza nel documento di:',Nome],' ',Spiegazione),
     kb:appartiene(IDTag1, IDDoc),
     assertTag(nome(Nome), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag1]).
 
@@ -285,7 +285,7 @@ tag_simbolo_giudice(Tag) :-
     simbolo_giudice(Tag),
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO GIUDICE] Presenza nel documento del termine',Tag],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO GIUDICE] Presenza nel documento del termine:',Tag],' ',Spiegazione),
     kb:appartiene(IDTag, IDDoc),
     assertTag(simbolo_giudice(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
@@ -302,7 +302,7 @@ tag_simbolo_curatore(Tag) :-
     simbolo_curatore(Tag),
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO CURATORE] Presenza nel documento del termine',Tag],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO CURATORE] Presenza nel documento del termine:',Tag],' ',Spiegazione),
     kb:appartiene(IDTag, IDDoc),
     assertTag(simbolo_curatore(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
@@ -318,7 +318,7 @@ tag_simbolo_soggetto(Tag) :-
     simbolo_soggetto(Tag),
     findall( Precedente, kb:next(Precedente, IDTag), ListaPrecedenti ),
     findall( Successivo, kb:next(IDTag, Successivo), ListaSuccessivi ),
-    atomic_list_concat(['[SIMBOLO SOGGETTO] Presenza nel documento del termine',Tag],' ',Spiegazione),
+    atomic_list_concat(['[SIMBOLO SOGGETTO] Presenza nel documento del termine:',Tag],' ',Spiegazione),
     kb:appartiene(IDTag, IDDoc),
     assertTag(simbolo_soggetto(Tag), IDDoc, ListaPrecedenti, ListaSuccessivi, Spiegazione, [IDTag]).
 
