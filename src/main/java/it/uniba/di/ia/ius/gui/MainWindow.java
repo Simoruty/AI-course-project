@@ -102,8 +102,8 @@ public class MainWindow {
     }
 
     private void openInterface() {
-//        pi = new JPLInterface(PrologInterface.SWI);
-        pi = new InterprologInterface(PrologInterface.YAP);
+        pi = new JPLInterface(PrologInterface.SWI);
+//        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {
@@ -149,7 +149,7 @@ public class MainWindow {
         pi.consult(new File("prolog/main.pl"));
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
 //        pi.retractAll("doc", Arrays.asList("_"));
-        pi.asserta("doc", Arrays.asList("\"" + textCorrect + "\""));
+        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
         predicatoList.add(new Predicato("tel", 2, telCB));

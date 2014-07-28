@@ -57,7 +57,7 @@ assertDocs([X|Xs]) :-
 writeKB :-
     findall((IDDoc, Doc), kb:documento(IDDoc, Doc), ListaDoc),
     forall(member((IDDoc,Doc), ListaDoc), (
-        write(IDDoc),write(Doc),nl,
+        write(IDDoc),nl,
         write(IDDoc),write(': lexer...'),flush_output,
         lexer(Doc, ListaParole),
         write(' DONE'),nl,flush_output,
