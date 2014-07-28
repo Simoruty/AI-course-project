@@ -58,7 +58,7 @@ public class Spiegazione {
             imageLabel.setHorizontalAlignment(JLabel.CENTER);
             imageLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-            ImageIcon imgIcon = new ImageIcon("./var/spiegazioni/" + tag.getId() + ".png");
+            ImageIcon imgIcon = new ImageIcon("./img/" + tag.getId() + ".png");
             Image img = imgIcon.getImage();
             Image newimg = img.getScaledInstance(300, 500,  java.awt.Image.SCALE_SMOOTH);
             ImageIcon newIcon = new ImageIcon(img);

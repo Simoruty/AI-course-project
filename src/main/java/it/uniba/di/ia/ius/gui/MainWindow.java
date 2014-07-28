@@ -170,13 +170,13 @@ public class MainWindow {
             }
         }
 
-        File folder = new File("./var/spiegazioni/");
+        File folder = new File("./graph/");
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 try {
-                    String command = "dot -Tpng ./var/spiegazioni/" + file.getName() + " > ./var/spiegazioni/" + file.getName().replaceFirst("[.][^.]+$", "") + ".png";
+                    String command = "dot -Tpng ./graph/" + file.getName() + " > ./img/" + file.getName().replaceFirst("[.][^.]+$", "") + ".png";
                     Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
                 } catch (IOException e) {
                     e.printStackTrace();
