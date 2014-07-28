@@ -1,5 +1,6 @@
 package it.uniba.di.ia.ius.prologAPI;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import jpl.*;
 
 import java.io.File;
@@ -118,6 +119,9 @@ public class JPLInterface extends PrologInterface {
 
     @Override
     public List<Map<String, String>> allSolutions(String pred, List<String> args) {
+
+//         TODO allcomune(X)
+//        String pred = "all" + pred;
         List<Map<String, String>> listMap = new ArrayList<>(10);
         List<String> vars = new ArrayList<>(args.size());
         Term term;
