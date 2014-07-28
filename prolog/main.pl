@@ -42,7 +42,7 @@ main :-
     true.
 
 start :-
-    consult('dataset.pl'),
+    consult('prolog/dataset.pl'),
     assertadocumenti,
     writeKB,
     tag_default2,
