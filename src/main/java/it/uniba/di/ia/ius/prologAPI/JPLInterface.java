@@ -3,10 +3,7 @@ package it.uniba.di.ia.ius.prologAPI;
 import jpl.*;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class JPLInterface extends PrologInterface {
 
@@ -28,6 +25,7 @@ public class JPLInterface extends PrologInterface {
 
     @Override
     public void close() {
+
     }
 
     @Override
@@ -35,6 +33,7 @@ public class JPLInterface extends PrologInterface {
         Term t = new Compound("consult", new Term[]{new Atom(file.getAbsolutePath())});
         Query query = new Query(t);
         query.hasSolution();
+        query.close();
     }
 
     @Override
@@ -71,6 +70,7 @@ public class JPLInterface extends PrologInterface {
         Term t = new Compound(command, new Term[]{toSend});
         Query query = new Query(t);
         query.hasSolution();
+        query.close();
     }
 
     @Override

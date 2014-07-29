@@ -3,7 +3,7 @@
 img/*.png
 graph/*.dot
 prolog/dataset.pl
-prolog/ius.db
+sperimentazioni/ius.db
 
 *.class
 
