@@ -113,7 +113,7 @@ public class JPLInterface extends PrologInterface {
         Query query = new Query(term);
         java.util.Hashtable<String, Term> ht = query.oneSolution();
         for (String var : vars) {
-            map.put(var, ht.get(var).toString());
+            map.put(var,ht.get(var).toString().replaceAll("'",""));
         }
             return map;
 
