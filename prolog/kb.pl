@@ -17,7 +17,6 @@
                , assertDocs/1
                , vicini/2
                , spiegaTutto/2
-               , doc/1
                ]
 ).
 
