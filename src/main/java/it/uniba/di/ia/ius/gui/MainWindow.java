@@ -3,6 +3,7 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
+import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -101,8 +102,8 @@ public class MainWindow {
     }
 
     private void openInterface() {
-//        pi = new JPLInterface(PrologInterface.SWI);
-        pi = new InterprologInterface(PrologInterface.YAP);
+        pi = new JPLInterface(PrologInterface.SWI);
+//        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {

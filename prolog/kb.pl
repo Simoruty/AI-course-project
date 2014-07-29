@@ -37,7 +37,6 @@
 :- dynamic(kb:lastIDToken/1).
 :- dynamic(kb:lastIDDocument/1).
 :- dynamic(kb:val/2).
-:- dynamic(kb:doc/1).
 
 assertDoc( Documento ) :-
     to_string(Documento, Stringa),
