@@ -1,10 +1,12 @@
 package it.uniba.di.ia.ius.prologAPI;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import jpl.*;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class JPLInterface extends PrologInterface {
 
@@ -135,12 +137,13 @@ public class JPLInterface extends PrologInterface {
         java.util.Hashtable<String, Term>[] hts = query.allSolutions();
         Map<String, String> map = new HashMap<>();
         Term result = hts[0].get("R0");
-        String[] resultSplit = readall(result).replace("\',\'", "").replace("^\\(", "").split("\n");
+        System.err.println(">>>"+readall(result).replaceAll("\',\'", "").replaceAll("^\\(", "").replaceAll("\\)\\n$", "")+"<<<");
+        String[] resultSplit = readall(result).replaceAll("\',\'", "").replaceAll("^\\(", "").replaceAll("\\)\\n$", "").split("\n");
         for (String s : resultSplit) {
             String[] varsExtract = s.split(", ");
             for (int i = 0; i < vars.size(); i++) {
-                System.out.println(varsExtract[i].replace("\\(",""));
-                 map.put( vars.get(i),varsExtract[i].replace("\\(",""));
+                System.out.println(varsExtract[i]);
+                map.put(vars.get(i), varsExtract[i]);
             }
         }
 
@@ -149,9 +152,9 @@ public class JPLInterface extends PrologInterface {
         return listMap;
     }
 
-    private String readall(Term term){
-        if (term.arity()==2) {
-            String val =term.arg(1).toString() + " \n";
+    private String readall(Term term) {
+        if (term.arity() == 2) {
+            String val = term.arg(1).toString() + "\n";
             return val + readall(term.arg(2));
         }
         return "";

@@ -102,8 +102,8 @@ public class MainWindow {
     }
 
     private void openInterface() {
-        pi = new JPLInterface(PrologInterface.SWI);
-//        pi = new InterprologInterface(PrologInterface.YAP);
+//        pi = new JPLInterface(PrologInterface.SWI);
+        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {

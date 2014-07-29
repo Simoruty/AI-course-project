@@ -1,0 +1,50 @@
+:- mode(*,documento(#iddoc)).
+:- mode(*,token(#id)).
+:- mode(*,tag(#id)).
+:- mode(*,appartiene(#id, #iddoc)).
+:- mode(*,next(#id, #id)).
+:- mode(*,depends(#id, #id)).
+
+:- mode(*,numero(#id)).
+:- mode(*,parola(#id)).
+:- mode(*,val(+id, -integer)).
+:- mode(*,tax(+id, -string)).
+:- mode(*,newline(#id)).
+:- mode(*,euro(#id)).
+:- mode(*,dollaro(#id)).
+:- mode(*,mail(#id)).
+:- mode(*,cf(#id)).
+:- mode(*,separatore_data(#id)).
+:- mode(*,prefisso(#id)).
+
+:- mode(*,chiro(#id)).
+:- mode(*,totale(#id)).
+:- mode(*,privilegiato(#id)).
+:- mode(*,simbolo_soggetto(#id)).
+:- mode(*,simbolo_giudice(#id)).
+:- mode(*,simbolo_curatore(#id)).
+:- mode(*,cognome(#id)).
+:- mode(*,nome(#id)).
+:- mode(*,valuta(#id)).
+:- mode(*,comune(#id)).
+:- mode(*,giorno(#id)).
+:- mode(*,mese(#id)).
+:- mode(*,anno(#id)).
+:- mode(*,tel(#id)).
+
+:- mode(*,data(#id)).
+:- mode(*,persona(#id)).
+:- mode(*,numero_pratica(#id)).
+
+:- mode(*,soggetto(#id)).
+:- mode(*,curatore(#id)).
+:- mode(*,giudice(#id)).
+:- mode(*,richiesta_valuta(#id)).
+
+%:- determination(richiesta_valuta/1,euro/1).
+%:- determination(richiesta_valuta/1,dollaro/1).
+%:- determination(richiesta_valuta/1,chiro/1).
+%:- determination(richiesta_valuta/1,totale/1).
+%:- determination(richiesta_valuta/1,privilegiato/1).
+%:- determination(richiesta_valuta/1,valuta/1).
+%:- determination(richiesta_valuta/1,numero/1).
