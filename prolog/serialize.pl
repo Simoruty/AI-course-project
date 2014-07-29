@@ -6,7 +6,7 @@
 
 
 serialize :- 
-    NomeFile='prolog/ius.db',
+    NomeFile='sperimentazioni/ius.db',
     tell(NomeFile),
     %s_docs,
     s_base,
