@@ -48,7 +48,7 @@ public class Spiegazione {
 
         spiegaTextPane.setText("");
         try {
-            Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
+            Map<String, String> res = pi.oneSolution("spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
             String spiegazione = res.get("Spiegazione");
             spiegazione = spiegazione.replaceAll("\r", "");
             spiegaTextPane.setText(spiegazione);
