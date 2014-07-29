@@ -102,8 +102,8 @@ public class MainWindow {
     }
 
     private void openInterface() {
-        pi = new JPLInterface(PrologInterface.SWI);
-//        pi = new InterprologInterface(PrologInterface.YAP);
+//        pi = new JPLInterface(PrologInterface.SWI);
+        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {
@@ -148,7 +148,7 @@ public class MainWindow {
         openInterface();
         pi.consult(new File("prolog/main.pl"));
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
-//        pi.retractAll("doc", Arrays.asList("_"));
+        pi.retractAll("doc", Arrays.asList("_"));
 //        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);
