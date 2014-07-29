@@ -3,6 +3,7 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
+import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -101,11 +102,23 @@ public class MainWindow {
     }
 
     private void openInterface() {
-//        pi = new JPLInterface(PrologInterface.SWI);
-        pi = new InterprologInterface(PrologInterface.YAP);
+        pi = new JPLInterface(PrologInterface.SWI);
+//        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {
+        pi.retractAll("kb:documento", Arrays.asList("_","_"));
+        pi.retractAll("kb:next", Arrays.asList("_","_"));
+        pi.retractAll("kb:token", Arrays.asList("_","_"));
+        pi.retractAll("kb:tag", Arrays.asList("_","_"));
+        pi.retractAll("kb:depends", Arrays.asList("_","_"));
+        pi.retractAll("kb:lastIDDocument", Arrays.asList("_"));
+        pi.retractAll("kb:lastIDTag", Arrays.asList("_"));
+        pi.retractAll("kb:lastIDToken", Arrays.asList("_"));
+        pi.retractAll("kb:appartiene", Arrays.asList("_","_"));
+        pi.retractAll("kb:fatto", Arrays.asList("_"));
+        pi.retractAll("kb:val", Arrays.asList("_","_"));
+        pi.retractAll("kb:spiega", Arrays.asList("_","_"));
         pi.close();
     }
 
@@ -147,7 +160,6 @@ public class MainWindow {
         openInterface();
         pi.consult(new File("prolog/main.pl"));
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
-        pi.retractAll("doc", Arrays.asList("_"));
 //        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);

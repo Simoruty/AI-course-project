@@ -2,7 +2,7 @@ numDoc=1
 
 all: run
 
-prepare: clean config compile test package
+prepare: clean config compile test package dataset
 
 config:
 	if ! [ -d ~/.m2/repository/com/declarativa ]; then wget http://www.lusio.it/interprolog.jar; mvn install:install-file -Dfile=interprolog.jar -DgroupId=com.declarativa.interprolog -DartifactId=interprolog -Dversion=2.2a4 -Dpackaging=jar; rm interprolog.jar; fi
@@ -24,7 +24,7 @@ package:
 
 clean: cleanGraph
 	rm -f prolog/dataset.pl
-	rm -f prolog/ius.db
+	rm -f sperimentazioni/ius.db
 	mvn clean
 
 cleanGraph:
