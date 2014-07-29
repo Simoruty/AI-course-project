@@ -3,7 +3,6 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
-import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
@@ -148,7 +147,7 @@ public class MainWindow {
         openInterface();
         pi.consult(new File("prolog/main.pl"));
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
-//        pi.retractAll("doc", Arrays.asList("_"));
+        pi.retractAll("doc", Arrays.asList("_"));
 //        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);
@@ -156,7 +155,7 @@ public class MainWindow {
         predicatoList.add(new Predicato("tel", 2, telCB));
         predicatoList.add(new Predicato("data", 4, dateCB));
         predicatoList.add(new Predicato("cf", 2, cfCB));
-        predicatoList.add(new Predicato("richiesta_valuta", 3, richiestaValutaCB));
+        predicatoList.add(new Predicato("richiesta_valuta", 4, richiestaValutaCB));
         predicatoList.add(new Predicato("soggetto", 3, soggettoCB));
         predicatoList.add(new Predicato("persona", 3, personeCB));
         predicatoList.add(new Predicato("curatore", 3, curatoreCB));
@@ -169,7 +168,8 @@ public class MainWindow {
         for (Predicato predicato : predicatoList) {
             List<Tag> tagList = predicato.run();
             for (Tag tag : tagList) {
-                listModel.addElement(tag);
+                if (!tag.toString().contains("null"))
+                    listModel.addElement(tag);
             }
         }
 

@@ -6,7 +6,6 @@ import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -48,7 +47,7 @@ public class Spiegazione {
 
         spiegaTextPane.setText("");
         try {
-            Map<String, String> res = pi.oneSolution("kb:spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
+            Map<String, String> res = pi.oneSolution("spiegaTutto", Arrays.asList(tag.getId(), "Spiegazione"));
             String spiegazione = res.get("Spiegazione");
             spiegazione = spiegazione.replaceAll("\r", "");
             spiegaTextPane.setText(spiegazione);
@@ -60,7 +59,7 @@ public class Spiegazione {
 
             ImageIcon imgIcon = new ImageIcon("./img/" + tag.getId() + ".png");
             Image img = imgIcon.getImage();
-            Image newimg = img.getScaledInstance(300, 500,  java.awt.Image.SCALE_SMOOTH);
+            Image newimg = img.getScaledInstance(300, 500, java.awt.Image.SCALE_SMOOTH);
             ImageIcon newIcon = new ImageIcon(img);
 //            BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 //            Graphics g = bi.createGraphics();

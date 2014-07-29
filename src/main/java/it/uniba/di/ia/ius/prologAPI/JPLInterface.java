@@ -112,10 +112,11 @@ public class JPLInterface extends PrologInterface {
         }
         Query query = new Query(term);
         java.util.Hashtable<String, Term> ht = query.oneSolution();
-        for (String var : vars)
-            map.put(var, ht.get(var).toString());
-
+        for (String var : vars) {
+            map.put(var, ht.get(var).toString().replaceAll("'", ""));
+        }
         return map;
+
     }
 
 
@@ -127,34 +128,37 @@ public class JPLInterface extends PrologInterface {
         List<String> vars = new ArrayList<>(args.size());
         Term term;
         Term[] termArgs = new Term[1];
-        String arg = args.get(0);
-        termArgs[0] = Util.textToTerm(arg);
-        if (prologNamedVariable(arg)) {
-            vars.add(arg);
-        }
+        termArgs[0] = Util.textToTerm(args.get(0));
+
+        for (int i = 0; i < args.size(); i++)
+            if (prologNamedVariable(args.get(i))) {
+                vars.add(args.get(i));
+            }
+
         term = new Compound(pred, termArgs);
         Query query = new Query(term);
         java.util.Hashtable<String, Term>[] hts = query.allSolutions();
-        Map<String, String> map = new HashMap<>();
         Term result = hts[0].get("R0");
-        System.err.println(">>>"+readall(result).replaceAll("\',\'", "").replaceAll("^\\(", "").replaceAll("\\)\\n$", "")+"<<<");
-        String[] resultSplit = readall(result).replaceAll("\',\'", "").replaceAll("^\\(", "").replaceAll("\\)\\n$", "").split("\n");
+
+        String[] resultSplit = readall(result).replace("\',\'", "").replaceAll("\\(", "").replaceAll("\\)", "").split("\n");
         for (String s : resultSplit) {
-            String[] varsExtract = s.split(", ");
-            for (int i = 0; i < vars.size(); i++) {
-                System.out.println(varsExtract[i]);
-                map.put(vars.get(i), varsExtract[i]);
+            if (s.length() > 0) {
+                Map<String, String> map = new HashMap<>();
+                String[] varsExtract = s.split(", ");
+                for (int i = 0; i < varsExtract.length; i++) {
+                    map.put(vars.get(i), varsExtract[i].replaceAll("\'", ""));
+                }
+                listMap.add(map);
             }
         }
 
-        listMap.add(map);
 
         return listMap;
     }
 
     private String readall(Term term) {
         if (term.arity() == 2) {
-            String val = term.arg(1).toString() + "\n";
+            String val = term.arg(1).toString() + " \n";
             return val + readall(term.arg(2));
         }
         return "";

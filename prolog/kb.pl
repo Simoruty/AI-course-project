@@ -188,12 +188,9 @@ spiegaTutto([Tag|AltriTag], Spiegazioni) :-
     !.   
 spiegaTutto(IDTag, Stringa) :-
     spiega(IDTag, Spiegazione),
-    findall(Tag, (depends(IDTag, Tag), kb:tag(IDTag,_)), ListaDipendenze),
+    findall(Tag, (depends(IDTag, Tag), kb:tag(Tag,_)), ListaDipendenze),
     spiegaTutto(ListaDipendenze, RestoSpiegazione),
     atomic_list_concat([Spiegazione, RestoSpiegazione], '\n', Stringa).
-
-demo :-
-    spiegaTutto(tag200, Str),write(Str).
 
 nextIDTag(IDTag) :- 
     lastIDTag(LastTag),
