@@ -3,7 +3,10 @@ package it.uniba.di.ia.ius.prologAPI;
 import jpl.*;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class JPLInterface extends PrologInterface {
 
@@ -69,6 +72,7 @@ public class JPLInterface extends PrologInterface {
         }
         Term t = new Compound(command, new Term[]{toSend});
         Query query = new Query(t);
+        System.err.println("QUERY = " + query.toString());
         query.hasSolution();
         query.close();
     }

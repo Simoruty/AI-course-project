@@ -107,18 +107,18 @@ public class MainWindow {
     }
 
     private void closeInterface() {
-        pi.retractAll("kb:documento", Arrays.asList("_","_"));
-        pi.retractAll("kb:next", Arrays.asList("_","_"));
-        pi.retractAll("kb:token", Arrays.asList("_","_"));
-        pi.retractAll("kb:tag", Arrays.asList("_","_"));
-        pi.retractAll("kb:depends", Arrays.asList("_","_"));
-        pi.retractAll("kb:lastIDDocument", Arrays.asList("_"));
-        pi.retractAll("kb:lastIDTag", Arrays.asList("_"));
-        pi.retractAll("kb:lastIDToken", Arrays.asList("_"));
-        pi.retractAll("kb:appartiene", Arrays.asList("_","_"));
-        pi.retractAll("kb:fatto", Arrays.asList("_"));
-        pi.retractAll("kb:val", Arrays.asList("_","_"));
-        pi.retractAll("kb:spiega", Arrays.asList("_","_"));
+        pi.retractAll("documento", Arrays.asList("_","_"));
+        pi.retractAll("next", Arrays.asList("_","_"));
+        pi.retractAll("token", Arrays.asList("_","_"));
+        pi.retractAll("tag", Arrays.asList("_","_"));
+        pi.retractAll("depends", Arrays.asList("_","_"));
+        pi.retractAll("lastIDDocument", Arrays.asList("_"));
+        pi.retractAll("lastIDTag", Arrays.asList("_"));
+        pi.retractAll("lastIDToken", Arrays.asList("_"));
+        pi.retractAll("appartiene", Arrays.asList("_","_"));
+        pi.retractAll("fatto", Arrays.asList("_"));
+        pi.retractAll("val", Arrays.asList("_","_"));
+        pi.retractAll("spiega", Arrays.asList("_","_"));
         pi.close();
     }
 
