@@ -169,7 +169,7 @@ public class MainWindow {
         for (Predicato predicato : predicatoList) {
             List<Tag> tagList = predicato.run();
             for (Tag tag : tagList) {
-                if(!tag.toString().contains("null"))
+                if (!tag.toString().contains("null"))
                     listModel.addElement(tag);
             }
         }

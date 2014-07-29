@@ -13,8 +13,7 @@ public class GeneratoreDataset {
         int numFiles;
         if (args.length > 0) {
             numFiles = Integer.parseInt(args[0]);
-        }
-        else {
+        } else {
             numFiles = DEFAULT_NUM_FILES;
         }
 

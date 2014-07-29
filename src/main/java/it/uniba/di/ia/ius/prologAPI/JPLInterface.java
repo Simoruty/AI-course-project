@@ -113,9 +113,9 @@ public class JPLInterface extends PrologInterface {
         Query query = new Query(term);
         java.util.Hashtable<String, Term> ht = query.oneSolution();
         for (String var : vars) {
-            map.put(var,ht.get(var).toString().replaceAll("'",""));
+            map.put(var, ht.get(var).toString().replaceAll("'", ""));
         }
-            return map;
+        return map;
 
     }
 
@@ -131,7 +131,7 @@ public class JPLInterface extends PrologInterface {
         termArgs[0] = Util.textToTerm(args.get(0));
 
         for (int i = 0; i < args.size(); i++)
-            if (prologNamedVariable(args.get(i)))    {
+            if (prologNamedVariable(args.get(i))) {
                 vars.add(args.get(i));
             }
 
@@ -141,7 +141,7 @@ public class JPLInterface extends PrologInterface {
         Term result = hts[0].get("R0");
         String[] resultSplit = readall(result).replace("\',\'", "").replaceAll("\\(", "").replaceAll("\\)", "").split("\n");
         for (String s : resultSplit) {
-            if (s.length()>0) {
+            if (s.length() > 0) {
                 Map<String, String> map = new HashMap<>();
                 String[] varsExtract = s.split(", ");
                 for (int i = 0; i < varsExtract.length; i++) {
