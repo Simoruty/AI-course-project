@@ -14,6 +14,7 @@ public class Spiegazione {
     private JTextPane spiegaTextPane;
     private JLabel imageLabel;
     private JPanel contentPane;
+    private JPanel imgPane;
 
     public Spiegazione(Tag tag, PrologInterface pi) {
         frame = new JFrame("Spiegazione");
@@ -58,15 +59,16 @@ public class Spiegazione {
             imageLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
             ImageIcon imgIcon = new ImageIcon("./img/" + tag.getId() + ".png");
-            Image img = imgIcon.getImage();
-            Image newimg = img.getScaledInstance(300, 500, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon newIcon = new ImageIcon(img);
+//            Image img = imgIcon.getImage();
+//            Image newimg = img.getScaledInstance(700, 700, java.awt.Image.SCALE_SMOOTH);
 //            BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+//            BufferedImage bi = new BufferedImage(newimg.getWidth(null), newimg.getHeight(null), BufferedImage.TYPE_INT_ARGB);
 //            Graphics g = bi.createGraphics();
-//            g.drawImage(img, 140, 199, imageW, imageH, null, null);
-//            newIcon = new ImageIcon(bi);
-
-            imageLabel.setIcon(newIcon);
+//            g.drawImage(newimg, 0, 0, 700, 700, 0, 0, 700, 700, null);
+//
+//            ImageIcon newIcon = new ImageIcon(bi);
+            imageLabel.setIcon(imgIcon);
+            frame.pack();
         } catch (NoVariableException e) {
             e.printStackTrace();
         }

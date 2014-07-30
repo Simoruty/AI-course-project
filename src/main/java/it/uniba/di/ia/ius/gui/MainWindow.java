@@ -3,13 +3,13 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
-import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -126,8 +126,12 @@ public class MainWindow {
         eMailCB.setSelected(true);
         try {
             Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./graph/*"});
+            p.waitFor();
             Process p1 = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./img/*"});
+            p1.waitFor();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -136,8 +140,12 @@ public class MainWindow {
         listModel.clear();
         try {
             Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./graph/*"});
+            p.waitFor();
             Process p1 = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./img/*"});
+            p1.waitFor();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -147,7 +155,7 @@ public class MainWindow {
         closeInterface();
         openInterface();
         pi.consult(new File("prolog/main.pl"));
-        pi.statisfied("reset",null);
+        pi.statisfied("reset", null);
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
 //        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
@@ -175,14 +183,28 @@ public class MainWindow {
         }
 
         File folder = new File("./graph/");
-        File[] listOfFiles = folder.listFiles();
+        File[] listOfFiles = folder.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.getName().endsWith(".dot");
+            }
+        });
 
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 try {
-                    String command = "dot -Tpng ./graph/" + file.getName() + " > ./img/" + file.getName().replaceFirst("[.][^.]+$", "") + ".png";
+                    String outputFile = file.getName().replaceFirst("\\.dot", ".png");
+
+                    String command = "dot -Tpng ./graph/" + file.getName() + " > ./img/" + outputFile;
                     Process p = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
+                    p.waitFor();
+
+                    String command2 = "convert -resize 'x600' ./img/" + outputFile + " ./img/" + outputFile;
+                    Process p2 = Runtime.getRuntime().exec(new String[]{"bash", "-c", command2});
+                    p2.waitFor();
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 System.out.println(file.getName());

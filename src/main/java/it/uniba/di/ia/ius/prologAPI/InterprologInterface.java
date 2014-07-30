@@ -16,10 +16,10 @@ public class InterprologInterface extends PrologInterface {
         self = this;
         switch (type) {
             case SWI:
-                engine = new SWISubprocessEngine(SWI_BIN_PATH, true);
+                engine = new SWISubprocessEngine(SWI_BIN_PATH, false);
                 break;
             case YAP:
-                engine = new YAPSubprocessEngine(YAP_BIN_PATH, true);
+                engine = new YAPSubprocessEngine(YAP_BIN_PATH, false);
                 break;
             default:
                 break;
