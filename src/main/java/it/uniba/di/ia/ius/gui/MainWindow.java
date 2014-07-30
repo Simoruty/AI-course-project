@@ -3,6 +3,7 @@ package it.uniba.di.ia.ius.gui;
 import it.uniba.di.ia.ius.Predicato;
 import it.uniba.di.ia.ius.Tag;
 import it.uniba.di.ia.ius.prologAPI.InterprologInterface;
+import it.uniba.di.ia.ius.prologAPI.JPLInterface;
 import it.uniba.di.ia.ius.prologAPI.PrologInterface;
 
 import javax.swing.*;
