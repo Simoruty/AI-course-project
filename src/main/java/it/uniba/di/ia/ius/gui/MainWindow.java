@@ -102,23 +102,11 @@ public class MainWindow {
     }
 
     private void openInterface() {
-        pi = new JPLInterface(PrologInterface.SWI);
-//        pi = new InterprologInterface(PrologInterface.YAP);
+//        pi = new JPLInterface(PrologInterface.SWI);
+        pi = new InterprologInterface(PrologInterface.YAP);
     }
 
     private void closeInterface() {
-        pi.retractAll("documento", Arrays.asList("_","_"));
-        pi.retractAll("next", Arrays.asList("_","_"));
-        pi.retractAll("token", Arrays.asList("_","_"));
-        pi.retractAll("tag", Arrays.asList("_","_"));
-        pi.retractAll("depends", Arrays.asList("_","_"));
-        pi.retractAll("lastIDDocument", Arrays.asList("_"));
-        pi.retractAll("lastIDTag", Arrays.asList("_"));
-        pi.retractAll("lastIDToken", Arrays.asList("_"));
-        pi.retractAll("appartiene", Arrays.asList("_","_"));
-        pi.retractAll("fatto", Arrays.asList("_"));
-        pi.retractAll("val", Arrays.asList("_","_"));
-        pi.retractAll("spiega", Arrays.asList("_","_"));
         pi.close();
     }
 
@@ -159,6 +147,7 @@ public class MainWindow {
         closeInterface();
         openInterface();
         pi.consult(new File("prolog/main.pl"));
+        pi.statisfied("reset",null);
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
 //        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));

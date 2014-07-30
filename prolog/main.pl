@@ -59,3 +59,18 @@ startJava :-
     graph_doc_all,
     graph_explain_all,
     true.
+
+reset :-
+    retractall(kb:depends(_,_)),
+    retractall(kb:next(_,_)),
+    retractall(kb:token(_,_)),
+    retractall(kb:tag(_,_)),
+    retractall(kb:spiega(_,_)),
+    retractall(kb:vuole(_)),
+    retractall(kb:fatto(_)),
+    retractall(kb:documento(_,_)),
+    retractall(kb:appartiene(_,_)),
+    retractall(kb:lastIDTag(_)),
+    retractall(kb:lastIDToken(_)),
+    retractall(kb:lastIDDocument(_)),
+    retractall(kb:val(_,_)).
