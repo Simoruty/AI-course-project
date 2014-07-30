@@ -20,6 +20,7 @@ public class MainWindow {
     private final JFrame frame;
     private DefaultListModel<Tag> listModel;
     private PrologInterface pi;
+    private int typeProlog = PrologInterface.INTERPROLOG;
     private JTextPane textPane;
     private JList jlist;
     private JButton extractButton;
@@ -39,12 +40,12 @@ public class MainWindow {
     private JCheckBox numeroPraticaCB;
     private JCheckBox eMailCB;
 
-
     public MainWindow() {
         frame = new JFrame("Tagger ius");
         assert contentPane != null;
         frame.setContentPane(contentPane);
-//        this.createMenu();
+
+        this.createMenu();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         try {
@@ -101,9 +102,73 @@ public class MainWindow {
 
     }
 
+    private void createMenu() {
+        JMenuBar menuBar;
+        JMenu menu, submenu;
+        JRadioButtonMenuItem rbMenuItemInter, rbMenuItemJPL;
+
+//Create the menu bar.
+        menuBar = new JMenuBar();
+
+//Build the first menu.
+        menu = new JMenu("File");
+        menu.setMnemonic(KeyEvent.VK_A);
+        menuBar.add(menu);
+//
+////a group of radio button menu items
+//        menu.addSeparator();
+//        ButtonGroup group = new ButtonGroup();
+//        rbMenuItem = new JRadioButtonMenuItem("Interprolog");
+//        rbMenuItem.setSelected(true);
+//        rbMenuItem.setMnemonic(KeyEvent.VK_R);
+//        group.add(rbMenuItem);
+//        menu.add(rbMenuItem);
+//
+//        rbMenuItem = new JRadioButtonMenuItem("JPL");
+//        rbMenuItem.setMnemonic(KeyEvent.VK_O);
+//        group.add(rbMenuItem);
+//        menu.add(rbMenuItem);
+
+//a submenu
+        submenu = new JMenu("Engine");
+        submenu.setMnemonic(KeyEvent.VK_E);
+
+        ButtonGroup group = new ButtonGroup();
+        rbMenuItemInter = new JRadioButtonMenuItem("Interprolog");
+        rbMenuItemInter.setSelected(true);
+        rbMenuItemInter.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                typeProlog = PrologInterface.INTERPROLOG;
+                JOptionPane.showConfirmDialog(null,"Interprolog engine selected","Engine",JOptionPane.CLOSED_OPTION);
+            }
+        });
+        rbMenuItemInter.setMnemonic(KeyEvent.VK_I);
+        group.add(rbMenuItemInter);
+        submenu.add(rbMenuItemInter);
+
+        rbMenuItemJPL = new JRadioButtonMenuItem("JPL");
+        rbMenuItemJPL.setMnemonic(KeyEvent.VK_J);
+        rbMenuItemJPL.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                typeProlog = PrologInterface.JPL;
+                JOptionPane.showConfirmDialog(null,"JPL engine selected","Engine",JOptionPane.CLOSED_OPTION);
+            }
+        });
+        group.add(rbMenuItemJPL);
+        submenu.add(rbMenuItemJPL);
+
+        menu.add(submenu);
+
+        frame.setJMenuBar(menuBar);
+    }
+
     private void openInterface() {
-//        pi = new JPLInterface(PrologInterface.SWI);
-        pi = new InterprologInterface(PrologInterface.YAP);
+        if (typeProlog == PrologInterface.INTERPROLOG)
+            pi = new InterprologInterface(PrologInterface.YAP);
+        else
+            pi = new JPLInterface(PrologInterface.SWI);
     }
 
     private void closeInterface() {
@@ -147,7 +212,7 @@ public class MainWindow {
         closeInterface();
         openInterface();
         pi.consult(new File("prolog/main.pl"));
-        pi.statisfied("reset",null);
+        pi.statisfied("reset", null);
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
 //        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));

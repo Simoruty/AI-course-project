@@ -9,6 +9,8 @@ public abstract class PrologInterface {
     public static final int SWI = 2;
     public int type = SWI;
     public static final int YAP = 4;
+    public static final int JPL = 5;
+    public static final int INTERPROLOG = 6;
     protected static PrologInterface self;
     protected static String YAP_BIN_PATH = "/usr/local/bin/yap";
     protected static String SWI_BIN_PATH = "/usr/local/bin/swipl";
