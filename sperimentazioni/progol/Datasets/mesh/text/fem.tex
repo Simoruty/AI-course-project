@@ -1,0 +1,88 @@
+\documentstyle[12pt,a4]{article}
+\input{epsf}
+
+\begin{document}
+\section*{Learning rules for finite element mesh design}
+Finite element methods are used extensively by engineers and
+modelling scientists to analyse stresses in physical
+structures.  These structures are represented quantitatively
+as finite collections of elements. The deformation of
+each element is computed using linear algebraic
+equations. In order to design a numerical
+model of a physical structure it is necessary to decide
+the appropriate resolution for modelling each
+component part. Considerable expertise is
+required in choosing these resolution
+values. Too fine a mesh leads to unnecessary
+computational overheads when executing the model.
+Too coarse a mesh produces intolerable approximation errors.
+
+% Here is an example of an object that has been divided into
+% meshes that are too fine (left) and too coarse (middle) and
+% just right (right).
+% \begin{figure*}[htb]
+% \vspace{6cm}
+% \end{figure*}
+% 
+
+The resolution of a FE mesh is determined by the number of
+elements on each of its edges. The problem of learning rules for
+determining the resolution of a FE mesh is therefore,
+to learn rules that determine the number of
+elements on an edge. The data here is from 
+experiments conducted with {\em Golem\/} \cite{mugfeng:golem}
+(reported in \cite{dolmugg:fem}). The task is to learn
+rules for the number of elements using the following
+information:
+
+\begin{itemize}
+\item The training examples have the form
+	{\bf mesh(Edge,Number\_of\_elements)}, where {\bf Edge} is an edge label
+	(unique for each edge) and {\bf Number\_of\_elements} is the number
+	of elements on the edge denoted by label {\bf Edge}. The number of elements
+	on an edge varies from 1 to 17.
+\item The background knowledge describes some of the factors that
+	influence the resolution of a FE mesh, such as the type of edges,
+	boundary conditions and loadings, as well as the shape of the
+	structure (relations of neighborhood etc.).
+\item According to its importance and geometric shape, an edge can belong to one
+	of the following types: {\bf important\_long}, {\bf important},
+	{\bf important\_short}, {\bf not\_important}, {\bf circuit},
+	{\bf half\_circuit}, {\bf quarter\_circuit}, {\bf short\_for\_hole},
+	{\bf long\_for\_hole}, {\bf circuit\_hole}, {\bf half\_circuit\_hole} and
+	{\bf quarter\_circuit\_hole}. 
+\item With respect to the boundary conditions an edge can be {\bf free},
+	{\bf one\_side\_fixed}, {\bf two\_side\_fixed} or {\bf fixed}.
+\item According to the loadings an edge is {\bf not\_load\-ed},
+	{\bf one\_side\_load\-ed}, {\bf two\_si\-de\_load\-ed}  or
+	{\bf continuously\_load\-ed}.
+\item Background knowledge about the shape of a structure includes the
+	symmetric relations {\bf neighbour/2} and {\bf opposite/2}, as well as the
+	relation {\bf equal/2}.
+\end{itemize}
+
+The data concerns five structures labelled ``a'' -- ``e''. For each
+structure, data files are as used in the original {\em Golem\/}
+experiments. That is, background knowledge files have a ``.b'' suffix,
+positive example files have a ``.f'' suffix, and negative example files
+have a ``.n'' suffix. The files are all stored in one compressed TAR file.
+
+\begin{thebibliography}{}
+
+\bibitem{dolmugg:fem}
+Dolsak B. and Muggleton S. (1992).
+The application of Inductive Logic Programming to 
+finite element mesh design.
+In S. Muggleton editor.
+{\sl Inductive Logic Programming}, Academic Press, London.
+
+\bibitem{mugfeng:golem}
+Muggleton S.H. and Feng C. (1990).
+Efficient induction of logic programs.
+{\sl Proceedings of the First Conference on Algorithmic Learning Theory},
+Tokyo.
+
+
+\end{thebibliography}
+
+\end{document}

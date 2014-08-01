@@ -1,0 +1,2 @@
+:- [numbers,numtheory], set(r,1000000)?
+:- test(a2,[[_,C|_]]), tell(c), tab(4), write(C), nl, told?

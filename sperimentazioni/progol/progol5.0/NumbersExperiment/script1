@@ -1,0 +1,6 @@
+:- [numbers,t205], set(r,1000000)?
+:- wordnums('a1.pl')?
+:- consult(ex200), reduce(wordnum/3), set(r,1000)?
+:- generalise(wordnum/3)?
+:- set(r,1000000)?
+:- wordnums('a2.pl')?

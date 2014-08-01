@@ -1,0 +1,28 @@
+# gnuplot input file that produces Encapsulated postscript
+# to standard output
+# to save:  gnuplot numbers.in > numbers.eps
+
+
+
+# set size 0.25, 0.25
+set size 0.5, 0.77
+set term postscript portrait "Times-Roman" 10
+# set term postscript landscape "Times-Roman" 6
+
+# set data style linespoints
+set data style lines
+set nokey
+
+set title "Theory Recovery using 100 examples"
+set xlabel "Remaining background clauses (%)"
+set ylabel "Predictive accuracy (%)"
+set xrange [50:100]
+set yrange [50:100]
+# set logscale x
+set label 1 "After" at 79,90,0 left
+set label 2 "Before" at 88,80,0 left
+# set label 3 "D" at 100,78,0 left
+# set label 4 "L" at 35,70,0 left
+
+plot 'numbers.res' using 1:2, 'numbers.res' using 1:2:3 with errorbars, 'numbers.res' using 1:4, 'numbers.res' using 1:4:5 with errorbars
+show label

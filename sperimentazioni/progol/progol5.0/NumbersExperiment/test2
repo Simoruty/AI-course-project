@@ -1,0 +1,15 @@
+echo "  $1" >> S1
+echo ":- [numbers,$2], set(r,1000000)?" > script1
+echo ":- wordnums('a1.pl')?" >> script1
+echo ":- consult($1), reduce(wordnum/3), set(r,1000)?" >> script1
+echo ":- generalise(wordnum/3)?" >> script1
+echo ":- set(r,1000000)?" >> script1
+echo ":- wordnums('a2.pl')?" >> script1
+progol < script1
+wc a1.pl >> S1
+wc a2.pl >> S1
+echo ":- [numbers,numtheory], set(r,1000000)?" > script2
+echo ":- test(a2,[[_,C|_]]), tell(c), tab(4), write(C), nl, told?" >> script2
+progol < script2
+cat c >> S1
+

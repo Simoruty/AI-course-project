@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /~shm/Software/progol5.0/GenomicsExperiment</title>
+ </head>
+ <body>
+<h1>Index of /~shm/Software/progol5.0/GenomicsExperiment</h1>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=A">Name</a>                      <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=D">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]"> <a href="/~shm/Software/progol5.0/">Parent Directory</a>                               -   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="surround_exs_with_quotes">surround_exs_with_quotes</a>  24-Apr-2002 15:46  122   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="codes.pl">codes.pl</a>                  24-Apr-2002 15:46  325   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_23_exs.gp">result_train_23_exs.gp</a>    24-Apr-2002 15:46  660   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_45_exs.gp">result_train_45_exs.gp</a>    24-Apr-2002 15:46  660   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_68_exs.gp">result_train_68_exs.gp</a>    24-Apr-2002 15:46  664   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_91_exs.gp">result_train_91_exs.gp</a>    24-Apr-2002 15:46  664   
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="plot_learn_curve.gp">plot_learn_curve.gp</a>       24-Apr-2002 15:46  828   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="learning.pl">learning.pl</a>               24-Apr-2002 15:46  882   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="train_23_exs.pl">train_23_exs.pl</a>           24-Apr-2002 15:46  913   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="generate_train_sets.pl">generate_train_sets.pl</a>    24-Apr-2002 15:46  1.0K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="generate_exs.pl">generate_exs.pl</a>           24-Apr-2002 15:46  1.3K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="background.pl">background.pl</a>             24-Apr-2002 15:46  1.8K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="train_45_exs.pl">train_45_exs.pl</a>           24-Apr-2002 15:46  1.8K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="result_train_23_exs.pl">result_train_23_exs.pl</a>    24-Apr-2002 15:46  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="result_train_45_exs.pl">result_train_45_exs.pl</a>    24-Apr-2002 15:46  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="result_train_68_exs.pl">result_train_68_exs.pl</a>    24-Apr-2002 15:46  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="result_train_91_exs.pl">result_train_91_exs.pl</a>    24-Apr-2002 15:46  1.9K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="data_prep_for_gnu.pl">data_prep_for_gnu.pl</a>      24-Apr-2002 15:46  2.6K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="train_68_exs.pl">train_68_exs.pl</a>           24-Apr-2002 15:46  2.7K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="train_and_test.pl">train_and_test.pl</a>         24-Apr-2002 15:46  3.5K  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="examples.pl">examples.pl</a>               24-Apr-2002 15:46  3.7K  
+<img src="/icons/a.gif" alt="[   ]"> <a href="result_train_91_exs.eps">result_train_91_exs.eps</a>   24-Apr-2002 15:46   12K  
+<img src="/icons/a.gif" alt="[   ]"> <a href="result_train_68_exs.eps">result_train_68_exs.eps</a>   24-Apr-2002 15:46   12K  
+<img src="/icons/a.gif" alt="[   ]"> <a href="result_train_23_exs.eps">result_train_23_exs.eps</a>   24-Apr-2002 15:46   12K  
+<img src="/icons/a.gif" alt="[   ]"> <a href="result_train_45_exs.eps">result_train_45_exs.eps</a>   24-Apr-2002 15:46   12K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_23_exs.out">result_train_23_exs.out</a>   24-Apr-2002 15:46  189K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_45_exs.out">result_train_45_exs.out</a>   24-Apr-2002 15:46  205K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_68_exs.out">result_train_68_exs.out</a>   24-Apr-2002 15:46  222K  
+<img src="/icons/unknown.gif" alt="[   ]"> <a href="result_train_91_exs.out">result_train_91_exs.out</a>   24-Apr-2002 15:46  226K  
+<hr></pre>
+<address>Apache Server at wwwhomes.doc.ic.ac.uk Port 80</address>
+</body></html>

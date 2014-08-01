@@ -1,0 +1,21 @@
+rm S1
+test1 35 t051
+test1 35 t052
+test1 35 t053
+test1 35 t054
+test1 35 t055
+test1 30 t101
+test1 30 t102
+test1 30 t103
+test1 30 t104
+test1 30 t105
+test1 25 t151
+test1 25 t152
+test1 25 t153
+test1 25 t154
+test1 25 t155
+test1 20 t201
+test1 20 t202
+test1 20 t203
+test1 20 t204
+test1 20 t205

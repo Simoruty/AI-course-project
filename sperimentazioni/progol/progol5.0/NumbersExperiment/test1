@@ -1,0 +1,4 @@
+qsample $1 numtheory.pl $2.pl
+echo $2 >> S1
+test2 ex100 $2
+test2 ex200 $2

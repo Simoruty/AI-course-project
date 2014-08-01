@@ -1,0 +1,8 @@
+#! /bin/csh -f
+
+echo 'Quoting permuted examples'
+
+sed s/^/\'/ examples.plO |\
+sed s/\.\$/\'./  > examples_quoted.pl
+
+exit

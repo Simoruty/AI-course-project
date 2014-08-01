@@ -1,0 +1,13 @@
+codes(gene_a, enzyme_a).
+codes(gene_b, enzyme_b).
+codes(gene_c, enzyme_c).
+codes(gene_d, enzyme_d).
+codes(gene_e, enzyme_e).
+codes(gene_f, enzyme_f).
+codes(gene_g, enzyme_g).
+codes(gene_h, enzyme_h).
+codes(gene_i, enzyme_i).
+codes(gene_j, enzyme_j).
+codes(gene_k, enzyme_k).
+codes(gene_l, enzyme_l).
+codes(gene_m, enzyme_m).
