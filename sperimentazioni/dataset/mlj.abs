@@ -1,0 +1,140 @@
+
+% Teoria di astrazione per passare dagli esempi contenenti i letterali 
+% numerici a quelli con solo il simbolico.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Astrazione sulla larghezza dei documenti 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+width_very_small(X):-
+	larghezza_rettangolo(X,Y),
+	Y >= 0, 
+	Y =< 0.023.
+
+width_small(X):-	
+	larghezza_rettangolo(X,Y),	
+	Y > 0.023, 
+	Y =< 0.047.
+	
+width_medium_small(X):-	
+	larghezza_rettangolo(X,Y),
+	Y > 0.047,
+	Y =< 0.125.
+
+width_medium(X):-
+	larghezza_rettangolo(X,Y),
+	Y > 0.125,
+	Y =< 0.203.
+
+width_medium_large(X):-
+	larghezza_rettangolo(X,Y),
+	Y > 0.203,
+ 	Y =< 0.391.
+
+width_large(X):-
+	larghezza_rettangolo(X,Y),
+	Y > 0.391,
+	Y =< 0.625.
+
+width_very_large(X):-
+	larghezza_rettangolo(X,Y),
+	Y > 0.625,
+	Y =< 1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Astrazione sull'altezza dei documenti 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+height_smallest(X):-
+	altezza_rettangolo(X,Y),
+	Y >= 0,
+	Y =< 0.006.
+
+height_very_very_small(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.006,
+	Y =< 0.017.
+
+height_very_small(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.017,
+	Y =< 0.034.
+
+height_small(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.034,
+	Y =< 0.057.
+
+height_medium_small(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.057,
+	Y =< 0.103.
+
+height_medium(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.103,
+	Y =< 0.160.
+
+height_medium_large(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.160,
+	Y =< 0.229.
+
+height_large(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.229,
+	Y =< 0.406.
+
+height_very_large(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.406,
+	Y =< 0.571.
+
+height_very_very_large(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.571,
+	Y =< 0.777.
+
+height_largest(X):-
+	altezza_rettangolo(X,Y),
+	Y > 0.777,
+	Y =< 1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Astrazione sulla posizione orizzontale dei blocchi nei documenti 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+pos_left(X):-
+	ascissa_rettangolo(X,Y),
+	Y >= 0,
+	Y < 0.333.
+
+pos_center(X):-
+	ascissa_rettangolo(X,Y),
+	Y >= 0.333,
+	Y =< 0.666.
+
+pos_right(X):-
+	ascissa_rettangolo(X,Y),
+	Y > 0.666,
+	Y =< 1.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Astrazione sulla posizione verticale dei blocchi nei documenti
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+pos_upper(X):-
+	ordinata_rettangolo(X,Y),
+	Y >= 0,
+	Y < 0.333.
+
+pos_middle(X):-
+	ordinata_rettangolo(X,Y),
+	Y >= 0.333,
+	Y =< 0.666.
+
+pos_lower(X):-
+	ordinata_rettangolo(X,Y),
+	Y > 0.666,
+	Y =< 1.
+
