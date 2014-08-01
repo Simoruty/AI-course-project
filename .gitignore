@@ -21,6 +21,7 @@ sperimentazioni/documentation/*.pdf
 *.ind
 *.out
 *.blg
+*.synctex.gz
 
 *.class
 
