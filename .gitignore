@@ -3,7 +3,24 @@
 img/*.png
 graph/*.dot
 prolog/dataset.pl
-sperimentazioni/ius.db
+
+# Latex files
+documentation/*.pdf
+sperimentazioni/documentation/*.pdf
+*.log
+*.aux
+*.dvi
+*.lof
+*.lot
+*.bit
+*.idx
+*.glo
+*.bbl
+*.ilg
+*.toc
+*.ind
+*.out
+*.blg
 
 *.class
 

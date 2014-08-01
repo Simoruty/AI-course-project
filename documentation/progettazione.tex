@@ -1,0 +1,64 @@
+\section{Progettazione}
+
+\label{sec:Progettazione}
+
+\subsection{Obiettivo}
+Come primo obiettivo, il sistema deve essere in grado di estrarre, da documenti testuali, alcune informazioni principali, quali:
+\begin{itemize}
+\item numero della pratica; %TODO
+\item soggetto della richiesta di iscrizione;
+\item quantità di denaro richiesta e tipologia.
+\end{itemize}
+
+Come feature aggiuntive, il sistema si può occupare dell'estrazione, su richiesta, di altre informazioni utili come:
+\begin{itemize}
+\item indirizzi email;
+\item numeri di telefono;
+\item nomi di comuni;
+\item altre persone nominate nel testo;
+\item etc.
+\end{itemize}
+
+
+\subsection{Input e Assunzioni}
+Non avendo a disposizione dei documenti di input reali sui quali il sistema deve essere in grado di lavorare e, quindi, non conoscendone il formato o la composizione, abbiamo dovuto fare delle assunzioni e realizzare degli esempi di input ad hoc.
+Per essere pronti a successivi adattamenti, abbiamo fatto le scelte meno vantaggiose, ipotizzando di non avere a disposizione alcuna strutturazione nel documento o metadati su di esso.
+I nostri esempi di input sono delle semplicissime stringhe prive di \verb+newline+, tabulazioni, ordinamento nello spazio, tag di qualsiasi tipo.
+Nel caso in cui in futuro dovessimo essere in possesso di alcune di queste informazioni, potremmo utilizzarle per migliorare le nostre regole.
+
+
+\subsection{Strategia risolutiva}
+Il problema che affronteremo rientra nell'ambito dell'\emph{Information Extraction}, un task di Intelligenza Artificiale che mira all'estrazione automatica di informazioni strutturate da documenti non-strutturati o semi-strutturati.
+
+Nella maggior parte dei casi, questa attività riguarda l'elaborazione di testi scritti in linguaggio naturale (NLP).
+
+Abbiamo deciso di servirci di alcune delle tecniche di analisi lessicale e sintattica già note e utilizzate in questo campo.
+
+\subsubsection{Lexical Analysis}
+Il testo in input (come già detto testo semplice in una stringa) subisce una pre-elaborazione lessicale, con l'obiettivo di ottenere una lista di token da passare al tagger (\ref{tagger}).
+
+Questa pre-elaborazione principalmente si occupa di:
+\begin{itemize}
+\item eliminare i caratteri \emph{inutili} per i nostri scopi quali, ad esempio, \verb+-+, \verb+!+, \verb+?+;
+\item normalizzare tutte le lettere in minuscolo;
+\item produrre una lista di atomi che saranno i token in input al tagger.
+\end{itemize}
+
+\subsubsection{Syntactic Analysis}
+\label{tagger}
+Il tagger è la componente che lavora sulle liste di token precedentemente create, alla ricerca di pattern noti per poter assegnare una semantica ai token. In questo modo si andranno a individuare gli oggetti del dominio contenuti all'interno del documento da analizzare.
+
+\subsection{Oggetti del dominio}
+Per poter estrarre le informazioni a più alto livello quali, ad esempio, \emph{soggetto} e \emph{quantità di denaro richiesta}, dobbiamo utilizzare numerosi oggetti, specifici del dominio giuridico e non.
+
+\subsubsection{Persone}
+Per l'individuazione delle persone fisiche presenti nel testo (oltre al soggetto della richiesta, anche il giudice, l'avvocato o altre persone nominate nel testo) è utile riuscire a distinguere un \fbox{nome} e un \fbox{cognome}, eventuali \fbox{titoli} che riescono a contraddistinguere il ruolo della persona fisica all'interno del testo.
+
+\subsubsection{Richiesta di denaro}
+Per quanto riguarda invece la ricerca del quantitativo di denaro che il soggetto della richiesta dovrà ottenere, diventa necessario individuare in primis il \fbox{valore} e successivamente anche la \fbox{tipologia} della richiesta di rimborso, quindi se chirografata o privilegiata cosi come detto in precedenza nel paragrafo \ref{Tipologia di iscrizione}.
+
+\subsubsection{Oggetti aggiuntivi}
+Sono state estratte anche altre informazioni aggiuntive che potrebbero rivelarsi utili all'utilizzatore del sistema, quali ad esempio eventuali email, date, nomi di comuni, codici fiscali e anche numeri di telefono presenti all'interno del documento.
+
+\subsection{Individuazione delle relazioni}
+%TODO Fa Luciano
