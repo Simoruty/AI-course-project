@@ -1,7 +1,7 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Aleph {
     private static String homeDir = System.getProperty("user.home");
@@ -10,24 +10,97 @@ public class Aleph {
 
     //    private static String all
     private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    private static List<String> positives;
-    private static List<String> negatives;
-    private static List<String> facts;
+    private static List<String> positiviRAW;
+    private static List<String> negativiRAW;
+    private static List<String> fattiRAW;
     private static List<List<String>> examples; //Lista di fold che contiene lista di esempi
+    private static Set<String> documenti;
+    private static Set<Object> pagine;
+    private static Set<Object> frame;
+    private static List<Fatto> fatti;
+
 
     public static void main(String[] args) throws IOException {
         for (String dataset : datasets) {
             System.out.println("Begin dataset " + dataset);
-            facts = new ArrayList<>(68300);
-            positives = new ArrayList<>(122);
-            negatives = new ArrayList<>(292);
+            fattiRAW = new ArrayList<>(68300);
+            positiviRAW = new ArrayList<>(122);
+            negativiRAW = new ArrayList<>(292);
             examples = new ArrayList<>(10);
+            documenti = new HashSet<>(355);
+            pagine = new HashSet<>(355);
+            frame = new HashSet<>(10000);
+            fatti = new ArrayList<>(70000);
             readDataset(dataset);
+            fillObjects(dataset);
             readExamples(dataset);
             writeFN(dataset);
             writeB(dataset);
             writeYAP(dataset);
             writeD(dataset);
+        }
+    }
+
+    private static void fillObjects(String dataset) {
+        for (String positive : positiviRAW)
+            documenti.add(positive.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "\\1"));
+        for (String negative : negativiRAW)
+            documenti.add(negative.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "\\1"));
+
+        Pattern arieta1 = Pattern.compile("^(.*)\\((.+)\\)\\.$");
+        Pattern arieta2 = Pattern.compile("^(.*)\\((.+), (.+)\\)\\.$");
+        for (String fattoRAW : fattiRAW) {
+            Matcher m2 = arieta2.matcher(fattoRAW);
+            Matcher m1 = arieta1.matcher(fattoRAW);
+            if (m2.matches()) {
+                String predicato = m2.group(1);
+                String arg1 = m2.group(2);
+                String arg2 = m2.group(3);
+                fatti.add(new Fatto(predicato, arg1, arg2));
+                if (predicato.equals("numero_pagine")) documenti.add(arg1);
+                if (predicato.equals("pagina_1")) {
+                    documenti.add(arg1);
+                    pagine.add(arg2);
+                }
+                if (predicato.equals("altezza_pagina")) pagine.add(arg1);
+                if (predicato.equals("larghezza_pagina")) pagine.add(arg1);
+                if (predicato.equals("frame")) {
+                    pagine.add(arg1);
+                    frame.add(arg2);
+                }
+                if (predicato.equals("altezza_rettangolo")) frame.add(arg1);
+                if (predicato.equals("larghezza_rettangolo")) frame.add(arg1);
+                if (predicato.equals("ascissa_rettangolo")) frame.add(arg1);
+                if (predicato.equals("ordinata_rettangolo")) frame.add(arg1);
+                if (predicato.equals("allineato_al_centro_orizzontale")) {
+                    frame.add(arg1);
+                    frame.add(arg2);
+                }
+                if (predicato.equals("allineato_al_centro_verticale")) {
+                    frame.add(arg1);
+                    frame.add(arg2);
+                }
+                if (predicato.equals("on_top")) {
+                    frame.add(arg1);
+                    frame.add(arg2);
+                }
+                if (predicato.equals("to_right")) {
+                    frame.add(arg1);
+                    frame.add(arg2);
+                }
+            }
+            if (m1.matches()) {
+                String predicato = m2.group(1);
+                String arg1 = m2.group(2);
+                fatti.add(new Fatto(predicato, arg1));
+                if (predicato.equals("ultima_pagina")) pagine.add(arg1);
+                if (predicato.equals("tipo_immagine")) frame.add(arg1);
+                if (predicato.equals("tipo_testo")) frame.add(arg1);
+                if (predicato.equals("tipo_line_obbliqua")) frame.add(arg1);
+                if (predicato.equals("tipo_line_orizzontale")) frame.add(arg1);
+                if (predicato.equals("tipo_misto")) frame.add(arg1);
+                if (predicato.equals("tipo_vuoto")) frame.add(arg1);
+            }
         }
     }
 
@@ -39,18 +112,18 @@ public class Aleph {
         while ((line = br.readLine()) != null) {
             if (line.contains(":-")) {
                 if (line.startsWith("neg")) {
-                    negatives.add(line.replaceAll("neg\\(", "").replaceAll("\\) :-", "."));
+                    negativiRAW.add(line.replaceAll("neg\\(", "").replaceAll("\\) :-", "."));
                 } else {
-                    positives.add(line.replaceAll(" :-", "."));
+                    positiviRAW.add(line.replaceAll(" :-", "."));
                 }
             } else if (line.endsWith(").")) {
-                facts.add(line.trim());
+                fattiRAW.add(line.trim());
             } else if (line.trim() != "")
-                facts.add(line.trim().replaceAll(",$", "."));
+                fattiRAW.add(line.trim().replaceAll(",$", "."));
         }
         br.close();
 
-        Collections.sort(facts);
+        Collections.sort(fattiRAW);
     }
 
     private static void writeD(String dataset) throws IOException {
@@ -59,29 +132,28 @@ public class Aleph {
             PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
 
             pwD.print("#NomeDocumento: ");
-            for (String positive : positives) {
-                pwD.print(positive + ", ");
+            for (Fatto fatto : fatti) {
+                //TODO non compila, sto lavorando
+                !£$£"&" SYNTAX ERROR
+                //TODO non compila, sto lavorando
             }
-            pwD.print(negatives.get(0));
-            for (int i = 1; i < negatives.size(); i++) {
-                pwD.print(", " + negatives.get(i));
-            }
-            pwD.print(".\n");
+
+
+
 
             pwD.print("#Pagina: ");
 
 //            List<String> pagine =
 
-            //TODO conviene creare oggetti di tutti gli ID in un set di String
-            for (int i = 0; i < facts.size(); i++) {
-                if (facts.get(i).startsWith("ultima_pagina")) {
-                    String pagina = facts.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
+            for (int i = 0; i < fattiRAW.size(); i++) {
+                if (fattiRAW.get(i).startsWith("ultima_pagina")) {
+                    String pagina = fattiRAW.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
                 }
             }
 
-            pwD.print(negatives.get(0));
-            for (int i = 1; i < negatives.size(); i++) {
-                pwD.print(", " + negatives.get(i));
+            pwD.print(negativiRAW.get(0));
+            for (int i = 1; i < negativiRAW.size(); i++) {
+                pwD.print(", " + negativiRAW.get(i));
             }
             pwD.print(".\n");
 
@@ -237,7 +309,7 @@ public class Aleph {
                 //write B file
                 PrintWriter pwB = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".b"));
                 pwB.println(init(dataset, fold));
-                for (String fact : facts) {
+                for (String fact : fattiRAW) {
                     pwB.println(fact);
                 }
                 pwB.close();
