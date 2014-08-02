@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Aleph {
@@ -7,21 +8,85 @@ public class Aleph {
     private static String datasetDir = "/dev/university/ia-ius-project/sperimentazioni/dataset/";
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
-
+    //    private static String all
     private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    private static List<String> facts = new ArrayList<>(68300);
-    private static List<List<String>> examples = new ArrayList<>(10); //Lista di fold che contiene lista di esempi
+    private static List<String> positives;
+    private static List<String> negatives;
+    private static List<String> facts;
+    private static List<List<String>> examples; //Lista di fold che contiene lista di esempi
 
     public static void main(String[] args) throws IOException {
         for (String dataset : datasets) {
             System.out.println("Begin dataset " + dataset);
+            facts = new ArrayList<>(68300);
+            positives = new ArrayList<>(122);
+            negatives = new ArrayList<>(292);
+            examples = new ArrayList<>(10);
+            readDataset(dataset);
             readExamples(dataset);
-            readFacts(dataset);
             writeFN(dataset);
             writeB(dataset);
             writeYAP(dataset);
-            facts = new ArrayList<>(68300);
-            examples = new ArrayList<>(10);
+            writeD(dataset);
+        }
+    }
+
+    private static void readDataset(String dataset) throws IOException {
+        File input = new File(homeDir + datasetDir + dataset + ".tun");
+        BufferedReader br = new BufferedReader(new FileReader(input));
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.contains(":-")) {
+                if (line.startsWith("neg")) {
+                    negatives.add(line.replaceAll("neg\\(", "").replaceAll("\\) :-", "."));
+                } else {
+                    positives.add(line.replaceAll(" :-", "."));
+                }
+            } else if (line.endsWith(").")) {
+                facts.add(line.trim());
+            } else if (line.trim() != "")
+                facts.add(line.trim().replaceAll(",$", "."));
+        }
+        br.close();
+
+        Collections.sort(facts);
+    }
+
+    private static void writeD(String dataset) throws IOException {
+        String alg = "foil";
+        for (int fold = 0; fold < 10; fold++) {
+            PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
+
+            pwD.print("#NomeDocumento: ");
+            for (String positive : positives) {
+                pwD.print(positive + ", ");
+            }
+            pwD.print(negatives.get(0));
+            for (int i = 1; i < negatives.size(); i++) {
+                pwD.print(", " + negatives.get(i));
+            }
+            pwD.print(".\n");
+
+            pwD.print("#Pagina: ");
+
+//            List<String> pagine =
+
+            //TODO conviene creare oggetti di tutti gli ID in un set di String
+            for (int i = 0; i < facts.size(); i++) {
+                if (facts.get(i).startsWith("ultima_pagina")) {
+                    String pagina = facts.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
+                }
+            }
+
+            pwD.print(negatives.get(0));
+            for (int i = 1; i < negatives.size(); i++) {
+                pwD.print(", " + negatives.get(i));
+            }
+            pwD.print(".\n");
+
+
+            pwD.close();
         }
     }
 
@@ -35,24 +100,15 @@ public class Aleph {
                 sb.append("#\n");
                 sb.append("# .\n");
 
-                sb.append(":- consult('"+alg+".pl').\n");
-                sb.append(":- read_all('"+dataset+"_f"+fold+"').\n");
+                sb.append(":- consult('" + alg + ".pl').\n");
+                sb.append(":- read_all('" + dataset + "_f" + fold + "').\n");
                 sb.append(":- induce.\n");
-                sb.append(":- write_rules('"+dataset + "_f" + fold+".rul').\n");
+                sb.append(":- write_rules('" + dataset + "_f" + fold + ".rul').\n");
 
                 pwYap.println(sb.toString());
                 pwYap.close();
             }
 
-    }
-
-    private static void readFacts(String dataset) throws IOException {
-        BufferedReader brKB = new BufferedReader(new FileReader(homeDir + datasetDir + dataset + ".kb"));
-        String row;
-        while ((row = brKB.readLine()) != null) {
-            facts.add(row);
-        }
-        brKB.close();
     }
 
     private static void readExamples(String dataset) throws IOException {
@@ -187,5 +243,6 @@ public class Aleph {
                 pwB.close();
             }
     }
+
 
 }
