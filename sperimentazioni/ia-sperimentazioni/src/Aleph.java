@@ -90,8 +90,6 @@ public class Aleph {
         sb.append(":- set(record, true).\n");
         sb.append(":- set(recordfile, '" + dataset + "_f" + fold + ".log').\n");
         sb.append(":- set(rulefile, '" + dataset + "_f" + fold + ".rul').\n");
-        sb.append(":- set(train_pos, '" + dataset + "_f" + fold + "_train.f').\n");
-        sb.append(":- set(train_neg, '" + dataset + "_f" + fold + "_train.n').\n");
         sb.append(":- set(test_pos, '" + dataset + "_f" + fold + "_test.f').\n");
         sb.append(":- set(test_neg, '" + dataset + "_f" + fold + "_test.n').\n");
         sb.append(":- set(thread, 8).\n");
@@ -149,8 +147,8 @@ public class Aleph {
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
                 // write F and N files
-                PrintWriter trPos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + "_train.f"));
-                PrintWriter trNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + "_train.n"));
+                PrintWriter trPos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".f"));
+                PrintWriter trNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".n"));
                 PrintWriter tePos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + "_test.f"));
                 PrintWriter teNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + "_test.n"));
 
