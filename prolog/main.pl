@@ -8,7 +8,7 @@
 :- use_module(tel).
 :- use_module(valuta).
 :- use_module(interface).
-:- use_module(serialize).
+%:- use_module(serialize).
 :- use_module(graph_doc).
 :- use_module(graph_explain).
 :- use_module(base).
@@ -36,7 +36,7 @@ main :-
     expandKB,
     resultKB,
     spiegazioneGUI,
-    serialize,
+%    serialize,
     graph_doc_all,
     graph_explain_all,
     true.
@@ -46,7 +46,7 @@ start :-
     writeKB,
     tag_default2,
     expandKB,
-    serialize,
+%    serialize,
     graph_doc_all,
     graph_explain_all,
     true.
@@ -55,7 +55,7 @@ startJava :-
     writeKB,
     tag_default2,
     expandKB,
-    serialize,
+%    serialize,
     graph_doc_all,
     graph_explain_all,
     true.
