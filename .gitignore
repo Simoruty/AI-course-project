@@ -46,9 +46,6 @@ sperimentazioni/ia-sperimentazioni/.idea/*
 sperimentazioni/ia-sperimentazioni/.out
 sperimentazioni/ia-sperimentazioni/.out/*
 
-
-sperimentazioni/dataset/*.kb
-
 sperimentazioni/aleph/*.f
 sperimentazioni/aleph/*.b
 sperimentazioni/aleph/*.n
