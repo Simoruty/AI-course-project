@@ -10,27 +10,19 @@ public class FoldSplitter {
     private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
     private static List<String> positives;
     private static List<String> negatives;
-    private static List<String> facts = new ArrayList<String>(68300);
+    private static List<String> facts;
 
     public static void main(String[] args) throws IOException {
         for (String dataset : datasets) {
             System.out.println("Begin dataset " + dataset);
+            facts = new ArrayList<>(68300);
             positives = new ArrayList<>(122);
             negatives = new ArrayList<>(292);
             read(dataset);
             Collections.shuffle(positives);
             Collections.shuffle(negatives);
             split(dataset);
-            writeFacts(dataset);
         }
-    }
-
-    private static void writeFacts(String dataset) throws FileNotFoundException {
-        File fFacts = new File(homeDir + dir + dataset + ".kb");
-        PrintWriter pwFacts = new PrintWriter(fFacts);
-        for (String fact : facts)
-            pwFacts.println(fact);
-        pwFacts.close();
     }
 
     private static int getNumPosInFold(String dataset, int fold) {
