@@ -2,4 +2,8 @@ all:
 	./run.sh
 
 clean:
-	rm *.rul *.log
+	rm -f *.rul *.log
+
+
+cleanall: clean
+	rm -f *.b *.f *.n *.yap
