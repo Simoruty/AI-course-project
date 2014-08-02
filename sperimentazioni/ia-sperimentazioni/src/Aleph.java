@@ -160,7 +160,7 @@ public class Aleph {
                             if (example.startsWith("-"))
                                 teNeg.println(example.replaceAll("^-", ""));
                             else
-                                teNeg.println(example);
+                                tePos.println(example);
                     else
                         for (String example : exampleOfFold)
                             if (example.startsWith("-"))
