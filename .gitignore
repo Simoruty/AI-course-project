@@ -41,7 +41,10 @@ hs_err_pid*
 *.iml
 target
 target/*
-
+sperimentazioni/ia-sperimentazioni/.idea
+sperimentazioni/ia-sperimentazioni/.idea/*
+sperimentazioni/ia-sperimentazioni/.out
+sperimentazioni/ia-sperimentazioni/.out/*
 
 
 sperimentazioni/dataset/*.kb
