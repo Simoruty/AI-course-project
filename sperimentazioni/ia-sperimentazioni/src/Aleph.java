@@ -37,7 +37,7 @@ public class Aleph {
             writeFN(dataset);
             writeB(dataset);
             writeYAP(dataset);
-            writeD(dataset);
+//            writeD(dataset);
         }
     }
 
@@ -126,41 +126,41 @@ public class Aleph {
         Collections.sort(fattiRAW);
     }
 
-    private static void writeD(String dataset) throws IOException {
-        String alg = "foil";
-        for (int fold = 0; fold < 10; fold++) {
-            PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
-
-            pwD.print("#NomeDocumento: ");
-            for (Fatto fatto : fatti) {
-                //TODO non compila, sto lavorando
-                !£$£"&" SYNTAX ERROR
-                //TODO non compila, sto lavorando
-            }
-
-
-
-
-            pwD.print("#Pagina: ");
-
-//            List<String> pagine =
-
-            for (int i = 0; i < fattiRAW.size(); i++) {
-                if (fattiRAW.get(i).startsWith("ultima_pagina")) {
-                    String pagina = fattiRAW.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
-                }
-            }
-
-            pwD.print(negativiRAW.get(0));
-            for (int i = 1; i < negativiRAW.size(); i++) {
-                pwD.print(", " + negativiRAW.get(i));
-            }
-            pwD.print(".\n");
-
-
-            pwD.close();
-        }
-    }
+//    private static void writeD(String dataset) throws IOException {
+//        String alg = "foil";
+//        for (int fold = 0; fold < 10; fold++) {
+//            PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
+//
+//            pwD.print("#NomeDocumento: ");
+//            for (Fatto fatto : fatti) {
+//                //TODO non compila, sto lavorando
+//                !£$£"&" SYNTAX ERROR
+//                //TODO non compila, sto lavorando
+//            }
+//
+//
+//
+//
+//            pwD.print("#Pagina: ");
+//
+////            List<String> pagine =
+//
+//            for (int i = 0; i < fattiRAW.size(); i++) {
+//                if (fattiRAW.get(i).startsWith("ultima_pagina")) {
+//                    String pagina = fattiRAW.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
+//                }
+//            }
+//
+//            pwD.print(negativiRAW.get(0));
+//            for (int i = 1; i < negativiRAW.size(); i++) {
+//                pwD.print(", " + negativiRAW.get(i));
+//            }
+//            pwD.print(".\n");
+//
+//
+//            pwD.close();
+//        }
+//    }
 
     private static void writeYAP(String dataset) throws IOException {
         for (String alg : new String[]{"aleph", "progol"})
