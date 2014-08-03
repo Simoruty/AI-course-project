@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Aleph {
+public class DatasetFormatter {
     private static String homeDir = System.getProperty("user.home");
     private static String datasetDir = "/dev/university/ia-ius-project/sperimentazioni/dataset/";
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
@@ -165,14 +165,14 @@ public class Aleph {
     private static void writeYAP(String dataset) throws IOException {
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
-                PrintWriter pwYap = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".yap"));
+                PrintWriter pwYap = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".yap"));
 
                 StringBuilder sb = new StringBuilder(200);
                 sb.append("#!/usr/local/bin/yap -L --\n");
                 sb.append("#\n");
                 sb.append("# .\n");
 
-                sb.append(":- consult('" + alg + ".pl').\n");
+                sb.append(":- consult('../" + alg + ".pl').\n");
                 sb.append(":- read_all('" + dataset + "_f" + fold + "').\n");
                 sb.append(":- induce.\n");
                 sb.append(":- write_rules('" + dataset + "_f" + fold + ".rul').\n");
@@ -211,17 +211,17 @@ public class Aleph {
         sb.append(":- set(depth, 15).\n");
         sb.append(":- set(i, 10). %numero massimo di possibili variabili nelle clausole\n");
         sb.append(":- set(minacc, 0.0). %accuratezza minima di ogni regola\n");
-        sb.append(":- set(minpos, 2). % numero minimo di esempi positivi che una regola deve coprire. This can be used to prevent Aleph from adding ground unit clauses to the theory (by setting the value to 2).\n");
+        sb.append(":- set(minpos, 2). % numero minimo di esempi positivi che una regola deve coprire. This can be used to prevent DatasetFormatter from adding ground unit clauses to the theory (by setting the value to 2).\n");
         sb.append(":- set(nodes, 50000).\n");
         sb.append(":- set(noise, 0). %Set an upper bound on the number of negative examples allowed to be covered by an acceptable clause.\n");
         sb.append("\n");
         sb.append(":- set(record, true).\n");
-        sb.append(":- set(recordfile, '" + dataset + "_f" + fold + ".log').\n");
-        sb.append(":- set(rulefile, '" + dataset + "_f" + fold + ".rul').\n");
+        sb.append(":- set(recordfile, './" + dataset + "_f" + fold + ".log').\n");
+        sb.append(":- set(rulefile, './" + dataset + "_f" + fold + ".rul').\n");
 //        sb.append(":- set(train_pos, '" + dataset + "_f" + fold + ".f').\n");
 //        sb.append(":- set(train_neg, '" + dataset + "_f" + fold + ".n').\n");
-        sb.append(":- set(test_pos, '" + dataset + "_f" + fold + "_test.f').\n");
-        sb.append(":- set(test_neg, '" + dataset + "_f" + fold + "_test.n').\n");
+        sb.append(":- set(test_pos, './" + dataset + "_f" + fold + "_test.f').\n");
+        sb.append(":- set(test_neg, './" + dataset + "_f" + fold + "_test.n').\n");
         sb.append(":- set(thread, 8).\n");
         sb.append(":- set(verbosity, 0).\n");
         sb.append("\n");
@@ -274,13 +274,15 @@ public class Aleph {
     }
 
     public static void writeFN(String dataset) throws IOException {
+        boolean c =new File(homeDir + dir + "aleph/" + dataset + "/").mkdir();
+        boolean s =new File(homeDir + dir + "progol/" + dataset + "/").mkdir();
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
                 // write F and N files
-                PrintWriter trPos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".f"));
-                PrintWriter trNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".n"));
-                PrintWriter tePos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + "_test.f"));
-                PrintWriter teNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + "_test.n"));
+                PrintWriter trPos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".f"));
+                PrintWriter trNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".n"));
+                PrintWriter tePos = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + "_test.f"));
+                PrintWriter teNeg = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + "_test.n"));
 
                 for (List<String> exampleOfFold : examples)
                     if (examples.indexOf(exampleOfFold) == fold)
@@ -307,7 +309,7 @@ public class Aleph {
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
                 //write B file
-                PrintWriter pwB = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".b"));
+                PrintWriter pwB = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".b"));
                 pwB.println(init(dataset, fold));
                 for (String fact : fattiRAW) {
                     pwB.println(fact);
