@@ -1,0 +1,200 @@
+
+ --- Fold 0
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27450982).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.27525252), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[Test set performance]
+          Actual
+       +        - 
+     + 9        0        9 
+Pred 
+     - 1        25        26 
+
+       10        25        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[9,0,1,25]]
+
+ --- Fold 1
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 0        25        25 
+
+       10        25        35 
+
+Accuracy = 1.0
+[Test set summary] [[10,0,0,25]]
+
+ --- Fold 2
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 0        25        25 
+
+       10        25        35 
+
+Accuracy = 1.0
+[Test set summary] [[10,0,0,25]]
+
+ --- Fold 3
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.64215684).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.27525252), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[Test set performance]
+          Actual
+       +        - 
+     + 8        0        8 
+Pred 
+     - 2        25        27 
+
+       10        25        35 
+
+Accuracy = 0.942857142857143
+[Test set summary] [[8,0,2,25]]
+
+ --- Fold 4
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 0        25        25 
+
+       10        25        35 
+
+Accuracy = 1.0
+[Test set summary] [[10,0,0,25]]
+
+ --- Fold 5
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,E), 
+   altezza_rettangolo(E,0.011363637).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        1        11 
+Pred 
+     - 0        24        24 
+
+       10        25        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[10,1,0,24]]
+
+ --- Fold 6
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 0        25        25 
+
+       10        25        35 
+
+Accuracy = 1.0
+[Test set summary] [[10,0,0,25]]
+
+ --- Fold 7
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[Test set performance]
+          Actual
+       +        - 
+     + 8        0        8 
+Pred 
+     - 2        26        28 
+
+       10        26        36 
+
+Accuracy = 0.944444444444444
+[Test set summary] [[8,0,2,26]]
+
+ --- Fold 8
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 0        26        26 
+
+       10        26        36 
+
+Accuracy = 1.0
+[Test set summary] [[10,0,0,26]]
+
+ --- Fold 9
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 0        26        26 
+
+       10        26        36 
+
+Accuracy = 1.0
+[Test set summary] [[10,0,0,26]]

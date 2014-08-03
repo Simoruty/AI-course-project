@@ -1,4 +1,5 @@
---- Fold 0
+
+ --- Fold 0
 class_elsevier(A) :-
    pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_linea_orizzontale(D), 
    tipo_misto(C).
@@ -9,9 +10,19 @@ class_elsevier(A) :-
    pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
 class_elsevier(A) :-
    pagina_1(A,B), larghezza_pagina(B,544.0).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
 Accuracy = 1.0
 [Test set summary] [[6,0,0,29]]
---- Fold 1
+
+ --- Fold 1
 class_elsevier(A) :-
    pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0011876485).
 class_elsevier(A) :-
@@ -23,5 +34,192 @@ class_elsevier(A) :-
    pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.3111639).
 class_elsevier(A) :-
    pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.009803922).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
 Accuracy = 1.0
 [Test set summary] [[6,0,0,29]]
+
+ --- Fold 2
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+
+ --- Fold 3
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+
+ --- Fold 4
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0011876485).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), on_top(D,E), 
+   tipo_misto(C), larghezza_pagina(B,595.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.009803922).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        1        7 
+Pred 
+     - 0        28        28 
+
+       6        29        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[6,1,0,28]]
+
+ --- Fold 5
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[Test set performance]
+          Actual
+       +        - 
+     + 5        0        5 
+Pred 
+     - 1        29        30 
+
+       6        29        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[5,0,1,29]]
+
+ --- Fold 6
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0011876485).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.60336137), frame(B,D), 
+   tipo_misto(D).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.3111639).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.009803922).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+
+ --- Fold 7
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        30        30 
+
+       6        30        36 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,30]]
+
+ --- Fold 8
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        30        30 
+
+       6        30        36 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,30]]
+
+ --- Fold 9
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.009803922).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 1        29        30 
+
+       7        29        36 
+
+Accuracy = 0.972222222222222
+[Test set summary] [[6,0,1,29]]

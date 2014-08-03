@@ -10,11 +10,12 @@ subprocess.call(cmd, shell=True)
 if not os.path.exists("./result/"):
     os.makedirs("./result/")
 #for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
-for dataset in ["elsevier"]:
+for dataset in ["elsevier", "jmlr", "svln"]:
+#for dataset in ["elsevier"]:
     print dataset +" started at "+ strftime("%H:%M:%S", localtime())
     startDataset = datetime.now()
-#    for fold in range(10):
-    for fold in range(2):
+    for fold in range(10):
+#    for fold in range(1):
         startTime = datetime.now()
         print "---Fold " + str(fold) +" started at "+strftime("%H:%M:%S", localtime())
         cmd = "./"+dataset+"_f"+str(fold)+".yap -s50000 -h200000 2>&1 > /dev/null"
@@ -24,7 +25,7 @@ for dataset in ["elsevier"]:
         fin.close()
         cmd0 = "cat "+dataset+"_f"+str(fold)+".rul >> ./result/"+dataset+".summary"
         subprocess.call(cmd0, shell=True)
-        cmd1 = "cat "+dataset+"_f"+str(fold)+".log | grep -B 1 -m 1 '\[Test set summary\]' >> ./result/"+dataset+".summary"
+        cmd1 = "cat "+dataset+"_f"+str(fold)+".log | grep -B 10 -m 1 '\[Test set summary\]' >> ./result/"+dataset+".summary"
         subprocess.call(cmd1, shell=True)
         print "---Fold " + str(fold) +" endend in: "+str(datetime.now()-startTime)
     print dataset+" ended in "+str(datetime.now()-startDataset)

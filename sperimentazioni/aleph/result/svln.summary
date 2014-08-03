@@ -1,0 +1,218 @@
+
+ --- Fold 0
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   tipo_misto(D).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.018939395), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.01010101), ascissa_rettangolo(C,0.26960784).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        28        28 
+
+       7        28        35 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]
+
+ --- Fold 1
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), larghezza_rettangolo(C,0.47712418).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        28        28 
+
+       7        28        35 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]
+
+ --- Fold 2
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), on_top(C,D), 
+   tipo_misto(D), larghezza_pagina(B,612.0).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48202613), on_top(C,D), 
+   tipo_misto(D).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), ascissa_rettangolo(D,0.48366013), 
+   on_top(D,E), altezza_rettangolo(E,0.011363637).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        1        8 
+Pred 
+     - 0        27        27 
+
+       7        28        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[7,1,0,27]]
+
+ --- Fold 3
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), on_top(C,D), 
+   tipo_misto(D).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        28        28 
+
+       7        28        35 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]
+
+ --- Fold 4
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), larghezza_rettangolo(C,0.47712418).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47058824), larghezza_pagina(B,612.0).
+[Test set performance]
+          Actual
+       +        - 
+     + 4        1        5 
+Pred 
+     - 3        27        30 
+
+       7        28        35 
+
+Accuracy = 0.885714285714286
+[Test set summary] [[4,1,3,27]]
+
+ --- Fold 5
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), larghezza_rettangolo(C,0.47712418).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        28        28 
+
+       7        28        35 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]
+
+ --- Fold 6
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), larghezza_rettangolo(C,0.47712418).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        28        28 
+
+       7        28        35 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]
+
+ --- Fold 7
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.018939395), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), ascissa_rettangolo(C,0.48366013), 
+   frame(B,E), altezza_rettangolo(E,0.011363637).
+[Test set performance]
+          Actual
+       +        - 
+     + 5        0        5 
+Pred 
+     - 2        29        31 
+
+       7        29        36 
+
+Accuracy = 0.944444444444444
+[Test set summary] [[5,0,2,29]]
+
+ --- Fold 8
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.84090906), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47712418).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 6        1        7 
+Pred 
+     - 1        28        29 
+
+       7        29        36 
+
+Accuracy = 0.944444444444444
+[Test set summary] [[6,1,1,28]]
+
+ --- Fold 9
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), larghezza_rettangolo(C,0.47712418).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        29        29 
+
+       7        29        36 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,29]]
