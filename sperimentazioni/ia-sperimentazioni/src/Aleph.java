@@ -90,8 +90,8 @@ public class Aleph {
                 }
             }
             if (m1.matches()) {
-                String predicato = m2.group(1);
-                String arg1 = m2.group(2);
+                String predicato = m1.group(1);
+                String arg1 = m1.group(2);
                 fatti.add(new Fatto(predicato, arg1));
                 if (predicato.equals("ultima_pagina")) pagine.add(arg1);
                 if (predicato.equals("tipo_immagine")) frame.add(arg1);
