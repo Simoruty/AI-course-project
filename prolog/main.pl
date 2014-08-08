@@ -44,7 +44,7 @@ main :-
 start :-
     consult('prolog/dataset.pl'),
     writeKB,
-    tag_default2,
+    tag_default,
     expandKB,
 %    serialize,
     graph_doc_all,
@@ -53,7 +53,7 @@ start :-
 
 startJava :-
     writeKB,
-    tag_default2,
+    tag_default,
     expandKB,
 %    serialize,
     graph_doc_all,

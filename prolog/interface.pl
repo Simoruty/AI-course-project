@@ -1,6 +1,5 @@
 :- module( interface, 
             [ tag_default/0
-            , tag_default2/0
             , mostra_tag_da_estrarre/0
             , spiegazioneGUI/0
             ] 
@@ -20,19 +19,6 @@ tag_default :-
     kb:assertFact(kb:vuole(giudice)),
     kb:assertFact(kb:vuole(richiesta_valuta)),
     kb:assertFact(kb:vuole(numero_pratica)).
-
-    tag_default2 :-
-        kb:assertFact(vuole(cf)),
-        kb:assertFact(vuole(comune)),
-        kb:assertFact(vuole(mail)),
-        kb:assertFact(vuole(tel)),
-        kb:assertFact(vuole(persona)),
-        kb:assertFact(vuole(data)),
-        kb:assertFact(vuole(soggetto)),
-        kb:assertFact(vuole(curatore)),
-        kb:assertFact(vuole(giudice)),
-        kb:assertFact(vuole(richiesta_valuta)),
-        kb:assertFact(vuole(numero_pratica)).
 
 check_vuole_numero_pratica('Selezionato') :-
     kb:vuole(numero_pratica), !.

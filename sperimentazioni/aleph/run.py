@@ -11,11 +11,11 @@ if not os.path.exists("./result/"):
     os.makedirs("./result/")
 #for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
 #for dataset in ["elsevier", "jmlr", "svln"]:
-for dataset in ["elsevier"]:
+for dataset in ["mlj"]:
     print dataset +" started at "+ strftime("%H:%M:%S", localtime())
     startDataset = datetime.now()
 #    for fold in range(10):
-    for fold in range(2):
+    for fold in range(5):
         startTime = datetime.now()
         print "---Fold " + str(fold) +" started at "+strftime("%H:%M:%S", localtime())
         cmd = "./"+dataset+"/"+dataset+"_f"+str(fold)+".yap -s50000 -h200000 2>&1 > /dev/null"

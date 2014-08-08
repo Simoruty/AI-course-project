@@ -1,0 +1,10 @@
+class_jmlr(genton01a).
+class_jmlr(ong05a).
+class_jmlr(boulle05a).
+class_jmlr(scheffer02a).
+class_jmlr(srinivasan03ar1).
+class_jmlr(maurer06a).
+class_jmlr(claveau03a).
+class_jmlr(schmitt06a).
+class_jmlr(mukherjee06a).
+class_jmlr(devito05a).

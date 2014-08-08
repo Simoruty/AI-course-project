@@ -121,6 +121,9 @@ expandKB :-
 
 %% Mostra i risultati
 resultKB :-
+    nl,write('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'),nl,
+	nl,write('                           Tag Estratti                          '),nl,
+	nl,write('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&'),nl,nl,
     comune:riscomune,nl,
     cf:riscf,nl,
     mail:rismail,nl,
@@ -131,7 +134,8 @@ resultKB :-
     persona:rissoggetto,nl,
     persona:risgiudice,nl,
     valuta:risrichiesta_valuta,nl,
-    numero_pratica:risnumero_pratica.
+    numero_pratica:risnumero_pratica,nl,
+    nl,write('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'),nl,nl.	
 
 %% Mostra le spiegazioni
 explainKB:-
