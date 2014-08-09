@@ -45,17 +45,3 @@ sperimentazioni/ia-sperimentazioni/.idea
 sperimentazioni/ia-sperimentazioni/.idea/*
 sperimentazioni/ia-sperimentazioni/.out
 sperimentazioni/ia-sperimentazioni/.out/*
-
-sperimentazioni/aleph/*.f
-sperimentazioni/aleph/*.b
-sperimentazioni/aleph/*.n
-sperimentazioni/aleph/*.yap
-sperimentazioni/aleph/*.rul
-
-sperimentazioni/progol/*.f
-sperimentazioni/progol/*.b
-sperimentazioni/progol/*.n
-sperimentazioni/progol/*.yap
-sperimentazioni/progol/*.rul
-
-sperimentazioni/foil/*.d
