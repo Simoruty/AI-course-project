@@ -1,0 +1,7 @@
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_verticale(D,E), 
+   tipo_linea_orizzontale(E), tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).

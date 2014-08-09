@@ -1,0 +1,15 @@
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   tipo_misto(D).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.011363637), frame(B,D), 
+   ascissa_rettangolo(D,0.4852941), tipo_misto(D).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.016414141), ascissa_rettangolo(C,0.4852941), 
+   on_top(C,D), tipo_misto(D).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.36601308).
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), ordinata_rettangolo(C,0.84090906).
