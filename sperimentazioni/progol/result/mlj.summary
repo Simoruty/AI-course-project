@@ -1,0 +1,681 @@
+
+ --- Fold 0
+
+[theory]
+
+[Rule 1] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [36]
+
+[Rule 2] [Pos cover = 24 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [24]
+
+[Rule 3] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos-neg] [18]
+
+[Rule 4] [Pos cover = 10 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [10]
+
+[Rule 5] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013194312565).
+[pos-neg] [1]
+
+[Rule 6] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [3]
+
+[Rule 7] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [36]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 8        0        8 
+Pred 
+     - 4        23        27 
+
+       12        23        35 
+
+Accuracy = 0.885714285714286
+[Test set summary] [[8,0,4,23]]
+
+ --- Fold 1
+
+[theory]
+
+[Rule 1] [Pos cover = 35 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [35]
+
+[Rule 2] [Pos cover = 5 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), on_top(C,D), 
+   ascissa_rettangolo(D,0.498366).
+[pos-neg] [5]
+
+[Rule 3] [Pos cover = 14 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+[pos-neg] [14]
+
+[Rule 4] [Pos cover = 22 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [22]
+
+[Rule 5] [Pos cover = 9 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.5277778).
+[pos-neg] [9]
+
+[Rule 6] [Pos cover = 35 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [35]
+
+[Rule 7] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 8] [Pos cover = 2 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0239899), ascissa_rettangolo(C,0.501634).
+[pos-neg] [2]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 11        0        11 
+Pred 
+     - 1        23        24 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[11,0,1,23]]
+
+ --- Fold 2
+
+[theory]
+
+[Rule 1] [Pos cover = 35 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [35]
+
+[Rule 2] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   altezza_rettangolo(D,0.0088383835).
+[pos-neg] [16]
+
+[Rule 3] [Pos cover = 25 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [25]
+
+[Rule 4] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.7260101).
+[pos-neg] [4]
+
+[Rule 5] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 6] [Pos cover = 34 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [34]
+
+[Rule 7] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.16035354).
+[pos-neg] [3]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518484502149).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510434514330).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 2        23        25 
+
+       12        23        35 
+
+Accuracy = 0.942857142857143
+[Test set summary] [[10,0,2,23]]
+
+ --- Fold 3
+
+[theory]
+
+[Rule 1] [Pos cover = 37 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [37]
+
+[Rule 2] [Pos cover = 21 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [21]
+
+[Rule 3] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [4]
+
+[Rule 4] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 5] [Pos cover = 37 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [37]
+
+[Rule 6] [Pos cover = 11 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0088383835), larghezza_rettangolo(C,0.11764706).
+[pos-neg] [11]
+
+[Rule 7] [Pos cover = 12 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), altezza_rettangolo(D,0.021464646), 
+   on_top(D,C).
+[pos-neg] [12]
+
+[Rule 8] [Pos cover = 10 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [10]
+
+[Rule 9] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.7260101).
+[pos-neg] [3]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 12        0        12 
+Pred 
+     - 0        23        23 
+
+       12        23        35 
+
+Accuracy = 1.0
+[Test set summary] [[12,0,0,23]]
+
+ --- Fold 4
+
+[theory]
+
+[Rule 1] [Pos cover = 20 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [20]
+
+[Rule 2] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [36]
+
+[Rule 3] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [4]
+
+[Rule 4] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos-neg] [17]
+
+[Rule 5] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 6] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.024940617).
+[pos-neg] [36]
+
+[Rule 7] [Pos cover = 8 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [8]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518484502149).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 12        1        13 
+Pred 
+     - 0        22        22 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[12,1,0,22]]
+
+ --- Fold 5
+
+[theory]
+
+[Rule 1] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [36]
+
+[Rule 2] [Pos cover = 9 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [9]
+
+[Rule 3] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos-neg] [16]
+
+[Rule 4] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [4]
+
+[Rule 5] [Pos cover = 22 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [22]
+
+[Rule 6] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 7] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [36]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518484502149).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 12        1        13 
+Pred 
+     - 0        22        22 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[12,1,0,22]]
+
+ --- Fold 6
+
+[theory]
+
+[Rule 1] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos-neg] [16]
+
+[Rule 2] [Pos cover = 22 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [22]
+
+[Rule 3] [Pos cover = 37 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [37]
+
+[Rule 4] [Pos cover = 9 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [9]
+
+[Rule 5] [Pos cover = 37 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [37]
+
+[Rule 6] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [3]
+
+[Rule 7] [Pos cover = 15 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   on_top(D,E), on_top(E,F), allineato_al_centro_verticale(F,E).
+[pos-neg] [15]
+
+[Rule 8] [Pos cover = 2 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5441176).
+[pos-neg] [2]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 81         0         81 
+Pred 
+     -  0         157        157 
+
+       81        157        238 
+
+Accuracy = 1.0
+[Training set summary] [[81,0,0,157]]
+[Test set performance]
+          Actual
+       +        - 
+     + 10        1        11 
+Pred 
+     - 2        22        24 
+
+       12        23        35 
+
+Accuracy = 0.914285714285714
+[Test set summary] [[10,1,2,22]]
+
+ --- Fold 7
+
+[theory]
+
+[Rule 1] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [36]
+
+[Rule 2] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   altezza_rettangolo(D,0.0088383835).
+[pos-neg] [17]
+
+[Rule 3] [Pos cover = 26 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [26]
+
+[Rule 4] [Pos cover = 35 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [35]
+
+[Rule 5] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 6] [Pos cover = 2 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0239899), ascissa_rettangolo(C,0.501634).
+[pos-neg] [2]
+
+[Rule 7] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518484502149).
+[pos-neg] [1]
+
+[Rule 8] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [4]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510434514330).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 84         0         84 
+Pred 
+     -  0         161        161 
+
+       84        161        245 
+
+Accuracy = 1.0
+[Training set summary] [[84,0,0,161]]
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 2        19        21 
+
+       9        19        28 
+
+Accuracy = 0.928571428571429
+[Test set summary] [[7,0,2,19]]
+
+ --- Fold 8
+
+[theory]
+
+[Rule 1] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos-neg] [18]
+
+[Rule 2] [Pos cover = 26 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [26]
+
+[Rule 3] [Pos cover = 41 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [41]
+
+[Rule 4] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+[pos-neg] [16]
+
+[Rule 5] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [4]
+
+[Rule 6] [Pos cover = 41 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [41]
+
+[Rule 7] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 8] [Pos cover = 11 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [11]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 93         0         93 
+Pred 
+     -  0         180        180 
+
+       93        180        273 
+
+Accuracy = 1.0
+[Training set summary] [[93,0,0,180]]
+
+ --- Fold 9
+
+[theory]
+
+[Rule 1] [Pos cover = 41 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos-neg] [41]
+
+[Rule 2] [Pos cover = 26 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos-neg] [26]
+
+[Rule 3] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos-neg] [18]
+
+[Rule 4] [Pos cover = 11 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos-neg] [11]
+
+[Rule 5] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos-neg] [4]
+
+[Rule 6] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 7] [Pos cover = 41 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos-neg] [41]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518484502149).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 93         0         93 
+Pred 
+     -  0         180        180 
+
+       93        180        273 
+
+Accuracy = 1.0
+[Training set summary] [[93,0,0,180]]

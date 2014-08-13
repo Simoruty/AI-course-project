@@ -1,0 +1,37 @@
+
+[theory]
+
+[Rule 1] [Pos cover = 69 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(C,E), 
+   altezza_rettangolo(E,0.011363637).
+[pos-neg] [69]
+
+[Rule 2] [Pos cover = 77 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), on_top(C,D), 
+   altezza_rettangolo(D,0.01010101).
+[pos-neg] [77]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 90         0         90 
+Pred 
+     -  0         228        228 
+
+       90        228        318 
+
+Accuracy = 1.0
+[Training set summary] [[90,0,0,228]]
+[Test set performance]
+          Actual
+       +        - 
+     + 10        1        11 
+Pred 
+     - 0        24        24 
+
+       10        25        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[10,1,0,24]]

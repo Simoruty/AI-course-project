@@ -1,0 +1,46 @@
+
+[theory]
+
+[Rule 1] [Pos cover = 33 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[pos-neg] [33]
+
+[Rule 2] [Pos cover = 28 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+[pos-neg] [28]
+
+[Rule 3] [Pos cover = 2 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+[pos-neg] [2]
+
+[Rule 4] [Pos cover = 14 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[pos-neg] [14]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 55         0         55 
+Pred 
+     -  0         263        263 
+
+       55        263        318 
+
+Accuracy = 1.0
+[Training set summary] [[55,0,0,263]]
+[Test set performance]
+          Actual
+       +        - 
+     + 5        0        5 
+Pred 
+     - 1        29        30 
+
+       6        29        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[5,0,1,29]]
