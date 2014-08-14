@@ -32,7 +32,7 @@ public class FoldSplitter {
             case "jmlr":
                 return 10;
             case "mlj":
-                return new int[]{12, 12, 12, 12, 12, 12, 12, 12, 13, 13}[fold];
+                return new int[]{9, 9, 9, 9, 9, 9, 9, 10, 10, 10}[fold];
             case "svln":
                 return 7;
         }
@@ -47,7 +47,7 @@ public class FoldSplitter {
             case "jmlr":
                 return new int[]{25, 25, 25, 25, 25, 25, 25, 26, 26, 26}[fold];
             case "mlj":
-                return new int[]{23, 23, 23, 23, 23, 23, 23, 24, 23, 23}[fold];
+                return 18;
             case "svln":
                 return new int[]{28, 28, 28, 28, 28, 28, 28, 29, 29, 29}[fold];
         }
