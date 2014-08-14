@@ -27,7 +27,7 @@ for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
         subprocess.call(cmd0, shell=True)
         cmd1 = "cat ./"+dataset+"/"+dataset+"_f"+str(fold)+".log | grep -B 10 -m 1 '\[Test set summary\]' >> ./result/"+dataset+".summary"
         subprocess.call(cmd1, shell=True)
-        print "---Fold " + str(fold) +" endend in: "+str(datetime.now()-startTime)
+        print "---Fold " + str(fold) +" ended in: "+str(datetime.now()-startTime)
     print dataset+" ended in "+str(datetime.now()-startDataset)
     print "---------------------------------------------------"
 
