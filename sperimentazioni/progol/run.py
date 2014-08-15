@@ -9,9 +9,9 @@ cmd = "chmod +x **/*.yap"
 subprocess.call(cmd, shell=True)
 if not os.path.exists("./result/"):
     os.makedirs("./result/")
-for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
+#for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
 #for dataset in ["elsevier", "jmlr", "svln"]:
-#for dataset in ["elsevier"]:
+for dataset in ["mlj"]:
     print dataset +" started at "+ strftime("%H:%M:%S", localtime())
     startDataset = datetime.now()
     for fold in range(10):
