@@ -9,8 +9,8 @@ public class DatasetFormatter {
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
     //    private static String all
-//    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    private static String[] datasets = {"mlj"};
+    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
+    //    private static String[] datasets = {"mlj"};
     private static List<String> positiviRAW;
     private static List<String> negativiRAW;
     private static List<String> fattiRAW;
@@ -22,8 +22,11 @@ public class DatasetFormatter {
     private static Set<String> frame;
     private static List<Fatto> fatti;
 
+    private static List<Predicato> predicati;
+
 
     public static void main(String[] args) throws IOException {
+        predicati = Predicato.allPredicati();
         for (String dataset : datasets) {
             System.out.println("Begin dataset " + dataset);
             fattiRAW = new ArrayList<>(68300);
@@ -59,8 +62,8 @@ public class DatasetFormatter {
             Matcher m1 = arieta1.matcher(fattoRAW);
             if (m2.matches()) {
                 String predicato = m2.group(1);
-                String arg1 = m2.group(2);
-                String arg2 = m2.group(3);
+                String arg1 = m2.group(2).trim();
+                String arg2 = m2.group(3).trim();
                 fatti.add(new Fatto(predicato, arg1, arg2));
                 if (predicato.equals("numero_pagine")) documenti.add(arg1);
                 if (predicato.equals("pagina_1")) {
@@ -96,7 +99,7 @@ public class DatasetFormatter {
             }
             if (m1.matches()) {
                 String predicato = m1.group(1);
-                String arg1 = m1.group(2);
+                String arg1 = m1.group(2).trim();
                 fatti.add(new Fatto(predicato, arg1));
                 if (predicato.equals("ultima_pagina")) pagine.add(arg1);
                 if (predicato.equals("tipo_immagine")) frame.add(arg1);
@@ -135,33 +138,38 @@ public class DatasetFormatter {
         String alg = "foil";
         for (int fold = 0; fold < 10; fold++) {
 
-            StringBuffer sb = new StringBuffer(1300000);
+            StringBuilder sb = new StringBuilder(1300000);
 
-            sb.append("#Documento: ");
+            /*
+             * SEZIONE 1: i tipi
+             */
+
+            sb.append("#Documento:");
             for (String d : documenti) {
+                sb.append(" ");
                 sb.append(d);
-                sb.append(", ");
+                sb.append(",");
             }
             sb.deleteCharAt(sb.length() - 1);
-            sb.append(".\n\n");
+            sb.append(".\n");
 
-            sb.append("#Pagina: ");
+            sb.append("#Pagina:");
             for (String p : pagine) {
+                sb.append(" ");
                 sb.append(p);
-                sb.append(", ");
+                sb.append(",");
             }
             sb.deleteCharAt(sb.length() - 1);
-            sb.deleteCharAt(sb.length() - 1);
-            sb.append(".\n\n");
+            sb.append(".\n");
 
-            sb.append("#Frame: ");
+            sb.append("#Frame:");
             for (String f : frame) {
+                sb.append(" ");
                 sb.append(f);
-                sb.append(", ");
+                sb.append(",");
             }
             sb.deleteCharAt(sb.length() - 1);
-            sb.deleteCharAt(sb.length() - 1);
-            sb.append(".\n\n");
+            sb.append(".\n");
 
             sb.append("NumeroPagine: continuous.\n");
             sb.append("LarghezzaPagina: continuous.\n");
@@ -171,41 +179,70 @@ public class DatasetFormatter {
             sb.append("LarghezzaRettangolo: continuous.\n");
             sb.append("AltezzaRettangolo: continuous.\n\n");
 
+            /*
+             * SEZIONE 2: le relazioni
+             */
+
             sb.append("class_");
             sb.append(dataset);
             sb.append("(Documento)\n");
 
+            //TODO devo trovare il training, cioè tutti i fold tranne questo
+            sb.append("BLABLA\n");
+            sb.append(";\n");
+            sb.append("BLABLA\n");
+            sb.append(".\n");
+
+
+            for (Predicato p : predicati) {
+                sb.append(p.getSignatureForD());
+                sb.append("\n");
+                sb.append(getListArgs(p.getPredicato()));
+                sb.append(".\n");
+            }
+
+            sb.append("\n");
+
+            /*
+             * SEZIONE 3: Casi di test
+             */
+
+            sb.append("class_");
+            sb.append(dataset);
+            sb.append("\n");
+
             for (String doc : exPos.get(fold)) {
                 sb.append(doc);
-                sb.append("\n");
+                sb.append(": +\n");
             }
-            sb.append(";\n");
             for (String doc : exNeg.get(fold)) {
                 sb.append(doc);
-                sb.append("\n");
+                sb.append(": -\n");
             }
-            sb.append(".\n");
+            sb.append(".");
 
-            //TODO continue
-            da3423£$%&/()
-
-            for (int i = 0; i < fattiRAW.size(); i++) {
-                if (fattiRAW.get(i).startsWith("ultima_pagina")) {
-                    String pagina = fattiRAW.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
-                }
-            }
-
-            sb.append(negativiRAW.get(0));
-            for (int i = 1; i < negativiRAW.size(); i++) {
-                sb.append(", " + negativiRAW.get(i));
-            }
-            sb.append(".\n");
-
-
-            PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
+            File file = new File(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".d");
+            file.getParentFile().mkdirs();
+            PrintWriter pwD = new PrintWriter(new FileWriter(file));
             pwD.println(sb.toString());
             pwD.close();
         }
+    }
+
+    private static String getListArgs(String predicato) {
+        StringBuilder sb = new StringBuilder(2000);
+        for (Fatto f : fatti) {
+            if (f.getPredicato().equals(predicato)) {
+                String[] args = f.getArgomenti();
+                for (String arg : args) {
+                    sb.append(arg + ", ");
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                sb.deleteCharAt(sb.length() - 1);
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
     }
 
     private static void writeYAP(String dataset) throws IOException {
