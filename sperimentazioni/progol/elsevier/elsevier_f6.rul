@@ -1,31 +1,26 @@
 
 [theory]
 
-[Rule 1] [Pos cover = 27 Neg cover = 0]
+[Rule 1] [Pos cover = 30 Neg cover = 0]
 class_elsevier(A) :-
-   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0011876485).
-[pos-neg] [27]
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[pos-neg] [30]
 
-[Rule 2] [Pos cover = 21 Neg cover = 0]
+[Rule 2] [Pos cover = 27 Neg cover = 0]
 class_elsevier(A) :-
-   pagina_1(A,B), frame(B,C), on_top(C,D), larghezza_rettangolo(D,0.60336137), 
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
    tipo_misto(C).
-[pos-neg] [21]
+[pos-neg] [27]
 
 [Rule 3] [Pos cover = 3 Neg cover = 0]
 class_elsevier(A) :-
    pagina_1(A,B), larghezza_pagina(B,544.0).
 [pos-neg] [3]
 
-[Rule 4] [Pos cover = 2 Neg cover = 0]
+[Rule 4] [Pos cover = 17 Neg cover = 0]
 class_elsevier(A) :-
-   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.04631829).
-[pos-neg] [2]
-
-[Rule 5] [Pos cover = 2 Neg cover = 0]
-class_elsevier(A) :-
-   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.98202616).
-[pos-neg] [2]
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[pos-neg] [17]
 
 [Training set performance]
            Actual

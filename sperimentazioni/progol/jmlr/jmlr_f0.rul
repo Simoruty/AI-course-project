@@ -1,25 +1,22 @@
 
 [theory]
 
-[Rule 1] [Pos cover = 76 Neg cover = 0]
-class_jmlr(A) :-
-   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
-[pos-neg] [76]
-
-[Rule 2] [Pos cover = 85 Neg cover = 0]
+[Rule 1] [Pos cover = 85 Neg cover = 0]
 class_jmlr(A) :-
    pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
    allineato_al_centro_orizzontale(D,E).
 [pos-neg] [85]
 
+[Rule 2] [Pos cover = 31 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,E), 
+   altezza_rettangolo(E,0.012626262).
+[pos-neg] [31]
+
 [Rule 3] [Pos cover = 2 Neg cover = 0]
 class_jmlr(A) :-
-   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27450982).
 [pos-neg] [2]
-
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_jmlr(marx02a).
-[pos-neg] [1]
 
 [Training set performance]
            Actual

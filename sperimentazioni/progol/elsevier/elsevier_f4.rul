@@ -12,15 +12,15 @@ class_elsevier(A) :-
    tipo_misto(C).
 [pos-neg] [28]
 
-[Rule 3] [Pos cover = 2 Neg cover = 0]
-class_elsevier(A) :-
-   pagina_1(A,B), altezza_pagina(B,743.0).
-[pos-neg] [2]
-
-[Rule 4] [Pos cover = 14 Neg cover = 0]
+[Rule 3] [Pos cover = 14 Neg cover = 0]
 class_elsevier(A) :-
    pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
 [pos-neg] [14]
+
+[Rule 4] [Pos cover = 2 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+[pos-neg] [2]
 
 [Training set performance]
            Actual
