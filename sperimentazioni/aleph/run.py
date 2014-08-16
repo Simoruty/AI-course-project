@@ -12,7 +12,7 @@ if not os.path.exists("./result/"):
     os.makedirs("./result/")
 #for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
 #for dataset in ["elsevier", "jmlr", "svln"]:
-for dataset in ["mlj"]:
+for dataset in ["svln"]:
     print dataset +" started at "+ strftime("%H:%M:%S", localtime())
     sys.stdout.flush()
     startDataset = datetime.now()
@@ -35,4 +35,3 @@ for dataset in ["mlj"]:
     print dataset+" ended in "+str(datetime.now()-startDataset)
     print "---------------------------------------------------"
     sys.stdout.flush()
-
