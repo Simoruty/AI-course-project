@@ -7,13 +7,13 @@ class_jmlr(A) :-
    allineato_al_centro_orizzontale(D,E).
 [pos-neg] [87]
 
-[Rule 2] [Pos cover = 2 Neg cover = 0]
+[Rule 2] [Pos cover = 52 Neg cover = 0]
 class_jmlr(A) :-
-   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
-[pos-neg] [2]
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.12908497).
+[pos-neg] [52]
 
 [Rule 3] [Pos cover = 1 Neg cover = 0]
-class_jmlr(getoor02a).
+class_jmlr(downs01a).
 [pos-neg] [1]
 
 [Training set performance]

@@ -1,38 +1,39 @@
 
 [theory]
 
-[Rule 1] [Pos cover = 22 Neg cover = 0]
+[Rule 1] [Pos cover = 29 Neg cover = 0]
 class_svln(A) :-
-   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), tipo_misto(C).
-[pos-neg] [22]
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   tipo_misto(D).
+[pos-neg] [29]
 
-[Rule 2] [Pos cover = 20 Neg cover = 0]
-class_svln(A) :-
-   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
-[pos-neg] [20]
-
-[Rule 3] [Pos cover = 23 Neg cover = 0]
+[Rule 2] [Pos cover = 23 Neg cover = 0]
 class_svln(A) :-
    pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.018939395), tipo_misto(C).
 [pos-neg] [23]
 
-[Rule 4] [Pos cover = 14 Neg cover = 0]
+[Rule 3] [Pos cover = 13 Neg cover = 0]
 class_svln(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), ascissa_rettangolo(D,0.4852941), 
-   ascissa_rettangolo(C,0.48366013).
-[pos-neg] [14]
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.37254903), larghezza_rettangolo(C,0.34150326).
+[pos-neg] [13]
 
-[Rule 5] [Pos cover = 2 Neg cover = 0]
+[Rule 4] [Pos cover = 19 Neg cover = 0]
 class_svln(A) :-
-   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.834596).
-[pos-neg] [2]
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5653595), tipo_misto(C).
+[pos-neg] [19]
 
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_svln(d37291002).
-[pos-neg] [1]
+[Rule 5] [Pos cover = 20 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+[pos-neg] [20]
+
+[Rule 6] [Pos cover = 19 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.84090906), tipo_misto(C).
+[pos-neg] [19]
 
 [Rule 7] [Pos cover = 1 Neg cover = 0]
-class_svln(d37290786).
+class_svln(d37290127).
 [pos-neg] [1]
 
 [Training set performance]
@@ -49,11 +50,11 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 7        1        8 
+     + 7        0        7 
 Pred 
-     - 0        27        27 
+     - 0        28        28 
 
        7        28        35 
 
-Accuracy = 0.971428571428571
-[Test set summary] [[7,1,0,27]]
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]

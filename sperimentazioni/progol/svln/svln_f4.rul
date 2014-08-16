@@ -1,15 +1,15 @@
 
 [theory]
 
-[Rule 1] [Pos cover = 30 Neg cover = 0]
+[Rule 1] [Pos cover = 20 Neg cover = 0]
 class_svln(A) :-
-   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), on_top(C,D), 
    tipo_misto(D).
-[pos-neg] [30]
+[pos-neg] [20]
 
 [Rule 2] [Pos cover = 21 Neg cover = 0]
 class_svln(A) :-
-   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.84090906), tipo_misto(C).
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
 [pos-neg] [21]
 
 [Rule 3] [Pos cover = 24 Neg cover = 0]
@@ -17,15 +17,14 @@ class_svln(A) :-
    pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
 [pos-neg] [24]
 
-[Rule 4] [Pos cover = 3 Neg cover = 0]
+[Rule 4] [Pos cover = 17 Neg cover = 0]
 class_svln(A) :-
-   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.8421717).
-[pos-neg] [3]
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[pos-neg] [17]
 
-[Rule 5] [Pos cover = 14 Neg cover = 0]
-class_svln(A) :-
-   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4869281), larghezza_rettangolo(C,0.47712418).
-[pos-neg] [14]
+[Rule 5] [Pos cover = 1 Neg cover = 0]
+class_svln(d37291002).
+[pos-neg] [1]
 
 [Training set performance]
            Actual
@@ -41,11 +40,11 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 6        0        6 
+     + 7        0        7 
 Pred 
-     - 1        28        29 
+     - 0        28        28 
 
        7        28        35 
 
-Accuracy = 0.971428571428571
-[Test set summary] [[6,0,1,28]]
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]

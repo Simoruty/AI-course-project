@@ -9,14 +9,17 @@ public class DatasetFormatter {
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
     //    private static String all
-    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
+//    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
+    private static String[] datasets = {"mlj"};
     private static List<String> positiviRAW;
     private static List<String> negativiRAW;
     private static List<String> fattiRAW;
     private static List<List<String>> examples; //Lista di fold che contiene lista di esempi
+    private static List<List<String>> exPos; //Lista di fold che contiene lista di esempi
+    private static List<List<String>> exNeg; //Lista di fold che contiene lista di esempi
     private static Set<String> documenti;
-    private static Set<Object> pagine;
-    private static Set<Object> frame;
+    private static Set<String> pagine;
+    private static Set<String> frame;
     private static List<Fatto> fatti;
 
 
@@ -27,6 +30,8 @@ public class DatasetFormatter {
             positiviRAW = new ArrayList<>(122);
             negativiRAW = new ArrayList<>(292);
             examples = new ArrayList<>(10);
+            exNeg = new ArrayList<>(10);
+            exPos = new ArrayList<>(10);
             documenti = new HashSet<>(355);
             pagine = new HashSet<>(355);
             frame = new HashSet<>(10000);
@@ -34,10 +39,10 @@ public class DatasetFormatter {
             readDataset(dataset);
             fillObjects(dataset);
             readExamples(dataset);
-            writeFN(dataset);
-            writeB(dataset);
-            writeYAP(dataset);
-//            writeD(dataset);
+//            writeFN(dataset);
+//            writeB(dataset);
+//            writeYAP(dataset);
+            writeD(dataset);
         }
     }
 
@@ -126,41 +131,82 @@ public class DatasetFormatter {
         Collections.sort(fattiRAW);
     }
 
-//    private static void writeD(String dataset) throws IOException {
-//        String alg = "foil";
-//        for (int fold = 0; fold < 10; fold++) {
-//            PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
-//
-//            pwD.print("#NomeDocumento: ");
-//            for (Fatto fatto : fatti) {
-//                //TODO non compila, sto lavorando
-//                !£$£"&" SYNTAX ERROR
-//                //TODO non compila, sto lavorando
-//            }
-//
-//
-//
-//
-//            pwD.print("#Pagina: ");
-//
-////            List<String> pagine =
-//
-//            for (int i = 0; i < fattiRAW.size(); i++) {
-//                if (fattiRAW.get(i).startsWith("ultima_pagina")) {
-//                    String pagina = fattiRAW.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
-//                }
-//            }
-//
-//            pwD.print(negativiRAW.get(0));
-//            for (int i = 1; i < negativiRAW.size(); i++) {
-//                pwD.print(", " + negativiRAW.get(i));
-//            }
-//            pwD.print(".\n");
-//
-//
-//            pwD.close();
-//        }
-//    }
+    private static void writeD(String dataset) throws IOException {
+        String alg = "foil";
+        for (int fold = 0; fold < 10; fold++) {
+
+            StringBuffer sb = new StringBuffer(1300000);
+
+            sb.append("#Documento: ");
+            for (String d : documenti) {
+                sb.append(d);
+                sb.append(", ");
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(".\n\n");
+
+            sb.append("#Pagina: ");
+            for (String p : pagine) {
+                sb.append(p);
+                sb.append(", ");
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(".\n\n");
+
+            sb.append("#Frame: ");
+            for (String f : frame) {
+                sb.append(f);
+                sb.append(", ");
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(".\n\n");
+
+            sb.append("NumeroPagine: continuous.\n");
+            sb.append("LarghezzaPagina: continuous.\n");
+            sb.append("AltezzaPagina: continuous.\n");
+            sb.append("AscissaRettangolo: continuous.\n");
+            sb.append("OrdinataRettangolo: continuous.\n");
+            sb.append("LarghezzaRettangolo: continuous.\n");
+            sb.append("AltezzaRettangolo: continuous.\n\n");
+
+            sb.append("class_");
+            sb.append(dataset);
+            sb.append("(Documento)\n");
+
+            for (String doc : exPos.get(fold)) {
+                sb.append(doc);
+                sb.append("\n");
+            }
+            sb.append(";\n");
+            for (String doc : exNeg.get(fold)) {
+                sb.append(doc);
+                sb.append("\n");
+            }
+            sb.append(".\n");
+
+            //TODO continue
+            da3423£$%&/()
+
+            for (int i = 0; i < fattiRAW.size(); i++) {
+                if (fattiRAW.get(i).startsWith("ultima_pagina")) {
+                    String pagina = fattiRAW.get(i).replaceAll("^ultima_pagina\\((.+)\\)\\.$", "\\1");
+                }
+            }
+
+            sb.append(negativiRAW.get(0));
+            for (int i = 1; i < negativiRAW.size(); i++) {
+                sb.append(", " + negativiRAW.get(i));
+            }
+            sb.append(".\n");
+
+
+            PrintWriter pwD = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "_f" + fold + ".d"));
+            pwD.println(sb.toString());
+            pwD.close();
+        }
+    }
 
     private static void writeYAP(String dataset) throws IOException {
         for (String alg : new String[]{"aleph", "progol"})
@@ -189,13 +235,26 @@ public class DatasetFormatter {
                     new FileReader(homeDir + datasetDir + dataset + ".fold" + fold));
 
             List<String> examplesFold = new ArrayList<>(50);
+            List<String> examplesFoldPos = new ArrayList<>(30);
+            List<String> examplesFoldNeg = new ArrayList<>(30);
 
             String line;
             while ((line = br.readLine()) != null) {
                 examplesFold.add(line);
+                if (line.startsWith("-")) {
+                    line = line.replace("-class_" + dataset + "(", "");
+                    line = line.replace(").", "");
+                    examplesFoldNeg.add(line);
+                } else {
+                    line = line.replace("class_" + dataset + "(", "");
+                    line = line.replace(").", "");
+                    examplesFoldPos.add(line);
+                }
             }
 
             examples.add(examplesFold);
+            exPos.add(examplesFoldPos);
+            exNeg.add(examplesFoldNeg);
             br.close();
         }
     }
@@ -274,8 +333,8 @@ public class DatasetFormatter {
     }
 
     public static void writeFN(String dataset) throws IOException {
-        boolean c =new File(homeDir + dir + "aleph/" + dataset + "/").mkdir();
-        boolean s =new File(homeDir + dir + "progol/" + dataset + "/").mkdir();
+        boolean c = new File(homeDir + dir + "aleph/" + dataset + "/").mkdir();
+        boolean s = new File(homeDir + dir + "progol/" + dataset + "/").mkdir();
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
                 // write F and N files
