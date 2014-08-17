@@ -1,0 +1,4950 @@
+FOIL 6.4   [January 1996]
+--------
+
+    Options:
+	no negated literals
+	verbosity level 2
+
+Types Documento and Pagina are not compatible
+Types Documento and Frame are not compatible
+Types Documento and NumeroPagine are not compatible
+Types Documento and LarghezzaPagina are not compatible
+Types Documento and AltezzaPagina are not compatible
+Types Documento and AscissaRettangolo are not compatible
+Types Documento and OrdinataRettangolo are not compatible
+Types Documento and LarghezzaRettangolo are not compatible
+Types Documento and AltezzaRettangolo are not compatible
+Types Pagina and Frame are not compatible
+Types Pagina and NumeroPagine are not compatible
+Types Pagina and LarghezzaPagina are not compatible
+Types Pagina and AltezzaPagina are not compatible
+Types Pagina and AscissaRettangolo are not compatible
+Types Pagina and OrdinataRettangolo are not compatible
+Types Pagina and LarghezzaRettangolo are not compatible
+Types Pagina and AltezzaRettangolo are not compatible
+Types Frame and NumeroPagine are not compatible
+Types Frame and LarghezzaPagina are not compatible
+Types Frame and AltezzaPagina are not compatible
+Types Frame and AscissaRettangolo are not compatible
+Types Frame and OrdinataRettangolo are not compatible
+Types Frame and LarghezzaRettangolo are not compatible
+Types Frame and AltezzaRettangolo are not compatible
+Types NumeroPagine and LarghezzaPagina are not compatible
+Types NumeroPagine and AltezzaPagina are not compatible
+Types NumeroPagine and AscissaRettangolo are not compatible
+Types NumeroPagine and OrdinataRettangolo are not compatible
+Types NumeroPagine and LarghezzaRettangolo are not compatible
+Types NumeroPagine and AltezzaRettangolo are not compatible
+Types LarghezzaPagina and AltezzaPagina are not compatible
+Types LarghezzaPagina and AscissaRettangolo are not compatible
+Types LarghezzaPagina and OrdinataRettangolo are not compatible
+Types LarghezzaPagina and LarghezzaRettangolo are not compatible
+Types LarghezzaPagina and AltezzaRettangolo are not compatible
+Types AltezzaPagina and AscissaRettangolo are not compatible
+Types AltezzaPagina and OrdinataRettangolo are not compatible
+Types AltezzaPagina and LarghezzaRettangolo are not compatible
+Types AltezzaPagina and AltezzaRettangolo are not compatible
+Types AscissaRettangolo and OrdinataRettangolo are not compatible
+Types AscissaRettangolo and LarghezzaRettangolo are not compatible
+Types AscissaRettangolo and AltezzaRettangolo are not compatible
+Types OrdinataRettangolo and LarghezzaRettangolo are not compatible
+Types OrdinataRettangolo and AltezzaRettangolo are not compatible
+Types LarghezzaRettangolo and AltezzaRettangolo are not compatible
+
+Relation class_mlj
+
+Relation *allineato_al_centro_orizzontale
+    (warning: contains duplicate positive tuples)
+
+Relation *allineato_al_centro_verticale
+    (warning: contains duplicate positive tuples)
+
+Relation *altezza_pagina
+    (warning: contains duplicate positive tuples)
+
+Relation *larghezza_pagina
+    (warning: contains duplicate positive tuples)
+
+Relation *altezza_rettangolo
+    (warning: contains duplicate positive tuples)
+
+Relation *ascissa_rettangolo
+    (warning: contains duplicate positive tuples)
+
+Relation *ordinata_rettangolo
+    (warning: contains duplicate positive tuples)
+
+Relation *larghezza_rettangolo
+    (warning: contains duplicate positive tuples)
+
+Relation *frame
+    (warning: contains duplicate positive tuples)
+
+Relation *numero_pagine
+    (warning: contains duplicate positive tuples)
+
+Relation *on_top
+    (warning: contains duplicate positive tuples)
+
+Relation *to_right
+    (warning: contains duplicate positive tuples)
+
+Relation *pagina_1
+    (warning: contains duplicate positive tuples)
+
+Relation *ultima_pagina
+
+Relation *tipo_immagine
+
+Relation *tipo_linea_obbliqua
+
+Relation *tipo_linea_orizzontale
+
+Relation *tipo_misto
+
+Relation *tipo_testo
+
+Relation *tipo_vuoto
+
+----------
+class_mlj:
+
+State (110/318, 329.7 bits available)
+
+				[pagina_1 tried 1/1] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+
+Best literal pagina_1(A,B) (1.0 bits)
+
+
+State (220/636 [110/318], 328.7 bits available, 1 weak literal)
+
+				[ultima_pagina tried 1/1] 0.2 secs
+				[frame tried 1/1] 0.2 secs
+				[pagina_1 tried 1/3] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+				[altezza_pagina tried 1/1] 0.2 secs
+				[larghezza_pagina tried 1/1] 0.2 secs
+
+Best literal frame(B,C) (2.6 bits)
+
+
+State (4264/13932 [110/318], 327.1 bits available, 2 weak literals)
+
+				[tipo_testo tried 1/1] 0.2 secs
+				[tipo_linea_orizzontale tried 1/1] 0.2 secs
+				[tipo_misto tried 1/1] 0.2 secs
+				[tipo_linea_obbliqua tried 1/1] 0.2 secs
+				[tipo_immagine tried 1/1] 0.2 secs
+				[tipo_vuoto tried 1/1] 0.2 secs
+				[ultima_pagina tried 1/1] 0.2 secs
+				[frame tried 1/3] 0.2 secs
+				[pagina_1 tried 2/3] 0.2 secs
+				[on_top tried 2/2] 0.2 secs
+				[to_right tried 2/2] 0.2 secs
+				[allineato_al_centro_verticale tried 2/2] 0.2 secs
+				[allineato_al_centro_orizzontale tried 2/2] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+				[altezza_pagina tried 1/1] 0.2 secs
+				[larghezza_pagina tried 1/1] 0.2 secs
+				[altezza_rettangolo tried 1/1] 0.2 secs
+				[ascissa_rettangolo tried 1/1] 0.2 secs
+				[ordinata_rettangolo tried 1/1] 0.2 secs
+				[larghezza_rettangolo tried 1/1] 0.2 secs
+
+	Save clause ending with tipo_immagine(C) (cover 1, accuracy 100%)
+
+Best literal tipo_testo(C) (4.3 bits)
+
+
+State (4168/12220 [110/318], 324.4 bits available)
+
+				[tipo_testo tried 0/1] 0.2 secs
+				[tipo_linea_orizzontale tried 1/1] 0.2 secs
+				[tipo_misto tried 1/1] 0.2 secs
+				[tipo_linea_obbliqua tried 1/1] 0.2 secs
+				[tipo_immagine tried 1/1] 0.2 secs
+				[tipo_vuoto tried 1/1] 0.2 secs
+				[ultima_pagina tried 1/1] 0.2 secs
+				[frame tried 2/3] 0.2 secs
+				[pagina_1 tried 2/3] 0.2 secs
+				[on_top tried 2/2] 0.2 secs
+				[to_right tried 2/2] 0.2 secs
+				[allineato_al_centro_verticale tried 2/2] 0.2 secs
+				[allineato_al_centro_orizzontale tried 2/2] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+				[altezza_pagina tried 1/1] 0.2 secs
+				[larghezza_pagina tried 1/1] 0.2 secs
+				[altezza_rettangolo tried 1/1] 0.2 secs
+				[ascissa_rettangolo tried 1/1] 0.2 secs
+				[ordinata_rettangolo tried 1/1] 0.2 secs
+				[larghezza_rettangolo tried 1/1] 0.2 secs
+
+No literals
+
+[Replace by saved clause]
+
+Initial clause (0 errs): class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_immagine(C).
+		frame(B,C) needed for binding tipo_immagine(C)
+		pagina_1(A,B) needed for binding frame(B,C)
+
+Clause 0: class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_immagine(C).
+
+State (109/317, 328.7 bits available)
+
+				[pagina_1 tried 1/1] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+
+Best literal pagina_1(A,B) (1.0 bits)
+
+
+State (218/634 [109/317], 327.7 bits available, 1 weak literal)
+
+				[ultima_pagina tried 1/1] 0.2 secs
+				[frame tried 1/1] 0.2 secs
+				[pagina_1 tried 1/3] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+				[altezza_pagina tried 1/1] 0.2 secs
+				[larghezza_pagina tried 1/1] 0.2 secs
+
+Best literal frame(B,C) (2.6 bits)
+
+
+State (4200/13868 [109/317], 326.1 bits available, 2 weak literals)
+
+				[tipo_testo tried 1/1] 0.2 secs
+				[tipo_linea_orizzontale tried 1/1] 0.2 secs
+				[tipo_misto tried 1/1] 0.2 secs
+				[tipo_linea_obbliqua tried 1/1] 0.2 secs
+				[tipo_immagine tried 1/1] 0.2 secs
+				[tipo_vuoto tried 1/1] 0.2 secs
+				[ultima_pagina tried 1/1] 0.2 secs
+				[frame tried 1/3] 0.2 secs
+				[pagina_1 tried 2/3] 0.2 secs
+				[on_top tried 2/2] 0.2 secs
+				[to_right tried 2/2] 0.2 secs
+				[allineato_al_centro_verticale tried 2/2] 0.2 secs
+				[allineato_al_centro_orizzontale tried 2/2] 0.2 secs
+				[numero_pagine tried 1/1] 0.2 secs
+				[altezza_pagina tried 1/1] 0.2 secs
+				[larghezza_pagina tried 1/1] 0.2 secs
+				[altezza_rettangolo tried 1/1] 0.2 secs
+				[ascissa_rettangolo tried 1/1] 0.2 secs
+				[ordinata_rettangolo tried 1/1] 0.2 secs
+				[larghezza_rettangolo tried 1/1] 0.2 secs
+
+Best literal tipo_testo(C) (4.3 bits)
+
+
+State (4120/12172 [109/317], 323.4 bits available)
+
+				[tipo_testo tried 0/1] 0.2 secs
+				[tipo_linea_orizzontale tried 1/1] 0.2 secs
+				[tipo_misto tried 1/1] 0.2 secs
+				[tipo_linea_obbliqua tried 1/1] 0.2 secs
+				[tipo_immagine tried 1/1] 0.2 secs
+				[tipo_vuoto tried 1/1] 0.2 secs
+				[ultima_pagina tried 1/1] 0.2 secs
+				[frame tried 2/3] 0.2 secs
+				[pagina_1 tried 2/3] 0.2 secs
+				[on_top tried 2/2] 0.2 secs
+				[to_right tried 2/2] 0.3 secs
+				[allineato_al_centro_verticale tried 2/2] 0.3 secs
+				[allineato_al_centro_orizzontale tried 2/2] 0.3 secs
+				[numero_pagine tried 1/1] 0.3 secs
+				[altezza_pagina tried 1/1] 0.3 secs
+				[larghezza_pagina tried 1/1] 0.3 secs
+				[altezza_rettangolo tried 1/1] 0.3 secs
+				[ascissa_rettangolo tried 1/1] 0.3 secs
+				[ordinata_rettangolo tried 1/1] 0.3 secs
+				[larghezza_rettangolo tried 1/1] 0.3 secs
+
+	Save allineato_al_centro_verticale(C,D) (108,316 value -0.9)
+	Save allineato_al_centro_verticale(D,C) (108,316 value -0.9)
+	Save allineato_al_centro_orizzontale(C,D) (8,99 value -15.5)
+	Save allineato_al_centro_orizzontale(D,C) (9,101 value -16.4)
+
+Best literal to_right(D,C) (5.3 bits)
+
+
+State (24936/98984 [109/315], 320.1 bits available, 1 weak literal)
+
+				[= tried 1/1] 0.3 secs
+				[tipo_testo tried 1/2] 0.3 secs
+				[tipo_linea_orizzontale tried 2/2] 0.3 secs
+				[tipo_misto tried 2/2] 0.3 secs
+				[tipo_linea_obbliqua tried 2/2] 0.3 secs
+				[tipo_immagine tried 2/2] 0.3 secs
+				[tipo_vuoto tried 2/2] 0.3 secs
+				[ultima_pagina tried 1/1] 0.3 secs
+				[frame tried 4/5] 0.3 secs
+				[pagina_1 tried 2/3] 0.3 secs
+				[on_top tried 6/6] 0.3 secs
+				[to_right tried 4/6] 0.3 secs
+				[allineato_al_centro_verticale tried 6/6] 0.4 secs
+				[allineato_al_centro_orizzontale tried 6/6] 0.4 secs
+				[numero_pagine tried 1/1] 0.4 secs
+				[altezza_pagina tried 1/1] 0.4 secs
+				[larghezza_pagina tried 1/1] 0.4 secs
+				[altezza_rettangolo tried 2/2] 0.4 secs
+				[ascissa_rettangolo tried 2/2] 0.4 secs
+				[ordinata_rettangolo tried 2/2] 0.4 secs
+				[larghezza_rettangolo tried 2/2] 0.4 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (24416/90344 [109/315], 317.0 bits available)
+
+				[= tried 1/1] 0.4 secs
+				[tipo_testo tried 0/2] 0.4 secs
+				[tipo_linea_orizzontale tried 2/2] 0.4 secs
+				[tipo_misto tried 2/2] 0.4 secs
+				[tipo_linea_obbliqua tried 2/2] 0.4 secs
+				[tipo_immagine tried 2/2] 0.4 secs
+				[tipo_vuoto tried 2/2] 0.4 secs
+				[ultima_pagina tried 1/1] 0.4 secs
+				[frame tried 4/5] 0.4 secs
+				[pagina_1 tried 2/3] 0.4 secs
+				[on_top tried 6/6] 0.5 secs
+				[to_right tried 5/6] 0.5 secs
+				[allineato_al_centro_verticale tried 6/6] 0.5 secs
+				[allineato_al_centro_orizzontale tried 6/6] 0.5 secs
+				[numero_pagine tried 1/1] 0.5 secs
+				[altezza_pagina tried 1/1] 0.5 secs
+				[larghezza_pagina tried 1/1] 0.5 secs
+				[altezza_rettangolo tried 2/2] 0.5 secs
+				[ascissa_rettangolo tried 2/2] 0.5 secs
+				[ordinata_rettangolo tried 2/2] 0.5 secs
+				[larghezza_rettangolo tried 2/2] 0.5 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (23120/82832 [109/309], 312.6 bits available)
+
+				[= tried 1/1] 0.6 secs
+				[tipo_testo tried 0/2] 0.6 secs
+				[tipo_linea_orizzontale tried 2/2] 0.6 secs
+				[tipo_misto tried 2/2] 0.6 secs
+				[tipo_linea_obbliqua tried 2/2] 0.6 secs
+				[tipo_immagine tried 2/2] 0.6 secs
+				[tipo_vuoto tried 2/2] 0.6 secs
+				[ultima_pagina tried 1/1] 0.6 secs
+				[frame tried 4/5] 0.6 secs
+				[pagina_1 tried 2/3] 0.6 secs
+				[on_top tried 5/6] 0.6 secs
+				[to_right tried 5/6] 0.6 secs
+				[allineato_al_centro_verticale tried 6/6] 0.6 secs
+				[allineato_al_centro_orizzontale tried 6/6] 0.6 secs
+				[numero_pagine tried 1/1] 0.6 secs
+				[altezza_pagina tried 1/1] 0.6 secs
+				[larghezza_pagina tried 1/1] 0.6 secs
+				[altezza_rettangolo tried 2/2] 0.6 secs
+				[ascissa_rettangolo tried 2/2] 0.7 secs
+				[ordinata_rettangolo tried 2/2] 0.7 secs
+				[larghezza_rettangolo tried 2/2] 0.7 secs
+
+Best literal allineato_al_centro_orizzontale(D,E) (7.0 bits)
+
+
+State (1056/1632 [8/12], 45.0 bits available)
+
+				[= tried 3/3] 0.7 secs
+				[tipo_testo tried 1/3] 0.7 secs
+				[tipo_linea_orizzontale tried 3/3] 0.7 secs
+				[tipo_misto tried 3/3] 0.7 secs
+				[tipo_linea_obbliqua tried 3/3] 0.7 secs
+				[tipo_immagine tried 3/3] 0.7 secs
+				[tipo_vuoto tried 3/3] 0.7 secs
+				[ultima_pagina tried 1/1] 0.7 secs
+				[frame tried 5/6] 0.7 secs
+				[pagina_1 tried 2/3] 0.7 secs
+				[on_top tried 9/10] 0.7 secs
+				[to_right tried 9/10] 0.7 secs
+				[allineato_al_centro_verticale tried 6/10] 0.7 secs
+				[allineato_al_centro_orizzontale tried 6/10] 0.7 secs
+				[numero_pagine tried 1/1] 0.7 secs
+				[altezza_pagina tried 1/1] 0.7 secs
+				[larghezza_pagina tried 1/1] 0.7 secs
+				[altezza_rettangolo tried 2/2] 0.7 secs
+				[ascissa_rettangolo tried 2/2] 0.7 secs
+				[ordinata_rettangolo tried 2/2] 0.7 secs
+				[larghezza_rettangolo tried 2/2] 0.7 secs
+
+	Save clause ending with C=E (cover 4, accuracy 80%)
+
+Best literal on_top(D,F) (7.7 bits)
+
+
+State (10688/12864 [8/12], 40.3 bits available, 1 weak literal)
+
+				[= tried 6/6] 0.7 secs
+				[tipo_testo tried 2/4] 0.7 secs
+				[tipo_linea_orizzontale tried 4/4] 0.7 secs
+				[tipo_misto tried 4/4] 0.7 secs
+				[tipo_linea_obbliqua tried 4/4] 0.7 secs
+				[tipo_immagine tried 4/4] 0.7 secs
+				[tipo_vuoto tried 4/4] 0.7 secs
+				[ultima_pagina tried 1/1] 0.7 secs
+				[frame tried 6/7] 0.7 secs
+				[pagina_1 tried 2/3] 0.7 secs
+				[on_top tried 13/16] 0.7 secs
+				[to_right tried 15/16] 0.7 secs
+				[allineato_al_centro_verticale tried 10/16] 0.7 secs
+				[allineato_al_centro_orizzontale tried 11/16] 0.7 secs
+				[numero_pagine tried 1/1] 0.7 secs
+				[altezza_pagina tried 1/1] 0.7 secs
+				[larghezza_pagina tried 1/1] 0.7 secs
+				[altezza_rettangolo tried 2/2] 0.7 secs
+				[ascissa_rettangolo tried 2/2] 0.7 secs
+				[ordinata_rettangolo tried 2/2] 0.7 secs
+				[larghezza_rettangolo tried 2/2] 0.7 secs
+
+	Save clause ending with to_right(F,E) (cover 7, accuracy 100%)
+
+	Save to_right(D,E) (7,8 value 9.5)
+
+Best literal to_right(F,E) (8.4 bits)
+
+Initial clause (0 errs): class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), to_right(D,C), tipo_testo(D), on_top(C,D), allineato_al_centro_orizzontale(D,E), on_top(D,F), to_right(F,E).
+		to_right(D,C) needed for binding tipo_testo(D)
+		frame(B,C) needed for binding to_right(D,C)
+		pagina_1(A,B) needed for binding frame(B,C)
+
+Clause 1: class_mlj(A) :- pagina_1(A,B), frame(B,C), to_right(D,C), tipo_testo(D), on_top(C,D), allineato_al_centro_orizzontale(D,E), on_top(D,F), to_right(F,E).
+
+State (102/310, 321.0 bits available)
+
+				[pagina_1 tried 1/1] 0.8 secs
+				[numero_pagine tried 1/1] 0.8 secs
+
+Best literal pagina_1(A,B) (1.0 bits)
+
+
+State (204/620 [102/310], 320.0 bits available, 1 weak literal)
+
+				[ultima_pagina tried 1/1] 0.8 secs
+				[frame tried 1/1] 0.8 secs
+				[pagina_1 tried 1/3] 0.8 secs
+				[numero_pagine tried 1/1] 0.8 secs
+				[altezza_pagina tried 1/1] 0.8 secs
+				[larghezza_pagina tried 1/1] 0.8 secs
+
+Best literal frame(B,C) (2.6 bits)
+
+
+State (3832/13500 [102/310], 318.4 bits available, 2 weak literals)
+
+				[tipo_testo tried 1/1] 0.8 secs
+				[tipo_linea_orizzontale tried 1/1] 0.8 secs
+				[tipo_misto tried 1/1] 0.8 secs
+				[tipo_linea_obbliqua tried 1/1] 0.8 secs
+				[tipo_immagine tried 1/1] 0.8 secs
+				[tipo_vuoto tried 1/1] 0.8 secs
+				[ultima_pagina tried 1/1] 0.8 secs
+				[frame tried 1/3] 0.8 secs
+				[pagina_1 tried 2/3] 0.8 secs
+				[on_top tried 2/2] 0.8 secs
+				[to_right tried 2/2] 0.8 secs
+				[allineato_al_centro_verticale tried 2/2] 0.8 secs
+				[allineato_al_centro_orizzontale tried 2/2] 0.8 secs
+				[numero_pagine tried 1/1] 0.8 secs
+				[altezza_pagina tried 1/1] 0.8 secs
+				[larghezza_pagina tried 1/1] 0.8 secs
+				[altezza_rettangolo tried 1/1] 0.8 secs
+				[ascissa_rettangolo tried 1/1] 0.8 secs
+				[ordinata_rettangolo tried 1/1] 0.8 secs
+				[larghezza_rettangolo tried 1/1] 0.8 secs
+
+Best literal tipo_testo(C) (4.3 bits)
+
+
+State (3756/11808 [102/310], 315.6 bits available)
+
+				[tipo_testo tried 0/1] 0.9 secs
+				[tipo_linea_orizzontale tried 1/1] 0.9 secs
+				[tipo_misto tried 1/1] 0.9 secs
+				[tipo_linea_obbliqua tried 1/1] 0.9 secs
+				[tipo_immagine tried 1/1] 0.9 secs
+				[tipo_vuoto tried 1/1] 0.9 secs
+				[ultima_pagina tried 1/1] 0.9 secs
+				[frame tried 2/3] 0.9 secs
+				[pagina_1 tried 2/3] 0.9 secs
+				[on_top tried 2/2] 0.9 secs
+				[to_right tried 2/2] 0.9 secs
+				[allineato_al_centro_verticale tried 2/2] 0.9 secs
+				[allineato_al_centro_orizzontale tried 2/2] 0.9 secs
+				[numero_pagine tried 1/1] 0.9 secs
+				[altezza_pagina tried 1/1] 0.9 secs
+				[larghezza_pagina tried 1/1] 0.9 secs
+				[altezza_rettangolo tried 1/1] 0.9 secs
+				[ascissa_rettangolo tried 1/1] 0.9 secs
+				[ordinata_rettangolo tried 1/1] 0.9 secs
+				[larghezza_rettangolo tried 1/1] 0.9 secs
+
+	Save allineato_al_centro_verticale(C,D) (101,309 value -1.0)
+	Save allineato_al_centro_verticale(D,C) (101,309 value -1.0)
+	Save allineato_al_centro_orizzontale(C,D) (1,92 value -3.9)
+	Save allineato_al_centro_orizzontale(D,C) (2,94 value -6.8)
+
+Best literal to_right(D,C) (5.3 bits)
+
+
+State (21424/95472 [102/308], 312.3 bits available, 1 weak literal)
+
+				[= tried 1/1] 0.9 secs
+				[tipo_testo tried 1/2] 0.9 secs
+				[tipo_linea_orizzontale tried 2/2] 0.9 secs
+				[tipo_misto tried 2/2] 0.9 secs
+				[tipo_linea_obbliqua tried 2/2] 0.9 secs
+				[tipo_immagine tried 2/2] 0.9 secs
+				[tipo_vuoto tried 2/2] 0.9 secs
+				[ultima_pagina tried 1/1] 0.9 secs
+				[frame tried 4/5] 0.9 secs
+				[pagina_1 tried 2/3] 0.9 secs
+				[on_top tried 6/6] 0.9 secs
+				[to_right tried 4/6] 1.0 secs
+				[allineato_al_centro_verticale tried 6/6] 1.0 secs
+				[allineato_al_centro_orizzontale tried 6/6] 1.0 secs
+				[numero_pagine tried 1/1] 1.0 secs
+				[altezza_pagina tried 1/1] 1.0 secs
+				[larghezza_pagina tried 1/1] 1.0 secs
+				[altezza_rettangolo tried 2/2] 1.0 secs
+				[ascissa_rettangolo tried 2/2] 1.0 secs
+				[ordinata_rettangolo tried 2/2] 1.0 secs
+				[larghezza_rettangolo tried 2/2] 1.0 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (20952/86880 [102/308], 309.2 bits available)
+
+				[= tried 1/1] 1.0 secs
+				[tipo_testo tried 0/2] 1.0 secs
+				[tipo_linea_orizzontale tried 2/2] 1.0 secs
+				[tipo_misto tried 2/2] 1.0 secs
+				[tipo_linea_obbliqua tried 2/2] 1.0 secs
+				[tipo_immagine tried 2/2] 1.0 secs
+				[tipo_vuoto tried 2/2] 1.0 secs
+				[ultima_pagina tried 1/1] 1.0 secs
+				[frame tried 4/5] 1.0 secs
+				[pagina_1 tried 2/3] 1.1 secs
+				[on_top tried 6/6] 1.1 secs
+				[to_right tried 5/6] 1.1 secs
+				[allineato_al_centro_verticale tried 6/6] 1.1 secs
+				[allineato_al_centro_orizzontale tried 4/6] 1.1 secs
+				[numero_pagine tried 1/1] 1.1 secs
+				[altezza_pagina tried 1/1] 1.1 secs
+				[larghezza_pagina tried 1/1] 1.1 secs
+				[altezza_rettangolo tried 2/2] 1.1 secs
+				[ascissa_rettangolo tried 2/2] 1.1 secs
+				[ordinata_rettangolo tried 2/2] 1.1 secs
+				[larghezza_rettangolo tried 2/2] 1.1 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (19728/79440 [102/302], 304.9 bits available)
+
+				[= tried 1/1] 1.2 secs
+				[tipo_testo tried 0/2] 1.2 secs
+				[tipo_linea_orizzontale tried 2/2] 1.2 secs
+				[tipo_misto tried 2/2] 1.2 secs
+				[tipo_linea_obbliqua tried 2/2] 1.2 secs
+				[tipo_immagine tried 2/2] 1.2 secs
+				[tipo_vuoto tried 2/2] 1.2 secs
+				[ultima_pagina tried 1/1] 1.2 secs
+				[frame tried 4/5] 1.2 secs
+				[pagina_1 tried 2/3] 1.2 secs
+				[on_top tried 5/6] 1.2 secs
+				[to_right tried 5/6] 1.2 secs
+				[allineato_al_centro_verticale tried 6/6] 1.2 secs
+				[allineato_al_centro_orizzontale tried 6/6] 1.2 secs
+				[numero_pagine tried 1/1] 1.2 secs
+				[altezza_pagina tried 1/1] 1.2 secs
+				[larghezza_pagina tried 1/1] 1.2 secs
+				[altezza_rettangolo tried 2/2] 1.2 secs
+				[ascissa_rettangolo tried 2/2] 1.3 secs
+				[ordinata_rettangolo tried 2/2] 1.3 secs
+				[larghezza_rettangolo tried 2/2] 1.3 secs
+
+Best literal allineato_al_centro_orizzontale(E,D) (7.0 bits)
+
+
+State (288/1344 [2/9], 6.0 bits available, 1 weak literal)
+
+				[= tried 3/3] 1.3 secs
+				[tipo_testo tried 1/3] 1.3 secs
+				[tipo_linea_orizzontale tried 3/3] 1.3 secs
+				[tipo_misto tried 3/3] 1.3 secs
+				[tipo_linea_obbliqua tried 3/3] 1.3 secs
+				[tipo_immagine tried 3/3] 1.3 secs
+				[tipo_vuoto tried 3/3] 1.3 secs
+				[ultima_pagina tried 1/1] 1.3 secs
+				[frame tried 5/6] 1.3 secs
+				[pagina_1 tried 2/3] 1.3 secs
+				[on_top tried 9/10] 1.3 secs
+				[to_right tried 9/10] 1.3 secs
+				[allineato_al_centro_verticale tried 8/10] 1.3 secs
+				[allineato_al_centro_orizzontale tried 6/10] 1.3 secs
+				[numero_pagine tried 1/1] 1.3 secs
+				[altezza_pagina tried 1/1] 1.3 secs
+				[larghezza_pagina tried 1/1] 1.3 secs
+				[altezza_rettangolo tried 2/2] 1.3 secs
+				[ascissa_rettangolo tried 2/2] 1.3 secs
+				[ordinata_rettangolo tried 2/2] 1.3 secs
+				[larghezza_rettangolo tried 2/2] 1.3 secs
+
+Best literal to_right(D,E) (7.7 bits)
+
+
+State (576/2368 [2/8], 1.3 bits available)
+
+				[= requires 7.0 bits]
+				[tipo_testo requires 6.0 bits]
+				[tipo_linea_orizzontale requires 6.0 bits]
+				[tipo_misto requires 6.0 bits]
+				[tipo_linea_obbliqua requires 6.0 bits]
+				[tipo_immagine requires 6.0 bits]
+				[tipo_vuoto requires 6.0 bits]
+				[ultima_pagina tried 1/1] 1.3 secs
+				[frame requires 7.0 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 7.7 bits]
+				[to_right requires 7.7 bits]
+				[allineato_al_centro_verticale requires 7.7 bits]
+				[allineato_al_centro_orizzontale requires 7.7 bits]
+				[numero_pagine tried 1/1] 1.3 secs
+				[altezza_pagina tried 1/1] 1.3 secs
+				[larghezza_pagina tried 1/1] 1.3 secs
+				[altezza_rettangolo requires 5.4 bits]
+				[ascissa_rettangolo requires 5.4 bits]
+				[ordinata_rettangolo requires 5.4 bits]
+				[larghezza_rettangolo requires 5.4 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D).
+
+
+
+State (9224/32448 [101/309], 311.1 bits available, 1 weak literal)
+
+				[= tried 1/1] 1.3 secs
+				[tipo_testo tried 1/2] 1.3 secs
+				[tipo_linea_orizzontale tried 2/2] 1.3 secs
+				[tipo_misto tried 2/2] 1.3 secs
+				[tipo_linea_obbliqua tried 2/2] 1.3 secs
+				[tipo_immagine tried 2/2] 1.3 secs
+				[tipo_vuoto tried 2/2] 1.3 secs
+				[ultima_pagina tried 1/1] 1.3 secs
+				[frame tried 4/5] 1.3 secs
+				[pagina_1 tried 2/3] 1.3 secs
+				[on_top tried 6/6] 1.3 secs
+				[to_right tried 6/6] 1.3 secs
+				[allineato_al_centro_verticale tried 4/6] 1.3 secs
+				[allineato_al_centro_orizzontale tried 5/6] 1.3 secs
+				[numero_pagine tried 1/1] 1.3 secs
+				[altezza_pagina tried 1/1] 1.3 secs
+				[larghezza_pagina tried 1/1] 1.3 secs
+				[altezza_rettangolo tried 2/2] 1.3 secs
+				[ascissa_rettangolo tried 2/2] 1.3 secs
+				[ordinata_rettangolo tried 2/2] 1.3 secs
+				[larghezza_rettangolo tried 2/2] 1.4 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (9112/27952 [101/309], 308.0 bits available)
+
+				[= tried 1/1] 1.4 secs
+				[tipo_testo tried 0/2] 1.4 secs
+				[tipo_linea_orizzontale tried 2/2] 1.4 secs
+				[tipo_misto tried 2/2] 1.4 secs
+				[tipo_linea_obbliqua tried 2/2] 1.4 secs
+				[tipo_immagine tried 2/2] 1.4 secs
+				[tipo_vuoto tried 2/2] 1.4 secs
+				[ultima_pagina tried 1/1] 1.4 secs
+				[frame tried 4/5] 1.4 secs
+				[pagina_1 tried 2/3] 1.4 secs
+				[on_top tried 6/6] 1.4 secs
+				[to_right tried 6/6] 1.4 secs
+				[allineato_al_centro_verticale tried 5/6] 1.4 secs
+				[allineato_al_centro_orizzontale tried 4/6] 1.4 secs
+				[numero_pagine tried 1/1] 1.4 secs
+				[altezza_pagina tried 1/1] 1.4 secs
+				[larghezza_pagina tried 1/1] 1.4 secs
+				[altezza_rettangolo tried 2/2] 1.4 secs
+				[ascissa_rettangolo tried 2/2] 1.4 secs
+				[ordinata_rettangolo tried 2/2] 1.4 secs
+				[larghezza_rettangolo tried 2/2] 1.4 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (9296/28336 [97/301], 298.6 bits available)
+
+				[= tried 1/1] 1.4 secs
+				[tipo_testo tried 0/2] 1.4 secs
+				[tipo_linea_orizzontale tried 2/2] 1.4 secs
+				[tipo_misto tried 2/2] 1.4 secs
+				[tipo_linea_obbliqua tried 2/2] 1.4 secs
+				[tipo_immagine tried 2/2] 1.4 secs
+				[tipo_vuoto tried 2/2] 1.4 secs
+				[ultima_pagina tried 1/1] 1.4 secs
+				[frame tried 4/5] 1.4 secs
+				[pagina_1 tried 2/3] 1.5 secs
+				[on_top tried 5/6] 1.5 secs
+				[to_right tried 6/6] 1.5 secs
+				[allineato_al_centro_verticale tried 5/6] 1.5 secs
+				[allineato_al_centro_orizzontale tried 6/6] 1.5 secs
+				[numero_pagine tried 1/1] 1.5 secs
+				[altezza_pagina tried 1/1] 1.5 secs
+				[larghezza_pagina tried 1/1] 1.5 secs
+				[altezza_rettangolo tried 2/2] 1.5 secs
+				[ascissa_rettangolo tried 2/2] 1.5 secs
+				[ordinata_rettangolo tried 2/2] 1.5 secs
+				[larghezza_rettangolo tried 2/2] 1.5 secs
+
+	Save allineato_al_centro_verticale(D,E) (87,272 value -3.4)
+	Save allineato_al_centro_verticale(E,C) (87,274 value -4.3)
+
+Best literal to_right(E,D) (7.0 bits)
+
+
+State (9344/88704 [35/195], 159.6 bits available, 1 weak literal)
+
+				[= tried 3/3] 1.5 secs
+				[tipo_testo tried 1/3] 1.5 secs
+				[tipo_linea_orizzontale tried 3/3] 1.5 secs
+				[tipo_misto tried 3/3] 1.5 secs
+				[tipo_linea_obbliqua tried 3/3] 1.5 secs
+				[tipo_immagine tried 3/3] 1.5 secs
+				[tipo_vuoto tried 3/3] 1.5 secs
+				[ultima_pagina tried 1/1] 1.5 secs
+				[frame tried 5/6] 1.5 secs
+				[pagina_1 tried 2/3] 1.6 secs
+				[on_top tried 9/10] 1.6 secs
+				[to_right tried 8/10] 1.6 secs
+				[allineato_al_centro_verticale tried 9/10] 1.6 secs
+				[allineato_al_centro_orizzontale tried 6/10] 1.6 secs
+				[numero_pagine tried 1/1] 1.6 secs
+				[altezza_pagina tried 1/1] 1.6 secs
+				[larghezza_pagina tried 1/1] 1.6 secs
+				[altezza_rettangolo tried 2/2] 1.6 secs
+				[ascissa_rettangolo tried 2/2] 1.7 secs
+				[ordinata_rettangolo tried 2/2] 1.7 secs
+				[larghezza_rettangolo tried 2/2] 1.7 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (8960/73120 [34/181], 153.3 bits available)
+
+				[= tried 3/3] 1.7 secs
+				[tipo_testo tried 0/3] 1.7 secs
+				[tipo_linea_orizzontale tried 3/3] 1.7 secs
+				[tipo_misto tried 3/3] 1.7 secs
+				[tipo_linea_obbliqua tried 3/3] 1.7 secs
+				[tipo_immagine tried 3/3] 1.7 secs
+				[tipo_vuoto tried 3/3] 1.7 secs
+				[ultima_pagina tried 1/1] 1.7 secs
+				[frame tried 5/6] 1.7 secs
+				[pagina_1 tried 2/3] 1.7 secs
+				[on_top tried 9/10] 1.7 secs
+				[to_right tried 9/10] 1.8 secs
+				[allineato_al_centro_verticale tried 9/10] 1.8 secs
+				[allineato_al_centro_orizzontale tried 6/10] 1.8 secs
+				[numero_pagine tried 1/1] 1.8 secs
+				[altezza_pagina tried 1/1] 1.8 secs
+				[larghezza_pagina tried 1/1] 1.8 secs
+				[altezza_rettangolo tried 2/2] 1.8 secs
+				[ascissa_rettangolo tried 2/2] 1.8 secs
+				[ordinata_rettangolo tried 2/2] 1.8 secs
+				[larghezza_rettangolo tried 2/2] 1.8 secs
+
+Best literal on_top(E,D) (7.7 bits)
+
+
+State (12352/88512 [33/176], 145.4 bits available)
+
+				[= tried 3/3] 1.8 secs
+				[tipo_testo tried 0/3] 1.8 secs
+				[tipo_linea_orizzontale tried 3/3] 1.8 secs
+				[tipo_misto tried 3/3] 1.8 secs
+				[tipo_linea_obbliqua tried 3/3] 1.8 secs
+				[tipo_immagine tried 3/3] 1.8 secs
+				[tipo_vuoto tried 3/3] 1.9 secs
+				[ultima_pagina tried 1/1] 1.9 secs
+				[frame tried 5/6] 1.9 secs
+				[pagina_1 tried 2/3] 1.9 secs
+				[on_top tried 8/10] 1.9 secs
+				[to_right tried 9/10] 1.9 secs
+				[allineato_al_centro_verticale tried 9/10] 2.0 secs
+				[allineato_al_centro_orizzontale tried 6/10] 2.0 secs
+				[numero_pagine tried 1/1] 2.0 secs
+				[altezza_pagina tried 1/1] 2.0 secs
+				[larghezza_pagina tried 1/1] 2.0 secs
+				[altezza_rettangolo tried 2/2] 2.0 secs
+				[ascissa_rettangolo tried 2/2] 2.0 secs
+				[ordinata_rettangolo tried 2/2] 2.0 secs
+				[larghezza_rettangolo tried 2/2] 2.0 secs
+
+Best literal to_right(C,D) (7.7 bits)
+
+
+State (13696/81792 [16/114], 74.0 bits available)
+
+				[= tried 3/3] 2.0 secs
+				[tipo_testo tried 0/3] 2.0 secs
+				[tipo_linea_orizzontale tried 3/3] 2.0 secs
+				[tipo_misto tried 3/3] 2.0 secs
+				[tipo_linea_obbliqua tried 3/3] 2.0 secs
+				[tipo_immagine tried 3/3] 2.0 secs
+				[tipo_vuoto tried 3/3] 2.0 secs
+				[ultima_pagina tried 1/1] 2.0 secs
+				[frame tried 5/6] 2.0 secs
+				[pagina_1 tried 2/3] 2.0 secs
+				[on_top tried 8/10] 2.1 secs
+				[to_right tried 8/10] 2.1 secs
+				[allineato_al_centro_verticale tried 9/10] 2.1 secs
+				[allineato_al_centro_orizzontale tried 6/10] 2.1 secs
+				[numero_pagine tried 1/1] 2.1 secs
+				[altezza_pagina tried 1/1] 2.1 secs
+				[larghezza_pagina tried 1/1] 2.1 secs
+				[altezza_rettangolo tried 2/2] 2.1 secs
+				[ascissa_rettangolo tried 2/2] 2.1 secs
+				[ordinata_rettangolo tried 2/2] 2.1 secs
+				[larghezza_rettangolo tried 2/2] 2.1 secs
+
+Best literal on_top(E,C) (7.7 bits)
+
+
+State (12032/54784 [12/84], 50.4 bits available)
+
+				[= tried 3/3] 2.2 secs
+				[tipo_testo tried 0/3] 2.2 secs
+				[tipo_linea_orizzontale tried 3/3] 2.2 secs
+				[tipo_misto tried 3/3] 2.2 secs
+				[tipo_linea_obbliqua tried 3/3] 2.2 secs
+				[tipo_immagine tried 3/3] 2.2 secs
+				[tipo_vuoto tried 3/3] 2.2 secs
+				[ultima_pagina tried 1/1] 2.2 secs
+				[frame tried 5/6] 2.2 secs
+				[pagina_1 tried 2/3] 2.2 secs
+				[on_top tried 7/10] 2.2 secs
+				[to_right tried 8/10] 2.2 secs
+				[allineato_al_centro_verticale tried 9/10] 2.2 secs
+				[allineato_al_centro_orizzontale tried 6/10] 2.2 secs
+				[numero_pagine tried 1/1] 2.2 secs
+				[altezza_pagina tried 1/1] 2.2 secs
+				[larghezza_pagina tried 1/1] 2.2 secs
+				[altezza_rettangolo tried 2/2] 2.2 secs
+				[ascissa_rettangolo tried 2/2] 2.3 secs
+				[ordinata_rettangolo tried 2/2] 2.3 secs
+				[larghezza_rettangolo tried 2/2] 2.3 secs
+
+Best literal to_right(E,C) (7.7 bits)
+
+
+State (14336/55296 [8/46], 24.8 bits available)
+
+				[= tried 3/3] 2.3 secs
+				[tipo_testo tried 0/3] 2.3 secs
+				[tipo_linea_orizzontale tried 3/3] 2.3 secs
+				[tipo_misto tried 3/3] 2.3 secs
+				[tipo_linea_obbliqua tried 3/3] 2.3 secs
+				[tipo_immagine tried 3/3] 2.3 secs
+				[tipo_vuoto tried 3/3] 2.3 secs
+				[ultima_pagina tried 1/1] 2.3 secs
+				[frame tried 5/6] 2.3 secs
+				[pagina_1 tried 2/3] 2.3 secs
+				[on_top tried 7/10] 2.3 secs
+				[to_right tried 7/10] 2.3 secs
+				[allineato_al_centro_verticale tried 9/10] 2.3 secs
+				[allineato_al_centro_orizzontale tried 10/10] 2.3 secs
+				[numero_pagine tried 1/1] 2.3 secs
+				[altezza_pagina tried 1/1] 2.3 secs
+				[larghezza_pagina tried 1/1] 2.3 secs
+				[altezza_rettangolo tried 2/2] 2.4 secs
+				[ascissa_rettangolo tried 2/2] 2.4 secs
+				[ordinata_rettangolo tried 2/2] 2.4 secs
+				[larghezza_rettangolo tried 2/2] 2.4 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C).
+
+
+
+State (9176/32848 [101/309], 311.1 bits available, 1 weak literal)
+
+				[= tried 1/1] 2.4 secs
+				[tipo_testo tried 1/2] 2.4 secs
+				[tipo_linea_orizzontale tried 2/2] 2.4 secs
+				[tipo_misto tried 2/2] 2.4 secs
+				[tipo_linea_obbliqua tried 2/2] 2.4 secs
+				[tipo_immagine tried 2/2] 2.4 secs
+				[tipo_vuoto tried 2/2] 2.4 secs
+				[ultima_pagina tried 1/1] 2.4 secs
+				[frame tried 4/5] 2.4 secs
+				[pagina_1 tried 2/3] 2.4 secs
+				[on_top tried 6/6] 2.4 secs
+				[to_right tried 6/6] 2.4 secs
+				[allineato_al_centro_verticale tried 4/6] 2.4 secs
+				[allineato_al_centro_orizzontale tried 5/6] 2.4 secs
+				[numero_pagine tried 1/1] 2.4 secs
+				[altezza_pagina tried 1/1] 2.4 secs
+				[larghezza_pagina tried 1/1] 2.4 secs
+				[altezza_rettangolo tried 2/2] 2.4 secs
+				[ascissa_rettangolo tried 2/2] 2.4 secs
+				[ordinata_rettangolo tried 2/2] 2.4 secs
+				[larghezza_rettangolo tried 2/2] 2.5 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (9112/27952 [101/309], 308.0 bits available)
+
+				[= tried 1/1] 2.5 secs
+				[tipo_testo tried 0/2] 2.5 secs
+				[tipo_linea_orizzontale tried 2/2] 2.5 secs
+				[tipo_misto tried 2/2] 2.5 secs
+				[tipo_linea_obbliqua tried 2/2] 2.5 secs
+				[tipo_immagine tried 2/2] 2.5 secs
+				[tipo_vuoto tried 2/2] 2.5 secs
+				[ultima_pagina tried 1/1] 2.5 secs
+				[frame tried 4/5] 2.5 secs
+				[pagina_1 tried 2/3] 2.5 secs
+				[on_top tried 6/6] 2.5 secs
+				[to_right tried 6/6] 2.5 secs
+				[allineato_al_centro_verticale tried 5/6] 2.5 secs
+				[allineato_al_centro_orizzontale tried 4/6] 2.5 secs
+				[numero_pagine tried 1/1] 2.5 secs
+				[altezza_pagina tried 1/1] 2.5 secs
+				[larghezza_pagina tried 1/1] 2.5 secs
+				[altezza_rettangolo tried 2/2] 2.5 secs
+				[ascissa_rettangolo tried 2/2] 2.5 secs
+				[ordinata_rettangolo tried 2/2] 2.5 secs
+				[larghezza_rettangolo tried 2/2] 2.5 secs
+
+Best literal on_top(D,C) (7.0 bits)
+
+
+State (9296/28336 [97/301], 298.6 bits available)
+
+				[= tried 1/1] 2.5 secs
+				[tipo_testo tried 0/2] 2.5 secs
+				[tipo_linea_orizzontale tried 2/2] 2.5 secs
+				[tipo_misto tried 2/2] 2.5 secs
+				[tipo_linea_obbliqua tried 2/2] 2.5 secs
+				[tipo_immagine tried 2/2] 2.5 secs
+				[tipo_vuoto tried 2/2] 2.5 secs
+				[ultima_pagina tried 1/1] 2.5 secs
+				[frame tried 4/5] 2.5 secs
+				[pagina_1 tried 2/3] 2.5 secs
+				[on_top tried 5/6] 2.6 secs
+				[to_right tried 6/6] 2.6 secs
+				[allineato_al_centro_verticale tried 5/6] 2.6 secs
+				[allineato_al_centro_orizzontale tried 6/6] 2.6 secs
+				[numero_pagine tried 1/1] 2.6 secs
+				[altezza_pagina tried 1/1] 2.6 secs
+				[larghezza_pagina tried 1/1] 2.6 secs
+				[altezza_rettangolo tried 2/2] 2.6 secs
+				[ascissa_rettangolo tried 2/2] 2.6 secs
+				[ordinata_rettangolo tried 2/2] 2.6 secs
+				[larghezza_rettangolo tried 2/2] 2.6 secs
+
+	Save allineato_al_centro_verticale(C,E) (87,272 value -3.4)
+	Save allineato_al_centro_verticale(E,D) (87,274 value -4.3)
+
+Best literal to_right(E,C) (7.0 bits)
+
+
+State (9344/88704 [35/195], 159.6 bits available, 1 weak literal)
+
+				[= tried 3/3] 2.6 secs
+				[tipo_testo tried 1/3] 2.6 secs
+				[tipo_linea_orizzontale tried 3/3] 2.6 secs
+				[tipo_misto tried 3/3] 2.6 secs
+				[tipo_linea_obbliqua tried 3/3] 2.6 secs
+				[tipo_immagine tried 3/3] 2.6 secs
+				[tipo_vuoto tried 3/3] 2.6 secs
+				[ultima_pagina tried 1/1] 2.6 secs
+				[frame tried 6/7] 2.6 secs
+				[pagina_1 tried 2/3] 2.7 secs
+				[on_top tried 11/12] 2.7 secs
+				[to_right tried 10/12] 2.7 secs
+				[allineato_al_centro_verticale tried 11/12] 2.7 secs
+				[allineato_al_centro_orizzontale tried 6/12] 2.7 secs
+				[numero_pagine tried 1/1] 2.7 secs
+				[altezza_pagina tried 1/1] 2.7 secs
+				[larghezza_pagina tried 1/1] 2.8 secs
+				[altezza_rettangolo tried 3/3] 2.8 secs
+				[ascissa_rettangolo tried 3/3] 2.8 secs
+				[ordinata_rettangolo tried 3/3] 2.8 secs
+				[larghezza_rettangolo tried 3/3] 2.8 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (8960/73120 [34/181], 153.3 bits available)
+
+				[= tried 3/3] 2.8 secs
+				[tipo_testo tried 0/3] 2.8 secs
+				[tipo_linea_orizzontale tried 3/3] 2.8 secs
+				[tipo_misto tried 3/3] 2.8 secs
+				[tipo_linea_obbliqua tried 3/3] 2.8 secs
+				[tipo_immagine tried 3/3] 2.8 secs
+				[tipo_vuoto tried 3/3] 2.8 secs
+				[ultima_pagina tried 1/1] 2.8 secs
+				[frame tried 6/7] 2.8 secs
+				[pagina_1 tried 2/3] 2.8 secs
+				[on_top tried 11/12] 2.9 secs
+				[to_right tried 11/12] 2.9 secs
+				[allineato_al_centro_verticale tried 11/12] 2.9 secs
+				[allineato_al_centro_orizzontale tried 6/12] 2.9 secs
+				[numero_pagine tried 1/1] 2.9 secs
+				[altezza_pagina tried 1/1] 2.9 secs
+				[larghezza_pagina tried 1/1] 3.0 secs
+				[altezza_rettangolo tried 3/3] 3.0 secs
+				[ascissa_rettangolo tried 3/3] 3.0 secs
+				[ordinata_rettangolo tried 3/3] 3.0 secs
+				[larghezza_rettangolo tried 3/3] 3.0 secs
+
+Best literal on_top(E,C) (8.0 bits)
+
+
+State (12352/88512 [33/176], 145.1 bits available)
+
+				[= tried 3/3] 3.0 secs
+				[tipo_testo tried 0/3] 3.0 secs
+				[tipo_linea_orizzontale tried 3/3] 3.0 secs
+				[tipo_misto tried 3/3] 3.0 secs
+				[tipo_linea_obbliqua tried 3/3] 3.0 secs
+				[tipo_immagine tried 3/3] 3.0 secs
+				[tipo_vuoto tried 3/3] 3.0 secs
+				[ultima_pagina tried 1/1] 3.0 secs
+				[frame tried 6/7] 3.0 secs
+				[pagina_1 tried 2/3] 3.1 secs
+				[on_top tried 10/12] 3.1 secs
+				[to_right tried 11/12] 3.1 secs
+				[allineato_al_centro_verticale tried 11/12] 3.1 secs
+				[allineato_al_centro_orizzontale tried 6/12] 3.1 secs
+				[numero_pagine tried 1/1] 3.1 secs
+				[altezza_pagina tried 1/1] 3.1 secs
+				[larghezza_pagina tried 1/1] 3.1 secs
+				[altezza_rettangolo tried 3/3] 3.2 secs
+				[ascissa_rettangolo tried 3/3] 3.2 secs
+				[ordinata_rettangolo tried 3/3] 3.2 secs
+				[larghezza_rettangolo tried 3/3] 3.2 secs
+
+Best literal to_right(D,C) (8.0 bits)
+
+
+State (13696/81792 [16/114], 73.4 bits available)
+
+				[= tried 3/3] 3.2 secs
+				[tipo_testo tried 0/3] 3.2 secs
+				[tipo_linea_orizzontale tried 3/3] 3.2 secs
+				[tipo_misto tried 3/3] 3.2 secs
+				[tipo_linea_obbliqua tried 3/3] 3.2 secs
+				[tipo_immagine tried 3/3] 3.2 secs
+				[tipo_vuoto tried 3/3] 3.2 secs
+				[ultima_pagina tried 1/1] 3.2 secs
+				[frame tried 6/7] 3.2 secs
+				[pagina_1 tried 2/3] 3.2 secs
+				[on_top tried 10/12] 3.3 secs
+				[to_right tried 10/12] 3.3 secs
+				[allineato_al_centro_verticale tried 11/12] 3.3 secs
+				[allineato_al_centro_orizzontale tried 6/12] 3.3 secs
+				[numero_pagine tried 1/1] 3.3 secs
+				[altezza_pagina tried 1/1] 3.3 secs
+				[larghezza_pagina tried 1/1] 3.3 secs
+				[altezza_rettangolo tried 3/3] 3.3 secs
+				[ascissa_rettangolo tried 3/3] 3.4 secs
+				[ordinata_rettangolo tried 3/3] 3.4 secs
+				[larghezza_rettangolo tried 3/3] 3.4 secs
+
+Best literal on_top(E,D) (8.0 bits)
+
+
+State (12032/54784 [12/84], 49.6 bits available)
+
+				[= tried 3/3] 3.4 secs
+				[tipo_testo tried 0/3] 3.4 secs
+				[tipo_linea_orizzontale tried 3/3] 3.4 secs
+				[tipo_misto tried 3/3] 3.4 secs
+				[tipo_linea_obbliqua tried 3/3] 3.4 secs
+				[tipo_immagine tried 3/3] 3.4 secs
+				[tipo_vuoto tried 3/3] 3.4 secs
+				[ultima_pagina tried 1/1] 3.4 secs
+				[frame tried 6/7] 3.4 secs
+				[pagina_1 tried 2/3] 3.4 secs
+				[on_top tried 9/12] 3.4 secs
+				[to_right tried 10/12] 3.5 secs
+				[allineato_al_centro_verticale tried 11/12] 3.5 secs
+				[allineato_al_centro_orizzontale tried 6/12] 3.5 secs
+				[numero_pagine tried 1/1] 3.5 secs
+				[altezza_pagina tried 1/1] 3.5 secs
+				[larghezza_pagina tried 1/1] 3.5 secs
+				[altezza_rettangolo tried 3/3] 3.5 secs
+				[ascissa_rettangolo tried 3/3] 3.5 secs
+				[ordinata_rettangolo tried 3/3] 3.5 secs
+				[larghezza_rettangolo tried 3/3] 3.5 secs
+
+Best literal to_right(E,D) (8.0 bits)
+
+
+State (14336/55296 [8/46], 23.7 bits available)
+
+				[= tried 3/3] 3.5 secs
+				[tipo_testo tried 0/3] 3.5 secs
+				[tipo_linea_orizzontale tried 3/3] 3.5 secs
+				[tipo_misto tried 3/3] 3.5 secs
+				[tipo_linea_obbliqua tried 3/3] 3.5 secs
+				[tipo_immagine tried 3/3] 3.5 secs
+				[tipo_vuoto tried 3/3] 3.5 secs
+				[ultima_pagina tried 1/1] 3.5 secs
+				[frame tried 6/7] 3.6 secs
+				[pagina_1 tried 2/3] 3.6 secs
+				[on_top tried 9/12] 3.6 secs
+				[to_right tried 9/12] 3.6 secs
+				[allineato_al_centro_verticale tried 11/12] 3.6 secs
+				[allineato_al_centro_orizzontale tried 6/12] 3.6 secs
+				[numero_pagine tried 1/1] 3.6 secs
+				[altezza_pagina tried 1/1] 3.6 secs
+				[larghezza_pagina tried 1/1] 3.6 secs
+				[altezza_rettangolo tried 3/3] 3.6 secs
+				[ascissa_rettangolo tried 3/3] 3.6 secs
+				[ordinata_rettangolo tried 3/3] 3.7 secs
+				[larghezza_rettangolo tried 3/3] 3.7 secs
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (40960/70656 [6/18], 7.6 bits available)
+
+				[= tried 6/6] 3.7 secs
+				[tipo_testo tried 1/4] 3.7 secs
+				[tipo_linea_orizzontale tried 4/4] 3.7 secs
+				[tipo_misto tried 4/4] 3.7 secs
+				[tipo_linea_obbliqua tried 4/4] 3.7 secs
+				[tipo_immagine tried 4/4] 3.7 secs
+				[tipo_vuoto tried 4/4] 3.7 secs
+				[ultima_pagina tried 1/1] 3.7 secs
+				[frame tried 7/8] 3.7 secs
+				[pagina_1 tried 2/3] 3.7 secs
+				[on_top tried 15/18] 3.8 secs
+				[to_right tried 15/18] 3.8 secs
+				[allineato_al_centro_verticale tried 15/18] 3.8 secs
+				[allineato_al_centro_orizzontale tried 9/18] 3.8 secs
+				[numero_pagine tried 1/1] 3.8 secs
+				[altezza_pagina tried 1/1] 3.8 secs
+				[larghezza_pagina tried 1/1] 3.9 secs
+				[altezza_rettangolo tried 3/3] 3.9 secs
+				[ascissa_rettangolo tried 3/3] 3.9 secs
+				[ordinata_rettangolo tried 3/3] 3.9 secs
+				[larghezza_rettangolo tried 3/3] 3.9 secs
+
+	Save clause ending with on_top(C,F) (cover 6, accuracy 85%)
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (20480/26624 [6/7], 2.8 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo tried 1/4] 3.9 secs
+				[tipo_linea_orizzontale tried 4/4] 3.9 secs
+				[tipo_misto tried 4/4] 3.9 secs
+				[tipo_linea_obbliqua tried 4/4] 3.9 secs
+				[tipo_immagine tried 4/4] 3.9 secs
+				[tipo_vuoto tried 4/4] 3.9 secs
+				[ultima_pagina tried 1/1] 3.9 secs
+				[frame requires 7.4 bits]
+				[pagina_1 tried 2/3] 3.9 secs
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 3.9 secs
+				[altezza_pagina tried 1/1] 3.9 secs
+				[larghezza_pagina tried 1/1] 3.9 secs
+				[altezza_rettangolo tried 3/3] 3.9 secs
+				[ascissa_rettangolo tried 3/3] 3.9 secs
+				[ordinata_rettangolo tried 3/3] 3.9 secs
+				[larghezza_rettangolo tried 3/3] 3.9 secs
+
+No literals
+
+Initial clause (1 errs): class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), on_top(E,C), to_right(D,C), on_top(E,D), to_right(E,D), allineato_al_centro_verticale(E,F), on_top(C,F).
+		to_right(E,C) needed for binding tipo_testo(E)
+		frame(B,C) needed for binding allineato_al_centro_verticale(D,C)
+		pagina_1(A,B) needed for binding frame(B,C)
+
+Clause 2: class_mlj(A) :- pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(D,C), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), on_top(E,D), to_right(E,D), allineato_al_centro_verticale(E,F), on_top(C,F).
+
+State (96/304, 313.4 bits available)
+
+				[pagina_1 tried 1/1] 4.3 secs
+				[numero_pagine tried 1/1] 4.3 secs
+
+Best literal pagina_1(A,B) (1.0 bits)
+
+
+State (192/608 [96/304], 312.4 bits available, 1 weak literal)
+
+				[ultima_pagina tried 1/1] 4.3 secs
+				[frame tried 1/1] 4.3 secs
+				[pagina_1 tried 1/3] 4.3 secs
+				[numero_pagine tried 1/1] 4.3 secs
+				[altezza_pagina tried 1/1] 4.3 secs
+				[larghezza_pagina tried 1/1] 4.3 secs
+
+Best literal frame(B,C) (2.6 bits)
+
+
+State (3588/13256 [96/304], 310.8 bits available, 2 weak literals)
+
+				[tipo_testo tried 1/1] 4.3 secs
+				[tipo_linea_orizzontale tried 1/1] 4.3 secs
+				[tipo_misto tried 1/1] 4.3 secs
+				[tipo_linea_obbliqua tried 1/1] 4.3 secs
+				[tipo_immagine tried 1/1] 4.3 secs
+				[tipo_vuoto tried 1/1] 4.3 secs
+				[ultima_pagina tried 1/1] 4.3 secs
+				[frame tried 1/3] 4.3 secs
+				[pagina_1 tried 2/3] 4.3 secs
+				[on_top tried 2/2] 4.3 secs
+				[to_right tried 2/2] 4.3 secs
+				[allineato_al_centro_verticale tried 2/2] 4.3 secs
+				[allineato_al_centro_orizzontale tried 2/2] 4.3 secs
+				[numero_pagine tried 1/1] 4.3 secs
+				[altezza_pagina tried 1/1] 4.3 secs
+				[larghezza_pagina tried 1/1] 4.3 secs
+				[altezza_rettangolo tried 1/1] 4.3 secs
+				[ascissa_rettangolo tried 1/1] 4.3 secs
+				[ordinata_rettangolo tried 1/1] 4.3 secs
+				[larghezza_rettangolo tried 1/1] 4.3 secs
+
+Best literal tipo_testo(C) (4.3 bits)
+
+
+State (3512/11564 [96/304], 308.1 bits available)
+
+				[tipo_testo tried 0/1] 4.3 secs
+				[tipo_linea_orizzontale tried 1/1] 4.3 secs
+				[tipo_misto tried 1/1] 4.3 secs
+				[tipo_linea_obbliqua tried 1/1] 4.3 secs
+				[tipo_immagine tried 1/1] 4.3 secs
+				[tipo_vuoto tried 1/1] 4.3 secs
+				[ultima_pagina tried 1/1] 4.3 secs
+				[frame tried 2/3] 4.3 secs
+				[pagina_1 tried 2/3] 4.3 secs
+				[on_top tried 2/2] 4.3 secs
+				[to_right tried 2/2] 4.3 secs
+				[allineato_al_centro_verticale tried 2/2] 4.3 secs
+				[allineato_al_centro_orizzontale tried 2/2] 4.3 secs
+				[numero_pagine tried 1/1] 4.3 secs
+				[altezza_pagina tried 1/1] 4.3 secs
+				[larghezza_pagina tried 1/1] 4.3 secs
+				[altezza_rettangolo tried 1/1] 4.3 secs
+				[ascissa_rettangolo tried 1/1] 4.3 secs
+				[ordinata_rettangolo tried 1/1] 4.3 secs
+				[larghezza_rettangolo tried 1/1] 4.3 secs
+
+	Save to_right(D,C) (96,302 value 0.9)
+	Save allineato_al_centro_verticale(C,D) (95,303 value -1.0)
+	Save allineato_al_centro_verticale(D,C) (95,303 value -1.0)
+	Save allineato_al_centro_orizzontale(C,D) (1,92 value -3.9)
+
+Best literal to_right(C,D) (5.3 bits)
+
+
+State (20104/99024 [96/304], 304.8 bits available, 1 weak literal)
+
+				[= tried 1/1] 4.3 secs
+				[tipo_testo tried 1/2] 4.3 secs
+				[tipo_linea_orizzontale tried 2/2] 4.3 secs
+				[tipo_misto tried 2/2] 4.3 secs
+				[tipo_linea_obbliqua tried 2/2] 4.3 secs
+				[tipo_immagine tried 2/2] 4.3 secs
+				[tipo_vuoto tried 2/2] 4.3 secs
+				[ultima_pagina tried 1/1] 4.3 secs
+				[frame tried 4/5] 4.3 secs
+				[pagina_1 tried 2/3] 4.3 secs
+				[on_top tried 6/6] 4.4 secs
+				[to_right tried 4/6] 4.4 secs
+				[allineato_al_centro_verticale tried 6/6] 4.4 secs
+				[allineato_al_centro_orizzontale tried 6/6] 4.4 secs
+				[numero_pagine tried 1/1] 4.4 secs
+				[altezza_pagina tried 1/1] 4.4 secs
+				[larghezza_pagina tried 1/1] 4.4 secs
+				[altezza_rettangolo tried 2/2] 4.4 secs
+				[ascissa_rettangolo tried 2/2] 4.4 secs
+				[ordinata_rettangolo tried 2/2] 4.4 secs
+				[larghezza_rettangolo tried 2/2] 4.4 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (19496/85424 [96/302], 301.7 bits available)
+
+				[= tried 1/1] 4.4 secs
+				[tipo_testo tried 0/2] 4.4 secs
+				[tipo_linea_orizzontale tried 2/2] 4.4 secs
+				[tipo_misto tried 2/2] 4.4 secs
+				[tipo_linea_obbliqua tried 2/2] 4.4 secs
+				[tipo_immagine tried 2/2] 4.4 secs
+				[tipo_vuoto tried 2/2] 4.4 secs
+				[ultima_pagina tried 1/1] 4.5 secs
+				[frame tried 4/5] 4.5 secs
+				[pagina_1 tried 2/3] 4.5 secs
+				[on_top tried 6/6] 4.5 secs
+				[to_right tried 5/6] 4.5 secs
+				[allineato_al_centro_verticale tried 6/6] 4.5 secs
+				[allineato_al_centro_orizzontale tried 4/6] 4.5 secs
+				[numero_pagine tried 1/1] 4.5 secs
+				[altezza_pagina tried 1/1] 4.5 secs
+				[larghezza_pagina tried 1/1] 4.5 secs
+				[altezza_rettangolo tried 2/2] 4.5 secs
+				[ascissa_rettangolo tried 2/2] 4.6 secs
+				[ordinata_rettangolo tried 2/2] 4.6 secs
+				[larghezza_rettangolo tried 2/2] 4.6 secs
+
+Best literal on_top(D,C) (7.0 bits)
+
+
+State (18544/78256 [96/296], 297.3 bits available)
+
+				[= tried 1/1] 4.6 secs
+				[tipo_testo tried 0/2] 4.6 secs
+				[tipo_linea_orizzontale tried 2/2] 4.6 secs
+				[tipo_misto tried 2/2] 4.6 secs
+				[tipo_linea_obbliqua tried 2/2] 4.6 secs
+				[tipo_immagine tried 2/2] 4.6 secs
+				[tipo_vuoto tried 2/2] 4.6 secs
+				[ultima_pagina tried 1/1] 4.6 secs
+				[frame tried 4/5] 4.6 secs
+				[pagina_1 tried 2/3] 4.6 secs
+				[on_top tried 5/6] 4.6 secs
+				[to_right tried 5/6] 4.6 secs
+				[allineato_al_centro_verticale tried 6/6] 4.6 secs
+				[allineato_al_centro_orizzontale tried 6/6] 4.6 secs
+				[numero_pagine tried 1/1] 4.7 secs
+				[altezza_pagina tried 1/1] 4.7 secs
+				[larghezza_pagina tried 1/1] 4.7 secs
+				[altezza_rettangolo tried 2/2] 4.7 secs
+				[ascissa_rettangolo tried 2/2] 4.7 secs
+				[ordinata_rettangolo tried 2/2] 4.7 secs
+				[larghezza_rettangolo tried 2/2] 4.7 secs
+
+Best literal allineato_al_centro_orizzontale(E,C) (7.0 bits)
+
+
+State (288/1344 [2/9], 6.0 bits available, 1 weak literal)
+
+				[= tried 3/3] 4.7 secs
+				[tipo_testo tried 1/3] 4.7 secs
+				[tipo_linea_orizzontale tried 3/3] 4.7 secs
+				[tipo_misto tried 3/3] 4.7 secs
+				[tipo_linea_obbliqua tried 3/3] 4.7 secs
+				[tipo_immagine tried 3/3] 4.7 secs
+				[tipo_vuoto tried 3/3] 4.7 secs
+				[ultima_pagina tried 1/1] 4.7 secs
+				[frame tried 6/7] 4.7 secs
+				[pagina_1 tried 2/3] 4.7 secs
+				[on_top tried 11/12] 4.7 secs
+				[to_right tried 11/12] 4.7 secs
+				[allineato_al_centro_verticale tried 8/12] 4.7 secs
+				[allineato_al_centro_orizzontale tried 8/12] 4.7 secs
+				[numero_pagine tried 1/1] 4.7 secs
+				[altezza_pagina tried 1/1] 4.7 secs
+				[larghezza_pagina tried 1/1] 4.7 secs
+				[altezza_rettangolo tried 3/3] 4.7 secs
+				[ascissa_rettangolo tried 3/3] 4.7 secs
+				[ordinata_rettangolo tried 3/3] 4.7 secs
+				[larghezza_rettangolo tried 3/3] 4.7 secs
+
+Best literal to_right(C,E) (8.0 bits)
+
+
+State (576/2368 [2/8], 1.1 bits available)
+
+				[= requires 7.0 bits]
+				[tipo_testo requires 6.0 bits]
+				[tipo_linea_orizzontale requires 6.0 bits]
+				[tipo_misto requires 6.0 bits]
+				[tipo_linea_obbliqua requires 6.0 bits]
+				[tipo_immagine requires 6.0 bits]
+				[tipo_vuoto requires 6.0 bits]
+				[ultima_pagina requires 4.4 bits]
+				[frame requires 7.2 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.0 bits]
+				[to_right requires 8.0 bits]
+				[allineato_al_centro_verticale requires 8.0 bits]
+				[allineato_al_centro_orizzontale requires 8.0 bits]
+				[numero_pagine requires 4.4 bits]
+				[altezza_pagina requires 4.4 bits]
+				[larghezza_pagina requires 4.4 bits]
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), to_right(D,C).
+
+
+
+State (19968/94016 [96/302], 304.8 bits available, 1 weak literal)
+
+				[= tried 1/1] 4.7 secs
+				[tipo_testo tried 1/2] 4.7 secs
+				[tipo_linea_orizzontale tried 2/2] 4.7 secs
+				[tipo_misto tried 2/2] 4.7 secs
+				[tipo_linea_obbliqua tried 2/2] 4.7 secs
+				[tipo_immagine tried 2/2] 4.7 secs
+				[tipo_vuoto tried 2/2] 4.7 secs
+				[ultima_pagina tried 1/1] 4.7 secs
+				[frame tried 4/5] 4.7 secs
+				[pagina_1 tried 2/3] 4.7 secs
+				[on_top tried 6/6] 4.8 secs
+				[to_right tried 4/6] 4.8 secs
+				[allineato_al_centro_verticale tried 6/6] 4.8 secs
+				[allineato_al_centro_orizzontale tried 6/6] 4.8 secs
+				[numero_pagine tried 1/1] 4.8 secs
+				[altezza_pagina tried 1/1] 4.8 secs
+				[larghezza_pagina tried 1/1] 4.8 secs
+				[altezza_rettangolo tried 2/2] 4.8 secs
+				[ascissa_rettangolo tried 2/2] 4.8 secs
+				[ordinata_rettangolo tried 2/2] 4.8 secs
+				[larghezza_rettangolo tried 2/2] 4.8 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (19496/85424 [96/302], 301.7 bits available)
+
+				[= tried 1/1] 4.8 secs
+				[tipo_testo tried 0/2] 4.8 secs
+				[tipo_linea_orizzontale tried 2/2] 4.8 secs
+				[tipo_misto tried 2/2] 4.8 secs
+				[tipo_linea_obbliqua tried 2/2] 4.8 secs
+				[tipo_immagine tried 2/2] 4.8 secs
+				[tipo_vuoto tried 2/2] 4.8 secs
+				[ultima_pagina tried 1/1] 4.9 secs
+				[frame tried 4/5] 4.9 secs
+				[pagina_1 tried 2/3] 4.9 secs
+				[on_top tried 6/6] 4.9 secs
+				[to_right tried 5/6] 4.9 secs
+				[allineato_al_centro_verticale tried 6/6] 4.9 secs
+				[allineato_al_centro_orizzontale tried 4/6] 4.9 secs
+				[numero_pagine tried 1/1] 4.9 secs
+				[altezza_pagina tried 1/1] 4.9 secs
+				[larghezza_pagina tried 1/1] 4.9 secs
+				[altezza_rettangolo tried 2/2] 4.9 secs
+				[ascissa_rettangolo tried 2/2] 4.9 secs
+				[ordinata_rettangolo tried 2/2] 5.0 secs
+				[larghezza_rettangolo tried 2/2] 5.0 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (18544/78256 [96/296], 297.3 bits available)
+
+				[= tried 1/1] 5.0 secs
+				[tipo_testo tried 0/2] 5.0 secs
+				[tipo_linea_orizzontale tried 2/2] 5.0 secs
+				[tipo_misto tried 2/2] 5.0 secs
+				[tipo_linea_obbliqua tried 2/2] 5.0 secs
+				[tipo_immagine tried 2/2] 5.0 secs
+				[tipo_vuoto tried 2/2] 5.0 secs
+				[ultima_pagina tried 1/1] 5.0 secs
+				[frame tried 4/5] 5.0 secs
+				[pagina_1 tried 2/3] 5.0 secs
+				[on_top tried 5/6] 5.0 secs
+				[to_right tried 5/6] 5.0 secs
+				[allineato_al_centro_verticale tried 6/6] 5.0 secs
+				[allineato_al_centro_orizzontale tried 6/6] 5.0 secs
+				[numero_pagine tried 1/1] 5.0 secs
+				[altezza_pagina tried 1/1] 5.1 secs
+				[larghezza_pagina tried 1/1] 5.1 secs
+				[altezza_rettangolo tried 2/2] 5.1 secs
+				[ascissa_rettangolo tried 2/2] 5.1 secs
+				[ordinata_rettangolo tried 2/2] 5.1 secs
+				[larghezza_rettangolo tried 2/2] 5.1 secs
+
+Best literal allineato_al_centro_orizzontale(E,D) (7.0 bits)
+
+
+State (288/1344 [2/9], 6.0 bits available, 1 weak literal)
+
+				[= tried 3/3] 5.1 secs
+				[tipo_testo tried 1/3] 5.1 secs
+				[tipo_linea_orizzontale tried 3/3] 5.1 secs
+				[tipo_misto tried 3/3] 5.1 secs
+				[tipo_linea_obbliqua tried 3/3] 5.1 secs
+				[tipo_immagine tried 3/3] 5.1 secs
+				[tipo_vuoto tried 3/3] 5.1 secs
+				[ultima_pagina tried 1/1] 5.1 secs
+				[frame tried 5/6] 5.1 secs
+				[pagina_1 tried 2/3] 5.1 secs
+				[on_top tried 9/10] 5.1 secs
+				[to_right tried 9/10] 5.1 secs
+				[allineato_al_centro_verticale tried 8/10] 5.1 secs
+				[allineato_al_centro_orizzontale tried 6/10] 5.1 secs
+				[numero_pagine tried 1/1] 5.1 secs
+				[altezza_pagina tried 1/1] 5.1 secs
+				[larghezza_pagina tried 1/1] 5.1 secs
+				[altezza_rettangolo tried 2/2] 5.1 secs
+				[ascissa_rettangolo tried 2/2] 5.1 secs
+				[ordinata_rettangolo tried 2/2] 5.1 secs
+				[larghezza_rettangolo tried 2/2] 5.1 secs
+
+Best literal to_right(D,E) (7.7 bits)
+
+
+State (576/2368 [2/8], 1.3 bits available)
+
+				[= requires 7.0 bits]
+				[tipo_testo requires 6.0 bits]
+				[tipo_linea_orizzontale requires 6.0 bits]
+				[tipo_misto requires 6.0 bits]
+				[tipo_linea_obbliqua requires 6.0 bits]
+				[tipo_immagine requires 6.0 bits]
+				[tipo_vuoto requires 6.0 bits]
+				[ultima_pagina tried 1/1] 5.1 secs
+				[frame requires 7.0 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 7.7 bits]
+				[to_right requires 7.7 bits]
+				[allineato_al_centro_verticale requires 7.7 bits]
+				[allineato_al_centro_orizzontale requires 7.7 bits]
+				[numero_pagine tried 1/1] 5.1 secs
+				[altezza_pagina tried 1/1] 5.1 secs
+				[larghezza_pagina tried 1/1] 5.1 secs
+				[altezza_rettangolo requires 5.4 bits]
+				[ascissa_rettangolo requires 5.4 bits]
+				[ordinata_rettangolo requires 5.4 bits]
+				[larghezza_rettangolo requires 5.4 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D).
+
+
+
+State (8616/31840 [95/303], 303.4 bits available, 1 weak literal)
+
+				[= tried 1/1] 5.1 secs
+				[tipo_testo tried 1/2] 5.1 secs
+				[tipo_linea_orizzontale tried 2/2] 5.1 secs
+				[tipo_misto tried 2/2] 5.1 secs
+				[tipo_linea_obbliqua tried 2/2] 5.1 secs
+				[tipo_immagine tried 2/2] 5.1 secs
+				[tipo_vuoto tried 2/2] 5.1 secs
+				[ultima_pagina tried 1/1] 5.1 secs
+				[frame tried 4/5] 5.1 secs
+				[pagina_1 tried 2/3] 5.1 secs
+				[on_top tried 6/6] 5.1 secs
+				[to_right tried 6/6] 5.1 secs
+				[allineato_al_centro_verticale tried 4/6] 5.1 secs
+				[allineato_al_centro_orizzontale tried 5/6] 5.1 secs
+				[numero_pagine tried 1/1] 5.1 secs
+				[altezza_pagina tried 1/1] 5.1 secs
+				[larghezza_pagina tried 1/1] 5.2 secs
+				[altezza_rettangolo tried 2/2] 5.2 secs
+				[ascissa_rettangolo tried 2/2] 5.2 secs
+				[ordinata_rettangolo tried 2/2] 5.2 secs
+				[larghezza_rettangolo tried 2/2] 5.2 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (8504/27344 [95/303], 300.4 bits available)
+
+				[= tried 1/1] 5.2 secs
+				[tipo_testo tried 0/2] 5.2 secs
+				[tipo_linea_orizzontale tried 2/2] 5.2 secs
+				[tipo_misto tried 2/2] 5.2 secs
+				[tipo_linea_obbliqua tried 2/2] 5.2 secs
+				[tipo_immagine tried 2/2] 5.2 secs
+				[tipo_vuoto tried 2/2] 5.2 secs
+				[ultima_pagina tried 1/1] 5.2 secs
+				[frame tried 4/5] 5.2 secs
+				[pagina_1 tried 2/3] 5.2 secs
+				[on_top tried 6/6] 5.2 secs
+				[to_right tried 6/6] 5.2 secs
+				[allineato_al_centro_verticale tried 5/6] 5.2 secs
+				[allineato_al_centro_orizzontale tried 4/6] 5.2 secs
+				[numero_pagine tried 1/1] 5.2 secs
+				[altezza_pagina tried 1/1] 5.2 secs
+				[larghezza_pagina tried 1/1] 5.2 secs
+				[altezza_rettangolo tried 2/2] 5.2 secs
+				[ascissa_rettangolo tried 2/2] 5.2 secs
+				[ordinata_rettangolo tried 2/2] 5.2 secs
+				[larghezza_rettangolo tried 2/2] 5.2 secs
+
+Best literal on_top(D,C) (7.0 bits)
+
+
+State (8512/27152 [91/294], 290.4 bits available)
+
+				[= tried 1/1] 5.2 secs
+				[tipo_testo tried 0/2] 5.2 secs
+				[tipo_linea_orizzontale tried 2/2] 5.2 secs
+				[tipo_misto tried 2/2] 5.2 secs
+				[tipo_linea_obbliqua tried 2/2] 5.2 secs
+				[tipo_immagine tried 2/2] 5.2 secs
+				[tipo_vuoto tried 2/2] 5.2 secs
+				[ultima_pagina tried 1/1] 5.2 secs
+				[frame tried 4/5] 5.3 secs
+				[pagina_1 tried 2/3] 5.3 secs
+				[on_top tried 5/6] 5.3 secs
+				[to_right tried 6/6] 5.3 secs
+				[allineato_al_centro_verticale tried 5/6] 5.3 secs
+				[allineato_al_centro_orizzontale tried 6/6] 5.3 secs
+				[numero_pagine tried 1/1] 5.3 secs
+				[altezza_pagina tried 1/1] 5.3 secs
+				[larghezza_pagina tried 1/1] 5.3 secs
+				[altezza_rettangolo tried 2/2] 5.3 secs
+				[ascissa_rettangolo tried 2/2] 5.3 secs
+				[ordinata_rettangolo tried 2/2] 5.3 secs
+				[larghezza_rettangolo tried 2/2] 5.3 secs
+
+	Save allineato_al_centro_verticale(D,E) (81,264 value -3.2)
+	Save allineato_al_centro_verticale(E,C) (83,273 value -4.4)
+
+Best literal to_right(E,C) (7.0 bits)
+
+
+State (9376/91488 [25/190], 123.9 bits available, 1 weak literal)
+
+				[= tried 3/3] 5.3 secs
+				[tipo_testo tried 1/3] 5.3 secs
+				[tipo_linea_orizzontale tried 3/3] 5.3 secs
+				[tipo_misto tried 3/3] 5.3 secs
+				[tipo_linea_obbliqua tried 3/3] 5.3 secs
+				[tipo_immagine tried 3/3] 5.3 secs
+				[tipo_vuoto tried 3/3] 5.3 secs
+				[ultima_pagina tried 1/1] 5.3 secs
+				[frame tried 6/7] 5.4 secs
+				[pagina_1 tried 2/3] 5.4 secs
+				[on_top tried 11/12] 5.4 secs
+				[to_right tried 10/12] 5.4 secs
+				[allineato_al_centro_verticale tried 11/12] 5.4 secs
+				[allineato_al_centro_orizzontale tried 6/12] 5.4 secs
+				[numero_pagine tried 1/1] 5.4 secs
+				[altezza_pagina tried 1/1] 5.5 secs
+				[larghezza_pagina tried 1/1] 5.5 secs
+				[altezza_rettangolo tried 3/3] 5.5 secs
+				[ascissa_rettangolo tried 3/3] 5.5 secs
+				[ordinata_rettangolo tried 3/3] 5.5 secs
+				[larghezza_rettangolo tried 3/3] 5.5 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (8928/75424 [24/176], 117.0 bits available)
+
+				[= tried 3/3] 5.5 secs
+				[tipo_testo tried 0/3] 5.5 secs
+				[tipo_linea_orizzontale tried 3/3] 5.5 secs
+				[tipo_misto tried 3/3] 5.5 secs
+				[tipo_linea_obbliqua tried 3/3] 5.5 secs
+				[tipo_immagine tried 3/3] 5.5 secs
+				[tipo_vuoto tried 3/3] 5.5 secs
+				[ultima_pagina tried 1/1] 5.5 secs
+				[frame tried 6/7] 5.5 secs
+				[pagina_1 tried 2/3] 5.5 secs
+				[on_top tried 11/12] 5.6 secs
+				[to_right tried 11/12] 5.6 secs
+				[allineato_al_centro_verticale tried 11/12] 5.6 secs
+				[allineato_al_centro_orizzontale tried 6/12] 5.6 secs
+				[numero_pagine tried 1/1] 5.6 secs
+				[altezza_pagina tried 1/1] 5.6 secs
+				[larghezza_pagina tried 1/1] 5.6 secs
+				[altezza_rettangolo tried 3/3] 5.7 secs
+				[ascissa_rettangolo tried 3/3] 5.7 secs
+				[ordinata_rettangolo tried 3/3] 5.7 secs
+				[larghezza_rettangolo tried 3/3] 5.7 secs
+
+	Save to_right(D,C) (15,121 value -19.2)
+
+Best literal on_top(E,C) (8.0 bits)
+
+
+State (12672/93312 [24/172], 112.2 bits available)
+
+				[= tried 3/3] 5.7 secs
+				[tipo_testo tried 0/3] 5.7 secs
+				[tipo_linea_orizzontale tried 3/3] 5.7 secs
+				[tipo_misto tried 3/3] 5.7 secs
+				[tipo_linea_obbliqua tried 3/3] 5.7 secs
+				[tipo_immagine tried 3/3] 5.7 secs
+				[tipo_vuoto tried 3/3] 5.7 secs
+				[ultima_pagina tried 1/1] 5.7 secs
+				[frame tried 6/7] 5.7 secs
+				[pagina_1 tried 2/3] 5.7 secs
+				[on_top tried 10/12] 5.8 secs
+				[to_right tried 11/12] 5.8 secs
+				[allineato_al_centro_verticale tried 11/12] 5.8 secs
+				[allineato_al_centro_orizzontale tried 6/12] 5.8 secs
+				[numero_pagine tried 1/1] 5.8 secs
+				[altezza_pagina tried 1/1] 5.8 secs
+				[larghezza_pagina tried 1/1] 5.8 secs
+				[altezza_rettangolo tried 3/3] 5.9 secs
+				[ascissa_rettangolo tried 3/3] 5.9 secs
+				[ordinata_rettangolo tried 3/3] 5.9 secs
+				[larghezza_rettangolo tried 3/3] 5.9 secs
+
+Best literal to_right(D,C) (8.0 bits)
+
+
+State (14976/84992 [15/121], 68.8 bits available)
+
+				[= tried 3/3] 5.9 secs
+				[tipo_testo tried 0/3] 5.9 secs
+				[tipo_linea_orizzontale tried 3/3] 5.9 secs
+				[tipo_misto tried 3/3] 5.9 secs
+				[tipo_linea_obbliqua tried 3/3] 5.9 secs
+				[tipo_immagine tried 3/3] 5.9 secs
+				[tipo_vuoto tried 3/3] 5.9 secs
+				[ultima_pagina tried 1/1] 5.9 secs
+				[frame tried 6/7] 5.9 secs
+				[pagina_1 tried 2/3] 5.9 secs
+				[on_top tried 10/12] 6.0 secs
+				[to_right tried 10/12] 6.0 secs
+				[allineato_al_centro_verticale tried 11/12] 6.0 secs
+				[allineato_al_centro_orizzontale tried 6/12] 6.0 secs
+				[numero_pagine tried 1/1] 6.0 secs
+				[altezza_pagina tried 1/1] 6.0 secs
+				[larghezza_pagina tried 1/1] 6.0 secs
+				[altezza_rettangolo tried 3/3] 6.0 secs
+				[ascissa_rettangolo tried 3/3] 6.0 secs
+				[ordinata_rettangolo tried 3/3] 6.1 secs
+				[larghezza_rettangolo tried 3/3] 6.1 secs
+
+Best literal to_right(E,D) (8.0 bits)
+
+
+State (16896/63232 [11/50], 44.4 bits available)
+
+				[= tried 3/3] 6.1 secs
+				[tipo_testo tried 0/3] 6.1 secs
+				[tipo_linea_orizzontale tried 3/3] 6.1 secs
+				[tipo_misto tried 3/3] 6.1 secs
+				[tipo_linea_obbliqua tried 3/3] 6.1 secs
+				[tipo_immagine tried 3/3] 6.1 secs
+				[tipo_vuoto tried 3/3] 6.1 secs
+				[ultima_pagina tried 1/1] 6.1 secs
+				[frame tried 6/7] 6.1 secs
+				[pagina_1 tried 2/3] 6.1 secs
+				[on_top tried 10/12] 6.1 secs
+				[to_right tried 9/12] 6.2 secs
+				[allineato_al_centro_verticale tried 9/12] 6.2 secs
+				[allineato_al_centro_orizzontale tried 6/12] 6.2 secs
+				[numero_pagine tried 1/1] 6.2 secs
+				[altezza_pagina tried 1/1] 6.2 secs
+				[larghezza_pagina tried 1/1] 6.2 secs
+				[altezza_rettangolo tried 3/3] 6.2 secs
+				[ascissa_rettangolo tried 3/3] 6.2 secs
+				[ordinata_rettangolo tried 3/3] 6.2 secs
+				[larghezza_rettangolo tried 3/3] 6.2 secs
+
+	Save on_top(E,D) (10,47 value -4.7)
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (35840/97792 [11/35], 40.0 bits available)
+
+				[= tried 6/6] 6.2 secs
+				[tipo_testo tried 1/4] 6.2 secs
+				[tipo_linea_orizzontale tried 4/4] 6.2 secs
+				[tipo_misto tried 4/4] 6.2 secs
+				[tipo_linea_obbliqua tried 4/4] 6.2 secs
+				[tipo_immagine tried 4/4] 6.3 secs
+				[tipo_vuoto tried 4/4] 6.3 secs
+				[ultima_pagina tried 1/1] 6.3 secs
+				[frame tried 7/8] 6.3 secs
+				[pagina_1 tried 2/3] 6.3 secs
+				[on_top tried 16/18] 6.4 secs
+				[to_right tried 15/18] 6.4 secs
+				[allineato_al_centro_verticale tried 12/18] 6.4 secs
+				[allineato_al_centro_orizzontale tried 9/18] 6.4 secs
+				[numero_pagine tried 1/1] 6.4 secs
+				[altezza_pagina tried 1/1] 6.4 secs
+				[larghezza_pagina tried 1/1] 6.4 secs
+				[altezza_rettangolo tried 3/3] 6.5 secs
+				[ascissa_rettangolo tried 3/3] 6.5 secs
+				[ordinata_rettangolo tried 3/3] 6.5 secs
+				[larghezza_rettangolo tried 3/3] 6.5 secs
+
+Best literal on_top(E,D) (8.6 bits)
+
+
+State (39936/81920 [9/23], 24.5 bits available)
+
+				[= tried 6/6] 6.5 secs
+				[tipo_testo tried 1/4] 6.5 secs
+				[tipo_linea_orizzontale tried 4/4] 6.5 secs
+				[tipo_misto tried 4/4] 6.5 secs
+				[tipo_linea_obbliqua tried 4/4] 6.5 secs
+				[tipo_immagine tried 4/4] 6.5 secs
+				[tipo_vuoto tried 4/4] 6.5 secs
+				[ultima_pagina tried 1/1] 6.5 secs
+				[frame tried 7/8] 6.6 secs
+				[pagina_1 tried 2/3] 6.6 secs
+				[on_top tried 15/18] 6.6 secs
+				[to_right tried 15/18] 6.6 secs
+				[allineato_al_centro_verticale tried 12/18] 6.7 secs
+				[allineato_al_centro_orizzontale tried 9/18] 6.7 secs
+				[numero_pagine tried 1/1] 6.7 secs
+				[altezza_pagina tried 1/1] 6.7 secs
+				[larghezza_pagina tried 1/1] 6.7 secs
+				[altezza_rettangolo tried 3/3] 6.7 secs
+				[ascissa_rettangolo tried 3/3] 6.7 secs
+				[ordinata_rettangolo tried 3/3] 6.7 secs
+				[larghezza_rettangolo tried 3/3] 6.7 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (22528/32768 [7/11], 8.3 bits available)
+
+				[= tried 6/6] 6.7 secs
+				[tipo_testo tried 1/4] 6.7 secs
+				[tipo_linea_orizzontale tried 4/4] 6.7 secs
+				[tipo_misto tried 4/4] 6.7 secs
+				[tipo_linea_obbliqua tried 4/4] 6.7 secs
+				[tipo_immagine tried 4/4] 6.7 secs
+				[tipo_vuoto tried 4/4] 6.7 secs
+				[ultima_pagina tried 1/1] 6.8 secs
+				[frame tried 7/8] 6.8 secs
+				[pagina_1 tried 2/3] 6.8 secs
+				[on_top tried 14/18] 6.8 secs
+				[to_right tried 12/18] 6.8 secs
+				[allineato_al_centro_verticale tried 13/18] 6.8 secs
+				[allineato_al_centro_orizzontale tried 9/18] 6.8 secs
+				[numero_pagine tried 1/1] 6.8 secs
+				[altezza_pagina tried 1/1] 6.8 secs
+				[larghezza_pagina tried 1/1] 6.8 secs
+				[altezza_rettangolo tried 3/3] 6.8 secs
+				[ascissa_rettangolo tried 3/3] 6.9 secs
+				[ordinata_rettangolo tried 3/3] 6.9 secs
+				[larghezza_rettangolo tried 3/3] 6.9 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (22528/28672 [7/9], 5.8 bits available)
+
+				[= tried 6/6] 6.9 secs
+				[tipo_testo tried 0/4] 6.9 secs
+				[tipo_linea_orizzontale tried 4/4] 6.9 secs
+				[tipo_misto tried 4/4] 6.9 secs
+				[tipo_linea_obbliqua tried 4/4] 6.9 secs
+				[tipo_immagine tried 4/4] 6.9 secs
+				[tipo_vuoto tried 4/4] 6.9 secs
+				[ultima_pagina tried 1/1] 6.9 secs
+				[frame tried 7/8] 6.9 secs
+				[pagina_1 tried 2/3] 6.9 secs
+				[on_top tried 14/18] 6.9 secs
+				[to_right tried 15/18] 6.9 secs
+				[allineato_al_centro_verticale tried 16/18] 7.0 secs
+				[allineato_al_centro_orizzontale tried 18/18] 7.0 secs
+				[numero_pagine tried 1/1] 7.0 secs
+				[altezza_pagina tried 1/1] 7.0 secs
+				[larghezza_pagina tried 1/1] 7.0 secs
+				[altezza_rettangolo tried 3/3] 7.0 secs
+				[ascissa_rettangolo tried 3/3] 7.0 secs
+				[ordinata_rettangolo tried 3/3] 7.0 secs
+				[larghezza_rettangolo tried 3/3] 7.0 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C).
+
+
+
+State (8568/32240 [95/303], 303.4 bits available, 1 weak literal)
+
+				[= tried 1/1] 7.0 secs
+				[tipo_testo tried 1/2] 7.0 secs
+				[tipo_linea_orizzontale tried 2/2] 7.0 secs
+				[tipo_misto tried 2/2] 7.0 secs
+				[tipo_linea_obbliqua tried 2/2] 7.0 secs
+				[tipo_immagine tried 2/2] 7.0 secs
+				[tipo_vuoto tried 2/2] 7.0 secs
+				[ultima_pagina tried 1/1] 7.0 secs
+				[frame tried 4/5] 7.0 secs
+				[pagina_1 tried 2/3] 7.0 secs
+				[on_top tried 6/6] 7.0 secs
+				[to_right tried 6/6] 7.0 secs
+				[allineato_al_centro_verticale tried 4/6] 7.1 secs
+				[allineato_al_centro_orizzontale tried 5/6] 7.1 secs
+				[numero_pagine tried 1/1] 7.1 secs
+				[altezza_pagina tried 1/1] 7.1 secs
+				[larghezza_pagina tried 1/1] 7.1 secs
+				[altezza_rettangolo tried 2/2] 7.1 secs
+				[ascissa_rettangolo tried 2/2] 7.1 secs
+				[ordinata_rettangolo tried 2/2] 7.1 secs
+				[larghezza_rettangolo tried 2/2] 7.1 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (8504/27344 [95/303], 300.4 bits available)
+
+				[= tried 1/1] 7.1 secs
+				[tipo_testo tried 0/2] 7.1 secs
+				[tipo_linea_orizzontale tried 2/2] 7.1 secs
+				[tipo_misto tried 2/2] 7.1 secs
+				[tipo_linea_obbliqua tried 2/2] 7.1 secs
+				[tipo_immagine tried 2/2] 7.1 secs
+				[tipo_vuoto tried 2/2] 7.1 secs
+				[ultima_pagina tried 1/1] 7.1 secs
+				[frame tried 4/5] 7.1 secs
+				[pagina_1 tried 2/3] 7.1 secs
+				[on_top tried 6/6] 7.1 secs
+				[to_right tried 6/6] 7.1 secs
+				[allineato_al_centro_verticale tried 5/6] 7.1 secs
+				[allineato_al_centro_orizzontale tried 4/6] 7.1 secs
+				[numero_pagine tried 1/1] 7.1 secs
+				[altezza_pagina tried 1/1] 7.1 secs
+				[larghezza_pagina tried 1/1] 7.1 secs
+				[altezza_rettangolo tried 2/2] 7.1 secs
+				[ascissa_rettangolo tried 2/2] 7.1 secs
+				[ordinata_rettangolo tried 2/2] 7.1 secs
+				[larghezza_rettangolo tried 2/2] 7.2 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (8512/27152 [91/294], 290.4 bits available)
+
+				[= tried 1/1] 7.2 secs
+				[tipo_testo tried 0/2] 7.2 secs
+				[tipo_linea_orizzontale tried 2/2] 7.2 secs
+				[tipo_misto tried 2/2] 7.2 secs
+				[tipo_linea_obbliqua tried 2/2] 7.2 secs
+				[tipo_immagine tried 2/2] 7.2 secs
+				[tipo_vuoto tried 2/2] 7.2 secs
+				[ultima_pagina tried 1/1] 7.2 secs
+				[frame tried 4/5] 7.2 secs
+				[pagina_1 tried 2/3] 7.2 secs
+				[on_top tried 5/6] 7.2 secs
+				[to_right tried 6/6] 7.2 secs
+				[allineato_al_centro_verticale tried 5/6] 7.2 secs
+				[allineato_al_centro_orizzontale tried 6/6] 7.2 secs
+				[numero_pagine tried 1/1] 7.2 secs
+				[altezza_pagina tried 1/1] 7.2 secs
+				[larghezza_pagina tried 1/1] 7.2 secs
+				[altezza_rettangolo tried 2/2] 7.2 secs
+				[ascissa_rettangolo tried 2/2] 7.2 secs
+				[ordinata_rettangolo tried 2/2] 7.2 secs
+				[larghezza_rettangolo tried 2/2] 7.2 secs
+
+	Save allineato_al_centro_verticale(C,E) (81,264 value -3.2)
+	Save allineato_al_centro_verticale(E,D) (83,273 value -4.4)
+
+Best literal to_right(E,D) (7.0 bits)
+
+
+State (9376/91488 [25/190], 123.9 bits available, 1 weak literal)
+
+				[= tried 3/3] 7.2 secs
+				[tipo_testo tried 1/3] 7.2 secs
+				[tipo_linea_orizzontale tried 3/3] 7.2 secs
+				[tipo_misto tried 3/3] 7.2 secs
+				[tipo_linea_obbliqua tried 3/3] 7.2 secs
+				[tipo_immagine tried 3/3] 7.2 secs
+				[tipo_vuoto tried 3/3] 7.2 secs
+				[ultima_pagina tried 1/1] 7.2 secs
+				[frame tried 5/6] 7.3 secs
+				[pagina_1 tried 2/3] 7.3 secs
+				[on_top tried 9/10] 7.3 secs
+				[to_right tried 8/10] 7.3 secs
+				[allineato_al_centro_verticale tried 9/10] 7.3 secs
+				[allineato_al_centro_orizzontale tried 6/10] 7.3 secs
+				[numero_pagine tried 1/1] 7.3 secs
+				[altezza_pagina tried 1/1] 7.4 secs
+				[larghezza_pagina tried 1/1] 7.4 secs
+				[altezza_rettangolo tried 2/2] 7.4 secs
+				[ascissa_rettangolo tried 2/2] 7.4 secs
+				[ordinata_rettangolo tried 2/2] 7.4 secs
+				[larghezza_rettangolo tried 2/2] 7.4 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (8928/75424 [24/176], 117.0 bits available)
+
+				[= tried 3/3] 7.4 secs
+				[tipo_testo tried 0/3] 7.4 secs
+				[tipo_linea_orizzontale tried 3/3] 7.4 secs
+				[tipo_misto tried 3/3] 7.4 secs
+				[tipo_linea_obbliqua tried 3/3] 7.4 secs
+				[tipo_immagine tried 3/3] 7.4 secs
+				[tipo_vuoto tried 3/3] 7.4 secs
+				[ultima_pagina tried 1/1] 7.4 secs
+				[frame tried 5/6] 7.4 secs
+				[pagina_1 tried 2/3] 7.4 secs
+				[on_top tried 9/10] 7.5 secs
+				[to_right tried 9/10] 7.5 secs
+				[allineato_al_centro_verticale tried 9/10] 7.5 secs
+				[allineato_al_centro_orizzontale tried 6/10] 7.5 secs
+				[numero_pagine tried 1/1] 7.5 secs
+				[altezza_pagina tried 1/1] 7.5 secs
+				[larghezza_pagina tried 1/1] 7.5 secs
+				[altezza_rettangolo tried 2/2] 7.5 secs
+				[ascissa_rettangolo tried 2/2] 7.5 secs
+				[ordinata_rettangolo tried 2/2] 7.5 secs
+				[larghezza_rettangolo tried 2/2] 7.5 secs
+
+	Save to_right(C,D) (15,121 value -19.2)
+
+Best literal on_top(E,D) (7.7 bits)
+
+
+State (12672/93312 [24/172], 112.4 bits available)
+
+				[= tried 3/3] 7.6 secs
+				[tipo_testo tried 0/3] 7.6 secs
+				[tipo_linea_orizzontale tried 3/3] 7.6 secs
+				[tipo_misto tried 3/3] 7.6 secs
+				[tipo_linea_obbliqua tried 3/3] 7.6 secs
+				[tipo_immagine tried 3/3] 7.6 secs
+				[tipo_vuoto tried 3/3] 7.6 secs
+				[ultima_pagina tried 1/1] 7.6 secs
+				[frame tried 5/6] 7.6 secs
+				[pagina_1 tried 2/3] 7.6 secs
+				[on_top tried 8/10] 7.6 secs
+				[to_right tried 9/10] 7.7 secs
+				[allineato_al_centro_verticale tried 9/10] 7.7 secs
+				[allineato_al_centro_orizzontale tried 6/10] 7.7 secs
+				[numero_pagine tried 1/1] 7.7 secs
+				[altezza_pagina tried 1/1] 7.7 secs
+				[larghezza_pagina tried 1/1] 7.7 secs
+				[altezza_rettangolo tried 2/2] 7.7 secs
+				[ascissa_rettangolo tried 2/2] 7.7 secs
+				[ordinata_rettangolo tried 2/2] 7.7 secs
+				[larghezza_rettangolo tried 2/2] 7.7 secs
+
+Best literal to_right(C,D) (7.7 bits)
+
+
+State (14976/84992 [15/121], 69.3 bits available)
+
+				[= tried 3/3] 7.7 secs
+				[tipo_testo tried 0/3] 7.7 secs
+				[tipo_linea_orizzontale tried 3/3] 7.7 secs
+				[tipo_misto tried 3/3] 7.7 secs
+				[tipo_linea_obbliqua tried 3/3] 7.7 secs
+				[tipo_immagine tried 3/3] 7.7 secs
+				[tipo_vuoto tried 3/3] 7.7 secs
+				[ultima_pagina tried 1/1] 7.7 secs
+				[frame tried 5/6] 7.7 secs
+				[pagina_1 tried 2/3] 7.8 secs
+				[on_top tried 8/10] 7.8 secs
+				[to_right tried 8/10] 7.8 secs
+				[allineato_al_centro_verticale tried 9/10] 7.8 secs
+				[allineato_al_centro_orizzontale tried 6/10] 7.8 secs
+				[numero_pagine tried 1/1] 7.8 secs
+				[altezza_pagina tried 1/1] 7.8 secs
+				[larghezza_pagina tried 1/1] 7.8 secs
+				[altezza_rettangolo tried 2/2] 7.8 secs
+				[ascissa_rettangolo tried 2/2] 7.8 secs
+				[ordinata_rettangolo tried 2/2] 7.8 secs
+				[larghezza_rettangolo tried 2/2] 7.9 secs
+
+Best literal to_right(E,C) (7.7 bits)
+
+
+State (16896/63232 [11/50], 45.2 bits available)
+
+				[= tried 3/3] 7.9 secs
+				[tipo_testo tried 0/3] 7.9 secs
+				[tipo_linea_orizzontale tried 3/3] 7.9 secs
+				[tipo_misto tried 3/3] 7.9 secs
+				[tipo_linea_obbliqua tried 3/3] 7.9 secs
+				[tipo_immagine tried 3/3] 7.9 secs
+				[tipo_vuoto tried 3/3] 7.9 secs
+				[ultima_pagina tried 1/1] 7.9 secs
+				[frame tried 5/6] 7.9 secs
+				[pagina_1 tried 2/3] 7.9 secs
+				[on_top tried 8/10] 7.9 secs
+				[to_right tried 7/10] 7.9 secs
+				[allineato_al_centro_verticale tried 7/10] 7.9 secs
+				[allineato_al_centro_orizzontale tried 6/10] 7.9 secs
+				[numero_pagine tried 1/1] 7.9 secs
+				[altezza_pagina tried 1/1] 7.9 secs
+				[larghezza_pagina tried 1/1] 8.0 secs
+				[altezza_rettangolo tried 2/2] 8.0 secs
+				[ascissa_rettangolo tried 2/2] 8.0 secs
+				[ordinata_rettangolo tried 2/2] 8.0 secs
+				[larghezza_rettangolo tried 2/2] 8.0 secs
+
+Best literal on_top(E,C) (7.7 bits)
+
+
+State (21504/65024 [10/47], 35.8 bits available)
+
+				[= tried 3/3] 8.0 secs
+				[tipo_testo tried 0/3] 8.0 secs
+				[tipo_linea_orizzontale tried 3/3] 8.0 secs
+				[tipo_misto tried 3/3] 8.0 secs
+				[tipo_linea_obbliqua tried 3/3] 8.0 secs
+				[tipo_immagine tried 3/3] 8.0 secs
+				[tipo_vuoto tried 3/3] 8.0 secs
+				[ultima_pagina tried 1/1] 8.0 secs
+				[frame tried 5/6] 8.0 secs
+				[pagina_1 tried 2/3] 8.0 secs
+				[on_top tried 7/10] 8.0 secs
+				[to_right tried 7/10] 8.0 secs
+				[allineato_al_centro_verticale tried 9/10] 8.1 secs
+				[allineato_al_centro_orizzontale tried 10/10] 8.1 secs
+				[numero_pagine tried 1/1] 8.1 secs
+				[altezza_pagina tried 1/1] 8.1 secs
+				[larghezza_pagina tried 1/1] 8.1 secs
+				[altezza_rettangolo tried 2/2] 8.1 secs
+				[ascissa_rettangolo tried 2/2] 8.1 secs
+				[ordinata_rettangolo tried 2/2] 8.1 secs
+				[larghezza_rettangolo tried 2/2] 8.1 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), allineato_al_centro_verticale(D,E).
+
+
+
+State (20160/72128 [81/264], 270.5 bits available, 1 weak literal)
+
+				[= tried 3/3] 8.1 secs
+				[tipo_testo tried 1/3] 8.1 secs
+				[tipo_linea_orizzontale tried 3/3] 8.1 secs
+				[tipo_misto tried 3/3] 8.1 secs
+				[tipo_linea_obbliqua tried 3/3] 8.1 secs
+				[tipo_immagine tried 3/3] 8.1 secs
+				[tipo_vuoto tried 3/3] 8.1 secs
+				[ultima_pagina tried 1/1] 8.1 secs
+				[frame tried 5/6] 8.2 secs
+				[pagina_1 tried 2/3] 8.2 secs
+				[on_top tried 9/10] 8.2 secs
+				[to_right tried 10/10] 8.2 secs
+				[allineato_al_centro_verticale tried 7/10] 8.2 secs
+				[allineato_al_centro_orizzontale tried 6/10] 8.2 secs
+				[numero_pagine tried 1/1] 8.2 secs
+				[altezza_pagina tried 1/1] 8.2 secs
+				[larghezza_pagina tried 1/1] 8.2 secs
+				[altezza_rettangolo tried 2/2] 8.2 secs
+				[ascissa_rettangolo tried 2/2] 8.2 secs
+				[ordinata_rettangolo tried 2/2] 8.3 secs
+				[larghezza_rettangolo tried 2/2] 8.3 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (19904/59744 [81/264], 267.5 bits available)
+
+				[= tried 3/3] 8.3 secs
+				[tipo_testo tried 0/3] 8.3 secs
+				[tipo_linea_orizzontale tried 3/3] 8.3 secs
+				[tipo_misto tried 3/3] 8.3 secs
+				[tipo_linea_obbliqua tried 3/3] 8.3 secs
+				[tipo_immagine tried 3/3] 8.3 secs
+				[tipo_vuoto tried 3/3] 8.3 secs
+				[ultima_pagina tried 1/1] 8.3 secs
+				[frame tried 5/6] 8.3 secs
+				[pagina_1 tried 2/3] 8.3 secs
+				[on_top tried 9/10] 8.3 secs
+				[to_right tried 10/10] 8.3 secs
+				[allineato_al_centro_verticale tried 8/10] 8.4 secs
+				[allineato_al_centro_orizzontale tried 6/10] 8.4 secs
+				[numero_pagine tried 1/1] 8.4 secs
+				[altezza_pagina tried 1/1] 8.4 secs
+				[larghezza_pagina tried 1/1] 8.4 secs
+				[altezza_rettangolo tried 2/2] 8.4 secs
+				[ascissa_rettangolo tried 2/2] 8.4 secs
+				[ordinata_rettangolo tried 2/2] 8.4 secs
+				[larghezza_rettangolo tried 2/2] 8.4 secs
+
+Best literal on_top(C,E) (7.7 bits)
+
+
+State (14720/42880 [59/179], 218.9 bits available)
+
+				[= tried 3/3] 8.4 secs
+				[tipo_testo tried 0/3] 8.4 secs
+				[tipo_linea_orizzontale tried 3/3] 8.4 secs
+				[tipo_misto tried 3/3] 8.4 secs
+				[tipo_linea_obbliqua tried 3/3] 8.4 secs
+				[tipo_immagine tried 3/3] 8.4 secs
+				[tipo_vuoto tried 3/3] 8.4 secs
+				[ultima_pagina tried 1/1] 8.4 secs
+				[frame tried 5/6] 8.4 secs
+				[pagina_1 tried 2/3] 8.4 secs
+				[on_top tried 8/10] 8.5 secs
+				[to_right tried 10/10] 8.5 secs
+				[allineato_al_centro_verticale tried 8/10] 8.5 secs
+				[allineato_al_centro_orizzontale tried 6/10] 8.5 secs
+				[numero_pagine tried 1/1] 8.5 secs
+				[altezza_pagina tried 1/1] 8.5 secs
+				[larghezza_pagina tried 1/1] 8.5 secs
+				[altezza_rettangolo tried 2/2] 8.5 secs
+				[ascissa_rettangolo tried 2/2] 8.5 secs
+				[ordinata_rettangolo tried 2/2] 8.5 secs
+				[larghezza_rettangolo tried 2/2] 8.5 secs
+
+Best literal allineato_al_centro_verticale(C,E) (7.7 bits)
+
+
+State (29440/85376 [59/179], 214.5 bits available)
+
+				[= tried 3/3] 8.5 secs
+				[tipo_testo tried 0/3] 8.5 secs
+				[tipo_linea_orizzontale tried 3/3] 8.5 secs
+				[tipo_misto tried 3/3] 8.5 secs
+				[tipo_linea_obbliqua tried 3/3] 8.5 secs
+				[tipo_immagine tried 3/3] 8.5 secs
+				[tipo_vuoto tried 3/3] 8.5 secs
+				[ultima_pagina tried 1/1] 8.5 secs
+				[frame tried 5/6] 8.6 secs
+				[pagina_1 tried 2/3] 8.6 secs
+				[on_top tried 8/10] 8.6 secs
+				[to_right tried 10/10] 8.6 secs
+				[allineato_al_centro_verticale tried 7/10] 8.6 secs
+				[allineato_al_centro_orizzontale tried 10/10] 8.6 secs
+				[numero_pagine tried 1/1] 8.6 secs
+				[altezza_pagina tried 1/1] 8.6 secs
+				[larghezza_pagina tried 1/1] 8.6 secs
+				[altezza_rettangolo tried 2/2] 8.6 secs
+				[ascissa_rettangolo tried 2/2] 8.7 secs
+				[ordinata_rettangolo tried 2/2] 8.7 secs
+				[larghezza_rettangolo tried 2/2] 8.7 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C), tipo_testo(D), on_top(C,D), allineato_al_centro_verticale(C,E).
+
+
+
+State (20160/72128 [81/264], 270.5 bits available, 1 weak literal)
+
+				[= tried 3/3] 8.7 secs
+				[tipo_testo tried 1/3] 8.7 secs
+				[tipo_linea_orizzontale tried 3/3] 8.7 secs
+				[tipo_misto tried 3/3] 8.7 secs
+				[tipo_linea_obbliqua tried 3/3] 8.7 secs
+				[tipo_immagine tried 3/3] 8.7 secs
+				[tipo_vuoto tried 3/3] 8.7 secs
+				[ultima_pagina tried 1/1] 8.7 secs
+				[frame tried 6/7] 8.7 secs
+				[pagina_1 tried 2/3] 8.7 secs
+				[on_top tried 11/12] 8.8 secs
+				[to_right tried 12/12] 8.8 secs
+				[allineato_al_centro_verticale tried 9/12] 8.8 secs
+				[allineato_al_centro_orizzontale tried 6/12] 8.8 secs
+				[numero_pagine tried 1/1] 8.8 secs
+				[altezza_pagina tried 1/1] 8.8 secs
+				[larghezza_pagina tried 1/1] 8.8 secs
+				[altezza_rettangolo tried 3/3] 8.8 secs
+				[ascissa_rettangolo tried 3/3] 8.8 secs
+				[ordinata_rettangolo tried 3/3] 8.8 secs
+				[larghezza_rettangolo tried 3/3] 8.9 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (19904/59744 [81/264], 267.5 bits available)
+
+				[= tried 3/3] 8.9 secs
+				[tipo_testo tried 0/3] 8.9 secs
+				[tipo_linea_orizzontale tried 3/3] 8.9 secs
+				[tipo_misto tried 3/3] 8.9 secs
+				[tipo_linea_obbliqua tried 3/3] 8.9 secs
+				[tipo_immagine tried 3/3] 8.9 secs
+				[tipo_vuoto tried 3/3] 8.9 secs
+				[ultima_pagina tried 1/1] 8.9 secs
+				[frame tried 6/7] 8.9 secs
+				[pagina_1 tried 2/3] 8.9 secs
+				[on_top tried 11/12] 8.9 secs
+				[to_right tried 12/12] 9.0 secs
+				[allineato_al_centro_verticale tried 10/12] 9.0 secs
+				[allineato_al_centro_orizzontale tried 6/12] 9.0 secs
+				[numero_pagine tried 1/1] 9.0 secs
+				[altezza_pagina tried 1/1] 9.0 secs
+				[larghezza_pagina tried 1/1] 9.0 secs
+				[altezza_rettangolo tried 3/3] 9.0 secs
+				[ascissa_rettangolo tried 3/3] 9.0 secs
+				[ordinata_rettangolo tried 3/3] 9.0 secs
+				[larghezza_rettangolo tried 3/3] 9.0 secs
+
+Best literal on_top(D,E) (8.0 bits)
+
+
+State (14720/42880 [59/179], 218.6 bits available)
+
+				[= tried 3/3] 9.0 secs
+				[tipo_testo tried 0/3] 9.0 secs
+				[tipo_linea_orizzontale tried 3/3] 9.0 secs
+				[tipo_misto tried 3/3] 9.0 secs
+				[tipo_linea_obbliqua tried 3/3] 9.0 secs
+				[tipo_immagine tried 3/3] 9.0 secs
+				[tipo_vuoto tried 3/3] 9.0 secs
+				[ultima_pagina tried 1/1] 9.1 secs
+				[frame tried 6/7] 9.1 secs
+				[pagina_1 tried 2/3] 9.1 secs
+				[on_top tried 10/12] 9.1 secs
+				[to_right tried 12/12] 9.1 secs
+				[allineato_al_centro_verticale tried 10/12] 9.1 secs
+				[allineato_al_centro_orizzontale tried 6/12] 9.1 secs
+				[numero_pagine tried 1/1] 9.1 secs
+				[altezza_pagina tried 1/1] 9.1 secs
+				[larghezza_pagina tried 1/1] 9.1 secs
+				[altezza_rettangolo tried 3/3] 9.2 secs
+				[ascissa_rettangolo tried 3/3] 9.2 secs
+				[ordinata_rettangolo tried 3/3] 9.2 secs
+				[larghezza_rettangolo tried 3/3] 9.2 secs
+
+Best literal allineato_al_centro_verticale(D,E) (8.0 bits)
+
+
+State (29440/85376 [59/179], 214.0 bits available)
+
+				[= tried 3/3] 9.2 secs
+				[tipo_testo tried 0/3] 9.2 secs
+				[tipo_linea_orizzontale tried 3/3] 9.2 secs
+				[tipo_misto tried 3/3] 9.2 secs
+				[tipo_linea_obbliqua tried 3/3] 9.2 secs
+				[tipo_immagine tried 3/3] 9.2 secs
+				[tipo_vuoto tried 3/3] 9.2 secs
+				[ultima_pagina tried 1/1] 9.2 secs
+				[frame tried 6/7] 9.2 secs
+				[pagina_1 tried 2/3] 9.2 secs
+				[on_top tried 10/12] 9.3 secs
+				[to_right tried 12/12] 9.3 secs
+				[allineato_al_centro_verticale tried 9/12] 9.3 secs
+				[allineato_al_centro_orizzontale tried 12/12] 9.3 secs
+				[numero_pagine tried 1/1] 9.3 secs
+				[altezza_pagina tried 1/1] 9.3 secs
+				[larghezza_pagina tried 1/1] 9.3 secs
+				[altezza_rettangolo tried 3/3] 9.3 secs
+				[ascissa_rettangolo tried 3/3] 9.3 secs
+				[ordinata_rettangolo tried 3/3] 9.3 secs
+				[larghezza_rettangolo tried 3/3] 9.4 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_orizzontale(C,D).
+
+
+
+State (8/784 [1/92], 9.6 bits available, 1 weak literal)
+
+				[= tried 1/1] 9.4 secs
+				[tipo_testo tried 1/2] 9.4 secs
+				[tipo_linea_orizzontale tried 2/2] 9.4 secs
+				[tipo_misto tried 2/2] 9.4 secs
+				[tipo_linea_obbliqua tried 2/2] 9.4 secs
+				[tipo_immagine tried 2/2] 9.4 secs
+				[tipo_vuoto tried 2/2] 9.4 secs
+				[ultima_pagina tried 1/1] 9.4 secs
+				[frame tried 4/5] 9.4 secs
+				[pagina_1 tried 2/3] 9.4 secs
+				[on_top tried 6/6] 9.4 secs
+				[to_right tried 6/6] 9.4 secs
+				[allineato_al_centro_verticale tried 4/6] 9.4 secs
+				[allineato_al_centro_orizzontale tried 3/6] 9.4 secs
+				[numero_pagine tried 1/1] 9.4 secs
+				[altezza_pagina tried 1/1] 9.4 secs
+				[larghezza_pagina tried 1/1] 9.4 secs
+				[altezza_rettangolo tried 2/2] 9.4 secs
+				[ascissa_rettangolo tried 2/2] 9.4 secs
+				[ordinata_rettangolo tried 2/2] 9.4 secs
+				[larghezza_rettangolo tried 2/2] 9.4 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (16/64 [1/4], 5.0 bits available)
+
+				[= tried 1/1] 9.4 secs
+				[tipo_testo tried 1/2] 9.4 secs
+				[tipo_linea_orizzontale tried 2/2] 9.4 secs
+				[tipo_misto tried 2/2] 9.4 secs
+				[tipo_linea_obbliqua tried 2/2] 9.4 secs
+				[tipo_immagine tried 2/2] 9.4 secs
+				[tipo_vuoto tried 2/2] 9.4 secs
+				[ultima_pagina tried 1/1] 9.4 secs
+				[frame tried 4/5] 9.4 secs
+				[pagina_1 tried 2/3] 9.4 secs
+				[on_top tried 5/6] 9.4 secs
+				[to_right tried 6/6] 9.4 secs
+				[allineato_al_centro_verticale tried 3/6] 9.4 secs
+
+	Save clause ending with allineato_al_centro_verticale(E,C) (cover 1, accuracy 100%)
+
+Best literal allineato_al_centro_verticale(E,C) (7.0 bits)
+
+Initial clause (0 errs): class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_orizzontale(C,D), on_top(C,D), allineato_al_centro_verticale(E,C).
+		frame(B,C) needed for binding tipo_testo(C)
+		pagina_1(A,B) needed for binding frame(B,C)
+
+Clause 3: class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_orizzontale(C,D), on_top(C,D), allineato_al_centro_verticale(E,C).
+
+State (95/303, 312.1 bits available)
+
+				[pagina_1 tried 1/1] 9.4 secs
+				[numero_pagine tried 1/1] 9.4 secs
+
+Best literal pagina_1(A,B) (1.0 bits)
+
+
+State (190/606 [95/303], 311.1 bits available, 1 weak literal)
+
+				[ultima_pagina tried 1/1] 9.4 secs
+				[frame tried 1/1] 9.4 secs
+				[pagina_1 tried 1/3] 9.4 secs
+				[numero_pagine tried 1/1] 9.4 secs
+				[altezza_pagina tried 1/1] 9.4 secs
+				[larghezza_pagina tried 1/1] 9.4 secs
+
+Best literal frame(B,C) (2.6 bits)
+
+
+State (3548/13216 [95/303], 309.5 bits available, 2 weak literals)
+
+				[tipo_testo tried 1/1] 9.4 secs
+				[tipo_linea_orizzontale tried 1/1] 9.4 secs
+				[tipo_misto tried 1/1] 9.4 secs
+				[tipo_linea_obbliqua tried 1/1] 9.4 secs
+				[tipo_immagine tried 1/1] 9.4 secs
+				[tipo_vuoto tried 1/1] 9.4 secs
+				[ultima_pagina tried 1/1] 9.4 secs
+				[frame tried 1/3] 9.4 secs
+				[pagina_1 tried 2/3] 9.4 secs
+				[on_top tried 2/2] 9.4 secs
+				[to_right tried 2/2] 9.4 secs
+				[allineato_al_centro_verticale tried 2/2] 9.4 secs
+				[allineato_al_centro_orizzontale tried 2/2] 9.4 secs
+				[numero_pagine tried 1/1] 9.4 secs
+				[altezza_pagina tried 1/1] 9.4 secs
+				[larghezza_pagina tried 1/1] 9.4 secs
+				[altezza_rettangolo tried 1/1] 9.4 secs
+				[ascissa_rettangolo tried 1/1] 9.4 secs
+				[ordinata_rettangolo tried 1/1] 9.4 secs
+				[larghezza_rettangolo tried 1/1] 9.4 secs
+
+Best literal tipo_testo(C) (4.3 bits)
+
+
+State (3476/11528 [95/303], 306.8 bits available)
+
+				[tipo_testo tried 0/1] 9.4 secs
+				[tipo_linea_orizzontale tried 1/1] 9.4 secs
+				[tipo_misto tried 1/1] 9.4 secs
+				[tipo_linea_obbliqua tried 1/1] 9.4 secs
+				[tipo_immagine tried 1/1] 9.4 secs
+				[tipo_vuoto tried 1/1] 9.4 secs
+				[ultima_pagina tried 1/1] 9.4 secs
+				[frame tried 2/3] 9.4 secs
+				[pagina_1 tried 2/3] 9.4 secs
+				[on_top tried 2/2] 9.4 secs
+				[to_right tried 2/2] 9.4 secs
+				[allineato_al_centro_verticale tried 2/2] 9.4 secs
+				[allineato_al_centro_orizzontale tried 2/2] 9.4 secs
+				[numero_pagine tried 1/1] 9.4 secs
+				[altezza_pagina tried 1/1] 9.4 secs
+				[larghezza_pagina tried 1/1] 9.4 secs
+				[altezza_rettangolo tried 1/1] 9.4 secs
+				[ascissa_rettangolo tried 1/1] 9.4 secs
+				[ordinata_rettangolo tried 1/1] 9.4 secs
+				[larghezza_rettangolo tried 1/1] 9.4 secs
+
+	Save to_right(D,C) (95,301 value 0.9)
+	Save allineato_al_centro_verticale(C,D) (94,302 value -1.0)
+	Save allineato_al_centro_verticale(D,C) (94,302 value -1.0)
+	Save allineato_al_centro_orizzontale(D,C) (1,93 value -3.9)
+
+Best literal to_right(C,D) (5.3 bits)
+
+
+State (19872/98792 [95/303], 303.4 bits available, 1 weak literal)
+
+				[= tried 1/1] 9.4 secs
+				[tipo_testo tried 1/2] 9.4 secs
+				[tipo_linea_orizzontale tried 2/2] 9.4 secs
+				[tipo_misto tried 2/2] 9.4 secs
+				[tipo_linea_obbliqua tried 2/2] 9.4 secs
+				[tipo_immagine tried 2/2] 9.4 secs
+				[tipo_vuoto tried 2/2] 9.4 secs
+				[ultima_pagina tried 1/1] 9.4 secs
+				[frame tried 4/5] 9.4 secs
+				[pagina_1 tried 2/3] 9.5 secs
+				[on_top tried 6/6] 9.5 secs
+				[to_right tried 4/6] 9.5 secs
+				[allineato_al_centro_verticale tried 6/6] 9.5 secs
+				[allineato_al_centro_orizzontale tried 5/6] 9.5 secs
+				[numero_pagine tried 1/1] 9.5 secs
+				[altezza_pagina tried 1/1] 9.5 secs
+				[larghezza_pagina tried 1/1] 9.5 secs
+				[altezza_rettangolo tried 2/2] 9.5 secs
+				[ascissa_rettangolo tried 2/2] 9.5 secs
+				[ordinata_rettangolo tried 2/2] 9.5 secs
+				[larghezza_rettangolo tried 2/2] 9.5 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (19264/85192 [95/301], 300.4 bits available)
+
+				[= tried 1/1] 9.6 secs
+				[tipo_testo tried 0/2] 9.6 secs
+				[tipo_linea_orizzontale tried 2/2] 9.6 secs
+				[tipo_misto tried 2/2] 9.6 secs
+				[tipo_linea_obbliqua tried 2/2] 9.6 secs
+				[tipo_immagine tried 2/2] 9.6 secs
+				[tipo_vuoto tried 2/2] 9.6 secs
+				[ultima_pagina tried 1/1] 9.6 secs
+				[frame tried 4/5] 9.6 secs
+				[pagina_1 tried 2/3] 9.6 secs
+				[on_top tried 6/6] 9.6 secs
+				[to_right tried 5/6] 9.6 secs
+				[allineato_al_centro_verticale tried 6/6] 9.6 secs
+				[allineato_al_centro_orizzontale tried 4/6] 9.6 secs
+				[numero_pagine tried 1/1] 9.6 secs
+				[altezza_pagina tried 1/1] 9.6 secs
+				[larghezza_pagina tried 1/1] 9.6 secs
+				[altezza_rettangolo tried 2/2] 9.7 secs
+				[ascissa_rettangolo tried 2/2] 9.7 secs
+				[ordinata_rettangolo tried 2/2] 9.7 secs
+				[larghezza_rettangolo tried 2/2] 9.7 secs
+
+Best literal on_top(D,C) (7.0 bits)
+
+
+State (18384/78096 [95/295], 296.0 bits available)
+
+				[= tried 1/1] 9.7 secs
+				[tipo_testo tried 0/2] 9.7 secs
+				[tipo_linea_orizzontale tried 2/2] 9.7 secs
+				[tipo_misto tried 2/2] 9.7 secs
+				[tipo_linea_obbliqua tried 2/2] 9.7 secs
+				[tipo_immagine tried 2/2] 9.7 secs
+				[tipo_vuoto tried 2/2] 9.7 secs
+				[ultima_pagina tried 1/1] 9.7 secs
+				[frame tried 4/5] 9.7 secs
+				[pagina_1 tried 2/3] 9.7 secs
+				[on_top tried 5/6] 9.7 secs
+				[to_right tried 5/6] 9.7 secs
+				[allineato_al_centro_verticale tried 6/6] 9.8 secs
+				[allineato_al_centro_orizzontale tried 6/6] 9.8 secs
+				[numero_pagine tried 1/1] 9.8 secs
+				[altezza_pagina tried 1/1] 9.8 secs
+				[larghezza_pagina tried 1/1] 9.8 secs
+				[altezza_rettangolo tried 2/2] 9.8 secs
+				[ascissa_rettangolo tried 2/2] 9.8 secs
+				[ordinata_rettangolo tried 2/2] 9.8 secs
+				[larghezza_rettangolo tried 2/2] 9.8 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), to_right(D,C).
+
+
+
+State (19696/93744 [95/301], 303.4 bits available, 1 weak literal)
+
+				[= tried 1/1] 9.8 secs
+				[tipo_testo tried 1/2] 9.8 secs
+				[tipo_linea_orizzontale tried 2/2] 9.8 secs
+				[tipo_misto tried 2/2] 9.8 secs
+				[tipo_linea_obbliqua tried 2/2] 9.8 secs
+				[tipo_immagine tried 2/2] 9.8 secs
+				[tipo_vuoto tried 2/2] 9.8 secs
+				[ultima_pagina tried 1/1] 9.8 secs
+				[frame tried 4/5] 9.8 secs
+				[pagina_1 tried 2/3] 9.8 secs
+				[on_top tried 6/6] 9.9 secs
+				[to_right tried 4/6] 9.9 secs
+				[allineato_al_centro_verticale tried 6/6] 9.9 secs
+				[allineato_al_centro_orizzontale tried 5/6] 9.9 secs
+				[numero_pagine tried 1/1] 9.9 secs
+				[altezza_pagina tried 1/1] 9.9 secs
+				[larghezza_pagina tried 1/1] 9.9 secs
+				[altezza_rettangolo tried 2/2] 9.9 secs
+				[ascissa_rettangolo tried 2/2] 9.9 secs
+				[ordinata_rettangolo tried 2/2] 9.9 secs
+				[larghezza_rettangolo tried 2/2] 9.9 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (19264/85192 [95/301], 300.4 bits available)
+
+				[= tried 1/1] 9.9 secs
+				[tipo_testo tried 0/2] 9.9 secs
+				[tipo_linea_orizzontale tried 2/2] 9.9 secs
+				[tipo_misto tried 2/2] 9.9 secs
+				[tipo_linea_obbliqua tried 2/2] 10.0 secs
+				[tipo_immagine tried 2/2] 10.0 secs
+				[tipo_vuoto tried 2/2] 10.0 secs
+				[ultima_pagina tried 1/1] 10.0 secs
+				[frame tried 4/5] 10.0 secs
+				[pagina_1 tried 2/3] 10.0 secs
+				[on_top tried 6/6] 10.0 secs
+				[to_right tried 5/6] 10.0 secs
+				[allineato_al_centro_verticale tried 6/6] 10.0 secs
+				[allineato_al_centro_orizzontale tried 4/6] 10.0 secs
+				[numero_pagine tried 1/1] 10.0 secs
+				[altezza_pagina tried 1/1] 10.0 secs
+				[larghezza_pagina tried 1/1] 10.0 secs
+				[altezza_rettangolo tried 2/2] 10.0 secs
+				[ascissa_rettangolo tried 2/2] 10.1 secs
+				[ordinata_rettangolo tried 2/2] 10.1 secs
+				[larghezza_rettangolo tried 2/2] 10.1 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (18384/78096 [95/295], 296.0 bits available)
+
+				[= tried 1/1] 10.1 secs
+				[tipo_testo tried 0/2] 10.1 secs
+				[tipo_linea_orizzontale tried 2/2] 10.1 secs
+				[tipo_misto tried 2/2] 10.1 secs
+				[tipo_linea_obbliqua tried 2/2] 10.1 secs
+				[tipo_immagine tried 2/2] 10.1 secs
+				[tipo_vuoto tried 2/2] 10.1 secs
+				[ultima_pagina tried 1/1] 10.1 secs
+				[frame tried 4/5] 10.1 secs
+				[pagina_1 tried 2/3] 10.1 secs
+				[on_top tried 5/6] 10.1 secs
+				[to_right tried 5/6] 10.1 secs
+				[allineato_al_centro_verticale tried 6/6] 10.1 secs
+				[allineato_al_centro_orizzontale tried 6/6] 10.1 secs
+				[numero_pagine tried 1/1] 10.2 secs
+				[altezza_pagina tried 1/1] 10.2 secs
+				[larghezza_pagina tried 1/1] 10.2 secs
+				[altezza_rettangolo tried 2/2] 10.2 secs
+				[ascissa_rettangolo tried 2/2] 10.2 secs
+				[ordinata_rettangolo tried 2/2] 10.2 secs
+				[larghezza_rettangolo tried 2/2] 10.2 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D).
+
+
+
+State (8592/31816 [94/302], 302.1 bits available, 1 weak literal)
+
+				[= tried 1/1] 10.2 secs
+				[tipo_testo tried 1/2] 10.2 secs
+				[tipo_linea_orizzontale tried 2/2] 10.2 secs
+				[tipo_misto tried 2/2] 10.2 secs
+				[tipo_linea_obbliqua tried 2/2] 10.2 secs
+				[tipo_immagine tried 2/2] 10.2 secs
+				[tipo_vuoto tried 2/2] 10.2 secs
+				[ultima_pagina tried 1/1] 10.2 secs
+				[frame tried 4/5] 10.2 secs
+				[pagina_1 tried 2/3] 10.2 secs
+				[on_top tried 6/6] 10.2 secs
+				[to_right tried 6/6] 10.2 secs
+				[allineato_al_centro_verticale tried 4/6] 10.2 secs
+				[allineato_al_centro_orizzontale tried 4/6] 10.2 secs
+				[numero_pagine tried 1/1] 10.2 secs
+				[altezza_pagina tried 1/1] 10.2 secs
+				[larghezza_pagina tried 1/1] 10.2 secs
+				[altezza_rettangolo tried 2/2] 10.3 secs
+				[ascissa_rettangolo tried 2/2] 10.3 secs
+				[ordinata_rettangolo tried 2/2] 10.3 secs
+				[larghezza_rettangolo tried 2/2] 10.3 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (8480/27320 [94/302], 299.0 bits available)
+
+				[= tried 1/1] 10.3 secs
+				[tipo_testo tried 0/2] 10.3 secs
+				[tipo_linea_orizzontale tried 2/2] 10.3 secs
+				[tipo_misto tried 2/2] 10.3 secs
+				[tipo_linea_obbliqua tried 2/2] 10.3 secs
+				[tipo_immagine tried 2/2] 10.3 secs
+				[tipo_vuoto tried 2/2] 10.3 secs
+				[ultima_pagina tried 1/1] 10.3 secs
+				[frame tried 4/5] 10.3 secs
+				[pagina_1 tried 2/3] 10.3 secs
+				[on_top tried 6/6] 10.3 secs
+				[to_right tried 6/6] 10.3 secs
+				[allineato_al_centro_verticale tried 5/6] 10.3 secs
+				[allineato_al_centro_orizzontale tried 4/6] 10.3 secs
+				[numero_pagine tried 1/1] 10.3 secs
+				[altezza_pagina tried 1/1] 10.3 secs
+				[larghezza_pagina tried 1/1] 10.3 secs
+				[altezza_rettangolo tried 2/2] 10.3 secs
+				[ascissa_rettangolo tried 2/2] 10.3 secs
+				[ordinata_rettangolo tried 2/2] 10.3 secs
+				[larghezza_rettangolo tried 2/2] 10.3 secs
+
+Best literal on_top(D,C) (7.0 bits)
+
+
+State (8496/27136 [90/293], 288.9 bits available)
+
+				[= tried 1/1] 10.3 secs
+				[tipo_testo tried 0/2] 10.3 secs
+				[tipo_linea_orizzontale tried 2/2] 10.3 secs
+				[tipo_misto tried 2/2] 10.3 secs
+				[tipo_linea_obbliqua tried 2/2] 10.3 secs
+				[tipo_immagine tried 2/2] 10.3 secs
+				[tipo_vuoto tried 2/2] 10.3 secs
+				[ultima_pagina tried 1/1] 10.3 secs
+				[frame tried 4/5] 10.4 secs
+				[pagina_1 tried 2/3] 10.4 secs
+				[on_top tried 5/6] 10.4 secs
+				[to_right tried 6/6] 10.4 secs
+				[allineato_al_centro_verticale tried 5/6] 10.4 secs
+				[allineato_al_centro_orizzontale tried 6/6] 10.4 secs
+				[numero_pagine tried 1/1] 10.4 secs
+				[altezza_pagina tried 1/1] 10.4 secs
+				[larghezza_pagina tried 1/1] 10.4 secs
+				[altezza_rettangolo tried 2/2] 10.4 secs
+				[ascissa_rettangolo tried 2/2] 10.4 secs
+				[ordinata_rettangolo tried 2/2] 10.4 secs
+				[larghezza_rettangolo tried 2/2] 10.4 secs
+
+	Save allineato_al_centro_verticale(D,E) (81,264 value -2.4)
+	Save allineato_al_centro_verticale(E,C) (83,273 value -3.5)
+
+Best literal to_right(E,C) (7.0 bits)
+
+
+State (9152/91264 [24/189], 120.0 bits available, 1 weak literal)
+
+				[= tried 3/3] 10.4 secs
+				[tipo_testo tried 1/3] 10.4 secs
+				[tipo_linea_orizzontale tried 3/3] 10.4 secs
+				[tipo_misto tried 3/3] 10.4 secs
+				[tipo_linea_obbliqua tried 3/3] 10.4 secs
+				[tipo_immagine tried 3/3] 10.4 secs
+				[tipo_vuoto tried 3/3] 10.4 secs
+				[ultima_pagina tried 1/1] 10.4 secs
+				[frame tried 6/7] 10.5 secs
+				[pagina_1 tried 2/3] 10.5 secs
+				[on_top tried 11/12] 10.5 secs
+				[to_right tried 10/12] 10.5 secs
+				[allineato_al_centro_verticale tried 11/12] 10.5 secs
+				[allineato_al_centro_orizzontale tried 6/12] 10.5 secs
+				[numero_pagine tried 1/1] 10.6 secs
+				[altezza_pagina tried 1/1] 10.6 secs
+				[larghezza_pagina tried 1/1] 10.6 secs
+				[altezza_rettangolo tried 3/3] 10.6 secs
+				[ascissa_rettangolo tried 3/3] 10.6 secs
+				[ordinata_rettangolo tried 3/3] 10.6 secs
+				[larghezza_rettangolo tried 3/3] 10.6 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (8736/75232 [23/175], 113.0 bits available)
+
+				[= tried 3/3] 10.6 secs
+				[tipo_testo tried 0/3] 10.6 secs
+				[tipo_linea_orizzontale tried 3/3] 10.6 secs
+				[tipo_misto tried 3/3] 10.6 secs
+				[tipo_linea_obbliqua tried 3/3] 10.6 secs
+				[tipo_immagine tried 3/3] 10.6 secs
+				[tipo_vuoto tried 3/3] 10.6 secs
+				[ultima_pagina tried 1/1] 10.6 secs
+				[frame tried 6/7] 10.6 secs
+				[pagina_1 tried 2/3] 10.6 secs
+				[on_top tried 11/12] 10.7 secs
+				[to_right tried 11/12] 10.7 secs
+				[allineato_al_centro_verticale tried 11/12] 10.7 secs
+				[allineato_al_centro_orizzontale tried 6/12] 10.7 secs
+				[numero_pagine tried 1/1] 10.7 secs
+				[altezza_pagina tried 1/1] 10.7 secs
+				[larghezza_pagina tried 1/1] 10.7 secs
+				[altezza_rettangolo tried 3/3] 10.8 secs
+				[ascissa_rettangolo tried 3/3] 10.8 secs
+				[ordinata_rettangolo tried 3/3] 10.8 secs
+				[larghezza_rettangolo tried 3/3] 10.8 secs
+
+	Save to_right(D,C) (15,121 value -19.0)
+
+Best literal on_top(E,C) (8.0 bits)
+
+
+State (12480/93120 [23/171], 108.2 bits available)
+
+				[= tried 3/3] 10.8 secs
+				[tipo_testo tried 0/3] 10.8 secs
+				[tipo_linea_orizzontale tried 3/3] 10.8 secs
+				[tipo_misto tried 3/3] 10.8 secs
+				[tipo_linea_obbliqua tried 3/3] 10.8 secs
+				[tipo_immagine tried 3/3] 10.8 secs
+				[tipo_vuoto tried 3/3] 10.8 secs
+				[ultima_pagina tried 1/1] 10.8 secs
+				[frame tried 6/7] 10.8 secs
+				[pagina_1 tried 2/3] 10.9 secs
+				[on_top tried 10/12] 10.9 secs
+				[to_right tried 11/12] 10.9 secs
+				[allineato_al_centro_verticale tried 11/12] 10.9 secs
+				[allineato_al_centro_orizzontale tried 6/12] 10.9 secs
+				[numero_pagine tried 1/1] 10.9 secs
+				[altezza_pagina tried 1/1] 10.9 secs
+				[larghezza_pagina tried 1/1] 10.9 secs
+				[altezza_rettangolo tried 3/3] 11.0 secs
+				[ascissa_rettangolo tried 3/3] 11.0 secs
+				[ordinata_rettangolo tried 3/3] 11.0 secs
+				[larghezza_rettangolo tried 3/3] 11.0 secs
+
+Best literal to_right(D,C) (8.0 bits)
+
+
+State (14976/84992 [15/121], 68.8 bits available)
+
+				[= tried 3/3] 11.0 secs
+				[tipo_testo tried 0/3] 11.0 secs
+				[tipo_linea_orizzontale tried 3/3] 11.0 secs
+				[tipo_misto tried 3/3] 11.0 secs
+				[tipo_linea_obbliqua tried 3/3] 11.0 secs
+				[tipo_immagine tried 3/3] 11.0 secs
+				[tipo_vuoto tried 3/3] 11.0 secs
+				[ultima_pagina tried 1/1] 11.0 secs
+				[frame tried 6/7] 11.0 secs
+				[pagina_1 tried 2/3] 11.0 secs
+				[on_top tried 10/12] 11.1 secs
+				[to_right tried 10/12] 11.1 secs
+				[allineato_al_centro_verticale tried 11/12] 11.1 secs
+				[allineato_al_centro_orizzontale tried 6/12] 11.1 secs
+				[numero_pagine tried 1/1] 11.1 secs
+				[altezza_pagina tried 1/1] 11.1 secs
+				[larghezza_pagina tried 1/1] 11.1 secs
+				[altezza_rettangolo tried 3/3] 11.1 secs
+				[ascissa_rettangolo tried 3/3] 11.1 secs
+				[ordinata_rettangolo tried 3/3] 11.2 secs
+				[larghezza_rettangolo tried 3/3] 11.2 secs
+
+Best literal to_right(E,D) (8.0 bits)
+
+
+State (16896/63232 [11/50], 44.4 bits available)
+
+				[= tried 3/3] 11.2 secs
+				[tipo_testo tried 0/3] 11.2 secs
+				[tipo_linea_orizzontale tried 3/3] 11.2 secs
+				[tipo_misto tried 3/3] 11.2 secs
+				[tipo_linea_obbliqua tried 3/3] 11.2 secs
+				[tipo_immagine tried 3/3] 11.2 secs
+				[tipo_vuoto tried 3/3] 11.2 secs
+				[ultima_pagina tried 1/1] 11.2 secs
+				[frame tried 6/7] 11.2 secs
+				[pagina_1 tried 2/3] 11.2 secs
+				[on_top tried 10/12] 11.2 secs
+				[to_right tried 9/12] 11.3 secs
+				[allineato_al_centro_verticale tried 9/12] 11.3 secs
+				[allineato_al_centro_orizzontale tried 6/12] 11.3 secs
+				[numero_pagine tried 1/1] 11.3 secs
+				[altezza_pagina tried 1/1] 11.3 secs
+				[larghezza_pagina tried 1/1] 11.3 secs
+				[altezza_rettangolo tried 3/3] 11.3 secs
+				[ascissa_rettangolo tried 3/3] 11.3 secs
+				[ordinata_rettangolo tried 3/3] 11.3 secs
+				[larghezza_rettangolo tried 3/3] 11.3 secs
+
+	Save on_top(E,D) (10,47 value -4.6)
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (35840/97792 [11/35], 40.0 bits available)
+
+				[= tried 6/6] 11.3 secs
+				[tipo_testo tried 1/4] 11.3 secs
+				[tipo_linea_orizzontale tried 4/4] 11.3 secs
+				[tipo_misto tried 4/4] 11.3 secs
+				[tipo_linea_obbliqua tried 4/4] 11.3 secs
+				[tipo_immagine tried 4/4] 11.4 secs
+				[tipo_vuoto tried 4/4] 11.4 secs
+				[ultima_pagina tried 1/1] 11.4 secs
+				[frame tried 7/8] 11.4 secs
+				[pagina_1 tried 2/3] 11.4 secs
+				[on_top tried 16/18] 11.5 secs
+				[to_right tried 15/18] 11.5 secs
+				[allineato_al_centro_verticale tried 12/18] 11.5 secs
+				[allineato_al_centro_orizzontale tried 9/18] 11.5 secs
+				[numero_pagine tried 1/1] 11.5 secs
+				[altezza_pagina tried 1/1] 11.5 secs
+				[larghezza_pagina tried 1/1] 11.5 secs
+				[altezza_rettangolo tried 3/3] 11.6 secs
+				[ascissa_rettangolo tried 3/3] 11.6 secs
+				[ordinata_rettangolo tried 3/3] 11.6 secs
+				[larghezza_rettangolo tried 3/3] 11.6 secs
+
+Best literal on_top(E,D) (8.6 bits)
+
+
+State (39936/81920 [9/23], 24.5 bits available)
+
+				[= tried 6/6] 11.6 secs
+				[tipo_testo tried 1/4] 11.6 secs
+				[tipo_linea_orizzontale tried 4/4] 11.6 secs
+				[tipo_misto tried 4/4] 11.6 secs
+				[tipo_linea_obbliqua tried 4/4] 11.6 secs
+				[tipo_immagine tried 4/4] 11.6 secs
+				[tipo_vuoto tried 4/4] 11.6 secs
+				[ultima_pagina tried 1/1] 11.6 secs
+				[frame tried 7/8] 11.7 secs
+				[pagina_1 tried 2/3] 11.7 secs
+				[on_top tried 15/18] 11.7 secs
+				[to_right tried 15/18] 11.7 secs
+				[allineato_al_centro_verticale tried 12/18] 11.8 secs
+				[allineato_al_centro_orizzontale tried 9/18] 11.8 secs
+				[numero_pagine tried 1/1] 11.8 secs
+				[altezza_pagina tried 1/1] 11.8 secs
+				[larghezza_pagina tried 1/1] 11.8 secs
+				[altezza_rettangolo tried 3/3] 11.8 secs
+				[ascissa_rettangolo tried 3/3] 11.8 secs
+				[ordinata_rettangolo tried 3/3] 11.8 secs
+				[larghezza_rettangolo tried 3/3] 11.8 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (22528/32768 [7/11], 8.3 bits available)
+
+				[= tried 6/6] 11.8 secs
+				[tipo_testo tried 1/4] 11.8 secs
+				[tipo_linea_orizzontale tried 4/4] 11.8 secs
+				[tipo_misto tried 4/4] 11.8 secs
+				[tipo_linea_obbliqua tried 4/4] 11.8 secs
+				[tipo_immagine tried 4/4] 11.9 secs
+				[tipo_vuoto tried 4/4] 11.9 secs
+				[ultima_pagina tried 1/1] 11.9 secs
+				[frame tried 7/8] 11.9 secs
+				[pagina_1 tried 2/3] 11.9 secs
+				[on_top tried 14/18] 11.9 secs
+				[to_right tried 12/18] 11.9 secs
+				[allineato_al_centro_verticale tried 13/18] 11.9 secs
+				[allineato_al_centro_orizzontale tried 9/18] 11.9 secs
+				[numero_pagine tried 1/1] 11.9 secs
+				[altezza_pagina tried 1/1] 11.9 secs
+				[larghezza_pagina tried 1/1] 11.9 secs
+				[altezza_rettangolo tried 3/3] 11.9 secs
+				[ascissa_rettangolo tried 3/3] 12.0 secs
+				[ordinata_rettangolo tried 3/3] 12.0 secs
+				[larghezza_rettangolo tried 3/3] 12.0 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (22528/28672 [7/9], 5.8 bits available)
+
+				[= tried 6/6] 12.0 secs
+				[tipo_testo tried 0/4] 12.0 secs
+				[tipo_linea_orizzontale tried 4/4] 12.0 secs
+				[tipo_misto tried 4/4] 12.0 secs
+				[tipo_linea_obbliqua tried 4/4] 12.0 secs
+				[tipo_immagine tried 4/4] 12.0 secs
+				[tipo_vuoto tried 4/4] 12.0 secs
+				[ultima_pagina tried 1/1] 12.0 secs
+				[frame tried 7/8] 12.0 secs
+				[pagina_1 tried 2/3] 12.0 secs
+				[on_top tried 14/18] 12.0 secs
+				[to_right tried 15/18] 12.1 secs
+				[allineato_al_centro_verticale tried 16/18] 12.1 secs
+				[allineato_al_centro_orizzontale tried 18/18] 12.1 secs
+				[numero_pagine tried 1/1] 12.1 secs
+				[altezza_pagina tried 1/1] 12.1 secs
+				[larghezza_pagina tried 1/1] 12.1 secs
+				[altezza_rettangolo tried 3/3] 12.1 secs
+				[ascissa_rettangolo tried 3/3] 12.1 secs
+				[ordinata_rettangolo tried 3/3] 12.1 secs
+				[larghezza_rettangolo tried 3/3] 12.1 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C).
+
+
+
+State (8544/32216 [94/302], 302.1 bits available, 1 weak literal)
+
+				[= tried 1/1] 12.1 secs
+				[tipo_testo tried 1/2] 12.1 secs
+				[tipo_linea_orizzontale tried 2/2] 12.1 secs
+				[tipo_misto tried 2/2] 12.1 secs
+				[tipo_linea_obbliqua tried 2/2] 12.1 secs
+				[tipo_immagine tried 2/2] 12.1 secs
+				[tipo_vuoto tried 2/2] 12.1 secs
+				[ultima_pagina tried 1/1] 12.1 secs
+				[frame tried 4/5] 12.1 secs
+				[pagina_1 tried 2/3] 12.1 secs
+				[on_top tried 6/6] 12.1 secs
+				[to_right tried 6/6] 12.2 secs
+				[allineato_al_centro_verticale tried 4/6] 12.2 secs
+				[allineato_al_centro_orizzontale tried 4/6] 12.2 secs
+				[numero_pagine tried 1/1] 12.2 secs
+				[altezza_pagina tried 1/1] 12.2 secs
+				[larghezza_pagina tried 1/1] 12.2 secs
+				[altezza_rettangolo tried 2/2] 12.2 secs
+				[ascissa_rettangolo tried 2/2] 12.2 secs
+				[ordinata_rettangolo tried 2/2] 12.2 secs
+				[larghezza_rettangolo tried 2/2] 12.2 secs
+
+Best literal tipo_testo(D) (5.4 bits)
+
+
+State (8480/27320 [94/302], 299.0 bits available)
+
+				[= tried 1/1] 12.2 secs
+				[tipo_testo tried 0/2] 12.2 secs
+				[tipo_linea_orizzontale tried 2/2] 12.2 secs
+				[tipo_misto tried 2/2] 12.2 secs
+				[tipo_linea_obbliqua tried 2/2] 12.2 secs
+				[tipo_immagine tried 2/2] 12.2 secs
+				[tipo_vuoto tried 2/2] 12.2 secs
+				[ultima_pagina tried 1/1] 12.2 secs
+				[frame tried 4/5] 12.2 secs
+				[pagina_1 tried 2/3] 12.2 secs
+				[on_top tried 6/6] 12.2 secs
+				[to_right tried 6/6] 12.2 secs
+				[allineato_al_centro_verticale tried 5/6] 12.2 secs
+				[allineato_al_centro_orizzontale tried 4/6] 12.2 secs
+				[numero_pagine tried 1/1] 12.2 secs
+				[altezza_pagina tried 1/1] 12.2 secs
+				[larghezza_pagina tried 1/1] 12.2 secs
+				[altezza_rettangolo tried 2/2] 12.2 secs
+				[ascissa_rettangolo tried 2/2] 12.2 secs
+				[ordinata_rettangolo tried 2/2] 12.2 secs
+				[larghezza_rettangolo tried 2/2] 12.3 secs
+
+Best literal on_top(C,D) (7.0 bits)
+
+
+State (8496/27136 [90/293], 288.9 bits available)
+
+				[= tried 1/1] 12.3 secs
+				[tipo_testo tried 0/2] 12.3 secs
+				[tipo_linea_orizzontale tried 2/2] 12.3 secs
+				[tipo_misto tried 2/2] 12.3 secs
+				[tipo_linea_obbliqua tried 2/2] 12.3 secs
+				[tipo_immagine tried 2/2] 12.3 secs
+				[tipo_vuoto tried 2/2] 12.3 secs
+				[ultima_pagina tried 1/1] 12.3 secs
+				[frame tried 4/5] 12.3 secs
+				[pagina_1 tried 2/3] 12.3 secs
+				[on_top tried 5/6] 12.3 secs
+				[to_right tried 6/6] 12.3 secs
+				[allineato_al_centro_verticale tried 5/6] 12.3 secs
+				[allineato_al_centro_orizzontale tried 6/6] 12.3 secs
+				[numero_pagine tried 1/1] 12.3 secs
+				[altezza_pagina tried 1/1] 12.3 secs
+				[larghezza_pagina tried 1/1] 12.3 secs
+				[altezza_rettangolo tried 2/2] 12.3 secs
+				[ascissa_rettangolo tried 2/2] 12.3 secs
+				[ordinata_rettangolo tried 2/2] 12.3 secs
+				[larghezza_rettangolo tried 2/2] 12.3 secs
+
+	Save allineato_al_centro_verticale(C,E) (81,264 value -2.4)
+	Save allineato_al_centro_verticale(E,D) (83,273 value -3.5)
+
+Best literal to_right(E,D) (7.0 bits)
+
+
+State (9152/91264 [24/189], 120.0 bits available, 1 weak literal)
+
+				[= tried 3/3] 12.3 secs
+				[tipo_testo tried 1/3] 12.3 secs
+				[tipo_linea_orizzontale tried 3/3] 12.3 secs
+				[tipo_misto tried 3/3] 12.3 secs
+				[tipo_linea_obbliqua tried 3/3] 12.3 secs
+				[tipo_immagine tried 3/3] 12.3 secs
+				[tipo_vuoto tried 3/3] 12.3 secs
+				[ultima_pagina tried 1/1] 12.3 secs
+				[frame tried 5/6] 12.4 secs
+				[pagina_1 tried 2/3] 12.4 secs
+				[on_top tried 9/10] 12.4 secs
+				[to_right tried 8/10] 12.4 secs
+				[allineato_al_centro_verticale tried 9/10] 12.4 secs
+				[allineato_al_centro_orizzontale tried 6/10] 12.4 secs
+				[numero_pagine tried 1/1] 12.4 secs
+				[altezza_pagina tried 1/1] 12.5 secs
+				[larghezza_pagina tried 1/1] 12.5 secs
+				[altezza_rettangolo tried 2/2] 12.5 secs
+				[ascissa_rettangolo tried 2/2] 12.5 secs
+				[ordinata_rettangolo tried 2/2] 12.5 secs
+				[larghezza_rettangolo tried 2/2] 12.5 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (8736/75232 [23/175], 113.0 bits available)
+
+				[= tried 3/3] 12.5 secs
+				[tipo_testo tried 0/3] 12.5 secs
+				[tipo_linea_orizzontale tried 3/3] 12.5 secs
+				[tipo_misto tried 3/3] 12.5 secs
+				[tipo_linea_obbliqua tried 3/3] 12.5 secs
+				[tipo_immagine tried 3/3] 12.5 secs
+				[tipo_vuoto tried 3/3] 12.5 secs
+				[ultima_pagina tried 1/1] 12.5 secs
+				[frame tried 5/6] 12.5 secs
+				[pagina_1 tried 2/3] 12.5 secs
+				[on_top tried 9/10] 12.6 secs
+				[to_right tried 9/10] 12.6 secs
+				[allineato_al_centro_verticale tried 9/10] 12.6 secs
+				[allineato_al_centro_orizzontale tried 6/10] 12.6 secs
+				[numero_pagine tried 1/1] 12.6 secs
+				[altezza_pagina tried 1/1] 12.6 secs
+				[larghezza_pagina tried 1/1] 12.6 secs
+				[altezza_rettangolo tried 2/2] 12.6 secs
+				[ascissa_rettangolo tried 2/2] 12.6 secs
+				[ordinata_rettangolo tried 2/2] 12.6 secs
+				[larghezza_rettangolo tried 2/2] 12.6 secs
+
+	Save to_right(C,D) (15,121 value -19.0)
+
+Best literal on_top(E,D) (7.7 bits)
+
+
+State (12480/93120 [23/171], 108.5 bits available)
+
+				[= tried 3/3] 12.7 secs
+				[tipo_testo tried 0/3] 12.7 secs
+				[tipo_linea_orizzontale tried 3/3] 12.7 secs
+				[tipo_misto tried 3/3] 12.7 secs
+				[tipo_linea_obbliqua tried 3/3] 12.7 secs
+				[tipo_immagine tried 3/3] 12.7 secs
+				[tipo_vuoto tried 3/3] 12.7 secs
+				[ultima_pagina tried 1/1] 12.7 secs
+				[frame tried 5/6] 12.7 secs
+				[pagina_1 tried 2/3] 12.7 secs
+				[on_top tried 8/10] 12.7 secs
+				[to_right tried 9/10] 12.8 secs
+				[allineato_al_centro_verticale tried 9/10] 12.8 secs
+				[allineato_al_centro_orizzontale tried 6/10] 12.8 secs
+				[numero_pagine tried 1/1] 12.8 secs
+				[altezza_pagina tried 1/1] 12.8 secs
+				[larghezza_pagina tried 1/1] 12.8 secs
+				[altezza_rettangolo tried 2/2] 12.8 secs
+				[ascissa_rettangolo tried 2/2] 12.8 secs
+				[ordinata_rettangolo tried 2/2] 12.8 secs
+				[larghezza_rettangolo tried 2/2] 12.8 secs
+
+Best literal to_right(C,D) (7.7 bits)
+
+
+State (14976/84992 [15/121], 69.3 bits available)
+
+				[= tried 3/3] 12.8 secs
+				[tipo_testo tried 0/3] 12.8 secs
+				[tipo_linea_orizzontale tried 3/3] 12.8 secs
+				[tipo_misto tried 3/3] 12.8 secs
+				[tipo_linea_obbliqua tried 3/3] 12.8 secs
+				[tipo_immagine tried 3/3] 12.8 secs
+				[tipo_vuoto tried 3/3] 12.8 secs
+				[ultima_pagina tried 1/1] 12.8 secs
+				[frame tried 5/6] 12.9 secs
+				[pagina_1 tried 2/3] 12.9 secs
+				[on_top tried 8/10] 12.9 secs
+				[to_right tried 8/10] 12.9 secs
+				[allineato_al_centro_verticale tried 9/10] 12.9 secs
+				[allineato_al_centro_orizzontale tried 6/10] 12.9 secs
+				[numero_pagine tried 1/1] 12.9 secs
+				[altezza_pagina tried 1/1] 12.9 secs
+				[larghezza_pagina tried 1/1] 12.9 secs
+				[altezza_rettangolo tried 2/2] 12.9 secs
+				[ascissa_rettangolo tried 2/2] 12.9 secs
+				[ordinata_rettangolo tried 2/2] 12.9 secs
+				[larghezza_rettangolo tried 2/2] 13.0 secs
+
+Best literal to_right(E,C) (7.7 bits)
+
+
+State (16896/63232 [11/50], 45.2 bits available)
+
+				[= tried 3/3] 13.0 secs
+				[tipo_testo tried 0/3] 13.0 secs
+				[tipo_linea_orizzontale tried 3/3] 13.0 secs
+				[tipo_misto tried 3/3] 13.0 secs
+				[tipo_linea_obbliqua tried 3/3] 13.0 secs
+				[tipo_immagine tried 3/3] 13.0 secs
+				[tipo_vuoto tried 3/3] 13.0 secs
+				[ultima_pagina tried 1/1] 13.0 secs
+				[frame tried 5/6] 13.0 secs
+				[pagina_1 tried 2/3] 13.0 secs
+				[on_top tried 8/10] 13.0 secs
+				[to_right tried 7/10] 13.0 secs
+				[allineato_al_centro_verticale tried 7/10] 13.0 secs
+				[allineato_al_centro_orizzontale tried 6/10] 13.0 secs
+				[numero_pagine tried 1/1] 13.0 secs
+				[altezza_pagina tried 1/1] 13.0 secs
+				[larghezza_pagina tried 1/1] 13.1 secs
+				[altezza_rettangolo tried 2/2] 13.1 secs
+				[ascissa_rettangolo tried 2/2] 13.1 secs
+				[ordinata_rettangolo tried 2/2] 13.1 secs
+				[larghezza_rettangolo tried 2/2] 13.1 secs
+
+Best literal on_top(E,C) (7.7 bits)
+
+
+State (21504/65024 [10/47], 35.8 bits available)
+
+				[= tried 3/3] 13.1 secs
+				[tipo_testo tried 0/3] 13.1 secs
+				[tipo_linea_orizzontale tried 3/3] 13.1 secs
+				[tipo_misto tried 3/3] 13.1 secs
+				[tipo_linea_obbliqua tried 3/3] 13.1 secs
+				[tipo_immagine tried 3/3] 13.1 secs
+				[tipo_vuoto tried 3/3] 13.1 secs
+				[ultima_pagina tried 1/1] 13.1 secs
+				[frame tried 5/6] 13.1 secs
+				[pagina_1 tried 2/3] 13.1 secs
+				[on_top tried 7/10] 13.1 secs
+				[to_right tried 7/10] 13.1 secs
+				[allineato_al_centro_verticale tried 9/10] 13.2 secs
+				[allineato_al_centro_orizzontale tried 10/10] 13.2 secs
+				[numero_pagine tried 1/1] 13.2 secs
+				[altezza_pagina tried 1/1] 13.2 secs
+				[larghezza_pagina tried 1/1] 13.2 secs
+				[altezza_rettangolo tried 2/2] 13.2 secs
+				[ascissa_rettangolo tried 2/2] 13.2 secs
+				[ordinata_rettangolo tried 2/2] 13.2 secs
+				[larghezza_rettangolo tried 2/2] 13.2 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), allineato_al_centro_verticale(D,E).
+
+
+
+State (20160/72128 [81/264], 270.5 bits available, 1 weak literal)
+
+				[= tried 3/3] 13.2 secs
+				[tipo_testo tried 1/3] 13.2 secs
+				[tipo_linea_orizzontale tried 3/3] 13.2 secs
+				[tipo_misto tried 3/3] 13.2 secs
+				[tipo_linea_obbliqua tried 3/3] 13.2 secs
+				[tipo_immagine tried 3/3] 13.2 secs
+				[tipo_vuoto tried 3/3] 13.2 secs
+				[ultima_pagina tried 1/1] 13.2 secs
+				[frame tried 5/6] 13.3 secs
+				[pagina_1 tried 2/3] 13.3 secs
+				[on_top tried 9/10] 13.3 secs
+				[to_right tried 10/10] 13.3 secs
+				[allineato_al_centro_verticale tried 7/10] 13.3 secs
+				[allineato_al_centro_orizzontale tried 6/10] 13.3 secs
+				[numero_pagine tried 1/1] 13.3 secs
+				[altezza_pagina tried 1/1] 13.3 secs
+				[larghezza_pagina tried 1/1] 13.3 secs
+				[altezza_rettangolo tried 2/2] 13.3 secs
+				[ascissa_rettangolo tried 2/2] 13.3 secs
+				[ordinata_rettangolo tried 2/2] 13.4 secs
+				[larghezza_rettangolo tried 2/2] 13.4 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (19904/59744 [81/264], 267.5 bits available)
+
+				[= tried 3/3] 13.4 secs
+				[tipo_testo tried 0/3] 13.4 secs
+				[tipo_linea_orizzontale tried 3/3] 13.4 secs
+				[tipo_misto tried 3/3] 13.4 secs
+				[tipo_linea_obbliqua tried 3/3] 13.4 secs
+				[tipo_immagine tried 3/3] 13.4 secs
+				[tipo_vuoto tried 3/3] 13.4 secs
+				[ultima_pagina tried 1/1] 13.4 secs
+				[frame tried 5/6] 13.4 secs
+				[pagina_1 tried 2/3] 13.4 secs
+				[on_top tried 9/10] 13.4 secs
+				[to_right tried 10/10] 13.4 secs
+				[allineato_al_centro_verticale tried 8/10] 13.5 secs
+				[allineato_al_centro_orizzontale tried 6/10] 13.5 secs
+				[numero_pagine tried 1/1] 13.5 secs
+				[altezza_pagina tried 1/1] 13.5 secs
+				[larghezza_pagina tried 1/1] 13.5 secs
+				[altezza_rettangolo tried 2/2] 13.5 secs
+				[ascissa_rettangolo tried 2/2] 13.5 secs
+				[ordinata_rettangolo tried 2/2] 13.5 secs
+				[larghezza_rettangolo tried 2/2] 13.5 secs
+
+Best literal on_top(C,E) (7.7 bits)
+
+
+State (14720/42880 [59/179], 218.9 bits available)
+
+				[= tried 3/3] 13.5 secs
+				[tipo_testo tried 0/3] 13.5 secs
+				[tipo_linea_orizzontale tried 3/3] 13.5 secs
+				[tipo_misto tried 3/3] 13.5 secs
+				[tipo_linea_obbliqua tried 3/3] 13.5 secs
+				[tipo_immagine tried 3/3] 13.5 secs
+				[tipo_vuoto tried 3/3] 13.5 secs
+				[ultima_pagina tried 1/1] 13.5 secs
+				[frame tried 5/6] 13.5 secs
+				[pagina_1 tried 2/3] 13.5 secs
+				[on_top tried 8/10] 13.6 secs
+				[to_right tried 10/10] 13.6 secs
+				[allineato_al_centro_verticale tried 8/10] 13.6 secs
+				[allineato_al_centro_orizzontale tried 6/10] 13.6 secs
+				[numero_pagine tried 1/1] 13.6 secs
+				[altezza_pagina tried 1/1] 13.6 secs
+				[larghezza_pagina tried 1/1] 13.6 secs
+				[altezza_rettangolo tried 2/2] 13.6 secs
+				[ascissa_rettangolo tried 2/2] 13.6 secs
+				[ordinata_rettangolo tried 2/2] 13.6 secs
+				[larghezza_rettangolo tried 2/2] 13.6 secs
+
+Best literal allineato_al_centro_verticale(C,E) (7.7 bits)
+
+
+State (29440/85376 [59/179], 214.5 bits available)
+
+				[= tried 3/3] 13.6 secs
+				[tipo_testo tried 0/3] 13.6 secs
+				[tipo_linea_orizzontale tried 3/3] 13.6 secs
+				[tipo_misto tried 3/3] 13.6 secs
+				[tipo_linea_obbliqua tried 3/3] 13.6 secs
+				[tipo_immagine tried 3/3] 13.6 secs
+				[tipo_vuoto tried 3/3] 13.6 secs
+				[ultima_pagina tried 1/1] 13.7 secs
+				[frame tried 5/6] 13.7 secs
+				[pagina_1 tried 2/3] 13.7 secs
+				[on_top tried 8/10] 13.7 secs
+				[to_right tried 10/10] 13.7 secs
+				[allineato_al_centro_verticale tried 7/10] 13.7 secs
+				[allineato_al_centro_orizzontale tried 10/10] 13.7 secs
+				[numero_pagine tried 1/1] 13.7 secs
+				[altezza_pagina tried 1/1] 13.7 secs
+				[larghezza_pagina tried 1/1] 13.7 secs
+				[altezza_rettangolo tried 2/2] 13.7 secs
+				[ascissa_rettangolo tried 2/2] 13.8 secs
+				[ordinata_rettangolo tried 2/2] 13.8 secs
+				[larghezza_rettangolo tried 2/2] 13.8 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C), tipo_testo(D), on_top(C,D), allineato_al_centro_verticale(C,E).
+
+
+
+State (20160/72128 [81/264], 270.5 bits available, 1 weak literal)
+
+				[= tried 3/3] 13.8 secs
+				[tipo_testo tried 1/3] 13.8 secs
+				[tipo_linea_orizzontale tried 3/3] 13.8 secs
+				[tipo_misto tried 3/3] 13.8 secs
+				[tipo_linea_obbliqua tried 3/3] 13.8 secs
+				[tipo_immagine tried 3/3] 13.8 secs
+				[tipo_vuoto tried 3/3] 13.8 secs
+				[ultima_pagina tried 1/1] 13.8 secs
+				[frame tried 6/7] 13.8 secs
+				[pagina_1 tried 2/3] 13.8 secs
+				[on_top tried 11/12] 13.9 secs
+				[to_right tried 12/12] 13.9 secs
+				[allineato_al_centro_verticale tried 9/12] 13.9 secs
+				[allineato_al_centro_orizzontale tried 6/12] 13.9 secs
+				[numero_pagine tried 1/1] 13.9 secs
+				[altezza_pagina tried 1/1] 13.9 secs
+				[larghezza_pagina tried 1/1] 13.9 secs
+				[altezza_rettangolo tried 3/3] 13.9 secs
+				[ascissa_rettangolo tried 3/3] 13.9 secs
+				[ordinata_rettangolo tried 3/3] 14.0 secs
+				[larghezza_rettangolo tried 3/3] 14.0 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (19904/59744 [81/264], 267.5 bits available)
+
+				[= tried 3/3] 14.0 secs
+				[tipo_testo tried 0/3] 14.0 secs
+				[tipo_linea_orizzontale tried 3/3] 14.0 secs
+				[tipo_misto tried 3/3] 14.0 secs
+				[tipo_linea_obbliqua tried 3/3] 14.0 secs
+				[tipo_immagine tried 3/3] 14.0 secs
+				[tipo_vuoto tried 3/3] 14.0 secs
+				[ultima_pagina tried 1/1] 14.0 secs
+				[frame tried 6/7] 14.0 secs
+				[pagina_1 tried 2/3] 14.0 secs
+				[on_top tried 11/12] 14.0 secs
+				[to_right tried 12/12] 14.1 secs
+				[allineato_al_centro_verticale tried 10/12] 14.1 secs
+				[allineato_al_centro_orizzontale tried 6/12] 14.1 secs
+				[numero_pagine tried 1/1] 14.1 secs
+				[altezza_pagina tried 1/1] 14.1 secs
+				[larghezza_pagina tried 1/1] 14.1 secs
+				[altezza_rettangolo tried 3/3] 14.1 secs
+				[ascissa_rettangolo tried 3/3] 14.1 secs
+				[ordinata_rettangolo tried 3/3] 14.1 secs
+				[larghezza_rettangolo tried 3/3] 14.1 secs
+
+Best literal on_top(D,E) (8.0 bits)
+
+
+State (14720/42880 [59/179], 218.6 bits available)
+
+				[= tried 3/3] 14.1 secs
+				[tipo_testo tried 0/3] 14.1 secs
+				[tipo_linea_orizzontale tried 3/3] 14.2 secs
+				[tipo_misto tried 3/3] 14.2 secs
+				[tipo_linea_obbliqua tried 3/3] 14.2 secs
+				[tipo_immagine tried 3/3] 14.2 secs
+				[tipo_vuoto tried 3/3] 14.2 secs
+				[ultima_pagina tried 1/1] 14.2 secs
+				[frame tried 6/7] 14.2 secs
+				[pagina_1 tried 2/3] 14.2 secs
+				[on_top tried 10/12] 14.2 secs
+				[to_right tried 12/12] 14.2 secs
+				[allineato_al_centro_verticale tried 10/12] 14.2 secs
+				[allineato_al_centro_orizzontale tried 6/12] 14.2 secs
+				[numero_pagine tried 1/1] 14.2 secs
+				[altezza_pagina tried 1/1] 14.2 secs
+				[larghezza_pagina tried 1/1] 14.2 secs
+				[altezza_rettangolo tried 3/3] 14.3 secs
+				[ascissa_rettangolo tried 3/3] 14.3 secs
+				[ordinata_rettangolo tried 3/3] 14.3 secs
+				[larghezza_rettangolo tried 3/3] 14.3 secs
+
+Best literal allineato_al_centro_verticale(D,E) (8.0 bits)
+
+
+State (29440/85376 [59/179], 214.0 bits available)
+
+				[= tried 3/3] 14.3 secs
+				[tipo_testo tried 0/3] 14.3 secs
+				[tipo_linea_orizzontale tried 3/3] 14.3 secs
+				[tipo_misto tried 3/3] 14.3 secs
+				[tipo_linea_obbliqua tried 3/3] 14.3 secs
+				[tipo_immagine tried 3/3] 14.3 secs
+				[tipo_vuoto tried 3/3] 14.3 secs
+				[ultima_pagina tried 1/1] 14.3 secs
+				[frame tried 6/7] 14.3 secs
+				[pagina_1 tried 2/3] 14.3 secs
+				[on_top tried 10/12] 14.4 secs
+				[to_right tried 12/12] 14.4 secs
+				[allineato_al_centro_verticale tried 9/12] 14.4 secs
+				[allineato_al_centro_orizzontale tried 12/12] 14.4 secs
+				[numero_pagine tried 1/1] 14.4 secs
+				[altezza_pagina tried 1/1] 14.4 secs
+				[larghezza_pagina tried 1/1] 14.4 secs
+				[altezza_rettangolo tried 3/3] 14.4 secs
+				[ascissa_rettangolo tried 3/3] 14.4 secs
+				[ordinata_rettangolo tried 3/3] 14.5 secs
+				[larghezza_rettangolo tried 3/3] 14.5 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), allineato_al_centro_verticale(E,C).
+
+
+
+State (19456/77856 [83/273], 273.9 bits available, 1 weak literal)
+
+				[= tried 3/3] 14.5 secs
+				[tipo_testo tried 1/3] 14.5 secs
+				[tipo_linea_orizzontale tried 3/3] 14.5 secs
+				[tipo_misto tried 3/3] 14.5 secs
+				[tipo_linea_obbliqua tried 3/3] 14.5 secs
+				[tipo_immagine tried 3/3] 14.5 secs
+				[tipo_vuoto tried 3/3] 14.5 secs
+				[ultima_pagina tried 1/1] 14.5 secs
+				[frame tried 6/7] 14.5 secs
+				[pagina_1 tried 2/3] 14.5 secs
+				[on_top tried 11/12] 14.6 secs
+				[to_right tried 12/12] 14.6 secs
+				[allineato_al_centro_verticale tried 9/12] 14.6 secs
+				[allineato_al_centro_orizzontale tried 6/12] 14.6 secs
+				[numero_pagine tried 1/1] 14.6 secs
+				[altezza_pagina tried 1/1] 14.6 secs
+				[larghezza_pagina tried 1/1] 14.6 secs
+				[altezza_rettangolo tried 3/3] 14.6 secs
+				[ascissa_rettangolo tried 3/3] 14.6 secs
+				[ordinata_rettangolo tried 3/3] 14.6 secs
+				[larghezza_rettangolo tried 3/3] 14.7 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (19360/62400 [82/271], 269.2 bits available)
+
+				[= tried 3/3] 14.7 secs
+				[tipo_testo tried 0/3] 14.7 secs
+				[tipo_linea_orizzontale tried 3/3] 14.7 secs
+				[tipo_misto tried 3/3] 14.7 secs
+				[tipo_linea_obbliqua tried 3/3] 14.7 secs
+				[tipo_immagine tried 3/3] 14.7 secs
+				[tipo_vuoto tried 3/3] 14.7 secs
+				[ultima_pagina tried 1/1] 14.7 secs
+				[frame tried 6/7] 14.7 secs
+				[pagina_1 tried 2/3] 14.7 secs
+				[on_top tried 11/12] 14.7 secs
+				[to_right tried 12/12] 14.8 secs
+				[allineato_al_centro_verticale tried 10/12] 14.8 secs
+				[allineato_al_centro_orizzontale tried 6/12] 14.8 secs
+				[numero_pagine tried 1/1] 14.8 secs
+				[altezza_pagina tried 1/1] 14.8 secs
+				[larghezza_pagina tried 1/1] 14.8 secs
+				[altezza_rettangolo tried 3/3] 14.8 secs
+				[ascissa_rettangolo tried 3/3] 14.8 secs
+				[ordinata_rettangolo tried 3/3] 14.8 secs
+				[larghezza_rettangolo tried 3/3] 14.8 secs
+
+Best literal on_top(D,E) (8.0 bits)
+
+
+State (26624/81856 [78/241], 257.5 bits available)
+
+				[= tried 3/3] 14.9 secs
+				[tipo_testo tried 0/3] 14.9 secs
+				[tipo_linea_orizzontale tried 3/3] 14.9 secs
+				[tipo_misto tried 3/3] 14.9 secs
+				[tipo_linea_obbliqua tried 3/3] 14.9 secs
+				[tipo_immagine tried 3/3] 14.9 secs
+				[tipo_vuoto tried 3/3] 14.9 secs
+				[ultima_pagina tried 1/1] 14.9 secs
+				[frame tried 6/7] 14.9 secs
+				[pagina_1 tried 2/3] 14.9 secs
+				[on_top tried 10/12] 14.9 secs
+				[to_right tried 12/12] 14.9 secs
+				[allineato_al_centro_verticale tried 10/12] 15.0 secs
+				[allineato_al_centro_orizzontale tried 6/12] 15.0 secs
+				[numero_pagine tried 1/1] 15.0 secs
+				[altezza_pagina tried 1/1] 15.0 secs
+				[larghezza_pagina tried 1/1] 15.0 secs
+				[altezza_rettangolo tried 3/3] 15.0 secs
+				[ascissa_rettangolo tried 3/3] 15.0 secs
+				[ordinata_rettangolo tried 3/3] 15.0 secs
+				[larghezza_rettangolo tried 3/3] 15.0 secs
+
+Best literal on_top(E,C) (8.0 bits)
+
+
+State (27392/84096 [59/182], 214.0 bits available)
+
+				[= tried 3/3] 15.0 secs
+				[tipo_testo tried 0/3] 15.0 secs
+				[tipo_linea_orizzontale tried 3/3] 15.0 secs
+				[tipo_misto tried 3/3] 15.0 secs
+				[tipo_linea_obbliqua tried 3/3] 15.0 secs
+				[tipo_immagine tried 3/3] 15.0 secs
+				[tipo_vuoto tried 3/3] 15.1 secs
+				[ultima_pagina tried 1/1] 15.1 secs
+				[frame tried 6/7] 15.1 secs
+				[pagina_1 tried 2/3] 15.1 secs
+				[on_top tried 9/12] 15.1 secs
+				[to_right tried 12/12] 15.1 secs
+				[allineato_al_centro_verticale tried 10/12] 15.1 secs
+				[allineato_al_centro_orizzontale tried 12/12] 15.1 secs
+				[numero_pagine tried 1/1] 15.2 secs
+				[altezza_pagina tried 1/1] 15.2 secs
+				[larghezza_pagina tried 1/1] 15.2 secs
+				[altezza_rettangolo tried 3/3] 15.2 secs
+				[ascissa_rettangolo tried 3/3] 15.2 secs
+				[ordinata_rettangolo tried 3/3] 15.2 secs
+				[larghezza_rettangolo tried 3/3] 15.2 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C), tipo_testo(D), on_top(C,D), allineato_al_centro_verticale(E,D).
+
+
+
+State (19456/77856 [83/273], 273.9 bits available, 1 weak literal)
+
+				[= tried 3/3] 15.2 secs
+				[tipo_testo tried 1/3] 15.2 secs
+				[tipo_linea_orizzontale tried 3/3] 15.2 secs
+				[tipo_misto tried 3/3] 15.2 secs
+				[tipo_linea_obbliqua tried 3/3] 15.2 secs
+				[tipo_immagine tried 3/3] 15.2 secs
+				[tipo_vuoto tried 3/3] 15.2 secs
+				[ultima_pagina tried 1/1] 15.2 secs
+				[frame tried 5/6] 15.3 secs
+				[pagina_1 tried 2/3] 15.3 secs
+				[on_top tried 9/10] 15.3 secs
+				[to_right tried 10/10] 15.3 secs
+				[allineato_al_centro_verticale tried 7/10] 15.3 secs
+				[allineato_al_centro_orizzontale tried 6/10] 15.3 secs
+				[numero_pagine tried 1/1] 15.3 secs
+				[altezza_pagina tried 1/1] 15.3 secs
+				[larghezza_pagina tried 1/1] 15.3 secs
+				[altezza_rettangolo tried 2/2] 15.3 secs
+				[ascissa_rettangolo tried 2/2] 15.3 secs
+				[ordinata_rettangolo tried 2/2] 15.4 secs
+				[larghezza_rettangolo tried 2/2] 15.4 secs
+
+Best literal tipo_testo(E) (6.0 bits)
+
+
+State (19360/62400 [82/271], 269.2 bits available)
+
+				[= tried 3/3] 15.4 secs
+				[tipo_testo tried 0/3] 15.4 secs
+				[tipo_linea_orizzontale tried 3/3] 15.4 secs
+				[tipo_misto tried 3/3] 15.4 secs
+				[tipo_linea_obbliqua tried 3/3] 15.4 secs
+				[tipo_immagine tried 3/3] 15.4 secs
+				[tipo_vuoto tried 3/3] 15.4 secs
+				[ultima_pagina tried 1/1] 15.4 secs
+				[frame tried 5/6] 15.4 secs
+				[pagina_1 tried 2/3] 15.4 secs
+				[on_top tried 9/10] 15.4 secs
+				[to_right tried 10/10] 15.4 secs
+				[allineato_al_centro_verticale tried 8/10] 15.5 secs
+				[allineato_al_centro_orizzontale tried 6/10] 15.5 secs
+				[numero_pagine tried 1/1] 15.5 secs
+				[altezza_pagina tried 1/1] 15.5 secs
+				[larghezza_pagina tried 1/1] 15.5 secs
+				[altezza_rettangolo tried 2/2] 15.5 secs
+				[ascissa_rettangolo tried 2/2] 15.5 secs
+				[ordinata_rettangolo tried 2/2] 15.5 secs
+				[larghezza_rettangolo tried 2/2] 15.5 secs
+
+Best literal on_top(C,E) (7.7 bits)
+
+
+State (26624/81856 [78/241], 257.8 bits available)
+
+				[= tried 3/3] 15.5 secs
+				[tipo_testo tried 0/3] 15.5 secs
+				[tipo_linea_orizzontale tried 3/3] 15.5 secs
+				[tipo_misto tried 3/3] 15.5 secs
+				[tipo_linea_obbliqua tried 3/3] 15.5 secs
+				[tipo_immagine tried 3/3] 15.5 secs
+				[tipo_vuoto tried 3/3] 15.5 secs
+				[ultima_pagina tried 1/1] 15.5 secs
+				[frame tried 5/6] 15.6 secs
+				[pagina_1 tried 2/3] 15.6 secs
+				[on_top tried 8/10] 15.6 secs
+				[to_right tried 10/10] 15.6 secs
+				[allineato_al_centro_verticale tried 8/10] 15.6 secs
+				[allineato_al_centro_orizzontale tried 6/10] 15.6 secs
+				[numero_pagine tried 1/1] 15.6 secs
+				[altezza_pagina tried 1/1] 15.6 secs
+				[larghezza_pagina tried 1/1] 15.6 secs
+				[altezza_rettangolo tried 2/2] 15.6 secs
+				[ascissa_rettangolo tried 2/2] 15.6 secs
+				[ordinata_rettangolo tried 2/2] 15.7 secs
+				[larghezza_rettangolo tried 2/2] 15.7 secs
+
+Best literal on_top(E,D) (7.7 bits)
+
+
+State (27392/84096 [59/182], 214.5 bits available)
+
+				[= tried 3/3] 15.7 secs
+				[tipo_testo tried 0/3] 15.7 secs
+				[tipo_linea_orizzontale tried 3/3] 15.7 secs
+				[tipo_misto tried 3/3] 15.7 secs
+				[tipo_linea_obbliqua tried 3/3] 15.7 secs
+				[tipo_immagine tried 3/3] 15.7 secs
+				[tipo_vuoto tried 3/3] 15.7 secs
+				[ultima_pagina tried 1/1] 15.7 secs
+				[frame tried 5/6] 15.7 secs
+				[pagina_1 tried 2/3] 15.7 secs
+				[on_top tried 7/10] 15.7 secs
+				[to_right tried 10/10] 15.7 secs
+				[allineato_al_centro_verticale tried 8/10] 15.8 secs
+				[allineato_al_centro_orizzontale tried 10/10] 15.8 secs
+				[numero_pagine tried 1/1] 15.8 secs
+				[altezza_pagina tried 1/1] 15.8 secs
+				[larghezza_pagina tried 1/1] 15.8 secs
+				[altezza_rettangolo tried 2/2] 15.8 secs
+				[ascissa_rettangolo tried 2/2] 15.8 secs
+				[ordinata_rettangolo tried 2/2] 15.8 secs
+				[larghezza_rettangolo tried 2/2] 15.8 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_orizzontale(D,C).
+
+
+
+State (8/792 [1/93], 9.6 bits available, 1 weak literal)
+
+				[= tried 1/1] 15.8 secs
+				[tipo_testo tried 1/2] 15.8 secs
+				[tipo_linea_orizzontale tried 2/2] 15.8 secs
+				[tipo_misto tried 2/2] 15.8 secs
+				[tipo_linea_obbliqua tried 2/2] 15.8 secs
+				[tipo_immagine tried 2/2] 15.8 secs
+				[tipo_vuoto tried 2/2] 15.8 secs
+				[ultima_pagina tried 1/1] 15.8 secs
+				[frame tried 4/5] 15.8 secs
+				[pagina_1 tried 2/3] 15.8 secs
+				[on_top tried 6/6] 15.8 secs
+				[to_right tried 6/6] 15.8 secs
+				[allineato_al_centro_verticale tried 4/6] 15.8 secs
+				[allineato_al_centro_orizzontale tried 3/6] 15.8 secs
+				[numero_pagine tried 1/1] 15.8 secs
+				[altezza_pagina tried 1/1] 15.8 secs
+				[larghezza_pagina tried 1/1] 15.8 secs
+				[altezza_rettangolo tried 2/2] 15.8 secs
+				[ascissa_rettangolo tried 2/2] 15.8 secs
+				[ordinata_rettangolo tried 2/2] 15.8 secs
+				[larghezza_rettangolo tried 2/2] 15.8 secs
+
+Best literal tipo_misto(D) (5.4 bits)
+
+
+State (8/16 [1/2], 6.6 bits available)
+
+				[= tried 1/1] 15.8 secs
+				[tipo_testo tried 1/2] 15.8 secs
+				[tipo_linea_orizzontale tried 2/2] 15.8 secs
+				[tipo_misto tried 1/2] 15.8 secs
+				[tipo_linea_obbliqua tried 2/2] 15.8 secs
+				[tipo_immagine tried 2/2] 15.8 secs
+				[tipo_vuoto tried 2/2] 15.8 secs
+				[ultima_pagina tried 1/1] 15.8 secs
+				[frame tried 4/5] 15.8 secs
+				[pagina_1 tried 2/3] 15.8 secs
+				[on_top tried 6/6] 15.8 secs
+				[to_right tried 6/6] 15.8 secs
+				[allineato_al_centro_verticale tried 4/6] 15.8 secs
+				[allineato_al_centro_orizzontale tried 4/6] 15.8 secs
+				[numero_pagine tried 1/1] 15.8 secs
+				[altezza_pagina tried 1/1] 15.8 secs
+				[larghezza_pagina tried 1/1] 15.8 secs
+				[altezza_rettangolo tried 2/2] 15.8 secs
+				[ascissa_rettangolo tried 2/2] 15.8 secs
+				[ordinata_rettangolo tried 2/2] 15.8 secs
+				[larghezza_rettangolo tried 2/2] 15.8 secs
+
+Best literal to_right(E,D) (7.0 bits)
+
+
+State (144/272 [1/2], 2.2 bits available, 1 weak literal)
+
+				[= requires 7.0 bits]
+				[tipo_testo requires 6.0 bits]
+				[tipo_linea_orizzontale requires 6.0 bits]
+				[tipo_misto requires 6.0 bits]
+				[tipo_linea_obbliqua requires 6.0 bits]
+				[tipo_immagine requires 6.0 bits]
+				[tipo_vuoto requires 6.0 bits]
+				[ultima_pagina tried 1/1] 15.8 secs
+				[frame requires 7.0 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 7.7 bits]
+				[to_right requires 7.7 bits]
+				[allineato_al_centro_verticale requires 7.7 bits]
+				[allineato_al_centro_orizzontale requires 7.7 bits]
+				[numero_pagine tried 1/1] 15.8 secs
+				[altezza_pagina tried 1/1] 15.8 secs
+				[larghezza_pagina tried 1/1] 15.8 secs
+				[altezza_rettangolo requires 5.4 bits]
+				[ascissa_rettangolo requires 5.4 bits]
+				[ordinata_rettangolo requires 5.4 bits]
+				[larghezza_rettangolo requires 5.4 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), on_top(E,C), to_right(D,C), to_right(E,D), on_top(E,D).
+
+
+
+State (21504/65024 [10/47], 34.8 bits available)
+
+				[= tried 3/3] 15.9 secs
+				[tipo_testo tried 0/3] 15.9 secs
+				[tipo_linea_orizzontale tried 3/3] 15.9 secs
+				[tipo_misto tried 3/3] 15.9 secs
+				[tipo_linea_obbliqua tried 3/3] 15.9 secs
+				[tipo_immagine tried 3/3] 15.9 secs
+				[tipo_vuoto tried 3/3] 15.9 secs
+				[ultima_pagina tried 1/1] 15.9 secs
+				[frame tried 6/7] 15.9 secs
+				[pagina_1 tried 2/3] 15.9 secs
+				[on_top tried 9/12] 15.9 secs
+				[to_right tried 9/12] 16.0 secs
+				[allineato_al_centro_verticale tried 11/12] 16.0 secs
+				[allineato_al_centro_orizzontale tried 6/12] 16.0 secs
+				[numero_pagine tried 1/1] 16.0 secs
+				[altezza_pagina tried 1/1] 16.0 secs
+				[larghezza_pagina tried 1/1] 16.0 secs
+				[altezza_rettangolo tried 3/3] 16.0 secs
+				[ascissa_rettangolo tried 3/3] 16.0 secs
+				[ordinata_rettangolo tried 3/3] 16.0 secs
+				[larghezza_rettangolo tried 3/3] 16.0 secs
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (39936/81920 [9/23], 25.0 bits available)
+
+				[= tried 6/6] 16.0 secs
+				[tipo_testo tried 1/4] 16.0 secs
+				[tipo_linea_orizzontale tried 4/4] 16.1 secs
+				[tipo_misto tried 4/4] 16.1 secs
+				[tipo_linea_obbliqua tried 4/4] 16.1 secs
+				[tipo_immagine tried 4/4] 16.1 secs
+				[tipo_vuoto tried 4/4] 16.1 secs
+				[ultima_pagina tried 1/1] 16.1 secs
+				[frame tried 7/8] 16.1 secs
+				[pagina_1 tried 2/3] 16.1 secs
+				[on_top tried 15/18] 16.2 secs
+				[to_right tried 15/18] 16.2 secs
+				[allineato_al_centro_verticale tried 12/18] 16.2 secs
+				[allineato_al_centro_orizzontale tried 9/18] 16.2 secs
+				[numero_pagine tried 1/1] 16.2 secs
+				[altezza_pagina tried 1/1] 16.2 secs
+				[larghezza_pagina tried 1/1] 16.2 secs
+				[altezza_rettangolo tried 3/3] 16.2 secs
+				[ascissa_rettangolo tried 3/3] 16.3 secs
+				[ordinata_rettangolo tried 3/3] 16.3 secs
+				[larghezza_rettangolo tried 3/3] 16.3 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (22528/32768 [7/11], 8.9 bits available)
+
+				[= tried 6/6] 16.3 secs
+				[tipo_testo tried 1/4] 16.3 secs
+				[tipo_linea_orizzontale tried 4/4] 16.3 secs
+				[tipo_misto tried 4/4] 16.3 secs
+				[tipo_linea_obbliqua tried 4/4] 16.3 secs
+				[tipo_immagine tried 4/4] 16.3 secs
+				[tipo_vuoto tried 4/4] 16.3 secs
+				[ultima_pagina tried 1/1] 16.3 secs
+				[frame tried 7/8] 16.3 secs
+				[pagina_1 tried 2/3] 16.3 secs
+				[on_top tried 14/18] 16.3 secs
+				[to_right tried 12/18] 16.4 secs
+				[allineato_al_centro_verticale tried 13/18] 16.4 secs
+				[allineato_al_centro_orizzontale tried 9/18] 16.4 secs
+				[numero_pagine tried 1/1] 16.4 secs
+				[altezza_pagina tried 1/1] 16.4 secs
+				[larghezza_pagina tried 1/1] 16.4 secs
+				[altezza_rettangolo tried 3/3] 16.4 secs
+				[ascissa_rettangolo tried 3/3] 16.4 secs
+				[ordinata_rettangolo tried 3/3] 16.4 secs
+				[larghezza_rettangolo tried 3/3] 16.4 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (22528/28672 [7/9], 6.4 bits available)
+
+				[= tried 6/6] 16.4 secs
+				[tipo_testo tried 0/4] 16.4 secs
+				[tipo_linea_orizzontale tried 4/4] 16.4 secs
+				[tipo_misto tried 4/4] 16.4 secs
+				[tipo_linea_obbliqua tried 4/4] 16.4 secs
+				[tipo_immagine tried 4/4] 16.4 secs
+				[tipo_vuoto tried 4/4] 16.4 secs
+				[ultima_pagina tried 1/1] 16.4 secs
+				[frame tried 7/8] 16.4 secs
+				[pagina_1 tried 2/3] 16.4 secs
+				[on_top tried 14/18] 16.5 secs
+				[to_right tried 15/18] 16.5 secs
+				[allineato_al_centro_verticale tried 16/18] 16.5 secs
+				[allineato_al_centro_orizzontale tried 18/18] 16.5 secs
+				[numero_pagine tried 1/1] 16.5 secs
+				[altezza_pagina tried 1/1] 16.5 secs
+				[larghezza_pagina tried 1/1] 16.5 secs
+				[altezza_rettangolo tried 3/3] 16.5 secs
+				[ascissa_rettangolo tried 3/3] 16.5 secs
+				[ordinata_rettangolo tried 3/3] 16.5 secs
+				[larghezza_rettangolo tried 3/3] 16.6 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C).
+
+
+
+State (9536/68160 [15/121], 73.4 bits available)
+
+				[= tried 3/3] 16.6 secs
+				[tipo_testo tried 0/3] 16.6 secs
+				[tipo_linea_orizzontale tried 3/3] 16.6 secs
+				[tipo_misto tried 3/3] 16.6 secs
+				[tipo_linea_obbliqua tried 3/3] 16.6 secs
+				[tipo_immagine tried 3/3] 16.6 secs
+				[tipo_vuoto tried 3/3] 16.6 secs
+				[ultima_pagina tried 1/1] 16.6 secs
+				[frame tried 6/7] 16.6 secs
+				[pagina_1 tried 2/3] 16.6 secs
+				[on_top tried 11/12] 16.7 secs
+				[to_right tried 10/12] 16.7 secs
+				[allineato_al_centro_verticale tried 11/12] 16.7 secs
+				[allineato_al_centro_orizzontale tried 6/12] 16.7 secs
+				[numero_pagine tried 1/1] 16.7 secs
+				[altezza_pagina tried 1/1] 16.7 secs
+				[larghezza_pagina tried 1/1] 16.7 secs
+				[altezza_rettangolo tried 3/3] 16.7 secs
+				[ascissa_rettangolo tried 3/3] 16.7 secs
+				[ordinata_rettangolo tried 3/3] 16.7 secs
+				[larghezza_rettangolo tried 3/3] 16.8 secs
+
+	Save on_top(E,C) (15,121 value -19.0)
+	Save on_top(E,D) (12,87 value -13.2)
+
+Best literal to_right(E,D) (8.0 bits)
+
+
+State (10624/51584 [11/56], 49.0 bits available)
+
+				[= tried 3/3] 16.8 secs
+				[tipo_testo tried 0/3] 16.8 secs
+				[tipo_linea_orizzontale tried 3/3] 16.8 secs
+				[tipo_misto tried 3/3] 16.8 secs
+				[tipo_linea_obbliqua tried 3/3] 16.8 secs
+				[tipo_immagine tried 3/3] 16.8 secs
+				[tipo_vuoto tried 3/3] 16.8 secs
+				[ultima_pagina tried 1/1] 16.8 secs
+				[frame tried 6/7] 16.8 secs
+				[pagina_1 tried 2/3] 16.8 secs
+				[on_top tried 11/12] 16.8 secs
+				[to_right tried 9/12] 16.8 secs
+				[allineato_al_centro_verticale tried 9/12] 16.9 secs
+				[allineato_al_centro_orizzontale tried 6/12] 16.9 secs
+				[numero_pagine tried 1/1] 16.9 secs
+				[altezza_pagina tried 1/1] 16.9 secs
+				[larghezza_pagina tried 1/1] 16.9 secs
+				[altezza_rettangolo tried 3/3] 16.9 secs
+				[ascissa_rettangolo tried 3/3] 16.9 secs
+				[ordinata_rettangolo tried 3/3] 16.9 secs
+				[larghezza_rettangolo tried 3/3] 16.9 secs
+
+	Save on_top(E,C) (11,50 value -4.7)
+
+Best literal on_top(E,D) (8.0 bits)
+
+
+State (10752/32512 [10/47], 39.2 bits available)
+
+				[= tried 3/3] 16.9 secs
+				[tipo_testo tried 0/3] 16.9 secs
+				[tipo_linea_orizzontale tried 3/3] 16.9 secs
+				[tipo_misto tried 3/3] 16.9 secs
+				[tipo_linea_obbliqua tried 3/3] 16.9 secs
+				[tipo_immagine tried 3/3] 16.9 secs
+				[tipo_vuoto tried 3/3] 16.9 secs
+				[ultima_pagina tried 1/1] 16.9 secs
+				[frame tried 6/7] 16.9 secs
+				[pagina_1 tried 2/3] 16.9 secs
+				[on_top tried 10/12] 17.0 secs
+				[to_right tried 9/12] 17.0 secs
+				[allineato_al_centro_verticale tried 11/12] 17.0 secs
+				[allineato_al_centro_orizzontale tried 6/12] 17.0 secs
+				[numero_pagine tried 1/1] 17.0 secs
+				[altezza_pagina tried 1/1] 17.0 secs
+				[larghezza_pagina tried 1/1] 17.0 secs
+				[altezza_rettangolo tried 3/3] 17.0 secs
+				[ascissa_rettangolo tried 3/3] 17.0 secs
+				[ordinata_rettangolo tried 3/3] 17.0 secs
+				[larghezza_rettangolo tried 3/3] 17.0 secs
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (19968/40960 [9/23], 29.3 bits available)
+
+				[= tried 6/6] 17.0 secs
+				[tipo_testo tried 1/4] 17.0 secs
+				[tipo_linea_orizzontale tried 4/4] 17.0 secs
+				[tipo_misto tried 4/4] 17.0 secs
+				[tipo_linea_obbliqua tried 4/4] 17.0 secs
+				[tipo_immagine tried 4/4] 17.0 secs
+				[tipo_vuoto tried 4/4] 17.0 secs
+				[ultima_pagina tried 1/1] 17.0 secs
+				[frame tried 7/8] 17.1 secs
+				[pagina_1 tried 2/3] 17.1 secs
+				[on_top tried 16/18] 17.1 secs
+				[to_right tried 15/18] 17.1 secs
+				[allineato_al_centro_verticale tried 12/18] 17.1 secs
+				[allineato_al_centro_orizzontale tried 9/18] 17.1 secs
+				[numero_pagine tried 1/1] 17.1 secs
+				[altezza_pagina tried 1/1] 17.2 secs
+				[larghezza_pagina tried 1/1] 17.2 secs
+				[altezza_rettangolo tried 3/3] 17.2 secs
+				[ascissa_rettangolo tried 3/3] 17.2 secs
+				[ordinata_rettangolo tried 3/3] 17.2 secs
+				[larghezza_rettangolo tried 3/3] 17.2 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (11264/16384 [7/11], 13.0 bits available)
+
+				[= tried 6/6] 17.2 secs
+				[tipo_testo tried 1/4] 17.2 secs
+				[tipo_linea_orizzontale tried 4/4] 17.2 secs
+				[tipo_misto tried 4/4] 17.2 secs
+				[tipo_linea_obbliqua tried 4/4] 17.2 secs
+				[tipo_immagine tried 4/4] 17.2 secs
+				[tipo_vuoto tried 4/4] 17.2 secs
+				[ultima_pagina tried 1/1] 17.2 secs
+				[frame tried 7/8] 17.2 secs
+				[pagina_1 tried 2/3] 17.2 secs
+				[on_top tried 15/18] 17.2 secs
+				[to_right tried 12/18] 17.2 secs
+				[allineato_al_centro_verticale tried 13/18] 17.2 secs
+				[allineato_al_centro_orizzontale tried 9/18] 17.2 secs
+				[numero_pagine tried 1/1] 17.2 secs
+				[altezza_pagina tried 1/1] 17.3 secs
+				[larghezza_pagina tried 1/1] 17.3 secs
+				[altezza_rettangolo tried 3/3] 17.3 secs
+				[ascissa_rettangolo tried 3/3] 17.3 secs
+				[ordinata_rettangolo tried 3/3] 17.3 secs
+				[larghezza_rettangolo tried 3/3] 17.3 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (11264/14336 [7/9], 10.4 bits available)
+
+				[= tried 6/6] 17.3 secs
+				[tipo_testo tried 0/4] 17.3 secs
+				[tipo_linea_orizzontale tried 4/4] 17.3 secs
+				[tipo_misto tried 4/4] 17.3 secs
+				[tipo_linea_obbliqua tried 4/4] 17.3 secs
+				[tipo_immagine tried 4/4] 17.3 secs
+				[tipo_vuoto tried 4/4] 17.3 secs
+				[ultima_pagina tried 1/1] 17.3 secs
+				[frame tried 7/8] 17.3 secs
+				[pagina_1 tried 2/3] 17.3 secs
+				[on_top tried 15/18] 17.3 secs
+				[to_right tried 15/18] 17.3 secs
+				[allineato_al_centro_verticale tried 13/18] 17.3 secs
+				[allineato_al_centro_orizzontale tried 9/18] 17.3 secs
+				[numero_pagine tried 1/1] 17.3 secs
+				[altezza_pagina tried 1/1] 17.3 secs
+				[larghezza_pagina tried 1/1] 17.3 secs
+				[altezza_rettangolo tried 3/3] 17.3 secs
+				[ascissa_rettangolo tried 3/3] 17.3 secs
+				[ordinata_rettangolo tried 3/3] 17.3 secs
+				[larghezza_rettangolo tried 3/3] 17.3 secs
+
+	Save to_right(D,G) (7,9 value 9.4)
+	Save allineato_al_centro_verticale(E,G) (7,9 value 9.4)
+
+Best literal on_top(C,G) (8.6 bits)
+
+
+State (49152/65536 [7/9], 5.8 bits available, 1 weak literal)
+
+				[= tried 10/10] 17.4 secs
+				[tipo_testo tried 1/5] 17.4 secs
+				[tipo_linea_orizzontale tried 5/5] 17.4 secs
+				[tipo_misto tried 5/5] 17.4 secs
+				[tipo_linea_obbliqua tried 5/5] 17.4 secs
+				[tipo_immagine tried 5/5] 17.4 secs
+				[tipo_vuoto tried 5/5] 17.4 secs
+				[ultima_pagina tried 1/1] 17.4 secs
+				[frame tried 9/10] 17.4 secs
+				[pagina_1 tried 2/3] 17.4 secs
+				[on_top tried 23/28] 17.5 secs
+				[to_right tried 25/28] 17.6 secs
+				[allineato_al_centro_verticale tried 22/28] 17.6 secs
+				[allineato_al_centro_orizzontale tried 12/28] 17.6 secs
+				[numero_pagine tried 1/1] 17.6 secs
+				[altezza_pagina tried 1/1] 17.6 secs
+				[larghezza_pagina tried 1/1] 17.6 secs
+				[altezza_rettangolo tried 4/4] 17.7 secs
+				[ascissa_rettangolo tried 4/4] 17.7 secs
+				[ordinata_rettangolo tried 4/4] 17.7 secs
+				[larghezza_rettangolo tried 4/4] 17.7 secs
+
+Best literal F=G (8.7 bits)
+		Note F=G
+
+State (22528/28672 [7/9], 1.1 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 17.7 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 17.7 secs
+				[altezza_pagina tried 1/1] 17.7 secs
+				[larghezza_pagina tried 1/1] 17.7 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), to_right(E,D), on_top(E,D), allineato_al_centro_verticale(E,F), on_top(C,F), tipo_testo(F), to_right(D,G).
+
+
+
+State (28672/51200 [7/9], 5.8 bits available, 1 weak literal)
+
+				[= tried 10/10] 17.8 secs
+				[tipo_testo tried 1/5] 17.8 secs
+				[tipo_linea_orizzontale tried 5/5] 17.8 secs
+				[tipo_misto tried 5/5] 17.8 secs
+				[tipo_linea_obbliqua tried 5/5] 17.8 secs
+				[tipo_immagine tried 5/5] 17.8 secs
+				[tipo_vuoto tried 5/5] 17.8 secs
+				[ultima_pagina tried 1/1] 17.8 secs
+				[frame tried 8/9] 17.8 secs
+				[pagina_1 tried 2/3] 17.8 secs
+				[on_top tried 23/26] 17.9 secs
+				[to_right tried 17/26] 17.9 secs
+				[allineato_al_centro_verticale tried 20/26] 17.9 secs
+				[allineato_al_centro_orizzontale tried 14/26] 18.0 secs
+				[numero_pagine tried 1/1] 18.0 secs
+				[altezza_pagina tried 1/1] 18.0 secs
+				[larghezza_pagina tried 1/1] 18.0 secs
+				[altezza_rettangolo tried 3/3] 18.0 secs
+				[ascissa_rettangolo tried 3/3] 18.0 secs
+				[ordinata_rettangolo tried 3/3] 18.0 secs
+				[larghezza_rettangolo tried 3/3] 18.0 secs
+
+	Save allineato_al_centro_verticale(G,D) (7,9 value 9.4)
+
+Best literal C=G (8.7 bits)
+		Note C=G
+
+State (22528/28672 [7/9], 1.1 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 18.0 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 18.0 secs
+				[altezza_pagina tried 1/1] 18.0 secs
+				[larghezza_pagina tried 1/1] 18.0 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), to_right(E,D), on_top(E,D), allineato_al_centro_verticale(E,F), on_top(C,F), tipo_testo(F), allineato_al_centro_verticale(E,G).
+
+
+
+State (49152/65536 [7/9], 5.8 bits available, 1 weak literal)
+
+				[= tried 10/10] 18.1 secs
+				[tipo_testo tried 1/5] 18.1 secs
+				[tipo_linea_orizzontale tried 5/5] 18.1 secs
+				[tipo_misto tried 5/5] 18.1 secs
+				[tipo_linea_obbliqua tried 5/5] 18.1 secs
+				[tipo_immagine tried 5/5] 18.1 secs
+				[tipo_vuoto tried 5/5] 18.1 secs
+				[ultima_pagina tried 1/1] 18.1 secs
+				[frame tried 8/9] 18.1 secs
+				[pagina_1 tried 2/3] 18.2 secs
+				[on_top tried 23/26] 18.2 secs
+				[to_right tried 23/26] 18.3 secs
+				[allineato_al_centro_verticale tried 18/26] 18.3 secs
+				[allineato_al_centro_orizzontale tried 14/26] 18.3 secs
+				[numero_pagine tried 1/1] 18.3 secs
+				[altezza_pagina tried 1/1] 18.4 secs
+				[larghezza_pagina tried 1/1] 18.4 secs
+				[altezza_rettangolo tried 3/3] 18.4 secs
+				[ascissa_rettangolo tried 3/3] 18.4 secs
+				[ordinata_rettangolo tried 3/3] 18.4 secs
+				[larghezza_rettangolo tried 3/3] 18.4 secs
+
+Best literal F=G (8.7 bits)
+		Note F=G
+
+State (22528/28672 [7/9], 1.1 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 18.4 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 18.4 secs
+				[altezza_pagina tried 1/1] 18.4 secs
+				[larghezza_pagina tried 1/1] 18.4 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), to_right(E,D), on_top(E,D), allineato_al_centro_verticale(E,F), on_top(C,F), tipo_testo(F), to_right(D,G), allineato_al_centro_verticale(G,D).
+		Note C=G
+		Note C=G
+
+State (45056/57344 [7/9], 0.7 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 18.5 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 18.5 secs
+				[altezza_pagina tried 1/1] 18.5 secs
+				[larghezza_pagina tried 1/1] 18.5 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), to_right(E,D), on_top(E,C).
+
+
+
+State (16896/63232 [11/50], 44.4 bits available)
+
+				[= tried 3/3] 18.6 secs
+				[tipo_testo tried 0/3] 18.6 secs
+				[tipo_linea_orizzontale tried 3/3] 18.6 secs
+				[tipo_misto tried 3/3] 18.6 secs
+				[tipo_linea_obbliqua tried 3/3] 18.6 secs
+				[tipo_immagine tried 3/3] 18.6 secs
+				[tipo_vuoto tried 3/3] 18.6 secs
+				[ultima_pagina tried 1/1] 18.6 secs
+				[frame tried 6/7] 18.6 secs
+				[pagina_1 tried 2/3] 18.6 secs
+				[on_top tried 10/12] 18.6 secs
+				[to_right tried 9/12] 18.6 secs
+				[allineato_al_centro_verticale tried 9/12] 18.6 secs
+				[allineato_al_centro_orizzontale tried 6/12] 18.6 secs
+				[numero_pagine tried 1/1] 18.7 secs
+				[altezza_pagina tried 1/1] 18.7 secs
+				[larghezza_pagina tried 1/1] 18.7 secs
+				[altezza_rettangolo tried 3/3] 18.7 secs
+				[ascissa_rettangolo tried 3/3] 18.7 secs
+				[ordinata_rettangolo tried 3/3] 18.7 secs
+				[larghezza_rettangolo tried 3/3] 18.7 secs
+
+	Save on_top(E,D) (10,47 value -4.6)
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (35840/97792 [11/35], 40.0 bits available)
+
+				[= tried 6/6] 18.7 secs
+				[tipo_testo tried 1/4] 18.7 secs
+				[tipo_linea_orizzontale tried 4/4] 18.7 secs
+				[tipo_misto tried 4/4] 18.7 secs
+				[tipo_linea_obbliqua tried 4/4] 18.7 secs
+				[tipo_immagine tried 4/4] 18.7 secs
+				[tipo_vuoto tried 4/4] 18.7 secs
+				[ultima_pagina tried 1/1] 18.7 secs
+				[frame tried 7/8] 18.8 secs
+				[pagina_1 tried 2/3] 18.8 secs
+				[on_top tried 16/18] 18.9 secs
+				[to_right tried 15/18] 18.9 secs
+				[allineato_al_centro_verticale tried 12/18] 18.9 secs
+				[allineato_al_centro_orizzontale tried 9/18] 18.9 secs
+				[numero_pagine tried 1/1] 18.9 secs
+				[altezza_pagina tried 1/1] 18.9 secs
+				[larghezza_pagina tried 1/1] 18.9 secs
+				[altezza_rettangolo tried 3/3] 18.9 secs
+				[ascissa_rettangolo tried 3/3] 18.9 secs
+				[ordinata_rettangolo tried 3/3] 19.0 secs
+				[larghezza_rettangolo tried 3/3] 19.0 secs
+
+Best literal on_top(E,D) (8.6 bits)
+
+
+State (39936/81920 [9/23], 24.5 bits available)
+
+				[= tried 6/6] 19.0 secs
+				[tipo_testo tried 1/4] 19.0 secs
+				[tipo_linea_orizzontale tried 4/4] 19.0 secs
+				[tipo_misto tried 4/4] 19.0 secs
+				[tipo_linea_obbliqua tried 4/4] 19.0 secs
+				[tipo_immagine tried 4/4] 19.0 secs
+				[tipo_vuoto tried 4/4] 19.0 secs
+				[ultima_pagina tried 1/1] 19.0 secs
+				[frame tried 7/8] 19.0 secs
+				[pagina_1 tried 2/3] 19.0 secs
+				[on_top tried 15/18] 19.1 secs
+				[to_right tried 15/18] 19.1 secs
+				[allineato_al_centro_verticale tried 12/18] 19.2 secs
+				[allineato_al_centro_orizzontale tried 9/18] 19.2 secs
+				[numero_pagine tried 1/1] 19.2 secs
+				[altezza_pagina tried 1/1] 19.2 secs
+				[larghezza_pagina tried 1/1] 19.2 secs
+				[altezza_rettangolo tried 3/3] 19.2 secs
+				[ascissa_rettangolo tried 3/3] 19.2 secs
+				[ordinata_rettangolo tried 3/3] 19.2 secs
+				[larghezza_rettangolo tried 3/3] 19.2 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (22528/32768 [7/11], 8.3 bits available)
+
+				[= tried 6/6] 19.2 secs
+				[tipo_testo tried 1/4] 19.2 secs
+				[tipo_linea_orizzontale tried 4/4] 19.2 secs
+				[tipo_misto tried 4/4] 19.2 secs
+				[tipo_linea_obbliqua tried 4/4] 19.2 secs
+				[tipo_immagine tried 4/4] 19.2 secs
+				[tipo_vuoto tried 4/4] 19.2 secs
+				[ultima_pagina tried 1/1] 19.2 secs
+				[frame tried 7/8] 19.3 secs
+				[pagina_1 tried 2/3] 19.3 secs
+				[on_top tried 14/18] 19.3 secs
+				[to_right tried 12/18] 19.3 secs
+				[allineato_al_centro_verticale tried 13/18] 19.3 secs
+				[allineato_al_centro_orizzontale tried 9/18] 19.3 secs
+				[numero_pagine tried 1/1] 19.3 secs
+				[altezza_pagina tried 1/1] 19.3 secs
+				[larghezza_pagina tried 1/1] 19.3 secs
+				[altezza_rettangolo tried 3/3] 19.3 secs
+				[ascissa_rettangolo tried 3/3] 19.3 secs
+				[ordinata_rettangolo tried 3/3] 19.3 secs
+				[larghezza_rettangolo tried 3/3] 19.3 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (22528/28672 [7/9], 5.8 bits available)
+
+				[= tried 6/6] 19.4 secs
+				[tipo_testo tried 0/4] 19.4 secs
+				[tipo_linea_orizzontale tried 4/4] 19.4 secs
+				[tipo_misto tried 4/4] 19.4 secs
+				[tipo_linea_obbliqua tried 4/4] 19.4 secs
+				[tipo_immagine tried 4/4] 19.4 secs
+				[tipo_vuoto tried 4/4] 19.4 secs
+				[ultima_pagina tried 1/1] 19.4 secs
+				[frame tried 7/8] 19.4 secs
+				[pagina_1 tried 2/3] 19.4 secs
+				[on_top tried 14/18] 19.4 secs
+				[to_right tried 15/18] 19.4 secs
+				[allineato_al_centro_verticale tried 16/18] 19.4 secs
+				[allineato_al_centro_orizzontale tried 18/18] 19.5 secs
+				[numero_pagine tried 1/1] 19.5 secs
+				[altezza_pagina tried 1/1] 19.5 secs
+				[larghezza_pagina tried 1/1] 19.5 secs
+				[altezza_rettangolo tried 3/3] 19.5 secs
+				[ascissa_rettangolo tried 3/3] 19.5 secs
+				[ordinata_rettangolo tried 3/3] 19.5 secs
+				[larghezza_rettangolo tried 3/3] 19.5 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), to_right(E,D), on_top(E,C), on_top(E,D).
+
+
+
+State (21504/65024 [10/47], 34.8 bits available)
+
+				[= tried 3/3] 19.6 secs
+				[tipo_testo tried 0/3] 19.6 secs
+				[tipo_linea_orizzontale tried 3/3] 19.6 secs
+				[tipo_misto tried 3/3] 19.6 secs
+				[tipo_linea_obbliqua tried 3/3] 19.6 secs
+				[tipo_immagine tried 3/3] 19.6 secs
+				[tipo_vuoto tried 3/3] 19.6 secs
+				[ultima_pagina tried 1/1] 19.6 secs
+				[frame tried 6/7] 19.6 secs
+				[pagina_1 tried 2/3] 19.6 secs
+				[on_top tried 9/12] 19.6 secs
+				[to_right tried 9/12] 19.6 secs
+				[allineato_al_centro_verticale tried 11/12] 19.6 secs
+				[allineato_al_centro_orizzontale tried 6/12] 19.6 secs
+				[numero_pagine tried 1/1] 19.7 secs
+				[altezza_pagina tried 1/1] 19.7 secs
+				[larghezza_pagina tried 1/1] 19.7 secs
+				[altezza_rettangolo tried 3/3] 19.7 secs
+				[ascissa_rettangolo tried 3/3] 19.7 secs
+				[ordinata_rettangolo tried 3/3] 19.7 secs
+				[larghezza_rettangolo tried 3/3] 19.7 secs
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (39936/81920 [9/23], 25.0 bits available)
+
+				[= tried 6/6] 19.7 secs
+				[tipo_testo tried 1/4] 19.7 secs
+				[tipo_linea_orizzontale tried 4/4] 19.7 secs
+				[tipo_misto tried 4/4] 19.7 secs
+				[tipo_linea_obbliqua tried 4/4] 19.7 secs
+				[tipo_immagine tried 4/4] 19.7 secs
+				[tipo_vuoto tried 4/4] 19.7 secs
+				[ultima_pagina tried 1/1] 19.7 secs
+				[frame tried 7/8] 19.8 secs
+				[pagina_1 tried 2/3] 19.8 secs
+				[on_top tried 15/18] 19.8 secs
+				[to_right tried 15/18] 19.9 secs
+				[allineato_al_centro_verticale tried 12/18] 19.9 secs
+				[allineato_al_centro_orizzontale tried 9/18] 19.9 secs
+				[numero_pagine tried 1/1] 19.9 secs
+				[altezza_pagina tried 1/1] 19.9 secs
+				[larghezza_pagina tried 1/1] 19.9 secs
+				[altezza_rettangolo tried 3/3] 19.9 secs
+				[ascissa_rettangolo tried 3/3] 19.9 secs
+				[ordinata_rettangolo tried 3/3] 19.9 secs
+				[larghezza_rettangolo tried 3/3] 19.9 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (22528/32768 [7/11], 8.9 bits available)
+
+				[= tried 6/6] 20.0 secs
+				[tipo_testo tried 1/4] 20.0 secs
+				[tipo_linea_orizzontale tried 4/4] 20.0 secs
+				[tipo_misto tried 4/4] 20.0 secs
+				[tipo_linea_obbliqua tried 4/4] 20.0 secs
+				[tipo_immagine tried 4/4] 20.0 secs
+				[tipo_vuoto tried 4/4] 20.0 secs
+				[ultima_pagina tried 1/1] 20.0 secs
+				[frame tried 7/8] 20.0 secs
+				[pagina_1 tried 2/3] 20.0 secs
+				[on_top tried 14/18] 20.0 secs
+				[to_right tried 12/18] 20.0 secs
+				[allineato_al_centro_verticale tried 13/18] 20.0 secs
+				[allineato_al_centro_orizzontale tried 9/18] 20.0 secs
+				[numero_pagine tried 1/1] 20.1 secs
+				[altezza_pagina tried 1/1] 20.1 secs
+				[larghezza_pagina tried 1/1] 20.1 secs
+				[altezza_rettangolo tried 3/3] 20.1 secs
+				[ascissa_rettangolo tried 3/3] 20.1 secs
+				[ordinata_rettangolo tried 3/3] 20.1 secs
+				[larghezza_rettangolo tried 3/3] 20.1 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (22528/28672 [7/9], 6.4 bits available)
+
+				[= tried 6/6] 20.1 secs
+				[tipo_testo tried 0/4] 20.1 secs
+				[tipo_linea_orizzontale tried 4/4] 20.1 secs
+				[tipo_misto tried 4/4] 20.1 secs
+				[tipo_linea_obbliqua tried 4/4] 20.1 secs
+				[tipo_immagine tried 4/4] 20.1 secs
+				[tipo_vuoto tried 4/4] 20.1 secs
+				[ultima_pagina tried 1/1] 20.1 secs
+				[frame tried 7/8] 20.1 secs
+				[pagina_1 tried 2/3] 20.1 secs
+				[on_top tried 14/18] 20.1 secs
+				[to_right tried 15/18] 20.2 secs
+				[allineato_al_centro_verticale tried 16/18] 20.2 secs
+				[allineato_al_centro_orizzontale tried 18/18] 20.2 secs
+				[numero_pagine tried 1/1] 20.2 secs
+				[altezza_pagina tried 1/1] 20.2 secs
+				[larghezza_pagina tried 1/1] 20.2 secs
+				[altezza_rettangolo tried 3/3] 20.2 secs
+				[ascissa_rettangolo tried 3/3] 20.2 secs
+				[ordinata_rettangolo tried 3/3] 20.2 secs
+				[larghezza_rettangolo tried 3/3] 20.2 secs
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), on_top(E,D).
+
+
+
+State (6912/30080 [12/87], 54.1 bits available)
+
+				[= tried 3/3] 20.3 secs
+				[tipo_testo tried 0/3] 20.3 secs
+				[tipo_linea_orizzontale tried 3/3] 20.3 secs
+				[tipo_misto tried 3/3] 20.3 secs
+				[tipo_linea_obbliqua tried 3/3] 20.3 secs
+				[tipo_immagine tried 3/3] 20.3 secs
+				[tipo_vuoto tried 3/3] 20.3 secs
+				[ultima_pagina tried 1/1] 20.3 secs
+				[frame tried 6/7] 20.3 secs
+				[pagina_1 tried 2/3] 20.3 secs
+				[on_top tried 10/12] 20.3 secs
+				[to_right tried 10/12] 20.3 secs
+				[allineato_al_centro_verticale tried 11/12] 20.3 secs
+				[allineato_al_centro_orizzontale tried 6/12] 20.3 secs
+				[numero_pagine tried 1/1] 20.3 secs
+				[altezza_pagina tried 1/1] 20.3 secs
+				[larghezza_pagina tried 1/1] 20.3 secs
+				[altezza_rettangolo tried 3/3] 20.3 secs
+				[ascissa_rettangolo tried 3/3] 20.3 secs
+				[ordinata_rettangolo tried 3/3] 20.4 secs
+				[larghezza_rettangolo tried 3/3] 20.4 secs
+
+Best literal to_right(E,D) (8.0 bits)
+
+
+State (10752/32512 [10/47], 39.2 bits available)
+
+				[= tried 3/3] 20.4 secs
+				[tipo_testo tried 0/3] 20.4 secs
+				[tipo_linea_orizzontale tried 3/3] 20.4 secs
+				[tipo_misto tried 3/3] 20.4 secs
+				[tipo_linea_obbliqua tried 3/3] 20.4 secs
+				[tipo_immagine tried 3/3] 20.4 secs
+				[tipo_vuoto tried 3/3] 20.4 secs
+				[ultima_pagina tried 1/1] 20.4 secs
+				[frame tried 6/7] 20.4 secs
+				[pagina_1 tried 2/3] 20.4 secs
+				[on_top tried 10/12] 20.4 secs
+				[to_right tried 9/12] 20.4 secs
+				[allineato_al_centro_verticale tried 11/12] 20.4 secs
+				[allineato_al_centro_orizzontale tried 6/12] 20.4 secs
+				[numero_pagine tried 1/1] 20.4 secs
+				[altezza_pagina tried 1/1] 20.4 secs
+				[larghezza_pagina tried 1/1] 20.4 secs
+				[altezza_rettangolo tried 3/3] 20.4 secs
+				[ascissa_rettangolo tried 3/3] 20.4 secs
+				[ordinata_rettangolo tried 3/3] 20.5 secs
+				[larghezza_rettangolo tried 3/3] 20.5 secs
+
+Best literal allineato_al_centro_verticale(E,F) (8.0 bits)
+
+
+State (19968/40960 [9/23], 29.3 bits available)
+
+				[= tried 6/6] 20.5 secs
+				[tipo_testo tried 1/4] 20.5 secs
+				[tipo_linea_orizzontale tried 4/4] 20.5 secs
+				[tipo_misto tried 4/4] 20.5 secs
+				[tipo_linea_obbliqua tried 4/4] 20.5 secs
+				[tipo_immagine tried 4/4] 20.5 secs
+				[tipo_vuoto tried 4/4] 20.5 secs
+				[ultima_pagina tried 1/1] 20.5 secs
+				[frame tried 7/8] 20.5 secs
+				[pagina_1 tried 2/3] 20.5 secs
+				[on_top tried 16/18] 20.5 secs
+				[to_right tried 15/18] 20.6 secs
+				[allineato_al_centro_verticale tried 12/18] 20.6 secs
+				[allineato_al_centro_orizzontale tried 9/18] 20.6 secs
+				[numero_pagine tried 1/1] 20.6 secs
+				[altezza_pagina tried 1/1] 20.6 secs
+				[larghezza_pagina tried 1/1] 20.6 secs
+				[altezza_rettangolo tried 3/3] 20.6 secs
+				[ascissa_rettangolo tried 3/3] 20.6 secs
+				[ordinata_rettangolo tried 3/3] 20.6 secs
+				[larghezza_rettangolo tried 3/3] 20.6 secs
+
+Best literal on_top(C,F) (8.6 bits)
+
+
+State (11264/16384 [7/11], 13.0 bits available)
+
+				[= tried 6/6] 20.6 secs
+				[tipo_testo tried 1/4] 20.6 secs
+				[tipo_linea_orizzontale tried 4/4] 20.6 secs
+				[tipo_misto tried 4/4] 20.6 secs
+				[tipo_linea_obbliqua tried 4/4] 20.6 secs
+				[tipo_immagine tried 4/4] 20.6 secs
+				[tipo_vuoto tried 4/4] 20.6 secs
+				[ultima_pagina tried 1/1] 20.6 secs
+				[frame tried 7/8] 20.6 secs
+				[pagina_1 tried 2/3] 20.7 secs
+				[on_top tried 15/18] 20.7 secs
+				[to_right tried 12/18] 20.7 secs
+				[allineato_al_centro_verticale tried 13/18] 20.7 secs
+				[allineato_al_centro_orizzontale tried 9/18] 20.7 secs
+				[numero_pagine tried 1/1] 20.7 secs
+				[altezza_pagina tried 1/1] 20.7 secs
+				[larghezza_pagina tried 1/1] 20.7 secs
+				[altezza_rettangolo tried 3/3] 20.7 secs
+				[ascissa_rettangolo tried 3/3] 20.7 secs
+				[ordinata_rettangolo tried 3/3] 20.7 secs
+				[larghezza_rettangolo tried 3/3] 20.7 secs
+
+Best literal tipo_testo(F) (6.4 bits)
+
+
+State (11264/14336 [7/9], 10.4 bits available)
+
+				[= tried 6/6] 20.7 secs
+				[tipo_testo tried 0/4] 20.7 secs
+				[tipo_linea_orizzontale tried 4/4] 20.7 secs
+				[tipo_misto tried 4/4] 20.7 secs
+				[tipo_linea_obbliqua tried 4/4] 20.7 secs
+				[tipo_immagine tried 4/4] 20.7 secs
+				[tipo_vuoto tried 4/4] 20.7 secs
+				[ultima_pagina tried 1/1] 20.7 secs
+				[frame tried 7/8] 20.7 secs
+				[pagina_1 tried 2/3] 20.7 secs
+				[on_top tried 15/18] 20.7 secs
+				[to_right tried 15/18] 20.8 secs
+				[allineato_al_centro_verticale tried 13/18] 20.8 secs
+				[allineato_al_centro_orizzontale tried 9/18] 20.8 secs
+				[numero_pagine tried 1/1] 20.8 secs
+				[altezza_pagina tried 1/1] 20.8 secs
+				[larghezza_pagina tried 1/1] 20.8 secs
+				[altezza_rettangolo tried 3/3] 20.8 secs
+				[ascissa_rettangolo tried 3/3] 20.8 secs
+				[ordinata_rettangolo tried 3/3] 20.8 secs
+				[larghezza_rettangolo tried 3/3] 20.8 secs
+
+	Save to_right(D,G) (7,9 value 9.4)
+	Save allineato_al_centro_verticale(E,G) (7,9 value 9.4)
+
+Best literal on_top(C,G) (8.6 bits)
+
+
+State (49152/65536 [7/9], 5.8 bits available, 1 weak literal)
+
+				[= tried 10/10] 20.8 secs
+				[tipo_testo tried 1/5] 20.8 secs
+				[tipo_linea_orizzontale tried 5/5] 20.8 secs
+				[tipo_misto tried 5/5] 20.8 secs
+				[tipo_linea_obbliqua tried 5/5] 20.8 secs
+				[tipo_immagine tried 5/5] 20.8 secs
+				[tipo_vuoto tried 5/5] 20.8 secs
+				[ultima_pagina tried 1/1] 20.8 secs
+				[frame tried 9/10] 20.9 secs
+				[pagina_1 tried 2/3] 20.9 secs
+				[on_top tried 23/28] 20.9 secs
+				[to_right tried 25/28] 21.0 secs
+				[allineato_al_centro_verticale tried 22/28] 21.1 secs
+				[allineato_al_centro_orizzontale tried 12/28] 21.1 secs
+				[numero_pagine tried 1/1] 21.1 secs
+				[altezza_pagina tried 1/1] 21.1 secs
+				[larghezza_pagina tried 1/1] 21.1 secs
+				[altezza_rettangolo tried 4/4] 21.1 secs
+				[ascissa_rettangolo tried 4/4] 21.1 secs
+				[ordinata_rettangolo tried 4/4] 21.1 secs
+				[larghezza_rettangolo tried 4/4] 21.1 secs
+
+Best literal F=G (8.7 bits)
+		Note F=G
+
+State (22528/28672 [7/9], 1.1 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 21.2 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 21.2 secs
+				[altezza_pagina tried 1/1] 21.2 secs
+				[larghezza_pagina tried 1/1] 21.2 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), on_top(E,D), to_right(E,D), allineato_al_centro_verticale(E,F), on_top(C,F), tipo_testo(F), to_right(D,G).
+
+
+
+State (28672/51200 [7/9], 5.8 bits available, 1 weak literal)
+
+				[= tried 10/10] 21.2 secs
+				[tipo_testo tried 1/5] 21.2 secs
+				[tipo_linea_orizzontale tried 5/5] 21.2 secs
+				[tipo_misto tried 5/5] 21.2 secs
+				[tipo_linea_obbliqua tried 5/5] 21.2 secs
+				[tipo_immagine tried 5/5] 21.2 secs
+				[tipo_vuoto tried 5/5] 21.2 secs
+				[ultima_pagina tried 1/1] 21.2 secs
+				[frame tried 8/9] 21.3 secs
+				[pagina_1 tried 2/3] 21.3 secs
+				[on_top tried 23/26] 21.3 secs
+				[to_right tried 17/26] 21.4 secs
+				[allineato_al_centro_verticale tried 20/26] 21.4 secs
+				[allineato_al_centro_orizzontale tried 14/26] 21.4 secs
+				[numero_pagine tried 1/1] 21.4 secs
+				[altezza_pagina tried 1/1] 21.4 secs
+				[larghezza_pagina tried 1/1] 21.4 secs
+				[altezza_rettangolo tried 3/3] 21.4 secs
+				[ascissa_rettangolo tried 3/3] 21.4 secs
+				[ordinata_rettangolo tried 3/3] 21.4 secs
+				[larghezza_rettangolo tried 3/3] 21.4 secs
+
+	Save allineato_al_centro_verticale(G,D) (7,9 value 9.4)
+
+Best literal C=G (8.7 bits)
+		Note C=G
+
+State (22528/28672 [7/9], 1.1 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 21.4 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 21.4 secs
+				[altezza_pagina tried 1/1] 21.4 secs
+				[larghezza_pagina tried 1/1] 21.4 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), on_top(E,D), to_right(E,D), allineato_al_centro_verticale(E,F), on_top(C,F), tipo_testo(F), allineato_al_centro_verticale(E,G).
+
+
+
+State (49152/65536 [7/9], 5.8 bits available, 1 weak literal)
+
+				[= tried 10/10] 21.5 secs
+				[tipo_testo tried 1/5] 21.5 secs
+				[tipo_linea_orizzontale tried 5/5] 21.5 secs
+				[tipo_misto tried 5/5] 21.5 secs
+				[tipo_linea_obbliqua tried 5/5] 21.5 secs
+				[tipo_immagine tried 5/5] 21.5 secs
+				[tipo_vuoto tried 5/5] 21.5 secs
+				[ultima_pagina tried 1/1] 21.5 secs
+				[frame tried 8/9] 21.6 secs
+				[pagina_1 tried 2/3] 21.6 secs
+				[on_top tried 23/26] 21.7 secs
+				[to_right tried 23/26] 21.7 secs
+				[allineato_al_centro_verticale tried 18/26] 21.8 secs
+				[allineato_al_centro_orizzontale tried 14/26] 21.8 secs
+				[numero_pagine tried 1/1] 21.8 secs
+				[altezza_pagina tried 1/1] 21.8 secs
+				[larghezza_pagina tried 1/1] 21.8 secs
+				[altezza_rettangolo tried 3/3] 21.8 secs
+				[ascissa_rettangolo tried 3/3] 21.8 secs
+				[ordinata_rettangolo tried 3/3] 21.8 secs
+				[larghezza_rettangolo tried 3/3] 21.8 secs
+
+Best literal F=G (8.7 bits)
+		Note F=G
+
+State (22528/28672 [7/9], 1.1 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 21.8 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 21.8 secs
+				[altezza_pagina tried 1/1] 21.8 secs
+				[larghezza_pagina tried 1/1] 21.8 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(C,D), tipo_testo(D), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), on_top(E,D), to_right(E,D), allineato_al_centro_verticale(E,F), on_top(C,F), tipo_testo(F), to_right(D,G), allineato_al_centro_verticale(G,D).
+		Note C=G
+		Note C=G
+
+State (45056/57344 [7/9], 0.7 bits available)
+
+				[= requires 8.0 bits]
+				[tipo_testo requires 6.4 bits]
+				[tipo_linea_orizzontale requires 6.4 bits]
+				[tipo_misto requires 6.4 bits]
+				[tipo_linea_obbliqua requires 6.4 bits]
+				[tipo_immagine requires 6.4 bits]
+				[tipo_vuoto requires 6.4 bits]
+				[ultima_pagina tried 1/1] 21.9 secs
+				[frame requires 7.4 bits]
+				[pagina_1 requires 6.0 bits]
+				[on_top requires 8.6 bits]
+				[to_right requires 8.6 bits]
+				[allineato_al_centro_verticale requires 8.6 bits]
+				[allineato_al_centro_orizzontale requires 8.6 bits]
+				[numero_pagine tried 1/1] 21.9 secs
+				[altezza_pagina tried 1/1] 21.9 secs
+				[larghezza_pagina tried 1/1] 21.9 secs
+				[altezza_rettangolo requires 6.0 bits]
+				[ascissa_rettangolo requires 6.0 bits]
+				[ordinata_rettangolo requires 6.0 bits]
+				[larghezza_rettangolo requires 6.0 bits]
+
+No literals
+
+Recover to class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C), tipo_testo(D), on_top(C,D), to_right(E,D), tipo_testo(E), to_right(C,D).
+
+
+
+State (9536/68160 [15/121], 73.7 bits available)
+
+				[= tried 3/3] 22.0 secs
+				[tipo_testo tried 0/3] 22.0 secs
+				[tipo_linea_orizzontale tried 3/3] 22.0 secs
+				[tipo_misto tried 3/3] 22.0 secs
+				[tipo_linea_obbliqua tried 3/3] 22.0 secs
+				[tipo_immagine tried 3/3] 22.0 secs
+				[tipo_vuoto tried 3/3] 22.0 secs
+				[ultima_pagina tried 1/1] 22.0 secs
+				[frame tried 5/6] 22.0 secs
+				[pagina_1 tried 2/3] 22.0 secs
+				[on_top tried 9/10] 22.0 secs
+				[to_right tried 8/10] 22.0 secs
+				[allineato_al_centro_verticale tried 9/10] 22.1 secs
+				[allineato_al_centro_orizzontale tried 6/10] 22.1 secs
+				[numero_pagine tried 1/1] 22.1 secs
+				[altezza_pagina tried 1/1] 22.1 secs
+				[larghezza_pagina tried 1/1] 22.1 secs
+				[altezza_rettangolo tried 2/2] 22.1 secs
+				[ascissa_rettangolo tried 2/2] 22.1 secs
+				[ordinata_rettangolo tried 2/2] 22.1 secs
+				[larghezza_rettangolo tried 2/2] 22.1 secs
+
+	Save on_top(E,D) (15,121 value -19.0)
+	Save on_top(E,C) (12,87 value -13.2)
+
+Best literal to_right(E,C) (7.7 bits)
+
+
+State (10624/51584 [11/56], 49.5 bits available)
+
+				[= tried 3/3] 22.1 secs
+				[tipo_testo tried 0/3] 22.1 secs
+				[tipo_linea_orizzontale tried 3/3] 22.1 secs
+				[tipo_misto tried 3/3] 22.1 secs
+				[tipo_linea_obbliqua tried 3/3] 22.1 secs
+				[tipo_immagine tried 3/3] 22.1 secs
+				[tipo_vuoto tried 3/3] 22.1 secs
+				[ultima_pagina tried 1/1] 22.1 secs
+				[frame tried 5/6] 22.1 secs
+				[pagina_1 tried 2/3] 22.1 secs
+				[on_top tried 9/10] 22.2 secs
+				[to_right tried 7/10] 22.2 secs
+				[allineato_al_centro_verticale tried 7/10] 22.2 secs
+				[allineato_al_centro_orizzontale tried 6/10] 22.2 secs
+				[numero_pagine tried 1/1] 22.2 secs
+				[altezza_pagina tried 1/1] 22.2 secs
+				[larghezza_pagina tried 1/1] 22.2 secs
+				[altezza_rettangolo tried 2/2] 22.2 secs
+				[ascissa_rettangolo tried 2/2] 22.2 secs
+				[ordinata_rettangolo tried 2/2] 22.2 secs
+				[larghezza_rettangolo tried 2/2] 22.2 secs
+
+	Save on_top(E,D) (11,50 value -4.7)
+
+Best literal on_top(E,C) (7.7 bits)
+
+
+State (10752/32512 [10/47], 39.9 bits available)
+
+				[= tried 3/3] 22.2 secs
+				[tipo_testo tried 0/3] 22.2 secs
+				[tipo_linea_orizzontale tried 3/3] 22.2 secs
+				[tipo_misto tried 3/3] 22.2 secs
+				[tipo_linea_obbliqua tried 3/3] 22.2 secs
+				[tipo_immagine tried 3/3] 22.2 secs
+				[tipo_vuoto tried 3/3] 22.2 secs
+				[ultima_pagina tried 1/1] 22.2 secs
+				[frame tried 5/6] 22.2 secs
+				[pagina_1 tried 2/3] 22.2 secs
+				[on_top tried 8/10] 22.3 secs
+				[to_right tried 7/10] 22.3 secs
+				[allineato_al_centro_verticale tried 9/10] 22.3 secs
+				[allineato_al_centro_orizzontale tried 10/10] 22.3 secs
+				[numero_pagine tried 1/1] 22.3 secs
+				[altezza_pagina tried 1/1] 22.3 secs
+				[larghezza_pagina tried 1/1] 22.3 secs
+				[altezza_rettangolo tried 2/2] 22.3 secs
+				[ascissa_rettangolo tried 2/2] 22.3 secs
+				[ordinata_rettangolo tried 2/2] 22.3 secs
+				[larghezza_rettangolo tried 2/2] 22.3 secs
+
+No literals
+
+Initial clause (37 errs): class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_verticale(D,C), tipo_testo(D), on_top(C,D), to_right(E,D), tipo_testo(E), to_right(C,D), to_right(E,C), on_top(E,C).
+		to_right(E,D) needed for binding tipo_testo(E)
+		allineato_al_centro_verticale(D,C) needed for binding tipo_testo(D)
+		frame(B,C) needed for binding allineato_al_centro_verticale(D,C)
+		pagina_1(A,B) needed for binding frame(B,C)
+
+Clause too inaccurate (10/47)
+
+***  Warning: the following definition
+***  matches 1 tuple not in the relation
+***  does not cover 95 tuples in the relation
+
+class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_immagine(C).
+class_mlj(A) :- pagina_1(A,B), frame(B,C), to_right(D,C), tipo_testo(D), on_top(C,D), allineato_al_centro_orizzontale(D,E), on_top(D,F), to_right(F,E).
+class_mlj(A) :- pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(D,C), on_top(D,C), to_right(E,C), tipo_testo(E), to_right(D,C), on_top(E,D), to_right(E,D), allineato_al_centro_verticale(E,F), on_top(C,F).
+class_mlj(A) :- pagina_1(A,B), frame(B,C), tipo_testo(C), allineato_al_centro_orizzontale(C,D), on_top(C,D), allineato_al_centro_verticale(E,C).
+
+Time 22.5 secs
+
+Test relation class_mlj
+    (+)	d06060518472902031
+    (+)	d06060510414814236
+    (+)	d06053013312413349
+    (+)	d06053013211912730
+    (+)	d06060518322601004
+    (+)	d06060518310700907
+    (+)	d06053013254713021
+    (+)	d06053013405113891
+    (-)	binev05a
+Summary: 9 errors in 35 trials

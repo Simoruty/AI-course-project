@@ -6,6 +6,7 @@ prolog/dataset.pl
 # Latex files
 documentation/*.pdf
 sperimentazioni/documentation/*.pdf
+sperimentazioni/documentation/*.out
 *.log
 *.aux
 *.dvi
@@ -18,7 +19,6 @@ sperimentazioni/documentation/*.pdf
 *.ilg
 *.toc
 *.ind
-*.out
 *.blg
 *.synctex.gz
 
@@ -41,9 +41,7 @@ hs_err_pid*
 target
 target/*
 
-
 sperimentazioni/ia-sperimentazioni/.idea
 sperimentazioni/ia-sperimentazioni/.idea/*
 sperimentazioni/ia-sperimentazioni/.out
 sperimentazioni/ia-sperimentazioni/.out/*
-
