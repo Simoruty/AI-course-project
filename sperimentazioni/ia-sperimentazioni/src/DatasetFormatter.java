@@ -187,10 +187,27 @@ public class DatasetFormatter {
             sb.append(dataset);
             sb.append("(Documento)\n");
 
-            //TODO devo trovare il training, cioè tutti i fold tranne questo
-            sb.append("BLABLA\n");
+            List<String> trPos = new ArrayList<>();
+            List<String> trNeg = new ArrayList<>();
+
+            for (List<String> exampleOfFold : examples)
+                if (examples.indexOf(exampleOfFold) != fold) {
+                    for (String example : exampleOfFold)
+                        if (!example.startsWith("-")) {
+                            String id = example.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "$1");
+                            trPos.add(id);
+                        } else {
+                            String id = example.replaceAll("^-class_" + dataset + "\\((.+)\\)\\.$", "$1");
+                            trNeg.add(id);
+                        }
+                }
+
+            for (String pos:trPos)
+                sb.append(pos + "\n");
             sb.append(";\n");
-            sb.append("BLABLA\n");
+            for (String neg : trNeg) {
+                sb.append(neg+"\n");
+            }
             sb.append(".\n");
 
 
