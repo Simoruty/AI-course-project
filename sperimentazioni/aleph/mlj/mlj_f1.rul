@@ -1,17 +1,10 @@
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+   pagina_1(A,B), larghezza_pagina(B,613.0).
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
-   allineato_al_centro_verticale(D,C).
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   on_top(C,E), on_top(E,F).
 class_mlj(A) :-
    pagina_1(A,B), altezza_pagina(B,666.0).
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
