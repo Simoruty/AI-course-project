@@ -68271,4 +68271,3 @@ neg(class_elsevier(d06053013365813708)) :-
         larghezza_rettangolo(d06053013365813708_p1_f6, 0.60336137),
         altezza_rettangolo(d06053013365813708_p1_f6, 0.23396675),
         tipo_testo(d06053013365813708_p1_f6).
-

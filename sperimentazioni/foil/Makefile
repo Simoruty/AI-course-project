@@ -2,7 +2,7 @@ all:
 	./run.py
 
 clean:
-	rm -f **/*.rul **/*.log
+	rm -f **/*.rul **/*.log result/*.out
 
 cleanall: clean
 	rm -f **/*.d

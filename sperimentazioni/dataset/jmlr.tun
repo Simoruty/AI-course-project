@@ -68271,4 +68271,3 @@ neg(class_jmlr(d37290247)) :-
         larghezza_rettangolo(d37290247_p1_f7, 0.46895424),
         altezza_rettangolo(d37290247_p1_f7, 0.09343434),
         tipo_testo(d37290247_p1_f7).
-

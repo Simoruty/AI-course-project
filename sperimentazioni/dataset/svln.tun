@@ -68271,4 +68271,3 @@ neg(class_svln(bongard05a)) :-
         larghezza_rettangolo(bongard05a_p1_f17, 0.3137255),
         altezza_rettangolo(bongard05a_p1_f17, 0.0088383835),
         tipo_testo(bongard05a_p1_f17).
-

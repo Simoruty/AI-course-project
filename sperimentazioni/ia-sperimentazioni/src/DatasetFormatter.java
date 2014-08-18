@@ -1,9 +1,13 @@
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DatasetFormatter {
+    private static boolean daDiscretizzare = true;
     private static String homeDir = System.getProperty("user.home");
     private static String datasetDir = "/dev/university/ia-ius-project/sperimentazioni/dataset/";
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
@@ -11,37 +15,49 @@ public class DatasetFormatter {
     //    private static String all
     private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
     //    private static String[] datasets = {"mlj"};
-    private static List<String> positiviRAW;
-    private static List<String> negativiRAW;
-    private static List<String> fattiRAW;
+    private static SortedSet<String> positiviRAW;
+    private static SortedSet<String> negativiRAW;
+    private static SortedSet<String> fattiRAW;
     private static List<List<String>> examples; //Lista di fold che contiene lista di esempi
-    private static List<List<String>> exPos; //Lista di fold che contiene lista di esempi
-    private static List<List<String>> exNeg; //Lista di fold che contiene lista di esempi
-    private static Set<String> documenti;
-    private static Set<String> pagine;
-    private static Set<String> frame;
-    private static List<Fatto> fatti;
+    private static List<List<String>> positivi; //Lista di fold che contiene lista di esempi
+    private static List<List<String>> negativi; //Lista di fold che contiene lista di esempi
+    private static SortedSet<String> documenti;
+    private static SortedSet<String> pagine;
+    private static TreeSet<String> frame;
+    private static SortedSet<Fatto> fatti;
 
     private static List<Predicato> predicati;
 
-
     public static void main(String[] args) throws IOException {
-        predicati = Predicato.allPredicati();
         for (String dataset : datasets) {
             System.out.println("Begin dataset " + dataset);
-            fattiRAW = new ArrayList<>(68300);
-            positiviRAW = new ArrayList<>(122);
-            negativiRAW = new ArrayList<>(292);
+            predicati = Predicato.allPredicati();
+            fatti = new TreeSet<>();
+            fattiRAW = new TreeSet<>();
+            positivi = new ArrayList<>(10);
+            positiviRAW = new TreeSet<>();
+            negativi = new ArrayList<>(10);
+            negativiRAW = new TreeSet<>();
             examples = new ArrayList<>(10);
-            exNeg = new ArrayList<>(10);
-            exPos = new ArrayList<>(10);
-            documenti = new HashSet<>(355);
-            pagine = new HashSet<>(355);
-            frame = new HashSet<>(10000);
-            fatti = new ArrayList<>(70000);
+            documenti = new TreeSet<>();
+            pagine = new TreeSet<>();
+            frame = new TreeSet<>();
             readDataset(dataset);
             fillObjects(dataset);
             readExamples(dataset);
+            if (daDiscretizzare)
+                discretizza();
+
+//            System.out.println(fatti.size());
+//            System.out.println(fattiRAW.size());
+//            System.out.println(positiviRAW.size());
+//            System.out.println(positivi.size());
+//            System.out.println(negativiRAW.size());
+//            System.out.println(negativi.size());
+//            System.out.println(examples.size());
+//            System.out.println(documenti.size());
+//            System.out.println(pagine.size());
+//            System.out.println(frame.size());
 //            writeFN(dataset);
 //            writeB(dataset);
 //            writeYAP(dataset);
@@ -51,9 +67,9 @@ public class DatasetFormatter {
 
     private static void fillObjects(String dataset) {
         for (String positive : positiviRAW)
-            documenti.add(positive.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "\\1"));
+            documenti.add(positive.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "$1"));
         for (String negative : negativiRAW)
-            documenti.add(negative.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "\\1"));
+            documenti.add(negative.replaceAll("^class_" + dataset + "\\((.+)\\)\\.$", "$1"));
 
         Pattern arieta1 = Pattern.compile("^(.*)\\((.+)\\)\\.$");
         Pattern arieta2 = Pattern.compile("^(.*)\\((.+), (.+)\\)\\.$");
@@ -61,7 +77,7 @@ public class DatasetFormatter {
             Matcher m2 = arieta2.matcher(fattoRAW);
             Matcher m1 = arieta1.matcher(fattoRAW);
             if (m2.matches()) {
-                String predicato = m2.group(1);
+                String predicato = m2.group(1).trim();
                 String arg1 = m2.group(2).trim();
                 String arg2 = m2.group(3).trim();
                 fatti.add(new Fatto(predicato, arg1, arg2));
@@ -96,9 +112,8 @@ public class DatasetFormatter {
                     frame.add(arg1);
                     frame.add(arg2);
                 }
-            }
-            if (m1.matches()) {
-                String predicato = m1.group(1);
+            } else if (m1.matches()) {
+                String predicato = m1.group(1).trim();
                 String arg1 = m1.group(2).trim();
                 fatti.add(new Fatto(predicato, arg1));
                 if (predicato.equals("ultima_pagina")) pagine.add(arg1);
@@ -131,7 +146,138 @@ public class DatasetFormatter {
         }
         br.close();
 
-        Collections.sort(fattiRAW);
+//        Collections.sort(fattiRAW);
+    }
+
+
+    private static void discretizza() {
+        //aggiunti fatti
+        //togli fatti
+        //togli predicati
+        //aggiungi predicati
+        List<Fatto> daRimuovere = new ArrayList<>(5000);
+        List<Fatto> daAggiungere = new ArrayList<>(5000);
+        for (Fatto fatto : fatti) {
+            if (fatto.getPredicato().equals("altezza_rettangolo")) {
+                double altezza = Double.parseDouble(fatto.getArgomenti()[1]);
+                if ((altezza >= 0) && (altezza <= 0.006)) {
+                    daAggiungere.add(new Fatto("height_smallest", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.006) && (altezza <= 0.017)) {
+                    daAggiungere.add(new Fatto("height_very_very_small", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.017) && (altezza <= 0.034)) {
+                    daAggiungere.add(new Fatto("height_very_small", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.034) && (altezza <= 0.057)) {
+                    daAggiungere.add(new Fatto("height_small", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.057) && (altezza <= 0.103)) {
+                    daAggiungere.add(new Fatto("height_medium_small", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.103) && (altezza <= 0.160)) {
+                    daAggiungere.add(new Fatto("height_medium", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.160) && (altezza <= 0.229)) {
+                    daAggiungere.add(new Fatto("height_medium_large", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.229) && (altezza <= 0.406)) {
+                    daAggiungere.add(new Fatto("height_large", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.406) && (altezza <= 0.571)) {
+                    daAggiungere.add(new Fatto("height_very_large", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.571) && (altezza <= 0.777)) {
+                    daAggiungere.add(new Fatto("height_very_very_large", fatto.getArgomenti()[0]));
+                } else if ((altezza > 0.777) && (altezza <= 1)) {
+                    daAggiungere.add(new Fatto("height_largest", fatto.getArgomenti()[0]));
+                }
+                daRimuovere.add(fatto);
+            }
+
+
+            if (fatto.getPredicato().equals("larghezza_rettangolo")) {
+                double larghezza = Double.parseDouble(fatto.getArgomenti()[1]);
+                if ((larghezza >= 0) && (larghezza <= 0.023)) {
+                    daAggiungere.add(new Fatto("width_very_small", fatto.getArgomenti()[0]));
+                } else if ((larghezza > 0.023) && (larghezza <= 0.047)) {
+                    daAggiungere.add(new Fatto("width_small", fatto.getArgomenti()[0]));
+                } else if ((larghezza > 0.047) && (larghezza <= 0.125)) {
+                    daAggiungere.add(new Fatto("width_medium_small", fatto.getArgomenti()[0]));
+                } else if ((larghezza > 0.125) && (larghezza <= 0.203)) {
+                    daAggiungere.add(new Fatto("width_medium", fatto.getArgomenti()[0]));
+                } else if ((larghezza > 0.203) && (larghezza <= 0.391)) {
+                    daAggiungere.add(new Fatto("width_medium_large", fatto.getArgomenti()[0]));
+                } else if ((larghezza > 0.391) && (larghezza <= 0.625)) {
+                    daAggiungere.add(new Fatto("width_large", fatto.getArgomenti()[0]));
+                } else if ((larghezza > 0.625) && (larghezza <= 1)) {
+                    daAggiungere.add(new Fatto("width_very_large", fatto.getArgomenti()[0]));
+                }
+                daRimuovere.add(fatto);
+            }
+
+
+            if (fatto.getPredicato().equals("ascissa_rettangolo")) {
+                double ascissa = Double.parseDouble(fatto.getArgomenti()[1]);
+                if ((ascissa >= 0) && (ascissa <= 0.333)) {
+                    daAggiungere.add(new Fatto("pos_left", fatto.getArgomenti()[0]));
+                } else if ((ascissa > 0.333) && (ascissa <= 0.666)) {
+                    daAggiungere.add(new Fatto("pos_center", fatto.getArgomenti()[0]));
+                } else if ((ascissa > 0.666) && (ascissa <= 1)) {
+                    daAggiungere.add(new Fatto("pos_right", fatto.getArgomenti()[0]));
+                }
+                daRimuovere.add(fatto);
+            }
+
+
+            if (fatto.getPredicato().equals("ordinata_rettangolo")) {
+                double ordinata = Double.parseDouble(fatto.getArgomenti()[1]);
+                if ((ordinata >= 0) && (ordinata <= 0.333)) {
+                    daAggiungere.add(new Fatto("pos_upper", fatto.getArgomenti()[0]));
+                } else if ((ordinata > 0.333) && (ordinata <= 0.666)) {
+                    daAggiungere.add(new Fatto("pos_middle", fatto.getArgomenti()[0]));
+                } else if ((ordinata > 0.666) && (ordinata <= 1)) {
+                    daAggiungere.add(new Fatto("pos_lower", fatto.getArgomenti()[0]));
+                }
+                daRimuovere.add(fatto);
+            }
+        }
+
+        fatti.removeAll(daRimuovere);
+        fatti.addAll(daAggiungere);
+
+
+        List<Predicato> toRemove = new ArrayList<>(4);
+        for (Predicato predicato : predicati) {
+            if (predicato.getPredicato().equals("altezza_rettangolo"))
+                toRemove.add(predicato);
+            if (predicato.getPredicato().equals("larghezza_rettangolo"))
+                toRemove.add(predicato);
+            if (predicato.getPredicato().equals("ascissa_rettangolo"))
+                toRemove.add(predicato);
+            if (predicato.getPredicato().equals("ordinata_rettangolo"))
+                toRemove.add(predicato);
+        }
+
+        predicati.removeAll(toRemove);
+        predicati.add(new Predicato("pos_upper", "Frame"));
+        predicati.add(new Predicato("pos_middle", "Frame"));
+        predicati.add(new Predicato("pos_lower", "Frame"));
+
+        predicati.add(new Predicato("pos_left", "Frame"));
+        predicati.add(new Predicato("pos_center", "Frame"));
+        predicati.add(new Predicato("pos_right", "Frame"));
+
+        predicati.add(new Predicato("height_smallest", "Frame"));
+        predicati.add(new Predicato("height_very_very_small", "Frame"));
+        predicati.add(new Predicato("height_very_small", "Frame"));
+        predicati.add(new Predicato("height_small", "Frame"));
+        predicati.add(new Predicato("height_medium_small", "Frame"));
+        predicati.add(new Predicato("height_medium", "Frame"));
+        predicati.add(new Predicato("height_medium_large", "Frame"));
+        predicati.add(new Predicato("height_large", "Frame"));
+        predicati.add(new Predicato("height_very_large", "Frame"));
+        predicati.add(new Predicato("height_very_very_large", "Frame"));
+        predicati.add(new Predicato("height_largest", "Frame"));
+
+        predicati.add(new Predicato("width_very_small", "Frame"));
+        predicati.add(new Predicato("width_small", "Frame"));
+        predicati.add(new Predicato("width_medium_small", "Frame"));
+        predicati.add(new Predicato("width_medium", "Frame"));
+        predicati.add(new Predicato("width_medium_large", "Frame"));
+        predicati.add(new Predicato("width_large", "Frame"));
+        predicati.add(new Predicato("width_very_large", "Frame"));
     }
 
     private static void writeD(String dataset) throws IOException {
@@ -202,11 +348,11 @@ public class DatasetFormatter {
                         }
                 }
 
-            for (String pos:trPos)
+            for (String pos : trPos)
                 sb.append(pos + "\n");
             sb.append(";\n");
             for (String neg : trNeg) {
-                sb.append(neg+"\n");
+                sb.append(neg + "\n");
             }
             sb.append(".\n");
 
@@ -228,11 +374,11 @@ public class DatasetFormatter {
             sb.append(dataset);
             sb.append("\n");
 
-            for (String doc : exPos.get(fold)) {
+            for (String doc : positivi.get(fold)) {
                 sb.append(doc);
                 sb.append(": +\n");
             }
-            for (String doc : exNeg.get(fold)) {
+            for (String doc : negativi.get(fold)) {
                 sb.append(doc);
                 sb.append(": -\n");
             }
@@ -307,8 +453,8 @@ public class DatasetFormatter {
             }
 
             examples.add(examplesFold);
-            exPos.add(examplesFoldPos);
-            exNeg.add(examplesFoldNeg);
+            positivi.add(examplesFoldPos);
+            negativi.add(examplesFoldNeg);
             br.close();
         }
     }

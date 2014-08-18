@@ -79,26 +79,26 @@ public class Predicato {
 
     public static ArrayList<Predicato> allPredicati() {
         ArrayList<Predicato> predicati = new ArrayList<>(20);
-        predicati.add(new Predicato("allineato_al_centro_orizzontale","Frame", "Frame"));
-        predicati.add(new Predicato("allineato_al_centro_verticale","Frame", "Frame"));
-        predicati.add(new Predicato("altezza_pagina","Pagina", "AltezzaPagina"));
-        predicati.add(new Predicato("larghezza_pagina","Pagina", "LarghezzaPagina"));
-        predicati.add(new Predicato("altezza_rettangolo","Frame", "AltezzaRettangolo"));
-        predicati.add(new Predicato("ascissa_rettangolo","Frame", "AscissaRettangolo"));
-        predicati.add(new Predicato("ordinata_rettangolo","Frame", "OrdinataRettangolo"));
-        predicati.add(new Predicato("larghezza_rettangolo","Frame", "LarghezzaRettangolo"));
-        predicati.add(new Predicato("frame","Pagina", "Frame"));
-        predicati.add(new Predicato("numero_pagine","Documento", "NumeroPagine"));
-        predicati.add(new Predicato("on_top","Frame", "Frame"));
-        predicati.add(new Predicato("to_right","Frame", "Frame"));
-        predicati.add(new Predicato("pagina_1","Documento", "Pagina"));
-        predicati.add(new Predicato("ultima_pagina","Pagina"));
-        predicati.add(new Predicato("tipo_immagine","Frame"));
-        predicati.add(new Predicato("tipo_linea_obbliqua","Frame"));
-        predicati.add(new Predicato("tipo_linea_orizzontale","Frame"));
-        predicati.add(new Predicato("tipo_misto","Frame"));
-        predicati.add(new Predicato("tipo_testo","Frame"));
-        predicati.add(new Predicato("tipo_vuoto","Frame"));
+        predicati.add(new Predicato("allineato_al_centro_orizzontale", "Frame", "Frame"));
+        predicati.add(new Predicato("allineato_al_centro_verticale", "Frame", "Frame"));
+        predicati.add(new Predicato("altezza_pagina", "Pagina", "AltezzaPagina"));
+        predicati.add(new Predicato("larghezza_pagina", "Pagina", "LarghezzaPagina"));
+        predicati.add(new Predicato("altezza_rettangolo", "Frame", "AltezzaRettangolo"));
+        predicati.add(new Predicato("ascissa_rettangolo", "Frame", "AscissaRettangolo"));
+        predicati.add(new Predicato("ordinata_rettangolo", "Frame", "OrdinataRettangolo"));
+        predicati.add(new Predicato("larghezza_rettangolo", "Frame", "LarghezzaRettangolo"));
+        predicati.add(new Predicato("frame", "Pagina", "Frame"));
+        predicati.add(new Predicato("numero_pagine", "Documento", "NumeroPagine"));
+        predicati.add(new Predicato("on_top", "Frame", "Frame"));
+        predicati.add(new Predicato("to_right", "Frame", "Frame"));
+        predicati.add(new Predicato("pagina_1", "Documento", "Pagina"));
+        predicati.add(new Predicato("ultima_pagina", "Pagina"));
+        predicati.add(new Predicato("tipo_immagine", "Frame"));
+        predicati.add(new Predicato("tipo_linea_obbliqua", "Frame"));
+        predicati.add(new Predicato("tipo_linea_orizzontale", "Frame"));
+        predicati.add(new Predicato("tipo_misto", "Frame"));
+        predicati.add(new Predicato("tipo_testo", "Frame"));
+        predicati.add(new Predicato("tipo_vuoto", "Frame"));
         return predicati;
     }
 }

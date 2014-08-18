@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Fatto {
+public class Fatto implements Comparable {
     private String predicato;
     private String[] argomenti;
 
@@ -37,5 +37,20 @@ public class Fatto {
         int result = predicato.hashCode();
         result = 31 * result + Arrays.hashCode(argomenti);
         return result;
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        String a = this.predicato;
+        for (String s : argomenti) {
+            a+=s;
+        }
+        Fatto f = (Fatto) o;
+        String b = f.predicato;
+        for (String s : f.argomenti) {
+            b+=s;
+        }
+        return a.compareTo(b);
     }
 }
