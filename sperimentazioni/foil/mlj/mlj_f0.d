@@ -4,11 +4,6 @@
 NumeroPagine: continuous.
 LarghezzaPagina: continuous.
 AltezzaPagina: continuous.
-AscissaRettangolo: continuous.
-OrdinataRettangolo: continuous.
-LarghezzaRettangolo: continuous.
-AltezzaRettangolo: continuous.
-
 class_mlj(Documento)
 d06053013364813706
 d06060518524102431
