@@ -44,13 +44,25 @@ public class Fatto implements Comparable {
     public int compareTo(Object o) {
         String a = this.predicato;
         for (String s : argomenti) {
-            a+=s;
+            a += s;
         }
         Fatto f = (Fatto) o;
         String b = f.predicato;
         for (String s : f.argomenti) {
-            b+=s;
+            b += s;
         }
         return a.compareTo(b);
+    }
+
+    @Override
+    public String toString() {
+        String s = predicato + '(';
+        s += argomenti[0];
+
+        if (argomenti.length == 2)
+            s += ", " + argomenti[1];
+
+        s += ").";
+        return s;
     }
 }

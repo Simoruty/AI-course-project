@@ -45,7 +45,7 @@ public class DatasetFormatter {
             readDataset(dataset);
             fillObjects(dataset);
             readExamples(dataset);
-            if (daDiscretizzare)
+            if ((daDiscretizzare) && (dataset.equals("mlj")))
                 discretizza();
 
 //            System.out.println(fatti.size());
@@ -58,9 +58,9 @@ public class DatasetFormatter {
 //            System.out.println(documenti.size());
 //            System.out.println(pagine.size());
 //            System.out.println(frame.size());
-//            writeFN(dataset);
-//            writeB(dataset);
-//            writeYAP(dataset);
+            writeFN(dataset);
+            writeB(dataset);
+            writeYAP(dataset);
             writeD(dataset);
         }
     }
@@ -281,6 +281,10 @@ public class DatasetFormatter {
     }
 
     private static void writeD(String dataset) throws IOException {
+        boolean discretizzato = false;
+        if (dataset.equals("mlj"))
+            discretizzato = daDiscretizzare;
+
         String alg = "foil";
         for (int fold = 0; fold < 10; fold++) {
 
@@ -320,10 +324,12 @@ public class DatasetFormatter {
             sb.append("NumeroPagine: continuous.\n");
             sb.append("LarghezzaPagina: continuous.\n");
             sb.append("AltezzaPagina: continuous.\n");
-            sb.append("AscissaRettangolo: continuous.\n");
-            sb.append("OrdinataRettangolo: continuous.\n");
-            sb.append("LarghezzaRettangolo: continuous.\n");
-            sb.append("AltezzaRettangolo: continuous.\n\n");
+            if (!discretizzato) {
+                sb.append("AscissaRettangolo: continuous.\n");
+                sb.append("OrdinataRettangolo: continuous.\n");
+                sb.append("LarghezzaRettangolo: continuous.\n");
+                sb.append("AltezzaRettangolo: continuous.\n\n");
+            }
 
             /*
              * SEZIONE 2: le relazioni
@@ -460,7 +466,7 @@ public class DatasetFormatter {
     }
 
     //TODO controllare i vari parametri
-    private static String init(String dataset, int fold) {
+    private static String init(String dataset, int fold, boolean discretizzato) {
         StringBuilder sb = new StringBuilder();
         sb.append(":- set(cache_clauselength, 5).\n");
         sb.append(":- set(caching, true).\n");
@@ -484,7 +490,6 @@ public class DatasetFormatter {
         sb.append(":- set(thread, 8).\n");
         sb.append(":- set(verbosity, 0).\n");
         sb.append("\n");
-        sb.append("\n");
         sb.append(":- modeh(*,class_" + dataset + "(+idd)).\n");
         sb.append("\n");
         sb.append(":- modeb(*,numero_pagine(+idd, #integer)).\n");
@@ -492,12 +497,39 @@ public class DatasetFormatter {
         sb.append(":- modeb(*,ultima_pagina(+idp)).\n");
         sb.append(":- modeb(*,altezza_pagina(+idp, #float)).\n");
         sb.append(":- modeb(*,larghezza_pagina(+idp, #float)).\n");
-        sb.append("\n");
+
+        if (discretizzato) {
+            sb.append(":- modeb(*,pos_upper(+idf)).\n");
+            sb.append(":- modeb(*,pos_middle(+idf)).\n");
+            sb.append(":- modeb(*,pos_lower(+idf)).\n");
+            sb.append(":- modeb(*,pos_left(+idf)).\n");
+            sb.append(":- modeb(*,pos_center(+idf)).\n");
+            sb.append(":- modeb(*,pos_right(+idf)).\n");
+            sb.append(":- modeb(*,height_smallest(+idf)).\n");
+            sb.append(":- modeb(*,height_very_very_small(+idf)).\n");
+            sb.append(":- modeb(*,height_very_small(+idf)).\n");
+            sb.append(":- modeb(*,height_small(+idf)).\n");
+            sb.append(":- modeb(*,height_medium_small(+idf)).\n");
+            sb.append(":- modeb(*,height_medium(+idf)).\n");
+            sb.append(":- modeb(*,height_medium_large(+idf)).\n");
+            sb.append(":- modeb(*,height_large(+idf)).\n");
+            sb.append(":- modeb(*,height_very_large(+idf)).\n");
+            sb.append(":- modeb(*,height_very_very_large(+idf)).\n");
+            sb.append(":- modeb(*,height_largest(+idf)).\n");
+            sb.append(":- modeb(*,width_very_small(+idf)).\n");
+            sb.append(":- modeb(*,width_small(+idf)).\n");
+            sb.append(":- modeb(*,width_medium_small(+idf)).\n");
+            sb.append(":- modeb(*,width_medium(+idf)).\n");
+            sb.append(":- modeb(*,width_medium_large(+idf)).\n");
+            sb.append(":- modeb(*,width_large(+idf)).\n");
+            sb.append(":- modeb(*,width_very_large(+idf)).\n");
+        } else {
+            sb.append(":- modeb(*,ascissa_rettangolo(+idf, #float)).\n");
+            sb.append(":- modeb(*,ordinata_rettangolo(+idf, #float)).\n");
+            sb.append(":- modeb(*,altezza_rettangolo(+idf, #float)).\n");
+            sb.append(":- modeb(*,larghezza_rettangolo(+idf, #float)).\n");
+        }
         sb.append(":- modeb(*,frame(+idp, -idf)).\n");
-        sb.append(":- modeb(*,altezza_rettangolo(+idf, #float)).\n");
-        sb.append(":- modeb(*,larghezza_rettangolo(+idf, #float)).\n");
-        sb.append(":- modeb(*,ascissa_rettangolo(+idf, #float)).\n");
-        sb.append(":- modeb(*,ordinata_rettangolo(+idf, #float)).\n");
         sb.append(":- modeb(*,tipo_immagine(+idf)).\n");
         sb.append(":- modeb(*,tipo_testo(+idf)).\n");
         sb.append(":- modeb(*,tipo_linea_obbliqua(+idf)).\n");
@@ -565,13 +597,17 @@ public class DatasetFormatter {
     }
 
     public static void writeB(String dataset) throws IOException {
+        boolean discretizzato = false;
+        if (dataset.equals("mlj"))
+            discretizzato = daDiscretizzare;
+
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
                 //write B file
                 PrintWriter pwB = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".b"));
-                pwB.println(init(dataset, fold));
-                for (String fact : fattiRAW) {
-                    pwB.println(fact);
+                pwB.println(init(dataset, fold, discretizzato));
+                for (Fatto fatto : fatti) {
+                    pwB.println(fatto);
                 }
                 pwB.close();
             }
