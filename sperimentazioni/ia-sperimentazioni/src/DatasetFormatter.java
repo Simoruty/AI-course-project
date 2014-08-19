@@ -7,14 +7,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DatasetFormatter {
-    private static boolean daDiscretizzare = true;
+    private static boolean daDiscretizzare = false;
     private static String homeDir = System.getProperty("user.home");
     private static String datasetDir = "/dev/university/ia-ius-project/sperimentazioni/dataset/";
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
     //    private static String all
-    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    //    private static String[] datasets = {"mlj"};
+//    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
+    private static String[] datasets = {"mlj"};
     private static SortedSet<String> positiviRAW;
     private static SortedSet<String> negativiRAW;
     private static SortedSet<String> fattiRAW;
@@ -45,18 +45,18 @@ public class DatasetFormatter {
             readDataset(dataset);
             fillObjects(dataset);
             readExamples(dataset);
-            if ((daDiscretizzare) && (dataset.equals("mlj")))
-                discretizza();
+//            if ((daDiscretizzare) && (dataset.equals("mlj")))
+//                discretizza();
 
-            for (int i = 0; i < 10; i++) {
-                System.out.println("Fold"+i);
-                for (String pos : positivi.get(i)) {
-                    System.out.println("+"+pos);
-                }
-                for (String neg : negativi.get(i)) {
-                    System.out.println("-"+neg);
-                }
-            }
+//            for (int i = 0; i < 10; i++) {
+//                System.out.println("Fold"+i);
+//                for (String pos : positivi.get(i)) {
+//                    System.out.println("+"+pos);
+//                }
+//                for (String neg : negativi.get(i)) {
+//                    System.out.println("-"+neg);
+//                }
+//            }
 
 
 //            System.out.println(fatti.size());
@@ -69,10 +69,10 @@ public class DatasetFormatter {
 //            System.out.println(documenti.size());
 //            System.out.println(pagine.size());
 //            System.out.println(frame.size());
-//            writeFN(dataset);
-//            writeB(dataset);
-//            writeYAP(dataset);
-//            writeD(dataset);
+            writeFN(dataset);
+            writeB(dataset);
+            writeYAP(dataset);
+            writeD(dataset);
         }
     }
 
@@ -161,140 +161,137 @@ public class DatasetFormatter {
     }
 
 
-    private static void discretizza() {
-        //aggiunti fatti
-        //togli fatti
-        //togli predicati
-        //aggiungi predicati
-        List<Fatto> daRimuovere = new ArrayList<>(5000);
-        List<Fatto> daAggiungere = new ArrayList<>(5000);
-        for (Fatto fatto : fatti) {
-            if (fatto.getPredicato().equals("altezza_rettangolo")) {
-                double altezza = Double.parseDouble(fatto.getArgomenti()[1]);
-                if ((altezza >= 0) && (altezza <= 0.006)) {
-                    daAggiungere.add(new Fatto("height_smallest", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.006) && (altezza <= 0.017)) {
-                    daAggiungere.add(new Fatto("height_very_very_small", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.017) && (altezza <= 0.034)) {
-                    daAggiungere.add(new Fatto("height_very_small", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.034) && (altezza <= 0.057)) {
-                    daAggiungere.add(new Fatto("height_small", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.057) && (altezza <= 0.103)) {
-                    daAggiungere.add(new Fatto("height_medium_small", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.103) && (altezza <= 0.160)) {
-                    daAggiungere.add(new Fatto("height_medium", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.160) && (altezza <= 0.229)) {
-                    daAggiungere.add(new Fatto("height_medium_large", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.229) && (altezza <= 0.406)) {
-                    daAggiungere.add(new Fatto("height_large", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.406) && (altezza <= 0.571)) {
-                    daAggiungere.add(new Fatto("height_very_large", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.571) && (altezza <= 0.777)) {
-                    daAggiungere.add(new Fatto("height_very_very_large", fatto.getArgomenti()[0]));
-                } else if ((altezza > 0.777) && (altezza <= 1)) {
-                    daAggiungere.add(new Fatto("height_largest", fatto.getArgomenti()[0]));
-                }
-                daRimuovere.add(fatto);
-            }
-
-
-            if (fatto.getPredicato().equals("larghezza_rettangolo")) {
-                double larghezza = Double.parseDouble(fatto.getArgomenti()[1]);
-                if ((larghezza >= 0) && (larghezza <= 0.023)) {
-                    daAggiungere.add(new Fatto("width_very_small", fatto.getArgomenti()[0]));
-                } else if ((larghezza > 0.023) && (larghezza <= 0.047)) {
-                    daAggiungere.add(new Fatto("width_small", fatto.getArgomenti()[0]));
-                } else if ((larghezza > 0.047) && (larghezza <= 0.125)) {
-                    daAggiungere.add(new Fatto("width_medium_small", fatto.getArgomenti()[0]));
-                } else if ((larghezza > 0.125) && (larghezza <= 0.203)) {
-                    daAggiungere.add(new Fatto("width_medium", fatto.getArgomenti()[0]));
-                } else if ((larghezza > 0.203) && (larghezza <= 0.391)) {
-                    daAggiungere.add(new Fatto("width_medium_large", fatto.getArgomenti()[0]));
-                } else if ((larghezza > 0.391) && (larghezza <= 0.625)) {
-                    daAggiungere.add(new Fatto("width_large", fatto.getArgomenti()[0]));
-                } else if ((larghezza > 0.625) && (larghezza <= 1)) {
-                    daAggiungere.add(new Fatto("width_very_large", fatto.getArgomenti()[0]));
-                }
-                daRimuovere.add(fatto);
-            }
-
-
-            if (fatto.getPredicato().equals("ascissa_rettangolo")) {
-                double ascissa = Double.parseDouble(fatto.getArgomenti()[1]);
-                if ((ascissa >= 0) && (ascissa <= 0.333)) {
-                    daAggiungere.add(new Fatto("pos_left", fatto.getArgomenti()[0]));
-                } else if ((ascissa > 0.333) && (ascissa <= 0.666)) {
-                    daAggiungere.add(new Fatto("pos_center", fatto.getArgomenti()[0]));
-                } else if ((ascissa > 0.666) && (ascissa <= 1)) {
-                    daAggiungere.add(new Fatto("pos_right", fatto.getArgomenti()[0]));
-                }
-                daRimuovere.add(fatto);
-            }
-
-
-            if (fatto.getPredicato().equals("ordinata_rettangolo")) {
-                double ordinata = Double.parseDouble(fatto.getArgomenti()[1]);
-                if ((ordinata >= 0) && (ordinata <= 0.333)) {
-                    daAggiungere.add(new Fatto("pos_upper", fatto.getArgomenti()[0]));
-                } else if ((ordinata > 0.333) && (ordinata <= 0.666)) {
-                    daAggiungere.add(new Fatto("pos_middle", fatto.getArgomenti()[0]));
-                } else if ((ordinata > 0.666) && (ordinata <= 1)) {
-                    daAggiungere.add(new Fatto("pos_lower", fatto.getArgomenti()[0]));
-                }
-                daRimuovere.add(fatto);
-            }
-        }
-
-        fatti.removeAll(daRimuovere);
-        fatti.addAll(daAggiungere);
-
-
-        List<Predicato> toRemove = new ArrayList<>(4);
-        for (Predicato predicato : predicati) {
-            if (predicato.getPredicato().equals("altezza_rettangolo"))
-                toRemove.add(predicato);
-            if (predicato.getPredicato().equals("larghezza_rettangolo"))
-                toRemove.add(predicato);
-            if (predicato.getPredicato().equals("ascissa_rettangolo"))
-                toRemove.add(predicato);
-            if (predicato.getPredicato().equals("ordinata_rettangolo"))
-                toRemove.add(predicato);
-        }
-
-        predicati.removeAll(toRemove);
-        predicati.add(new Predicato("pos_upper", "Frame"));
-        predicati.add(new Predicato("pos_middle", "Frame"));
-        predicati.add(new Predicato("pos_lower", "Frame"));
-
-        predicati.add(new Predicato("pos_left", "Frame"));
-        predicati.add(new Predicato("pos_center", "Frame"));
-        predicati.add(new Predicato("pos_right", "Frame"));
-
-        predicati.add(new Predicato("height_smallest", "Frame"));
-        predicati.add(new Predicato("height_very_very_small", "Frame"));
-        predicati.add(new Predicato("height_very_small", "Frame"));
-        predicati.add(new Predicato("height_small", "Frame"));
-        predicati.add(new Predicato("height_medium_small", "Frame"));
-        predicati.add(new Predicato("height_medium", "Frame"));
-        predicati.add(new Predicato("height_medium_large", "Frame"));
-        predicati.add(new Predicato("height_large", "Frame"));
-        predicati.add(new Predicato("height_very_large", "Frame"));
-        predicati.add(new Predicato("height_very_very_large", "Frame"));
-        predicati.add(new Predicato("height_largest", "Frame"));
-
-        predicati.add(new Predicato("width_very_small", "Frame"));
-        predicati.add(new Predicato("width_small", "Frame"));
-        predicati.add(new Predicato("width_medium_small", "Frame"));
-        predicati.add(new Predicato("width_medium", "Frame"));
-        predicati.add(new Predicato("width_medium_large", "Frame"));
-        predicati.add(new Predicato("width_large", "Frame"));
-        predicati.add(new Predicato("width_very_large", "Frame"));
-    }
+//    private static void discretizza() {
+//        //aggiunti fatti
+//        //togli fatti
+//        //togli predicati
+//        //aggiungi predicati
+//        List<Fatto> daRimuovere = new ArrayList<>(5000);
+//        List<Fatto> daAggiungere = new ArrayList<>(5000);
+//        for (Fatto fatto : fatti) {
+//            if (fatto.getPredicato().equals("altezza_rettangolo")) {
+//                double altezza = Double.parseDouble(fatto.getArgomenti()[1]);
+//                if ((altezza >= 0) && (altezza <= 0.006)) {
+//                    daAggiungere.add(new Fatto("height_smallest", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.006) && (altezza <= 0.017)) {
+//                    daAggiungere.add(new Fatto("height_very_very_small", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.017) && (altezza <= 0.034)) {
+//                    daAggiungere.add(new Fatto("height_very_small", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.034) && (altezza <= 0.057)) {
+//                    daAggiungere.add(new Fatto("height_small", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.057) && (altezza <= 0.103)) {
+//                    daAggiungere.add(new Fatto("height_medium_small", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.103) && (altezza <= 0.160)) {
+//                    daAggiungere.add(new Fatto("height_medium", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.160) && (altezza <= 0.229)) {
+//                    daAggiungere.add(new Fatto("height_medium_large", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.229) && (altezza <= 0.406)) {
+//                    daAggiungere.add(new Fatto("height_large", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.406) && (altezza <= 0.571)) {
+//                    daAggiungere.add(new Fatto("height_very_large", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.571) && (altezza <= 0.777)) {
+//                    daAggiungere.add(new Fatto("height_very_very_large", fatto.getArgomenti()[0]));
+//                } else if ((altezza > 0.777) && (altezza <= 1)) {
+//                    daAggiungere.add(new Fatto("height_largest", fatto.getArgomenti()[0]));
+//                }
+//                daRimuovere.add(fatto);
+//            }
+//
+//
+//            if (fatto.getPredicato().equals("larghezza_rettangolo")) {
+//                double larghezza = Double.parseDouble(fatto.getArgomenti()[1]);
+//                if ((larghezza >= 0) && (larghezza <= 0.023)) {
+//                    daAggiungere.add(new Fatto("width_very_small", fatto.getArgomenti()[0]));
+//                } else if ((larghezza > 0.023) && (larghezza <= 0.047)) {
+//                    daAggiungere.add(new Fatto("width_small", fatto.getArgomenti()[0]));
+//                } else if ((larghezza > 0.047) && (larghezza <= 0.125)) {
+//                    daAggiungere.add(new Fatto("width_medium_small", fatto.getArgomenti()[0]));
+//                } else if ((larghezza > 0.125) && (larghezza <= 0.203)) {
+//                    daAggiungere.add(new Fatto("width_medium", fatto.getArgomenti()[0]));
+//                } else if ((larghezza > 0.203) && (larghezza <= 0.391)) {
+//                    daAggiungere.add(new Fatto("width_medium_large", fatto.getArgomenti()[0]));
+//                } else if ((larghezza > 0.391) && (larghezza <= 0.625)) {
+//                    daAggiungere.add(new Fatto("width_large", fatto.getArgomenti()[0]));
+//                } else if ((larghezza > 0.625) && (larghezza <= 1)) {
+//                    daAggiungere.add(new Fatto("width_very_large", fatto.getArgomenti()[0]));
+//                }
+//                daRimuovere.add(fatto);
+//            }
+//
+//
+//            if (fatto.getPredicato().equals("ascissa_rettangolo")) {
+//                double ascissa = Double.parseDouble(fatto.getArgomenti()[1]);
+//                if ((ascissa >= 0) && (ascissa <= 0.333)) {
+//                    daAggiungere.add(new Fatto("pos_left", fatto.getArgomenti()[0]));
+//                } else if ((ascissa > 0.333) && (ascissa <= 0.666)) {
+//                    daAggiungere.add(new Fatto("pos_center", fatto.getArgomenti()[0]));
+//                } else if ((ascissa > 0.666) && (ascissa <= 1)) {
+//                    daAggiungere.add(new Fatto("pos_right", fatto.getArgomenti()[0]));
+//                }
+//                daRimuovere.add(fatto);
+//            }
+//
+//
+//            if (fatto.getPredicato().equals("ordinata_rettangolo")) {
+//                double ordinata = Double.parseDouble(fatto.getArgomenti()[1]);
+//                if ((ordinata >= 0) && (ordinata <= 0.333)) {
+//                    daAggiungere.add(new Fatto("pos_upper", fatto.getArgomenti()[0]));
+//                } else if ((ordinata > 0.333) && (ordinata <= 0.666)) {
+//                    daAggiungere.add(new Fatto("pos_middle", fatto.getArgomenti()[0]));
+//                } else if ((ordinata > 0.666) && (ordinata <= 1)) {
+//                    daAggiungere.add(new Fatto("pos_lower", fatto.getArgomenti()[0]));
+//                }
+//                daRimuovere.add(fatto);
+//            }
+//        }
+//
+//        fatti.removeAll(daRimuovere);
+//        fatti.addAll(daAggiungere);
+//
+//
+//        List<Predicato> toRemove = new ArrayList<>(4);
+//        for (Predicato predicato : predicati) {
+//            if (predicato.getPredicato().equals("altezza_rettangolo"))
+//                toRemove.add(predicato);
+//            if (predicato.getPredicato().equals("larghezza_rettangolo"))
+//                toRemove.add(predicato);
+//            if (predicato.getPredicato().equals("ascissa_rettangolo"))
+//                toRemove.add(predicato);
+//            if (predicato.getPredicato().equals("ordinata_rettangolo"))
+//                toRemove.add(predicato);
+//        }
+//
+//        predicati.removeAll(toRemove);
+//        predicati.add(new Predicato("pos_upper", "Frame"));
+//        predicati.add(new Predicato("pos_middle", "Frame"));
+//        predicati.add(new Predicato("pos_lower", "Frame"));
+//
+//        predicati.add(new Predicato("pos_left", "Frame"));
+//        predicati.add(new Predicato("pos_center", "Frame"));
+//        predicati.add(new Predicato("pos_right", "Frame"));
+//
+//        predicati.add(new Predicato("height_smallest", "Frame"));
+//        predicati.add(new Predicato("height_very_very_small", "Frame"));
+//        predicati.add(new Predicato("height_very_small", "Frame"));
+//        predicati.add(new Predicato("height_small", "Frame"));
+//        predicati.add(new Predicato("height_medium_small", "Frame"));
+//        predicati.add(new Predicato("height_medium", "Frame"));
+//        predicati.add(new Predicato("height_medium_large", "Frame"));
+//        predicati.add(new Predicato("height_large", "Frame"));
+//        predicati.add(new Predicato("height_very_large", "Frame"));
+//        predicati.add(new Predicato("height_very_very_large", "Frame"));
+//        predicati.add(new Predicato("height_largest", "Frame"));
+//
+//        predicati.add(new Predicato("width_very_small", "Frame"));
+//        predicati.add(new Predicato("width_small", "Frame"));
+//        predicati.add(new Predicato("width_medium_small", "Frame"));
+//        predicati.add(new Predicato("width_medium", "Frame"));
+//        predicati.add(new Predicato("width_medium_large", "Frame"));
+//        predicati.add(new Predicato("width_large", "Frame"));
+//        predicati.add(new Predicato("width_very_large", "Frame"));
+//    }
 
     private static void writeD(String dataset) throws IOException {
-        boolean discretizzato = false;
-        if (dataset.equals("mlj"))
-            discretizzato = daDiscretizzare;
 
         String alg = "foil";
         for (int fold = 0; fold < 10; fold++) {
@@ -335,7 +332,8 @@ public class DatasetFormatter {
             sb.append("NumeroPagine: continuous.\n");
             sb.append("LarghezzaPagina: continuous.\n");
             sb.append("AltezzaPagina: continuous.\n");
-            if (!discretizzato) {
+            if ((dataset.equals("mlj")) && (daDiscretizzare)) {
+            } else {
                 sb.append("AscissaRettangolo: continuous.\n");
                 sb.append("OrdinataRettangolo: continuous.\n");
                 sb.append("LarghezzaRettangolo: continuous.\n");
@@ -608,15 +606,15 @@ public class DatasetFormatter {
     }
 
     public static void writeB(String dataset) throws IOException {
-        boolean discretizzato = false;
-        if (dataset.equals("mlj"))
-            discretizzato = daDiscretizzare;
-
         for (String alg : new String[]{"aleph", "progol"})
             for (int fold = 0; fold < 10; fold++) {
                 //write B file
                 PrintWriter pwB = new PrintWriter(new FileWriter(homeDir + dir + alg + "/" + dataset + "/" + dataset + "_f" + fold + ".b"));
-                pwB.println(init(dataset, fold, discretizzato));
+                if (dataset.equals("mlj"))
+                    pwB.println(init(dataset, fold, daDiscretizzare));
+                else
+                    pwB.println(init(dataset, fold, false));
+
                 for (Fatto fatto : fatti) {
                     pwB.println(fatto);
                 }
