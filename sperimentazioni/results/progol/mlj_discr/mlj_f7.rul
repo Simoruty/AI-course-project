@@ -1,0 +1,437 @@
+
+[theory]
+
+[Rule 1] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510414814236).
+[pos-neg] [1]
+
+[Rule 2] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510481014782).
+[pos-neg] [1]
+
+[Rule 3] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510390714095).
+[pos-neg] [1]
+
+[Rule 4] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510382314057).
+[pos-neg] [1]
+
+[Rule 5] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 6] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013231712818).
+[pos-neg] [1]
+
+[Rule 7] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518382901439).
+[pos-neg] [1]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013251312977).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518472902031).
+[pos-neg] [1]
+
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510433614325).
+[pos-neg] [1]
+
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
+[pos-neg] [1]
+
+[Rule 12] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[pos-neg] [3]
+
+[Rule 13] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013391413799).
+[pos-neg] [1]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013265213079).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510265913574).
+[pos-neg] [1]
+
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510273413645).
+[pos-neg] [1]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518285500732).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
+[pos-neg] [1]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518421201581).
+[pos-neg] [1]
+
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518492902207).
+[pos-neg] [1]
+
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518294100752).
+[pos-neg] [1]
+
+[Rule 23] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518273300645).
+[pos-neg] [1]
+
+[Rule 24] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013414313942).
+[pos-neg] [1]
+
+[Rule 25] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518332901097).
+[pos-neg] [1]
+
+[Rule 26] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013383013765).
+[pos-neg] [1]
+
+[Rule 27] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518434801636).
+[pos-neg] [1]
+
+[Rule 28] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013422814008).
+[pos-neg] [1]
+
+[Rule 29] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 30] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518405601538).
+[pos-neg] [1]
+
+[Rule 31] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518482402123).
+[pos-neg] [1]
+
+[Rule 32] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
+[pos-neg] [1]
+
+[Rule 33] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510502115103).
+[pos-neg] [1]
+
+[Rule 34] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518310700907).
+[pos-neg] [1]
+
+[Rule 35] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013241912894).
+[pos-neg] [1]
+
+[Rule 36] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518394701461).
+[pos-neg] [1]
+
+[Rule 37] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   allineato_al_centro_verticale(C,E).
+[pos-neg] [4]
+
+[Rule 38] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518270300598).
+[pos-neg] [1]
+
+[Rule 39] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518443101648).
+[pos-neg] [1]
+
+[Rule 40] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518373601412).
+[pos-neg] [1]
+
+[Rule 41] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013211912730).
+[pos-neg] [1]
+
+[Rule 42] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013423414009).
+[pos-neg] [1]
+
+[Rule 43] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013405113891).
+[pos-neg] [1]
+
+[Rule 44] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510271813626).
+[pos-neg] [1]
+
+[Rule 45] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518351001324).
+[pos-neg] [1]
+
+[Rule 46] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518403601511).
+[pos-neg] [1]
+
+[Rule 47] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 48] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510265113565).
+[pos-neg] [1]
+
+[Rule 49] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013360113675).
+[pos-neg] [1]
+
+[Rule 50] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013262013044).
+[pos-neg] [1]
+
+[Rule 51] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013294713222).
+[pos-neg] [1]
+
+[Rule 52] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254713021).
+[pos-neg] [1]
+
+[Rule 53] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518381901424).
+[pos-neg] [1]
+
+[Rule 54] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
+[pos-neg] [1]
+
+[Rule 55] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510384514083).
+[pos-neg] [1]
+
+[Rule 56] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518320700983).
+[pos-neg] [1]
+
+[Rule 57] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013233112832).
+[pos-neg] [1]
+
+[Rule 58] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Rule 59] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013390613798).
+[pos-neg] [1]
+
+[Rule 60] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013220812764).
+[pos-neg] [1]
+
+[Rule 61] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013312413349).
+[pos-neg] [1]
+
+[Rule 62] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 63] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013430914058).
+[pos-neg] [1]
+
+[Rule 64] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013393313815).
+[pos-neg] [1]
+
+[Rule 65] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510495614980).
+[pos-neg] [1]
+
+[Rule 66] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013364813706).
+[pos-neg] [1]
+
+[Rule 67] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518532502449).
+[pos-neg] [1]
+
+[Rule 68] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013401813843).
+[pos-neg] [1]
+
+[Rule 69] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518290400735).
+[pos-neg] [1]
+
+[Rule 70] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013365813708).
+[pos-neg] [1]
+
+[Rule 71] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013292513217).
+[pos-neg] [1]
+
+[Rule 72] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518312200919).
+[pos-neg] [1]
+
+[Rule 73] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510263313550).
+[pos-neg] [1]
+
+[Rule 74] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013380913737).
+[pos-neg] [1]
+
+[Rule 75] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518433401633).
+[pos-neg] [1]
+
+[Rule 76] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013430114052).
+[pos-neg] [1]
+
+[Rule 77] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510270713582).
+[pos-neg] [1]
+
+[Rule 78] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518271300632).
+[pos-neg] [1]
+
+[Rule 79] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013222512769).
+[pos-neg] [1]
+
+[Rule 80] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013213312739).
+[pos-neg] [1]
+
+[Rule 81] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518435901639).
+[pos-neg] [1]
+
+[Rule 82] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518331601080).
+[pos-neg] [1]
+
+[Rule 83] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518524102431).
+[pos-neg] [1]
+
+[Rule 84] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013264113073).
+[pos-neg] [1]
+
+[Rule 85] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 86] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013393813816).
+[pos-neg] [1]
+
+[Rule 87] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518335301163).
+[pos-neg] [1]
+
+[Rule 88] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510503615135).
+[pos-neg] [1]
+
+[Rule 89] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013382113764).
+[pos-neg] [1]
+
+[Rule 90] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013422114002).
+[pos-neg] [1]
+
+[Rule 91] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510274713652).
+[pos-neg] [1]
+
+[Rule 92] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013284513161).
+[pos-neg] [1]
+
+[Rule 93] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510413614235).
+[pos-neg] [1]
+
+[Rule 94] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013204412712).
+[pos-neg] [1]
+
+[Rule 95] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518391301453).
+[pos-neg] [1]
+
+[Rule 96] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 97] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518383601440).
+[pos-neg] [1]
+
+[Rule 98] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510444214386).
+[pos-neg] [1]
+
+[Rule 99] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013252512990).
+[pos-neg] [1]
+
+[Rule 100] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510434514330).
+[pos-neg] [1]
+
+[Rule 101] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013263413063).
+[pos-neg] [1]
+
+[Rule 102] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013403113871).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 110         0         110 
+Pred 
+     -  0         207        207 
+
+       110        207        317 
+
+Accuracy = 1.0
+[Training set summary] [[110,0,0,207]]
+[Test set performance]
+          Actual
+       +        - 
+     + 1        0        1 
+Pred 
+     - 11        24        35 
+
+       12        24        36 
+
+Accuracy = 0.694444444444444
+[Test set summary] [[1,0,11,24]]
