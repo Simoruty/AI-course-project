@@ -1,0 +1,223 @@
+
+[settings]
+        abduce=false
+        cache_clauselength=5
+        caching=true
+        check_good=false
+        check_redundant=false
+        check_useless=true
+        clauselength=8
+        clauses=8
+        condition=false
+        confidence=0.95
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        good=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        interactive=false
+        language=(+inf)
+        lazy_negs=false
+        lazy_on_contradiction=false
+        lazy_on_cost=false
+        lookahead=1
+        max_abducibles=2
+        max_features=(+inf)
+        minacc=0.0
+        mingain=0.05
+        minpos=2
+        minposfrac=0
+        minscore=(-inf)
+        moves=5
+        newvars=(+inf)
+        nodes=50000
+        noise=0
+        nreduce_bottom=false
+        openlist=(+inf)
+        optimise_clauses=false
+        permute_bottom=false
+        portray_examples=false
+        portray_hypothesis=false
+        portray_literals=false
+        portray_search=false
+        print=4
+        prior=[0.172955974842767-pos,0.827044025157233-neg]
+        proof_strategy=restricted_sld
+        prooftime=(+inf)
+        prune_tree=false
+        record=true
+        recordfile=./elsevier_f4.log
+        recordfile_stream=$stream(5)
+        refine=false
+        refineop=false
+        resample=1
+        rls_type=gsat
+        rulefile=./elsevier_f4.rul
+        samplesize=0
+        search=bf
+        searchstrat=bf
+        searchtime=(+inf)
+        skolemvars=10000
+        splitvars=false
+        stage=command
+        store_bottom=false
+        subsample=false
+        subsamplesize=(+inf)
+        test_neg=./elsevier_f4_test.n
+        test_pos=./elsevier_f4_test.f
+        thread=8
+        threads=1
+        train_neg=elsevier_f4.n
+        train_pos=elsevier_f4.f
+        tries=10
+        typeoverlap=0.95
+        uniform_sample=false
+        updateback=true
+        verbosity=0
+        version=5
+[sat] [1]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,841.0).
+[pos cover = 17 neg cover = 0] [pos-neg] [17]
+[clause label] [[17,0,3,17]]
+[clauses constructed] [5]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.49579832).
+[pos cover = 25 neg cover = 0] [pos-neg] [25]
+[clause label] [[25,0,4,25]]
+[clauses constructed] [147]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[pos cover = 33 neg cover = 0] [pos-neg] [33]
+[clause label] [[33,0,4,33]]
+[clauses constructed] [307]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [14.734]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[positive examples left] [22]
+[estimated time to finish (secs)] [9.82266666666667]
+[sat] [6]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,3,2]]
+[clauses constructed] [5]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [15.609]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+[positive examples left] [20]
+[estimated time to finish (secs)] [17.3388571428571]
+[sat] [9]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,596.0).
+[pos cover = 13 neg cover = 0] [pos-neg] [13]
+[clause label] [[13,0,3,13]]
+[clauses constructed] [23]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[pos cover = 14 neg cover = 0] [pos-neg] [14]
+[clause label] [[14,0,5,14]]
+[clauses constructed] [1043]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+[pos cover = 18 neg cover = 0] [pos-neg] [18]
+[clause label] [[18,0,6,18]]
+[clauses constructed] [10972]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [12.043]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+[positive examples left] [2]
+[estimated time to finish (secs)] [1.59947169811321]
+[sat] [14]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,5,2]]
+[clauses constructed] [535]
+[-------------------------------------]
+[clauses constructed] [551]
+[search time] [0.0330000000000013]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+[positive examples left] [0]
+[estimated time to finish (secs)] [0.0]
+
+[theory]
+
+[Rule 1] [Pos cover = 33 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+
+[Rule 2] [Pos cover = 2 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+
+[Rule 3] [Pos cover = 28 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), altezza_rettangolo(D,0.020190023), 
+   tipo_misto(C).
+
+[Rule 4] [Pos cover = 14 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), tipo_linea_orizzontale(D).
+
+[Training set performance]
+           Actual
+        +          -  
+     + 55         0         55 
+Pred 
+     -  0         263        263 
+
+       55        263        318 
+
+Accuracy = 1.0
+[Training set summary] [[55,0,0,263]]
+[Test set performance]
+          Actual
+       +        - 
+     + 5        0        5 
+Pred 
+     - 1        29        30 
+
+       6        29        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[5,0,1,29]]
+[time taken] [43.08]
+
+[total clauses constructed] [150551]

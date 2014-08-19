@@ -1,0 +1,310 @@
+
+[settings]
+        abduce=false
+        cache_clauselength=5
+        caching=true
+        check_good=false
+        check_redundant=false
+        check_useless=true
+        clauselength=8
+        clauses=8
+        condition=false
+        confidence=0.95
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        good=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        interactive=false
+        language=(+inf)
+        lazy_negs=false
+        lazy_on_contradiction=false
+        lazy_on_cost=false
+        lookahead=1
+        max_abducibles=2
+        max_features=(+inf)
+        minacc=0.0
+        mingain=0.05
+        minpos=2
+        minposfrac=0
+        minscore=(-inf)
+        moves=5
+        newvars=(+inf)
+        nodes=50000
+        noise=0
+        nreduce_bottom=false
+        openlist=(+inf)
+        optimise_clauses=false
+        permute_bottom=false
+        portray_examples=false
+        portray_hypothesis=false
+        portray_literals=false
+        portray_search=false
+        print=4
+        prior=[0.19811320754717-pos,0.80188679245283-neg]
+        proof_strategy=restricted_sld
+        prooftime=(+inf)
+        prune_tree=false
+        record=true
+        recordfile=./svln_f0.log
+        recordfile_stream=$stream(5)
+        refine=false
+        refineop=false
+        resample=1
+        rls_type=gsat
+        rulefile=./svln_f0.rul
+        samplesize=0
+        search=bf
+        searchstrat=bf
+        searchtime=(+inf)
+        skolemvars=10000
+        splitvars=false
+        stage=command
+        store_bottom=false
+        subsample=false
+        subsamplesize=(+inf)
+        test_neg=./svln_f0_test.n
+        test_pos=./svln_f0_test.f
+        thread=8
+        threads=1
+        train_neg=svln_f0.n
+        train_pos=svln_f0.f
+        tries=10
+        typeoverlap=0.95
+        uniform_sample=false
+        updateback=true
+        verbosity=0
+        version=5
+[sat] [1]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.14393939).
+[pos cover = 9 neg cover = 0] [pos-neg] [9]
+[clause label] [[9,0,4,9]]
+[clauses constructed] [46]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), larghezza_rettangolo(C,0.3480392).
+[pos cover = 18 neg cover = 0] [pos-neg] [18]
+[clause label] [[18,0,5,18]]
+[clauses constructed] [187]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+[pos cover = 21 neg cover = 0] [pos-neg] [21]
+[clause label] [[21,0,5,21]]
+[clauses constructed] [188]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   tipo_misto(D).
+[pos cover = 28 neg cover = 0] [pos-neg] [28]
+[clause label] [[28,0,6,28]]
+[clauses constructed] [1388]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [21.969]
+[best clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   tipo_misto(D).
+[positive examples left] [35]
+[estimated time to finish (secs)] [27.46125]
+[sat] [2]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.49873737).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,4,2]]
+[clauses constructed] [40]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.12373737).
+[pos cover = 10 neg cover = 0] [pos-neg] [10]
+[clause label] [[10,0,4,10]]
+[clauses constructed] [59]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+[pos cover = 13 neg cover = 0] [pos-neg] [13]
+[clause label] [[13,0,4,13]]
+[clauses constructed] [120]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), larghezza_rettangolo(C,0.5653595).
+[pos cover = 15 neg cover = 0] [pos-neg] [15]
+[clause label] [[15,0,5,15]]
+[clauses constructed] [136]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [19.753]
+[best clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), larghezza_rettangolo(C,0.5653595).
+[positive examples left] [20]
+[estimated time to finish (secs)] [19.4055813953488]
+[sat] [4]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.47549018).
+[pos cover = 5 neg cover = 0] [pos-neg] [5]
+[clause label] [[5,0,4,5]]
+[clauses constructed] [112]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5669935), tipo_misto(C).
+[pos cover = 6 neg cover = 0] [pos-neg] [6]
+[clause label] [[6,0,5,6]]
+[clauses constructed] [236]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.8371212), tipo_misto(C).
+[pos cover = 7 neg cover = 0] [pos-neg] [7]
+[clause label] [[7,0,5,7]]
+[clauses constructed] [298]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), larghezza_rettangolo(C,0.5669935).
+[pos cover = 8 neg cover = 0] [pos-neg] [8]
+[clause label] [[8,0,5,8]]
+[clauses constructed] [302]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [23.588]
+[best clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), larghezza_rettangolo(C,0.5669935).
+[positive examples left] [12]
+[estimated time to finish (secs)] [15.3670588235294]
+[sat] [5]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.8421717).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,4,2]]
+[clauses constructed] [123]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), larghezza_rettangolo(C,0.3480392).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,5,4]]
+[clauses constructed] [191]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[pos cover = 7 neg cover = 0] [pos-neg] [7]
+[clause label] [[7,0,5,7]]
+[clauses constructed] [285]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [12.255]
+[best clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+[positive examples left] [5]
+[estimated time to finish (secs)] [6.68663793103448]
+[sat] [35]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.14393939).
+[pos cover = 3 neg cover = 0] [pos-neg] [3]
+[clause label] [[3,0,4,3]]
+[clauses constructed] [44]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.84090906), tipo_misto(C).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,5,4]]
+[clauses constructed] [128]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [34.525]
+[best clause]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.84090906), tipo_misto(C).
+[positive examples left] [1]
+[estimated time to finish (secs)] [1.80790322580645]
+[sat] [43]
+[positive examples left] [0]
+[estimated time to finish (secs)] [0.0]
+
+[theory]
+
+[Rule 1] [Pos cover = 28 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.48366013), on_top(C,D), 
+   tipo_misto(D).
+
+[Rule 2] [Pos cover = 23 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), larghezza_rettangolo(C,0.5653595).
+
+[Rule 3] [Pos cover = 15 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), larghezza_rettangolo(C,0.5669935).
+
+[Rule 4] [Pos cover = 17 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27124184), larghezza_rettangolo(C,0.13725491).
+
+[Rule 5] [Pos cover = 21 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.84090906), tipo_misto(C).
+
+[Training set performance]
+           Actual
+        +          -  
+     + 62         0         62 
+Pred 
+     -  1         255        256 
+
+       63        255        318 
+
+Accuracy = 0.99685534591195
+[Training set summary] [[62,0,1,255]]
+[Test set performance]
+          Actual
+       +        - 
+     + 7        0        7 
+Pred 
+     - 0        28        28 
+
+       7        28        35 
+
+Accuracy = 1.0
+[Test set summary] [[7,0,0,28]]
+[time taken] [113.226]
+
+[total clauses constructed] [250000]

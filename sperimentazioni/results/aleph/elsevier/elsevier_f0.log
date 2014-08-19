@@ -1,0 +1,211 @@
+
+[settings]
+        abduce=false
+        cache_clauselength=5
+        caching=true
+        check_good=false
+        check_redundant=false
+        check_useless=true
+        clauselength=8
+        clauses=8
+        condition=false
+        confidence=0.95
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        good=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        interactive=false
+        language=(+inf)
+        lazy_negs=false
+        lazy_on_contradiction=false
+        lazy_on_cost=false
+        lookahead=1
+        max_abducibles=2
+        max_features=(+inf)
+        minacc=0.0
+        mingain=0.05
+        minpos=2
+        minposfrac=0
+        minscore=(-inf)
+        moves=5
+        newvars=(+inf)
+        nodes=50000
+        noise=0
+        nreduce_bottom=false
+        openlist=(+inf)
+        optimise_clauses=false
+        permute_bottom=false
+        portray_examples=false
+        portray_hypothesis=false
+        portray_literals=false
+        portray_search=false
+        print=4
+        prior=[0.172955974842767-pos,0.827044025157233-neg]
+        proof_strategy=restricted_sld
+        prooftime=(+inf)
+        prune_tree=false
+        record=true
+        recordfile=./elsevier_f0.log
+        recordfile_stream=$stream(5)
+        refine=false
+        refineop=false
+        resample=1
+        rls_type=gsat
+        rulefile=./elsevier_f0.rul
+        samplesize=0
+        search=bf
+        searchstrat=bf
+        searchtime=(+inf)
+        skolemvars=10000
+        splitvars=false
+        stage=command
+        store_bottom=false
+        subsample=false
+        subsamplesize=(+inf)
+        test_neg=./elsevier_f0_test.n
+        test_pos=./elsevier_f0_test.f
+        thread=8
+        threads=1
+        train_neg=elsevier_f0.n
+        train_pos=elsevier_f0.f
+        tries=10
+        typeoverlap=0.95
+        uniform_sample=false
+        updateback=true
+        verbosity=0
+        version=5
+[sat] [1]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,841.0).
+[pos cover = 14 neg cover = 0] [pos-neg] [14]
+[clause label] [[14,0,3,14]]
+[clauses constructed] [5]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.6084034).
+[pos cover = 15 neg cover = 0] [pos-neg] [15]
+[clause label] [[15,0,4,15]]
+[clauses constructed] [34]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[pos cover = 29 neg cover = 0] [pos-neg] [29]
+[clause label] [[29,0,4,29]]
+[clauses constructed] [59]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_verticale(D,E), 
+   tipo_linea_orizzontale(E), tipo_misto(C).
+[pos cover = 47 neg cover = 0] [pos-neg] [47]
+[clause label] [[47,0,7,47]]
+[clauses constructed] [31213]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [30.257]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_verticale(D,E), 
+   tipo_linea_orizzontale(E), tipo_misto(C).
+[positive examples left] [8]
+[estimated time to finish (secs)] [5.15012765957447]
+[sat] [9]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.3111639).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,4,2]]
+[clauses constructed] [32]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.50084037).
+[pos cover = 3 neg cover = 0] [pos-neg] [3]
+[clause label] [[3,0,4,3]]
+[clauses constructed] [33]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+[pos cover = 6 neg cover = 0] [pos-neg] [6]
+[clause label] [[6,0,4,6]]
+[clauses constructed] [82]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [21.132]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+[positive examples left] [2]
+[estimated time to finish (secs)] [1.93920754716981]
+[sat] [19]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,3,2]]
+[clauses constructed] [16]
+[-------------------------------------]
+[clauses constructed] [17]
+[search time] [0.000999999999997669]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+[positive examples left] [0]
+[estimated time to finish (secs)] [0.0]
+
+[theory]
+
+[Rule 1] [Pos cover = 47 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_verticale(D,E), 
+   tipo_linea_orizzontale(E), tipo_misto(C).
+
+[Rule 2] [Pos cover = 31 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+
+[Rule 3] [Pos cover = 2 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+
+[Training set performance]
+           Actual
+        +          -  
+     + 55         0         55 
+Pred 
+     -  0         263        263 
+
+       55        263        318 
+
+Accuracy = 1.0
+[Training set summary] [[55,0,0,263]]
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+[time taken] [51.712]
+
+[total clauses constructed] [100017]

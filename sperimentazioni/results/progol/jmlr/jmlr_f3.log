@@ -1,0 +1,144 @@
+mar 19 ago 2014, 09.31.34, CEST
+lusio-laptop
+[settings]
+        cache_clauselength=5
+        caching=true
+        check_useless=true
+        clauselength=8
+        clauses=8
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        lazy_on_contradiction=true
+        lazy_on_cost=false
+        minpos=2
+        nodes=50000
+        noise=0
+        print=4
+        prior=0.283018867924528
+        proof_strategy=restricted_sld
+        prune_defs=false
+        record=true
+        recordfile=./jmlr_f3.log
+        refine=false
+        refineop=false
+        rulefile=./jmlr_f3.rul
+        samplesize=1
+        search=bf
+        splitvars=false
+        stage=command
+        test_neg=./jmlr_f3_test.n
+        test_pos=./jmlr_f3_test.f
+        thread=8
+        train_neg=jmlr_f3.n
+        train_pos=jmlr_f3.f
+        verbosity=0
+        version=2.7.5
+[sat] [28]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.058080807).
+[pos-neg] [36]
+[clause label] [[36,0,4,36]]
+[clauses explored] [71]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+[pos-neg] [76]
+[clause label] [[76,0,4,76]]
+[clauses explored] [115]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), on_top(C,D), 
+   altezza_rettangolo(D,0.01010101).
+[pos-neg] [77]
+[clause label] [[77,0,6,77]]
+[clauses explored] [5280]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[pos-neg] [86]
+[clause label] [[86,0,6,86]]
+[clauses explored] [5601]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [28.383]
+[best clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[sat] [74]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.058080807).
+[pos-neg] [2]
+[clause label] [[2,0,4,2]]
+[clauses explored] [84]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,E), 
+   altezza_rettangolo(E,0.011363637).
+[pos-neg] [4]
+[clause label] [[4,0,6,4]]
+[clauses explored] [10613]
+[-------------------------------------]
+[clauses constructed] [10667]
+[search time] [0.613]
+[best clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,E), 
+   altezza_rettangolo(E,0.011363637).
+
+[theory]
+
+[Rule 1] [Pos cover = 86 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[pos-neg] [86]
+
+[Rule 2] [Pos cover = 68 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,E), 
+   altezza_rettangolo(E,0.011363637).
+[pos-neg] [68]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 90         0         90 
+Pred 
+     -  0         228        228 
+
+       90        228        318 
+
+Accuracy = 1.0
+[Training set summary] [[90,0,0,228]]
+[Test set performance]
+          Actual
+       +        - 
+     + 10        1        11 
+Pred 
+     - 0        24        24 
+
+       10        25        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[10,1,0,24]]
+[time taken] [29.09]
+

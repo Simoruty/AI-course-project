@@ -1,0 +1,205 @@
+mar 19 ago 2014, 09.23.21, CEST
+lusio-laptop
+[settings]
+        cache_clauselength=5
+        caching=true
+        check_useless=true
+        clauselength=8
+        clauses=8
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        lazy_on_contradiction=true
+        lazy_on_cost=false
+        minpos=2
+        nodes=50000
+        noise=0
+        print=4
+        prior=0.172955974842767
+        proof_strategy=restricted_sld
+        prune_defs=false
+        record=true
+        recordfile=./elsevier_f2.log
+        refine=false
+        refineop=false
+        rulefile=./elsevier_f2.rul
+        samplesize=1
+        search=bf
+        splitvars=false
+        stage=command
+        test_neg=./elsevier_f2_test.n
+        test_pos=./elsevier_f2_test.f
+        thread=8
+        train_neg=elsevier_f2.n
+        train_pos=elsevier_f2.f
+        verbosity=0
+        version=2.7.5
+[sat] [35]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.0011876485).
+[pos-neg] [29]
+[clause label] [[29,0,4,29]]
+[clauses explored] [56]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[pos-neg] [31]
+[clause label] [[31,0,4,31]]
+[clauses explored] [228]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_linea_orizzontale(D), 
+   tipo_misto(C).
+[pos-neg] [33]
+[clause label] [[33,0,6,33]]
+[clauses explored] [5858]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [12.267]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_linea_orizzontale(D), 
+   tipo_misto(C).
+[sat] [6]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,743.0).
+[pos-neg] [2]
+[clause label] [[2,0,3,2]]
+[clauses explored] [5]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+[pos-neg] [3]
+[clause label] [[3,0,3,3]]
+[clauses explored] [14]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [16.959]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+[sat] [3]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), altezza_pagina(B,841.0).
+[pos-neg] [7]
+[clause label] [[7,0,3,7]]
+[clauses explored] [5]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.0605042).
+[pos-neg] [11]
+[clause label] [[11,0,4,11]]
+[clauses explored] [141]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_misto(D), 
+   tipo_linea_orizzontale(C).
+[pos-neg] [12]
+[clause label] [[12,0,6,12]]
+[clauses explored] [7429]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [17.095]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_misto(D), 
+   tipo_linea_orizzontale(C).
+[sat] [45]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.394958).
+[pos-neg] [5]
+[clause label] [[5,0,4,5]]
+[clauses explored] [42]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.8147268).
+[pos-neg] [6]
+[clause label] [[6,0,4,6]]
+[clauses explored] [44]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+[pos-neg] [7]
+[clause label] [[7,0,4,7]]
+[clauses explored] [97]
+[-------------------------------------]
+[clauses constructed] [116]
+[search time] [0.007000000000005]
+[best clause]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+
+[theory]
+
+[Rule 1] [Pos cover = 33 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_linea_orizzontale(D), 
+   tipo_misto(C).
+[pos-neg] [33]
+
+[Rule 2] [Pos cover = 3 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), larghezza_pagina(B,544.0).
+[pos-neg] [3]
+
+[Rule 3] [Pos cover = 25 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), tipo_misto(D), 
+   tipo_linea_orizzontale(C).
+[pos-neg] [25]
+
+[Rule 4] [Pos cover = 28 Neg cover = 0]
+class_elsevier(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.07363421).
+[pos-neg] [28]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 55         0         55 
+Pred 
+     -  0         263        263 
+
+       55        263        318 
+
+Accuracy = 1.0
+[Training set summary] [[55,0,0,263]]
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+[time taken] [46.564]
+

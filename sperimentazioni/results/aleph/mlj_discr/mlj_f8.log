@@ -1,0 +1,857 @@
+
+[settings]
+        abduce=false
+        cache_clauselength=5
+        caching=true
+        check_good=false
+        check_redundant=false
+        check_useless=true
+        clauselength=8
+        clauses=8
+        condition=false
+        confidence=0.95
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        good=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        interactive=false
+        language=(+inf)
+        lazy_negs=false
+        lazy_on_contradiction=false
+        lazy_on_cost=false
+        lookahead=1
+        max_abducibles=2
+        max_features=(+inf)
+        minacc=0.0
+        mingain=0.05
+        minpos=2
+        minposfrac=0
+        minscore=(-inf)
+        moves=5
+        newvars=(+inf)
+        nodes=50000
+        noise=0
+        nreduce_bottom=false
+        openlist=(+inf)
+        optimise_clauses=false
+        permute_bottom=false
+        portray_examples=false
+        portray_hypothesis=false
+        portray_literals=false
+        portray_search=false
+        print=4
+        prior=[0.34384858044164-pos,0.65615141955836-neg]
+        proof_strategy=restricted_sld
+        prooftime=(+inf)
+        prune_tree=false
+        record=true
+        recordfile=./mlj_f8.log
+        recordfile_stream=$stream(5)
+        refine=false
+        refineop=false
+        resample=1
+        rls_type=gsat
+        rulefile=./mlj_f8.rul
+        samplesize=0
+        search=bf
+        searchstrat=bf
+        searchtime=(+inf)
+        skolemvars=10000
+        splitvars=false
+        stage=command
+        store_bottom=false
+        subsample=false
+        subsamplesize=(+inf)
+        test_neg=./mlj_f8_test.n
+        test_pos=./mlj_f8_test.f
+        thread=8
+        threads=1
+        train_neg=mlj_f8.n
+        train_pos=mlj_f8.f
+        tries=10
+        typeoverlap=0.95
+        uniform_sample=false
+        updateback=true
+        verbosity=0
+        version=5
+[sat] [1]
+[clauses constructed] [50000]
+[search time] [23.536]
+[best clause]
+class_mlj(d06060518403601511).
+[positive examples left] [108]
+[estimated time to finish (secs)] [2541.888]
+[sat] [2]
+[clauses constructed] [50000]
+[search time] [11.269]
+[best clause]
+class_mlj(d06053013414313942).
+[positive examples left] [107]
+[estimated time to finish (secs)] [1862.0675]
+[sat] [3]
+[clauses constructed] [50000]
+[search time] [18.817]
+[best clause]
+class_mlj(d06053013294713222).
+[positive examples left] [106]
+[estimated time to finish (secs)] [1894.644]
+[sat] [4]
+[clauses constructed] [50000]
+[search time] [20.654]
+[best clause]
+class_mlj(d06060518271300632).
+[positive examples left] [105]
+[estimated time to finish (secs)] [1949.745]
+[sat] [5]
+[clauses constructed] [50000]
+[search time] [14.984]
+[best clause]
+class_mlj(d06053013231712818).
+[positive examples left] [104]
+[estimated time to finish (secs)] [1856.608]
+[sat] [6]
+[clauses constructed] [50000]
+[search time] [25.814]
+[best clause]
+class_mlj(d06060518492902207).
+[positive examples left] [103]
+[estimated time to finish (secs)] [1975.437]
+[sat] [7]
+[clauses constructed] [50000]
+[search time] [11.933]
+[best clause]
+class_mlj(d06053013422114002).
+[positive examples left] [102]
+[estimated time to finish (secs)] [1850.67342857143]
+[sat] [8]
+[clauses constructed] [50000]
+[search time] [15.926]
+[best clause]
+class_mlj(d06060510265913574).
+[positive examples left] [101]
+[estimated time to finish (secs)] [1804.529125]
+[sat] [9]
+[clauses constructed] [50000]
+[search time] [12.323]
+[best clause]
+class_mlj(d06060518294100752).
+[positive examples left] [100]
+[estimated time to finish (secs)] [1725.06666666667]
+[sat] [10]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,3,4]]
+[clauses constructed] [11]
+[-------------------------------------]
+[clauses constructed] [44526]
+[search time] [5.417]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[positive examples left] [96]
+[estimated time to finish (secs)] [1186.50830769231]
+[sat] [11]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   allineato_al_centro_verticale(C,E).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,6,4]]
+[clauses constructed] [1685]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   on_top(C,E), on_top(E,F).
+[pos cover = 5 neg cover = 0] [pos-neg] [5]
+[clause label] [[5,0,7,5]]
+[clauses constructed] [16584]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [14.413]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   on_top(C,E), on_top(E,F).
+[positive examples left] [91]
+[estimated time to finish (secs)] [885.157]
+[sat] [12]
+[clauses constructed] [50000]
+[search time] [10.104]
+[best clause]
+class_mlj(d06053013391413799).
+[positive examples left] [90]
+[estimated time to finish (secs)] [877.215789473684]
+[sat] [13]
+[clauses constructed] [50000]
+[search time] [21.403]
+[best clause]
+class_mlj(d06053013364813706).
+[positive examples left] [89]
+[estimated time to finish (secs)] [919.33885]
+[sat] [14]
+[clauses constructed] [50000]
+[search time] [17.981]
+[best clause]
+class_mlj(d06060518524102431).
+[positive examples left] [88]
+[estimated time to finish (secs)] [941.072]
+[sat] [15]
+[clauses constructed] [50000]
+[search time] [17.351]
+[best clause]
+class_mlj(d06053013423414009).
+[positive examples left] [87]
+[estimated time to finish (secs)] [956.703409090909]
+[sat] [16]
+[clauses constructed] [50000]
+[search time] [25.898]
+[best clause]
+class_mlj(d06053013204412712).
+[positive examples left] [86]
+[estimated time to finish (secs)] [1001.42513043478]
+[sat] [17]
+[clauses constructed] [50000]
+[search time] [21.918]
+[best clause]
+class_mlj(d06060518380901422).
+[positive examples left] [85]
+[estimated time to finish (secs)] [1026.16604166667]
+[sat] [18]
+[clauses constructed] [50000]
+[search time] [12.912]
+[best clause]
+class_mlj(d06060518383601440).
+[positive examples left] [84]
+[estimated time to finish (secs)] [1016.91408]
+[sat] [19]
+[clauses constructed] [50000]
+[search time] [22.754]
+[best clause]
+class_mlj(d06060518285500732).
+[positive examples left] [83]
+[estimated time to finish (secs)] [1038.79926923077]
+[sat] [20]
+[clauses constructed] [50000]
+[search time] [26.035]
+[best clause]
+class_mlj(d06060518434801636).
+[positive examples left] [82]
+[estimated time to finish (secs)] [1067.34237037037]
+[sat] [21]
+[clauses constructed] [50000]
+[search time] [18.878]
+[best clause]
+class_mlj(d06053013264113073).
+[positive examples left] [81]
+[estimated time to finish (secs)] [1071.28285714286]
+[sat] [22]
+[clauses constructed] [50000]
+[search time] [19.917]
+[best clause]
+class_mlj(d06060518443101648).
+[positive examples left] [80]
+[estimated time to finish (secs)] [1076.51586206897]
+[sat] [23]
+[clauses constructed] [50000]
+[search time] [16.897]
+[best clause]
+class_mlj(d06060518312200919).
+[positive examples left] [79]
+[estimated time to finish (secs)] [1072.11953333333]
+[sat] [24]
+[clauses constructed] [50000]
+[search time] [17.814]
+[best clause]
+class_mlj(d06053013360113675).
+[positive examples left] [78]
+[estimated time to finish (secs)] [1069.224]
+[sat] [25]
+[clauses constructed] [50000]
+[search time] [28.746]
+[best clause]
+class_mlj(d06060518472902031).
+[positive examples left] [77]
+[estimated time to finish (secs)] [1091.7011875]
+[sat] [26]
+[clauses constructed] [50000]
+[search time] [11.245]
+[best clause]
+class_mlj(d06060510414814236).
+[positive examples left] [76]
+[estimated time to finish (secs)] [1070.76860606061]
+[sat] [27]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,3,4]]
+[clauses constructed] [5]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [13.273]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[positive examples left] [72]
+[estimated time to finish (secs)] [930.574702702703]
+[sat] [28]
+[clauses constructed] [50000]
+[search time] [14.729]
+[best clause]
+class_mlj(d06060510413614235).
+[positive examples left] [71]
+[estimated time to finish (secs)] [921.021342105263]
+[sat] [29]
+[clauses constructed] [50000]
+[search time] [13.1039999999999]
+[best clause]
+class_mlj(d06053013312413349).
+[positive examples left] [70]
+[estimated time to finish (secs)] [908.285897435897]
+[sat] [30]
+[clauses constructed] [50000]
+[search time] [20.537]
+[best clause]
+class_mlj(d06053013211912730).
+[positive examples left] [69]
+[estimated time to finish (secs)] [908.35395]
+[sat] [31]
+[clauses constructed] [50000]
+[search time] [17.7620000000001]
+[best clause]
+class_mlj(d06060518322601004).
+[positive examples left] [68]
+[estimated time to finish (secs)] [902.81443902439]
+[sat] [32]
+[clauses constructed] [50000]
+[search time] [13.775]
+[best clause]
+class_mlj(d06060518310700907).
+[positive examples left] [67]
+[estimated time to finish (secs)] [890.332690476191]
+[sat] [33]
+[clauses constructed] [50000]
+[search time] [11.8439999999999]
+[best clause]
+class_mlj(d06053013254713021).
+[positive examples left] [66]
+[estimated time to finish (secs)] [874.826930232558]
+[sat] [34]
+[clauses constructed] [50000]
+[search time] [14.979]
+[best clause]
+class_mlj(d06053013405113891).
+[positive examples left] [65]
+[estimated time to finish (secs)] [864.118863636364]
+[sat] [35]
+[clauses constructed] [50000]
+[search time] [25.518]
+[best clause]
+class_mlj(d06060510434514330).
+[positive examples left] [64]
+[estimated time to finish (secs)] [868.209777777778]
+[sat] [37]
+[clauses constructed] [50000]
+[search time] [39.9010000000001]
+[best clause]
+class_mlj(d06060510433614325).
+[positive examples left] [63]
+[estimated time to finish (secs)] [890.711804347826]
+[sat] [38]
+[clauses constructed] [50000]
+[search time] [31.2040000000001]
+[best clause]
+class_mlj(d06060510384514083).
+[positive examples left] [62]
+[estimated time to finish (secs)] [899.085744680851]
+[sat] [39]
+[clauses constructed] [50000]
+[search time] [9.46299999999997]
+[best clause]
+class_mlj(d06053013393813816).
+[positive examples left] [61]
+[estimated time to finish (secs)] [878.181416666667]
+[sat] [40]
+[clauses constructed] [50000]
+[search time] [15.1709999999999]
+[best clause]
+class_mlj(d06060510502115103).
+[positive examples left] [60]
+[estimated time to finish (secs)] [864.733469387755]
+[sat] [41]
+[clauses constructed] [50000]
+[search time] [15.088]
+[best clause]
+class_mlj(d06060510390714095).
+[positive examples left] [59]
+[estimated time to finish (secs)] [851.11866]
+[sat] [42]
+[clauses constructed] [50000]
+[search time] [21.711]
+[best clause]
+class_mlj(d06053013430114052).
+[positive examples left] [58]
+[estimated time to finish (secs)] [844.978117647059]
+[sat] [44]
+[clauses constructed] [50000]
+[search time] [12.866]
+[best clause]
+class_mlj(d06053013390613798).
+[positive examples left] [57]
+[estimated time to finish (secs)] [828.543230769231]
+[sat] [46]
+[clauses constructed] [50000]
+[search time] [15.52]
+[best clause]
+class_mlj(d06060510271813626).
+[positive examples left] [56]
+[estimated time to finish (secs)] [815.047245283019]
+[sat] [47]
+[clauses constructed] [50000]
+[search time] [10.3760000000001]
+[best clause]
+class_mlj(d06053013292513217).
+[positive examples left] [55]
+[estimated time to finish (secs)] [796.237037037037]
+[sat] [48]
+[clauses constructed] [50000]
+[search time] [15.5949999999999]
+[best clause]
+class_mlj(d06053013251312977).
+[positive examples left] [54]
+[estimated time to finish (secs)] [782.857636363636]
+[sat] [49]
+[clauses constructed] [50000]
+[search time] [22.978]
+[best clause]
+class_mlj(d06060518382901439).
+[positive examples left] [53]
+[estimated time to finish (secs)] [776.386589285714]
+[sat] [50]
+[clauses constructed] [50000]
+[search time] [19.75]
+[best clause]
+class_mlj(d06060518532502449).
+[positive examples left] [52]
+[estimated time to finish (secs)] [766.39150877193]
+[sat] [51]
+[clauses constructed] [50000]
+[search time] [22.1129999999999]
+[best clause]
+class_mlj(d06060518541902465).
+[positive examples left] [51]
+[estimated time to finish (secs)] [758.137862068966]
+[sat] [53]
+[clauses constructed] [50000]
+[search time] [11.817]
+[best clause]
+class_mlj(d06060518421201581).
+[positive examples left] [50]
+[estimated time to finish (secs)] [740.688983050847]
+[sat] [54]
+[clauses constructed] [50000]
+[search time] [10.947]
+[best clause]
+class_mlj(d06053013252512990).
+[positive examples left] [49]
+[estimated time to finish (secs)] [722.717333333333]
+[sat] [55]
+[clauses constructed] [50000]
+[search time] [15.4109999999999]
+[best clause]
+class_mlj(d06060510442014369).
+[positive examples left] [48]
+[estimated time to finish (secs)] [708.488655737705]
+[sat] [56]
+[clauses constructed] [50000]
+[search time] [12.074]
+[best clause]
+class_mlj(d06053013241912894).
+[positive examples left] [47]
+[estimated time to finish (secs)] [691.692177419355]
+[sat] [57]
+[clauses constructed] [50000]
+[search time] [13.447]
+[best clause]
+class_mlj(d06060510481014782).
+[positive examples left] [46]
+[estimated time to finish (secs)] [676.048126984127]
+[sat] [58]
+[clauses constructed] [50000]
+[search time] [11.2149999999999]
+[best clause]
+class_mlj(d06060510274713652).
+[positive examples left] [45]
+[estimated time to finish (secs)] [658.903359375]
+[sat] [59]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,6,2]]
+[clauses constructed] [5394]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [11.568]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
+[positive examples left] [43]
+[estimated time to finish (secs)] [618.076136363636]
+[sat] [60]
+[clauses constructed] [50000]
+[search time] [22.1750000000001]
+[best clause]
+class_mlj(d06060510382314057).
+[positive examples left] [42]
+[estimated time to finish (secs)] [608.592537313433]
+[sat] [61]
+[clauses constructed] [50000]
+[search time] [13.7710000000001]
+[best clause]
+class_mlj(d06060518320700983).
+[positive examples left] [41]
+[estimated time to finish (secs)] [593.668544117647]
+[sat] [62]
+[clauses constructed] [50000]
+[search time] [16.0700000000001]
+[best clause]
+class_mlj(d06060518391301453).
+[positive examples left] [40]
+[estimated time to finish (secs)] [580.110724637681]
+[sat] [63]
+[clauses constructed] [50000]
+[search time] [14.4849999999999]
+[best clause]
+class_mlj(d06060510495614980).
+[positive examples left] [39]
+[estimated time to finish (secs)] [565.598057142857]
+[sat] [64]
+[clauses constructed] [50000]
+[search time] [20.355]
+[best clause]
+class_mlj(d06060518373601412).
+[positive examples left] [38]
+[estimated time to finish (secs)] [554.22785915493]
+[sat] [65]
+[clauses constructed] [50000]
+[search time] [14.2630000000001]
+[best clause]
+class_mlj(d06053013365813708).
+[positive examples left] [37]
+[estimated time to finish (secs)] [539.477472222222]
+[sat] [66]
+[clauses constructed] [50000]
+[search time] [15.4440000000002]
+[best clause]
+class_mlj(d06060518435901639).
+[positive examples left] [36]
+[estimated time to finish (secs)] [525.322849315069]
+[sat] [67]
+[clauses constructed] [50000]
+[search time] [15.8419999999999]
+[best clause]
+class_mlj(d06053013262013044).
+[positive examples left] [35]
+[estimated time to finish (secs)] [511.321621621622]
+[sat] [68]
+[clauses constructed] [50000]
+[search time] [17.1680000000001]
+[best clause]
+class_mlj(d06060510265113565).
+[positive examples left] [34]
+[estimated time to finish (secs)] [497.872426666667]
+[sat] [69]
+[clauses constructed] [1446]
+[search time] [0.269999999999982]
+[best clause]
+class_mlj(d06060518433401633).
+[positive examples left] [33]
+[estimated time to finish (secs)] [476.988078947369]
+[sat] [70]
+[clauses constructed] [50000]
+[search time] [13.9580000000001]
+[best clause]
+class_mlj(d06053013265213079).
+[positive examples left] [32]
+[estimated time to finish (secs)] [462.327688311688]
+[sat] [71]
+[clauses constructed] [50000]
+[search time] [9.83399999999983]
+[best clause]
+class_mlj(d06053013382113764).
+[positive examples left] [31]
+[estimated time to finish (secs)] [446.046282051282]
+[sat] [72]
+[clauses constructed] [50000]
+[search time] [12.2719999999999]
+[best clause]
+class_mlj(d06053013430914058).
+[positive examples left] [30]
+[estimated time to finish (secs)] [430.853924050633]
+[sat] [73]
+[clauses constructed] [50000]
+[search time] [16.8760000000002]
+[best clause]
+class_mlj(d06053013393313815).
+[positive examples left] [29]
+[estimated time to finish (secs)] [417.403525]
+[sat] [74]
+[clauses constructed] [50000]
+[search time] [18.6190000000001]
+[best clause]
+class_mlj(d06060518381901424).
+[positive examples left] [28]
+[estimated time to finish (secs)] [404.471061728395]
+[sat] [77]
+[clauses constructed] [50000]
+[search time] [16.72]
+[best clause]
+class_mlj(d06053013220812764).
+[positive examples left] [27]
+[estimated time to finish (secs)] [390.77462195122]
+[sat] [78]
+[clauses constructed] [50000]
+[search time] [13.5309999999999]
+[best clause]
+class_mlj(d06060518335301163).
+[positive examples left] [26]
+[estimated time to finish (secs)] [376.006361445783]
+[sat] [79]
+[clauses constructed] [50000]
+[search time] [14.2209999999998]
+[best clause]
+class_mlj(d06060518351001324).
+[positive examples left] [25]
+[estimated time to finish (secs)] [361.472916666667]
+[sat] [81]
+[clauses constructed] [50000]
+[search time] [9.76599999999985]
+[best clause]
+class_mlj(d06060518525802442).
+[positive examples left] [24]
+[estimated time to finish (secs)] [345.688941176471]
+[sat] [82]
+[clauses constructed] [50000]
+[search time] [16.6110000000001]
+[best clause]
+class_mlj(d06060518394701461).
+[positive examples left] [23]
+[estimated time to finish (secs)] [331.875558139535]
+[sat] [83]
+[clauses constructed] [50000]
+[search time] [13.76]
+[best clause]
+class_mlj(d06060510263313550).
+[positive examples left] [22]
+[estimated time to finish (secs)] [317.27691954023]
+[sat] [84]
+[clauses constructed] [50000]
+[search time] [14.1619999999998]
+[best clause]
+class_mlj(d06053013380913737).
+[positive examples left] [21]
+[estimated time to finish (secs)] [302.793272727273]
+[sat] [85]
+[clauses constructed] [50000]
+[search time] [19.203]
+[best clause]
+class_mlj(d06053013205712715).
+[positive examples left] [20]
+[estimated time to finish (secs)] [289.449662921348]
+[sat] [86]
+[clauses constructed] [50000]
+[search time] [11.3919999999998]
+[best clause]
+class_mlj(d06053013254013020).
+[positive examples left] [19]
+[estimated time to finish (secs)] [274.326855555555]
+[sat] [87]
+[clauses constructed] [50000]
+[search time] [13.2750000000001]
+[best clause]
+class_mlj(d06060518523102428).
+[positive examples left] [18]
+[estimated time to finish (secs)] [259.658505494506]
+[sat] [89]
+[clauses constructed] [50000]
+[search time] [14.6469999999999]
+[best clause]
+class_mlj(d06053013303213292).
+[positive examples left] [17]
+[estimated time to finish (secs)] [245.273967391304]
+[sat] [90]
+[clauses constructed] [50000]
+[search time] [10.364]
+[best clause]
+class_mlj(d06053013245412933).
+[positive examples left] [16]
+[estimated time to finish (secs)] [230.146924731183]
+[sat] [93]
+[clauses constructed] [50000]
+[search time] [20.1789999999999]
+[best clause]
+class_mlj(d06060518251800523).
+[positive examples left] [15]
+[estimated time to finish (secs)] [216.687446808511]
+[sat] [94]
+[clauses constructed] [50000]
+[search time] [17.068]
+[best clause]
+class_mlj(d06053013415713955).
+[positive examples left] [14]
+[estimated time to finish (secs)] [202.628042105263]
+[sat] [95]
+[clauses constructed] [50000]
+[search time] [13.376]
+[best clause]
+class_mlj(d06060510430514318).
+[positive examples left] [13]
+[estimated time to finish (secs)] [188.006]
+[sat] [96]
+[clauses constructed] [50000]
+[search time] [12.9509999999998]
+[best clause]
+class_mlj(d06060518445901684).
+[positive examples left] [12]
+[estimated time to finish (secs)] [173.357072164948]
+[sat] [98]
+[clauses constructed] [50000]
+[search time] [14.5729999999999]
+[best clause]
+class_mlj(d06060518482402123).
+[positive examples left] [11]
+[estimated time to finish (secs)] [158.924857142857]
+[sat] [99]
+[clauses constructed] [50000]
+[search time] [19.0539999999999]
+[best clause]
+class_mlj(d06060518270300598).
+[positive examples left] [10]
+[estimated time to finish (secs)] [144.942424242424]
+[sat] [100]
+[clauses constructed] [50000]
+[search time] [21.7929999999999]
+[best clause]
+class_mlj(d06060518331601080).
+[positive examples left] [9]
+[estimated time to finish (secs)] [131.10507]
+[sat] [101]
+[clauses constructed] [50000]
+[search time] [14.518]
+[best clause]
+class_mlj(d06053013233112832).
+[positive examples left] [8]
+[estimated time to finish (secs)] [116.533940594059]
+[sat] [102]
+[clauses constructed] [50000]
+[search time] [12.8240000000001]
+[best clause]
+class_mlj(d06060510445614393).
+[positive examples left] [7]
+[estimated time to finish (secs)] [101.847598039216]
+[sat] [103]
+[clauses constructed] [50000]
+[search time] [12.8130000000001]
+[best clause]
+class_mlj(d06060518273300645).
+[positive examples left] [6]
+[estimated time to finish (secs)] [87.1967766990291]
+[sat] [104]
+[clauses constructed] [50000]
+[search time] [18.0909999999999]
+[best clause]
+class_mlj(d06060518302200819).
+[positive examples left] [5]
+[estimated time to finish (secs)] [72.835048076923]
+[sat] [105]
+[clauses constructed] [50000]
+[search time] [12.4949999999999]
+[best clause]
+class_mlj(d06053013222512769).
+[positive examples left] [4]
+[estimated time to finish (secs)] [58.1891047619047]
+[sat] [106]
+[clauses constructed] [50000]
+[search time] [17.7170000000001]
+[best clause]
+class_mlj(d06060518540302460).
+[positive examples left] [3]
+[estimated time to finish (secs)] [43.731537735849]
+[sat] [107]
+[clauses constructed] [50000]
+[search time] [7.35199999999986]
+[best clause]
+class_mlj(d06053013383013765).
+[positive examples left] [2]
+[estimated time to finish (secs)] [29.0193084112149]
+[sat] [108]
+[clauses constructed] [50000]
+[search time] [10.3390000000002]
+[best clause]
+class_mlj(d06060518290400735).
+[positive examples left] [1]
+[estimated time to finish (secs)] [14.471037037037]
+[sat] [109]
+[positive examples left] [0]
+[estimated time to finish (secs)] [0.0]
+
+[theory]
+
+[Rule 10] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+
+[Rule 11] [Pos cover = 5 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   on_top(C,E), on_top(E,F).
+
+[Rule 27] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+
+[Rule 55] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
+
+[Training set performance]
+           Actual
+        +          -  
+     + 15         0         15 
+Pred 
+     - 94        208        302 
+
+       109        208        317 
+
+Accuracy = 0.703470031545741
+[Training set summary] [[15,0,94,208]]
+[Test set performance]
+          Actual
+       +        - 
+     + 0        0        0 
+Pred 
+     - 13        23        36 
+
+       13        23        36 
+
+Accuracy = 0.638888888888889
+[Test set summary] [[0,0,13,23]]
+[time taken] [1588.78]
+
+[total clauses constructed] [4795972]

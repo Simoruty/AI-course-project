@@ -5,9 +5,11 @@ prolog/dataset.pl
 
 # Latex files
 documentation/*.pdf
+documentation/*.log
+documentation/*.out
 sperimentazioni/documentation/*.pdf
 sperimentazioni/documentation/*.out
-*.log
+sperimentazioni/documentation/*.log
 *.aux
 *.dvi
 *.lof

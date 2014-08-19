@@ -1,0 +1,1015 @@
+mar 19 ago 2014, 09.35.42, CEST
+lusio-laptop
+[settings]
+        cache_clauselength=5
+        caching=true
+        check_useless=true
+        clauselength=8
+        clauses=8
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        lazy_on_contradiction=true
+        lazy_on_cost=false
+        minpos=2
+        nodes=50000
+        noise=0
+        print=4
+        prior=0.345911949685535
+        proof_strategy=restricted_sld
+        prune_defs=false
+        record=true
+        recordfile=./mlj_f0.log
+        refine=false
+        refineop=false
+        rulefile=./mlj_f0.rul
+        samplesize=1
+        search=bf
+        splitvars=false
+        stage=command
+        test_neg=./mlj_f0_test.n
+        test_pos=./mlj_f0_test.f
+        thread=8
+        train_neg=mlj_f0.n
+        train_pos=mlj_f0.f
+        verbosity=0
+        version=2.7.5
+[sat] [37]
+[clauses constructed] [50000]
+[search time] [21.764]
+[best clause]
+class_mlj(d06060518382901439).
+[sat] [30]
+[clauses constructed] [50000]
+[search time] [15.836]
+[best clause]
+class_mlj(d06053013430114052).
+[sat] [107]
+[clauses constructed] [50000]
+[search time] [18.279]
+[best clause]
+class_mlj(d06060518540302460).
+[sat] [85]
+[clauses constructed] [50000]
+[search time] [9.203]
+[best clause]
+class_mlj(d06060510270713582).
+[sat] [25]
+[clauses constructed] [50000]
+[search time] [18.736]
+[best clause]
+class_mlj(d06060510433614325).
+[sat] [70]
+[clauses constructed] [50000]
+[search time] [10.974]
+[best clause]
+class_mlj(d06060518394701461).
+[sat] [18]
+[clauses constructed] [50000]
+[search time] [11.633]
+[best clause]
+class_mlj(d06053013211912730).
+[sat] [22]
+[clauses constructed] [50000]
+[search time] [10.449]
+[best clause]
+class_mlj(d06053013405113891).
+[sat] [41]
+[clauses constructed] [50000]
+[search time] [11.664]
+[best clause]
+class_mlj(d06060518421201581).
+[sat] [39]
+[clauses constructed] [50000]
+[search time] [13.658]
+[best clause]
+class_mlj(d06060518541902465).
+[sat] [20]
+[clauses constructed] [50000]
+[search time] [11.803]
+[best clause]
+class_mlj(d06060518310700907).
+[sat] [103]
+[clauses constructed] [50000]
+[search time] [14.883]
+[best clause]
+class_mlj(d06060510445614393).
+[sat] [24]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C).
+[pos-neg] [4]
+[clause label] [[4,0,5,4]]
+[clauses explored] [174]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [17.184]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C).
+[sat] [34]
+[clauses constructed] [50000]
+[search time] [10.728]
+[best clause]
+class_mlj(d06060510271813626).
+[sat] [48]
+[clauses constructed] [50000]
+[search time] [13.338]
+[best clause]
+class_mlj(d06060510382314057).
+[sat] [71]
+[clauses constructed] [50000]
+[search time] [8.58100000000002]
+[best clause]
+class_mlj(d06060510263313550).
+[sat] [49]
+[clauses constructed] [50000]
+[search time] [9.92100000000002]
+[best clause]
+class_mlj(d06060518320700983).
+[sat] [7]
+[clauses constructed] [50000]
+[search time] [13.378]
+[best clause]
+class_mlj(d06060518285500732).
+[sat] [17]
+[clauses constructed] [50000]
+[search time] [7.72800000000001]
+[best clause]
+class_mlj(d06053013312413349).
+[sat] [97]
+[clauses constructed] [50000]
+[search time] [10.295]
+[best clause]
+class_mlj(d06053013422814008).
+[sat] [59]
+[clauses constructed] [50000]
+[search time] [8.99599999999998]
+[best clause]
+class_mlj(d06053013382113764).
+[sat] [36]
+[clauses constructed] [50000]
+[search time] [15.449]
+[best clause]
+class_mlj(d06053013251312977).
+[sat] [19]
+[clauses constructed] [50000]
+[search time] [10.055]
+[best clause]
+class_mlj(d06060518322601004).
+[sat] [81]
+[clauses constructed] [50000]
+[search time] [20.652]
+[best clause]
+class_mlj(d06060518251800523).
+[sat] [106]
+[clauses constructed] [50000]
+[search time] [9.34100000000001]
+[best clause]
+class_mlj(d06053013222512769).
+[sat] [69]
+[clauses constructed] [50000]
+[search time] [8.65600000000001]
+[best clause]
+class_mlj(d06060518525802442).
+[sat] [76]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[pos-neg] [3]
+[clause label] [[3,0,3,3]]
+[clauses explored] [16]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [12.063]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[sat] [46]
+[clauses constructed] [50000]
+[search time] [9.49599999999998]
+[best clause]
+class_mlj(d06060510274713652).
+[sat] [29]
+[clauses constructed] [50000]
+[search time] [8.56400000000002]
+[best clause]
+class_mlj(d06060510390714095).
+[sat] [78]
+[clauses constructed] [50000]
+[search time] [7.709]
+[best clause]
+class_mlj(d06053013245412933).
+[sat] [75]
+[clauses constructed] [50000]
+[search time] [12.101]
+[best clause]
+class_mlj(d06060518523102428).
+[sat] [66]
+[clauses constructed] [50000]
+[search time] [14.512]
+[best clause]
+class_mlj(d06060518335301163).
+[sat] [108]
+[clauses constructed] [50000]
+[search time] [7.09300000000002]
+[best clause]
+class_mlj(d06053013383013765).
+[sat] [72]
+[clauses constructed] [50000]
+[search time] [8.21199999999999]
+[best clause]
+class_mlj(d06053013380913737).
+[sat] [43]
+[clauses constructed] [50000]
+[search time] [10.271]
+[best clause]
+class_mlj(d06060510442014369).
+[sat] [15]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+[clause label] [[4,0,3,4]]
+[clauses explored] [5]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [9.29699999999997]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[sat] [27]
+[clauses constructed] [50000]
+[search time] [7.03100000000001]
+[best clause]
+class_mlj(d06053013393813816).
+[sat] [61]
+[clauses constructed] [50000]
+[search time] [13.452]
+[best clause]
+class_mlj(d06053013393313815).
+[sat] [50]
+[clauses constructed] [50000]
+[search time] [16.239]
+[best clause]
+class_mlj(d06060518391301453).
+[sat] [77]
+[clauses constructed] [50000]
+[search time] [13.187]
+[best clause]
+class_mlj(d06053013303213292).
+[sat] [99]
+[clauses constructed] [50000]
+[search time] [11.034]
+[best clause]
+class_mlj(d06060518482402123).
+[sat] [67]
+[clauses constructed] [50000]
+[search time] [14.997]
+[best clause]
+class_mlj(d06060518351001324).
+[sat] [60]
+[clauses constructed] [50000]
+[search time] [12.163]
+[best clause]
+class_mlj(d06053013430914058).
+[sat] [6]
+[clauses constructed] [50000]
+[search time] [9.93499999999995]
+[best clause]
+class_mlj(d06060518383601440).
+[sat] [100]
+[clauses constructed] [50000]
+[search time] [14.4119999999999]
+[best clause]
+class_mlj(d06060518270300598).
+[sat] [105]
+[clauses constructed] [50000]
+[search time] [12.626]
+[best clause]
+class_mlj(d06060518302200819).
+[sat] [86]
+[clauses constructed] [50000]
+[search time] [12.091]
+[best clause]
+class_mlj(d06053013403113871).
+[sat] [28]
+[clauses constructed] [50000]
+[search time] [11.346]
+[best clause]
+class_mlj(d06060510502115103).
+[sat] [3]
+[clauses constructed] [50000]
+[search time] [10.4119999999999]
+[best clause]
+class_mlj(d06053013423414009).
+[sat] [101]
+[clauses constructed] [50000]
+[search time] [16.821]
+[best clause]
+class_mlj(d06060518331601080).
+[sat] [13]
+[clauses constructed] [50000]
+[search time] [15.847]
+[best clause]
+class_mlj(d06060518472902031).
+[sat] [57]
+[clauses constructed] [1446]
+[search time] [0.148000000000025]
+[best clause]
+class_mlj(d06060518433401633).
+[sat] [16]
+[clauses constructed] [50000]
+[search time] [13.11]
+[best clause]
+class_mlj(d06060510413614235).
+[sat] [45]
+[clauses constructed] [50000]
+[search time] [11.3109999999999]
+[best clause]
+class_mlj(d06060510481014782).
+[sat] [26]
+[clauses constructed] [50000]
+[search time] [13.759]
+[best clause]
+class_mlj(d06060510384514083).
+[sat] [12]
+[clauses constructed] [50000]
+[search time] [10.7670000000001]
+[best clause]
+class_mlj(d06053013360113675).
+[sat] [110]
+[clauses constructed] [50000]
+[search time] [11.1500000000001]
+[best clause]
+class_mlj(d06053013284513161).
+[sat] [96]
+[clauses constructed] [50000]
+[search time] [11.6030000000001]
+[best clause]
+class_mlj(d06060510273413645).
+[sat] [65]
+[clauses constructed] [50000]
+[search time] [10.441]
+[best clause]
+class_mlj(d06053013220812764).
+[sat] [23]
+[clauses constructed] [50000]
+[search time] [21.456]
+[best clause]
+class_mlj(d06060510434514330).
+[sat] [74]
+[clauses constructed] [50000]
+[search time] [10.6469999999999]
+[best clause]
+class_mlj(d06053013254013020).
+[sat] [21]
+[clauses constructed] [50000]
+[search time] [8.64800000000002]
+[best clause]
+class_mlj(d06053013254713021).
+[sat] [93]
+[clauses constructed] [50000]
+[search time] [12.702]
+[best clause]
+class_mlj(d06060518332901097).
+[sat] [62]
+[clauses constructed] [50000]
+[search time] [11.2910000000001]
+[best clause]
+class_mlj(d06060518381901424).
+[sat] [94]
+[clauses constructed] [50000]
+[search time] [12.3579999999999]
+[best clause]
+class_mlj(d06060510444214386).
+[sat] [14]
+[clauses constructed] [50000]
+[search time] [7.577]
+[best clause]
+class_mlj(d06060510414814236).
+[sat] [89]
+[clauses constructed] [50000]
+[search time] [9.96199999999999]
+[best clause]
+class_mlj(d06060510503615135).
+[sat] [9]
+[clauses constructed] [50000]
+[search time] [11.145]
+[best clause]
+class_mlj(d06053013264113073).
+[sat] [88]
+[clauses constructed] [50000]
+[search time] [9.27599999999995]
+[best clause]
+class_mlj(d06060518304000869).
+[sat] [11]
+[clauses constructed] [50000]
+[search time] [14.2389999999999]
+[best clause]
+class_mlj(d06060518312200919).
+[sat] [90]
+[clauses constructed] [50000]
+[search time] [9.67000000000007]
+[best clause]
+class_mlj(d06053013213312739).
+[sat] [80]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
+[pos-neg] [2]
+[clause label] [[2,0,6,2]]
+[clauses explored] [4259]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [8.35300000000007]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
+[sat] [87]
+[clauses constructed] [50000]
+[search time] [14.0700000000001]
+[best clause]
+class_mlj(d06060518272200636).
+[sat] [44]
+[clauses constructed] [50000]
+[search time] [8.32100000000003]
+[best clause]
+class_mlj(d06053013241912894).
+[sat] [84]
+[clauses constructed] [50000]
+[search time] [9.82900000000006]
+[best clause]
+class_mlj(d06060518445901684).
+[sat] [73]
+[clauses constructed] [50000]
+[search time] [13.133]
+[best clause]
+class_mlj(d06053013205712715).
+[sat] [38]
+[clauses constructed] [50000]
+[search time] [9.7059999999999]
+[best clause]
+class_mlj(d06060518532502449).
+[sat] [54]
+[clauses constructed] [50000]
+[search time] [13.6089999999999]
+[best clause]
+class_mlj(d06060518435901639).
+[sat] [1]
+[clauses constructed] [50000]
+[search time] [10.5160000000001]
+[best clause]
+class_mlj(d06053013364813706).
+[sat] [51]
+[clauses constructed] [50000]
+[search time] [8.476]
+[best clause]
+class_mlj(d06060510495614980).
+[sat] [52]
+[clauses constructed] [50000]
+[search time] [13.923]
+[best clause]
+class_mlj(d06060518373601412).
+[sat] [8]
+[clauses constructed] [50000]
+[search time] [13.3620000000001]
+[best clause]
+class_mlj(d06060518434801636).
+[sat] [104]
+[clauses constructed] [50000]
+[search time] [9.125]
+[best clause]
+class_mlj(d06060518273300645).
+[sat] [82]
+[clauses constructed] [50000]
+[search time] [10.004]
+[best clause]
+class_mlj(d06053013415713955).
+[sat] [56]
+[clauses constructed] [50000]
+[search time] [11.5170000000001]
+[best clause]
+class_mlj(d06060510265113565).
+[sat] [10]
+[clauses constructed] [50000]
+[search time] [10.0359999999999]
+[best clause]
+class_mlj(d06060518443101648).
+[sat] [95]
+[clauses constructed] [50000]
+[search time] [9.65899999999988]
+[best clause]
+class_mlj(d06060518303100860).
+[sat] [55]
+[clauses constructed] [50000]
+[search time] [9.02800000000002]
+[best clause]
+class_mlj(d06053013262013044).
+[sat] [4]
+[clauses constructed] [50000]
+[search time] [9.60599999999999]
+[best clause]
+class_mlj(d06053013204412712).
+[sat] [42]
+[clauses constructed] [50000]
+[search time] [7.70000000000005]
+[best clause]
+class_mlj(d06053013252512990).
+[sat] [92]
+[clauses constructed] [50000]
+[search time] [11.5410000000002]
+[best clause]
+class_mlj(d06060518405601538).
+[sat] [91]
+[clauses constructed] [50000]
+[search time] [5.90000000000009]
+[best clause]
+class_mlj(d06053013401813843).
+[sat] [58]
+[clauses constructed] [50000]
+[search time] [10.3599999999999]
+[best clause]
+class_mlj(d06053013265213079).
+[sat] [83]
+[clauses constructed] [50000]
+[search time] [8.68100000000004]
+[best clause]
+class_mlj(d06060510430514318).
+[sat] [32]
+[clauses constructed] [50000]
+[search time] [11.501]
+[best clause]
+class_mlj(d06053013390613798).
+[sat] [53]
+[clauses constructed] [50000]
+[search time] [9.31000000000017]
+[best clause]
+class_mlj(d06053013365813708).
+[sat] [109]
+[clauses constructed] [50000]
+[search time] [6.11300000000006]
+[best clause]
+class_mlj(d06060518290400735).
+[sat] [2]
+[clauses constructed] [50000]
+[search time] [8.87200000000007]
+[best clause]
+class_mlj(d06060518524102431).
+[sat] [35]
+[clauses constructed] [50000]
+[search time] [6.02400000000011]
+[best clause]
+class_mlj(d06053013292513217).
+[sat] [102]
+[clauses constructed] [50000]
+[search time] [14.7329999999999]
+[best clause]
+class_mlj(d06053013233112832).
+[sat] [5]
+
+[theory]
+
+[Rule 1] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518382901439).
+[pos-neg] [1]
+
+[Rule 2] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013430114052).
+[pos-neg] [1]
+
+[Rule 3] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
+[pos-neg] [1]
+
+[Rule 4] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510270713582).
+[pos-neg] [1]
+
+[Rule 5] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510433614325).
+[pos-neg] [1]
+
+[Rule 6] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518394701461).
+[pos-neg] [1]
+
+[Rule 7] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013211912730).
+[pos-neg] [1]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013405113891).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518421201581).
+[pos-neg] [1]
+
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518541902465).
+[pos-neg] [1]
+
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518310700907).
+[pos-neg] [1]
+
+[Rule 12] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
+[pos-neg] [1]
+
+[Rule 13] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C).
+[pos-neg] [4]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510271813626).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510382314057).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510263313550).
+[pos-neg] [1]
+
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518320700983).
+[pos-neg] [1]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518285500732).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013312413349).
+[pos-neg] [1]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013422814008).
+[pos-neg] [1]
+
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013382113764).
+[pos-neg] [1]
+
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013251312977).
+[pos-neg] [1]
+
+[Rule 23] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 24] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518251800523).
+[pos-neg] [1]
+
+[Rule 25] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013222512769).
+[pos-neg] [1]
+
+[Rule 26] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 27] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[pos-neg] [3]
+
+[Rule 28] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510274713652).
+[pos-neg] [1]
+
+[Rule 29] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510390714095).
+[pos-neg] [1]
+
+[Rule 30] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013245412933).
+[pos-neg] [1]
+
+[Rule 31] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518523102428).
+[pos-neg] [1]
+
+[Rule 32] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518335301163).
+[pos-neg] [1]
+
+[Rule 33] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013383013765).
+[pos-neg] [1]
+
+[Rule 34] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013380913737).
+[pos-neg] [1]
+
+[Rule 35] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 36] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos-neg] [4]
+
+[Rule 37] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013393813816).
+[pos-neg] [1]
+
+[Rule 38] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013393313815).
+[pos-neg] [1]
+
+[Rule 39] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518391301453).
+[pos-neg] [1]
+
+[Rule 40] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013303213292).
+[pos-neg] [1]
+
+[Rule 41] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518482402123).
+[pos-neg] [1]
+
+[Rule 42] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518351001324).
+[pos-neg] [1]
+
+[Rule 43] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013430914058).
+[pos-neg] [1]
+
+[Rule 44] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518383601440).
+[pos-neg] [1]
+
+[Rule 45] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518270300598).
+[pos-neg] [1]
+
+[Rule 46] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
+[pos-neg] [1]
+
+[Rule 47] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013403113871).
+[pos-neg] [1]
+
+[Rule 48] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510502115103).
+[pos-neg] [1]
+
+[Rule 49] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013423414009).
+[pos-neg] [1]
+
+[Rule 50] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518331601080).
+[pos-neg] [1]
+
+[Rule 51] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518472902031).
+[pos-neg] [1]
+
+[Rule 52] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518433401633).
+[pos-neg] [1]
+
+[Rule 53] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510413614235).
+[pos-neg] [1]
+
+[Rule 54] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510481014782).
+[pos-neg] [1]
+
+[Rule 55] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510384514083).
+[pos-neg] [1]
+
+[Rule 56] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013360113675).
+[pos-neg] [1]
+
+[Rule 57] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013284513161).
+[pos-neg] [1]
+
+[Rule 58] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510273413645).
+[pos-neg] [1]
+
+[Rule 59] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013220812764).
+[pos-neg] [1]
+
+[Rule 60] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510434514330).
+[pos-neg] [1]
+
+[Rule 61] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
+[pos-neg] [1]
+
+[Rule 62] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254713021).
+[pos-neg] [1]
+
+[Rule 63] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518332901097).
+[pos-neg] [1]
+
+[Rule 64] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518381901424).
+[pos-neg] [1]
+
+[Rule 65] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510444214386).
+[pos-neg] [1]
+
+[Rule 66] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510414814236).
+[pos-neg] [1]
+
+[Rule 67] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510503615135).
+[pos-neg] [1]
+
+[Rule 68] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013264113073).
+[pos-neg] [1]
+
+[Rule 69] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 70] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518312200919).
+[pos-neg] [1]
+
+[Rule 71] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013213312739).
+[pos-neg] [1]
+
+[Rule 72] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
+   tipo_testo(D).
+[pos-neg] [3]
+
+[Rule 73] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 74] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013241912894).
+[pos-neg] [1]
+
+[Rule 75] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518445901684).
+[pos-neg] [1]
+
+[Rule 76] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013205712715).
+[pos-neg] [1]
+
+[Rule 77] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518532502449).
+[pos-neg] [1]
+
+[Rule 78] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518435901639).
+[pos-neg] [1]
+
+[Rule 79] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013364813706).
+[pos-neg] [1]
+
+[Rule 80] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510495614980).
+[pos-neg] [1]
+
+[Rule 81] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518373601412).
+[pos-neg] [1]
+
+[Rule 82] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518434801636).
+[pos-neg] [1]
+
+[Rule 83] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518273300645).
+[pos-neg] [1]
+
+[Rule 84] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013415713955).
+[pos-neg] [1]
+
+[Rule 85] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510265113565).
+[pos-neg] [1]
+
+[Rule 86] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518443101648).
+[pos-neg] [1]
+
+[Rule 87] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 88] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013262013044).
+[pos-neg] [1]
+
+[Rule 89] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013204412712).
+[pos-neg] [1]
+
+[Rule 90] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013252512990).
+[pos-neg] [1]
+
+[Rule 91] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518405601538).
+[pos-neg] [1]
+
+[Rule 92] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013401813843).
+[pos-neg] [1]
+
+[Rule 93] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013265213079).
+[pos-neg] [1]
+
+[Rule 94] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510430514318).
+[pos-neg] [1]
+
+[Rule 95] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013390613798).
+[pos-neg] [1]
+
+[Rule 96] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013365813708).
+[pos-neg] [1]
+
+[Rule 97] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518290400735).
+[pos-neg] [1]
+
+[Rule 98] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518524102431).
+[pos-neg] [1]
+
+[Rule 99] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013292513217).
+[pos-neg] [1]
+
+[Rule 100] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013233112832).
+[pos-neg] [1]
+
+[Rule 101] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 110         0         110 
+Pred 
+     -  0         208        208 
+
+       110        208        318 
+
+Accuracy = 1.0
+[Training set summary] [[110,0,0,208]]
+[Test set performance]
+          Actual
+       +        - 
+     + 2        1        3 
+Pred 
+     - 10        22        32 
+
+       12        23        35 
+
+Accuracy = 0.685714285714286
+[Test set summary] [[2,1,10,22]]
+[time taken] [1145.757]
+

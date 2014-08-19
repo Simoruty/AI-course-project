@@ -1,0 +1,154 @@
+mar 19 ago 2014, 09.30.57, CEST
+lusio-laptop
+[settings]
+        cache_clauselength=5
+        caching=true
+        check_useless=true
+        clauselength=8
+        clauses=8
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        lazy_on_contradiction=true
+        lazy_on_cost=false
+        minpos=2
+        nodes=50000
+        noise=0
+        print=4
+        prior=0.283018867924528
+        proof_strategy=restricted_sld
+        prune_defs=false
+        record=true
+        recordfile=./jmlr_f2.log
+        refine=false
+        refineop=false
+        rulefile=./jmlr_f2.rul
+        samplesize=1
+        search=bf
+        splitvars=false
+        stage=command
+        test_neg=./jmlr_f2_test.n
+        test_pos=./jmlr_f2_test.f
+        thread=8
+        train_neg=jmlr_f2.n
+        train_pos=jmlr_f2.f
+        verbosity=0
+        version=2.7.5
+[sat] [18]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.7058824).
+[pos-neg] [12]
+[clause label] [[12,0,4,12]]
+[clauses explored] [77]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.6405229).
+[pos-neg] [14]
+[clause label] [[14,0,4,14]]
+[clauses explored] [138]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.056818184).
+[pos-neg] [51]
+[clause label] [[51,0,4,51]]
+[clauses explored] [190]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.92171717).
+[pos-neg] [77]
+[clause label] [[77,0,4,77]]
+[clauses explored] [220]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), on_top(C,D), 
+   altezza_rettangolo(D,0.01010101).
+[pos-neg] [79]
+[clause label] [[79,0,6,79]]
+[clauses explored] [3782]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[pos-neg] [87]
+[clause label] [[87,0,6,87]]
+[clauses explored] [3824]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [25.599]
+[best clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[sat] [21]
+[-------------------------------------]
+[found clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[pos-neg] [2]
+[clause label] [[2,0,4,2]]
+[clauses explored] [289]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [11.196]
+[best clause]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[sat] [74]
+
+[theory]
+
+[Rule 1] [Pos cover = 87 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.498366), frame(B,D), 
+   allineato_al_centro_orizzontale(D,E).
+[pos-neg] [87]
+
+[Rule 2] [Pos cover = 2 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.70261437).
+[pos-neg] [2]
+
+[Rule 3] [Pos cover = 1 Neg cover = 0]
+class_jmlr(getoor02a).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 90         0         90 
+Pred 
+     -  0         228        228 
+
+       90        228        318 
+
+Accuracy = 1.0
+[Training set summary] [[90,0,0,228]]
+[Test set performance]
+          Actual
+       +        - 
+     + 8        0        8 
+Pred 
+     - 2        25        27 
+
+       10        25        35 
+
+Accuracy = 0.942857142857143
+[Test set summary] [[8,0,2,25]]
+[time taken] [36.953]
+
