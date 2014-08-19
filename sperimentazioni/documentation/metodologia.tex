@@ -1,1 +1,89 @@
 \section{Metodologia Sperimentale}
+
+
+\subsection{10-Fold Validation}
+
+\subsubsection{Elsevier}
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{l@{\qquad}*{10}{r}}
+		\toprule
+\addlinespace
+			Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
+\addlinespace
+\midrule
+\addlinespace
+\#Positive  & 6  & 6  &  6 &  6 &  6 &  6 &  6 &  6 &  6 &  7 \\
+\#Negative  & 29 & 29 & 29 & 29 & 29 & 29 & 29 & 30 & 30 & 29 \\
+\#Examples & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
+\addlinespace
+\bottomrule
+		\end{tabular}
+	\label{tab:Elsevier}
+\end{table}
+
+
+\subsubsection{JMLR}
+
+\begin{table}
+\centering
+\begin{tabular}{l@{\qquad}*{10}{r}}
+		\toprule
+\addlinespace
+Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
+\addlinespace
+\midrule
+\addlinespace
+\#Positive  & 10  & 10  &  10 &  10 &  10 &  10 &  10 &  10 &  10 &  10 \\
+\#Negative  & 25 & 25 & 25 & 25 & 25 & 25 & 25 & 26 & 26 & 26 \\
+\#Examples  & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+	\label{tab:JMLR}
+\end{table}
+
+
+
+\subsubsection{MLJ}
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{l@{\qquad}*{10}{r}}
+		\toprule
+\addlinespace
+			Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
+\addlinespace
+\midrule
+\addlinespace
+\#Positive  & 12  & 12  &  12 &  12 &  12 &  12 &  12 &  12 & 13 & 13 \\
+\#Negative  & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 24 & 23 & 23 \\
+\#Examples  & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
+\addlinespace
+\bottomrule
+		\end{tabular}
+	\label{tab:MLJ}
+\end{table}
+
+
+
+\subsubsection{SVLN}
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{l@{\qquad}*{10}{r}}
+		\toprule
+\addlinespace
+			Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
+\addlinespace
+\midrule
+\addlinespace
+\#Positive & 7  & 7  &  7 &  7 &  7 &  7 &  7 &  7 &  7 &  7 \\
+\#Negative & 28 & 28 & 28 & 28 & 28 & 28 & 28 & 29 & 29 & 29 \\
+\#Examples & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
+\addlinespace
+\bottomrule
+		\end{tabular}
+	\label{tab:SVLN}
+\end{table}
