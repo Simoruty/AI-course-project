@@ -25,47 +25,31 @@ PROGOL per computare la generalizzazione minimale dell'esempio seed considera si
 \nocite{wiki:progol}
 
 Tra le tante implementazioni realizzate per progol, quella utilizzata nella sperimentazione è P-Progol. Realizzata nel 1993 come parte di un progetto di Ashwin Srinivasan e Rui Camacho alla Oxford University, P-progol ha come obiettivo quello di realizzare il sistema descritto sopra utilizzando come linguaggio di programmazione il prolog e come interprete yap.
-
-The basic P-Progol algorithm
-During routine use, P-Progol follows a very simple procedure that can be described in 4 steps:
-Select example. Select an example to be generalised. If none exist, stop, otherwise proceed to the next step.
-Build most-specific-clause. Construct the most specific clause that entails the example selected, and is within language restrictions provided. This is usually a definite clause with many literals, and is called the "bottom clause." This step is sometimes called the "saturation" step.
-Search. Find a clause more general than the bottom clause. This is done by searching for some subset of the literals in the bottom clause that has the "best" score. Two points should be noted. First, confining the search to subsets of the bottom clause does not produce all the clauses more general than it, but is good enough for this thumbnail sketch. Second, the exact nature of the score of a clause is not really important here. This step is sometimes called the "reduction" step.
-Remove redundant. The clause with the best score is added to the current theory, and all examples made redundant are removed. This step is sometimes called the "cover removal" step. Note here that the best clause may make clauses other than the examples redundant. Again, this is ignored here. Return to Step 1.
-P-Progol is an implementation based around these 4 steps. A more advanced use of P-Progol (see section Advanced use of P-Progol) allows alteration to each of these steps.
+L'algoritmo alla base di P-progol può essere descritto in 4 fasi:
+\begin{enumerate}
+	\item \textbf{Selezione di un esempio}: Se esiste, selezionare un esempio da generalizzare.
+	\item \textbf{Costruire la clausola più specifica}: costruire la clausola più specifica che implementi l'esempio selezionato e che contenga tutte le restrizioni linguistiche specificate. Questo è generalmente una clausola definita con molti letterali chiamata "bottom clause". Questa fase vie spesso chiamata la fase di \emph{saturazione}.
+	\item \textbf{Ricerca}: Trovare la clausola più generale tra le "bottom clause". Questo viene fatto ricercando per ogni subset di letterali nella clausola più specifica quello che ha il "miglior" punteggio.
+	\item \textbf{Rimuovere ridondanze}: La clausola con il miglior punteggio viene aggiunta alla teoria e verranno rimossi tutti gli esempi ridondanti.
+\end{enumerate}
 
 \subsection{ALEPH}
-Aleph, acronimo di "\emph{\textbf{A} \textbf{L}earning \textbf{E}ngine for \textbf{P}roposing \textbf{H}ypotheses}", è un sistema di apprendimento ILP (Inductive Logic Programming), il cui scopo principale è quello di  definire il concetto di implicazione inversa.
+Aleph, acronimo di "\emph{\textbf{A} \textbf{L}earning \textbf{E}ngine for \textbf{P}roposing \textbf{H}ypotheses}", è un sistema di apprendimento ILP (Inductive Logic Programming), successore di PROGOL, il cui scopo principale è quello di definire il concetto di implicazione inversa.
 A differenza di FOIL, questo sistema si basa su una strategia ibrida atta sia generalizzare che specializzare le clausole di Horn. 
 
-L'approccio utilizzato per realizzare l'inverse entailment è lo stesso definito per PROGOL.
+L'approccio utilizzato per realizzare l'implicazione inversa (inverse entailment) è lo stesso definito per PROGOL.
 
-Si mostra di seguito il funzionamento dell’algoritmo base di Aleph:
-Per ogni esempio da generalizzare;
-Scegli un esempio;
-Costruisci la clausola più specifica (bottom clause);
-Trova una clausola più generale della bottom clause costruendo
-sottoinsiemi di letterali della bottom clause che hanno il
-miglior punteggio (Punteggio calcolato da Aleph);
-Aggiungi la clausola con il miglior punteggio alla teoria e
-rimuovi gli esempi ridondanti;
-Ripeti;
+Per quanto riguarda l'algoritmo di funzionamento di Aleph, risulta essere molto simile a quello descritto e usato da progol infatti, l'algoritmo prevede i seguenti passi :
 
-ALEPH inoltre possiede una gestione del Test Set leggermente diversa rispetto a FOIL. Infatti una volta avviato il sistema e caricata la background knowledge ALEPH costruisce la sua teoria sugli esempi di training e successivamente gli si forniscono i documenti di test per valutare i risultati dell’apprendimento. Su FOIL invece questo non è possibile, il sistema viene avviato dandogli in input sia il test set che il training set e fornisce direttamente i risultati. Maggiori dettagli sono approfonditi nel capitolo successivo relativo alla fase di riscrittura dei dataset e nel capitolo relativo alla conduzione dell’esperimento vero e proprio.
-
-During routine use, Aleph follows a very simple procedure that can be described in 4 steps:
-
-Select example. Select an example to be generalised. If none exist, stop, otherwise proceed to the next step.
-Build most-specific-clause. Construct the most specific clause that entails the example selected, and is within language restrictions provided. This is usually a definite clause with many literals, and is called the "bottom clause." This step is sometimes called the "saturation" step. Details of constructing the bottom clause can be found in Stephen Muggleton's 1995 paper: Inverse Entailment and Progol, New Gen. Comput., 13:245-286, available at 
-
-Search. Find a clause more general than the bottom clause. This is done by searching for some subset of the literals in the bottom clause that has the "best" score. Two points should be noted. First, confining the search to subsets of the bottom clause does not produce all the clauses more general than it, but is good enough for this thumbnail sketch. Second, the exact nature of the score of a clause is not really important here. This step is sometimes called the "reduction" step.
-Remove redundant. The clause with the best score is added to the current theory, and all examples made redundant are removed. This step is sometimes called the "cover removal" step. Note here that the best clause may make clauses other than the examples redundant. Again, this is ignored here. Return to Step 1.
-A more advanced use of Aleph (see section Advanced use of Aleph) allows alteration to each of these steps. At the core of Aleph is the "reduction" step, presented above as a simple "subset-selection" algorithm. In fact, within Aleph, this is implemented by a (restricted) branch-and-bound algorithm which allows an intelligent enumeration of acceptable clauses under a range of different conditions. More on this can be found in section On how the single-clause search is implemented.
-
-
-
-Aleph requires three files to construct theories. They are “filestem.b, filestem.f, and filestem.n,” which stand for background knowledge file, positive example file, and negative example file, respectively. Aleph receives these three files in order to construct a theory that is consistent with positive examples and inconsistent with negative ones.
-The background knowledge inputted into Aleph is generated by means of Case-Based Reasoning (CBR) with user interaction if necessary. Sophisticated background knowledge should be provided to efficiently process natural language documents since they are rich in representation. The acquisition of background knowledge is one of the problems to be overcome. On the other hand, the acquisition and compilation of background knowledge have been reported to cause a bottleneck in knowledge engineering because they are very time-consuming tasks. The automatic generation of background knowledge provides a solution to the problem.
+\begin{algorithm}
+	\begin{algorithmic}[1]
+		\FORALL {esempi da generalizzare}
+		\STATE dato un esempio costruire la clausola più specifica (bottom clause)
+		\STATE trovare una clausola più generale tra le bottom clause costruendo i sottoinsiemi di letterali della bottom clause che hanno il miglior punteggio (punteggio definito dall'algoritmo)
+		\STATE aggiungere la miglior clausola alla teoria e rimuovere gli esempi ridondanti 
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm}
 
 \subsection{FOIL}
 \nocite{Quinlan:1993:FMR:645323.649599}
@@ -74,7 +58,7 @@ FOIL si basa sulla tecnica del \textit{separate-and-conquer}; tecnica basata ess
 La metrica utilizzata per definire la regola migliore in termini di copertura sarà una metrica basata sulla teoria dell'informazione come ad esempio il valore entropico che la regola avrà sul training.
 Inoltre, FOIL si basa anche sul concetto di CWA, nel senso che, qualora non dovesse avere a disposizione degli esempi negativi su cui andare ad indurre le regole da creare, assumerà che qualunque altro caso o esempio al di fuori di quelli presenti nel training sono da considerarsi negativi (ipotesi del mondo chiuso).
 \begin{algorithm}
-	\begin{algorithmic}
+	\begin{algorithmic}[1]
 	\REQUIRE Lista di esempi
 	\FORALL {esempi $\in$ Training Set}
 	\STATE Pos $\Rightarrow$ contiene tutti gli esempi positivi
