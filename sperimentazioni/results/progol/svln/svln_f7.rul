@@ -1,0 +1,46 @@
+
+[theory]
+
+[Rule 1] [Pos cover = 45 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.4852941), on_top(C,D), 
+   tipo_misto(D), larghezza_pagina(B,612.0).
+[pos-neg] [45]
+
+[Rule 2] [Pos cover = 21 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.375817), tipo_misto(C).
+[pos-neg] [21]
+
+[Rule 3] [Pos cover = 9 Neg cover = 0]
+class_svln(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.135101), frame(B,D), 
+   ascissa_rettangolo(D,0.48366013).
+[pos-neg] [9]
+
+[Rule 4] [Pos cover = 1 Neg cover = 0]
+class_svln(d37291002).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 63         0         63 
+Pred 
+     -  0         254        254 
+
+       63        254        317 
+
+Accuracy = 1.0
+[Training set summary] [[63,0,0,254]]
+[Test set performance]
+          Actual
+       +        - 
+     + 4        1        5 
+Pred 
+     - 3        28        31 
+
+       7        29        36 
+
+Accuracy = 0.888888888888889
+[Test set summary] [[4,1,3,28]]

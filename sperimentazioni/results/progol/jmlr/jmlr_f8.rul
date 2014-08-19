@@ -1,0 +1,40 @@
+
+[theory]
+
+[Rule 1] [Pos cover = 87 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), frame(B,E), 
+   ascissa_rettangolo(E,0.498366).
+[pos-neg] [87]
+
+[Rule 2] [Pos cover = 2 Neg cover = 0]
+class_jmlr(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.27450982).
+[pos-neg] [2]
+
+[Rule 3] [Pos cover = 1 Neg cover = 0]
+class_jmlr(marx02a).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 90         0         90 
+Pred 
+     -  0         227        227 
+
+       90        227        317 
+
+Accuracy = 1.0
+[Training set summary] [[90,0,0,227]]
+[Test set performance]
+          Actual
+       +        - 
+     + 8        0        8 
+Pred 
+     - 2        26        28 
+
+       10        26        36 
+
+Accuracy = 0.944444444444444
+[Test set summary] [[8,0,2,26]]

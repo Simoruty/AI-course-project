@@ -3,12 +3,11 @@
 
 I tre sistemi precedentemente descritti verranno testati su quattro dataset.
 
-\subsection{Dominio}
+\subsection{Dominio e provenienza}
 I dataset sono stati generati per task inerenti alla Document Image Understanding.
 Contengono la descrizione, sotto forma di clausole di Horn, di componenti di documenti testuali opportunamente analizzate.
 
-\subsection{Provenienza}
-I dataset contengono le informazioni su paper scientifici) provenienti da 4 journal:
+I dataset contengono le informazioni su paper scientifici provenienti da 4 journal:
 \begin{itemize}
 \item Elsevier journals (Elsevier)
 \item Springer-Verlag Lecture Notes (SVLN)
@@ -19,9 +18,9 @@ I dataset contengono le informazioni su paper scientifici) provenienti da 4 jour
 
 \subsection{Descrizione}
 I \emph{documenti} sono tutti composti da una sola \emph{pagina}. Ogni \emph{pagina} contiene un numero variabile di \emph{frame}, ossia rettangoli omogenei all'interno del paper (e.g. titolo, abstract, paragrafo, logo).
-Tutte le informazioni contenute nei dataset riguardano una di queste tre entità (documento,pagina,frame) e le relazioni esistenti fra esse.
+Tutte le informazioni contenute nei dataset riguardano una di queste tre entità (documento, pagina, frame) e le relazioni esistenti fra esse.
 
-I predicati utilizzati sono i seguenti:
+I predicati utilizzati sono riportati in tabella \ref{tab:predicati}
 \begin{table}[htbp]
 \centering
 \label{tab:predicati}
@@ -34,7 +33,7 @@ Nome proprietà & Arg 1 & Arg 2 & Descrizione \\
 \addlinespace
 numero\_pagine & Documento & Integer & Numero di pagine del Documento \\ 
 pagina\_1 & Documento & Pagina & Prima pagina del documento \\ 
-ultima\_pagina & Pagina &  & Ultima pagina del documento\\
+ultima\_pagina & Pagina & - & Ultima pagina del documento\\
 frame & Pagina & Frame & Frame all'interno della pagina\\
 allineato\_al\_centro\_orizzontale & Frame & Frame & I frame sono allineati orizzontalmente\\
 allineato\_al\_centro\_verticale & Frame & Frame & I frame sono allineati verticalmente\\
@@ -46,40 +45,69 @@ ascissa\_rettangolo & Frame & Float & Posizione orizzontale del frame\\
 ordinata\_rettangolo & Frame & Float & Posizione verticale del frame\\
 on\_top & Frame & Frame & Primo frame sopra al secondo\\
 to\_right & Frame & Frame & Primo Frame alla destra del secondo\\
-tipo\_immagine & Frame &  & Il frame contiene un'immagine\\
-tipo\_linea\_obbliqua & Frame &  & Il frame contiene una linea obliqua\\
-tipo\_linea\_orizzontale & Frame &  & Il frame contiene una linea orizzontale\\
-tipo\_misto & Frame &  & Il frame contiene componenti varie\\
-tipo\_testo & Frame &  & Il frame contiene solo testo\\
-tipo\_vuoto & Frame &  & Il frame è vuoto\\
+tipo\_immagine & Frame & - & Il frame contiene un'immagine\\
+tipo\_linea\_obbliqua & Frame & - & Il frame contiene una linea obliqua\\
+tipo\_linea\_orizzontale & Frame & - & Il frame contiene una linea orizzontale\\
+tipo\_misto & Frame & - & Il frame contiene componenti varie\\
+tipo\_testo & Frame & - & Il frame contiene solo testo\\
+tipo\_vuoto & Frame & - & Il frame è vuoto\\
 \addlinespace
 \bottomrule 
 \end{tabular}
 \end{table}
 
-Solo nel caso del dataset \emph{MLJ}, abbiamo avuto a disposizione un file contenente la discretizzazione delle 4 componenti numeriche delle seguenti proprietà: 
+Solo nel caso del dataset \emph{MLJ}, abbiamo avuto a disposizione un file contenente gli intervalli di discretizzazione delle 4 componenti numeriche delle seguenti proprietà
 \begin{itemize}
 \item altezza\_rettangolo
 \item larghezza\_rettangolo
 \item ascissa\_rettangolo
 \item ordinata\_rettangolo
-\end{itemize}.
+\end{itemize}
+.
 
-In questo caso abbiamo eliminato le suddette proprietà e aggiunto nuove, secondo la seguente tabella:
+Solo per \emph{MLJ}, dunque, abbiamo potuto effettuare due sperimentazioni (con valori discretizzati e non). Per farlo, abbiamo eliminato le 4 proprietà numeriche e aggiunto 24 nuove proprietà.
+
+\verb+altezza_rettangolo+ è stata divisa in $11$ bin, \verb+larghezza_rettangolo+ in $7$ bin, \verb+ascissa_rettangolo+ e \verb+ordinata_rettangolo+ in $3$ bin.
+
+I nomi delle proprietà aggiunte sono riportate in tabella \ref{tab:discretizzazione}.
 
 \begin{table}[htbp]
 \centering
-\label{tab:predicati}
-\small\begin{tabular}{lccl}
+\label{tab:discretizzazione}
+\small\begin{tabular}{lc}
 \toprule
 \addlinespace
-Nome proprietà & Arg 1 & Arg 2 & Descrizione \\
+Nome proprietà & Argomento \\
 \addlinespace
 \midrule
 \addlinespace
-height\_smallest & Frame & • \\ 
-height\_very\_very\_small & Frame & • \\ 
-height\_very\_small & Frame & • \\ 
+height\_smallest & Frame \\ 
+height\_very\_very\_small & Frame \\ 
+height\_very\_small & Frame \\ 
+height\_small & Frame \\ 
+height\_medium\_small & Frame \\ 
+height\_medium & Frame \\ 
+height\_medium\_large & Frame \\ 
+height\_large & Frame \\ 
+height\_very\_large & Frame \\ 
+height\_very\_very\_large & Frame \\ 
+height\_largest & Frame \\ 
+\midrule
+width\_very\_small & Frame \\ 
+width\_small & Frame \\ 
+width\_medium\_small & Frame \\ 
+width\_medium & Frame \\ 
+width\_medium\_large & Frame \\ 
+width\_large & Frame \\ 
+width\_very\_large & Frame \\ 
+\midrule
+pos\_left & Frame \\ 
+pos\_center & Frame \\ 
+pos\_right & Frame \\
+\midrule
+pos\_upper & Frame \\ 
+pos\_middle & Frame \\ 
+pos\_lower & Frame \\  
 \addlinespace
 \bottomrule 
 \end{tabular}
@@ -87,24 +115,12 @@ height\_very\_small & Frame & • \\
 
 
  
+Ci sono gli stessi $353$ documenti in tutti i dataset. Ognuno di questi risulta essere esempio positivo in solo uno dei quattro dataset e, in maniera esclusiva, negativo per gli altri tre.
 
- dei documenti testuali e le loro componenti.
 I quattro dataset rappresentano una suddivisione in quattro classificazioni binarie di una classificazione multiclasse.
 
-\begin{table}[htbp]
-	\centering
-	\begin{tabular}{cccc}
-		\multirow{2}{*}{Elsevier} & + 61 & \multirow{2}{*}{Tot: 353}& \multirow{2}{*}{\%+ 17\%} \\
-		 & -292 &  & \\
-		 \multirow{2}{*}{JMLR} & +100 & \multirow{2}{*}{Tot: 353} & \multirow{2}{*}{\%+ 28\%} \\
-		 & -253 & & \\
- 		 \multirow{2}{*}{MLJ} & +93 & \multirow{2}{*}{Tot: 273} & \multirow{2}{*}{\%+ 35\%} \\
- 		 & -180 & & \\
- 		 \multirow{2}{*}{SVLN} & +70 & \multirow{2}{*}{Tot: 353} & \multirow{2}{*}{\%+ 20\%} \\
- 		 & -283 & & \\
-	\end{tabular}%
-	\label{tab:}
-\end{table}
+
+\subsection{Numeri}
 
 \begin{table}[htbp]
 	\label{tab:datasets}
@@ -117,69 +133,11 @@ Dataset & \#Positive $(\%)$ & \#Negative $(\%)$ & \#Examples \\
 \addlinespace
 \midrule
 \addlinespace
-Elsevier & $61$~~($17\%$) & $292~~(83\%)$ & $353$ \\
+Elsevier & $61~~(17\%$) & $292~~(83\%)$ & $353$ \\
 JMLR     & $100~~(28\%)$ & $253~~(72\%)$ & $353$ \\
 MLJ      & $122~~(35\%)$ & $231~~(65\%)$ & $353$ \\
 SVLN     & $70~~(20\%)$ & $283~~(80\%)$ & $353$ \\
 \addlinespace
 \bottomrule
 \end{tabular}
-\end{table}
-
-
-
-\subsection{ELSEVIER}
-\begin{table}[htbp]
-	\centering
-		\begin{tabular}{l@{\qquad}*{10}{r}}
-		\toprule
-\addlinespace
-			Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
-\addlinespace
-\midrule
-\addlinespace
-\#Positive  & 6  & 6  &  6 &  6 &  6 &  6 &  6 &  6 &  6 &  7 \\
-\#Negative  & 29 & 29 & 29 & 29 & 29 & 29 & 29 & 30 & 30 & 29 \\
-\#Examples & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
-\addlinespace
-\bottomrule
-		\end{tabular}
-	\label{tab:Elsevier}
-\end{table}
-
-
-\subsection{JMLR}
-\begin{table}[htbp]
-	\centering
-		\begin{tabular}{c | ccccccccccc}
-			FOLD &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\ \hline
-			Doc  & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
-			Pos  & 10  & 10  &  10 &  10 &  10 &  10 &  10 &  10 &  10 &  10 \\
-			Neg  & 25 & 25 & 25 & 25 & 25 & 25 & 25 & 26 & 26 & 26 \\
-		\end{tabular}%
-	\label{tab:JMLR}
-\end{table}
-\subsection{MLJ}
-\begin{table}[htbp]
-	\centering
-		\begin{tabular}{c | cccccccccc}
-			FOLD &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\ \hline
-			Doc  & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
-			Pos  & 12  & 12  &  12 &  12 &  12 &  12 &  12 &  12 & 13 & 13 \\
-			Neg  & 23 & 23 & 23 & 23 & 23 & 23 & 23 & 24 & 23 & 23 \\
-		\end{tabular}
-	\label{tab:MLJ}
-\end{table}
-
-
-\subsection{SVLN}
-\begin{table}[htbp]
-	\centering
-		\begin{tabular}{c|cccccccccc}
-			FOLD & 0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\\hline
-			Doc  & 35 & 35 & 35 & 35 & 35 & 35 & 35 & 36 & 36 & 36 \\
-			Pos  & 7  & 7  &  7 &  7 &  7 &  7 &  7 &  7 &  7 &  7 \\
-			Neg  & 28 & 28 & 28 & 28 & 28 & 28 & 28 & 29 & 29 & 29 \\
-		\end{tabular}%
-	\label{tab:SVLN}
 \end{table}
