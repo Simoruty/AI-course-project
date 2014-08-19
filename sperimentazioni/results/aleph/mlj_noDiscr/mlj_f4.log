@@ -1,0 +1,321 @@
+
+[settings]
+        abduce=false
+        cache_clauselength=5
+        caching=true
+        check_good=false
+        check_redundant=false
+        check_useless=true
+        clauselength=8
+        clauses=8
+        condition=false
+        confidence=0.95
+        construct_bottom=saturation
+        depth=15
+        evalfn=coverage
+        explore=false
+        good=false
+        greedy=true
+        gsamplesize=100
+        i=10
+        interactive=false
+        language=(+inf)
+        lazy_negs=false
+        lazy_on_contradiction=false
+        lazy_on_cost=false
+        lookahead=1
+        max_abducibles=2
+        max_features=(+inf)
+        minacc=0.0
+        mingain=0.05
+        minpos=2
+        minposfrac=0
+        minscore=(-inf)
+        moves=5
+        newvars=(+inf)
+        nodes=50000
+        noise=0
+        nreduce_bottom=false
+        openlist=(+inf)
+        optimise_clauses=false
+        permute_bottom=false
+        portray_examples=false
+        portray_hypothesis=false
+        portray_literals=false
+        portray_search=false
+        print=4
+        prior=[0.345911949685535-pos,0.654088050314465-neg]
+        proof_strategy=restricted_sld
+        prooftime=(+inf)
+        prune_tree=false
+        record=true
+        recordfile=./mlj_f4.log
+        recordfile_stream=$stream(5)
+        refine=false
+        refineop=false
+        resample=1
+        rls_type=gsat
+        rulefile=./mlj_f4.rul
+        samplesize=0
+        search=bf
+        searchstrat=bf
+        searchtime=(+inf)
+        skolemvars=10000
+        splitvars=false
+        stage=command
+        store_bottom=false
+        subsample=false
+        subsamplesize=(+inf)
+        test_neg=./mlj_f4_test.n
+        test_pos=./mlj_f4_test.f
+        thread=8
+        threads=1
+        train_neg=mlj_f4.n
+        train_pos=mlj_f4.f
+        tries=10
+        typeoverlap=0.95
+        uniform_sample=false
+        updateback=true
+        verbosity=0
+        version=5
+[sat] [1]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.58986926).
+[pos cover = 7 neg cover = 0] [pos-neg] [7]
+[clause label] [[7,0,4,7]]
+[clauses constructed] [36]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[pos cover = 32 neg cover = 0] [pos-neg] [32]
+[clause label] [[32,0,5,32]]
+[clauses constructed] [214]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [34.123]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+[positive examples left] [78]
+[estimated time to finish (secs)] [83.1748125]
+[sat] [2]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.29572445).
+[pos cover = 9 neg cover = 0] [pos-neg] [9]
+[clause label] [[9,0,4,9]]
+[clauses constructed] [79]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[pos cover = 47 neg cover = 0] [pos-neg] [47]
+[clause label] [[47,0,4,47]]
+[clauses constructed] [110]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [18.801]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[positive examples left] [31]
+[estimated time to finish (secs)] [20.7676455696203]
+[sat] [4]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.5277778).
+[pos cover = 9 neg cover = 0] [pos-neg] [9]
+[clause label] [[9,0,4,9]]
+[clauses constructed] [39]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[pos cover = 11 neg cover = 0] [pos-neg] [11]
+[clause label] [[11,0,4,11]]
+[clauses constructed] [40]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [18.058]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+[positive examples left] [20]
+[estimated time to finish (secs)] [15.7737777777778]
+[sat] [10]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,3,2]]
+[clauses constructed] [11]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+[pos cover = 3 neg cover = 0] [pos-neg] [3]
+[clause label] [[3,0,6,3]]
+[clauses constructed] [490]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [87.827]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+[positive examples left] [17]
+[estimated time to finish (secs)] [29.0296021505376]
+[sat] [14]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.008169935).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,4,2]]
+[clauses constructed] [79]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[pos cover = 3 neg cover = 0] [pos-neg] [3]
+[clause label] [[3,0,5,3]]
+[clauses constructed] [193]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [15.168]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[positive examples left] [14]
+[estimated time to finish (secs)] [25.3716458333333]
+[sat] [16]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[pos cover = 6 neg cover = 0] [pos-neg] [6]
+[clause label] [[6,0,4,6]]
+[clauses constructed] [53]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [28.304]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+[positive examples left] [8]
+[estimated time to finish (secs)] [15.8651764705882]
+[sat] [27]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,3,4]]
+[clauses constructed] [5]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [13.481]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[positive examples left] [4]
+[estimated time to finish (secs)] [8.14196226415094]
+[sat] [35]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,5,2]]
+[clauses constructed] [157]
+[-------------------------------------]
+[clauses constructed] [50000]
+[search time] [16.491]
+[best clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[positive examples left] [2]
+[estimated time to finish (secs)] [4.30098148148148]
+[sat] [52]
+[clauses constructed] [50000]
+[search time] [15.904]
+[best clause]
+class_mlj(d06060518373601412).
+[positive examples left] [1]
+[estimated time to finish (secs)] [2.27666972477064]
+[sat] [68]
+[positive examples left] [0]
+[estimated time to finish (secs)] [0.0]
+
+[theory]
+
+[Rule 1] [Pos cover = 32 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+
+[Rule 2] [Pos cover = 47 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+
+[Rule 3] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+
+[Rule 4] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+
+[Rule 5] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+
+[Rule 6] [Pos cover = 49 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+
+[Rule 7] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+
+[Rule 8] [Pos cover = 15 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+
+[Training set performance]
+           Actual
+        +          -  
+     + 108         0         108 
+Pred 
+     -  2         208        210 
+
+       110        208        318 
+
+Accuracy = 0.993710691823899
+[Training set summary] [[108,0,2,208]]
+[Test set performance]
+          Actual
+       +        - 
+     + 11        0        11 
+Pred 
+     - 1        23        24 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[11,0,1,23]]
+[time taken] [249.788]
+
+[total clauses constructed] [450000]
