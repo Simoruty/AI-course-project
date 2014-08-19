@@ -1,6 +1,5 @@
 \section{Dataset utilizzati}
 
-
 I tre sistemi precedentemente descritti verranno testati su quattro dataset.
 
 \subsection{Dominio e provenienza}
@@ -15,30 +14,30 @@ I dataset contengono le informazioni su paper scientifici provenienti da 4 journ
 \item Machine Learning Journal (MLJ).
 \end{itemize}
 
-
 \subsection{Descrizione}
-I \emph{documenti} sono tutti composti da una sola \emph{pagina}. Ogni \emph{pagina} contiene un numero variabile di \emph{frame}, ossia rettangoli omogenei all'interno del paper (e.g. titolo, abstract, paragrafo, logo).
+I \emph{documenti} sono tutti composti da una sola \emph{pagina}. Ogni \emph{pagina} contiene un numero variabile di \emph{frame}, ossia rettangoli all'interno del paper (e.g. titolo, abstract, paragrafo, logo).
+
 Tutte le informazioni contenute nei dataset riguardano una di queste tre entità (documento, pagina, frame) e le relazioni esistenti fra esse.
 
 I predicati utilizzati sono riportati in tabella \ref{tab:predicati}
 \begin{table}[htbp]
 \centering
 \label{tab:predicati}
-\small\begin{tabular}{lccl}
+\footnotesize\begin{tabular}{lccl}
 \toprule
 \addlinespace
-Nome proprietà & Arg 1 & Arg 2 & Descrizione \\
+Nome predicati & Arg 1 & Arg 2 & Descrizione \\
 \addlinespace
 \midrule
 \addlinespace
-numero\_pagine & Documento & Integer & Numero di pagine del Documento \\ 
-pagina\_1 & Documento & Pagina & Prima pagina del documento \\ 
-ultima\_pagina & Pagina & - & Ultima pagina del documento\\
-frame & Pagina & Frame & Frame all'interno della pagina\\
-allineato\_al\_centro\_orizzontale & Frame & Frame & I frame sono allineati orizzontalmente\\
-allineato\_al\_centro\_verticale & Frame & Frame & I frame sono allineati verticalmente\\
-altezza\_pagina & Pagina & Float & Altezza della pagina\\
-larghezza\_pagina & Pagina & Float & Larghezza della pagina\\
+numero\_pagine & Doc & Int & Numero di pagine del Documento \\ 
+pagina\_1 & Doc & Page & Prima pagina del documento \\ 
+ultima\_pagina & Page & - & Ultima pagina del documento\\
+frame & Page & Frame & Frame all'interno della pagina\\
+allineato\_al\_centro\_orizzontale & Frame & Frame & I frame sono allineati orizz.\\
+allineato\_al\_centro\_verticale & Frame & Frame & I frame sono allineati vert.\\
+altezza\_pagina & Page & Float & Altezza della pagina\\
+larghezza\_pagina & Page & Float & Larghezza della pagina\\
 altezza\_rettangolo & Frame & Float & Altezza delf rame\\
 larghezza\_rettangolo & Frame & Float & Larghezza del Frame\\
 ascissa\_rettangolo & Frame & Float & Posizione orizzontale del frame\\
@@ -47,7 +46,7 @@ on\_top & Frame & Frame & Primo frame sopra al secondo\\
 to\_right & Frame & Frame & Primo Frame alla destra del secondo\\
 tipo\_immagine & Frame & - & Il frame contiene un'immagine\\
 tipo\_linea\_obbliqua & Frame & - & Il frame contiene una linea obliqua\\
-tipo\_linea\_orizzontale & Frame & - & Il frame contiene una linea orizzontale\\
+tipo\_linea\_orizzontale & Frame & - & Il frame contiene linea orizzontale\\
 tipo\_misto & Frame & - & Il frame contiene componenti varie\\
 tipo\_testo & Frame & - & Il frame contiene solo testo\\
 tipo\_vuoto & Frame & - & Il frame è vuoto\\
@@ -120,8 +119,6 @@ Ci sono gli stessi $353$ documenti in tutti i dataset. Ognuno di questi risulta 
 I quattro dataset rappresentano una suddivisione in quattro classificazioni binarie di una classificazione multiclasse.
 
 
-\subsection{Numeri}
-
 \begin{table}[htbp]
 	\label{tab:datasets}
 	\centering
@@ -140,4 +137,89 @@ SVLN     & $70~~(20\%)$ & $283~~(80\%)$ & $353$ \\
 \addlinespace
 \bottomrule
 \end{tabular}
+\end{table}
+
+Di seguito si riportano le frequenze dei predicati in ciascun dataset. Come spiegato in precedenza, è inutile ripetere i valori per i differenti dataset in quanto ridondanti.
+
+\begin{table}[h!tbp]
+\centering
+\label{tab:frequenzaPredicati}
+\small\begin{tabular}{lr}
+\toprule
+\addlinespace
+Predicato & Frequenza \\
+\addlinespace
+\midrule
+\addlinespace
+class\_elsevier * & 61 \\
+class\_jmlr * & 100 \\
+class\_mlj * & 122 \\
+class\_svln * & 70 \\
+numero\_pagine & 353 \\
+pagina\_1 & 353 \\
+ultima\_pagina & 353 \\
+frame & 3879 \\
+allineato\_al\_centro\_orizzontale & 165 \\
+allineato\_al\_centro\_verticale & 5541 \\
+altezza\_pagina & 353 \\
+larghezza\_pagina & 353 \\
+altezza\_rettangolo & 3879 \\
+larghezza\_rettangolo & 3879 \\
+ascissa\_rettangolo & 3879 \\
+ordinata\_rettangolo & 3879 \\
+on\_top & 20673 \\
+to\_right & 16502 \\
+tipo\_immagine & 2 \\
+tipo\_linea\_obbliqua & 5 \\
+tipo\_linea\_orizzontale & 244 \\
+tipo\_misto & 241 \\
+tipo\_testo & 3386 \\
+tipo\_vuoto & 1 \\
+\addlinespace
+\bottomrule
+\addlinespace
+(*) Solo nel proprio dataset & \\
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[h!tbp]
+\centering
+\label{tab:frequenzaPredicat}
+\small\begin{tabular}{lr}
+\toprule
+\addlinespace
+Predicato & Frequenza \\
+\addlinespace
+\midrule
+\addlinespace
+height\_smallest & 269 \\
+height\_very\_very\_small & 1515 \\
+height\_very\_small & 728 \\
+height\_small & 705 \\
+height\_medium\_small & 356 \\
+height\_medium & 757 \\
+height\_medium\_large & 206 \\
+height\_large & 173 \\
+height\_very\_large & 5 \\
+height\_very\_very\_large & 0 \\
+height\_largest & 0 \\
+width\_very\_small & 45 \\
+width\_small & 74 \\
+width\_medium\_small & 333 \\
+width\_medium & 1584 \\
+width\_medium\_large & 784 \\
+width\_large & 1817 \\
+width\_very\_large & 361 \\
+pos\_left & 915 \\
+pos\_center & 2575 \\
+pos\_right & 357 \\
+pos\_upper & 1542 \\
+pos\_middle & 1419 \\
+pos\_lower & 918 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\caption{Predicati presenti solo nel dataset mlj, quando effettuata la discretizzazione.}
 \end{table}
