@@ -21,13 +21,10 @@ L'approccio utilizzato per la realizzazione dell'implementazione inversa prevede
 	\end{itemize}
 \item Ricerca in questo spazio 
 \end{enumerate}
-
-A differenza di FOIL, la ricerca in progol è molto più efficiente ed è possibile dimostrare che restituirà come risultato la soluzione con la più alta compressione nello spazio di ricerca 
-PROGOL è interessante per diversi motivi. primo, ha adottato l'idea dell'algoritmo AQ della ILP. Come AQ, seleziona un esempio come seed e computa una generalizzazione minimale dell'esempio in base sia alla knowledge base disponibile che alla profondità massima di inferenza settata. la bottom rule risultante è il modo più usato per limitare la spazio di ricerca per una successiva ricerca top-down per la miglior generalizzazione.
-Secondo, a differenza di AQ, Progol non usa una ricerca euristica per trovare la miglior generalizzazione dell'esempio seed, ma usa una variante della ricerca best-first A*.
+PROGOL per computare la generalizzazione minimale dell'esempio seed considera sia la knowledge base disponibile che la profondità massima di inferenza settata. Mentre, per quanto riguarda la ricerca nello spazio delle clausole generate, utilizza una variante dell'algoritmo di ricerca best-first A* anziché la classica ricerca euristica adottata da molti altri sistemi di ILP. Questo fa si che, rispetto a FOIL, la ricerca risulti essere molto più efficiente ed è possibile dimostrare che restituirà come risultato la soluzione con la più alta compressione nello spazio di ricerca.
 \nocite{wiki:progol}
-%WIKIPEDIA 
-P-Progol is intended to be a prototype for exploring ideas. It commenced in 1993 as part of a fun project undertaken by Ashwin Srinivasan and Rui Camacho at Oxford University. The main purpose was to understand ideas of inverse entailment which eventually appeared in Steve Muggleton's paper, and was accompanied by (good-natured) bun-fights about the execution speeds of programs being written by Ashwin (who was writing P-Progol) and Rui (who was writing Indlog). The earliest P-Progol implementation dates from April, 1993. There are, currently, at least 3 implementations based on the Progol algorithm: CProgol (by S. Muggleton, written in C which contains its own Prolog interpreter), Indlog (by Rui Camacho, in Prolog requiring the Yap compiler) and P-Progol (by Ashwin Srinivasan, in Prolog largely developed with Yap). The main differences in implementation (other than language) are in the search technique used and degree of user-interaction allowed
+
+Tra le tante implementazioni realizzate per progol, quella utilizzata nella sperimentazione è P-Progol. Realizzata nel 1993 come parte di un progetto di Ashwin Srinivasan e Rui Camacho alla Oxford University, P-progol ha come obiettivo quello di realizzare il sistema descritto sopra utilizzando come linguaggio di programmazione il prolog e come interprete yap.
 
 The basic P-Progol algorithm
 During routine use, P-Progol follows a very simple procedure that can be described in 4 steps:
