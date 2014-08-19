@@ -18,14 +18,13 @@
 \usepackage{lipsum}
 \usepackage[noadvisor,swapnames]{frontespizio}
 \usepackage{minted}
-\usepackage{algorithmic}
-\usepackage{algorithm}
 \definecolor{light-gray}{gray}{0.95}
 \usepackage{booktabs}
 \usepackage{appendix}
 \renewcommand{\appendixtocname}{Appendici}
 \renewcommand{\appendixpagename}{Appendici}
-
+\usepackage{multicol}
+%\setlength{\columnsep}{.5cm}
 
 \renewcommand*\rmdefault{iwona}
 
@@ -59,11 +58,13 @@
 \tableofcontents
 
 \input{introduzione}
-\input{sistemi}
+%\input{sistemi}
 \input{dataset}
 \input{metodologia}
 \input{test}
 \input{conclusioni}
+
+\clearpage
 
 \appendix
 \appendixpage

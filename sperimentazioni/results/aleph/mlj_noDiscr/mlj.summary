@@ -1,0 +1,297 @@
+
+ --- Fold 0
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), on_top(C,D), 
+   ascissa_rettangolo(D,0.498366).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+[Test set performance]
+          Actual
+       +        - 
+     + 11        0        11 
+Pred 
+     - 1        23        24 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[11,0,1,23]]
+
+ --- Fold 1
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+[Test set performance]
+          Actual
+       +        - 
+     + 12        0        12 
+Pred 
+     - 0        23        23 
+
+       12        23        35 
+
+Accuracy = 1.0
+[Test set summary] [[12,0,0,23]]
+
+ --- Fold 2
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.44607842), tipo_testo(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 11        1        12 
+Pred 
+     - 1        22        23 
+
+       12        23        35 
+
+Accuracy = 0.942857142857143
+[Test set summary] [[11,1,1,22]]
+
+ --- Fold 3
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 12        0        12 
+Pred 
+     - 0        23        23 
+
+       12        23        35 
+
+Accuracy = 1.0
+[Test set summary] [[12,0,0,23]]
+
+ --- Fold 4
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 11        0        11 
+Pred 
+     - 1        23        24 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[11,0,1,23]]
+
+ --- Fold 5
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 11        0        11 
+Pred 
+     - 1        23        24 
+
+       12        23        35 
+
+Accuracy = 0.971428571428571
+[Test set summary] [[11,0,1,23]]
+
+ --- Fold 6
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.5277778).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), altezza_rettangolo(D,0.021464646), 
+   on_top(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.44607842), tipo_testo(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 10        0        10 
+Pred 
+     - 2        23        25 
+
+       12        23        35 
+
+Accuracy = 0.942857142857143
+[Test set summary] [[10,0,2,23]]
+
+ --- Fold 7
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   allineato_al_centro_verticale(D,C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+[Test set performance]
+          Actual
+       +        - 
+     + 12        0        12 
+Pred 
+     - 0        24        24 
+
+       12        24        36 
+
+Accuracy = 1.0
+[Test set summary] [[12,0,0,24]]
+
+ --- Fold 8
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ordinata_rettangolo(C,0.15320665).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.021464646), on_top(C,D), 
+   on_top(D,E), allineato_al_centro_verticale(E,D), tipo_testo(E).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+[Test set performance]
+          Actual
+       +        - 
+     + 13        1        14 
+Pred 
+     - 0        22        22 
+
+       13        23        36 
+
+Accuracy = 0.972222222222222
+[Test set summary] [[13,1,0,22]]
+
+ --- Fold 9
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.02020202), on_top(C,D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.024940617).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5882353).
+class_mlj(A) :-
+   pagina_1(A,B), larghezza_pagina(B,613.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), altezza_rettangolo(C,0.022727273), ascissa_rettangolo(C,0.51797384).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), ascissa_rettangolo(C,0.25714287).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,666.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.5866013), tipo_testo(C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), larghezza_rettangolo(C,0.59150326).
+[Test set performance]
+          Actual
+       +        - 
+     + 13        2        15 
+Pred 
+     - 0        21        21 
+
+       13        23        36 
+
+Accuracy = 0.944444444444444
+[Test set summary] [[13,2,0,21]]
