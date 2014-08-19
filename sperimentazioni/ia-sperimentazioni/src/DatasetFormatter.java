@@ -48,6 +48,17 @@ public class DatasetFormatter {
             if ((daDiscretizzare) && (dataset.equals("mlj")))
                 discretizza();
 
+            for (int i = 0; i < 10; i++) {
+                System.out.println("Fold"+i);
+                for (String pos : positivi.get(i)) {
+                    System.out.println("+"+pos);
+                }
+                for (String neg : negativi.get(i)) {
+                    System.out.println("-"+neg);
+                }
+            }
+
+
 //            System.out.println(fatti.size());
 //            System.out.println(fattiRAW.size());
 //            System.out.println(positiviRAW.size());
@@ -58,10 +69,10 @@ public class DatasetFormatter {
 //            System.out.println(documenti.size());
 //            System.out.println(pagine.size());
 //            System.out.println(frame.size());
-            writeFN(dataset);
-            writeB(dataset);
-            writeYAP(dataset);
-            writeD(dataset);
+//            writeFN(dataset);
+//            writeB(dataset);
+//            writeYAP(dataset);
+//            writeD(dataset);
         }
     }
 
