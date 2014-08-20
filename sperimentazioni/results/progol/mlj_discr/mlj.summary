@@ -3,413 +3,121 @@
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510445614393).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 4 Neg cover = 0]
+[Rule 1] [Pos cover = 3 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C).
-[pos-neg] [4]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518525802442).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
 [pos-neg] [3]
 
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 4 Neg cover = 0]
+[Rule 2] [Pos cover = 27 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [4]
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), tipo_testo(C), 
+   pos_right(C).
+[pos-neg] [27]
 
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 13 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_testo(C), width_very_small(C), 
+   pos_upper(C).
+[pos-neg] [13]
 
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
+[Rule 4] [Pos cover = 21 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_medium_small(D), 
+   pos_left(D), pos_middle(D).
+[pos-neg] [21]
 
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
+[Rule 5] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518304000869).
 [pos-neg] [1]
 
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
+[Rule 6] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_smallest(D), 
+   pos_upper(D).
+[pos-neg] [19]
+
+[Rule 7] [Pos cover = 8 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_misto(C), height_very_small(C), 
+   pos_upper(C).
+[pos-neg] [8]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 71] [Pos cover = 1 Neg cover = 0]
+[Rule 9] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06053013213312739).
 [pos-neg] [1]
 
-[Rule 72] [Pos cover = 3 Neg cover = 0]
+[Rule 10] [Pos cover = 13 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[pos-neg] [13]
+
+[Rule 11] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_large(C), 
+   pos_lower(C).
+[pos-neg] [18]
+
+[Rule 12] [Pos cover = 46 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [46]
+
+[Rule 13] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), pos_center(D), 
+   pos_middle(D).
 [pos-neg] [3]
 
-[Rule 73] [Pos cover = 1 Neg cover = 0]
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518272200636).
 [pos-neg] [1]
 
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013220812764).
 [pos-neg] [1]
 
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
+[Rule 19] [Pos cover = 5 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_small(C), pos_left(C), 
+   pos_middle(C).
+[pos-neg] [5]
 
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
+[Rule 20] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060510430514318).
 [pos-neg] [1]
 
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
 [pos-neg] [1]
 
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
 [pos-neg] [1]
 
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
+[Rule 23] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
 [pos-neg] [1]
 
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 100] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 101] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
+[Rule 24] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
 [pos-neg] [1]
 
 [Training set performance]
@@ -426,419 +134,112 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 2        1        3 
+     + 12        0        12 
 Pred 
-     - 10        22        32 
+     - 0        23        23 
 
        12        23        35 
 
-Accuracy = 0.685714285714286
-[Test set summary] [[2,1,10,22]]
+Accuracy = 1.0
+[Test set summary] [[12,0,0,23]]
 
  --- Fold 1
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
+[Rule 1] [Pos cover = 44 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [44]
 
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
+[Rule 2] [Pos cover = 26 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), on_top(D,E), 
+   width_medium_small(D), pos_left(D).
+[pos-neg] [26]
 
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 7 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_misto(C), height_very_small(C), 
+   pos_upper(C).
+[pos-neg] [7]
 
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
+[Rule 4] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C).
+[pos-neg] [16]
 
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
+[Rule 5] [Pos cover = 28 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [28]
 
 [Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 5 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[pos-neg] [5]
-
-[Rule 9] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos-neg] [4]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [4]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060510442014369).
 [pos-neg] [1]
 
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 3 Neg cover = 0]
+[Rule 7] [Pos cover = 20 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
-[pos-neg] [3]
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_medium_large(D), 
+   pos_left(C), larghezza_pagina(B,595.0).
+[pos-neg] [20]
 
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
+[Rule 8] [Pos cover = 22 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), width_medium_small(C), pos_right(C), 
+   frame(B,D), height_small(D).
+[pos-neg] [22]
 
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518304000869).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
+[Rule 9] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518525802442).
 [pos-neg] [1]
 
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
 [pos-neg] [1]
 
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
+[Rule 11] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
+[Rule 12] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[pos-neg] [4]
+
+[Rule 13] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013365813708).
+[pos-neg] [1]
+
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510273413645).
 [pos-neg] [1]
 
 [Training set performance]
@@ -855,427 +256,126 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 0        0        0 
+     + 11        1        12 
 Pred 
-     - 12        23        35 
+     - 1        22        23 
 
        12        23        35 
 
-Accuracy = 0.657142857142857
-[Test set summary] [[0,0,12,23]]
+Accuracy = 0.942857142857143
+[Test set summary] [[11,1,1,22]]
 
  --- Fold 2
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518304000869).
-[pos-neg] [1]
-
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518525802442).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 3 Neg cover = 0]
+[Rule 1] [Pos cover = 4 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [3]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
-[pos-neg] [3]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   allineato_al_centro_verticale(C,E).
-[pos-neg] [3]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
 [pos-neg] [4]
 
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
+[Rule 2] [Pos cover = 22 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_large(C), width_large(C), 
+   frame(B,D), pos_right(D).
+[pos-neg] [22]
 
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_smallest(D), 
+   pos_upper(D).
+[pos-neg] [17]
 
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
+[Rule 4] [Pos cover = 12 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C).
+[pos-neg] [12]
 
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
+[Rule 5] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060510442014369).
 [pos-neg] [1]
 
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
+[Rule 6] [Pos cover = 48 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [48]
+
+[Rule 7] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
+[Rule 8] [Pos cover = 27 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), tipo_testo(C), 
+   pos_right(C).
+[pos-neg] [27]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
 [pos-neg] [1]
 
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013220812764).
 [pos-neg] [1]
 
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
+[Rule 11] [Pos cover = 2 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), pos_center(D), 
+   pos_middle(D).
+[pos-neg] [2]
 
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
+[Rule 12] [Pos cover = 7 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_misto(C), height_very_small(C), 
+   pos_upper(C).
+[pos-neg] [7]
 
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
+[Rule 13] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C), pos_right(C).
+[pos-neg] [16]
 
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
+[Rule 14] [Pos cover = 28 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_small(C), 
+   pos_middle(C), larghezza_pagina(B,595.0).
+[pos-neg] [28]
 
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
+[Rule 15] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518540302460).
 [pos-neg] [1]
 
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
 [pos-neg] [1]
 
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
+[Rule 17] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_medium_small(D), 
+   pos_left(D), pos_middle(D).
+[pos-neg] [18]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
 [pos-neg] [1]
 
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
 [pos-neg] [1]
 
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
 [pos-neg] [1]
 
-[Rule 94] [Pos cover = 1 Neg cover = 0]
+[Rule 21] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 100] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 101] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
 [Training set performance]
@@ -1292,427 +392,118 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 2        0        2 
+     + 11        3        14 
 Pred 
-     - 10        23        33 
+     - 1        20        21 
 
        12        23        35 
 
-Accuracy = 0.714285714285714
-[Test set summary] [[2,0,10,23]]
+Accuracy = 0.885714285714286
+[Test set summary] [[11,3,1,20]]
 
  --- Fold 3
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 2] [Pos cover = 5 Neg cover = 0]
+[Rule 1] [Pos cover = 30 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[pos-neg] [5]
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_medium_small(D), 
+   pos_upper(D), height_very_small(C).
+[pos-neg] [30]
 
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 4] [Pos cover = 2 Neg cover = 0]
+[Rule 2] [Pos cover = 17 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [2]
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C), pos_right(C).
+[pos-neg] [17]
 
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 46 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [46]
 
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
+[Rule 4] [Pos cover = 25 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [25]
+
+[Rule 5] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_medium_large(D), 
+   pos_left(C), larghezza_pagina(B,595.0).
+[pos-neg] [19]
+
+[Rule 6] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_verticale(C,D), 
+   pos_left(D), pos_middle(D).
+[pos-neg] [17]
 
 [Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518304000869).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06053013254013020).
 [pos-neg] [1]
 
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
 [pos-neg] [1]
 
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518525802442).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 4 Neg cover = 0]
+[Rule 9] [Pos cover = 4 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
 [pos-neg] [4]
 
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510445614393).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
-[pos-neg] [3]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
-
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
+[Rule 10] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 100] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
-[Rule 101] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
+[Rule 12] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
+[pos-neg] [1]
+
+[Rule 13] [Pos cover = 15 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_medium_small(C), 
+   pos_left(C), pos_middle(C).
+[pos-neg] [15]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 17] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_smallest(D), 
+   pos_upper(D).
+[pos-neg] [16]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518290400735).
 [pos-neg] [1]
 
 [Training set performance]
@@ -1729,425 +520,127 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 2        0        2 
+     + 11        1        12 
 Pred 
-     - 10        23        33 
+     - 1        22        23 
 
        12        23        35 
 
-Accuracy = 0.714285714285714
-[Test set summary] [[2,0,10,23]]
+Accuracy = 0.942857142857143
+[Test set summary] [[11,1,1,22]]
 
  --- Fold 4
 
 [theory]
 
-[Rule 1] [Pos cover = 4 Neg cover = 0]
+[Rule 1] [Pos cover = 27 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_orizzontale(D,C), 
-   on_top(C,E), allineato_al_centro_verticale(E,F).
-[pos-neg] [4]
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [27]
 
-[Rule 2] [Pos cover = 4 Neg cover = 0]
+[Rule 2] [Pos cover = 13 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos-neg] [4]
+   pagina_1(A,B), frame(B,C), tipo_testo(C), width_very_small(C), 
+   pos_upper(C).
+[pos-neg] [13]
 
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 46 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [46]
 
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
+[Rule 4] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
+[pos-neg] [17]
 
 [Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
+class_mlj(d06060518304000869).
 [pos-neg] [1]
 
 [Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
+class_mlj(d06053013245412933).
 [pos-neg] [1]
 
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
+[Rule 7] [Pos cover = 14 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[pos-neg] [14]
 
 [Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
+class_mlj(d06060518525802442).
 [pos-neg] [1]
 
 [Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013250012940).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06053013220812764).
 [pos-neg] [1]
 
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
+[Rule 10] [Pos cover = 7 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_misto(C), height_very_small(C), 
+   pos_upper(C).
+[pos-neg] [7]
+
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510445614393).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 4 Neg cover = 0]
+[Rule 12] [Pos cover = 4 Neg cover = 0]
 class_mlj(A) :-
    pagina_1(A,B), altezza_pagina(B,666.0).
 [pos-neg] [4]
 
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
+[Rule 13] [Pos cover = 11 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_verticale(D,C), 
+   width_medium_small(D), width_medium_small(C).
+[pos-neg] [11]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
 [pos-neg] [1]
 
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518304000869).
+[Rule 17] [Pos cover = 36 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_upper(D), height_small(C).
+[pos-neg] [36]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
 [pos-neg] [1]
 
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
+[Rule 19] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C).
+[pos-neg] [4]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518290400735).
 [pos-neg] [1]
 
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
 [pos-neg] [1]
 
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013213312739).
 [pos-neg] [1]
 
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518525802442).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
+[Rule 23] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
-[pos-neg] [1]
-
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 100] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 101] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
 [pos-neg] [1]
 
 [Training set performance]
@@ -2164,419 +657,117 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 1        0        1 
+     + 10        2        12 
 Pred 
-     - 11        23        34 
+     - 2        21        23 
 
        12        23        35 
 
-Accuracy = 0.685714285714286
-[Test set summary] [[1,0,11,23]]
+Accuracy = 0.885714285714286
+[Test set summary] [[10,2,2,21]]
 
  --- Fold 5
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 3] [Pos cover = 5 Neg cover = 0]
+[Rule 1] [Pos cover = 44 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[pos-neg] [5]
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [44]
 
-[Rule 4] [Pos cover = 4 Neg cover = 0]
+[Rule 2] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C), pos_right(C).
+[pos-neg] [16]
+
+[Rule 3] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 4] [Pos cover = 20 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_medium_large(D), 
+   pos_left(C), larghezza_pagina(B,595.0).
+[pos-neg] [20]
+
+[Rule 5] [Pos cover = 6 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), tipo_testo(C), 
+   height_medium_small(C), pos_upper(C).
+[pos-neg] [6]
+
+[Rule 6] [Pos cover = 26 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [26]
+
+[Rule 7] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
+[pos-neg] [1]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_medium_small(D), 
+   width_medium_small(C).
+[pos-neg] [17]
+
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
+[pos-neg] [1]
+
+[Rule 12] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 13] [Pos cover = 4 Neg cover = 0]
 class_mlj(A) :-
    pagina_1(A,B), altezza_pagina(B,666.0).
 [pos-neg] [4]
 
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
 [Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos-neg] [4]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
-[pos-neg] [3]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518304000869).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510445614393).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
-
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518525802442).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518322601004).
 [pos-neg] [1]
 
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
+[Rule 15] [Pos cover = 8 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_misto(C), height_very_small(C), 
+   pos_upper(C).
+[pos-neg] [8]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
 [pos-neg] [1]
 
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
+[Rule 18] [Pos cover = 2 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[pos-neg] [2]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
 [pos-neg] [1]
 
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518290400735).
 [pos-neg] [1]
 
 [Training set performance]
@@ -2593,425 +784,124 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 0        0        0 
+     + 11        1        12 
 Pred 
-     - 12        23        35 
+     - 1        22        23 
 
        12        23        35 
 
-Accuracy = 0.657142857142857
-[Test set summary] [[0,0,12,23]]
+Accuracy = 0.942857142857143
+[Test set summary] [[11,1,1,22]]
 
  --- Fold 6
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
+[Rule 1] [Pos cover = 48 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [48]
 
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
+[Rule 2] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), width_very_small(C), pos_right(C), 
+   frame(B,D), width_large(D).
+[pos-neg] [19]
 
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 28 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [28]
 
 [Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510445614393).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
-[pos-neg] [1]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 5 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[pos-neg] [5]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 2 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos-neg] [2]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 2 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_orizzontale(D,E), 
-   tipo_misto(D).
-[pos-neg] [2]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [3]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 3 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), on_top(C,D), allineato_al_centro_verticale(D,E), 
-   allineato_al_centro_orizzontale(E,F), on_top(C,E).
-[pos-neg] [3]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518303100860).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518304000869).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518421201581).
 [pos-neg] [1]
 
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
+[Rule 5] [Pos cover = 14 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[pos-neg] [14]
+
+[Rule 6] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_verticale(C,D), 
+   pos_left(D), pos_middle(D).
+[pos-neg] [17]
+
+[Rule 7] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
 [pos-neg] [1]
 
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013263413063).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
+[Rule 9] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06053013213312739).
 [pos-neg] [1]
 
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
+[Rule 10] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_smallest(D), 
+   pos_upper(D).
+[pos-neg] [18]
+
+[Rule 11] [Pos cover = 27 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_medium_small(D), 
+   pos_right(D), height_very_small(C).
+[pos-neg] [27]
+
+[Rule 12] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[pos-neg] [4]
+
+[Rule 13] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
 [pos-neg] [1]
 
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
 [pos-neg] [1]
 
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
 [pos-neg] [1]
 
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510430514318).
 [pos-neg] [1]
 
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510502115103).
 [pos-neg] [1]
 
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518290400735).
 [pos-neg] [1]
 
-[Rule 90] [Pos cover = 1 Neg cover = 0]
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 21] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 100] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
+[Rule 23] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
 [pos-neg] [1]
 
 [Training set performance]
@@ -3028,429 +918,131 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 3        2        5 
+     + 9        1        10 
 Pred 
-     - 9        21        30 
+     - 3        22        25 
 
        12        23        35 
 
-Accuracy = 0.685714285714286
-[Test set summary] [[3,2,9,21]]
+Accuracy = 0.885714285714286
+[Test set summary] [[9,1,3,22]]
 
  --- Fold 7
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
+[Rule 1] [Pos cover = 27 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_medium_small(D), 
+   pos_right(D), height_very_small(C).
+[pos-neg] [27]
 
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
+[Rule 2] [Pos cover = 11 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), width_medium(C), 
+   pos_right(C).
+[pos-neg] [11]
 
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 47 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [47]
 
 [Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 5] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [4]
-
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518302200819).
 [pos-neg] [1]
 
-[Rule 12] [Pos cover = 3 Neg cover = 0]
+[Rule 5] [Pos cover = 16 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos-neg] [3]
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
+[pos-neg] [16]
 
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
+[Rule 6] [Pos cover = 9 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_very_small(D).
+[pos-neg] [9]
 
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
+[Rule 7] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518525802442).
 [pos-neg] [1]
 
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510445614393).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   allineato_al_centro_verticale(C,E).
-[pos-neg] [4]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
-[pos-neg] [1]
-
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
+[Rule 8] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518303100860).
 [pos-neg] [1]
 
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013213312739).
 [pos-neg] [1]
 
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
 [pos-neg] [1]
 
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
+[Rule 12] [Pos cover = 12 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), width_very_small(C), pos_right(C), 
+   pos_upper(C).
+[pos-neg] [12]
+
+[Rule 13] [Pos cover = 5 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), tipo_testo(C), 
+   height_medium_small(C), pos_upper(C).
+[pos-neg] [5]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
 [pos-neg] [1]
 
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013220812764).
 [pos-neg] [1]
 
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
+[Rule 17] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[pos-neg] [3]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510502115103).
 [pos-neg] [1]
 
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
+[Rule 19] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_medium_large(D), 
+   pos_left(C), larghezza_pagina(B,595.0).
+[pos-neg] [19]
 
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
+[Rule 20] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518304000869).
 [pos-neg] [1]
 
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518421201581).
 [pos-neg] [1]
 
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
+[Rule 22] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_small(C), pos_left(C), 
+   pos_middle(C).
+[pos-neg] [3]
+
+[Rule 23] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518455101834).
 [pos-neg] [1]
 
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 100] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 101] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013263413063).
-[pos-neg] [1]
-
-[Rule 102] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
+[Rule 24] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
 [pos-neg] [1]
 
 [Training set performance]
@@ -3467,415 +1059,110 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 1        0        1 
+     + 11        0        11 
 Pred 
-     - 11        24        35 
+     - 1        24        25 
 
        12        24        36 
 
-Accuracy = 0.694444444444444
-[Test set summary] [[1,0,11,24]]
+Accuracy = 0.972222222222222
+[Test set summary] [[11,0,1,24]]
 
  --- Fold 8
 
 [theory]
 
-[Rule 1] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 3] [Pos cover = 4 Neg cover = 0]
+[Rule 1] [Pos cover = 15 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [4]
+   pagina_1(A,B), frame(B,C), tipo_testo(C), width_very_small(C), 
+   pos_upper(C).
+[pos-neg] [15]
 
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
+[Rule 2] [Pos cover = 21 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_medium_small(D), 
+   pos_left(D), pos_middle(D).
+[pos-neg] [21]
+
+[Rule 3] [Pos cover = 28 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [28]
+
+[Rule 4] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[pos-neg] [4]
 
 [Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
-[pos-neg] [1]
-
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013233112832).
-[pos-neg] [1]
-
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518532502449).
-[pos-neg] [1]
-
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
-
-[Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518273300645).
-[pos-neg] [1]
-
-[Rule 12] [Pos cover = 4 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos-neg] [4]
-
-[Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 14] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518302200819).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 5 Neg cover = 0]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[pos-neg] [5]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013222512769).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013383013765).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518540302460).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518525802442).
 [pos-neg] [1]
 
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
+[Rule 6] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_smallest(D), 
+   pos_upper(D).
+[pos-neg] [19]
 
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
+[Rule 7] [Pos cover = 46 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [46]
 
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
+[Rule 8] [Pos cover = 14 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[pos-neg] [14]
 
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
+[Rule 9] [Pos cover = 5 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_small(C), pos_left(C), 
+   pos_middle(C).
+[pos-neg] [5]
 
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518270300598).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
+[Rule 10] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06053013220812764).
 [pos-neg] [1]
 
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510430514318).
 [pos-neg] [1]
 
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 62] [Pos cover = 3 Neg cover = 0]
+[Rule 12] [Pos cover = 3 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), pos_center(D), 
+   pos_middle(D).
 [pos-neg] [3]
 
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
+[Rule 13] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
 [pos-neg] [1]
 
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518331601080).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013284513161).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518482402123).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518290400735).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
+[Rule 15] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060510445614393).
 [pos-neg] [1]
 
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510502115103).
 [pos-neg] [1]
 
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
+[pos-neg] [1]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
 [pos-neg] [1]
 
 [Training set performance]
@@ -3892,73 +1179,88 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 0        0        0 
+     + 7        0        7 
 Pred 
-     - 13        23        36 
+     - 6        23        29 
 
        13        23        36 
 
-Accuracy = 0.638888888888889
-[Test set summary] [[0,0,13,23]]
+Accuracy = 0.833333333333333
+[Test set summary] [[7,0,6,23]]
 
  --- Fold 9
 
 [theory]
 
-[Rule 1] [Pos cover = 4 Neg cover = 0]
+[Rule 1] [Pos cover = 27 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
-[pos-neg] [4]
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos-neg] [27]
 
-[Rule 2] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013241912894).
-[pos-neg] [1]
+[Rule 2] [Pos cover = 7 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), width_medium_large(C), 
+   pos_left(C), pos_middle(C).
+[pos-neg] [7]
 
-[Rule 3] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510433614325).
-[pos-neg] [1]
+[Rule 3] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
+[pos-neg] [17]
 
-[Rule 4] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510390714095).
-[pos-neg] [1]
+[Rule 4] [Pos cover = 15 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[pos-neg] [15]
 
-[Rule 5] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518524102431).
-[pos-neg] [1]
+[Rule 5] [Pos cover = 15 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_testo(C), width_very_small(C), 
+   pos_upper(C).
+[pos-neg] [15]
 
-[Rule 6] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518403601511).
-[pos-neg] [1]
+[Rule 6] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_large(C), 
+   pos_lower(C).
+[pos-neg] [18]
 
-[Rule 7] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518391301453).
-[pos-neg] [1]
+[Rule 7] [Pos cover = 44 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos-neg] [44]
 
 [Rule 8] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518312200919).
+class_mlj(d06060518421201581).
 [pos-neg] [1]
 
-[Rule 9] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518380901422).
-[pos-neg] [1]
-
-[Rule 10] [Pos cover = 4 Neg cover = 0]
+[Rule 9] [Pos cover = 4 Neg cover = 0]
 class_mlj(A) :-
    pagina_1(A,B), larghezza_pagina(B,613.0).
 [pos-neg] [4]
 
+[Rule 10] [Pos cover = 6 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), tipo_misto(C), height_very_small(C), 
+   pos_upper(C).
+[pos-neg] [6]
+
 [Rule 11] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510434514330).
+class_mlj(d06053013254013020).
 [pos-neg] [1]
 
-[Rule 12] [Pos cover = 3 Neg cover = 0]
+[Rule 12] [Pos cover = 22 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
-[pos-neg] [3]
+   pagina_1(A,B), frame(B,C), width_medium_small(C), pos_right(C), 
+   frame(B,D), height_small(D).
+[pos-neg] [22]
 
 [Rule 13] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013262013044).
+class_mlj(d06060518525802442).
 [pos-neg] [1]
 
 [Rule 14] [Pos cover = 1 Neg cover = 0]
@@ -3966,345 +1268,32 @@ class_mlj(d06060518304000869).
 [pos-neg] [1]
 
 [Rule 15] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430114052).
-[pos-neg] [1]
-
-[Rule 16] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265113565).
-[pos-neg] [1]
-
-[Rule 17] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518382901439).
-[pos-neg] [1]
-
-[Rule 18] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518383601440).
-[pos-neg] [1]
-
-[Rule 19] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510274713652).
-[pos-neg] [1]
-
-[Rule 20] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510442014369).
-[pos-neg] [1]
-
-[Rule 21] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013415713955).
-[pos-neg] [1]
-
-[Rule 22] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518272200636).
-[pos-neg] [1]
-
-[Rule 23] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510444214386).
-[pos-neg] [1]
-
-[Rule 24] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013252512990).
-[pos-neg] [1]
-
-[Rule 25] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013292513217).
-[pos-neg] [1]
-
-[Rule 26] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510495614980).
-[pos-neg] [1]
-
-[Rule 27] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518523102428).
-[pos-neg] [1]
-
-[Rule 28] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518381901424).
-[pos-neg] [1]
-
-[Rule 29] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013423414009).
-[pos-neg] [1]
-
-[Rule 30] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518351001324).
-[pos-neg] [1]
-
-[Rule 31] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518320700983).
-[pos-neg] [1]
-
-[Rule 32] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510382314057).
-[pos-neg] [1]
-
-[Rule 33] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518434801636).
-[pos-neg] [1]
-
-[Rule 34] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013213312739).
-[pos-neg] [1]
-
-[Rule 35] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518405601538).
-[pos-neg] [1]
-
-[Rule 36] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518322601004).
-[pos-neg] [1]
-
-[Rule 37] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510503615135).
-[pos-neg] [1]
-
-[Rule 38] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510271813626).
-[pos-neg] [1]
-
-[Rule 39] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510481014782).
-[pos-neg] [1]
-
-[Rule 40] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013231712818).
-[pos-neg] [1]
-
-[Rule 41] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518472902031).
-[pos-neg] [1]
-
-[Rule 42] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510430514318).
-[pos-neg] [1]
-
-[Rule 43] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518445901684).
-[pos-neg] [1]
-
-[Rule 44] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013245412933).
-[pos-neg] [1]
-
-[Rule 45] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518525802442).
-[pos-neg] [1]
-
-[Rule 46] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013360113675).
-[pos-neg] [1]
-
-[Rule 47] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510502115103).
-[pos-neg] [1]
-
-[Rule 48] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013204412712).
-[pos-neg] [1]
-
-[Rule 49] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393813816).
-[pos-neg] [1]
-
-[Rule 50] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510273413645).
-[pos-neg] [1]
-
-[Rule 51] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013393313815).
-[pos-neg] [1]
-
-[Rule 52] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518443101648).
-[pos-neg] [1]
-
-[Rule 53] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013303213292).
-[pos-neg] [1]
-
-[Rule 54] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013265213079).
-[pos-neg] [1]
-
-[Rule 55] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518394701461).
-[pos-neg] [1]
-
-[Rule 56] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510413614235).
-[pos-neg] [1]
-
-[Rule 57] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013364813706).
-[pos-neg] [1]
-
-[Rule 58] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518421201581).
-[pos-neg] [1]
-
-[Rule 59] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518303100860).
 [pos-neg] [1]
 
-[Rule 60] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254713021).
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
 [pos-neg] [1]
 
-[Rule 61] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013264113073).
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
 [pos-neg] [1]
 
-[Rule 62] [Pos cover = 3 Neg cover = 0]
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 4 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   allineato_al_centro_verticale(C,E).
-[pos-neg] [3]
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[pos-neg] [4]
 
-[Rule 63] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013401813843).
-[pos-neg] [1]
-
-[Rule 64] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013251312977).
-[pos-neg] [1]
-
-[Rule 65] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013390613798).
-[pos-neg] [1]
-
-[Rule 66] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518251800523).
-[pos-neg] [1]
-
-[Rule 67] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013380913737).
-[pos-neg] [1]
-
-[Rule 68] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013211912730).
-[pos-neg] [1]
-
-[Rule 69] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013312413349).
-[pos-neg] [1]
-
-[Rule 70] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518310700907).
-[pos-neg] [1]
-
-[Rule 71] [Pos cover = 1 Neg cover = 0]
+[Rule 20] [Pos cover = 1 Neg cover = 0]
 class_mlj(d06060518532502449).
 [pos-neg] [1]
 
-[Rule 72] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518433401633).
-[pos-neg] [1]
-
-[Rule 73] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510265913574).
-[pos-neg] [1]
-
-[Rule 74] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510414814236).
-[pos-neg] [1]
-
-[Rule 75] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518373601412).
-[pos-neg] [1]
-
-[Rule 76] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422814008).
-[pos-neg] [1]
-
-[Rule 77] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013382113764).
-[pos-neg] [1]
-
-[Rule 78] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510270713582).
-[pos-neg] [1]
-
-[Rule 79] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518492902207).
-[pos-neg] [1]
-
-[Rule 80] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013414313942).
-[pos-neg] [1]
-
-[Rule 81] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013254013020).
-[pos-neg] [1]
-
-[Rule 82] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013205712715).
-[pos-neg] [1]
-
-[Rule 83] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013391413799).
-[pos-neg] [1]
-
-[Rule 84] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013220812764).
-[pos-neg] [1]
-
-[Rule 85] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518541902465).
-[pos-neg] [1]
-
-[Rule 86] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013294713222).
-[pos-neg] [1]
-
-[Rule 87] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518271300632).
-[pos-neg] [1]
-
-[Rule 88] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518335301163).
-[pos-neg] [1]
-
-[Rule 89] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518435901639).
-[pos-neg] [1]
-
-[Rule 90] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013422114002).
-[pos-neg] [1]
-
-[Rule 91] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518294100752).
-[pos-neg] [1]
-
-[Rule 92] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013403113871).
-[pos-neg] [1]
-
-[Rule 93] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013365813708).
-[pos-neg] [1]
-
-[Rule 94] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518285500732).
-[pos-neg] [1]
-
-[Rule 95] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510384514083).
-[pos-neg] [1]
-
-[Rule 96] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013405113891).
-[pos-neg] [1]
-
-[Rule 97] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060518332901097).
-[pos-neg] [1]
-
-[Rule 98] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06053013430914058).
-[pos-neg] [1]
-
-[Rule 99] [Pos cover = 1 Neg cover = 0]
-class_mlj(d06060510263313550).
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
 [pos-neg] [1]
 
 [Training set performance]
@@ -4321,11 +1310,11 @@ Accuracy = 1.0
 [Test set performance]
           Actual
        +        - 
-     + 1        0        1 
+     + 8        1        9 
 Pred 
-     - 12        23        35 
+     - 5        22        27 
 
        13        23        36 
 
-Accuracy = 0.666666666666667
-[Test set summary] [[1,0,12,23]]
+Accuracy = 0.833333333333333
+[Test set summary] [[8,1,5,22]]

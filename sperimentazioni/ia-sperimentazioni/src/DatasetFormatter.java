@@ -13,8 +13,8 @@ public class DatasetFormatter {
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
     //    private static String all
-    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    //        private static String[] datasets = {"mlj"};
+//    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
+    private static String[] datasets = {"mlj"};
     private static SortedSet<String> positiviRAW;
     private static SortedSet<String> negativiRAW;
     private static SortedSet<String> fattiRAW;
@@ -69,10 +69,10 @@ public class DatasetFormatter {
 //            System.out.println(documenti.size());
 //            System.out.println(pagine.size());
 //            System.out.println(frame.size());
-//            writeFN(dataset);
-//            writeB(dataset);
-//            writeYAP(dataset);
-            writeD(dataset);
+            writeFN(dataset);
+            writeB(dataset);
+            writeYAP(dataset);
+//            writeD(dataset);
         }
     }
 
@@ -548,14 +548,10 @@ public class DatasetFormatter {
         sb.append(":- determination(class_" + dataset + "/1, allineato_al_centro_orizzontale/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, allineato_al_centro_verticale/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, altezza_pagina/2).\n");
-        sb.append(":- determination(class_" + dataset + "/1, altezza_rettangolo/2).\n");
-        sb.append(":- determination(class_" + dataset + "/1, ascissa_rettangolo/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, frame/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, larghezza_pagina/2).\n");
-        sb.append(":- determination(class_" + dataset + "/1, larghezza_rettangolo/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, numero_pagine/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, on_top/2).\n");
-        sb.append(":- determination(class_" + dataset + "/1, ordinata_rettangolo/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, pagina_1/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, tipo_immagine/1).\n");
         sb.append(":- determination(class_" + dataset + "/1, tipo_linea_obbliqua/1).\n");
@@ -565,6 +561,38 @@ public class DatasetFormatter {
         sb.append(":- determination(class_" + dataset + "/1, tipo_vuoto/1).\n");
         sb.append(":- determination(class_" + dataset + "/1, to_right/2).\n");
         sb.append(":- determination(class_" + dataset + "/1, ultima_pagina/1).\n");
+
+        if (discretizzato) {
+            sb.append(":- determination(class_" + dataset + "/1, height_smallest/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_very_very_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_very_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_medium_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_medium/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_medium_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_very_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_very_very_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, height_largest/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_very_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_medium_small/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_medium/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_medium_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, width_very_large/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, pos_left/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, pos_center/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, pos_right/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, pos_upper/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, pos_middle/1).\n");
+            sb.append(":- determination(class_" + dataset + "/1, pos_lower/1).\n");
+        } else {
+            sb.append(":- determination(class_" + dataset + "/1, altezza_rettangolo/2).\n");
+            sb.append(":- determination(class_" + dataset + "/1, ascissa_rettangolo/2).\n");
+            sb.append(":- determination(class_" + dataset + "/1, larghezza_rettangolo/2).\n");
+            sb.append(":- determination(class_" + dataset + "/1, ordinata_rettangolo/2).\n");
+        }
         return sb.toString();
     }
 
