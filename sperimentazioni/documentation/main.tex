@@ -18,8 +18,6 @@
 \usepackage{lipsum}
 \usepackage[noadvisor,swapnames]{frontespizio}
 \usepackage{minted}
-\usepackage{algorithm}
-\usepackage{algorithmic}
 \definecolor{light-gray}{gray}{0.95}
 \usepackage{booktabs}
 \usepackage{appendix}
@@ -52,6 +50,16 @@
   linenos
 }
 
+\newminted{python}
+{ 
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1,
+  bgcolor=light-gray,
+  fontsize=\footnotesize,
+  linenos
+}
+
 
 
 \begin{document}
@@ -60,11 +68,10 @@
 \tableofcontents
 
 \input{introduzione}
-\input{sistemi}
-\input{preparazione}
+%\input{sistemi}
 \input{dataset}
+\input{preparazione}
 \input{metodologia}
-\input{risultati}
 \input{test}
 \input{conclusioni}
 

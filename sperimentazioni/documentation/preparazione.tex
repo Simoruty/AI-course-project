@@ -12,16 +12,19 @@ Aleph necessita di 3 file di input:
 \item file con estensione \verb+.n+ contenente gli esempi di training negativi
 \end{itemize}
 
-In questo modo è già possibile avviare Aleph in maniera interattiva e sottoporgli dei casi di test. Tuttavia, per automatizzare il procedimento, abbiamo creato ulteriori due file (un file \verb+.f+ e uno \verb+.n+) che contengono i casi di testing, rispettivamente, positivi e negativi che il sistema utilizza in maniera automatica se opportunamente configurato.
+In questo modo è già possibile avviare Aleph in maniera interattiva e sottoporgli dei casi di test. Tuttavia, per automatizzare il procedimento, abbiamo creato ulteriori due file (un file \verb+.f+ e uno \verb+.n+) che contengono gli esempi di test, rispettivamente, positivi e negativi che il sistema utilizza in maniera automatica se opportunamente configurato.
 
-\subsubsection{Sintassi file .b}
 Il file \verb+.b+ contiene:
 \begin{itemize}
-\item settaggi che modificano l'esecuzione (e ovviamente anche le prestazioni) del sistema
-\item la descrizione delle relazioni utilizzate nel dataset
-\item le dipendenze della classe dalle relazioni
-\item tutti i fatti del dataset
+\item parametri che modificano l'esecuzione (e ovviamente anche le prestazioni) del sistema
+\item le modalità, cioè la descrizione delle relazioni utilizzate nel dataset
+\item le determinazioni, ossia le dipendenze della classe dalle relazioni
+\item la knowledge base, cioè tutti i fatti del dataset
 \end{itemize}
+
+\subsubsection{I file di input}
+
+\subsubsection*{I parametri}
 
 I settaggi vanno espressi con la sintassi:
 \begin{verbatim}
@@ -32,72 +35,173 @@ Nello specifico le chiavi da noi impostate sono:
 
 \paragraph{cache\_clauselength} 5
 
-Numero di pagine del Documento 
+Imposta il limite superiore della lunghezza delle clausole la cui copertura è salvata in cache per usi futuri. (default 3)
 
 \paragraph{caching} true
 
- • 
+ Imposta la cache, ovvero salva le clausole e la copertura per usi futuri. (default false)
 
 \paragraph{check\_useless}   true
 
-   • 
+Specifica se una chiamata a \verb+redundat/2+ dovrebbe essere fatta controllato la ridondanza di letterali nella clausola. (default false)
 
 \paragraph{clauselength}   8
 
    Imposta la lunghezza massima delle clausole che costruiscono la teoria a 8.
  
-
 \paragraph{depth}   15
 
-   • 
+   Imposta a 15 il limite superiore di profondità al quale il theorem-proving procede. (default 10) 
 
 \paragraph{i}   10
 
-   • 
+Imposta a 10 il numero massimo di variabili che può contenere una clausola. (default 2)
 
 \paragraph{minacc}   0.0
 
-   • 
+   Imposta un limite minimo di accuratezza per una clausola accettabile. (default 0.0) 
 
 \paragraph{minpos}   2
 
-   • 
+Serve ad escludere teorie che coprono
+meno di due esempi. Fissandolo a 2 il
+sistema non fornirà teorie ground, che
+infatti sono da evitare. (default 1)
+
 
 \paragraph{nodes}   50000
 
-   • 
+Aumenta il livello di profondità nell’albero di decisione per raggiungere la soluzione. (default 5000)
 
 \paragraph{noise}   0
 
-   • 
+Soglia che migliora la teoria in quanto
+evita che essa copra qualunque esempio
+negativo. In altri termini si sta dicendo
+che la teoria può coprire al massimo zero
+esempi negativi.
 
 \paragraph{record}   true
 
-   • 
+   Il sistema deve registrare il log della sua esecuzione in un file esterno.
 
 \paragraph{recordfile}   './elsevier\_f0.log'
 
-   • 
+   Imposta il percorso e il nome del file che conterrà il log dell'esecuzione del sistema. Il nome file è nella forma:\\ \emph{dataset}~\verb+_f+~\emph{numeroFold}~\verb+.log+ 
 
 \paragraph{rulefile}   './elsevier\_f0.rul'
 
-   • 
+         Imposta il percorso e il nome del file che conterrà le regole generate dal sistema. Il nome file è nella forma:\\ \emph{dataset}~\verb+_f+~\emph{numeroFold}~\verb+.rul+ 
 
 \paragraph{test\_pos}   './elsevier\_f0\_test.f'
 
-   • 
+      Imposta il percorso e il nome del file che contiene gli esempi di test positivi sui quali il sistema dovrà automaticamente provare l'efficacia della teoria appresa. Il nome file è nella forma:\\ \emph{dataset}~\verb+_f+~\emph{numeroFold}~\verb+_test.f+
 
 \paragraph{test\_neg}   './elsevier\_f0\_test.n'
 
-   • 
-
+      Imposta il percorso e il nome del file che contiene gli esempi di test negativi sui quali il sistema dovrà automaticamente provare l'efficacia della teoria appresa. Il nome file è nella forma:\\ \emph{dataset}~\verb+_f+~\emph{numeroFold}~\verb+_test.n+
+      
 \paragraph{thread}   8
 
-   Utilizza 8 thread per beneficiare del calcolo parallelo sui processori moderni.
-   
+   Utilizza 8 thread per beneficiare del calcolo parallelo sui processori moderni. La sperimentazione è stata avviata su un notebook con processore Intel$^{\scriptsize{\copyright{}}}$ i7$^{\scriptsize{\copyright{}}}$, dotato di 4 core e tecnologia HyperThreading$^{\scriptsize{\copyright{}}}$ in grado di supportare fino a 8 thread.
  
-
-
 \paragraph{verbosity}   0
 
-Imposta la quantità di output prodotta dal sistema 
+Imposta la quantità di output prodotta dal sistema. Il valore $0$ indica la stampa solo di output essenziale.
+
+\subsubsection*{I modi}
+I modi servono a descrivere le relazioni che verranno utilizzate nella formazione delle clausole.
+
+\begin{verbatim}
+     :- modeh(RecallNumber, Mode).
+\end{verbatim}
+dichiara che \verb+Mode+ può essere utilizzato nella testa delle clausole ipotizzate. \verb+RecallNumber+ è un parametro, numero intero oppure *, che indica il numero massimo di chiamate al predicato.
+
+\begin{verbatim}
+     :- modeb(RecallNumber, Mode).
+\end{verbatim}
+dichiara che \verb+Mode+ può essere utilizzato nel corpo delle clausole ipotizzate. \verb+RecallNumber+ è un parametro, numero intero oppure *, che indica il numero massimo di chiamate al predicato.
+
+\subsubsection*{Le determinazioni}
+Ogni riga del tipo:
+\begin{verbatim}
+     :- determination(T/1, P/2).
+\end{verbatim}
+dichiara che il predicato P può essere utilizzato per costruire una ipotesi su T.
+Il primo argomento è il nome e l'arietà del predicato target, cioè il predicato che apparirà nella testa delle ipotesi. Il secondo argomento è il nome e l'arietà di un predicato che può apparire nel corpo di quella ipotesi.
+
+\subsubsection{I file eseguibili}
+Per ogni fold di ogni dataset, abbiamo creato in maniera automatica uno script \verb+.yap+ che, se eseguito, si occupa di avviare ALEPH, leggere i file di input, generare le regole e scriverle su file.
+
+Il sorgente dello script (esempio tratto dal fold 0 del dataset elsevier) è il seguente:
+
+\begin{prologcode}
+#!/usr/local/bin/yap -L --
+#
+# .
+:- consult('../aleph.pl').
+:- read_all('elsevier_f0').
+:- induce.
+:- write_rules('elsevier_f0.rul').
+\end{prologcode}
+
+Tutti i $40$ ($4$ dataset $\times$ $10$ fold) script \verb+.yap+ sono avviati in successione da un unico file scritto in linguaggio \emph{Python}.
+
+Esso si occupa anche di tenere traccia dei tempi di esecuzione per un confronto sulle performance dei sistemi confrontati e di scrivere l'output delle esecuzioni in file \verb+.out+.
+
+Il codice dello script è qui riportato:
+
+\begin{pythoncode}
+#!/usr/bin/python
+
+import sys
+import os
+import subprocess
+from time import gmtime, strftime, localtime
+from datetime import datetime
+
+cmd = "chmod +x **/*.yap"
+subprocess.call(cmd, shell=True)
+if not os.path.exists("./result/"):
+    os.makedirs("./result/")
+for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
+    print dataset +" started at "+ strftime("%H:%M:%S", localtime())
+    sys.stdout.flush()
+    startDataset = datetime.now()
+    for fold in range(10):
+        startTime = datetime.now()
+        print "Fold " + str(fold) +" started at "
+        print strftime("%H:%M:%S", localtime())
+        sys.stdout.flush()
+        cmd = "./"+dataset+"/"+dataset+"_f"+str(fold)
+        cmd += ".yap -s50000 -h200000 2>&1 > /dev/null"
+        subprocess.call(cmd, shell=True)
+        fin = open("./result/"+dataset+".summary","a")
+        fin.write("\nFold "+str(fold)+"\n")
+        fin.close()
+        cmd0 = "cat ./"+dataset+"/"+dataset+"_f"+str(fold)
+        cmd0 += ".rul >> ./result/"+dataset+".summary"
+        subprocess.call(cmd0, shell=True)
+        cmd1 = "cat ./"+dataset+"/"+dataset+"_f"+str(fold)
+        cmd1 += ".log | grep -B 10 -m 1 '\[Test set summary\]'"
+        cmd1 += " >> ./result/"+dataset+".summary"
+        subprocess.call(cmd1, shell=True)
+        print "Fold " + str(fold) +" ended in: "
+        print str(datetime.now()-startTime)
+        sys.stdout.flush()
+    print dataset+" ended in "+str(datetime.now()-startDataset)
+    sys.stdout.flush()
+\end{pythoncode}
+
+\subsection{FOIL}
+FOIL prevede un solo file di input con estensione \verb+.d+.
+Il file è strutturato in tre
+parti separate da una linea vuota. Queste parti sono composte, nell'ordine, da:
+\begin{itemize}
+\item tutti i tipi di dati utilizzati
+\item la definizione delle relazioni utilizzate
+\item esempi di test sui quali valutare l'accuratezza
+\end{itemize}
+
+I tipi di dati possono essere definiti in maniera
+intensionale quando sono di tipo numerico, altrimenti devono essere definiti in maniera estensionale. 
