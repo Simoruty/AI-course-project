@@ -1,10 +1,26 @@
 class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C).
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,666.0).
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), pos_right(C), pos_lower(C), 
+   frame(B,D), height_very_small(D), pos_upper(D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_medium_small(D), 
+   pos_right(D), height_very_small(C).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), width_medium_small(D), 
+   pos_left(D), pos_middle(D).
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).

@@ -79,216 +79,143 @@
         verbosity=0
         version=5
 [sat] [1]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), width_very_small(C), pos_upper(C).
+[pos cover = 15 neg cover = 0] [pos-neg] [15]
+[clause label] [[15,0,5,15]]
+[clauses constructed] [225]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C), pos_right(C).
+[pos cover = 17 neg cover = 0] [pos-neg] [17]
+[clause label] [[17,0,7,17]]
+[clauses constructed] [44644]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [19.462]
+[search time] [20.045]
 [best clause]
-class_mlj(d06060518403601511).
-[positive examples left] [109]
-[estimated time to finish (secs)] [2121.358]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C), pos_right(C).
+[positive examples left] [93]
+[estimated time to finish (secs)] [109.657941176471]
 [sat] [2]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
+[pos cover = 16 neg cover = 0] [pos-neg] [16]
+[clause label] [[16,0,6,16]]
+[clauses constructed] [8233]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [15.245]
+[search time] [19.102]
 [best clause]
-class_mlj(d06053013414313942).
-[positive examples left] [108]
-[estimated time to finish (secs)] [1874.178]
-[sat] [3]
-[clauses constructed] [50000]
-[search time] [18.947]
-[best clause]
-class_mlj(d06053013294713222).
-[positive examples left] [107]
-[estimated time to finish (secs)] [1913.65933333333]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
+[positive examples left] [77]
+[estimated time to finish (secs)] [91.343]
 [sat] [4]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[pos cover = 34 neg cover = 0] [pos-neg] [34]
+[clause label] [[34,0,7,34]]
+[clauses constructed] [25618]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [18.519]
+[search time] [22.874]
 [best clause]
-class_mlj(d06060518271300632).
-[positive examples left] [106]
-[estimated time to finish (secs)] [1912.5845]
-[sat] [5]
-[clauses constructed] [50000]
-[search time] [12.8]
-[best clause]
-class_mlj(d06053013231712818).
-[positive examples left] [105]
-[estimated time to finish (secs)] [1784.433]
-[sat] [6]
-[clauses constructed] [50000]
-[search time] [21.635]
-[best clause]
-class_mlj(d06060518492902207).
-[positive examples left] [104]
-[estimated time to finish (secs)] [1847.872]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+[positive examples left] [43]
+[estimated time to finish (secs)] [39.8045223880597]
 [sat] [7]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), width_medium_small(C), pos_right(C), 
+   larghezza_pagina(B,595.0).
+[pos cover = 9 neg cover = 0] [pos-neg] [9]
+[clause label] [[9,0,6,9]]
+[clauses constructed] [4309]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[pos cover = 12 neg cover = 0] [pos-neg] [12]
+[clause label] [[12,0,6,12]]
+[clauses constructed] [4595]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [10.695]
+[search time] [17.889]
 [best clause]
-class_mlj(d06053013422114002).
-[positive examples left] [103]
-[estimated time to finish (secs)] [1726.02985714286]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+[positive examples left] [31]
+[estimated time to finish (secs)] [31.3570886075949]
 [sat] [8]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,7,4]]
+[clauses constructed] [32280]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [15.311]
+[search time] [13.733]
 [best clause]
-class_mlj(d06060510265913574).
-[positive examples left] [102]
-[estimated time to finish (secs)] [1690.8285]
-[sat] [9]
-[clauses constructed] [50000]
-[search time] [12.862]
-[best clause]
-class_mlj(d06060518294100752).
-[positive examples left] [101]
-[estimated time to finish (secs)] [1632.564]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+[positive examples left] [27]
+[estimated time to finish (secs)] [30.4621807228916]
 [sat] [10]
 [-------------------------------------]
 [found clause]
 class_mlj(A) :-
    pagina_1(A,B), larghezza_pagina(B,613.0).
-[pos cover = 4 neg cover = 0] [pos-neg] [4]
-[clause label] [[4,0,3,4]]
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,3,2]]
 [clauses constructed] [11]
 [-------------------------------------]
-[clauses constructed] [44526]
-[search time] [5.41200000000001]
-[best clause]
-class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
-[positive examples left] [97]
-[estimated time to finish (secs)] [1125.85661538462]
-[sat] [11]
 [-------------------------------------]
 [found clause]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   allineato_al_centro_verticale(C,E).
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
 [pos cover = 4 neg cover = 0] [pos-neg] [4]
-[clause label] [[4,0,6,4]]
-[clauses constructed] [1685]
-[-------------------------------------]
-[-------------------------------------]
-[found clause]
-class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[pos cover = 5 neg cover = 0] [pos-neg] [5]
-[clause label] [[5,0,7,5]]
-[clauses constructed] [16584]
+[clause label] [[4,0,5,4]]
+[clauses constructed] [86]
 [-------------------------------------]
 [clauses constructed] [50000]
-[search time] [19.293]
+[search time] [25.437]
 [best clause]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
-[positive examples left] [92]
-[estimated time to finish (secs)] [869.814]
-[sat] [12]
-[clauses constructed] [50000]
-[search time] [12.617]
-[best clause]
-class_mlj(d06053013391413799).
-[positive examples left] [91]
-[estimated time to finish (secs)] [875.506210526316]
-[sat] [13]
-[clauses constructed] [50000]
-[search time] [15.793]
-[best clause]
-class_mlj(d06053013364813706).
-[positive examples left] [90]
-[estimated time to finish (secs)] [893.6595]
-[sat] [14]
-[clauses constructed] [50000]
-[search time] [18.701]
-[best clause]
-class_mlj(d06060518524102431).
-[positive examples left] [89]
-[estimated time to finish (secs)] [920.90419047619]
-[sat] [15]
-[clauses constructed] [50000]
-[search time] [16.513]
-[best clause]
-class_mlj(d06053013423414009).
-[positive examples left] [88]
-[estimated time to finish (secs)] [935.22]
-[sat] [16]
-[clauses constructed] [50000]
-[search time] [18.816]
-[best clause]
-class_mlj(d06053013204412712).
-[positive examples left] [87]
-[estimated time to finish (secs)] [955.566391304348]
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+[positive examples left] [23]
+[estimated time to finish (secs)] [31.4809195402299]
 [sat] [17]
 [clauses constructed] [50000]
-[search time] [24.751]
+[search time] [18.927]
 [best clause]
 class_mlj(d06060518380901422).
-[positive examples left] [86]
-[estimated time to finish (secs)] [993.916333333334]
-[sat] [18]
-[clauses constructed] [50000]
-[search time] [13.017]
-[best clause]
-class_mlj(d06060518383601440).
-[positive examples left] [85]
-[estimated time to finish (secs)] [987.3226]
-[sat] [19]
-[clauses constructed] [50000]
-[search time] [18.707]
-[best clause]
-class_mlj(d06060518285500732).
-[positive examples left] [84]
-[estimated time to finish (secs)] [998.617846153846]
-[sat] [20]
-[clauses constructed] [50000]
-[search time] [18.447]
-[best clause]
-class_mlj(d06060518434801636).
-[positive examples left] [83]
-[estimated time to finish (secs)] [1006.89144444444]
-[sat] [21]
-[clauses constructed] [50000]
-[search time] [16.157]
-[best clause]
-class_mlj(d06053013264113073).
-[positive examples left] [82]
-[estimated time to finish (secs)] [1006.55]
-[sat] [22]
-[clauses constructed] [50000]
-[search time] [18.012]
-[best clause]
-class_mlj(d06060518443101648).
-[positive examples left] [81]
-[estimated time to finish (secs)] [1010.29903448276]
-[sat] [23]
-[clauses constructed] [50000]
-[search time] [16.132]
-[best clause]
-class_mlj(d06060518312200919).
-[positive examples left] [80]
-[estimated time to finish (secs)] [1007.584]
-[sat] [24]
-[clauses constructed] [50000]
-[search time] [17.282]
-[best clause]
-class_mlj(d06053013360113675).
-[positive examples left] [79]
-[estimated time to finish (secs)] [1006.934]
-[sat] [25]
-[clauses constructed] [50000]
-[search time] [24.217]
-[best clause]
-class_mlj(d06060518472902031).
-[positive examples left] [78]
-[estimated time to finish (secs)] [1022.1485625]
-[sat] [26]
-[clauses constructed] [50000]
-[search time] [10.409]
-[best clause]
-class_mlj(d06060510414814236).
-[positive examples left] [77]
-[estimated time to finish (secs)] [1002.75466666667]
+[positive examples left] [22]
+[estimated time to finish (secs)] [34.50175]
 [sat] [27]
 [-------------------------------------]
 [found clause]
@@ -299,580 +226,234 @@ class_mlj(A) :-
 [clauses constructed] [5]
 [-------------------------------------]
 [clauses constructed] [50000]
-[search time] [11.949]
+[search time] [15.921]
 [best clause]
 class_mlj(A) :-
    pagina_1(A,B), altezza_pagina(B,666.0).
-[positive examples left] [75]
-[estimated time to finish (secs)] [946.502142857143]
-[sat] [28]
-[clauses constructed] [50000]
-[search time] [13.009]
-[best clause]
-class_mlj(d06060510413614235).
-[positive examples left] [74]
-[estimated time to finish (secs)] [934.681666666667]
-[sat] [29]
-[clauses constructed] [50000]
-[search time] [9.85000000000002]
-[best clause]
-class_mlj(d06053013312413349).
-[positive examples left] [73]
-[estimated time to finish (secs)] [916.564324324325]
-[sat] [30]
-[clauses constructed] [50000]
-[search time] [13.331]
-[best clause]
-class_mlj(d06053013211912730).
-[positive examples left] [72]
-[estimated time to finish (secs)] [905.477684210526]
+[positive examples left] [20]
+[estimated time to finish (secs)] [34.2062222222222]
 [sat] [31]
 [clauses constructed] [50000]
-[search time] [12.451]
+[search time] [17.562]
 [best clause]
 class_mlj(d06060518322601004).
-[positive examples left] [71]
-[estimated time to finish (secs)] [892.673897435898]
-[sat] [32]
-[clauses constructed] [50000]
-[search time] [16.8840000000001]
-[best clause]
-class_mlj(d06060518310700907).
-[positive examples left] [70]
-[estimated time to finish (secs)] [887.6455]
-[sat] [33]
-[clauses constructed] [50000]
-[search time] [14.943]
-[best clause]
-class_mlj(d06053013254713021).
-[positive examples left] [69]
-[estimated time to finish (secs)] [878.772219512195]
-[sat] [34]
-[clauses constructed] [50000]
-[search time] [12.559]
-[best clause]
-class_mlj(d06053013405113891).
-[positive examples left] [68]
-[estimated time to finish (secs)] [865.750095238095]
-[sat] [35]
-[clauses constructed] [50000]
-[search time] [17.369]
-[best clause]
-class_mlj(d06060510434514330).
-[positive examples left] [67]
-[estimated time to finish (secs)] [860.244162790698]
-[sat] [37]
-[clauses constructed] [50000]
-[search time] [22.5540000000001]
-[best clause]
-class_mlj(d06060518382901439).
-[positive examples left] [66]
-[estimated time to finish (secs)] [861.9765]
-[sat] [38]
-[clauses constructed] [50000]
-[search time] [18.3820000000001]
-[best clause]
-class_mlj(d06060518532502449).
-[positive examples left] [65]
-[estimated time to finish (secs)] [856.603222222223]
-[sat] [39]
-[clauses constructed] [50000]
-[search time] [18.218]
-[best clause]
-class_mlj(d06060518541902465).
-[positive examples left] [64]
-[estimated time to finish (secs)] [850.436173913044]
-[sat] [41]
-[clauses constructed] [50000]
-[search time] [12.4169999999999]
-[best clause]
-class_mlj(d06060518421201581).
-[positive examples left] [63]
-[estimated time to finish (secs)] [835.980510638298]
-[sat] [42]
-[clauses constructed] [50000]
-[search time] [11.732]
-[best clause]
-class_mlj(d06053013252512990).
-[positive examples left] [62]
-[estimated time to finish (secs)] [820.725]
-[sat] [43]
-[clauses constructed] [50000]
-[search time] [13.124]
-[best clause]
-class_mlj(d06060510442014369).
-[positive examples left] [61]
-[estimated time to finish (secs)] [807.346204081633]
-[sat] [44]
-[clauses constructed] [50000]
-[search time] [10.934]
-[best clause]
-class_mlj(d06053013241912894).
-[positive examples left] [60]
-[estimated time to finish (secs)] [791.3496]
-[sat] [45]
-[clauses constructed] [50000]
-[search time] [14.2729999999999]
-[best clause]
-class_mlj(d06060510481014782).
-[positive examples left] [59]
-[estimated time to finish (secs)] [779.414294117647]
-[sat] [46]
-[clauses constructed] [50000]
-[search time] [12.054]
-[best clause]
-class_mlj(d06060510274713652).
-[positive examples left] [58]
-[estimated time to finish (secs)] [764.914038461538]
-[sat] [47]
+[positive examples left] [19]
+[estimated time to finish (secs)] [35.8056043956044]
+[sat] [36]
 [-------------------------------------]
 [found clause]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
+   allineato_al_centro_verticale(C,E).
 [pos cover = 2 neg cover = 0] [pos-neg] [2]
 [clause label] [[2,0,6,2]]
-[clauses constructed] [5394]
+[clauses constructed] [2882]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), pos_center(D), 
+   pos_middle(D).
+[pos cover = 3 neg cover = 0] [pos-neg] [3]
+[clause label] [[3,0,6,3]]
+[clauses constructed] [2932]
+[-------------------------------------]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), on_top(D,C), 
+   width_medium_small(C), width_medium_small(D).
+[pos cover = 4 neg cover = 0] [pos-neg] [4]
+[clause label] [[4,0,7,4]]
+[clauses constructed] [38078]
 [-------------------------------------]
 [clauses constructed] [50000]
-[search time] [10.455]
+[search time] [15.901]
 [best clause]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
-[positive examples left] [56]
-[estimated time to finish (secs)] [722.026666666667]
-[sat] [48]
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), on_top(D,C), 
+   width_medium_small(C), width_medium_small(D).
+[positive examples left] [15]
+[estimated time to finish (secs)] [29.588052631579]
+[sat] [43]
 [clauses constructed] [50000]
-[search time] [16.6179999999999]
+[search time] [17.013]
 [best clause]
-class_mlj(d06060510382314057).
-[positive examples left] [55]
-[estimated time to finish (secs)] [712.858]
-[sat] [49]
+class_mlj(d06060510442014369).
+[positive examples left] [14]
+[estimated time to finish (secs)] [29.8089166666667]
+[sat] [44]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_verticale(C,D), 
+   pos_left(D), pos_middle(D).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,7,2]]
+[clauses constructed] [43668]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [11.741]
+[search time] [15.424]
 [best clause]
-class_mlj(d06060518320700983).
-[positive examples left] [54]
-[estimated time to finish (secs)] [698.720464285714]
-[sat] [50]
-[clauses constructed] [50000]
-[search time] [16.308]
-[best clause]
-class_mlj(d06060518391301453).
-[positive examples left] [53]
-[estimated time to finish (secs)] [688.913526315789]
-[sat] [51]
-[clauses constructed] [50000]
-[search time] [13.1179999999999]
-[best clause]
-class_mlj(d06060510495614980).
-[positive examples left] [52]
-[estimated time to finish (secs)] [676.022413793103]
-[sat] [52]
-[clauses constructed] [50000]
-[search time] [15.831]
-[best clause]
-class_mlj(d06060518373601412).
-[positive examples left] [51]
-[estimated time to finish (secs)] [665.468745762712]
-[sat] [53]
-[clauses constructed] [50000]
-[search time] [13.567]
-[best clause]
-class_mlj(d06053013365813708).
-[positive examples left] [50]
-[estimated time to finish (secs)] [652.8525]
-[sat] [54]
-[clauses constructed] [50000]
-[search time] [15.532]
-[best clause]
-class_mlj(d06060518435901639).
-[positive examples left] [49]
-[estimated time to finish (secs)] [641.783524590164]
-[sat] [55]
-[clauses constructed] [50000]
-[search time] [14.264]
-[best clause]
-class_mlj(d06053013262013044).
-[positive examples left] [48]
-[estimated time to finish (secs)] [629.588903225806]
-[sat] [56]
-[clauses constructed] [50000]
-[search time] [12.8440000000001]
-[best clause]
-class_mlj(d06060510265113565).
-[positive examples left] [47]
-[estimated time to finish (secs)] [616.269222222222]
-[sat] [57]
-[clauses constructed] [1446]
-[search time] [0.196000000000026]
-[best clause]
-class_mlj(d06060518433401633).
-[positive examples left] [46]
-[estimated time to finish (secs)] [593.87365625]
-[sat] [58]
-[clauses constructed] [50000]
-[search time] [13.5369999999999]
-[best clause]
-class_mlj(d06053013265213079).
-[positive examples left] [45]
-[estimated time to finish (secs)] [581.397230769231]
-[sat] [59]
-[clauses constructed] [50000]
-[search time] [10.553]
-[best clause]
-class_mlj(d06053013382113764).
-[positive examples left] [44]
-[estimated time to finish (secs)] [566.899333333333]
-[sat] [60]
-[clauses constructed] [50000]
-[search time] [11.838]
-[best clause]
-class_mlj(d06053013430914058).
-[positive examples left] [43]
-[estimated time to finish (secs)] [553.343895522388]
-[sat] [61]
-[clauses constructed] [50000]
-[search time] [13.745]
-[best clause]
-class_mlj(d06053013393313815).
-[positive examples left] [42]
-[estimated time to finish (secs)] [541.016823529412]
-[sat] [62]
-[clauses constructed] [50000]
-[search time] [13.793]
-[best clause]
-class_mlj(d06060518381901424).
-[positive examples left] [41]
-[estimated time to finish (secs)] [528.677173913043]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_verticale(C,D), 
+   pos_left(D), pos_middle(D).
+[positive examples left] [12]
+[estimated time to finish (secs)] [26.9177142857143]
 [sat] [65]
 [clauses constructed] [50000]
-[search time] [12.554]
+[search time] [13.652]
 [best clause]
 class_mlj(d06053013220812764).
-[positive examples left] [40]
-[estimated time to finish (secs)] [515.588]
-[sat] [66]
-[clauses constructed] [50000]
-[search time] [13.324]
-[best clause]
-class_mlj(d06060518335301163).
-[positive examples left] [39]
-[estimated time to finish (secs)] [502.936859154929]
-[sat] [67]
-[clauses constructed] [50000]
-[search time] [14.032]
-[best clause]
-class_mlj(d06060518351001324).
-[positive examples left] [38]
-[estimated time to finish (secs)] [490.640694444444]
+[positive examples left] [11]
+[estimated time to finish (secs)] [25.9422222222222]
 [sat] [69]
 [clauses constructed] [50000]
-[search time] [9.32600000000002]
+[search time] [22.996]
 [best clause]
 class_mlj(d06060518525802442).
-[positive examples left] [37]
-[estimated time to finish (secs)] [475.911739726027]
-[sat] [70]
-[clauses constructed] [50000]
-[search time] [12.2439999999999]
-[best clause]
-class_mlj(d06060518394701461).
-[positive examples left] [36]
-[estimated time to finish (secs)] [462.748378378378]
-[sat] [71]
-[clauses constructed] [50000]
-[search time] [8.97799999999995]
-[best clause]
-class_mlj(d06060510263313550).
-[positive examples left] [35]
-[estimated time to finish (secs)] [448.0854]
-[sat] [72]
-[clauses constructed] [50000]
-[search time] [9.62199999999996]
-[best clause]
-class_mlj(d06053013380913737).
-[positive examples left] [34]
-[estimated time to finish (secs)] [433.860131578947]
-[sat] [73]
-[clauses constructed] [50000]
-[search time] [13.472]
-[best clause]
-class_mlj(d06053013205712715).
-[positive examples left] [33]
-[estimated time to finish (secs)] [421.404428571428]
+[positive examples left] [10]
+[estimated time to finish (secs)] [25.6476]
 [sat] [74]
 [clauses constructed] [50000]
-[search time] [12.562]
+[search time] [13.964]
 [best clause]
 class_mlj(d06053013254013020).
-[positive examples left] [32]
-[estimated time to finish (secs)] [408.549333333333]
-[sat] [75]
-[clauses constructed] [50000]
-[search time] [13.75]
-[best clause]
-class_mlj(d06060518523102428).
-[positive examples left] [31]
-[estimated time to finish (secs)] [396.167835443038]
-[sat] [77]
-[clauses constructed] [50000]
-[search time] [15.636]
-[best clause]
-class_mlj(d06053013303213292).
-[positive examples left] [30]
-[estimated time to finish (secs)] [384.459375]
-[sat] [78]
-[clauses constructed] [50000]
-[search time] [10.9459999999999]
-[best clause]
-class_mlj(d06053013245412933).
-[positive examples left] [29]
-[estimated time to finish (secs)] [370.974802469136]
-[sat] [81]
-[clauses constructed] [50000]
-[search time] [15.7749999999999]
-[best clause]
-class_mlj(d06060518251800523).
-[positive examples left] [28]
-[estimated time to finish (secs)] [359.201073170731]
-[sat] [82]
-[clauses constructed] [50000]
-[search time] [12.8199999999999]
-[best clause]
-class_mlj(d06053013415713955).
-[positive examples left] [27]
-[estimated time to finish (secs)] [346.369662650602]
-[sat] [83]
-[clauses constructed] [50000]
-[search time] [12.7540000000001]
-[best clause]
-class_mlj(d06060510430514318).
-[positive examples left] [26]
-[estimated time to finish (secs)] [333.518095238095]
-[sat] [84]
-[clauses constructed] [50000]
-[search time] [13.03]
-[best clause]
-class_mlj(d06060518445901684).
-[positive examples left] [25]
-[estimated time to finish (secs)] [320.75]
-[sat] [85]
-[clauses constructed] [50000]
-[search time] [11.146]
-[best clause]
-class_mlj(d06060510270713582).
-[positive examples left] [24]
-[estimated time to finish (secs)] [307.450046511628]
-[sat] [86]
-[clauses constructed] [50000]
-[search time] [13.0840000000001]
-[best clause]
-class_mlj(d06053013403113871).
-[positive examples left] [23]
-[estimated time to finish (secs)] [294.711954022988]
+[positive examples left] [9]
+[estimated time to finish (secs)] [24.0986138613861]
 [sat] [87]
 [clauses constructed] [50000]
-[search time] [15.663]
+[search time] [16.554]
 [best clause]
 class_mlj(d06060518272200636).
-[positive examples left] [22]
-[estimated time to finish (secs)] [282.61075]
+[positive examples left] [8]
+[estimated time to finish (secs)] [22.5093333333333]
 [sat] [88]
 [clauses constructed] [50000]
-[search time] [11.739]
+[search time] [16.862]
 [best clause]
 class_mlj(d06060518304000869).
-[positive examples left] [21]
-[estimated time to finish (secs)] [269.503617977528]
+[positive examples left] [7]
+[estimated time to finish (secs)] [20.6504077669903]
 [sat] [89]
+[-------------------------------------]
+[found clause]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_small(C), width_medium_small(C).
+[pos cover = 2 neg cover = 0] [pos-neg] [2]
+[clause label] [[2,0,5,2]]
+[clauses constructed] [604]
+[-------------------------------------]
 [clauses constructed] [50000]
-[search time] [12.1799999999998]
+[search time] [15.14]
 [best clause]
-class_mlj(d06060510503615135).
-[positive examples left] [20]
-[estimated time to finish (secs)] [256.524888888889]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_small(C), width_medium_small(C).
+[positive examples left] [5]
+[estimated time to finish (secs)] [15.1902857142857]
 [sat] [90]
 [clauses constructed] [50000]
-[search time] [12.249]
+[search time] [18.245]
 [best clause]
 class_mlj(d06053013213312739).
-[positive examples left] [19]
-[estimated time to finish (secs)] [243.578120879121]
-[sat] [91]
-[clauses constructed] [50000]
-[search time] [9.38799999999992]
-[best clause]
-class_mlj(d06053013401813843).
-[positive examples left] [18]
-[estimated time to finish (secs)] [230.086760869565]
-[sat] [92]
-[clauses constructed] [50000]
-[search time] [17.076]
-[best clause]
-class_mlj(d06060518405601538).
-[positive examples left] [17]
-[estimated time to finish (secs)] [218.088978494624]
-[sat] [93]
-[clauses constructed] [50000]
-[search time] [16.8969999999999]
-[best clause]
-class_mlj(d06060518332901097).
-[positive examples left] [16]
-[estimated time to finish (secs)] [205.952680851064]
-[sat] [94]
-[clauses constructed] [50000]
-[search time] [15.1369999999999]
-[best clause]
-class_mlj(d06060510444214386).
-[positive examples left] [15]
-[estimated time to finish (secs)] [193.438263157895]
+[positive examples left] [4]
+[estimated time to finish (secs)] [12.7260754716981]
 [sat] [95]
 [clauses constructed] [50000]
-[search time] [12.3499999999999]
+[search time] [18.165]
 [best clause]
 class_mlj(d06060518303100860).
-[positive examples left] [14]
-[estimated time to finish (secs)] [180.462770833333]
-[sat] [96]
-[clauses constructed] [50000]
-[search time] [15.29]
-[best clause]
-class_mlj(d06060510273413645).
-[positive examples left] [13]
-[estimated time to finish (secs)] [167.894195876289]
-[sat] [97]
-[clauses constructed] [50000]
-[search time] [11.2940000000001]
-[best clause]
-class_mlj(d06053013422814008).
-[positive examples left] [12]
-[estimated time to finish (secs)] [154.780775510204]
-[sat] [99]
-[clauses constructed] [50000]
-[search time] [13.432]
-[best clause]
-class_mlj(d06060518482402123).
-[positive examples left] [11]
-[estimated time to finish (secs)] [141.941666666667]
-[sat] [100]
-[clauses constructed] [50000]
-[search time] [14.9820000000002]
-[best clause]
-class_mlj(d06060518270300598).
-[positive examples left] [10]
-[estimated time to finish (secs)] [129.2457]
-[sat] [101]
-[clauses constructed] [50000]
-[search time] [14.9779999999998]
-[best clause]
-class_mlj(d06060518331601080).
-[positive examples left] [9]
-[estimated time to finish (secs)] [116.504108910891]
-[sat] [102]
-[clauses constructed] [50000]
-[search time] [13.306]
-[best clause]
-class_mlj(d06053013233112832).
-[positive examples left] [8]
-[estimated time to finish (secs)] [103.587529411765]
+[positive examples left] [3]
+[estimated time to finish (secs)] [9.96465420560748]
 [sat] [103]
 [clauses constructed] [50000]
-[search time] [12.7340000000002]
+[search time] [19.702]
 [best clause]
 class_mlj(d06060510445614393).
-[positive examples left] [7]
-[estimated time to finish (secs)] [90.6245145631068]
-[sat] [104]
-[clauses constructed] [50000]
-[search time] [12.327]
-[best clause]
-class_mlj(d06060518273300645).
-[positive examples left] [6]
-[estimated time to finish (secs)] [77.642423076923]
+[positive examples left] [2]
+[estimated time to finish (secs)] [6.94644444444444]
 [sat] [105]
 [clauses constructed] [50000]
-[search time] [13.1500000000001]
+[search time] [17.856]
 [best clause]
 class_mlj(d06060518302200819).
-[positive examples left] [5]
-[estimated time to finish (secs)] [64.712]
-[sat] [106]
-[clauses constructed] [50000]
-[search time] [9.7639999999999]
-[best clause]
-class_mlj(d06053013222512769).
-[positive examples left] [4]
-[estimated time to finish (secs)] [51.6496603773585]
-[sat] [107]
-[clauses constructed] [50000]
-[search time] [15.0170000000001]
-[best clause]
-class_mlj(d06060518540302460).
-[positive examples left] [3]
-[estimated time to finish (secs)] [38.7962523364486]
-[sat] [108]
-[clauses constructed] [50000]
-[search time] [7.80699999999979]
-[best clause]
-class_mlj(d06053013383013765).
-[positive examples left] [2]
-[estimated time to finish (secs)] [25.7692592592592]
-[sat] [109]
-[clauses constructed] [50000]
-[search time] [9.90300000000002]
-[best clause]
-class_mlj(d06060518290400735).
 [positive examples left] [1]
-[estimated time to finish (secs)] [12.8572752293578]
-[sat] [110]
+[estimated time to finish (secs)] [3.60517431192661]
+[sat] [107]
 [positive examples left] [0]
 [estimated time to finish (secs)] [0.0]
 
 [theory]
 
-[Rule 10] [Pos cover = 4 Neg cover = 0]
+[Rule 1] [Pos cover = 17 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), larghezza_pagina(B,613.0).
+   pagina_1(A,B), frame(B,C), on_top(C,D), width_large(D), 
+   width_very_small(C), pos_right(C).
 
-[Rule 11] [Pos cover = 5 Neg cover = 0]
+[Rule 2] [Pos cover = 17 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), frame(B,C), allineato_al_centro_orizzontale(C,D), on_top(D,C), 
-   on_top(C,E), on_top(E,F).
+   pagina_1(A,B), frame(B,C), pos_left(C), pos_upper(C), 
+   larghezza_pagina(B,595.0).
 
-[Rule 27] [Pos cover = 2 Neg cover = 0]
+[Rule 3] [Pos cover = 46 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), on_top(C,D), height_large(D), 
+   width_large(D), width_medium_small(C).
+
+[Rule 4] [Pos cover = 25 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), on_top(C,D), 
+   pos_right(D).
+
+[Rule 5] [Pos cover = 13 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), height_medium_large(C), 
+   pos_lower(C), larghezza_pagina(B,595.0).
+
+[Rule 6] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_large(C), width_large(C).
+
+[Rule 8] [Pos cover = 2 Neg cover = 0]
 class_mlj(A) :-
    pagina_1(A,B), altezza_pagina(B,666.0).
 
-[Rule 45] [Pos cover = 3 Neg cover = 0]
+[Rule 10] [Pos cover = 11 Neg cover = 0]
 class_mlj(A) :-
-   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_orizzontale(C,D), 
-   tipo_testo(D).
+   pagina_1(A,B), frame(B,C), allineato_al_centro_verticale(C,D), on_top(D,C), 
+   width_medium_small(C), width_medium_small(D).
+
+[Rule 12] [Pos cover = 17 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), altezza_pagina(B,842.0), frame(B,C), allineato_al_centro_verticale(C,D), 
+   pos_left(D), pos_middle(D).
+
+[Rule 18] [Pos cover = 9 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B), frame(B,C), height_very_small(C), width_medium_small(C).
 
 [Training set performance]
            Actual
         +          -  
-     + 13         0         13 
+     + 97         0         97 
 Pred 
-     - 97        208        305 
+     - 13        208        221 
 
        110        208        318 
 
-Accuracy = 0.694968553459119
-[Training set summary] [[13,0,97,208]]
+Accuracy = 0.959119496855346
+[Training set summary] [[97,0,13,208]]
 [Test set performance]
           Actual
        +        - 
-     + 2        0        2 
+     + 11        1        12 
 Pred 
-     - 10        23        33 
+     - 1        22        23 
 
        12        23        35 
 
-Accuracy = 0.714285714285714
-[Test set summary] [[2,0,10,23]]
-[time taken] [1425.886]
+Accuracy = 0.942857142857143
+[Test set summary] [[11,1,1,22]]
+[time taken] [398.788]
 
-[total clauses constructed] [4945972]
+[total clauses constructed] [1100000]

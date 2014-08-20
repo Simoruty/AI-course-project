@@ -8,6 +8,96 @@ Di seguito verranno presentate tutte le procedure utilizzate.
 Aleph necessita di 3 file di input:
 \begin{itemize}
 \item file con estensione \verb+.b+ contenente la knowledge base
-\item file con estensione \verb+.f+ conentente gli esempi di testing positivi
-\item file con estensione \verb+.n+ conentente gli esempi di testing negativi
+\item file con estensione \verb+.f+ contenente gli esempi di training positivi
+\item file con estensione \verb+.n+ contenente gli esempi di training negativi
 \end{itemize}
+
+In questo modo è già possibile avviare Aleph in maniera interattiva e sottoporgli dei casi di test. Tuttavia, per automatizzare il procedimento, abbiamo creato ulteriori due file (un file \verb+.f+ e uno \verb+.n+) che contengono i casi di testing, rispettivamente, positivi e negativi che il sistema utilizza in maniera automatica se opportunamente configurato.
+
+\subsubsection{Sintassi file .b}
+Il file \verb+.b+ contiene:
+\begin{itemize}
+\item settaggi che modificano l'esecuzione (e ovviamente anche le prestazioni) del sistema
+\item la descrizione delle relazioni utilizzate nel dataset
+\item le dipendenze della classe dalle relazioni
+\item tutti i fatti del dataset
+\end{itemize}
+
+I settaggi vanno espressi con la sintassi:
+\begin{verbatim}
+     :- set(chiave, valore).
+\end{verbatim}
+
+Nello specifico le chiavi da noi impostate sono:
+
+\paragraph{cache\_clauselength} 5
+
+Numero di pagine del Documento 
+
+\paragraph{caching} true
+
+ • 
+
+\paragraph{check\_useless}   true
+
+   • 
+
+\paragraph{clauselength}   8
+
+   Imposta la lunghezza massima delle clausole che costruiscono la teoria a 8.
+ 
+
+\paragraph{depth}   15
+
+   • 
+
+\paragraph{i}   10
+
+   • 
+
+\paragraph{minacc}   0.0
+
+   • 
+
+\paragraph{minpos}   2
+
+   • 
+
+\paragraph{nodes}   50000
+
+   • 
+
+\paragraph{noise}   0
+
+   • 
+
+\paragraph{record}   true
+
+   • 
+
+\paragraph{recordfile}   './elsevier\_f0.log'
+
+   • 
+
+\paragraph{rulefile}   './elsevier\_f0.rul'
+
+   • 
+
+\paragraph{test\_pos}   './elsevier\_f0\_test.f'
+
+   • 
+
+\paragraph{test\_neg}   './elsevier\_f0\_test.n'
+
+   • 
+
+\paragraph{thread}   8
+
+   Utilizza 8 thread per beneficiare del calcolo parallelo sui processori moderni.
+   
+ 
+
+
+\paragraph{verbosity}   0
+
+Imposta la quantità di output prodotta dal sistema 
