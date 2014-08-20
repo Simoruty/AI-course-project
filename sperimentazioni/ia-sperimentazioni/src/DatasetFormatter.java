@@ -14,7 +14,7 @@ public class DatasetFormatter {
 
     //    private static String all
     private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    //    private static String[] datasets = {"mlj"};
+    //        private static String[] datasets = {"mlj"};
     private static SortedSet<String> positiviRAW;
     private static SortedSet<String> negativiRAW;
     private static SortedSet<String> fattiRAW;
@@ -69,9 +69,9 @@ public class DatasetFormatter {
 //            System.out.println(documenti.size());
 //            System.out.println(pagine.size());
 //            System.out.println(frame.size());
-            writeFN(dataset);
-            writeB(dataset);
-            writeYAP(dataset);
+//            writeFN(dataset);
+//            writeB(dataset);
+//            writeYAP(dataset);
             writeD(dataset);
         }
     }
@@ -327,6 +327,7 @@ public class DatasetFormatter {
             sb.append("LarghezzaPagina: continuous.\n");
             sb.append("AltezzaPagina: continuous.\n");
             if ((dataset.equals("mlj")) && (daDiscretizzare)) {
+                sb.append("\n");
             } else {
                 sb.append("AscissaRettangolo: continuous.\n");
                 sb.append("OrdinataRettangolo: continuous.\n");
