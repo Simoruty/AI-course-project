@@ -1,3 +1,349 @@
-\csvautotabular{csv/elsevier/aleph.csv}
-\csvautotabular{csv/elsevier/progol.csv}
-\csvautotabular{csv/elsevier/foil.csv}
+\section{Elsevier}
+\subsection{ALEPH}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+%		\multicolumn{10}{c}{ALEPH}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/elsevier/aleph.csv}
+
+\subsection{PROGOL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+%		\multicolumn{10}{c}{PROGOL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/elsevier/progol.csv}
+
+\subsection{FOIL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+%		\multicolumn{10}{c}{FOIL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/elsevier/foil.csv}
+
+\section{jmlr}
+\subsection{ALEPH}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{ALEPH}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/jmlr/aleph.csv}
+
+\subsection{PROGOL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{PROGOL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/jmlr/progol.csv}
+
+\subsection{FOIL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{FOIL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/jmlr/foil.csv}
+
+\section{svln}
+\subsection{ALEPH}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{ALEPH}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/svln/aleph.csv}
+
+\subsection{PROGOL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{PROGOL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/svln/progol.csv}
+
+\subsection{FOIL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{FOIL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/svln/foil.csv}
+
+\section{MLJ - discretizzato}
+\subsection{ALEPH}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{ALEPH}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/mlj/discr/aleph.csv}
+
+\subsection{PROGOL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{PROGOL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/mlj/discr/progol.csv}
+
+\subsection{FOIL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{FOIL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/mlj/discr/foil.csv}
+
+\section{MLJ - non discretizzato}
+\subsection{ALEPH}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{ALEPH}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/mlj/nodiscr/aleph.csv}
+
+\subsection{PROGOL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{PROGOL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/mlj/nodiscr/progol.csv}
+
+\subsection{FOIL}
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+every head row/.style={%
+	before row={\toprule\addlinespace
+		%		\multicolumn{10}{c}{FOIL}\\
+	},
+	after row=\addlinespace\midrule\addlinespace
+},
+every last row/.style={after row=\addlinespace\bottomrule},
+columns/FOLD/.style={column name=FOLD, column type=c},
+columns/TP/.style={column name=TP, column type=c},
+columns/TN/.style={column name=TN, column type=c},
+columns/FP/.style={column name=FP, column type=c},
+columns/FN/.style={column name=FN, column type=c},
+columns/precision/.style={column name=precision, column type=c},
+columns/recall/.style={column name=recall, column type=c},
+columns/F-Measure/.style={column name=F-Measure, column type=c},
+columns/Acc/.style={column name=Accuracy, column type=c},
+columns/Err/.style={column name=Error, column type=c},
+]{csv/mlj/nodiscr/foil.csv}
