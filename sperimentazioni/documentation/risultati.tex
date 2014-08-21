@@ -1,6 +1,7 @@
 \section{Risultati}
 \subsection{Elsevier}
 \subsubsection{ALEPH}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -22,33 +23,27 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/elsevier/aleph.csv}
+\caption[Risultati ALEPH-Elsevier]{Risultati ottenuti con il sistema ALEPH sul dataset Elsevier}
+\label{tab:ris:aleph:elsevier}
+\end{table}
 
 \begin{verbatim}
-	elsevier started at 14:26:44
-	---Fold 0 started at 14:26:44
-	---Fold 0 ended in: 0:00:52.449957
-	---Fold 1 started at 14:27:37
-	---Fold 1 ended in: 0:00:47.801979
-	---Fold 2 started at 14:28:24
-	---Fold 2 ended in: 0:00:53.837908
-	---Fold 3 started at 14:29:18
-	---Fold 3 ended in: 0:00:44.939273
-	---Fold 4 started at 14:30:03
-	---Fold 4 ended in: 0:00:43.786115
-	---Fold 5 started at 14:30:47
-	---Fold 5 ended in: 0:00:45.716145
-	---Fold 6 started at 14:31:33
-	---Fold 6 ended in: 0:00:53.419959
-	---Fold 7 started at 14:32:26
-	---Fold 7 ended in: 0:00:54.466414
-	---Fold 8 started at 14:33:21
-	---Fold 8 ended in: 0:00:45.072803
-	---Fold 9 started at 14:34:06
-	---Fold 9 ended in: 0:00:44.471514
-	elsevier ended in 0:08:05.962708
+elsevier started at 14:26:44
+---Fold 0 ended in: 0:00:52.449957
+---Fold 1 ended in: 0:00:47.801979
+---Fold 2 ended in: 0:00:53.837908
+---Fold 3 ended in: 0:00:44.939273
+---Fold 4 ended in: 0:00:43.786115
+---Fold 5 ended in: 0:00:45.716145
+---Fold 6 ended in: 0:00:53.419959
+---Fold 7 ended in: 0:00:54.466414
+---Fold 8 ended in: 0:00:45.072803
+---Fold 9 ended in: 0:00:44.471514
+elsevier ended in 0:08:05.962708
 \end{verbatim}
 
 \subsubsection{PROGOL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -70,32 +65,26 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/elsevier/progol.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 elsevier started at 09:22:02
----Fold 0 started at 09:22:02
 ---Fold 0 ended in: 0:00:38.425921
----Fold 1 started at 09:22:40
 ---Fold 1 ended in: 0:00:40.896260
----Fold 2 started at 09:23:21
 ---Fold 2 ended in: 0:00:47.197656
----Fold 3 started at 09:24:08
 ---Fold 3 ended in: 0:01:24.320783
----Fold 4 started at 09:25:33
 ---Fold 4 ended in: 0:00:45.006192
----Fold 5 started at 09:26:18
 ---Fold 5 ended in: 0:00:43.862157
----Fold 6 started at 09:27:01
 ---Fold 6 ended in: 0:00:33.893715
----Fold 7 started at 09:27:35
 ---Fold 7 ended in: 0:00:46.741183
----Fold 8 started at 09:28:22
 ---Fold 8 ended in: 0:00:42.525816
----Fold 9 started at 09:29:05
 ---Fold 9 ended in: 0:00:39.602502
 elsevier ended in 0:07:42.472820
 \end{verbatim}
 \subsubsection{FOIL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -117,60 +106,54 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/elsevier/foil.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 elsevier started at 09:11:46
----Fold 0 started at 09:11:46
 ---Fold 0 ended in: 0:00:03.258203
----Fold 1 started at 09:11:50
 ---Fold 1 ended in: 0:00:02.868314
----Fold 2 started at 09:11:52
 ---Fold 2 ended in: 0:00:02.853725
----Fold 3 started at 09:11:55
 ---Fold 3 ended in: 0:00:03.356398
----Fold 4 started at 09:11:59
 ---Fold 4 ended in: 0:00:03.351272
----Fold 5 started at 09:12:02
 ---Fold 5 ended in: 0:00:02.746340
----Fold 6 started at 09:12:05
 ---Fold 6 ended in: 0:00:01.770807
----Fold 7 started at 09:12:07
 ---Fold 7 ended in: 0:00:02.997800
----Fold 8 started at 09:12:10
 ---Fold 8 ended in: 0:00:12.297267
----Fold 9 started at 09:12:22
 ---Fold 9 ended in: 0:00:01.600430
 elsevier ended in 0:00:37.101084
 \end{verbatim}
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/precision.png}
 	\label{Elsevier-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/recall.png}
 	\label{Elsevier-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/fm.png}
 	\label{Elsevier-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 \includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/accuracy.png}
 \label{Elsevier-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/error.png}
 	\label{Elsevier-Error}
 \end{figure}
 
 \subsection{JMLR}
 \subsubsection{ALEPH}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -192,32 +175,26 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/jmlr/aleph.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 jmlr started at 14:34:50
----Fold 0 started at 14:34:50
 ---Fold 0 ended in: 0:00:44.040336
----Fold 1 started at 14:35:34
 ---Fold 1 ended in: 0:00:58.375317
----Fold 2 started at 14:36:33
 ---Fold 2 ended in: 0:00:40.177290
----Fold 3 started at 14:37:13
 ---Fold 3 ended in: 0:00:31.072195
----Fold 4 started at 14:37:44
 ---Fold 4 ended in: 0:00:57.077835
----Fold 5 started at 14:38:41
 ---Fold 5 ended in: 0:00:58.648341
----Fold 6 started at 14:39:39
 ---Fold 6 ended in: 0:00:58.353248
----Fold 7 started at 14:40:38
 ---Fold 7 ended in: 0:00:58.888839
----Fold 8 started at 14:41:37
 ---Fold 8 ended in: 0:00:42.341782
----Fold 9 started at 14:42:19
 ---Fold 9 ended in: 0:00:43.150318
 jmlr ended in 0:08:12.126228
 \end{verbatim}
 \subsubsection{PROGOL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -239,32 +216,26 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/jmlr/progol.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 jmlr started at 09:29:44
----Fold 0 started at 09:29:44
 ---Fold 0 ended in: 0:00:26.084275
----Fold 1 started at 09:30:10
 ---Fold 1 ended in: 0:00:45.996500
----Fold 2 started at 09:30:56
 ---Fold 2 ended in: 0:00:37.654357
----Fold 3 started at 09:31:34
 ---Fold 3 ended in: 0:00:29.765864
----Fold 4 started at 09:32:04
 ---Fold 4 ended in: 0:00:41.809093
----Fold 5 started at 09:32:45
 ---Fold 5 ended in: 0:00:37.723421
----Fold 6 started at 09:33:23
 ---Fold 6 ended in: 0:00:19.029631
----Fold 7 started at 09:33:42
 ---Fold 7 ended in: 0:00:49.946552
----Fold 8 started at 09:34:32
 ---Fold 8 ended in: 0:00:34.581277
----Fold 9 started at 09:35:07
 ---Fold 9 ended in: 0:00:34.694070
 jmlr ended in 0:05:57.285763
 \end{verbatim}
 \subsubsection{FOIL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -286,60 +257,54 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/jmlr/foil.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 jmlr started at 09:12:23
----Fold 0 started at 09:12:23
 ---Fold 0 ended in: 0:00:02.759541
----Fold 1 started at 09:12:26
 ---Fold 1 ended in: 0:00:05.639292
----Fold 2 started at 09:12:32
 ---Fold 2 ended in: 0:00:07.404179
----Fold 3 started at 09:12:39
 ---Fold 3 ended in: 0:00:03.042006
----Fold 4 started at 09:12:42
 ---Fold 4 ended in: 0:00:05.479597
----Fold 5 started at 09:12:48
 ---Fold 5 ended in: 0:00:03.189191
----Fold 6 started at 09:12:51
 ---Fold 6 ended in: 0:00:02.824482
----Fold 7 started at 09:12:54
 ---Fold 7 ended in: 0:00:02.231835
----Fold 8 started at 09:12:56
 ---Fold 8 ended in: 0:00:03.894108
----Fold 9 started at 09:13:00
 ---Fold 9 ended in: 0:00:03.966871
 jmlr ended in 0:00:40.431931
 \end{verbatim}
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/precision.png}
 	\label{JMLR-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/recall.png}
 	\label{JMLR-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/fm.png}
 	\label{JMLR-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/accuracy.png}
 	\label{JMLR-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/error.png}
 	\label{JMLR-Error}
 \end{figure}
 
 \subsection{SVLN}
 \subsubsection{ALEPH}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -361,32 +326,26 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/svln/aleph.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 svln started at 18:53:32
----Fold 0 started at 18:53:32
 ---Fold 0 ended in: 0:01:54.234807
----Fold 1 started at 18:55:26
 ---Fold 1 ended in: 0:01:35.397646
----Fold 2 started at 18:57:02
 ---Fold 2 ended in: 0:01:43.559253
----Fold 3 started at 18:58:45
 ---Fold 3 ended in: 0:01:52.177093
----Fold 4 started at 19:00:38
 ---Fold 4 ended in: 0:02:31.127063
----Fold 5 started at 19:03:09
 ---Fold 5 ended in: 0:01:47.824715
----Fold 6 started at 19:04:56
 ---Fold 6 ended in: 0:01:40.269009
----Fold 7 started at 19:06:37
 ---Fold 7 ended in: 0:01:15.299631
----Fold 8 started at 19:07:52
 ---Fold 8 ended in: 0:01:39.995804
----Fold 9 started at 19:09:32
 ---Fold 9 ended in: 0:02:01.367264
 svln ended in 0:18:01.252851
 \end{verbatim}
 \subsubsection{PROGOL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -408,32 +367,26 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/svln/progol.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
-	svln started at 12:43:51
-	---Fold 0 started at 12:43:51
-	---Fold 0 ended in: 0:01:04.320244
-	---Fold 1 started at 12:44:55
-	---Fold 1 ended in: 0:01:24.453421
-	---Fold 2 started at 12:46:20
-	---Fold 2 ended in: 0:01:12.648375
-	---Fold 3 started at 12:47:32
-	---Fold 3 ended in: 0:01:00.633611
-	---Fold 4 started at 12:48:33
-	---Fold 4 ended in: 0:01:18.982588
-	---Fold 5 started at 12:49:52
-	---Fold 5 ended in: 0:01:16.183743
-	---Fold 6 started at 12:51:08
-	---Fold 6 ended in: 0:01:00.154165
-	---Fold 7 started at 12:52:08
-	---Fold 7 ended in: 0:00:42.924736
-	---Fold 8 started at 12:52:51
-	---Fold 8 ended in: 0:01:24.184806
-	---Fold 9 started at 12:54:15
-	---Fold 9 ended in: 0:01:44.461413
-	svln ended in 0:12:08.991536
+svln started at 12:43:51
+---Fold 0 ended in: 0:01:04.320244
+---Fold 1 ended in: 0:01:24.453421
+---Fold 2 ended in: 0:01:12.648375
+---Fold 3 ended in: 0:01:00.633611
+---Fold 4 ended in: 0:01:18.982588
+---Fold 5 ended in: 0:01:16.183743
+---Fold 6 ended in: 0:01:00.154165
+---Fold 7 ended in: 0:00:42.924736
+---Fold 8 ended in: 0:01:24.184806
+---Fold 9 ended in: 0:01:44.461413
+svln ended in 0:12:08.991536
 \end{verbatim}
 \subsubsection{FOIL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -455,61 +408,55 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/svln/foil.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 svln started at 09:13:04
----Fold 0 started at 09:13:04
 ---Fold 0 ended in: 0:00:00.328284
----Fold 1 started at 09:13:04
 ---Fold 1 ended in: 0:00:00.238981
----Fold 2 started at 09:13:05
 ---Fold 2 ended in: 0:00:00.294530
----Fold 3 started at 09:13:05
 ---Fold 3 ended in: 0:00:00.207063
----Fold 4 started at 09:13:05
 ---Fold 4 ended in: 0:00:00.242937
----Fold 5 started at 09:13:05
 ---Fold 5 ended in: 0:00:00.191957
----Fold 6 started at 09:13:06
 ---Fold 6 ended in: 0:00:00.194648
----Fold 7 started at 09:13:06
 ---Fold 7 ended in: 0:00:00.340427
----Fold 8 started at 09:13:06
 ---Fold 8 ended in: 0:00:00.318204
----Fold 9 started at 09:13:06
 ---Fold 9 ended in: 0:00:00.208281
 svln ended in 0:00:02.566150
 \end{verbatim}
 
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/precision.png}
 	\label{svln-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/recall.png}
 	\label{svln-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/fm.png}
 	\label{svln-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/accuracy.png}
 	\label{svln-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/error.png}
 	\label{svln-Error}
 \end{figure}
 
 \subsection{MLJ - discretizzato}
 \subsubsection{ALEPH}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -531,33 +478,27 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/discr/aleph.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 mlj discr started at 12:38:52
----Fold 0 started at 12:38:52
 ---Fold 0 ended in: 0:06:32.987887
----Fold 1 started at 12:45:25
 ---Fold 1 ended in: 0:06:55.407367
----Fold 2 started at 12:52:20
 ---Fold 2 ended in: 0:06:38.581722
----Fold 3 started at 12:58:59
 ---Fold 3 ended in: 0:06:40.096561
----Fold 4 started at 13:05:39
 ---Fold 4 ended in: 0:06:42.671273
----Fold 5 started at 13:12:22
 ---Fold 5 ended in: 0:06:46.315155
----Fold 6 started at 13:19:08
 ---Fold 6 ended in: 0:06:29.094981
----Fold 7 started at 13:25:37
 ---Fold 7 ended in: 0:06:49.495072
----Fold 8 started at 13:32:26
 ---Fold 8 ended in: 0:05:32.322452
----Fold 9 started at 13:37:59
 ---Fold 9 ended in: 0:05:26.615672
 mlj discr ended in 1:04:33.588808
 \end{verbatim}
 
 \subsubsection{PROGOL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -579,32 +520,26 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/discr/progol.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 mlj discr started at 14:35:28
----Fold 0 started at 14:35:28
 ---Fold 0 ended in: 0:05:33.172855
----Fold 1 started at 14:41:01
 ---Fold 1 ended in: 0:04:24.460047
----Fold 2 started at 14:45:25
 ---Fold 2 ended in: 0:06:21.096485
----Fold 3 started at 14:51:46
 ---Fold 3 ended in: 0:04:39.550606
----Fold 4 started at 14:56:26
 ---Fold 4 ended in: 0:05:39.287544
----Fold 5 started at 15:02:05
 ---Fold 5 ended in: 0:04:42.005965
----Fold 6 started at 15:06:47
 ---Fold 6 ended in: 0:05:36.268812
----Fold 7 started at 15:12:23
 ---Fold 7 ended in: 0:05:15.292060
----Fold 8 started at 15:17:39
 ---Fold 8 ended in: 0:04:34.640609
----Fold 9 started at 15:22:13
 ---Fold 9 ended in: 0:04:57.705908
 mlj discr ended in 0:51:43.481549
 \end{verbatim}
 \subsubsection{FOIL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -626,61 +561,55 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/discr/foil.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 mlj discr started at 11:59:39
----Fold 0 started at 11:59:39
 ---Fold 0 ended in: 0:00:00.224591
----Fold 1 started at 11:59:40
 ---Fold 1 ended in: 0:00:00.237705
----Fold 2 started at 11:59:40
 ---Fold 2 ended in: 0:00:00.231943
----Fold 3 started at 11:59:40
 ---Fold 3 ended in: 0:00:00.225304
----Fold 4 started at 11:59:40
 ---Fold 4 ended in: 0:00:00.269991
----Fold 5 started at 11:59:41
 ---Fold 5 ended in: 0:00:00.227715
----Fold 6 started at 11:59:41
 ---Fold 6 ended in: 0:00:00.215050
----Fold 7 started at 11:59:41
 ---Fold 7 ended in: 0:00:00.271112
----Fold 8 started at 11:59:41
 ---Fold 8 ended in: 0:00:00.182183
----Fold 9 started at 11:59:42
 ---Fold 9 ended in: 0:00:00.206913
 mlj discr ended in 0:00:02.293352
 \end{verbatim}
 
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/precision.png}
 	\label{mljdiscr-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/recall.png}
 	\label{mljdiscr-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/fm.png}
 	\label{mljdiscr-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/accuracy.png}
 	\label{mljdiscr-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/error.png}
 	\label{mljdiscr-Error}
 \end{figure}
 
 \subsection{MLJ - non discretizzato}
 \subsubsection{ALEPH}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -702,33 +631,27 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/nodiscr/aleph.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 mlj nodiscr started at 13:57:41
----Fold 0 started at 13:57:41
 ---Fold 0 ended in: 0:02:21.787734
----Fold 1 started at 14:00:03
 ---Fold 1 ended in: 0:04:07.386826
----Fold 2 started at 14:04:10
 ---Fold 2 ended in: 0:04:17.316495
----Fold 3 started at 14:08:27
 ---Fold 3 ended in: 0:04:06.532924
----Fold 4 started at 14:12:34
 ---Fold 4 ended in: 0:04:10.948141
----Fold 5 started at 14:16:45
 ---Fold 5 ended in: 0:04:06.952672
----Fold 6 started at 14:20:52
 ---Fold 6 ended in: 0:04:48.798386
----Fold 7 started at 14:25:41
 ---Fold 7 ended in: 0:04:43.446125
----Fold 8 started at 14:30:24
 ---Fold 8 ended in: 0:08:46.085098
----Fold 9 started at 14:39:10
 ---Fold 9 ended in: 0:05:54.209124
 mlj nodiscr ended in 0:47:23.464204
 \end{verbatim}
 
 \subsubsection{PROGOL}
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -750,33 +673,27 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/nodiscr/progol.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 mlj nodiscr started at 15:13:39
----Fold 0 started at 15:13:39
 ---Fold 0 ended in: 0:01:56.835496
----Fold 1 started at 15:15:36
 ---Fold 1 ended in: 0:03:59.207766
----Fold 2 started at 15:19:35
 ---Fold 2 ended in: 0:05:05.807433
----Fold 3 started at 15:24:41
 ---Fold 3 ended in: 0:06:07.573072
----Fold 4 started at 15:30:48
 ---Fold 4 ended in: 0:02:00.128641
----Fold 5 started at 15:32:48
 ---Fold 5 ended in: 0:06:00.366362
----Fold 6 started at 15:38:49
 ---Fold 6 ended in: 0:03:54.306654
----Fold 7 started at 15:42:43
 ---Fold 7 ended in: 0:04:42.558320
----Fold 8 started at 15:47:26
 ---Fold 8 ended in: 0:02:21.500061
----Fold 9 started at 15:49:47
 ---Fold 9 ended in: 0:02:10.637707
 mlj nodiscr ended in 0:38:18.922015
 \end{verbatim}
 \subsubsection{FOIL}
 
+\begin{table}[h!tbp]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -798,55 +715,48 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c}
 ]{csv/mlj/nodiscr/foil.csv}
+\caption[]{}
+\label{tab:ris}
+\end{table}
 
 \begin{verbatim}
 mlj nodiscr started at 13:48:52
----Fold 0 started at 13:48:52
 ---Fold 0 ended in: 0:00:02.204258
----Fold 1 started at 13:48:55
 ---Fold 1 ended in: 0:00:26.650516
----Fold 2 started at 13:49:21
 ---Fold 2 ended in: 0:00:26.171711
----Fold 3 started at 13:49:47
 ---Fold 3 ended in: 0:00:46.732210
----Fold 4 started at 13:50:34
 ---Fold 4 ended in: 0:00:51.158960
----Fold 5 started at 13:51:25
 ---Fold 5 ended in: 0:00:05.917821
----Fold 6 started at 13:51:31
 ---Fold 6 ended in: 0:00:23.688156
----Fold 7 started at 13:51:55
 ---Fold 7 ended in: 0:00:28.056554
----Fold 8 started at 13:52:23
 ---Fold 8 ended in: 0:00:51.933317
----Fold 9 started at 13:53:15
 ---Fold 9 ended in: 0:00:06.915890
 mlj nodiscr ended in 0:04:29.430078
 \end{verbatim}
 
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/precision.png}
 	\label{mljnodiscr-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/recall.png}
 	\label{mljnodiscr-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/fm.png}
 	\label{mljnodiscr-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/accuracy.png}
 	\label{mljnodiscr-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[hbtp]
+\begin{figure}[h!tbp]
 	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/error.png}
 	\label{mljnodiscr-Error}
 \end{figure}

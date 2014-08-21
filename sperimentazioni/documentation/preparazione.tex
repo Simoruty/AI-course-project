@@ -165,6 +165,40 @@ LarghezzaRettangolo: continuous.
 AltezzaRettangolo: continuous.
 \end{verbatim}
 
+\subsection{Definizione delle relazioni}
+Vanno elencati tutti gli esempi della classe da predire, sia positivi che negativi, separati dal carattere \verb+;+.
+Gli esempi negativi sono facoltativi.
 
+Successivamente vanno descritte le relazioni da utilizzare (il carattere asterisco comunica a FOIL di non costruire una definizione per quelle relazioni).
+
+Di seguito un estratto esplicativo:
+
+\begin{verbatim}
+class_elsevier(Documento)
+sciserv37
+sciserv6
+sciserv28
+;
+d06060518251800523
+demsar06a
+d06060518541902465
+.
+*allineato_al_centro_orizzontale(Frame, Frame)
+agarwal05a_p1_f4, agarwal05a_p1_f27
+aiolli05a_p1_f29, aiolli05a_p1_f8
+.
+*allineato_al_centro_verticale(Frame, Frame)
+agarwal05a_p1_f12, agarwal05a_p1_f25
+agarwal05a_p1_f17, agarwal05a_p1_f1
+agarwal05a_p1_f17, agarwal05a_p1_f15
+.
+*larghezza_pagina(Pagina, LarghezzaPagina)
+agarwal05a_p1, 612.0
+aiolli05a_p1, 612.0
+.
+\end{verbatim}
+
+
+\subsection{Esempi di test}
 
 
