@@ -5,6 +5,7 @@ Di seguito verranno presentate tutte le procedure utilizzate.
 
 
 \subsection{Aleph}
+\label{preparazione:aleph}
 Aleph necessita di 3 file di input:
 \begin{itemize}
 \item file con estensione \verb+.b+ contenente la knowledge base
@@ -130,68 +131,8 @@ Ogni riga del tipo:
 dichiara che il predicato P può essere utilizzato per costruire una ipotesi su T.
 Il primo argomento è il nome e l'arietà del predicato target, cioè il predicato che apparirà nella testa delle ipotesi. Il secondo argomento è il nome e l'arietà di un predicato che può apparire nel corpo di quella ipotesi.
 
-\subsubsection{I file eseguibili}
-Per ogni fold di ogni dataset, abbiamo creato in maniera automatica uno script \verb+.yap+ che, se eseguito, si occupa di avviare ALEPH, leggere i file di input, generare le regole e scriverle su file.
+\subsection{•}
 
-Il sorgente dello script (esempio tratto dal fold 0 del dataset elsevier) è il seguente:
-
-\begin{prologcode}
-#!/usr/local/bin/yap -L --
-#
-# .
-:- consult('../aleph.pl').
-:- read_all('elsevier_f0').
-:- induce.
-:- write_rules('elsevier_f0.rul').
-\end{prologcode}
-
-Tutti i $40$ ($4$ dataset $\times$ $10$ fold) script \verb+.yap+ sono avviati in successione da un unico file scritto in linguaggio \emph{Python}.
-
-Esso si occupa anche di tenere traccia dei tempi di esecuzione per un confronto sulle performance dei sistemi confrontati e di scrivere l'output delle esecuzioni in file \verb+.out+.
-
-Il codice dello script è qui riportato:
-
-\begin{pythoncode}
-#!/usr/bin/python
-
-import sys
-import os
-import subprocess
-from time import gmtime, strftime, localtime
-from datetime import datetime
-
-cmd = "chmod +x **/*.yap"
-subprocess.call(cmd, shell=True)
-if not os.path.exists("./result/"):
-    os.makedirs("./result/")
-for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
-    print dataset +" started at "+ strftime("%H:%M:%S", localtime())
-    sys.stdout.flush()
-    startDataset = datetime.now()
-    for fold in range(10):
-        startTime = datetime.now()
-        print "Fold " + str(fold) +" started at "
-        print strftime("%H:%M:%S", localtime())
-        sys.stdout.flush()
-        cmd = "./"+dataset+"/"+dataset+"_f"+str(fold)
-        cmd += ".yap -s50000 -h200000 2>&1 > /dev/null"
-        subprocess.call(cmd, shell=True)
-        fin = open("./result/"+dataset+".summary","a")
-        fin.write("\nFold "+str(fold)+"\n")
-        fin.close()
-        cmd0 = "cat ./"+dataset+"/"+dataset+"_f"+str(fold)
-        cmd0 += ".rul >> ./result/"+dataset+".summary"
-        subprocess.call(cmd0, shell=True)
-        cmd1 = "cat ./"+dataset+"/"+dataset+"_f"+str(fold)
-        cmd1 += ".log | grep -B 10 -m 1 '\[Test set summary\]'"
-        cmd1 += " >> ./result/"+dataset+".summary"
-        subprocess.call(cmd1, shell=True)
-        print "Fold " + str(fold) +" ended in: "
-        print str(datetime.now()-startTime)
-        sys.stdout.flush()
-    print dataset+" ended in "+str(datetime.now()-startDataset)
-    sys.stdout.flush()
-\end{pythoncode}
 
 \subsection{FOIL}
 FOIL prevede un solo file di input con estensione \verb+.d+.
