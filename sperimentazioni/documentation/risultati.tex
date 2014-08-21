@@ -2,7 +2,7 @@
 Di seguito verranno riportati i risultati delle varie sperimentazioni con le diverse metriche descritte nel paragrafo \ref{metriche}, oltre ai tempi di elaborazioni delle esecuzioni.
 \subsection{Elsevier}
 \subsubsection{ALEPH}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -43,14 +43,14 @@ elsevier started at 14:26:44
 elsevier ended in 0:08:05.962708
 \end{verbatim}
 
-\subsubsection{PROGOL}
-\begin{table}[h!tbp]
+\subsubsection{Prolog}
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
 every head row/.style={%
 	before row={\toprule\addlinespace
-%		\multicolumn{10}{c}{PROGOL}\\
+%		\multicolumn{10}{c}{Prolog}\\
 	},
 	after row=\addlinespace\midrule\addlinespace
 },
@@ -66,8 +66,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/elsevier/progol.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati Progol-Elsevier]{Risultati ottenuti con il sistema Progol sul dataset Elsevier}
+\label{tab:ris:progol:elsevier}
 \end{table}
 
 \begin{verbatim}
@@ -84,8 +84,10 @@ elsevier started at 09:22:02
 ---Fold 9 ended in: 0:00:39.602502
 elsevier ended in 0:07:42.472820
 \end{verbatim}
+
+
 \subsubsection{FOIL}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -107,8 +109,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/elsevier/foil.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati FOIL-Elsevier]{Risultati ottenuti con il sistema FOIL sul dataset Elsevier}
+\label{tab:ris:foil:elsevier}
 \end{table}
 
 \begin{verbatim}
@@ -125,36 +127,41 @@ elsevier started at 09:11:46
 ---Fold 9 ended in: 0:00:01.600430
 elsevier ended in 0:00:37.101084
 \end{verbatim}
+
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/precision.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/elsevier/precision.png}
 	\label{Elsevier-Precision}
 \end{figure}
+
 \paragraph{Recall}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/recall.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/elsevier/recall.png}
 	\label{Elsevier-Recall}
 \end{figure}
+
 \paragraph{F-Measure}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/fm.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/elsevier/fm.png}
 	\label{Elsevier-F-measure}
 \end{figure}
+
 \paragraph{Accuracy}
-\begin{figure}[h!tbp]
-\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/accuracy.png}
+\begin{figure}[H]
+\includegraphics[width=1.1\textwidth]{img/datasetGraph/elsevier/accuracy.png}
 \label{Elsevier-Accuracy}
 \end{figure}
+
 \paragraph{Error}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/elsevier/error.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/elsevier/error.png}
 	\label{Elsevier-Error}
 \end{figure}
 
 \subsection{JMLR}
 \subsubsection{ALEPH}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -176,8 +183,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/jmlr/aleph.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati ALEPH-JMLR]{Risultati ottenuti con il sistema ALEPH sul dataset JMLR}
+\label{tab:ris:aleph:jmlr}
 \end{table}
 
 \begin{verbatim}
@@ -194,14 +201,16 @@ jmlr started at 14:34:50
 ---Fold 9 ended in: 0:00:43.150318
 jmlr ended in 0:08:12.126228
 \end{verbatim}
-\subsubsection{PROGOL}
-\begin{table}[h!tbp]
+
+
+\subsubsection{Prolog}
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
 every head row/.style={%
 	before row={\toprule\addlinespace
-		%		\multicolumn{10}{c}{PROGOL}\\
+		%		\multicolumn{10}{c}{Prolog}\\
 	},
 	after row=\addlinespace\midrule\addlinespace
 },
@@ -217,8 +226,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/jmlr/progol.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati ]{Risultati ottenuti con il sistema Progol sul dataset JMLR}
+\label{tab:ris:progol:jmlr}
 \end{table}
 
 \begin{verbatim}
@@ -235,8 +244,9 @@ jmlr started at 09:29:44
 ---Fold 9 ended in: 0:00:34.694070
 jmlr ended in 0:05:57.285763
 \end{verbatim}
+
 \subsubsection{FOIL}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -258,8 +268,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/jmlr/foil.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati FOIL-JMLR]{Risultati ottenuti con il sistema FOIL sul dataset JMLR}
+\label{tab:ris:foil:jmlr}
 \end{table}
 
 \begin{verbatim}
@@ -276,36 +286,43 @@ jmlr started at 09:12:23
 ---Fold 9 ended in: 0:00:03.966871
 jmlr ended in 0:00:40.431931
 \end{verbatim}
+
+
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/precision.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/jmlr/precision.png}
 	\label{JMLR-Precision}
 \end{figure}
+
 \paragraph{Recall}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/recall.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/jmlr/recall.png}
 	\label{JMLR-Recall}
 \end{figure}
+
 \paragraph{F-Measure}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/fm.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/jmlr/fm.png}
 	\label{JMLR-F-measure}
 \end{figure}
+
 \paragraph{Accuracy}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/accuracy.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/jmlr/accuracy.png}
 	\label{JMLR-Accuracy}
 \end{figure}
+
 \paragraph{Error}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/jmlr/error.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/jmlr/error.png}
 	\label{JMLR-Error}
 \end{figure}
 
+
 \subsection{SVLN}
 \subsubsection{ALEPH}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -327,8 +344,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/svln/aleph.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati ALEPH-SVLN]{Risultati ottenuti con il sistema ALEPH sul dataset JMLR}
+\label{tab:ris:aleph:svln}
 \end{table}
 
 \begin{verbatim}
@@ -345,14 +362,16 @@ svln started at 18:53:32
 ---Fold 9 ended in: 0:02:01.367264
 svln ended in 0:18:01.252851
 \end{verbatim}
-\subsubsection{PROGOL}
-\begin{table}[h!tbp]
+
+
+\subsubsection{Progol}
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
 every head row/.style={%
 	before row={\toprule\addlinespace
-		%		\multicolumn{10}{c}{PROGOL}\\
+		%		\multicolumn{10}{c}{Prolog}\\
 	},
 	after row=\addlinespace\midrule\addlinespace
 },
@@ -368,7 +387,7 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/svln/progol.csv}
-\caption[]{}
+\caption[Risultati Progol-SVLN]{Risultati ottenuti con il sistema Progol sul dataset SVLN}
 \label{tab:ris}
 \end{table}
 
@@ -386,8 +405,9 @@ svln started at 12:43:51
 ---Fold 9 ended in: 0:01:44.461413
 svln ended in 0:12:08.991536
 \end{verbatim}
+
 \subsubsection{FOIL}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -409,8 +429,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/svln/foil.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati FOIL-SVLN]{Risultati ottenuti con il sistema FOIL sul dataset SVLN}
+\label{tab:ris:foil:svln}
 \end{table}
 
 \begin{verbatim}
@@ -430,34 +450,34 @@ svln ended in 0:00:02.566150
 
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/precision.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/svln/precision.png}
 	\label{svln-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/recall.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/svln/recall.png}
 	\label{svln-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/fm.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/svln/fm.png}
 	\label{svln-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/accuracy.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/svln/accuracy.png}
 	\label{svln-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/svln/error.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/svln/error.png}
 	\label{svln-Error}
 \end{figure}
 
 \subsection{MLJ - discretizzato}
 \subsubsection{ALEPH}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -479,8 +499,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/discr/aleph.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati ALEPH-MLJ Discretizzato]{Risultati ottenuti con il sistema ALEPH sul dataset MLJ discretizzato}
+\label{tab:ris:aleph:mlj:discr}
 \end{table}
 
 \begin{verbatim}
@@ -498,14 +518,14 @@ mlj discr started at 12:38:52
 mlj discr ended in 1:04:33.588808
 \end{verbatim}
 
-\subsubsection{PROGOL}
-\begin{table}[h!tbp]
+\subsubsection{Prolog}
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
 every head row/.style={%
 	before row={\toprule\addlinespace
-		%		\multicolumn{10}{c}{PROGOL}\\
+		%		\multicolumn{10}{c}{Prolog}\\
 	},
 	after row=\addlinespace\midrule\addlinespace
 },
@@ -521,8 +541,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/discr/progol.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati Progol-MLJ Discretizzato]{Risultati ottenuti con il sistema Progol sul dataset MLJ discretizzato.}
+\label{tab:ris:progol:mlj:discr}
 \end{table}
 
 \begin{verbatim}
@@ -539,8 +559,10 @@ mlj discr started at 14:35:28
 ---Fold 9 ended in: 0:04:57.705908
 mlj discr ended in 0:51:43.481549
 \end{verbatim}
+
+
 \subsubsection{FOIL}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -562,8 +584,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/discr/foil.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati FOIL-MLJ discretizzato]{Risultati ottenuti con il sistema FOIL sul dataset MLJ discretizzato}
+\label{tab:ris:foil:mlj:discr}
 \end{table}
 
 \begin{verbatim}
@@ -583,34 +605,34 @@ mlj discr ended in 0:00:02.293352
 
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/precision.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/discr/precision.png}
 	\label{mljdiscr-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/recall.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/discr/recall.png}
 	\label{mljdiscr-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/fm.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/discr/fm.png}
 	\label{mljdiscr-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/accuracy.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/discr/accuracy.png}
 	\label{mljdiscr-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/discr/error.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/discr/error.png}
 	\label{mljdiscr-Error}
 \end{figure}
 
 \subsection{MLJ - non discretizzato}
 \subsubsection{ALEPH}
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -632,8 +654,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/nodiscr/aleph.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati ALEPH-MLJ non discretizzato]{Risultati ottenuti con il sistema ALEPH sul dataset MLJ non discretizzato}
+\label{tab:ris:aleph:mlj:nondiscr}
 \end{table}
 
 \begin{verbatim}
@@ -651,14 +673,14 @@ mlj nodiscr started at 13:57:41
 mlj nodiscr ended in 0:47:23.464204
 \end{verbatim}
 
-\subsubsection{PROGOL}
-\begin{table}[h!tbp]
+\subsubsection{Prolog}
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
 every head row/.style={%
 	before row={\toprule\addlinespace
-		%		\multicolumn{10}{c}{PROGOL}\\
+		%		\multicolumn{10}{c}{Prolog}\\
 	},
 	after row=\addlinespace\midrule\addlinespace
 },
@@ -674,8 +696,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c},
 ]{csv/mlj/nodiscr/progol.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati Progol-MLJ non discretizzato]{Risultati ottenuti con il sistema Progol sul dataset MLJ non discretizzato}
+\label{tab:ris:progol:mlj:nodiscr}
 \end{table}
 
 \begin{verbatim}
@@ -692,9 +714,10 @@ mlj nodiscr started at 15:13:39
 ---Fold 9 ended in: 0:02:10.637707
 mlj nodiscr ended in 0:38:18.922015
 \end{verbatim}
+
 \subsubsection{FOIL}
 
-\begin{table}[h!tbp]
+\begin{table}[H]
 \pgfplotstabletypeset[
 col sep=comma,
 string type,
@@ -716,8 +739,8 @@ columns/F-Measure/.style={column name=F-Measure, column type=c},
 columns/Acc/.style={column name=Accuracy, column type=c},
 columns/Err/.style={column name=Error, column type=c}
 ]{csv/mlj/nodiscr/foil.csv}
-\caption[]{}
-\label{tab:ris}
+\caption[Risultati FOIL-MLJ non discretizzato]{Risultati ottenuti con il sistema FOIL sul dataset MLJ non discretizzato}
+\label{tab:ris:foil:mlj:nondiscr}
 \end{table}
 
 \begin{verbatim}
@@ -737,27 +760,27 @@ mlj nodiscr ended in 0:04:29.430078
 
 \subsubsection{Grafici}
 \paragraph{Precision}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/precision.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/nodiscr/precision.png}
 	\label{mljnodiscr-Precision}
 \end{figure}
 \paragraph{Recall}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/recall.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/nodiscr/recall.png}
 	\label{mljnodiscr-Recall}
 \end{figure}
 \paragraph{F-Measure}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/fm.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/nodiscr/fm.png}
 	\label{mljnodiscr-F-measure}
 \end{figure}
 \paragraph{Accuracy}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/accuracy.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/nodiscr/accuracy.png}
 	\label{mljnodiscr-Accuracy}
 \end{figure}
 \paragraph{Error}
-\begin{figure}[h!tbp]
-	\includegraphics[width=1.2\textwidth]{img/datasetGraph/mlj/nodiscr/error.png}
+\begin{figure}[H]
+	\includegraphics[width=1.1\textwidth]{img/datasetGraph/mlj/nodiscr/error.png}
 	\label{mljnodiscr-Error}
 \end{figure}
