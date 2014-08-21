@@ -13,8 +13,8 @@ public class DatasetFormatter {
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
     //    private static String all
-//    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    private static String[] datasets = {"mlj"};
+    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
+//    private static String[] datasets = {"mlj"};
     private static SortedSet<String> positiviRAW;
     private static SortedSet<String> negativiRAW;
     private static SortedSet<String> fattiRAW;
@@ -69,10 +69,10 @@ public class DatasetFormatter {
 //            System.out.println(documenti.size());
 //            System.out.println(pagine.size());
 //            System.out.println(frame.size());
-            writeFN(dataset);
-            writeB(dataset);
-            writeYAP(dataset);
-//            writeD(dataset);
+//            writeFN(dataset);
+//            writeB(dataset);
+//            writeYAP(dataset);
+            writeD(dataset);
         }
     }
 
