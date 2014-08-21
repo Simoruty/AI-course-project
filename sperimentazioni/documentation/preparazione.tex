@@ -4,16 +4,16 @@ Per poter fornire i dataset ai 3 sistemi di apprendimento, è necessaria un'oper
 Di seguito verranno presentate tutte le procedure utilizzate.
 
 
-\subsection{Aleph}
-\label{preparazione:aleph}
-Aleph necessita di 3 file di input:
+\subsection{Progol}
+\label{preparazione:progol}
+Progol necessita di 3 file di input:
 \begin{itemize}
 \item file con estensione \verb+.b+ contenente la knowledge base
 \item file con estensione \verb+.f+ contenente gli esempi di training positivi
 \item file con estensione \verb+.n+ contenente gli esempi di training negativi
 \end{itemize}
 
-In questo modo è già possibile avviare Aleph in maniera interattiva e sottoporgli dei casi di test. Tuttavia, per automatizzare il procedimento, abbiamo creato ulteriori due file (un file \verb+.f+ e uno \verb+.n+) che contengono gli esempi di test, rispettivamente, positivi e negativi che il sistema utilizza in maniera automatica se opportunamente configurato.
+In questo modo è già possibile avviare Progol in maniera interattiva e sottoporgli dei casi di test. Tuttavia, per automatizzare il procedimento, abbiamo creato ulteriori due file (un file \verb+.f+ e uno \verb+.n+) che contengono gli esempi di test, rispettivamente, positivi e negativi che il sistema utilizza in maniera automatica se opportunamente configurato.
 
 Il file \verb+.b+ contiene:
 \begin{itemize}
@@ -131,7 +131,10 @@ Ogni riga del tipo:
 dichiara che il predicato P può essere utilizzato per costruire una ipotesi su T.
 Il primo argomento è il nome e l'arietà del predicato target, cioè il predicato che apparirà nella testa delle ipotesi. Il secondo argomento è il nome e l'arietà di un predicato che può apparire nel corpo di quella ipotesi.
 
-\subsection{•}
+\subsection{ALEPH}
+Come ricordato nella sezione \ref{sistemi:aleph}, ALEPH è nato come fork di Progol. Da esso ha ereditato la stessa sintassi dei file di input, salvo alcune eccezioni che però non hanno riguardato la nostra sperimentazione.
+
+La generazione dei file per ALEPH, dunque, è avvenuta parallelamente a quella dei file per Progol (cfr. \ref{preparazione:progol}).
 
 
 \subsection{FOIL}
