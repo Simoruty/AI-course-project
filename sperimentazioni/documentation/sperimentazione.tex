@@ -1,6 +1,6 @@
 \section{Sperimentazione}
 
-\subsubsection{I file eseguibili}
+\subsection{I file eseguibili}
 Per ogni fold di ogni dataset, abbiamo creato in maniera automatica uno script \verb+.yap+ che, se eseguito, si occupa di avviare ALEPH, leggere i file di input, generare le regole e scriverle su file.
 
 Il sorgente dello script (esempio tratto dal fold 0 del dataset elsevier) è il seguente:
@@ -62,3 +62,6 @@ for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
     print dataset+" ended in "+str(datetime.now()-startDataset)
     sys.stdout.flush()
 \end{pythoncode}
+
+
+\subsection{Hardware utilizzato}
