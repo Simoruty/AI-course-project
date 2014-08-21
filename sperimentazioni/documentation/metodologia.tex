@@ -4,9 +4,7 @@
 \subsection{10-Fold Validation}
 
 Per l'esecuzione dell'esperimento abbiamo scelto di utilizzare una $k$-fold validation con $k=10$, come comunemente usato in letteratura.
-Per la scelta dei $10$ fold di ogni dataset si è proceduto con un campionamento stratificato. In ogni fold abbiamo mantenuto la stessa proporzione tra esempi positivi ed esempi negativi presente nel dataset completo, secondo il seguente schema.
-
-\subsubsection*{Elsevier}
+Per la scelta dei $10$ fold di ogni dataset si è proceduto con un campionamento stratificato. In ogni fold abbiamo mantenuto la stessa proporzione tra esempi positivi ed esempi negativi presente nel dataset completo, secondo lo schema riportato nelle tabelle  \ref{tab:Elsevier}, \ref{tab:JMLR}, \ref{tab:MLJ} e \ref{tab:SVLN}.
 
 \begin{table}[h!tbp]
 	\centering
@@ -23,11 +21,9 @@ Per la scelta dei $10$ fold di ogni dataset si è proceduto con un campionamento
 \addlinespace
 \bottomrule
 		\end{tabular}
+		\caption[Elsevier: suddivisione in fold.]{Suddivisione in fold del dataset Elsevier, mantendo le proporzioni tra esempi positivi e negativi.}
 	\label{tab:Elsevier}
 \end{table}
-
-
-\subsubsection*{JMLR}
 
 \begin{table}[h!tbp]
 \centering
@@ -44,12 +40,10 @@ Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
 \addlinespace
 \bottomrule
 \end{tabular}
+		\caption[JMLR: suddivisione in fold.]{Suddivisione in fold del dataset JMLR, mantendo le proporzioni tra esempi positivi e negativi.}
 	\label{tab:JMLR}
 \end{table}
 
-
-
-\subsubsection*{MLJ}
 
 \begin{table}[h!tbp]
 	\centering
@@ -66,12 +60,9 @@ Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
 \addlinespace
 \bottomrule
 		\end{tabular}
+\caption[MLJ: suddivisione in fold.]{Suddivisione in fold del dataset MLJ, mantendo le proporzioni tra esempi positivi e negativi.}
 	\label{tab:MLJ}
 \end{table}
-
-
-
-\subsubsection*{SVLN}
 
 \begin{table}[h!tbp]
 	\centering
@@ -88,8 +79,8 @@ Fold &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 \\
 \addlinespace
 \bottomrule
 		\end{tabular}
+\caption[SVLN: suddivisione in fold.]{Suddivisione in fold del dataset SVLN, mantendo le proporzioni tra esempi positivi e negativi.}
 	\label{tab:SVLN}
 \end{table}
-
 
 Per assicurare la replicabilità dell'esperimento in appendice (\ref{appendix:fold}) è riportata l'esatta suddivisione in fold dei dataset.

@@ -19,10 +19,11 @@ for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
     sys.stdout.flush()
     startDataset = datetime.now()
     for fold in range(10):
-#    for fold in range(2):
+#    for fold in range(1):
         startTime = datetime.now()
         print "---Fold " + str(fold) +" started at "+strftime("%H:%M:%S", localtime())
         sys.stdout.flush()
+#        cmd = "./foil6 -n -v2 -d15 -a90 -V10  < "+dataset+"/"+dataset+"_f"+str(fold)+".d 2>&1 > result/"+dataset+"_f"+str(fold)+".out"
         cmd = "./foil6 -n -v2 < "+dataset+"/"+dataset+"_f"+str(fold)+".d 2>&1 > result/"+dataset+"_f"+str(fold)+".out"
         subprocess.call(cmd, shell=True)
 #        fin = open("./result/"+dataset+".summary","a")

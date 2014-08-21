@@ -19,15 +19,14 @@ I \emph{documenti} sono tutti composti da una sola \emph{pagina}. Ogni \emph{pag
 
 Tutte le informazioni contenute nei dataset riguardano una di queste tre entità (documento, pagina, frame) e le relazioni esistenti fra esse.
 
-I predicati utilizzati sono riportati in tabella \ref{tab:predicati}
+Le proprietà utilizzate sono riportate in tabella \ref{tab:proprieta}
 
-\begin{table}[htbp]
+\begin{table}[h!tbp]
 \centering
-\label{tab:predicati}
 \footnotesize\begin{tabular}{lccl}
 \toprule
 \addlinespace
-Nome predicati & Arg 1 & Arg 2 & Descrizione \\
+Nome proprietà & Arg 1 & Arg 2 & Descrizione \\
 \addlinespace
 \midrule
 \addlinespace
@@ -54,6 +53,8 @@ tipo\_vuoto & Frame & - & Il frame è vuoto\\
 \addlinespace
 \bottomrule 
 \end{tabular}
+\caption[Proprietà]{Nomi, argomenti e descrizione delle proprietà presenti nei dataset.}
+\label{tab:proprieta}
 \end{table}
 
 Solo nel caso del dataset \emph{MLJ}, abbiamo avuto a disposizione un file contenente gli intervalli di discretizzazione delle 4 componenti numeriche delle seguenti proprietà
@@ -71,9 +72,8 @@ Solo per \emph{MLJ}, dunque, abbiamo potuto effettuare due sperimentazioni (con 
 
 I nomi delle proprietà aggiunte sono riportate in tabella \ref{tab:discretizzazione}.
 
-\begin{table}[htbp]
+\begin{table}[h!tbp]
 \centering
-\label{tab:discretizzazione}
 \small\begin{tabular}{lc}
 \toprule
 \addlinespace
@@ -111,10 +111,10 @@ pos\_lower & Frame \\
 \addlinespace
 \bottomrule 
 \end{tabular}
+\caption[Proprietà di discretizzazione]{Proprietà utilizzate per rappresentare i valori numerici discretizzati.}
+\label{tab:discretizzazione}
 \end{table}
 
-
- 
 Ci sono gli stessi $353$ documenti in tutti i dataset. Ognuno di questi risulta essere esempio positivo in solo uno dei quattro dataset e, in maniera esclusiva, negativo per gli altri tre.
 
 I quattro dataset rappresentano una suddivisione in quattro classificazioni binarie di una classificazione multiclasse.
@@ -140,15 +140,15 @@ SVLN     & $70~~(20\%)$ & $283~~(80\%)$ & $353$ \\
 \end{tabular}
 \end{table}
 
-Di seguito si riportano le frequenze dei predicati in ciascun dataset. Come spiegato in precedenza, è inutile ripetere i valori per i differenti dataset in quanto ridondanti.
+Di seguito si riportano le frequenze delle proprietà in ciascun dataset. Come spiegato in precedenza, è inutile ripetere i valori per i differenti dataset in quanto ridondanti.
 
 \begin{table}[h!tbp]
 \centering
-\label{tab:frequenzaPredicati}
+\label{tab:frequenzaProprietà}
 \small\begin{tabular}{lr}
 \toprule
 \addlinespace
-Predicato & Frequenza \\
+Proprietà & Frequenza \\
 \addlinespace
 \midrule
 \addlinespace
@@ -191,7 +191,7 @@ tipo\_vuoto & 1 \\
 \small\begin{tabular}{lr}
 \toprule
 \addlinespace
-Predicato & Frequenza \\
+Proprietà & Frequenza \\
 \addlinespace
 \midrule
 \addlinespace
@@ -222,5 +222,5 @@ pos\_lower & 918 \\
 \addlinespace
 \bottomrule
 \end{tabular}
-\caption{Predicati presenti solo nel dataset mlj, quando effettuata la discretizzazione.}
+\caption{Proprietà presenti solo nel dataset MLJ, quando effettuata la discretizzazione.}
 \end{table}

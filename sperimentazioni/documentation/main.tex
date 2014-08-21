@@ -36,8 +36,9 @@
 \usepackage{csvsimple}
 \usepackage{pgfplotstable}
 
-\usemintedstyle{default}
+\pgfplotsset{compat=1.10}
 
+\usemintedstyle{default}
 \newminted{prolog}
 { 
   frame=lines,
@@ -83,6 +84,9 @@
 \input{test}
 \input{conclusioni}
 
+\clearpage
+\listoftables
+\listoffigures
 \clearpage
 
 \appendix

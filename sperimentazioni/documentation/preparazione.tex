@@ -147,5 +147,58 @@ parti separate da una linea vuota. Queste parti sono composte, nell'ordine, da:
 \item esempi di test sui quali valutare l'accuratezza
 \end{itemize}
 
+\subsection{Tipi di dati}
 I tipi di dati possono essere definiti in maniera
 intensionale quando sono di tipo numerico, altrimenti devono essere definiti in maniera estensionale. 
+
+La sintassi è riportata nell'esempio sottostante, estratto da Elsevier, fold0:
+\begin{verbatim}
+#Documento: agarwal05a, aiolli05a, almeida05a, ando05a.
+#Pagina: agarwal05a_p1, aiolli05a_p1, almeida05a_p1.
+#Frame: agarwal05a_p1_f1, agarwal05a_p1_f11, agarwal05a_p1_f12.
+NumeroPagine: continuous.
+LarghezzaPagina: continuous.
+AltezzaPagina: continuous.
+AscissaRettangolo: continuous.
+OrdinataRettangolo: continuous.
+LarghezzaRettangolo: continuous.
+AltezzaRettangolo: continuous.
+\end{verbatim}
+
+\subsection{Definizione delle relazioni}
+Vanno elencati tutti gli esempi della classe da predire, sia positivi che negativi, separati dal carattere \verb+;+.
+Gli esempi negativi sono facoltativi.
+
+Successivamente vanno descritte le relazioni da utilizzare (il carattere asterisco comunica a FOIL di non costruire una definizione per quelle relazioni).
+
+Di seguito un estratto esplicativo:
+
+\begin{verbatim}
+class_elsevier(Documento)
+sciserv37
+sciserv6
+sciserv28
+;
+d06060518251800523
+demsar06a
+d06060518541902465
+.
+*allineato_al_centro_orizzontale(Frame, Frame)
+agarwal05a_p1_f4, agarwal05a_p1_f27
+aiolli05a_p1_f29, aiolli05a_p1_f8
+.
+*allineato_al_centro_verticale(Frame, Frame)
+agarwal05a_p1_f12, agarwal05a_p1_f25
+agarwal05a_p1_f17, agarwal05a_p1_f1
+agarwal05a_p1_f17, agarwal05a_p1_f15
+.
+*larghezza_pagina(Pagina, LarghezzaPagina)
+agarwal05a_p1, 612.0
+aiolli05a_p1, 612.0
+.
+\end{verbatim}
+
+
+\subsection{Esempi di test}
+
+
