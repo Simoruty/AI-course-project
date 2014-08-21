@@ -65,8 +65,45 @@ for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
 
 
 \subsection{Hardware utilizzato}
+L'hardware utilizzato ai fini della sperimentazione è stato un notebook Acer Aspire v3-571g aventi le seguenti caratteristiche:
+\begin{itemize}
+	\item \textbf{Processore}: Intel\textregistered Core\texttrademark  i7-3610QM processor (2.3GHz/3.3GHz w/ Turbo Boost)
+	\item \textbf{RAM}: 8GB DDR3 1333 MHz
+	\item \textbf{Memoria di archiviazione}: 120GB SSD
+	\item \textbf{OS}: elementaryOS 0.2 (luna) basato su Ubuntu 12.04.5 LTS (Precise Pangolin)
+\end{itemize}
 
 \subsection{Metriche}
 \label{metriche}
-Partendo dalle matrici di confusione ottenute dall'esecuzione delle varie sperimentazioni, sono state calcolate delle metriche al fine di verificare quale algoritmo risulti essere più efficiente in termini di classificazione.
-Le metriche calcolate 
+In seguito all'esecuzione della sperimentazione, si otterranno di file di output differenti tra i vari algoritmi, ma in tutti, tra le varie informazioni presenti, ci sarà anche la matrice di confusione relativi a come sono stati classificati gli esempi di test.
+
+La matrice di confusione sarà composta quindi da:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{c c c c }
+	& & \multicolumn{2}{ c }{Reali} \\
+	& & + & - \\
+	\multirow{2}{*}{Predetti} & + & TP & FP \\
+	& - & FN & TN \\
+\end{tabular}
+\end{table}
+
+
+Partendo da queste matrici di confusione ottenute, sono state calcolate delle metriche al fine di verificare quale algoritmo risulti essere più efficiente in termini di classificazione.
+Le metriche calcolate sono state:
+\begin{itemize}
+	\item Precision
+	\item Recall
+	\item F-Measure
+	\item Accuracy
+	\item Error
+\end{itemize}
+Dove la Precision e la recall saranno calcolate rispettivamente dalle formule:
+	$$Precision = \frac{TP}{TP + FP}$$
+	$$Recall = \frac{TP}{TP + FN}$$
+Per quanto riguarda la F-measure invece, è stata calcolata mettendo in relazione entrambe le metriche precedenti tramite la relazione:
+$$F = 2*\frac{Precision * Recall}{Precision + Recall}$$
+L'accuratezza invece è stata calcolata tramite la formula:
+$$Acc = \frac{TP+TN}{TP + TN + FP + FN}$$
+Infine è stata calcolato anche l'errore in base all'accuratezza della classificazione:
+$$Err = 1 - Acc$$
