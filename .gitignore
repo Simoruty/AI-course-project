@@ -22,6 +22,7 @@ sperimentazioni/documentation/*.log
 *.toc
 *.ind
 *.blg
+*.pyg
 *.synctex.gz
 
 *.class

@@ -5,7 +5,9 @@
 \usepackage[round,numbers]{natbib}
 \usepackage{textcomp}
 %\usepackage{listings}
-%\usepackage{graphicx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 %\usepackage{amsmath}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -29,6 +31,8 @@
 %\setlength{\columnsep}{.5cm}
 \renewcommand*\rmdefault{iwona}
 
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \usepackage{csvsimple}
 \usepackage{pgfplotstable}
 
@@ -64,8 +68,6 @@
   linenos
 }
 
-
-
 \begin{document}
 
 \input{frontespizio}
@@ -77,7 +79,7 @@
 \input{preparazione}
 \input{metodologia}
 \input{sperimentazione}
-%\input{risultati}
+\input{risultati}
 \input{test}
 \input{conclusioni}
 
