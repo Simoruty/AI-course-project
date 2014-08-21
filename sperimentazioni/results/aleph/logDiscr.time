@@ -1,4 +1,4 @@
-./run.py
+./run.py   ALEPH
 elsevier started at 14:26:44
 ---Fold 0 started at 14:26:44
 ---Fold 0 ended in: 0:00:52.449957
@@ -45,28 +45,51 @@ jmlr started at 14:34:50
 ---Fold 9 ended in: 0:00:43.150318
 jmlr ended in 0:08:12.126228
 ---------------------------------------------------
-mlj started at 14:43:02
----Fold 0 started at 14:43:02
----Fold 0 ended in: 0:24:45.393508
----Fold 1 started at 15:07:48
----Fold 1 ended in: 0:24:27.802449
----Fold 2 started at 15:32:15
----Fold 2 ended in: 0:27:04.139820
----Fold 3 started at 15:59:20
----Fold 3 ended in: 0:23:49.310617
----Fold 4 started at 16:23:09
----Fold 4 ended in: 0:23:42.420080
----Fold 5 started at 16:46:51
----Fold 5 ended in: 0:23:37.793710
----Fold 6 started at 17:10:29
----Fold 6 ended in: 0:24:50.042015
----Fold 7 started at 17:35:19
----Fold 7 ended in: 0:24:57.609981
----Fold 8 started at 18:00:17
----Fold 8 ended in: 0:26:31.485281
----Fold 9 started at 18:26:48
----Fold 9 ended in: 0:26:43.949378
-mlj ended in 4:10:29.947448
+mlj nodiscr started at 13:57:41
+---Fold 0 started at 13:57:41
+---Fold 0 ended in: 0:02:21.787734
+---Fold 1 started at 14:00:03
+---Fold 1 ended in: 0:04:07.386826
+---Fold 2 started at 14:04:10
+---Fold 2 ended in: 0:04:17.316495
+---Fold 3 started at 14:08:27
+---Fold 3 ended in: 0:04:06.532924
+---Fold 4 started at 14:12:34
+---Fold 4 ended in: 0:04:10.948141
+---Fold 5 started at 14:16:45
+---Fold 5 ended in: 0:04:06.952672
+---Fold 6 started at 14:20:52
+---Fold 6 ended in: 0:04:48.798386
+---Fold 7 started at 14:25:41
+---Fold 7 ended in: 0:04:43.446125
+---Fold 8 started at 14:30:24
+---Fold 8 ended in: 0:08:46.085098
+---Fold 9 started at 14:39:10
+---Fold 9 ended in: 0:05:54.209124
+mlj nodiscr ended in 0:47:23.464204
+---------------------------------------------------
+mlj discr started at 12:38:52
+---Fold 0 started at 12:38:52
+---Fold 0 ended in: 0:06:32.987887
+---Fold 1 started at 12:45:25
+---Fold 1 ended in: 0:06:55.407367
+---Fold 2 started at 12:52:20
+---Fold 2 ended in: 0:06:38.581722
+---Fold 3 started at 12:58:59
+---Fold 3 ended in: 0:06:40.096561
+---Fold 4 started at 13:05:39
+---Fold 4 ended in: 0:06:42.671273
+---Fold 5 started at 13:12:22
+---Fold 5 ended in: 0:06:46.315155
+---Fold 6 started at 13:19:08
+---Fold 6 ended in: 0:06:29.094981
+---Fold 7 started at 13:25:37
+---Fold 7 ended in: 0:06:49.495072
+---Fold 8 started at 13:32:26
+---Fold 8 ended in: 0:05:32.322452
+---Fold 9 started at 13:37:59
+---Fold 9 ended in: 0:05:26.615672
+mlj discr ended in 1:04:33.588808
 ---------------------------------------------------
 svln started at 18:53:32
 ---Fold 0 started at 18:53:32

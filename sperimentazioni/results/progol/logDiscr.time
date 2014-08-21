@@ -1,4 +1,4 @@
-./run.py
+./run.py PROGOL
 elsevier started at 09:22:02
 ---Fold 0 started at 09:22:02
 ---Fold 0 ended in: 0:00:38.425921
@@ -45,28 +45,51 @@ jmlr started at 09:29:44
 ---Fold 9 ended in: 0:00:34.694070
 jmlr ended in 0:05:57.285763
 ---------------------------------------------------
-mlj started at 09:35:41
----Fold 0 started at 09:35:41
----Fold 0 ended in: 0:19:07.523930
----Fold 1 started at 09:54:49
----Fold 1 ended in: 0:18:53.236414
----Fold 2 started at 10:13:42
----Fold 2 ended in: 0:19:35.048006
----Fold 3 started at 10:33:17
----Fold 3 ended in: 0:18:22.040154
----Fold 4 started at 10:51:39
----Fold 4 ended in: 0:18:34.627837
----Fold 5 started at 11:10:14
----Fold 5 ended in: 0:18:14.373407
----Fold 6 started at 11:28:28
----Fold 6 ended in: 0:18:48.108368
----Fold 7 started at 11:47:16
----Fold 7 ended in: 0:19:20.638421
----Fold 8 started at 12:06:37
----Fold 8 ended in: 0:18:14.414040
----Fold 9 started at 12:24:51
----Fold 9 ended in: 0:18:59.291315
-mlj ended in 3:08:09.302542
+mlj nodiscr started at 15:13:39
+---Fold 0 started at 15:13:39
+---Fold 0 ended in: 0:01:56.835496
+---Fold 1 started at 15:15:36
+---Fold 1 ended in: 0:03:59.207766
+---Fold 2 started at 15:19:35
+---Fold 2 ended in: 0:05:05.807433
+---Fold 3 started at 15:24:41
+---Fold 3 ended in: 0:06:07.573072
+---Fold 4 started at 15:30:48
+---Fold 4 ended in: 0:02:00.128641
+---Fold 5 started at 15:32:48
+---Fold 5 ended in: 0:06:00.366362
+---Fold 6 started at 15:38:49
+---Fold 6 ended in: 0:03:54.306654
+---Fold 7 started at 15:42:43
+---Fold 7 ended in: 0:04:42.558320
+---Fold 8 started at 15:47:26
+---Fold 8 ended in: 0:02:21.500061
+---Fold 9 started at 15:49:47
+---Fold 9 ended in: 0:02:10.637707
+mlj nodiscr ended in 0:38:18.922015
+---------------------------------------------------
+mlj discr started at 14:35:28
+---Fold 0 started at 14:35:28
+---Fold 0 ended in: 0:05:33.172855
+---Fold 1 started at 14:41:01
+---Fold 1 ended in: 0:04:24.460047
+---Fold 2 started at 14:45:25
+---Fold 2 ended in: 0:06:21.096485
+---Fold 3 started at 14:51:46
+---Fold 3 ended in: 0:04:39.550606
+---Fold 4 started at 14:56:26
+---Fold 4 ended in: 0:05:39.287544
+---Fold 5 started at 15:02:05
+---Fold 5 ended in: 0:04:42.005965
+---Fold 6 started at 15:06:47
+---Fold 6 ended in: 0:05:36.268812
+---Fold 7 started at 15:12:23
+---Fold 7 ended in: 0:05:15.292060
+---Fold 8 started at 15:17:39
+---Fold 8 ended in: 0:04:34.640609
+---Fold 9 started at 15:22:13
+---Fold 9 ended in: 0:04:57.705908
+mlj discr ended in 0:51:43.481549
 ---------------------------------------------------
 svln started at 12:43:51
 ---Fold 0 started at 12:43:51
