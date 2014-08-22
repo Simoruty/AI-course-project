@@ -1,1 +1,71 @@
 \section{Test di Valutazione}
+Per poter analizzare i dati da un punto di vista statistico in modo da capire quale dei tre sistemi risulti essere migliore in un task di classificazione, è necessario utilizzare un test delle ipotesi che sia in grado di rigettare o confermare l'ipotesi nulla.
+
+L'ipotesi nulla da rigettare in particolare sarà:
+$$H_0 : \mu_{ALEPH} = \mu_{PROGOL} = \mu_{FOIL} $$
+Simmetricamente l'ipotesi alternativa sarà:
+$$H_1 : \mu_{ALEPH} \neq \mu_{PROGOL} \neq \mu_{FOIL} $$
+
+Tra le diverse metriche calcolate per i diversi algoritmi, l'accuratezza è la metrica utilizzata affinché venga verificato il test delle ipotesi.
+
+Poiché per ogni dataset è stata ripetuta la sperimentazione, il test delle ipotesi sarà condotto per ognuno dei cinque dataset separatamente.
+
+Considerato il numero di sistemi da confrontare, il test più adatto per verificare questo tipo di ipotesi è il test parametrico ANOVA (\textbf{AN}alysis \textbf{O}f \textbf{VA}riance). Questo test presuppone che i gruppi di dati provengano da una popolazione normale in ipotesi di omoschedasticità (ossia, la varianza dei gruppi è la stessa di quella della popolazione),condizione veritiera nei dataset a disposizione. Inoltre si è deciso di usare un livello $\alpha$ di soglia pari al 5\%.
+
+Attraverso l'ausilio di un foglio di calcolo costruito ad-hoc, sono stati estratti i risultati del test, di seguito un sunto di ciò che si è ottenuto.
+
+\begin{verbatim}
+Elsevier
+
+               ALEPH   PROGOL   FOIL
+      $\mu$    0,99     0,99    0,97       Livello \alpha    0,05
+   $\sigma$    0,02     0,02    0,03       Quantile Teorico  3,35
+     
+  Consuntivo   3,66
+                               H0 rigettato
+\end{verbatim}
+
+\begin{verbatim}
+JMLR
+
+               ALEPH   PROGOL   FOIL
+      $\mu$    0,98     0,99    0,97       Livello \alpha    0,05
+   $\sigma$    0,02     0,02    0,03       Quantile Teorico  3,35
+     
+  Consuntivo   0,74
+                               H0 accettato
+\end{verbatim}
+
+\begin{verbatim}
+MLJ - Non discretizzato
+
+               ALEPH   PROGOL   FOIL
+      $\mu$    0,97     0,96    0,71       Livello \alpha    0,05
+   $\sigma$    0,02     0,02    0,06       Quantile Teorico  3,35
+     
+  Consuntivo   138,92
+                               H0 rigettato
+\end{verbatim}
+
+\begin{verbatim}
+MLJ - Discretizzato
+
+               ALEPH   PROGOL   FOIL
+      $\mu$    0,9     0,91    0,95       Livello \alpha    0,05
+   $\sigma$    0,05     0,06    0,03       Quantile Teorico  3,35
+     
+  Consuntivo   3,47
+                               H0 rigettato
+\end{verbatim}
+
+\begin{verbatim}
+SVLN
+               ALEPH   PROGOL   FOIL
+      $\mu$    0,97     0,97    0,95       Livello \alpha    0,05
+   $\sigma$    0,02     0,03    0,03       Quantile Teorico  3,35
+     
+  Consuntivo   1,70
+                               H0 accettato
+\end{verbatim}
+
+Analizzando i risultati cosi ottenuti, si evince che solo in due dei quattro dataset (JMLR e SVLN), i tre algoritmi risultano essere staticamente uguali in termini di accuratezza predittiva.
