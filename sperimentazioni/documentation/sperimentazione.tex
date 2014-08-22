@@ -74,17 +74,492 @@ L'hardware utilizzato ai fini della sperimentazione è stato un notebook Acer As
 	\item \textbf{OS}: elementaryOS 0.2 (luna) basato su Ubuntu 12.04.5 LTS (Precise Pangolin)
 \end{itemize}
 
+\subsection{Output Sperimentazione}
+Di seguito verrà mostrato un estratto di ciò che è stato prodotto dall'esecuzione dei tre algoritmi in particolar modo sul dataset Elsevier sui fold 0 e 1.
+\subsubsection{FOIL}
+\begin{verbatim}
+--- Fold 0
+
+class_elsevier(A) :- 
+   pagina_1(A,B), 
+   frame(B,C), 
+   allineato_al_centro_verticale(C,D),
+   allineato_al_centro_verticale(E,D), 
+   allineato_al_centro_verticale(F,C), 
+   allineato_al_centro_verticale(E,F), 
+   allineato_al_centro_verticale(D,H), 
+   tipo_linea_orizzontale(C).
+class_elsevier(A) :- 
+   pagina_1(A,B), 
+   frame(B,C), 
+   allineato_al_centro_verticale(D,C), 
+   tipo_linea_orizzontale(D), 
+   allineato_al_centro_verticale(C,E), 
+   allineato_al_centro_verticale(E,F), 
+   on_top(C,D).
+class_elsevier(A) :- 
+   pagina_1(A,B), 
+   frame(B,C), 
+   tipo_misto(C), 
+   on_top(C,D), 
+   allineato_al_centro_verticale(C,E), 
+   on_top(E,F), 
+   on_top(D,E), 
+   on_top(E,G), 
+   allineato_al_centro_verticale(G,F).
+
+Time 3.3 secs
+
+Test relation class_elsevier
+(+)	d06090909534026371
+Summary: 1 error in 35 trials
+
+--- Fold 1
+
+class_elsevier(A) :- 
+   pagina_1(A,B), 
+   frame(B,C), 
+   allineato_al_centro_verticale(D,C),
+   allineato_al_centro_verticale(C,E),
+   allineato_al_centro_verticale(E,F),
+   allineato_al_centro_verticale(G,D),
+   tipo_linea_orizzontale(E).
+class_elsevier(A) :- 
+   pagina_1(A,B),
+   frame(B,C),
+   allineato_al_centro_verticale(D,C),
+   tipo_linea_orizzontale(D),
+   allineato_al_centro_verticale(C,E),
+   allineato_al_centro_verticale(E,F),
+   on_top(C,D).
+class_elsevier(A) :- 
+   pagina_1(A,B),
+   frame(B,C),
+   tipo_misto(C),
+   on_top(C,D),
+   allineato_al_centro_verticale(C,E),
+   on_top(C,E),
+   on_top(E,F),
+   on_top(D,G),
+   tipo_testo(D),
+   allineato_al_centro_verticale(G,E),
+   tipo_misto(F).
+
+Time 2.9 secs
+
+Test relation class_elsevier
+(+)	sciserv37
+(+)	sciserv21
+Summary: 2 errors in 35 trials
+\end{verbatim}
+\dots
+\subsubsection{PROGOL}
+\begin{verbatim}
+ --- Fold 0
+
+[theory]
+
+[Rule 1] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   height_very_large(C),
+   width_large(C).
+[pos-neg] [3]
+
+[Rule 2] [Pos cover = 27 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   altezza_pagina(B,842.0),
+   frame(B,C),
+   tipo_testo(C),
+   pos_right(C).
+[pos-neg] [27]
+
+[Rule 3] [Pos cover = 13 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   tipo_testo(C),
+   width_very_small(C),
+   pos_upper(C).
+[pos-neg] [13]
+
+[Rule 4] [Pos cover = 21 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   allineato_al_centro_verticale(C,D),
+   width_medium_small(D),
+   pos_left(D),
+   pos_middle(D).
+[pos-neg] [21]
+
+[Rule 5] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 6] [Pos cover = 19 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   on_top(C,D),
+   height_smallest(D),
+   pos_upper(D).
+[pos-neg] [19]
+
+[Rule 7] [Pos cover = 8 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   tipo_misto(C),
+   height_very_small(C),
+   pos_upper(C).
+[pos-neg] [8]
+
+[Rule 8] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
+[pos-neg] [1]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013213312739).
+[pos-neg] [1]
+
+[Rule 10] [Pos cover = 13 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   altezza_pagina(B,842.0),
+   frame(B,C),
+   height_medium_large(C),
+   pos_lower(C),
+   larghezza_pagina(B,595.0).
+[pos-neg] [13]
+
+[Rule 11] [Pos cover = 18 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   altezza_pagina(B,842.0),
+   frame(B,C),
+   height_large(C),
+   pos_lower(C).
+[pos-neg] [18]
+
+[Rule 12] [Pos cover = 46 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   on_top(C,D),
+   height_large(D),
+   width_large(D),
+   width_medium_small(C).
+[pos-neg] [46]
+
+[Rule 13] [Pos cover = 3 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   allineato_al_centro_orizzontale(C,D),
+   pos_center(D),
+   pos_middle(D).
+[pos-neg] [3]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518380901422).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013220812764).
+[pos-neg] [1]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 5 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   height_very_small(C),
+   pos_left(C),
+   pos_middle(C).
+[pos-neg] [5]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510430514318).
+[pos-neg] [1]
+
+[Rule 21] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 22] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 23] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 24] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 110         0         110 
+Pred 
+     -  0         208        208 
+
+       110        208        318 
+
+Accuracy = 1.0
+[Training set summary] [[110,0,0,208]]
+
+[Test set performance]
+          Actual
+       +        - 
+     + 12        0        12 
+Pred 
+     - 0        23        23 
+
+       12        23        35 
+
+Accuracy = 1.0
+[Test set summary] [[12,0,0,23]]
+
+ --- Fold 1
+
+[theory]
+
+[Rule 1] [Pos cover = 44 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   on_top(C,D),
+   height_large(D),
+   width_large(D),
+   width_medium_small(C).
+[pos-neg] [44]
+
+[Rule 2] [Pos cover = 26 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   allineato_al_centro_verticale(C,D),
+   on_top(D,E),
+   width_medium_small(D),
+   pos_left(D).
+[pos-neg] [26]
+
+[Rule 3] [Pos cover = 7 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   tipo_misto(C),
+   height_very_small(C),
+   pos_upper(C).
+[pos-neg] [7]
+
+[Rule 4] [Pos cover = 16 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   on_top(C,D),
+   width_large(D),
+   width_very_small(C).
+[pos-neg] [16]
+
+[Rule 5] [Pos cover = 28 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   altezza_pagina(B,842.0),
+   frame(B,C),
+   on_top(C,D),
+   pos_right(D).
+[pos-neg] [28]
+
+[Rule 6] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510442014369).
+[pos-neg] [1]
+
+[Rule 7] [Pos cover = 20 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   on_top(C,D),
+   height_medium_large(D),
+   pos_left(C),
+   larghezza_pagina(B,595.0).
+[pos-neg] [20]
+
+[Rule 8] [Pos cover = 22 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   width_medium_small(C),
+   pos_right(C),
+   frame(B,D),
+   height_small(D).
+[pos-neg] [22]
+
+[Rule 9] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518525802442).
+[pos-neg] [1]
+
+[Rule 10] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013254013020).
+[pos-neg] [1]
+
+[Rule 11] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510445614393).
+[pos-neg] [1]
+
+[Rule 12] [Pos cover = 4 Neg cover = 0]
+class_mlj(A) :-
+   pagina_1(A,B),
+   frame(B,C),
+   height_very_large(C),
+   width_large(C).
+[pos-neg] [4]
+
+[Rule 13] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518322601004).
+[pos-neg] [1]
+
+[Rule 14] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518302200819).
+[pos-neg] [1]
+
+[Rule 15] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518303100860).
+[pos-neg] [1]
+
+[Rule 16] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06053013365813708).
+[pos-neg] [1]
+
+[Rule 17] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518304000869).
+[pos-neg] [1]
+
+[Rule 18] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518540302460).
+[pos-neg] [1]
+
+[Rule 19] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060518272200636).
+[pos-neg] [1]
+
+[Rule 20] [Pos cover = 1 Neg cover = 0]
+class_mlj(d06060510273413645).
+[pos-neg] [1]
+
+[Training set performance]
+           Actual
+        +          -  
+     + 110         0         110 
+Pred 
+     -  0         208        208 
+
+       110        208        318 
+
+Accuracy = 1.0
+[Training set summary] [[110,0,0,208]]
+
+[Test set performance]
+          Actual
+       +        - 
+     + 11        1        12 
+Pred 
+     - 1        22        23 
+
+       12        23        35 
+
+Accuracy = 0.942857142857143
+[Test set summary] [[11,1,1,22]]
+\end{verbatim}
+\dots
+\subsubsection{ALEPH}
+\begin{verbatim}
+--- Fold 0
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   frame(B,C), 
+   on_top(C,D), 
+   allineato_al_centro_verticale(D,E),
+   tipo_linea_orizzontale(E), 
+   tipo_misto(C).
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   frame(B,C), 
+   altezza_rettangolo(C,0.07363421).
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   larghezza_pagina(B,544.0).
+
+[Test set performance]
+        Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+
+ --- Fold 1
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   frame(B,C), 
+   larghezza_rettangolo(C,0.0605042).
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   larghezza_pagina(B,544.0).
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   frame(B,C), 
+   allineato_al_centro_orizzontale(C,D), 
+   tipo_linea_orizzontale(D).
+class_elsevier(A) :-
+   pagina_1(A,B), 
+   frame(B,C), 
+   altezza_rettangolo(C,0.07363421).
+
+[Test set performance]
+          Actual
+       +        - 
+     + 6        0        6 
+Pred 
+     - 0        29        29 
+
+       6        29        35 
+
+Accuracy = 1.0
+[Test set summary] [[6,0,0,29]]
+\end{verbatim}
+\dots
 \subsection{Metriche}
 \label{metriche}
-In seguito all'esecuzione della sperimentazione, si otterranno di file di output differenti tra i vari algoritmi, ma in tutti, tra le varie informazioni presenti, ci sarà anche la matrice di confusione relativi a come sono stati classificati gli esempi di test.
+Tra le informazioni presenti nei vari file di output è presente anche la matrice di confusione relativi a come sono stati classificati gli esempi di test.
 
-La matrice di confusione sarà composta quindi da:
+La matrice di confusione sarà composta da:
 \begin{table}[htbp]
 \centering
 \begin{tabular}{c c c c }
-	& & \multicolumn{2}{ c }{Reali} \\
+	& & \multicolumn{2}{ c }{\textit{Reali}} \\
 	& & + & - \\
-	\multirow{2}{*}{Predetti} & + & TP & FP \\
+	\multirow{2}{*}{\textit{Predetti}} & + & TP & FP \\
 	& - & FN & TN \\
 \end{tabular}
 \end{table}
