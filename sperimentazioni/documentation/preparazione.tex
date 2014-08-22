@@ -200,5 +200,18 @@ aiolli05a_p1, 612.0
 
 
 \subsection{Esempi di test}
+In coda al documento, vanno forniti gli esempi di test, specificando quando si tratta di esempi positivi e quando di negativi. Il seguente esempio è tratto dal file \verb+.d+ di Elsevier Fold0.
 
+\begin{verbatim}
+class_elsevier
+sciserv45: +
+sciserv47: +
+d37290944: -
+d37290461: -
+.
+\end{verbatim}
 
+\subsection{Metodo di creazione dei dati}
+Tutti i file di input (per ogni algoritmo, per ogni dataset, per ogni fold) sono stati generati in maniera automatica da un programma sviluppato in linguaggio Java scritto ad hoc.
+
+Il programma si occupa di leggere i file del dataset \verb+.tun+ e i file della suddivisione in fold precedentemente creati \verb+.fold+ e di scrivere nelle rispettive cartelle i file necessari alla sperimentazione.
