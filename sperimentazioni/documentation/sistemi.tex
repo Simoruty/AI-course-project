@@ -3,13 +3,41 @@
 I sistemi di apprendimento presi in esame saranno di tre tipi differenti:
 
 \begin{itemize}
-	\item Progol 
-	\item ALEPH (A Learning Engine for Proposing Hypothesis)
 	\item FOIL (First Order Inductive Learner)
+	\item PROGOL
+	\item ALEPH (A Learning Engine for Proposing Hypothesis)
 \end{itemize}
 
-\subsection{Progol}
-Progol è un sistema di ILP usato nell'ambito del machine learning che combina la tecnica della "Inverse Entailment" con la general-to-specific search" attraverso l'utilizzo di un grafo raffinato.
+\subsection{FOIL}
+\nocite{Quinlan:1993:FMR:645323.649599}
+FOIL è un sistema di apprendimento in grado di costruire delle clausole di Horn su una relazione target partendo sia dalla relazione stessa che da altre relazioni. Il sistema è in realtà un po' più flessibile in quanto può apprendere diverse relazioni in sequenza, permettendo sia l'utilizzo di letterali negati all'interno delle definizioni (usando la semantica Prolog), sia l'impiego di alcune costanti all'interno delle definizioni prodotte dal sistema stesso.
+FOIL si basa sulla tecnica del \textit{separate-and-conquer}; tecnica basata essenzialmente su due fasi, nella fase di \textit{separate} si andrà a creare una regola che sia in grado di coprire il maggior numero di esempi positivi presenti nel training set; successivamente si andrà a continuare in maniera ricorsiva nella creazione di regola fintanto che non ci saranno più esempi positivi da coprire (fase di conquer).
+La metrica utilizzata per definire la regola migliore in termini di copertura sarà una metrica basata sulla teoria dell'informazione come ad esempio il valore entropico che la regola avrà sul training.
+Inoltre, FOIL si basa anche sul concetto di CWA, nel senso che, qualora non dovesse avere a disposizione degli esempi negativi su cui andare ad indurre le regole da creare, assumerà che qualunque altro caso o esempio al di fuori di quelli presenti nel training sono da considerarsi negativi (ipotesi del mondo chiuso).
+\begin{algorithm}
+	\begin{algorithmic}[1]
+		\REQUIRE Lista di esempi
+		\FORALL {esempi $\in$ Training Set}
+		\STATE Pos $\Rightarrow$ contiene tutti gli esempi positivi
+		\STATE Pred $\Rightarrow$ contiene il predicato da apprendere
+		\WHILE{Pos non è vuoto}
+		\STATE Neg $\Rightarrow$ contiene tutti gli esempi negativi
+		\STATE Impostare \textit{body} a vuoto
+		\WHILE {Neg non è vuoto}
+		\STATE Scegliere un letterale L
+		\STATE Aggiungere L a Body
+		\STATE Rimuovere gli esempi negativi che non soddisfano L
+		\ENDWHILE
+		\STATE Aggiungere il predicato \textit{pred} al \textit{body}
+		\STATE Rimuovere da Pos tutti gli esempi che soddisfano body
+		\ENDWHILE
+		\ENDFOR
+		\RETURN regola nella logica del primo ordine
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{PROGOL}
+PROGOL è un sistema di ILP usato nell'ambito del machine learning che combina la tecnica della "Inverse Entailment" con la general-to-specific search" attraverso l'utilizzo di un grafo raffinato.
 L'inverse Entailment viene utilizzata per ottenere la clausola più specifica a partire dall'esempio dato; inoltre questa clausola verrà usata per migliorare la ricerca all'interno del grafo raffinato creato.
 L'approccio utilizzato per la realizzazione dell'implementazione inversa prevede tre fasi:
 \begin{enumerate}
@@ -49,33 +77,5 @@ Per quanto riguarda l'algoritmo di funzionamento di Aleph, risulta essere molto 
 		\STATE trovare una clausola più generale tra le bottom clause costruendo i sottoinsiemi di letterali della bottom clause che hanno il miglior punteggio (punteggio definito dall'algoritmo)
 		\STATE aggiungere la miglior clausola alla teoria e rimuovere gli esempi ridondanti 
 		\ENDFOR
-	\end{algorithmic}
-\end{algorithm}
-
-\subsection{FOIL}
-\nocite{Quinlan:1993:FMR:645323.649599}
-FOIL è un sistema di apprendimento in grado di costruire delle clausole di Horn su una relazione target partendo sia dalla relazione stessa che da altre relazioni. Il sistema è in realtà un po' più flessibile in quanto può apprendere diverse relazioni in sequenza, permettendo sia l'utilizzo di letterali negati all'interno delle definizioni (usando la semantica Prolog), sia l'impiego di alcune costanti all'interno delle definizioni prodotte dal sistema stesso.
-FOIL si basa sulla tecnica del \textit{separate-and-conquer}; tecnica basata essenzialmente su due fasi, nella fase di \textit{separate} si andrà a creare una regola che sia in grado di coprire il maggior numero di esempi positivi presenti nel training set; successivamente si andrà a continuare in maniera ricorsiva nella creazione di regola fintanto che non ci saranno più esempi positivi da coprire (fase di conquer).
-La metrica utilizzata per definire la regola migliore in termini di copertura sarà una metrica basata sulla teoria dell'informazione come ad esempio il valore entropico che la regola avrà sul training.
-Inoltre, FOIL si basa anche sul concetto di CWA, nel senso che, qualora non dovesse avere a disposizione degli esempi negativi su cui andare ad indurre le regole da creare, assumerà che qualunque altro caso o esempio al di fuori di quelli presenti nel training sono da considerarsi negativi (ipotesi del mondo chiuso).
-\begin{algorithm}
-	\begin{algorithmic}[1]
-	\REQUIRE Lista di esempi
-	\FORALL {esempi $\in$ Training Set}
-	\STATE Pos $\Rightarrow$ contiene tutti gli esempi positivi
-	\STATE Pred $\Rightarrow$ contiene il predicato da apprendere
-	\WHILE{Pos non è vuoto}
-	\STATE Neg $\Rightarrow$ contiene tutti gli esempi negativi
-	\STATE Impostare \textit{body} a vuoto
-	\WHILE {Neg non è vuoto}
-	\STATE Scegliere un letterale L
-	\STATE Aggiungere L a Body
-	\STATE Rimuovere gli esempi negativi che non soddisfano L
-	\ENDWHILE
-	\STATE Aggiungere il predicato \textit{pred} al \textit{body}
-	\STATE Rimuovere da Pos tutti gli esempi che soddisfano body
-	\ENDWHILE
-	\ENDFOR
-	\RETURN regola nella logica del primo ordine
 	\end{algorithmic}
 \end{algorithm}
