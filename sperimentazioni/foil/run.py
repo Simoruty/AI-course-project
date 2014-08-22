@@ -24,7 +24,7 @@ for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
         print "---Fold " + str(fold) +" started at "+strftime("%H:%M:%S", localtime())
         sys.stdout.flush()
 #        cmd = "./foil6 -n -v2 -d15 -a90 -V10  < "+dataset+"/"+dataset+"_f"+str(fold)+".d 2>&1 > result/"+dataset+"_f"+str(fold)+".out"
-        cmd = "./foil6 -n -v2 < "+dataset+"/"+dataset+"_f"+str(fold)+".d 2>&1 > result/"+dataset+"_f"+str(fold)+".out"
+        cmd = "./foil6 -n -v0 < "+dataset+"/"+dataset+"_f"+str(fold)+".d 2>&1 > result/"+dataset+"_f"+str(fold)+".out"
         subprocess.call(cmd, shell=True)
 #        fin = open("./result/"+dataset+".summary","a")
 #        fin.write("\n --- Fold "+str(fold)+"\n")
