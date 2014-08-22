@@ -1,19 +1,23 @@
 \section{Sistemi di apprendimento}
 
-I sistemi di apprendimento presi in esame saranno di tre tipi differenti:
+I sistemi di apprendimento presi in esame sono tre:
 
 \begin{itemize}
 	\item FOIL (First Order Inductive Learner)
-	\item PROGOL
+	\item Progol
 	\item ALEPH (A Learning Engine for Proposing Hypothesis)
 \end{itemize}
 
 \subsection{FOIL}
 \nocite{Quinlan:1993:FMR:645323.649599}
 FOIL è un sistema di apprendimento in grado di costruire delle clausole di Horn su una relazione target partendo sia dalla relazione stessa che da altre relazioni. Il sistema è in realtà un po' più flessibile in quanto può apprendere diverse relazioni in sequenza, permettendo sia l'utilizzo di letterali negati all'interno delle definizioni (usando la semantica Prolog), sia l'impiego di alcune costanti all'interno delle definizioni prodotte dal sistema stesso.
+
 FOIL si basa sulla tecnica del \textit{separate-and-conquer}; tecnica basata essenzialmente su due fasi, nella fase di \textit{separate} si andrà a creare una regola che sia in grado di coprire il maggior numero di esempi positivi presenti nel training set; successivamente si andrà a continuare in maniera ricorsiva nella creazione di regola fintanto che non ci saranno più esempi positivi da coprire (fase di conquer).
+
 La metrica utilizzata per definire la regola migliore in termini di copertura sarà una metrica basata sulla teoria dell'informazione come ad esempio il valore entropico che la regola avrà sul training.
+
 Inoltre, FOIL si basa anche sul concetto di CWA, nel senso che, qualora non dovesse avere a disposizione degli esempi negativi su cui andare ad indurre le regole da creare, assumerà che qualunque altro caso o esempio al di fuori di quelli presenti nel training sono da considerarsi negativi (ipotesi del mondo chiuso).
+
 \begin{algorithm}
 	\begin{algorithmic}[1]
 		\REQUIRE Lista di esempi
@@ -36,10 +40,13 @@ Inoltre, FOIL si basa anche sul concetto di CWA, nel senso che, qualora non dove
 	\end{algorithmic}
 \end{algorithm}
 
-\subsection{PROGOL}
-PROGOL è un sistema di ILP usato nell'ambito del machine learning che combina la tecnica della "Inverse Entailment" con la general-to-specific search" attraverso l'utilizzo di un grafo raffinato.
+\subsection{Progol}
+Progol è un sistema di ILP usato nell'ambito del machine learning che combina la tecnica della "Inverse Entailment" con la general-to-specific search" attraverso l'utilizzo di un grafo raffinato.
+
 L'inverse Entailment viene utilizzata per ottenere la clausola più specifica a partire dall'esempio dato; inoltre questa clausola verrà usata per migliorare la ricerca all'interno del grafo raffinato creato.
+
 L'approccio utilizzato per la realizzazione dell'implementazione inversa prevede tre fasi:
+
 \begin{enumerate}
 \item Selezione casuale del seed (esempio positivo p)
 \item Definizione dello spazio delle possibili clausole che potrebbero implementare l'esempio
@@ -49,11 +56,16 @@ L'approccio utilizzato per la realizzazione dell'implementazione inversa prevede
 	\end{itemize}
 \item Ricerca in questo spazio 
 \end{enumerate}
-PROGOL per computare la generalizzazione minimale dell'esempio seed considera sia la knowledge base disponibile che la profondità massima di inferenza settata. Mentre, per quanto riguarda la ricerca nello spazio delle clausole generate, utilizza una variante dell'algoritmo di ricerca best-first A* anziché la classica ricerca euristica adottata da molti altri sistemi di ILP. Questo fa si che, rispetto a FOIL, la ricerca risulti essere molto più efficiente ed è possibile dimostrare che restituirà come risultato la soluzione con la più alta compressione nello spazio di ricerca.
+
+Progol per computare la generalizzazione minimale dell'esempio seed considera sia la knowledge base disponibile che la profondità massima di inferenza settata. Mentre, per quanto riguarda la ricerca nello spazio delle clausole generate, utilizza una variante dell'algoritmo di ricerca best-first A* anziché la classica ricerca euristica adottata da molti altri sistemi di ILP.
+
+Questo fa si che, rispetto a FOIL, la ricerca risulti essere molto più efficiente ed è possibile dimostrare che restituirà come risultato la soluzione con la più alta compressione nello spazio di ricerca.
 \nocite{wiki:progol}
 
-Tra le tante implementazioni realizzate per progol, quella utilizzata nella sperimentazione è P-Progol. Realizzata nel 1993 come parte di un progetto di Ashwin Srinivasan e Rui Camacho alla Oxford University, P-progol ha come obiettivo quello di realizzare il sistema descritto sopra utilizzando come linguaggio di programmazione il prolog e come interprete yap.
+Tra le tante implementazioni realizzate per progol, quella utilizzata nella sperimentazione è P-Progol. Creata nel 1993 come parte di un progetto di Ashwin Srinivasan e Rui Camacho alla Oxford University, P-progol ha come obiettivo quello di realizzare il sistema descritto precedentemente utilizzando come linguaggio di programmazione il Prolog e come interprete YAP.
+
 L'algoritmo alla base di P-progol può essere descritto in 4 fasi:
+
 \begin{enumerate}
 	\item \textbf{Selezione di un esempio}: Se esiste, selezionare un esempio da generalizzare.
 	\item \textbf{Costruire la clausola più specifica}: costruire la clausola più specifica che implementi l'esempio selezionato e che contenga tutte le restrizioni linguistiche specificate. Questo è generalmente una clausola definita con molti letterali chiamata "bottom clause". Questa fase vie spesso chiamata la fase di \emph{saturazione}.
@@ -63,12 +75,12 @@ L'algoritmo alla base di P-progol può essere descritto in 4 fasi:
 
 \subsection{ALEPH}
 \label{sistemi:aleph}
-Aleph, acronimo di "\emph{\textbf{A} \textbf{L}earning \textbf{E}ngine for \textbf{P}roposing \textbf{H}ypotheses}", è un sistema di apprendimento ILP (Inductive Logic Programming), successore di PROGOL, il cui scopo principale è quello di definire il concetto di implicazione inversa.
+ALEPH, acronimo di "\emph{\textbf{A} \textbf{L}earning \textbf{E}ngine for \textbf{P}roposing \textbf{H}ypotheses}", è un sistema di apprendimento ILP (Inductive Logic Programming), successore di Progol, il cui scopo principale è quello di definire il concetto di implicazione inversa.
 A differenza di FOIL, questo sistema si basa su una strategia ibrida atta sia generalizzare che specializzare le clausole di Horn. 
 
-L'approccio utilizzato per realizzare l'implicazione inversa (inverse entailment) è lo stesso definito per PROGOL.
+L'approccio utilizzato per realizzare l'implicazione inversa (inverse entailment) è lo stesso definito per Progol.
 
-Per quanto riguarda l'algoritmo di funzionamento di Aleph, risulta essere molto simile a quello descritto e usato da progol, infatti, l'algoritmo prevede i seguenti passi :
+Per quanto riguarda l'algoritmo di funzionamento di ALEPH, risulta essere molto simile a quello descritto e usato da progol, infatti, l'algoritmo prevede i seguenti passi:
 
 \begin{algorithm}
 	\begin{algorithmic}[1]
