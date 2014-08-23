@@ -1,0 +1,19 @@
+Friedman test
+
+Cases in spreadsheet 10 
+Cases with missing values 0 
+Cases included in the analysis 10 
+ 
+Descriptive statistics
+   n Minimum 25th Percentile Median 75th Percentile Maximum  
+Aleph 10 0,9430 0,971 0,986 1,000 1,000 
+Foil 10 0,9170 0,944 0,986 1,000 1,000 
+Progol 10 0,9430 0,971 1,000 1,000 1,000 
+ 
+Friedman test
+ F 0,5122 
+DF 1 2 
+DF 2 18 
+P 0,60765 
+ Help (F1) Print
+  
