@@ -1,4 +1,6 @@
 \section{Test di Valutazione}
+\nocite{friedmanTest}
+\nocite{wiki:Friedman}
 Per poter analizzare i dati da un punto di vista statistico in modo da capire quale dei tre sistemi risulti essere migliore in un task di classificazione, è necessario utilizzare un test delle ipotesi che sia in grado di rigettare o confermare l'ipotesi nulla.
 
 L'ipotesi nulla da rigettare in particolare sarà:
@@ -29,14 +31,17 @@ Di seguito verrà mostrato un esempio di output restituito dal programma, in par
 \end{figure}
 
 Riepilogando i risultati dei vari test statistici si evince che:
+
 \begin{lstlisting}
-$\mu$        ALEPH   PROGOL   FOIL  P-Value     H_0  
+     $\mu$        ALEPH   PROGOL  FOIL   P-Value     $H_0$
+     
 Elsevier       1       1     0,972  0.05346   Rigettata
 JMLR         0.986     1     0.986  0.60765   Accettata
 MLJ Disc     0.9     0.915   0.944  0.01927   Rigettata
 MLJ No Disc  0,971   0.958   0.686  0.00001   Rigettata
 SVLN         0.972   0.986   0.957  0.12942   Accettata
 \end{lstlisting}
+
 
 Inoltre, con questo test è possibile anche individuare le coppie che hanno portato a rigettare l'ipotesi nulla. Nel nostro caso le coppie che hanno portato a rigettare l'ipotesi nulla sono state:
 
