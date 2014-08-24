@@ -20,6 +20,7 @@ La metrica utilizzata per definire la regola migliore in termini di copertura sa
 
 Inoltre, FOIL si basa anche sul concetto di CWA, nel senso che, qualora non dovesse avere a disposizione degli esempi negativi su cui andare ad indurre le regole da creare, assumerà che qualunque altro caso o esempio al di fuori di quelli presenti nel training sono da considerarsi negativi (ipotesi del mondo chiuso).
 
+L'algoritmo alla base del sistema sarà il seguente:
 \begin{algorithm}
 	\begin{algorithmic}[1]
 		\REQUIRE Lista di esempi
@@ -53,18 +54,17 @@ L'approccio utilizzato per la realizzazione dell'implementazione inversa prevede
 \item Selezione casuale del seed (esempio positivo p)
 \item Definizione dello spazio delle possibili clausole che potrebbero implementare l'esempio
 	\begin{itemize}
-		\item Genera la clausola più bassa
-		\item Conterrà tutti i letterali definiti nella KB che potrebbero coprire l'esempio p
+		\item Generazione della clausola più specifica.
+		\item Eliminazione dei letterali presenti nella clausola che coprono l'esempio \emph{p}.
 	\end{itemize}
-\item Ricerca in questo spazio 
+\item Ricerca della clausola più generica in questo spazio di ricerca.
 \end{enumerate}
 
 Progol per computare la generalizzazione minimale dell'esempio seed considera sia la knowledge base disponibile che la profondità massima di inferenza settata. Mentre, per quanto riguarda la ricerca nello spazio delle clausole generate, utilizza una variante dell'algoritmo di ricerca best-first A* anziché la classica ricerca euristica adottata da molti altri sistemi di ILP.
 
 Questo fa si che, rispetto a FOIL, la ricerca risulti essere molto più efficiente ed è possibile dimostrare che restituirà come risultato la soluzione con la più alta compressione nello spazio di ricerca.
 \nocite{wiki:progol}
-\nocite{pprogol}
-Tra le tante implementazioni realizzate per progol, quella utilizzata nella sperimentazione è P-Progol. Creata nel 1993 come parte di un progetto di Ashwin Srinivasan e Rui Camacho alla Oxford University, P-progol ha come obiettivo quello di realizzare il sistema descritto precedentemente utilizzando come linguaggio di programmazione il Prolog e come interprete YAP.
+Tra le tante implementazioni realizzate per progol, quella utilizzata nella sperimentazione è P-Progol. Creata nel 1993 come parte di un progetto di Ashwin Srinivasan e Rui Camacho alla Oxford University, P-progol ha come obiettivo quello di realizzare il sistema descritto precedentemente utilizzando come linguaggio di programmazione il Prolog e come interprete YAP\cite{pprogol}.
 
 L'algoritmo alla base di P-progol può essere descritto in 4 fasi:
 
@@ -78,7 +78,7 @@ L'algoritmo alla base di P-progol può essere descritto in 4 fasi:
 \subsection{ALEPH}
 \label{sistemi:aleph}
 ALEPH, acronimo di "\emph{\textbf{A} \textbf{L}earning \textbf{E}ngine for \textbf{P}roposing \textbf{H}ypotheses}", è un sistema di apprendimento ILP (Inductive Logic Programming), successore di Progol, il cui scopo principale è quello di definire il concetto di implicazione inversa.
-A differenza di FOIL, questo sistema si basa su una strategia ibrida atta sia generalizzare che specializzare le clausole di Horn. 
+A differenza di FOIL, questo sistema si basa su una strategia ibrida atta sia a generalizzare che a  specializzare le clausole di Horn.
 
 L'approccio utilizzato per realizzare l'implicazione inversa (inverse entailment) è lo stesso definito per Progol.
 

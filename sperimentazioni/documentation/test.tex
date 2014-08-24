@@ -14,7 +14,7 @@ Poiché per ogni dataset è stata ripetuta la sperimentazione, il test delle ipo
 Il test da effettuare dovrà rispettare i seguenti vincoli dettati dal dataset e dal tipo di sperimentazione che è stata effettuata:
 \begin{itemize}
 	\item \textbf{Numero di campioni maggiore di due}: Visto il quantitativo di campioni da analizzare, il test da scegliere dovrà essere in grado di processare un numero di campioni pari a tre.
-	\item \textbf{Dimensione del campione limitata}: Dato che il valore dell'accuratezza è stata calcolata per ogni fold, il dimensione del campione sarà limitato a dieci, nonché il numero di fold creati. Questo fa si che il test da scegliere dovrà essere necessariamente un tipo di test non parametrico in quanto, visto l'esiguo quantitativo di elementi, non può essere garantita nè la omoschedasticità, nè che i gruppi dei dati appartengano ad una popolazione con distribuzione normale.
+	\item \textbf{Dimensione del campione limitata}: Dato che il valore dell'accuratezza è stato calcolato per ogni fold, la dimensione del campione sarà limitata a dieci, nonché il numero di fold creati. Questo fa si che il test da scegliere dovrà essere necessariamente un tipo di test non parametrico in quanto, visto l'esiguo quantitativo di elementi, non può essere garantita nè la omoschedasticità, nè che i gruppi dei dati appartengano ad una popolazione con distribuzione normale.
 	\item \textbf{Campioni dipendenti}: a causa dell'utilizzo della tecnica della k-fold cross validation i sistemi sono stati analizzati utilizzando gli stessi identici fold, rendendo cosi dipendenti i campioni.
 \end{itemize}
 
@@ -30,10 +30,10 @@ Di seguito verrà mostrato un esempio di output restituito dal programma, in par
 	\label{Friedman Test - MLJ Discretizzato}
 \end{figure}
 
-Riepilogando i risultati dei vari test statistici si evince che:
+Riepilogando i risultati dei vari test statistici otteniamo:
 
 \begin{lstlisting}
-     $\mu$        ALEPH   PROGOL  FOIL   P-Value     $H_0$
+$\mu$-Accuracy    ALEPH   PROGOL  FOIL   P-Value     $H_0$
      
 Elsevier       1       1     0,972  0.05346   Rigettata
 JMLR         0.986     1     0.986  0.60765   Accettata
@@ -46,18 +46,18 @@ SVLN         0.972   0.986   0.957  0.12942   Accettata
 Inoltre, con questo test è possibile anche individuare le coppie che hanno portato a rigettare l'ipotesi nulla. Nel nostro caso le coppie che hanno portato a rigettare l'ipotesi nulla sono state:
 
 \begin{itemize}
-	\item Elsevier:
+	\item Per Elsevier:
 		\begin{itemize}
 			\item Aleph - Foil
 			\item Progol - Foil
 		\end{itemize}
-	\item MLJ non discretizzato:
+	\item Per MLJ non discretizzato:
 		\begin{itemize}
 			\item Aleph - Foil
 			\item Aleph - Progol
 			\item Foil - Progol
 		\end{itemize}
-	\item MLJ discretizzato:
+	\item Per MLJ discretizzato:
 		\begin{itemize}
 			\item Aleph - Foil
 		\end{itemize}

@@ -66,7 +66,7 @@ for dataset in ["elsevier", "jmlr", "mlj", "svln"]:
 
 \subsection{Hardware utilizzato}
 \label{hw}
-L'hardware utilizzato ai fini della sperimentazione è stato un notebook Acer Aspire v3-571g aventi le seguenti caratteristiche:
+L'hardware utilizzato ai fini della sperimentazione è stato un notebook Acer Aspire v3-571g aventi le seguenti caratteristiche tecniche:
 \begin{itemize}
 	\item \textbf{Processore}: Intel\textregistered Core\texttrademark  i7-3610QM processor (2.3GHz/3.3GHz w/ Turbo Boost)
 	\item \textbf{RAM}: 8GB DDR3 1333 MHz
@@ -75,7 +75,7 @@ L'hardware utilizzato ai fini della sperimentazione è stato un notebook Acer As
 \end{itemize}
 
 \subsection{Output Sperimentazione}
-Di seguito verrà mostrato un estratto di ciò che è stato prodotto dall'esecuzione dei tre algoritmi in particolar modo sul dataset Elsevier sui fold 0 e 1.
+Di seguito verrà mostrato un estratto di ciò che è stato prodotto dall'esecuzione dei tre algoritmi in particolar modo sul fold 0 del dataset Elsevier.
 \subsubsection{FOIL}
 \begin{verbatim}
 --- Fold 0
@@ -338,9 +338,9 @@ La matrice di confusione sarà composta quindi da:
 \begin{table}[H]
 \centering
 \begin{tabular}{c c c c}
-	& & \multicolumn{2}{ c }{Reali} \\
+	& & \multicolumn{2}{ c }{\emph{Reali}} \\
 	& & + & - \\
-	\multirow{2}{*}{\textit{Predetti}} & + & TP & FP \\
+	\multirow{2}{*}{{\emph{Predetti}}} & + & TP & FP \\
 	& - & FN & TN \\
 \end{tabular}
 \end{table}
@@ -355,7 +355,7 @@ Le metriche calcolate sono state:
 	\item Accuracy
 	\item Error
 \end{itemize}
-Dove la Precision e la recall saranno calcolate rispettivamente dalle formule:
+Dove la Precision e la recall saranno calcolate, come definito in letteratura, \nocite{wiki:precRecall} rispettivamente dalle formule:
 	$$Precision = \frac{TP}{TP + FP}$$
 	$$Recall = \frac{TP}{TP + FN}$$
 Per quanto riguarda la F-measure invece, è stata calcolata mettendo in relazione entrambe le metriche precedenti tramite la relazione:
