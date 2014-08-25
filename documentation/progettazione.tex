@@ -63,29 +63,32 @@ next('tok2', 'tok3').
 next('tok3', 'tok4').
 \end{prologcode}
 
+
 \subsubsection{Gestione di più documenti}
 Il sistema è in grado di lavorare su diversi documenti di input senza problemi.
 
 Per farlo abbiamo introdotto un nuovo predicato, \verb+appartiene/2+ e due nuovi token per ogni documento: \verb+BOF+ e \verb+EOF+.
-Ad ogni documento passato in input, viene assegnato un identificatore, nella forma \verb:`doc'+Num:. Inoltre vengono generati due nuovi token fittizi, chiamati BOF (Begin Of File) e EOF (End Of File), rispettivamente token di inizio e file documento.
+Ad ogni documento passato in input, viene assegnato un identificatore, nella forma \verb:`doc'+Num:. Inoltre vengono generati due nuovi token fittizi, chiamati \verb+BOF+ (Begin Of File) e \verb+EOF+ (End Of File), rispettivamente token di inizio e file documento.
 
 Per ognuno dei token ritrovati nella stringa del documento, oltre ai 2 fittizi, viene inoltre asserita l'appartenenza al documento.
 
 Nel pezzo di codice seguente sono riportati degli esempi.
 
 \begin{prologcode}
-documento('doc0', "Questo è un esempio").
-token('tok1', 'doc0_BOF').
-token('tok1', 'doc0_EOF').
+documento('doc0', "Questo e' un esempio").
+token('tok0', 'doc0_BOF').
+token('tok5', 'doc0_EOF').
+
+appartiene('tok0', 'doc0').
 appartiene('tok1', 'doc0').
 appartiene('tok2', 'doc0').
 appartiene('tok3', 'doc0').
 appartiene('tok4', 'doc0').
 appartiene('tok5', 'doc0').
+
+next('tok0', 'tok1').
+next('tok4', 'tok5').
 \end{prologcode}
-
-
-
 
 
 Il tagger è la componente che lavora sulle liste di token precedentemente create, alla ricerca di pattern noti per poter assegnare una semantica ai token. In questo modo si andranno a individuare gli oggetti del dominio contenuti all'interno del documento da analizzare.
