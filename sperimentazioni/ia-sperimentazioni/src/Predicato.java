@@ -1,14 +1,10 @@
 import java.util.ArrayList;
 
-/**
- * Created by lusio on 16/08/14.
- */
 public class Predicato {
     private String predicato;
     private int arieta;
     private String argTipo1;
     private String argTipo2;
-//    private String key;
 
     public Predicato(String predicato, String argTipo1, String argTipo2) {
         this.predicato = predicato;
@@ -22,6 +18,31 @@ public class Predicato {
         this.arieta = 1;
         this.argTipo1 = argTipo1;
         this.argTipo2 = null;
+    }
+
+    public static ArrayList<Predicato> allPredicati() {
+        ArrayList<Predicato> predicati = new ArrayList<>(20);
+        predicati.add(new Predicato("allineato_al_centro_orizzontale", "Frame", "Frame"));
+        predicati.add(new Predicato("allineato_al_centro_verticale", "Frame", "Frame"));
+        predicati.add(new Predicato("altezza_pagina", "Pagina", "AltezzaPagina"));
+        predicati.add(new Predicato("larghezza_pagina", "Pagina", "LarghezzaPagina"));
+        predicati.add(new Predicato("altezza_rettangolo", "Frame", "AltezzaRettangolo"));
+        predicati.add(new Predicato("ascissa_rettangolo", "Frame", "AscissaRettangolo"));
+        predicati.add(new Predicato("ordinata_rettangolo", "Frame", "OrdinataRettangolo"));
+        predicati.add(new Predicato("larghezza_rettangolo", "Frame", "LarghezzaRettangolo"));
+        predicati.add(new Predicato("frame", "Pagina", "Frame"));
+        predicati.add(new Predicato("numero_pagine", "Documento", "NumeroPagine"));
+        predicati.add(new Predicato("on_top", "Frame", "Frame"));
+        predicati.add(new Predicato("to_right", "Frame", "Frame"));
+        predicati.add(new Predicato("pagina_1", "Documento", "Pagina"));
+        predicati.add(new Predicato("ultima_pagina", "Pagina"));
+        predicati.add(new Predicato("tipo_immagine", "Frame"));
+        predicati.add(new Predicato("tipo_linea_obbliqua", "Frame"));
+        predicati.add(new Predicato("tipo_linea_orizzontale", "Frame"));
+        predicati.add(new Predicato("tipo_misto", "Frame"));
+        predicati.add(new Predicato("tipo_testo", "Frame"));
+        predicati.add(new Predicato("tipo_vuoto", "Frame"));
+        return predicati;
     }
 
     @Override
@@ -52,18 +73,6 @@ public class Predicato {
         return predicato;
     }
 
-    public int getArieta() {
-        return arieta;
-    }
-
-    public String getArgTipo1() {
-        return argTipo1;
-    }
-
-    public String getArgTipo2() {
-        return argTipo2;
-    }
-
     public String getSignatureForD() {
         String s;
         if (arieta == 2)
@@ -71,34 +80,6 @@ public class Predicato {
         else
             s = "*" + predicato + "(" + argTipo1 + ")";
 
-//        s += " " + key;
         return s;
-    }
-
-
-
-    public static ArrayList<Predicato> allPredicati() {
-        ArrayList<Predicato> predicati = new ArrayList<>(20);
-        predicati.add(new Predicato("allineato_al_centro_orizzontale", "Frame", "Frame"));
-        predicati.add(new Predicato("allineato_al_centro_verticale", "Frame", "Frame"));
-        predicati.add(new Predicato("altezza_pagina", "Pagina", "AltezzaPagina"));
-        predicati.add(new Predicato("larghezza_pagina", "Pagina", "LarghezzaPagina"));
-        predicati.add(new Predicato("altezza_rettangolo", "Frame", "AltezzaRettangolo"));
-        predicati.add(new Predicato("ascissa_rettangolo", "Frame", "AscissaRettangolo"));
-        predicati.add(new Predicato("ordinata_rettangolo", "Frame", "OrdinataRettangolo"));
-        predicati.add(new Predicato("larghezza_rettangolo", "Frame", "LarghezzaRettangolo"));
-        predicati.add(new Predicato("frame", "Pagina", "Frame"));
-        predicati.add(new Predicato("numero_pagine", "Documento", "NumeroPagine"));
-        predicati.add(new Predicato("on_top", "Frame", "Frame"));
-        predicati.add(new Predicato("to_right", "Frame", "Frame"));
-        predicati.add(new Predicato("pagina_1", "Documento", "Pagina"));
-        predicati.add(new Predicato("ultima_pagina", "Pagina"));
-        predicati.add(new Predicato("tipo_immagine", "Frame"));
-        predicati.add(new Predicato("tipo_linea_obbliqua", "Frame"));
-        predicati.add(new Predicato("tipo_linea_orizzontale", "Frame"));
-        predicati.add(new Predicato("tipo_misto", "Frame"));
-        predicati.add(new Predicato("tipo_testo", "Frame"));
-        predicati.add(new Predicato("tipo_vuoto", "Frame"));
-        return predicati;
     }
 }

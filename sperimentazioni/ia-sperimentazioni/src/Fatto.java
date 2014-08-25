@@ -9,7 +9,6 @@ public class Fatto implements Comparable {
         this.argomenti = argomenti;
     }
 
-
     public String getPredicato() {
         return predicato;
     }
@@ -17,7 +16,6 @@ public class Fatto implements Comparable {
     public String[] getArgomenti() {
         return argomenti;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -38,7 +36,6 @@ public class Fatto implements Comparable {
         result = 31 * result + Arrays.hashCode(argomenti);
         return result;
     }
-
 
     @Override
     public int compareTo(Object o) {

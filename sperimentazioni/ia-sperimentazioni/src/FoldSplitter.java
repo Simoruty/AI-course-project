@@ -7,8 +7,7 @@ public class FoldSplitter {
 
     private static String homeDir = System.getProperty("user.home");
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/dataset/";
-//    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-    private static String[] datasets = {"mlj"};
+    private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
     private static List<String> positives;
     private static List<String> negatives;
     private static List<String> facts;

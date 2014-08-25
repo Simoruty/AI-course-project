@@ -7,14 +7,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DatasetFormatter {
+
     private static boolean daDiscretizzare = true;
+
     private static String homeDir = System.getProperty("user.home");
     private static String datasetDir = "/dev/university/ia-ius-project/sperimentazioni/dataset/";
     private static String dir = "/dev/university/ia-ius-project/sperimentazioni/";
 
-    //    private static String all
     private static String[] datasets = {"elsevier", "jmlr", "mlj", "svln"};
-//    private static String[] datasets = {"mlj"};
     private static SortedSet<String> positiviRAW;
     private static SortedSet<String> negativiRAW;
     private static SortedSet<String> fattiRAW;
@@ -48,30 +48,9 @@ public class DatasetFormatter {
             if ((daDiscretizzare) && (dataset.equals("mlj")))
                 discretizza();
 
-//            for (int i = 0; i < 10; i++) {
-//                System.out.println("Fold"+i);
-//                for (String pos : positivi.get(i)) {
-//                    System.out.println("+"+pos);
-//                }
-//                for (String neg : negativi.get(i)) {
-//                    System.out.println("-"+neg);
-//                }
-//            }
-
-
-//            System.out.println(fatti.size());
-//            System.out.println(fattiRAW.size());
-//            System.out.println(positiviRAW.size());
-//            System.out.println(positivi.size());
-//            System.out.println(negativiRAW.size());
-//            System.out.println(negativi.size());
-//            System.out.println(examples.size());
-//            System.out.println(documenti.size());
-//            System.out.println(pagine.size());
-//            System.out.println(frame.size());
-//            writeFN(dataset);
-//            writeB(dataset);
-//            writeYAP(dataset);
+            writeFN(dataset);
+            writeB(dataset);
+            writeYAP(dataset);
             writeD(dataset);
         }
     }
@@ -191,7 +170,6 @@ public class DatasetFormatter {
                 daRimuovere.add(fatto);
             }
 
-
             if (fatto.getPredicato().equals("larghezza_rettangolo")) {
                 double larghezza = Double.parseDouble(fatto.getArgomenti()[1]);
                 if ((larghezza >= 0) && (larghezza <= 0.023)) {
@@ -212,7 +190,6 @@ public class DatasetFormatter {
                 daRimuovere.add(fatto);
             }
 
-
             if (fatto.getPredicato().equals("ascissa_rettangolo")) {
                 double ascissa = Double.parseDouble(fatto.getArgomenti()[1]);
                 if ((ascissa >= 0) && (ascissa <= 0.333)) {
@@ -224,7 +201,6 @@ public class DatasetFormatter {
                 }
                 daRimuovere.add(fatto);
             }
-
 
             if (fatto.getPredicato().equals("ordinata_rettangolo")) {
                 double ordinata = Double.parseDouble(fatto.getArgomenti()[1]);
@@ -241,7 +217,6 @@ public class DatasetFormatter {
 
         fatti.removeAll(daRimuovere);
         fatti.addAll(daAggiungere);
-
 
         List<Predicato> toRemove = new ArrayList<>(4);
         for (Predicato predicato : predicati) {
@@ -285,11 +260,10 @@ public class DatasetFormatter {
         predicati.add(new Predicato("width_very_large", "Frame"));
     }
 
-    private static void writeD(String dataset) throws IOException {
 
+    private static void writeD(String dataset) throws IOException {
         String alg = "foil";
         for (int fold = 0; fold < 10; fold++) {
-
             StringBuilder sb = new StringBuilder(1300000);
 
             /*
@@ -469,7 +443,6 @@ public class DatasetFormatter {
         }
     }
 
-    //TODO controllare i vari parametri
     private static String init(String dataset, int fold, boolean discretizzato) {
         StringBuilder sb = new StringBuilder();
         sb.append(":- set(cache_clauselength, 5).\n");
@@ -487,8 +460,6 @@ public class DatasetFormatter {
         sb.append(":- set(record, true).\n");
         sb.append(":- set(recordfile, './" + dataset + "_f" + fold + ".log').\n");
         sb.append(":- set(rulefile, './" + dataset + "_f" + fold + ".rul').\n");
-//        sb.append(":- set(train_pos, '" + dataset + "_f" + fold + ".f').\n");
-//        sb.append(":- set(train_neg, '" + dataset + "_f" + fold + ".n').\n");
         sb.append(":- set(test_pos, './" + dataset + "_f" + fold + "_test.f').\n");
         sb.append(":- set(test_neg, './" + dataset + "_f" + fold + "_test.n').\n");
         sb.append(":- set(thread, 8).\n");
@@ -644,6 +615,4 @@ public class DatasetFormatter {
                 pwB.close();
             }
     }
-
-
 }

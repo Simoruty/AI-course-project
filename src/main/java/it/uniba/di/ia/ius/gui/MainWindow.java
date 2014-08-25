@@ -141,7 +141,7 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 typeProlog = PrologInterface.INTERPROLOG;
-                JOptionPane.showConfirmDialog(null,"Interprolog engine selected","Engine",JOptionPane.CLOSED_OPTION);
+                JOptionPane.showConfirmDialog(null, "Interprolog engine selected", "Engine", JOptionPane.CLOSED_OPTION);
             }
         });
         rbMenuItemInter.setMnemonic(KeyEvent.VK_I);
@@ -154,7 +154,7 @@ public class MainWindow {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 typeProlog = PrologInterface.JPL;
-                JOptionPane.showConfirmDialog(null,"JPL engine selected","Engine",JOptionPane.CLOSED_OPTION);
+                JOptionPane.showConfirmDialog(null, "JPL engine selected", "Engine", JOptionPane.CLOSED_OPTION);
             }
         });
         group.add(rbMenuItemJPL);
