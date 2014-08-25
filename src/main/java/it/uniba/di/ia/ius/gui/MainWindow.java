@@ -223,7 +223,6 @@ public class MainWindow {
         pi.consult(new File("prolog/main.pl"));
         pi.statisfied("reset", null);
         String textCorrect = textPane.getText().replace("€", " euro").replace("$", " dollari");
-//        pi.asserta("kb:doc", Arrays.asList("\"" + textCorrect + "\""));
         pi.statisfied("assertDoc", Arrays.asList("\"" + textCorrect + "\""));
         List<Predicato> predicatoList = new ArrayList<>(11);
         predicatoList.add(new Predicato("comune", 2, comuniCB));
