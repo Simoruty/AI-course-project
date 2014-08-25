@@ -1,6 +1,6 @@
 :- module( graph_doc, [ 
-                        graph_doc_all/0
-                      , graph_doc/1 
+                        graph_doc_all/1
+                      , graph_doc/2 
                       ]
 ).
 
@@ -9,20 +9,20 @@
 :- use_module(library(lists)).
 
 
-graph_doc_all :-
+graph_doc_all(Path) :-
     %tutti i documenti
     findall(ID, (kb:documento(ID,_)), ListaDoc),
     forall(
         member(IDDoc, ListaDoc),
         (
-            graph_doc(IDDoc)
+            graph_doc(IDDoc, Path)
         )
     ),
     true.
 
-graph_doc(IDDoc) :-
+graph_doc(IDDoc, Path) :-
     atom_concat(IDDoc, '.dot', NomeFile),
-    atom_concat('graph/',NomeFile, NomeFileAssoluto),   
+    atom_concat(Path, NomeFile, NomeFileAssoluto),   
     tell(NomeFileAssoluto),
     s_init,    
     s_token(IDDoc),
