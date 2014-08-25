@@ -5,7 +5,7 @@
 \subsection{Obiettivo}
 Come primo obiettivo, il sistema deve essere in grado di estrarre, da documenti testuali, alcune informazioni principali, quali:
 \begin{itemize}
-\item numero della pratica; %TODO
+\item numero della pratica;
 \item soggetto della richiesta di iscrizione;
 \item quantità di denaro richiesta e tipologia.
 \end{itemize}
@@ -19,11 +19,12 @@ Come feature aggiuntive, il sistema si può occupare dell'estrazione, su richies
 \item etc.
 \end{itemize}
 
-
 \subsection{Input e Assunzioni}
-Non avendo a disposizione dei documenti di input reali sui quali il sistema deve essere in grado di lavorare e, quindi, non conoscendone il formato o la composizione, abbiamo dovuto fare delle assunzioni e realizzare degli esempi di input ad hoc.
+Non avendo a disposizione dei documenti di input reali sui quali il sistema deve essere in grado di lavorare e, quindi, non conoscendone il formato o la composizione, abbiamo dovuto fare delle assunzioni e realizzare degli esempi di input \emph{ad-hoc}.
 Per essere pronti a successivi adattamenti, abbiamo fatto le scelte meno vantaggiose, ipotizzando di non avere a disposizione alcuna strutturazione nel documento o metadati su di esso.
-I nostri esempi di input sono delle semplicissime stringhe prive di \verb+newline+, tabulazioni, ordinamento nello spazio, tag di qualsiasi tipo.
+
+I nostri esempi di input sono delle semplicissime stringhe prive di tabulazioni, ordinamento nello spazio, tag di qualsiasi tipo.
+
 Nel caso in cui in futuro dovessimo essere in possesso di alcune di queste informazioni, potremmo utilizzarle per migliorare le nostre regole.
 
 
@@ -39,13 +40,54 @@ Il testo in input (come già detto testo semplice in una stringa) subisce una pr
 
 Questa pre-elaborazione principalmente si occupa di:
 \begin{itemize}
-\item eliminare i caratteri \emph{inutili} per i nostri scopi quali, ad esempio, \verb+-+, \verb+!+, \verb+?+;
-\item normalizzare tutte le lettere in minuscolo;
-\item produrre una lista di atomi che saranno i token in input al tagger.
+\item eliminare i caratteri \emph{inutili} per i nostri scopi quali, ad esempio \verb+!+, \verb+?+;
+\item normalizzare tutte le lettere in minuscolo.
+\item eliminare le \emph{stopword}, ossia delle parole come congiunzioni, interiezioni o avverbi inutili al nostro scopo.
 \end{itemize}
 
-\subsubsection{Syntactic Analysis}
-\label{tagger}
+
+\subsubsection{Creazione dei token}
+Dopo l'elaborazione descritta nella sezione precedente, il sistema si occupa di creare un identificatore per ogni token, nella forma \verb:`tok'+Num: con \verb+Num+ intero positivo crescente.
+
+Per ognuno dei token trovati, verranno asseriti alcuni fatti che rappresentano la base di conoscenza sulla quale le regole cercheranno i vari tag ai quali siamo interessati.
+
+Di seguito un esempio esplicativo dei fatti asseriti.
+
+\begin{prologcode}
+token('tok1', 'curatore').
+token('tok2', 'fallimentare').
+token('tok3', 'tribunale').
+token('tok4', 'milano').
+next('tok1', 'tok2').
+next('tok2', 'tok3').
+next('tok3', 'tok4').
+\end{prologcode}
+
+\subsubsection{Gestione di più documenti}
+Il sistema è in grado di lavorare su diversi documenti di input senza problemi.
+
+Per farlo abbiamo introdotto un nuovo predicato, \verb+appartiene/2+ e due nuovi token per ogni documento: \verb+BOF+ e \verb+EOF+.
+Ad ogni documento passato in input, viene assegnato un identificatore, nella forma \verb:`doc'+Num:. Inoltre vengono generati due nuovi token fittizi, chiamati BOF (Begin Of File) e EOF (End Of File), rispettivamente token di inizio e file documento.
+
+Per ognuno dei token ritrovati nella stringa del documento, oltre ai 2 fittizi, viene inoltre asserita l'appartenenza al documento.
+
+Nel pezzo di codice seguente sono riportati degli esempi.
+
+\begin{prologcode}
+documento('doc0', "Questo è un esempio").
+token('tok1', 'doc0_BOF').
+token('tok1', 'doc0_EOF').
+appartiene('tok1', 'doc0').
+appartiene('tok2', 'doc0').
+appartiene('tok3', 'doc0').
+appartiene('tok4', 'doc0').
+appartiene('tok5', 'doc0').
+\end{prologcode}
+
+
+
+
+
 Il tagger è la componente che lavora sulle liste di token precedentemente create, alla ricerca di pattern noti per poter assegnare una semantica ai token. In questo modo si andranno a individuare gli oggetti del dominio contenuti all'interno del documento da analizzare.
 
 \subsection{Oggetti del dominio}
