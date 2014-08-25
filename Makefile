@@ -37,10 +37,10 @@ swi:
 	swipl -f prolog/main.pl
 
 swirun:
-	swipl -f prolog/main.pl -g start,halt -t 'halt(0)'
+	swipl -f prolog/main.pl -g main,halt -t 'halt(0)'
 
 yaprun:
-	yap -l prolog/main.pl -g start,halt -t 'halt(0)'
+	yap -l prolog/main.pl -g main,halt -t 'halt(0)'
 
 images: cleanGraph yaprun
 	for f in `ls graph/d*.dot`; do dot -Tpng $$f > "$$(echo $$f|sed 's/dot/png/'|sed 's/graph/img/')"; done
