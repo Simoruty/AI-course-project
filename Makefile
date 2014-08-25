@@ -24,7 +24,6 @@ package:
 
 clean: cleanGraph
 	rm -f prolog/dataset.pl
-	rm -f sperimentazioni/ius.db
 	mvn clean
 
 cleanGraph:

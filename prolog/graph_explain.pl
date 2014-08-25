@@ -1,6 +1,6 @@
 :- module( graph_explain, [ 
-                            graph_explain_all/0
-                          , graph_explain/1
+                            graph_explain_all/1
+                          , graph_explain/2
                           ]
 ).
 
@@ -9,14 +9,21 @@
 :- use_module(library(lists)).
 
 
-graph_explain_all :-
+graph_explain_all(Path) :-
+    %tutti i documenti
     findall(IDTag, kb:tag(IDTag, _), ListaTag),
-    forall(member(Tag, ListaTag), (graph_explain(Tag))),
+    forall(
+        member(Tag, ListaTag),
+        (
+            graph_explain(Tag, Path)
+        )
+    ),
     true.
 
-graph_explain(IDTag) :-
+
+graph_explain(IDTag, Path) :-
     atom_concat(IDTag,'.dot', NomeFile),
-    atom_concat('graph/', NomeFile, NomeFilePath),    
+    atom_concat(Path, NomeFile, NomeFilePath),    
     tell(NomeFilePath),
     kb:listaDep(IDTag, Dipendenze),
     s_init,

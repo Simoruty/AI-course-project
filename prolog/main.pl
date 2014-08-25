@@ -36,28 +36,28 @@ main :-
     expandKB,
     resultKB,
     spiegazioneGUI,
-%    serialize,
-    graph_doc_all,
-    graph_explain_all,
+%   serialize,
+    graph_doc_all('./graph/'),
+    graph_explain_all('./graph/'),
     true.
 
-start :-
-    consult('prolog/dataset.pl'),
+startBatchProlog :-
+    consult('dataset.pl'),
     writeKB,
     tag_default,
     expandKB,
-%    serialize,
-    graph_doc_all,
-    graph_explain_all,
+%   serialize,
+    graph_doc_all('./graph/'),
+    graph_explain_all('./graph/'),
     true.
 
 startJava :-
     writeKB,
     tag_default,
     expandKB,
-%    serialize,
-    graph_doc_all,
-    graph_explain_all,
+   % serialize,
+    graph_doc_all('./graph/'),
+    graph_explain_all('./graph/'),
     true.
 
 reset :-
