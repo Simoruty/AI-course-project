@@ -195,9 +195,7 @@ public class MainWindow {
             p.waitFor();
             Process p1 = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./img/*"});
             p1.waitFor();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -209,9 +207,7 @@ public class MainWindow {
             p.waitFor();
             Process p1 = Runtime.getRuntime().exec(new String[]{"bash", "-c", "rm ./img/*"});
             p1.waitFor();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -267,9 +263,7 @@ public class MainWindow {
                     String command2 = "convert -resize 'x600' ./img/" + outputFile + " ./img/" + outputFile;
                     Process p2 = Runtime.getRuntime().exec(new String[]{"bash", "-c", command2});
                     p2.waitFor();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
                 System.out.println(file.getName());

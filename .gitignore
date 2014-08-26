@@ -7,9 +7,11 @@ prolog/dataset.pl
 documentation/*.pdf
 documentation/*.log
 documentation/*.out
+documentation/*.ini
 sperimentazioni/documentation/*.pdf
 sperimentazioni/documentation/*.out
 sperimentazioni/documentation/*.log
+sperimentazioni/documentation/*.ini
 *.aux
 *.dvi
 *.lof
