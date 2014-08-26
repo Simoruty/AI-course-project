@@ -107,11 +107,11 @@ Ogni istanza di Query contiene un \emph{Term}, il quale rappresenta il goal da d
 
 \begin{javacode}
 	Term goal = new Compound("teacher_of",
-	new Term[] {
-		new Atom("aristotle"),
-		new Atom("alexander")
-	}
-	);
+	  new Term[] {
+		  new Atom("aristotle"),
+		  new Atom("alexander")
+		  }
+	  );
 	Query q = new Query( goal );
 \end{javacode}
 
@@ -167,21 +167,93 @@ Di seguito uno stralcio di codice del metodo:
 
 \begin{javacode}
   public Map<String, String> oneSolution(String pred, List<String> args){
-  	
+  
+  //Inizializzazione variabili
     Map<String, String> map = new HashMap<>();
     List<String> vars = new ArrayList<>(args.size());
     Term term;
     Term[] termArgs = new Term[args.size()];
     term = new Compound(pred, termArgs);
+    
+  //Creazione della query da eseguire
     Query query = new Query(term);
+    
+  //Esecuzione della query
     java.util.Hashtable<String, Term> ht = query.oneSolution();
+    
+  //Salvataggio dei risultati ottenuti
     for (String var : vars) {
       map.put(var, ht.get(var).toString());
     }
+    
     return map;
 \end{javacode}
 \subsection{Interprolog}
 
 \subsubsection{Applicazione}
+\paragraph{costruttore}
+Costruttore
 
+\begin{javacode}
+    public InterprologInterface(int type) {
+
+        switch (type) {
+            case SWI:
+            engine = new SWISubprocessEngine(SWI_BIN_PATH, false);
+
+            case YAP:
+            engine = new YAPSubprocessEngine(YAP_BIN_PATH, false);
+
+            default:
+            break;
+        }
+    }
+\end{javacode}
+\paragraph{consult}
+Consult
+
+\begin{javacode}
+    public void consult(File file) {
+
+        boolean hasSolution = engine.consultAbsolute(file);
+        System.out.print("[Prolog] consult: " + file + " ");
+        System.out.println(hasSolution ? "succeeded" : "failed");
+    }
+\end{javacode}
+\paragraph{oneSolution}
+OneSolution
+
+\begin{javacode}
+   public Map<String, String> oneSolution(String pred, List<String> args){
+   
+   //Inizializzazione variabili
+     String goal = "";
+     Map<String, String> map = new HashMap<>();
+     List<String> vars = new ArrayList<>(args.size());
+
+   //Creazione del goal da unificare
+     goal += pred + "(";
+     for (String arg : args)
+       goal += arg + ",";
+     goal += ")";
+       
+   //Creazione delle variabili da essere restituite
+     String rVars = "[";
+     for (int i = 0; i < vars.size(); i++) {
+       goal += ", term_to_atom(" + vars.get(i) + ", R" + i + ")";
+       rVars += "string(R" + i + "),";
+     }
+     rVars += "]";
+
+   //Esecuzione del goal
+     Object[] result = engine.deterministicGoal(goal, null, null, rVars);
+     
+   //Salvataggio dei risultati ottenuti
+     for (int i = 0; i < result.length; i++) {
+       map.put(vars.get(i), result[i].toString());
+     }
+      
+     return map;
+   }
+\end{javacode}
 \clearpage
