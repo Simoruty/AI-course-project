@@ -124,54 +124,54 @@ Infine un esempio di numero pratica potrebbe essere:
 	\label{java-pratica}
 \end{figure}
 
-\subsection{Bash}
+\subsection{CLI}
 L’interazione avviene principalmente tramite l'interfaccia grafica descritta nella sezione precedente ma viene data anche la possibilità di interagire con il sistema anche senza l'ausilio di tale interfaccia, utilizzando direttamente l'interprete Prolog da terminale, previa consultazione del modulo principale del sistema denominato \emph{main.pl}; le funzionalità del sistema sono indipendenti dal metodo con cui si vuole interagire con il sistema stesso.
 \subsubsection{Esempio di interazione}
 Supponiamo di voler taggare lo stesso documento definito nella sezione precedente \ref{doc-example}; in questo caso, il sistema si presenterà all'utente tramite la seguente schermata:
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{img/interfaces/bash-main.png}
-	\caption[Schermata bash main]{Schermata principale bash}
-	\label{bash-main}
+	\includegraphics[width=1\textwidth]{img/interfaces/CLI-main.png}
+	\caption[Schermata CLI main]{Schermata principale CLI}
+	\label{CLI-main}
 \end{figure}
 
 Anche in questo caso, è richiesto l'inserimento del testo del documento da taggare, ma a differenza dell'input da dare al sistema java, in questo caso bisognerà far precedere e succedere il testo da delle virgolette.
 Inoltre, ogni input dovrà necessariamente terminare con un punto fermo.
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{img/interfaces/bash-document.png}
-	\caption[Schermata bash document]{Inserimento testo del documento}
-	\label{bash-doc}
+	\includegraphics[width=1\textwidth]{img/interfaces/CLI-document.png}
+	\caption[Schermata CLI document]{Inserimento testo del documento}
+	\label{CLI-doc}
 \end{figure}
 
 Una volta inserito il testo da analizzare, il sistema darà la possibilità all'utente di selezionare quali tag estrarre attraverso l'ausilio di un menù testuale a scelta numerica.
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{img/interfaces/bash-tagSelect.png}
-	\caption[Schermata bash tag select]{Menù di selezione dei tag}
-	\label{bash-tagSelect}
+	\includegraphics[width=1\textwidth]{img/interfaces/CLI-tagSelect.png}
+	\caption[Schermata CLI tag select]{Menù di selezione dei tag}
+	\label{CLI-tagSelect}
 \end{figure}
 
 Terminata la configurazione del sistema definendo quali tag analizzare, il sistema procederà all'elaborazione del testo; L'output del sistema sarà di questo tipo:
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{img/interfaces/bash-result.png}
-	\caption[Schermata bash result]{Risultati estrazione dei tag}
-	\label{bash-result}
+	\includegraphics[width=1\textwidth]{img/interfaces/CLI-result.png}
+	\caption[Schermata CLI result]{Risultati estrazione dei tag}
+	\label{CLI-result}
 \end{figure}
 
 Come si può vedere, ogni risultato estratto avrà un tag identificativo necessario al fine di poter ottenere la spiegazione di come è stato ottenuto quel tag. In particolare, il sistema chiederà all'utente se vuole verificare come è stato ottenuto qualche particolare tag; qualora l'utente volesse, ad esempio verificare come è stata ottenuta la richiesta valuta di tipo privilegiata di 2000 euro, dovrà inserire il corrispettivo tag identificativo, in questo caso \emph{tag269}:
 
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{img/interfaces/bash-spiegazioneRich.png}
-	\caption[Schermata bash spiegazione]{Spiegazione tag \emph{richiesta valuta}}
-	\label{bash-spiegaRichiesta}
+	\includegraphics[width=1\textwidth]{img/interfaces/CLI-spiegazioneRich.png}
+	\caption[Schermata CLI spiegazione]{Spiegazione tag \emph{richiesta valuta}}
+	\label{CLI-spiegaRichiesta}
 \end{figure}
 
 Di seguito altri esempi di spiegazione, in particolare di come è stato riconosciuto un \emph{curatore} e un \emph{numero di pratica}:
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{img/interfaces/bash-spiegazione.png}
-	\caption[Schermata bash altre spiegazioni]{Spiegazione tag \emph{curatore} e \emph{numero pratica}}
-	\label{bash-spiega}
+	\includegraphics[width=1\textwidth]{img/interfaces/CLI-spiegazione.png}
+	\caption[Schermata CLI altre spiegazioni]{Spiegazione tag \emph{curatore} e \emph{numero pratica}}
+	\label{CLI-spiega}
 \end{figure}
 
 
