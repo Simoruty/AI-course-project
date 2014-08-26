@@ -1,8 +1,33 @@
 \section{Comunicazione Java Prolog}
 \label{java-prolog}
+Una delle feature caratterizzanti il sistema è quella di permettere al core prolog di interagire bidirezionalmente con java in modo tale da, tra le altre cose, dare la possibilità di creare interfacce grafiche in modo tale da rendere più usabile l'interazione con l'utente rispetto alla tradizionale linea di comando.
+
+La comunicazione tra java e prolog è stata realizzata utilizzando due librerie java indipendenti l'uno dall'altro:
+\begin{itemize}
+	\item JPL Library
+	\item Interprolog
+\end{itemize}
+Al fine di garantire la coesistenza di entrambe le librerie, è stato deciso di generalizzare entrambe le librerie creando una classe astratta (\emph{PrologInterface}) che definisca quali debbano essere i metodi che permetteranno la comunicazione tra java e prolog e successivamente tramite ereditarietà, verranno create due classi (\emph{JPLInterface} e \emph{InterprologInterface}) che realizzeranno i metodi astratti definiti sulla base dei meccanismi offerti dalle rispettive librerie.
+
+La classe astratta conterrà i seguenti metodi:
+
+\begin{javacode}
+public abstract class PrologInterface {
+
+  public abstract void close();
+  public abstract void consult(File file);
+  public abstract void asserta(String pred, List<String> args);
+  public abstract void assertz(String pred, List<String> args);
+  public abstract void retract(String pred, List<String> args);
+  public abstract void retractAll(String pred, List<String> args);
+  public abstract boolean statisfied(String pred, List<String> args);
+  public abstract Map<String, String> oneSolution(String pred, List<String> args);
+  public abstract List<Map<String, String>> allSolutions(String pred, List<String> args);
+}
+\end{javacode}
 \subsection{JPL Library}
 \nocite{swi:jpl}
-La libreria utilizzata per permettere la bidirezionalità della comunicazione tra Java e Prolog, è stata la \emph{JPL 3.1.4 alpha}\footnote{Scaricabile da \url{http://mvnrepository.com/artifact/jpl/jpl/3.1.4-alpha}} (\textbf{J}ava-calls-\textbf{P}rolog \textbf{L}ibrary)
+Una libreria utilizzata per permettere la bidirezionalità della comunicazione tra Java e Prolog, è stata la \emph{JPL 3.1.4 alpha}\footnote{Scaricabile da \url{http://mvnrepository.com/artifact/jpl/jpl/3.1.4-alpha}} (\textbf{J}ava-calls-\textbf{P}rolog \textbf{L}ibrary)
 
 Le API messe a disposizione dalla libreria JPL permettono la creazione di oggetti Java che andranno a inglobare gli elementi che saranno poi utilizzati lato Prolog. La struttura gerarchica delle classi presenti nella libreria è la seguente:
 \begin{Verbatim}
@@ -82,11 +107,11 @@ Ogni istanza di Query contiene un \emph{Term}, il quale rappresenta il goal da d
 
 \begin{javacode}
 	Term goal = new Compound("teacher_of",
-	new Term[] {
-		new Atom("aristotle"),
-		new Atom("alexander")
-	}
-	);
+	  new Term[] {
+		  new Atom("aristotle"),
+		  new Atom("alexander")
+		  }
+	  );
 	Query q = new Query( goal );
 \end{javacode}
 
@@ -96,63 +121,139 @@ La query q in questo esempio rappresenta la query Prolog:
 	?- teacher_of(aristotle,alexander).
 \end{prologcode}
 
-\subsubsection{Funzionamento}
-Per garantire l'interazione tra Java e Prolog, le principali istruzioni utilizzate per permettere questa comunicazione, sono state le seguenti:
+\subsubsection{Applicazione}
+Come descritto in precedenza, nel sistema sarà presente una classe java denominata \emph{JPLInterface} nella quale saranno implementati i diversi metodi astratti secondo le specifiche definite dalla libreria JPL; di seguito verranno mostrate le implementazioni dei principali metodi realizzate usando la libreria JPL.
+\paragraph{costruttore}
+Inizialmente è stato definito il costruttore della classe JPL nel quale viene settata la directory dalla quale prendere i file lib necessari a inizializzare l'oggetto JPL che verrà creato. In questo modo si andrà a definire quale interprete prolog andare ad utilizzare tra yap e swipl. Di seguito un estratto di codice:
 
 \begin{javacode}
-	JPL.setNativeLibraryDir("/usr/local/lib/Yap");
-	prolog.consult(new Atom("prolog/main.pl"));
-	prolog.retractAll("domanda", 1);
-	Term toAssert = new Compound("domanda", 
-	new Term[]{
-		Util.textToTerm("\"" + textPane.getText() + "\"")}
-	);
-	prolog.asserta(toAssert);
-	java.util.Hashtable<String, Term>[] hashtables = null;
-	hashtables = prolog.allSolutions(new Compound("nextTag", 
-	new Term[]{
-		new Variable("Tag")})
-	);  
+  public JPLInterface(int type) {
+  
+    switch (type) {
+  
+      case SWI:
+      jpl.JPL.setNativeLibraryDir(SWI_LIB_PATH);
+      
+      case YAP:
+      jpl.JPL.setNativeLibraryDir(YAP_LIB_PATH);
+      
+      default:
+      break;
+    }
+    jpl.JPL.init();
+  }
 \end{javacode}
-\paragraph{inizialize}
-I primi comandi hanno il compito di inizializzare il motore Prolog definendo 
-\begin{itemize}
-	\item Quali librerie utilizzare per la dimostrazione del goal (in questo caso si è deciso di utilizzare le librerie di \emph{Yap});
-	\item Definire la base di conoscenza tramite i consult, i retract e gli assert, sia dei fatti che delle regole da utilizzare.
-\end{itemize}
-Il codice java atto a realizzare sia la consult che la retract è il seguente:
+
+\paragraph{consult}
+Nel metodo consult non si fa altro che andare a richiamare il metodo \emph{hasSolution()} di un nuovo oggetto di tipo Query avente come parametro un compound basato su un consult di un file fisico.
 
 \begin{javacode}
-	public boolean consult(Atom atom) {
-		Term t = new Compound("consult", new Term[]{atom});
-		Query query = new Query(t);
-		System.out.print("[Prolog] consult: " + t + " ");
-		System.out.println(query.hasSolution() ? "succeeded" : "failed");
-		return query.hasSolution();
-	}
+  public void consult(File file) {
+  	
+    Term t = new Compound("consult", new Term[]{
+                 new Atom(file.getAbsolutePath())
+                 });
+    Query query = new Query(t);
+    query.hasSolution();
+    query.close();
+}
 \end{javacode}
 
-\begin{javacode} 
-	public void retractAll(String predicate, int arity) {  
-		Term[] args = new Term[arity];
-		for (int i = 0; i < args.length; i++)
-		args[i] = new Variable("_");
-		Term[] termToRetract = new Term[]{ new Compound(predicate, args) };    
-		Term t = new Compound("retractall", termToRetract);
-		Query query = new Query(t);
-		System.err.print("[Prolog] retract( " + predicate + " ) ");
-		System.err.println(query.hasSolution() ? "succeeded" : "failed");
-	}
-\end{javacode}
 
-\paragraph{Queries}
-Una volta ultimata l'inizializzazione, il passo successivo sarà quello di estrarre i risultati del tag che il sistema ha prodotto; per fare ciò, verranno create delle query parametrizzate adeguatamente da Termini e i risultati verranno inseriti all'interno di un array di tipo Hashtable.
+\paragraph{oneSolution}
+Nel metodo oneSolution è stato realizzato un oggetto di tipo hashmap che dovrà contenere al suo interno il map tra i parametri passati ad un predicato prolog e la stringa ottenuta come risultato dell'unificazione di quel predicato.
+Per ottenere tali risultati si è utilizzato il metodo oneSolution della classe Query il quale restituisce l'hashtable contenente la mappatura tra stringa e Termini.
+Di seguito uno stralcio di codice del metodo:
 
 \begin{javacode}
-	public java.util.Hashtable[] allSolutions(Term t) {
-		Query query = new Query(t);
-		System.err.print("[Prolog] query: " + t + " ");
-		System.err.println(query.hasSolution() ? "succeeded" : "failed");
-		return query.allSolutions();
-	}
+  public Map<String, String> oneSolution(String pred, List<String> args){
+  
+  //Inizializzazione variabili
+    Map<String, String> map = new HashMap<>();
+    List<String> vars = new ArrayList<>(args.size());
+    Term term;
+    Term[] termArgs = new Term[args.size()];
+    term = new Compound(pred, termArgs);
+    
+  //Creazione della query da eseguire
+    Query query = new Query(term);
+    
+  //Esecuzione della query
+    java.util.Hashtable<String, Term> ht = query.oneSolution();
+    
+  //Salvataggio dei risultati ottenuti
+    for (String var : vars) {
+      map.put(var, ht.get(var).toString());
+    }
+    
+    return map;
 \end{javacode}
+\subsection{Interprolog}
+
+\subsubsection{Applicazione}
+\paragraph{costruttore}
+Costruttore
+
+\begin{javacode}
+    public InterprologInterface(int type) {
+
+        switch (type) {
+            case SWI:
+            engine = new SWISubprocessEngine(SWI_BIN_PATH, false);
+
+            case YAP:
+            engine = new YAPSubprocessEngine(YAP_BIN_PATH, false);
+
+            default:
+            break;
+        }
+    }
+\end{javacode}
+\paragraph{consult}
+Consult
+
+\begin{javacode}
+    public void consult(File file) {
+
+        boolean hasSolution = engine.consultAbsolute(file);
+        System.out.print("[Prolog] consult: " + file + " ");
+        System.out.println(hasSolution ? "succeeded" : "failed");
+    }
+\end{javacode}
+\paragraph{oneSolution}
+OneSolution
+
+\begin{javacode}
+   public Map<String, String> oneSolution(String pred, List<String> args){
+   
+   //Inizializzazione variabili
+     String goal = "";
+     Map<String, String> map = new HashMap<>();
+     List<String> vars = new ArrayList<>(args.size());
+
+   //Creazione del goal da unificare
+     goal += pred + "(";
+     for (String arg : args)
+       goal += arg + ",";
+     goal += ")";
+       
+   //Creazione delle variabili da essere restituite
+     String rVars = "[";
+     for (int i = 0; i < vars.size(); i++) {
+       goal += ", term_to_atom(" + vars.get(i) + ", R" + i + ")";
+       rVars += "string(R" + i + "),";
+     }
+     rVars += "]";
+
+   //Esecuzione del goal
+     Object[] result = engine.deterministicGoal(goal, null, null, rVars);
+     
+   //Salvataggio dei risultati ottenuti
+     for (int i = 0; i < result.length; i++) {
+       map.put(vars.get(i), result[i].toString());
+     }
+      
+     return map;
+   }
+\end{javacode}
+\clearpage
