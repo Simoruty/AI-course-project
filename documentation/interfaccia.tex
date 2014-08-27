@@ -9,22 +9,28 @@ La comunicazione tra java e prolog è stata realizzata utilizzando due librerie 
 \end{itemize}
 Al fine di garantire la coesistenza di entrambe le librerie, è stato deciso di generalizzare entrambe le librerie creando una classe astratta (\emph{PrologInterface}) che definisca quali debbano essere i metodi che permetteranno la comunicazione tra java e prolog e successivamente tramite ereditarietà, verranno create due classi (\emph{JPLInterface} e \emph{InterprologInterface}) che realizzeranno i metodi astratti definiti sulla base dei meccanismi offerti dalle rispettive librerie.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/prologInterface.png}
+\end{figure}
+
 La classe astratta conterrà i seguenti metodi:
 
 \begin{javacode}
 public abstract class PrologInterface {
 
-  public abstract void close();
-  public abstract void consult(File file);
-  public abstract void asserta(String pred, List<String> args);
-  public abstract void assertz(String pred, List<String> args);
-  public abstract void retract(String pred, List<String> args);
-  public abstract void retractAll(String pred, List<String> args);
-  public abstract boolean statisfied(String pred, List<String> args);
-  public abstract Map<String, String> oneSolution(String pred, List<String> args);
-  public abstract List<Map<String, String>> allSolutions(String pred, List<String> args);
+  abstract void close();
+  abstract void consult(File file);
+  abstract void asserta(String pred, List<String> args);
+  abstract void assertz(String pred, List<String> args);
+  abstract void retract(String pred, List<String> args);
+  abstract void retractAll(String pred, List<String> args);
+  abstract boolean statisfied(String pred, List<String> args);
+  abstract Map<String, String> oneSolution(String pred, List<String> args);
+  abstract List<Map<String, String>> allSolutions(String pred, List<String> args);
 }
 \end{javacode}
+
 \subsection{JPL Library}
 \nocite{swi:jpl}
 Una libreria utilizzata per permettere la bidirezionalità della comunicazione tra Java e Prolog, è stata la \emph{JPL 3.1.4 alpha}\footnote{Scaricabile da \url{http://mvnrepository.com/artifact/jpl/jpl/3.1.4-alpha}} (\textbf{J}ava-calls-\textbf{P}rolog \textbf{L}ibrary)
@@ -51,6 +57,7 @@ JPLException
 \end{Verbatim}
 
 Le classi Term-based sono in grado di adattare al meglio la concreta sintassi strutturata dei termini di Prolog, in quanto non esiste una corrispondenza diretta con un particolare termine di Prolog; piuttosto, esistono diversi significati assunti dalla classe Term, si va dalla necessità di creare delle strutture da essere utilizzate all'interno di query Prolog, fino ad arrivare al tipo di rappresentazione, con relativa esplorazione, dei risultati ottenuti dalla query.
+
 Per astrarre quindi il concetto di termine, la classe \emph{Term} è una classe astratta istanziata da una delle sue cinque possibili sottoclassi:
 \paragraph{Compounds}
 Un Compound è un Termine che contiene un nome e una sequenza di argomenti di tipo Term.
@@ -192,9 +199,11 @@ Di seguito uno stralcio di codice del metodo:
 
 \subsubsection{Applicazione}
 \paragraph{costruttore}
-Costruttore
+Cosi come viene fatto per la classe JPLInterface, anche in questo caso viene settato quale interprete usare tra swipl e yap attraverso l'istanziazione dell'oggetto \emph{engine} in base al costruttore relativo all'interprete scelto.
 
 \begin{javacode}
+    private PrologEngine engine;
+
     public InterprologInterface(int type) {
 
         switch (type) {
@@ -210,7 +219,7 @@ Costruttore
     }
 \end{javacode}
 \paragraph{consult}
-Consult
+Il metodo consult prevede il richiamo del metodo \emph{consultAbsolute} dell'oggetto \emph{engine}, il quale permetterà di consultare il file passato come parametro al metodo.
 
 \begin{javacode}
     public void consult(File file) {
@@ -221,7 +230,21 @@ Consult
     }
 \end{javacode}
 \paragraph{oneSolution}
-OneSolution
+Nel metodo \emph{oneSolution}, una volta inizializzate le variabili da utilizzare, creato il goal da unificare partendo dal predicato e dalla lista di argomenti che quel predicato avrà, il metodo dovrà modificare la sintassi del goal in modo tale da poter essere eseguita da Interprolog in maniera corretta; 
+Ad esempio, se volessimo trovare quali siano tutte le persone taggate nel documento, il goal che si sarebbe dovuto eseguire lato prolog sarebbe dovuto essere
+
+\begin{prologcode}
+	?- allpersona(ResultList).
+\end{prologcode}
+
+Mentre, affinché possa essere eseguito da Interprolog, il goal diventerà:
+
+\begin{prologcode}
+	?- allpersona(ResultList), term_to_atom(ResultList, R0)
+\end{prologcode}
+
+i cui risultati saranno inseriti all'interno della variabile \emph{R0} di tipo stringa.
+Una volta preparato il goal, si passerà all'unificazione di quest'ultimo lato prolog attraverso l'invocazione del metodo \emph{deterministicGoal} dell'oggetto \emph{engine} definito nel costruttore.
 
 \begin{javacode}
    public Map<String, String> oneSolution(String pred, List<String> args){
