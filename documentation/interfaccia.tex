@@ -9,7 +9,7 @@ Una delle feature caratterizzanti il sistema è quella di permettere al core pro
 La comunicazione tra Java e Prolog è stata realizzata utilizzando due librerie Java indipendenti l'uno dall'altro:
 \begin{itemize}
 	\item JPL Library
-	\item Interprolog
+	\item InterProlog
 \end{itemize}
 Al fine di garantire la coesistenza di entrambe le librerie, è stato deciso di generalizzare entrambe le librerie creando una classe astratta (\emph{PrologInterface}) che definisca quali debbano essere i metodi che permetteranno la comunicazione tra Java e Prolog e successivamente tramite ereditarietà, verranno create due classi (\emph{JPLInterface} e \emph{InterprologInterface}) che realizzeranno i metodi astratti definiti sulla base dei meccanismi offerti dalle rispettive librerie.
 
@@ -207,7 +207,18 @@ Di seguito uno stralcio di codice del metodo:
 \nocite{calejo2004interprolog}
 InterProlog nasce dall'esigenza di estendere in un qualche modo le potenzialità di un linguaggio dichiarativo quale è Prolog, con un secondo linguaggio, come ad esempio Java, che sia in grado di gestire le diverse problematiche che si potranno avere nello sviluppo di un sistema più ampio e complesso come la multi-piattaforma e il multi-threading.
 
-Interprolog infatti, è un'applicazione Java open source in grado di permettere una comunicazione bidirezionale tra Java e Prolog attraverso il ridirezionamento dello standard output instaurando una connessione con socket TCP/IP tra i due linguaggi permettendo lo scambio bidirezionale di \emph{Object} lato Java e \emph{Termini} lato Prolog, il tutto in maniera totalmente trasparente grazie alla creazione di API che inglobano le operazioni più a basso livello sia lato Prolog che lato Java. In alternativa, la comunicazione può essere realizzata attraverso l'utilizzo delle \emph{dynamic loadable library} oppure anche usando le interfacce native di Java.
+InterProlog infatti, è un'applicazione Java open source
+in grado di permettere una comunicazione bidirezionale
+tra Java e Prolog attraverso il ridirezionamento dello
+standard output instaurando una connessione con socket
+TCP/IP tra i due linguaggi permettendo lo scambio bidirezionale
+di \emph{Object} lato Java e \emph{Termini} lato Prolog, il
+tutto in maniera totalmente trasparente grazie alla creazione
+di API che inglobano le operazioni più a basso livello sia lato
+Prolog che lato Java. In alternativa, la comunicazione può essere
+realizzata attraverso l'utilizzo delle
+\emph{dynamic loadable library} oppure anche usando le
+interfacce native di Java.
 
 \begin{figure}[H]
 	\centering
@@ -298,14 +309,14 @@ Il metodo consult prevede il richiamo del metodo \emph{consultAbsolute} dell'ogg
     }
 \end{javacode}
 \paragraph{oneSolution}
-Nel metodo \emph{oneSolution}, una volta inizializzate le variabili da utilizzare, creato il goal da unificare partendo dal predicato e dalla lista di argomenti che quel predicato avrà, il metodo dovrà modificare la sintassi del goal in modo tale da poter essere eseguita da Interprolog in maniera corretta; 
+Nel metodo \emph{oneSolution}, una volta inizializzate le variabili da utilizzare, creato il goal da unificare partendo dal predicato e dalla lista di argomenti che quel predicato avrà, il metodo dovrà modificare la sintassi del goal in modo tale da poter essere eseguita da InterProlog in maniera corretta; 
 Ad esempio, se volessimo trovare quali siano tutte le persone taggate nel documento, il goal che si sarebbe dovuto eseguire lato prolog sarebbe dovuto essere
 
 \begin{prologcode}
 	?- allpersona(ResultList).
 \end{prologcode}
 
-Mentre, affinché possa essere eseguito da Interprolog, il goal verrà modellato nel seguente modo:
+Mentre, affinché possa essere eseguito da InterProlog, il goal verrà modellato nel seguente modo:
 
 \begin{prologcode}
 	?- allpersona(ResultList), term_to_atom(ResultList, R0)
