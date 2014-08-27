@@ -1,3 +1,7 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = it_IT
+% !TeX root = main.tex
+
 \section{Comunicazione Java Prolog}
 \label{java-prolog}
 Una delle feature caratterizzanti il sistema è quella di permettere al core prolog di interagire bidirezionalmente con java in modo tale da, tra le altre cose, dare la possibilità di creare interfacce grafiche in modo tale da rendere più usabile l'interazione con l'utente rispetto alla tradizionale linea di comando.
@@ -11,7 +15,7 @@ Al fine di garantire la coesistenza di entrambe le librerie, è stato deciso di 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/prologInterface.png}
+	\includegraphics[width=0.8\textwidth]{img/prologInterface.png}
 \end{figure}
 
 La classe astratta conterrà i seguenti metodi:
@@ -195,7 +199,68 @@ Di seguito uno stralcio di codice del metodo:
     
     return map;
 \end{javacode}
-\subsection{Interprolog}
+\subsection{InterProlog}
+\nocite{interprolog}
+\nocite{calejo2004interprolog}
+InterProlog nasce dall'esigenza di estendere in un qualche modo le potenzialità di un linguaggio dichiarativo quale è Prolog, con un secondo linguaggio, come ad esempio Java, che sia in grado di gestire le diverse problematiche che si potranno avere nello sviluppo di un sistema più ampio e complesso come la multi-piattaforma e il multi-threading.
+
+Interprolog infatti, è un'applicazione Java open source in grado di permettere una comunicazione bidirezionale tra Java e Prolog attraverso il ridirezionamento dello standard output instaurando una connessione con socket TCP/IP tra i due linguaggi permettendo lo scambio bidirezionale di \emph{Object} lato java e \emph{Termini} lato prolog, il tutto in maniera totalmente trasparente grazie alla creazione di API che inglobano le operazioni più a basso livello sia lato Prolog che lato Java. In alternativa, la comunicazione può essere realizzata attraverso l'utilizzo delle \emph{dynamic loadable library} oppure anche usando le interfacce native di Java.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/InterPrologSystem.png}
+\end{figure}
+
+Tra le novità introdotte nelle ultime versioni di InterProlog vi è il supporto a più interpreti prolog quali XSB, YAP, SWI:
+\begin{itemize}
+	\item Lato Prolog: è stato ridefinito il layer prolog ridefinendolo in modo da essere compatibile con lo \emph{standard de facto} Prolog, inserendo parti dedicate ad ognuno dei diversi interpreti supportati.
+	\item Lato Java: sono stati introdotti i diversi \emph{PrologEngine} relativi ai vari interpreti supportati.
+\end{itemize}
+
+Di seguito verrà visto il funzionamento Java-side e Prolog-side.
+\subsubsection*{Java-side}
+InterProlog fornisce allo sviluppatore Java delle API in grado di permettere l'accesso alla piena potenza computazionale offerta dal motore logico Prolog. Di seguito un esempio di codice usato per eseguire nell'ordine:
+\begin{itemize}
+	\item Inizialize: Inizializzazione del motore prolog da usare, in questo caso l'interprete SWI;
+	\item Consult: Consultazione di un file fisico tramite il comando \emph{consultAbsolute};
+	\item Execute: Esecuzione del predicato \emph{descendent\_of} e salvataggio dei risultati in un array di oggetti chiamato \emph{bindings};
+	\item Result: Estrazione e visualizzazione del primo risultato estratto dall'esecuzione del predicato.
+\end{itemize}
+
+\begin{javacode}
+ //Init
+  PrologEngine engine = new SWISubprocessEngine();
+    
+ //Consult
+  engine.consultAbsolute("test.pl");
+    
+ //Execute
+  Object[] bindings = engine.deterministicGoal(
+                       "descendent_of( X, someAncestor )","[string(X)]");
+    
+ //Result
+  if(bindings!=null){// succeeded
+      String X = (String)bindings[0];
+      System.out.println( "X = " + X);
+  }
+\end{javacode}
+
+\subsubsection*{Prolog-side}
+Il principale contributo offerto da InterProlog nella programmazione prolog, è l'utilizzo del predicato \emph{javaMessage}, di seguito il codice prolog che usa tale predicato e l'output che verrà restituito:
+
+\begin{prologcode}
+?- javaMessage('javax.swing.JFrame',W,'JFrame'(string(myTitle))),
+   javaMessage(W,C,getContentPane),
+   javaMessage('javax.swing.JLabel',L,
+            'JLabel'(string('Hello Prolog, greetings from Swing'))),
+   javaMessage(C,add(string('Center'),L)),
+   javaMessage(W,pack), javaMessage(W,show).
+\end{prologcode}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/javaMessageInterProlog.png}
+\end{figure}
 
 \subsubsection{Applicazione}
 \paragraph{costruttore}
