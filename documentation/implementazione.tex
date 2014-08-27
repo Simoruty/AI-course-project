@@ -1,3 +1,7 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = it_IT
+% !TeX root = main.tex
+
 \section{Implementazione}
 
 \subsection{Architettura del sistema}
@@ -110,7 +114,7 @@ Nell'ordine:
 \item si asserisce la vicinanza (predicato \verb|next/2|) tra il \verb|tag| corrente e tutti i \verb|token|/\verb|tag| che succedono a quelli dai quali deriva il \verb|tag| corrente;
 \end{enumerate} 
 
-Il codice seguente esemplifica alcune delle asserzioni del tagger in un documento composto da due parole "curatore fallimentare".
+Il codice seguente esemplifica alcune delle asserzioni del tagger in un documento composto da due parole: ``curatore fallimentare''.
 
 \begin{prologcode}
 token(tok0, BOF).
@@ -128,7 +132,7 @@ next(tag0, tag1).
 next(tag1, tok3).
 \end{prologcode}
 
-La figura seguente invece, mostra invece tutti gli archi \verb|next| che vengono a crearsi nel tagging di un documento composto dalle parole "Luigi Nesta".
+La figura seguente invece, mostra invece tutti gli archi \verb|next| che vengono creati nel tagging di un documento composto dalle parole: ``Luigi Nesta''.
 
 \begin{figure}[H]
 \centering
