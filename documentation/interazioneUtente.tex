@@ -3,6 +3,7 @@
 % !TeX root = main.tex
 
 \section{Interazione con l'utente}
+\label{Interaction}
 Il sistema permette due modi alternativi per garantire l'interazione con l'utente:
 \begin{itemize}
 	\item \textbf{Grafico}: attraverso l'ausilio di interfacce grafiche create tramite il linguaggio Java.
@@ -14,7 +15,7 @@ Il sistema presenta un'interfaccia grafica scritta in java, in grado di permette
 La schermata principale dell'interfaccia sarà la seguente:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/interfaces/java-main.png}
+	\includegraphics[width=0.8\textwidth]{img/interfaces/java-main.png}
 	\caption[Schermata java main]{Schermata principale java}
 	\label{java-main}
 \end{figure}
@@ -37,7 +38,7 @@ Inoltre è presente anche una barra di menù dalla quale viene data la possibili
 	\caption[Schermata java engine]{Scelta engine java - prolog}
 	\label{java-engine}
 \end{figure}
-
+\clearpage
 \subsubsection{Esempio di interazione}
 	Supponiamo di voler taggare il seguente documento:
 	
@@ -88,8 +89,8 @@ Foggia, 15 settembre 2013
 Come mostrato nella figura sottostante, dovremo innanzitutto inserire il testo del documento nella sezione apposita:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/interfaces/java-document.png}
-	\caption[[Schermata java document]{Inserimento testo del documento}
+	\includegraphics[width=1.1\textwidth]{img/interfaces/java-document.png}
+	\caption[Schermata java document]{Inserimento testo del documento}
 	\label{java-doc}
 \end{figure}
 
@@ -99,7 +100,7 @@ In seguito all'estrazione, verranno mostrati a video tutti i tag che il sistema 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/interfaces/java-result.png}
+	\includegraphics[width=1.1\textwidth]{img/interfaces/java-result.png}
 	\caption[Schermata java result]{Risultati estrazione dei tag}
 	\label{java-result}
 \end{figure}
@@ -109,7 +110,7 @@ Ad esempio, qualora l'utente volesse visionare il tag relativo alla richiesta va
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/interfaces/java-richiestavaluta.png}
+	\includegraphics[width=1.1\textwidth]{img/interfaces/java-richiestavaluta.png}
 	\caption[Schermata java explain richiesta valuta]{Spiegazione \emph{richiesta valuta}}
 	\label{java-richiestavaluta}
 \end{figure}
@@ -118,7 +119,7 @@ Un altro esempio potrebbe essere la spiegazione relativa all'individuazione del 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/interfaces/java-curatore.png}
+	\includegraphics[width=0.8\textwidth]{img/interfaces/java-curatore.png}
 	\caption[Schermata java explain curatore]{Spiegazione \emph{curatore}}
 	\label{java-curatore}
 \end{figure}
@@ -127,7 +128,7 @@ Infine un esempio di numero pratica potrebbe essere:
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/interfaces/java-pratica.png}
+	\includegraphics[width=0.8\textwidth]{img/interfaces/java-pratica.png}
 	\caption[Schermata java explain numero pratica]{Spiegazione \emph{numero pratica}}
 	\label{java-pratica}
 \end{figure}
@@ -188,4 +189,3 @@ Di seguito altri esempi di spiegazione, in particolare di come è stato riconosc
 	\caption[Schermata CLI altre spiegazioni]{Spiegazione tag \emph{curatore} e \emph{numero pratica}}
 	\label{CLI-spiega}
 \end{figure}
-\clearpage

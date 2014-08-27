@@ -36,6 +36,7 @@ public abstract class PrologInterface {
 \end{javacode}
 
 \subsection{JPL Library}
+\label{JPL}
 \nocite{swi:jpl}
 Una libreria utilizzata per permettere la bidirezionalità della comunicazione tra Java e Prolog, è stata la \emph{JPL 3.1.4 alpha}\footnote{Scaricabile da \url{http://mvnrepository.com/artifact/jpl/jpl/3.1.4-alpha}} (\textbf{J}ava-calls-\textbf{P}rolog \textbf{L}ibrary)
 
@@ -63,6 +64,7 @@ JPLException
 Le classi Term-based sono in grado di adattare al meglio la concreta sintassi strutturata dei termini di Prolog, in quanto non esiste una corrispondenza diretta con un particolare termine di Prolog; piuttosto, esistono diversi significati assunti dalla classe Term, si va dalla necessità di creare delle strutture da essere utilizzate all'interno di query Prolog, fino ad arrivare al tipo di rappresentazione, con relativa esplorazione, dei risultati ottenuti dalla query.
 
 Per astrarre quindi il concetto di termine, la classe \emph{Term} è una classe astratta istanziata da una delle sue cinque possibili sottoclassi:
+\clearpage
 \paragraph{Compounds}
 Un Compound è un Termine che contiene un nome e una sequenza di argomenti di tipo Term.
 
@@ -200,6 +202,7 @@ Di seguito uno stralcio di codice del metodo:
     return map;
 \end{javacode}
 \subsection{InterProlog}
+\label{InterProlog}
 \nocite{interprolog}
 \nocite{calejo2004interprolog}
 InterProlog nasce dall'esigenza di estendere in un qualche modo le potenzialità di un linguaggio dichiarativo quale è Prolog, con un secondo linguaggio, come ad esempio Java, che sia in grado di gestire le diverse problematiche che si potranno avere nello sviluppo di un sistema più ampio e complesso come la multi-piattaforma e il multi-threading.
@@ -302,13 +305,13 @@ Ad esempio, se volessimo trovare quali siano tutte le persone taggate nel docume
 	?- allpersona(ResultList).
 \end{prologcode}
 
-Mentre, affinché possa essere eseguito da Interprolog, il goal diventerà:
+Mentre, affinché possa essere eseguito da Interprolog, il goal verrà modellato nel seguente modo:
 
 \begin{prologcode}
 	?- allpersona(ResultList), term_to_atom(ResultList, R0)
 \end{prologcode}
 
-i cui risultati saranno inseriti all'interno della variabile \emph{R0} di tipo stringa.
+I risultati saranno inseriti all'interno della variabile \emph{R0} di tipo stringa.
 Una volta preparato il goal, si passerà all'unificazione di quest'ultimo lato prolog attraverso l'invocazione del metodo \emph{deterministicGoal} dell'oggetto \emph{engine} definito nel costruttore.
 
 \begin{javacode}
@@ -344,4 +347,3 @@ Una volta preparato il goal, si passerà all'unificazione di quest'ultimo lato p
      return map;
    }
 \end{javacode}
-\clearpage
