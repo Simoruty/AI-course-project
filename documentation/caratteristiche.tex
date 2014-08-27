@@ -3,7 +3,7 @@
 % !TeX root = main.tex
 
 \section{Componenti aggiuntive}
-Il sistema oltre a fornire i servizi di base necessari a soddisfare l'obiettivo prefissato definito nella sezione \ref{object}, presenta alcune funzionalità aggiuntive atte a migliorare l'esperienza con il sistema. Tra queste funzionalità aggiuntive, le principali sono:
+Il sistema oltre a fornire i servizi di base necessari a soddisfare l'obiettivo prefissato definito nella sezione \ref{scopo}, presenta alcune funzionalità aggiuntive atte a migliorare l'esperienza con il sistema. Tra queste funzionalità aggiuntive, le principali sono:
 \begin{itemize}
 	\item Modulo di spiegazione
 	\item Interfaccia grafica Java
@@ -27,8 +27,8 @@ Ad esempio, in caso di tag di persone, all'interno del predicato \emph{tag\_pers
             Spiegazione, Dipendenze).
 \end{prologcode}
 
-Successivamente, qualora l'utente dovesse richiedere la spiegazione di un particolare tag, il sistema, indipendentemente dall'interfaccia utilizzata (per i diversi tipi di approcci interattivi vedere cap. \ref{Interaction}), non farà altro che richiamare il predicato \emph{spiega\_tutto} il cui compito sarà quello di recuperare tutte le spiegazioni dei vari sottotag che compongono il tag di cui si vuole ottenere la spiegazione.
-Ad esempio, se nel documento è presente una frase del tipo : \emph{... Richiesta in via chirografaria di 2000\officialeuro ...} , in questo il sistema creerà un tag \emph{richiesta\_valuta(2000, euro, chirografario)}.
+Successivamente, qualora l'utente dovesse richiedere la spiegazione di un particolare tag, il sistema, indipendentemente dall'interfaccia utilizzata (per i diversi tipi di approcci interattivi vedere cap. \ref{Interaction}), non farà altro che richiamare il predicato \emph{spiega\_tutto/2} il cui compito sarà quello di recuperare tutte le spiegazioni dei vari sottotag che compongono il tag di cui si vuole ottenere la spiegazione.
+Ad esempio, se nel documento è presente una frase del tipo : ``\emph{... Richiesta in via chirografaria di 2000 \officialeuro ...}'' , in questo caso il sistema creerà un tag \emph{richiesta\_valuta(2000, euro, chirografario)}.
 
 Qualora volessimo sapere il come è stato creato questo tag, il sistema risponderà nel seguente modo:
 
@@ -36,12 +36,13 @@ Qualora volessimo sapere il come è stato creato questo tag, il sistema risponde
 [RICHIESTA VALUTA] Presenza nella stessa frase della valuta 2000
                    euro e del termine chirografaria
 [TIPO_RICHIESTA] Presenza nel documento del termine chirografaria
-[VALUTA] Presenza nel documento del numero 2000 preceduto dal 
+[VALUTA] Presenza nel documento del numero 2000 seguito dal 
          simbolo €
+
 \end{verbatim}
 \subsection{Interfaccia grafica Java}
 Tra le feature aggiuntive offerte dal sistema, vi è la presenza di un'interfaccia grafica creata in Java utile al fine di poter migliorare l'usabilità del sistema permettendone l'utilizzo anche a chi non è molto pratico di interfacce a linee di comando. Nel capitolo \ref{Interaction} verrà descritto in dettaglio come si presenta l'interfaccia grafica e un suo esempio di interazione. 
-Per permettere la realizzazione delle interfacce grafiche in Java è stato, inoltre, necessario far comunicare Prolog con Java in modo tale da poter permettere uno scambio di informazioni tra i due sistemi; per fare ciò sono state utilizzate due librerie Java nate per questo scopo quali JPL e InterProlog di cui si parlerà approfonditamente rispettivamente nelle sezioni \ref{JPL} e \ref{InterProlog}.
+Per permettere la realizzazione delle interfacce grafiche in Java è stato, inoltre, necessario far comunicare Prolog con Java in modo tale da garantire uno scambio di informazioni tra i due sistemi; per fare ciò sono state utilizzate due librerie Java nate per questo scopo quali JPL e InterProlog di cui si parlerà approfonditamente rispettivamente nelle sezioni \ref{JPL} e \ref{InterProlog}.
 \subsection{Rappresentazione visuale tramite graphviz}
 \nocite{gansner2006drawing}
 \nocite{wiki:Graphviz}
@@ -54,9 +55,9 @@ Prendendo come esempio il tag \emph{richiesta\_valuta} descritto nella sezione \
 	\caption{Esempio spiegazione richiesta\_valuta}
 \end{figure}
 
-Per poter ottenere un grafico di questo tipo, è stato necessario utilizzare un programma open source chiamato \emph{Graphviz} (abbreviazione di Graph Visualization Software), il quale è in grado di disegnare grafi descritti nel linguaggio \emph{DOT}.
+Per poter ottenere un grafico di questo tipo, è stato necessario utilizzare un programma open source chiamato \emph{Graphviz}\footnote{Scaricabile dal sito \url{http://www.graphviz.org/}} (abbreviazione di Graph Visualization Software), il quale è in grado di disegnare grafi descritti nel linguaggio \emph{DOT}.
 
-Il linguaggio \emph{DOT} è un linguaggio di descrizione di grafi in plain text, inoltre, l'utilizzo di questo linguaggio rende più semplice descrivere i grafi dato che sono facilmente usabili sia dall'essere umano che dalla macchina. I grafi descrivibili da questo linguaggio possono essere sia grafi orientati che non; nel nostro caso è stato necessario garantire la direzionalità dell'arco.
+Il linguaggio \emph{DOT} è un linguaggio di descrizione di grafi in plain text, la cui peculiarità principale risulta essere la facilità d'uso sia da parte dell'essere umano che dalla macchina. I grafi descrivibili da questo linguaggio possono essere sia grafi orientati che non; nel nostro caso è stato necessario garantire la direzionalità dell'arco.
 \clearpage
 Un esempio di codice dot per descrivere un grafo orientato (\emph{V},\emph{E}), dove 
 $$V = \left\{ a,b,c \right\} $$

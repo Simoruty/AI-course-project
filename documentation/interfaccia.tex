@@ -2,11 +2,11 @@
 % !TeX spellcheck = it_IT
 % !TeX root = main.tex
 
-\section{Comunicazione Java Prolog}
+\section{Comunicazione Java - Prolog}
 \label{java-prolog}
-Una delle feature caratterizzanti il sistema è quella di permettere al core prolog di interagire bidirezionalmente con Java in modo tale da, tra le altre cose, dare la possibilità di creare interfacce grafiche in modo tale da rendere più usabile l'interazione con l'utente rispetto alla tradizionale linea di comando.
+Una delle feature caratterizzanti il sistema è quella di permettere al core Prolog di interagire bidirezionalmente con Java in modo tale da, tra le altre cose, dare la possibilità di creare interfacce grafiche in modo tale da rendere più usabile l'interazione con l'utente rispetto alla tradizionale linea di comando.
 
-La comunicazione tra Java e Prolog è stata realizzata utilizzando due librerie Java indipendenti l'uno dall'altro:
+La comunicazione tra Java e Prolog è stata realizzata utilizzando due librerie Java indipendenti l'una dall'altra:
 \begin{itemize}
 	\item JPL Library
 	\item InterProlog
@@ -77,7 +77,7 @@ Un Compound è un Termine che contiene un nome e una sequenza di argomenti di ti
 	);
 \end{javacode}
 
-In questo esempio, la variabile Java \emph{teacher\_of} si riferisce a una istanza di tipo \emph{Compound} che rappresenta il termine prolog.
+In questo esempio, la variabile Java \emph{teacher\_of} si riferisce a una istanza di tipo \emph{Compound} che rappresenta il termine Prolog.
 
 \begin{prologcode}
 	teacher_of(aristotle,alexander).
@@ -135,9 +135,9 @@ La query q in questo esempio rappresenta la query Prolog:
 \end{prologcode}
 
 \subsubsection{Applicazione}
-Come descritto in precedenza, nel sistema sarà presente una classe Java denominata \emph{JPLInterface} nella quale saranno implementati i diversi metodi astratti secondo le specifiche definite dalla libreria JPL; di seguito verranno mostrate le implementazioni dei principali metodi realizzate usando la libreria JPL.
+Come descritto in precedenza, nel sistema sarà presente una classe Java denominata \emph{JPLInterface} nella quale saranno implementati i diversi metodi astratti secondo le specifiche definite dalla libreria JPL; di seguito verranno mostrate le implementazioni dei principali metodi realizzati usando la libreria JPL.
 \paragraph{costruttore}
-Inizialmente è stato definito il costruttore della classe JPL nel quale viene settata la directory dalla quale prendere i file lib necessari a inizializzare l'oggetto JPL che verrà creato. In questo modo si andrà a definire quale interprete prolog andare ad utilizzare tra yap e swipl. Di seguito un estratto di codice:
+Inizialmente è stato definito il costruttore della classe JPL nel quale viene settata la directory dalla quale prendere i file lib necessari a inizializzare l'oggetto JPL da creare. Definendo, in questo modo, quale interprete Prolog utilizzare tra YAP e SWI. Di seguito un estratto di codice:
 
 \begin{javacode}
   public JPLInterface(int type) {
@@ -174,7 +174,7 @@ Nel metodo consult non si fa altro che andare a richiamare il metodo \emph{hasSo
 
 
 \paragraph{oneSolution}
-Nel metodo oneSolution è stato realizzato un oggetto di tipo hashmap che dovrà contenere al suo interno il map tra i parametri passati ad un predicato prolog e la stringa ottenuta come risultato dell'unificazione di quel predicato.
+Nel metodo oneSolution è stato realizzato un oggetto di tipo hashmap che dovrà contenere al suo interno il map tra i parametri passati ad un predicato Prolog e la stringa ottenuta come risultato dell'unificazione di quel predicato.
 Per ottenere tali risultati si è utilizzato il metodo oneSolution della classe Query il quale restituisce l'hashtable contenente la mappatura tra stringa e Termini.
 Di seguito uno stralcio di codice del metodo:
 
@@ -225,9 +225,9 @@ interfacce native di Java.
 	\includegraphics[width=0.9\textwidth]{img/InterPrologSystem.png}
 \end{figure}
 
-Tra le novità introdotte nelle ultime versioni di InterProlog vi è il supporto a più interpreti prolog quali XSB, YAP, SWI:
+Tra le novità introdotte nelle ultime versioni di InterProlog vi è il supporto a più interpreti Prolog quali XSB, YAP, SWI:
 \begin{itemize}
-	\item Lato Prolog: è stato ridefinito il layer prolog ridefinendolo in modo da essere compatibile con lo \emph{standard de facto} Prolog, inserendo parti dedicate ad ognuno dei diversi interpreti supportati.
+	\item Lato Prolog: è stato ridefinito il layer Prolog ridefinendolo in modo da essere compatibile con lo \emph{standard de facto} Prolog, inserendo parti dedicate ad ognuno dei diversi interpreti supportati.
 	\item Lato Java: sono stati introdotti i diversi \emph{PrologEngine} relativi ai vari interpreti supportati.
 \end{itemize}
 
@@ -235,7 +235,7 @@ Di seguito verrà visto il funzionamento Java-side e Prolog-side.
 \subsubsection*{Java-side}
 InterProlog fornisce allo sviluppatore Java delle API in grado di permettere l'accesso alla piena potenza computazionale offerta dal motore logico Prolog. Di seguito un esempio di codice usato per eseguire nell'ordine:
 \begin{itemize}
-	\item Inizialize: Inizializzazione del motore prolog da usare, in questo caso l'interprete SWI;
+	\item Inizialize: Inizializzazione del motore Prolog da usare, in questo caso l'interprete SWI;
 	\item Consult: Consultazione di un file fisico tramite il comando \emph{consultAbsolute};
 	\item Execute: Esecuzione del predicato \emph{descendent\_of} e salvataggio dei risultati in un array di oggetti chiamato \emph{bindings};
 	\item Result: Estrazione e visualizzazione del primo risultato estratto dall'esecuzione del predicato.
@@ -260,7 +260,7 @@ InterProlog fornisce allo sviluppatore Java delle API in grado di permettere l'a
 \end{javacode}
 
 \subsubsection*{Prolog-side}
-Il principale contributo offerto da InterProlog nella programmazione prolog, è l'utilizzo del predicato \emph{javaMessage}, di seguito il codice prolog che usa tale predicato e l'output che verrà restituito:
+Il principale contributo offerto da InterProlog nella programmazione Prolog, è l'utilizzo del predicato \emph{javaMessage}, di seguito il codice Prolog che usa tale predicato e l'output che verrà restituito:
 
 \begin{prologcode}
 ?- javaMessage('javax.swing.JFrame',W,'JFrame'(string(myTitle))),
@@ -278,7 +278,7 @@ Il principale contributo offerto da InterProlog nella programmazione prolog, è 
 
 \subsubsection{Applicazione}
 \paragraph{costruttore}
-Cosi come viene fatto per la classe JPLInterface, anche in questo caso viene settato quale interprete usare tra swipl e yap attraverso l'istanziazione dell'oggetto \emph{engine} in base al costruttore relativo all'interprete scelto.
+Cosi come viene fatto per la classe JPLInterface, anche in questo caso viene settato quale interprete usare tra SWI e YAP attraverso l'istanziazione dell'oggetto \emph{engine} in base al costruttore relativo all'interprete scelto.
 
 \begin{javacode}
     private PrologEngine engine;
@@ -310,7 +310,7 @@ Il metodo consult prevede il richiamo del metodo \emph{consultAbsolute} dell'ogg
 \end{javacode}
 \paragraph{oneSolution}
 Nel metodo \emph{oneSolution}, una volta inizializzate le variabili da utilizzare, creato il goal da unificare partendo dal predicato e dalla lista di argomenti che quel predicato avrà, il metodo dovrà modificare la sintassi del goal in modo tale da poter essere eseguita da InterProlog in maniera corretta; 
-Ad esempio, se volessimo trovare quali siano tutte le persone taggate nel documento, il goal che si sarebbe dovuto eseguire lato prolog sarebbe dovuto essere
+Ad esempio, se volessimo trovare quali siano tutte le persone taggate nel documento, il goal che si sarebbe dovuto eseguire lato Prolog sarebbe dovuto essere
 
 \begin{prologcode}
 	?- allpersona(ResultList).
@@ -323,7 +323,7 @@ Mentre, affinché possa essere eseguito da InterProlog, il goal verrà modellato
 \end{prologcode}
 
 I risultati saranno inseriti all'interno della variabile \emph{R0} di tipo stringa.
-Una volta preparato il goal, si passerà all'unificazione di quest'ultimo lato prolog attraverso l'invocazione del metodo \emph{deterministicGoal} dell'oggetto \emph{engine} definito nel costruttore.
+Una volta preparato il goal, si passerà all'unificazione di quest'ultimo lato Prolog attraverso l'invocazione del metodo \emph{deterministicGoal} dell'oggetto \emph{engine} definito nel costruttore.
 
 \begin{javacode}
    public Map<String, String> oneSolution(String pred, List<String> args){
