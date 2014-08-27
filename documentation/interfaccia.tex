@@ -4,14 +4,14 @@
 
 \section{Comunicazione Java Prolog}
 \label{java-prolog}
-Una delle feature caratterizzanti il sistema è quella di permettere al core prolog di interagire bidirezionalmente con java in modo tale da, tra le altre cose, dare la possibilità di creare interfacce grafiche in modo tale da rendere più usabile l'interazione con l'utente rispetto alla tradizionale linea di comando.
+Una delle feature caratterizzanti il sistema è quella di permettere al core prolog di interagire bidirezionalmente con Java in modo tale da, tra le altre cose, dare la possibilità di creare interfacce grafiche in modo tale da rendere più usabile l'interazione con l'utente rispetto alla tradizionale linea di comando.
 
-La comunicazione tra java e prolog è stata realizzata utilizzando due librerie java indipendenti l'uno dall'altro:
+La comunicazione tra Java e Prolog è stata realizzata utilizzando due librerie Java indipendenti l'uno dall'altro:
 \begin{itemize}
 	\item JPL Library
 	\item Interprolog
 \end{itemize}
-Al fine di garantire la coesistenza di entrambe le librerie, è stato deciso di generalizzare entrambe le librerie creando una classe astratta (\emph{PrologInterface}) che definisca quali debbano essere i metodi che permetteranno la comunicazione tra java e prolog e successivamente tramite ereditarietà, verranno create due classi (\emph{JPLInterface} e \emph{InterprologInterface}) che realizzeranno i metodi astratti definiti sulla base dei meccanismi offerti dalle rispettive librerie.
+Al fine di garantire la coesistenza di entrambe le librerie, è stato deciso di generalizzare entrambe le librerie creando una classe astratta (\emph{PrologInterface}) che definisca quali debbano essere i metodi che permetteranno la comunicazione tra Java e Prolog e successivamente tramite ereditarietà, verranno create due classi (\emph{JPLInterface} e \emph{InterprologInterface}) che realizzeranno i metodi astratti definiti sulla base dei meccanismi offerti dalle rispettive librerie.
 
 \begin{figure}[H]
 	\centering
@@ -77,7 +77,7 @@ Un Compound è un Termine che contiene un nome e una sequenza di argomenti di ti
 	);
 \end{javacode}
 
-In questo esempio, la variabile java \emph{teacher\_of} si riferisce a una istanza di tipo \emph{Compound} che rappresenta il termine prolog.
+In questo esempio, la variabile Java \emph{teacher\_of} si riferisce a una istanza di tipo \emph{Compound} che rappresenta il termine prolog.
 
 \begin{prologcode}
 	teacher_of(aristotle,alexander).
@@ -135,7 +135,7 @@ La query q in questo esempio rappresenta la query Prolog:
 \end{prologcode}
 
 \subsubsection{Applicazione}
-Come descritto in precedenza, nel sistema sarà presente una classe java denominata \emph{JPLInterface} nella quale saranno implementati i diversi metodi astratti secondo le specifiche definite dalla libreria JPL; di seguito verranno mostrate le implementazioni dei principali metodi realizzate usando la libreria JPL.
+Come descritto in precedenza, nel sistema sarà presente una classe Java denominata \emph{JPLInterface} nella quale saranno implementati i diversi metodi astratti secondo le specifiche definite dalla libreria JPL; di seguito verranno mostrate le implementazioni dei principali metodi realizzate usando la libreria JPL.
 \paragraph{costruttore}
 Inizialmente è stato definito il costruttore della classe JPL nel quale viene settata la directory dalla quale prendere i file lib necessari a inizializzare l'oggetto JPL che verrà creato. In questo modo si andrà a definire quale interprete prolog andare ad utilizzare tra yap e swipl. Di seguito un estratto di codice:
 
@@ -207,7 +207,7 @@ Di seguito uno stralcio di codice del metodo:
 \nocite{calejo2004interprolog}
 InterProlog nasce dall'esigenza di estendere in un qualche modo le potenzialità di un linguaggio dichiarativo quale è Prolog, con un secondo linguaggio, come ad esempio Java, che sia in grado di gestire le diverse problematiche che si potranno avere nello sviluppo di un sistema più ampio e complesso come la multi-piattaforma e il multi-threading.
 
-Interprolog infatti, è un'applicazione Java open source in grado di permettere una comunicazione bidirezionale tra Java e Prolog attraverso il ridirezionamento dello standard output instaurando una connessione con socket TCP/IP tra i due linguaggi permettendo lo scambio bidirezionale di \emph{Object} lato java e \emph{Termini} lato prolog, il tutto in maniera totalmente trasparente grazie alla creazione di API che inglobano le operazioni più a basso livello sia lato Prolog che lato Java. In alternativa, la comunicazione può essere realizzata attraverso l'utilizzo delle \emph{dynamic loadable library} oppure anche usando le interfacce native di Java.
+Interprolog infatti, è un'applicazione Java open source in grado di permettere una comunicazione bidirezionale tra Java e Prolog attraverso il ridirezionamento dello standard output instaurando una connessione con socket TCP/IP tra i due linguaggi permettendo lo scambio bidirezionale di \emph{Object} lato Java e \emph{Termini} lato Prolog, il tutto in maniera totalmente trasparente grazie alla creazione di API che inglobano le operazioni più a basso livello sia lato Prolog che lato Java. In alternativa, la comunicazione può essere realizzata attraverso l'utilizzo delle \emph{dynamic loadable library} oppure anche usando le interfacce native di Java.
 
 \begin{figure}[H]
 	\centering

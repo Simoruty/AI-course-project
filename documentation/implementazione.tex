@@ -117,10 +117,10 @@ Nell'ordine:
 Il codice seguente esemplifica alcune delle asserzioni del tagger in un documento composto da due parole: ``curatore fallimentare''.
 
 \begin{prologcode}
-token(tok0, BOF).
-token(tok1, curatore).
-token(tok2, fallimentare).
-token(tok3, EOF).
+token(tok0, 'BOF').
+token(tok1, 'curatore').
+token(tok2, 'fallimentare').
+token(tok3, 'EOF').
 
 tag(tag0, parola(curatore)).
 next(tok0, tag0).

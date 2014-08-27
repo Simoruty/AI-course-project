@@ -32,7 +32,7 @@ Per questi ultimi 2 tag abbiamo effettuato una ricerca online di diversi databas
 Abbiamo previsto la possibilità che ci siano nomi e cognomi composti. La legge italiana stabilisce un limite massimo di 3 nomi e 2 cognomi.
 Le regole, di conseguenza, valuteranno come possibili nomi/cognomi sia le singole parole che corrispondono a voci del database, sia a parole concatenate (fino a 3/2), ciascuna delle quali è un possibile nome/cognome.
 
-Ad esempio, prendendo in considerazione delle generalità abbastanza complesse come: ``Simone Addario Chieco'', il sistema ritroverà tanti possibili cognomi:
+Ad esempio, prendendo in considerazione delle generalità meno semplici come: ``Simone Addario Chieco'', il sistema ritroverà tanti possibili cognomi:
 
 \begin{prologcode}
 cognome('Simone').
@@ -54,7 +54,7 @@ In casi fortemente ambigui, però, come ad esempio ``Cataldo Roberto'' (entrambe
 
 \subsection{Richiesta economica}
 
-Come descritto nella sezione \ref{sec:tipologiaIscrizione}, ci sono due tipi di tipologie: chirografaria e privilegiata.
+Come descritto nella sezione \ref{sec:tipologiaIscrizione}, ci sono due tipi di richiesta economica: chirografaria e privilegiata.
 
 Una valuta, invece, è rappresentata da un numero, intero o decimale, seguito o preceduto da un simbolo di valuta (per semplicità abbiamo preso in considerazione solo € e \$\footnote{Sono state prese in considerazione anche parole che potessero sostituire il simbolo. Per quanto riguarda il simbolo €, ad esempio, \emph{euro} ed \emph{eur}. Per il \$: \emph{dollaro}, \emph{dollari}, \emph{dollar}, \emph{USD}.})
 
@@ -73,11 +73,11 @@ Esistono numerosi modi per rappresentare una data (1/7/1988, 01-07-88, 1 luglio 
 Decomponendo il problema, una data è composta da un giorno, un mese e un anno.
 Giorno e anno sono rappresentati esclusivamente con un numero mentre il mese può anche essere scritto col suo nome.
 
-Il giorno è un numero intero compreso tra $1$ e $31$ (l'astrazione ottenuta dall'individuazione del tag numero ci permette di comprendere indistintamente la scrittura di $01$ e $1$).
+Il giorno è un numero intero compreso tra ``$1$'' e ``$31$'' (l'astrazione ottenuta dall'individuazione del tag numero ci permette di comprendere indistintamente la scrittura di ``$01$'' e ``$1$'').
 
-Il mese può essere scritto come numero intero compreso tra $1$ (o $01$) e $12$ o col suo nome per intero (gennaio, febbraio), o ancora con l'abbreviazione del suo nome (gen, feb).
+Il mese può essere scritto come numero intero compreso tra ``$1$'' (o ``$01$'') e ``$12$'' o col suo nome per intero (\emph{gennaio}, \emph{febbraio}), o ancora con l'abbreviazione del suo nome (\emph{gen}, \emph{feb}).
 
-L'anno è un numero intero di 2 cifre compreso tra $00$ e $99$ e di 4 cifre compreso tra (per motivi inerenti al dominio) $1900$ e $2050$.
+L'anno può essere un numero intero di 2 cifre compreso tra ``$00$'' e ``$99$'' oppure di 4 cifre compreso tra (per motivi inerenti al dominio) ``$1900$'' e ``$2050$''.
 
 \subsection{Numero Pratica}
 L'identificatore della pratica di fallimento, riportata in testa al documento, è composto da un numero intero, un separatore (\verb|/| o \verb|-|) e l'anno della pratica, ad esempio: \verb|10/2007|.
